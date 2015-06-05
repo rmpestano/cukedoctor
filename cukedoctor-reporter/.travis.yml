@@ -1,7 +1,0 @@
-sudo: false
-language: java
-jdk: oraclejdk7
-cache:
-  directories:
-    - '$HOME/.m2/repository'
-script: cd cukedoctor-reporter && mvn clean install -Pcoverage
