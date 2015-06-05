@@ -49,5 +49,10 @@ public class FeatureParserTest {
     assertNull(features);
   }
 
-   
+  @Test
+  public void shouldNotReadInvalidJsonFile() {
+    String filePath = FileUtil.findJsonFile("features/outline.feature");
+    List<Feature> features = FeatureParser.parse(filePath);
+    assertNull(features);
+  }
 }
