@@ -39,6 +39,20 @@ public class CukedoctorReporterTest {
         CukedoctorReporter.instance(features," ");
     }
 
+    @Test(expected = RuntimeException.class)
+    public void shouldFailToGetNullInstance(){
+      CukedoctorReporter.getCurrentInstance();
+    }
+
+  @Test
+  public void shouldGetCurrentInstance() {
+    List<Feature> features = FeatureParser.parse(onePassingOneFailing);
+
+
+    CukedoctorReporter.instance(features,"Title");
+    CukedoctorReporter.getCurrentInstance();
+  }
+
     @Test
     public void shouldRenderAttributes() {
         List<Feature> features = FeatureParser.parse(onePassingOneFailing);

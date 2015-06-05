@@ -6,7 +6,7 @@ image:https://coveralls.io/repos/rmpestano/cukedoctor/badge.png[Coverage, link=h
 Documentation is generated based on Cucumber http://www.relishapp.com/cucumber/cucumber/docs/formatters/json-output-formatter[JSON execution output].
 
 ****
-[big]#*GIVEN*# we've got cucumber execution result *json* files
+[big]#*GIVEN*# we have cucumber execution *json* files
 
 [big]#*WHEN*# we run Cukedoctor reporter against those files
 

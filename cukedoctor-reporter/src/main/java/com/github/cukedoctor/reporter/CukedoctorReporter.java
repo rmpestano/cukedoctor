@@ -136,7 +136,7 @@ public class CukedoctorReporter {
                 append(documentAttributes.getToc(),true).
                 append(Constants.Markup.BACKEND).append(documentAttributes.getBackend(),true).
                 append(Constants.Markup.DOC_TITLE).append(documentAttributes.getDocTitle(), true).
-            append(Constants.Markup.DOC_TYPE).append(documentAttributes.getDocType(),true).
+                append(Constants.Markup.DOC_TYPE).append(documentAttributes.getDocType(),true).
                 append(Constants.Markup.ICONS).append(documentAttributes.getIcons(),true).
                 append(documentAttributes.isNumbered() ? Constants.Markup.NUMBERED : Constants.Markup.NOT_NUMBERED,true).
                 append(documentAttributes.isSectAnchors() ? Constants.Markup.SECT_ANCHORS : Constants.Markup.NOT_SECT_ANCHORS,true).
