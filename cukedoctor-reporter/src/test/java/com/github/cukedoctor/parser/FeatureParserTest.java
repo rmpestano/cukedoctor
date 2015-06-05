@@ -45,7 +45,9 @@ public class FeatureParserTest {
 
   @Test
   public void shouldNotParseInvalidJsonFile() {
-    List<Feature> features = FeatureParser.parse("json-output/invalid_json.json");
+    List<Feature> features = FeatureParser.parse(FileUtil.findJsonFile("json-output/invalid_json.json"));
     assertNull(features);
   }
+
+   
 }
