@@ -2,6 +2,7 @@ package com.github.cukedoctor.reporter;
 
 import com.github.cukedoctor.api.model.Feature;
 import com.github.cukedoctor.parser.FeatureParser;
+import com.github.cukedoctor.util.Constants;
 import com.github.cukedoctor.util.FileUtil;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -42,15 +43,15 @@ public class CukedoctorReporterTest {
     public void shouldRenderAttributes() {
         List<Feature> features = FeatureParser.parse(onePassingOneFailing);
 
-        String expected = ":toc:\n" +
-                "right\n" +
-                ":backend:html5\n" +
-                ":doctitle:Title\n" +
-                ":doctype:article\n" +
-                ":icons:font\n" +
-                ":!numbered:\n" +
-                ":sectanchors:\n" +
-                ":sectlink:\n";
+        String expected = ":toc:" + Constants.NEW_LINE +
+                "right" +   Constants.NEW_LINE +
+                ":backend:html5" + Constants.NEW_LINE +
+                ":doctitle:Title" + Constants.NEW_LINE +
+                ":doctype:article" + Constants.NEW_LINE +
+                ":icons:font" + Constants.NEW_LINE +
+                ":!numbered:" + Constants.NEW_LINE +
+                ":sectanchors:" + Constants.NEW_LINE +
+                ":sectlink:" + Constants.NEW_LINE;
         String document = CukedoctorReporter.instance(features,"Title").renderAttributes().getDocumentation().toString();
         assertEquals(document,expected);
     }

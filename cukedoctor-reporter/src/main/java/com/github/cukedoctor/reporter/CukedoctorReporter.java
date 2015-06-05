@@ -16,7 +16,6 @@ import java.util.List;
  * Created by pestano on 02/06/15.
  */
 public class CukedoctorReporter {
-    private static final String NEW_LINE = System.getProperty("line.separator");
 
 
     private static CukedoctorReporter instance;
@@ -43,7 +42,7 @@ public class CukedoctorReporter {
         }
 
         if (documentTitle == null || "".equals(documentTitle.trim())) {
-            throw new RuntimeException("Provide document documentTitle");
+            throw new RuntimeException("Provide document title");
         }
 
         if (instance == null) {
@@ -52,7 +51,9 @@ public class CukedoctorReporter {
         if (config == null) {
             config = new DocumentAttributes();
         }
-        config.docTitle(documentTitle); //use documentTitle as docTitle attr
+        if(config.getDocTitle() == null){
+            config.docTitle(documentTitle); //use documentTitle as docTitle attr if no title is provided
+        }
         instance.documentAttributes = config;
         instance.features = features;
         instance.documentTitle = documentTitle;
@@ -134,8 +135,8 @@ public class CukedoctorReporter {
         append(Constants.Markup.TOC,true).
                 append(documentAttributes.getToc(),true).
                 append(Constants.Markup.BACKEND).append(documentAttributes.getBackend(),true).
-                append(Constants.Markup.DOC_TITLE).append(documentAttributes.getDocTitle(),true).
-                append(Constants.Markup.DOC_TYPE).append(documentAttributes.getDocType(),true).
+                append(Constants.Markup.DOC_TITLE).append(documentAttributes.getDocTitle(), true).
+            append(Constants.Markup.DOC_TYPE).append(documentAttributes.getDocType(),true).
                 append(Constants.Markup.ICONS).append(documentAttributes.getIcons(),true).
                 append(documentAttributes.isNumbered() ? Constants.Markup.NUMBERED : Constants.Markup.NOT_NUMBERED,true).
                 append(documentAttributes.isSectAnchors() ? Constants.Markup.SECT_ANCHORS : Constants.Markup.NOT_SECT_ANCHORS,true).
@@ -162,17 +163,17 @@ public class CukedoctorReporter {
 
     protected CukedoctorReporter append(String value) {
         if (value != null) {
-            documentation.append(value.replaceAll("\\n", NEW_LINE));
+            documentation.append(value.replaceAll("\\n", Constants.NEW_LINE));
         }
         return instance;
     }
 
     protected CukedoctorReporter append(String value, boolean newLine) {
         if (value != null) {
-            documentation.append(value.replaceAll("\\n", NEW_LINE));
+            documentation.append(value.replaceAll("\\n", Constants.NEW_LINE));
         }
         if(newLine){
-            documentation.append(NEW_LINE);
+            documentation.append(Constants.NEW_LINE);
         }
         return instance;
     }

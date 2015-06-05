@@ -5,6 +5,7 @@ package com.github.cukedoctor.util;
  */
 public interface Constants {
 
+    final String NEW_LINE = System.getProperty("line.separator");
 
     interface Markup {
         final String H1 = "=";
