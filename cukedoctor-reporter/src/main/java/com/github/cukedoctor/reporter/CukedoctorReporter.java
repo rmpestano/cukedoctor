@@ -11,7 +11,6 @@ import com.github.cukedoctor.util.Constants;
 import com.github.cukedoctor.util.DocWriter;
 import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
-import java.io.Writer;
 import java.util.List;
 
 /**
@@ -20,147 +19,147 @@ import java.util.List;
 public class CukedoctorReporter {
 
 
-    private static CukedoctorReporter instance;
-    private List<Feature> features;
-    private StringBuilder documentation;
-    private DocumentAttributes documentAttributes;
-    private String documentTitle;
-    private DocWriter writer;
+	private static CukedoctorReporter instance;
+	private List<Feature> features;
+	private StringBuilder documentation;
+	private DocumentAttributes documentAttributes;
+	private String documentTitle;
+	private DocWriter writer;
 
-    private CukedoctorReporter() {
+	private CukedoctorReporter() {
 
-    }
-
-
-    /**
-     * @param features      used to generate the documentation
-     * @param documentTitle first section (H1) documentTitle
-     * @param attrs        document attributes
-     * @return a Cukedoctor reporter instance
-     */
-    public synchronized static CukedoctorReporter instance(List<Feature> features, String documentTitle, DocumentAttributes attrs) {
-
-        if (features == null || features.isEmpty()) {
-            throw new RuntimeException("No features found");
-        }
-
-        if (documentTitle == null || "".equals(documentTitle.trim())) {
-            throw new RuntimeException("Provide document title");
-        }
-
-        if (instance == null) {
-            instance = new CukedoctorReporter();
-        }
-        if (attrs == null) {
-            attrs = new DocumentAttributes();
-        }
-        if (attrs.getDocTitle() == null) {
-            attrs.docTitle(documentTitle); //use documentTitle as docTitle attr if no title is provided
-        }
-        instance.documentAttributes = attrs;
-        instance.features = features;
-        instance.documentTitle = documentTitle;
-        instance.documentation = new StringBuilder();
-        instance.writer = DocWriter.getInstance(instance.documentation);
-        return instance;
-    }
-
-    /**
-     * @param features used to generate the documentation
-     * @param title    first section (H1) documentTitle
-     * @return a Cukedoctor reporter instance
-     */
-    public synchronized static CukedoctorReporter instance(List<Feature> features, String title) {
-
-        return instance(features, title, new DocumentAttributes());
-    }
-
-    public static synchronized CukedoctorReporter getCurrentInstance() {
-        if (instance == null) {
-            throw new RuntimeException("There is no Cukedoctor report instance, call instance() method to createDocumentation one");
-        }
-        return instance;
-    }
+	}
 
 
-    protected DocumentAttributes getDocumentAttributes() {
-        return documentAttributes;
-    }
+	/**
+	 * @param features      used to generate the documentation
+	 * @param documentTitle first section (H1) documentTitle
+	 * @param attrs         document attributes
+	 * @return a Cukedoctor reporter instance
+	 */
+	public synchronized static CukedoctorReporter instance(List<Feature> features, String documentTitle, DocumentAttributes attrs) {
 
-    protected List<Feature> getFeatures() {
-        return features;
-    }
+		if (features == null || features.isEmpty()) {
+			throw new RuntimeException("No features found");
+		}
 
-    protected StringBuilder getDocumentation() {
-        return documentation;
-    }
+		if (documentTitle == null || "".equals(documentTitle.trim())) {
+			throw new RuntimeException("Provide document title");
+		}
 
-    protected String getDocumentTitle() {
-        return documentTitle;
-    }
+		if (instance == null) {
+			instance = new CukedoctorReporter();
+		}
+		if (attrs == null) {
+			attrs = new DocumentAttributes();
+		}
+		if (attrs.getDocTitle() == null) {
+			attrs.docTitle(documentTitle); //use documentTitle as docTitle attr if no title is provided
+		}
+		instance.documentAttributes = attrs;
+		instance.features = features;
+		instance.documentTitle = documentTitle;
+		instance.documentation = new StringBuilder();
+		instance.writer = DocWriter.getInstance(instance.documentation);
+		return instance;
+	}
 
-    /**
-     * creates a string representation of the current document in Asciidoctor format
-     */
-    protected String createDocumentation() {
-        renderAttributes();
-        renderSummary();
-        for (Feature feature : features) {
-            renderFeature(feature);
-        }
+	/**
+	 * @param features used to generate the documentation
+	 * @param title    first section (H1) documentTitle
+	 * @return a Cukedoctor reporter instance
+	 */
+	public synchronized static CukedoctorReporter instance(List<Feature> features, String title) {
 
-        return documentation.toString();
-    }
+		return instance(features, title, new DocumentAttributes());
+	}
 
-    protected CukedoctorReporter renderFeature(Feature feature) {
-        renderFeatureOverview(feature).
-                renderFeatureTags(feature.getTags());
-        renderFeatureScenarios(feature.getElements());
-        return instance;
-    }
+	public static synchronized CukedoctorReporter getCurrentInstance() {
+		if (instance == null) {
+			throw new RuntimeException("There is no Cukedoctor report instance, call instance() method to createDocumentation one");
+		}
+		return instance;
+	}
 
-    protected CukedoctorReporter renderFeatureScenarios(List<Element> elements) {
-        throw new NotImplementedException();
-    }
 
-    protected CukedoctorReporter renderScenarioSteps(List<Step> steps) {
-        throw new NotImplementedException();
-    }
+	protected DocumentAttributes getDocumentAttributes() {
+		return documentAttributes;
+	}
 
-    protected CukedoctorReporter renderFeatureTags(List<Tag> tags) {
-        throw new NotImplementedException();
-    }
+	protected List<Feature> getFeatures() {
+		return features;
+	}
 
-    protected CukedoctorReporter renderFeatureOverview(Feature feature) {
-        throw new NotImplementedException();
-    }
+	protected StringBuilder getDocumentation() {
+		return documentation;
+	}
 
-    protected CukedoctorReporter renderAttributes() {
-        writer.write(Constants.Markup.TOC, documentAttributes.getToc(), Constants.NEW_LINE).
-                write(Constants.Markup.BACKEND, documentAttributes.getBackend(), Constants.NEW_LINE).
-                write(Constants.Markup.DOC_TITLE, documentAttributes.getDocTitle(), Constants.NEW_LINE).
-                write(Constants.Markup.DOC_TYPE, documentAttributes.getDocType(), Constants.NEW_LINE).
-                write(Constants.Markup.ICONS, documentAttributes.getIcons(), Constants.NEW_LINE).
-                write(documentAttributes.isNumbered() ? Constants.Markup.NUMBERED : Constants.Markup.NOT_NUMBERED, true).
-                write(documentAttributes.isSectAnchors() ? Constants.Markup.SECT_ANCHORS : Constants.Markup.NOT_SECT_ANCHORS, true).
-                write(documentAttributes.isSectLink() ? Constants.Markup.SECT_LINK : Constants.Markup.NOT_SECT_LINK, true);
-        return instance;
-    }
+	protected String getDocumentTitle() {
+		return documentTitle;
+	}
 
-    /**
-     * Document overall summary which gathers information about all features like
-     * number of steps, execution time, total passed scenarios and so on
-     */
-    protected CukedoctorReporter renderSummary() {
-        writer.write(Constants.Markup.H1, documentTitle);
+	/**
+	 * creates a string representation of the current document in Asciidoctor format
+	 */
+	protected String createDocumentation() {
+		renderAttributes();
+		renderSummary();
+		for (Feature feature : features) {
+			renderFeature(feature);
+		}
 
-        for (Feature feature : features) {
-            StepResults stepResults = feature.getStepResults();
-            ScenarioResults scenarioResults = feature.getScenarioResults();
-            //TODO render a table with features general results
-        }
-        return instance;
-    }
+		return documentation.toString();
+	}
+
+	protected CukedoctorReporter renderFeature(Feature feature) {
+		renderFeatureOverview(feature).
+				renderFeatureTags(feature.getTags());
+		renderFeatureScenarios(feature.getElements());
+		return instance;
+	}
+
+	protected CukedoctorReporter renderFeatureScenarios(List<Element> elements) {
+		throw new NotImplementedException();
+	}
+
+	protected CukedoctorReporter renderScenarioSteps(List<Step> steps) {
+		throw new NotImplementedException();
+	}
+
+	protected CukedoctorReporter renderFeatureTags(List<Tag> tags) {
+		throw new NotImplementedException();
+	}
+
+	protected CukedoctorReporter renderFeatureOverview(Feature feature) {
+		throw new NotImplementedException();
+	}
+
+	protected CukedoctorReporter renderAttributes() {
+		writer.write(Constants.Markup.TOC, documentAttributes.getToc(), Constants.NEW_LINE).
+				write(Constants.Markup.BACKEND, documentAttributes.getBackend(), Constants.NEW_LINE).
+				write(Constants.Markup.DOC_TITLE, documentAttributes.getDocTitle(), Constants.NEW_LINE).
+				write(Constants.Markup.DOC_TYPE, documentAttributes.getDocType(), Constants.NEW_LINE).
+				write(Constants.Markup.ICONS, documentAttributes.getIcons(), Constants.NEW_LINE).
+				write(documentAttributes.isNumbered() ? Constants.Markup.NUMBERED : Constants.Markup.NOT_NUMBERED, true).
+				write(documentAttributes.isSectAnchors() ? Constants.Markup.SECT_ANCHORS : Constants.Markup.NOT_SECT_ANCHORS, true).
+				write(documentAttributes.isSectLink() ? Constants.Markup.SECT_LINK : Constants.Markup.NOT_SECT_LINK, true);
+		return instance;
+	}
+
+	/**
+	 * Document overall summary which gathers information about all features like
+	 * number of steps, execution time, total passed scenarios and so on
+	 */
+	protected CukedoctorReporter renderSummary() {
+		writer.write(Constants.Markup.H1, documentTitle);
+
+		for (Feature feature : features) {
+			StepResults stepResults = feature.getStepResults();
+			ScenarioResults scenarioResults = feature.getScenarioResults();
+			//TODO render a table with features general results
+		}
+		return instance;
+	}
 
 
 }

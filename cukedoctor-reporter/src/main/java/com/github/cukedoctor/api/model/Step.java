@@ -8,100 +8,101 @@ import java.util.logging.Logger;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Step {
 
-    private String name;
-    private String keyword;
-    private String line;
-    private Result result;
-    private Row[] rows;
-    private Match match;
+	private String name;
+	private String keyword;
+	private String line;
+	private Result result;
+	private Row[] rows;
+	private Match match;
 
 
-    public String getName() {
-        return name;
-    }
+	public String getName() {
+		return name;
+	}
 
-    public void setName(String name) {
-        this.name = name;
-    }
+	public void setName(String name) {
+		this.name = name;
+	}
 
-    public String getKeyword() {
-        return keyword;
-    }
+	public String getKeyword() {
+		return keyword;
+	}
 
-    public void setKeyword(String keyword) {
-        this.keyword = keyword;
-    }
+	public void setKeyword(String keyword) {
+		this.keyword = keyword;
+	}
 
-    public String getLine() {
-        return line;
-    }
+	public String getLine() {
+		return line;
+	}
 
-    public void setLine(String line) {
-        this.line = line;
-    }
+	public void setLine(String line) {
+		this.line = line;
+	}
 
-    public Result getResult() {
-        return result;
-    }
+	public Result getResult() {
+		return result;
+	}
 
-    public void setResult(Result result) {
-        this.result = result;
-    }
+	public void setResult(Result result) {
+		this.result = result;
+	}
 
-    public Row[] getRows() {
-        return rows;
-    }
+	public Row[] getRows() {
+		return rows;
+	}
 
-    public void setRows(Row[] rows) {
-        this.rows = rows;
-    }
+	public void setRows(Row[] rows) {
+		this.rows = rows;
+	}
 
-    public Match getMatch() {
-        return match;
-    }
+	public Match getMatch() {
+		return match;
+	}
 
-    public void setMatch(Match match) {
-        this.match = match;
-    }
+	public void setMatch(Match match) {
+		this.match = match;
+	}
 
-    public Long getDuration() {
-        if (result == null) {
-            return 1L;
-        } else {
-            return result.getDuration();
-        }
-    }
-    public Status getStatus() {
-        if (result == null || result.getStatus() == null) {
-            Logger.getLogger(getClass().getName()).warning("Line " + line + " : " + "Step is missing Result: " + keyword + " : " + name);
-            return Status.missing;
-        } else {
-            return result.getStatus();
-        }
-    }
+	public Long getDuration() {
+		if (result == null) {
+			return 1L;
+		} else {
+			return result.getDuration();
+		}
+	}
 
-    public boolean isFailling(){
-        return getStatus().equals(Status.failed);
-    }
+	public Status getStatus() {
+		if (result == null || result.getStatus() == null) {
+			Logger.getLogger(getClass().getName()).warning("Line " + line + " : " + "Step is missing Result: " + keyword + " : " + name);
+			return Status.missing;
+		} else {
+			return result.getStatus();
+		}
+	}
 
-    public boolean isMissing(){
-        return getStatus().equals(Status.missing);
-    }
+	public boolean isFailling() {
+		return getStatus().equals(Status.failed);
+	}
 
-    public boolean isPassing(){
-        return getStatus().equals(Status.passed);
-    }
+	public boolean isMissing() {
+		return getStatus().equals(Status.missing);
+	}
 
-    public boolean isPendding(){
-        return getStatus().equals(Status.pending);
-    }
+	public boolean isPassing() {
+		return getStatus().equals(Status.passed);
+	}
 
-    public boolean isUndefined(){
-        return getStatus().equals(Status.undefined);
-    }
+	public boolean isPendding() {
+		return getStatus().equals(Status.pending);
+	}
 
-    public boolean isSkipped(){
-        return getStatus().equals(Status.skipped);
-    }
+	public boolean isUndefined() {
+		return getStatus().equals(Status.undefined);
+	}
+
+	public boolean isSkipped() {
+		return getStatus().equals(Status.skipped);
+	}
 
 }

@@ -8,10 +8,10 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Argument {
 
-    private String val;
+	private String val;
 
-    public String getVal() {
-        return val;
-    }
+	public String getVal() {
+		return val;
+	}
 
 }

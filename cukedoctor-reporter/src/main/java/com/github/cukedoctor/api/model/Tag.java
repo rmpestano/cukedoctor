@@ -5,19 +5,18 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Tag {
 
-    private String name;
+	private String name;
 
-    public Tag() {
-    }
+	public Tag() {
+	}
 
-    public Tag(String name) {
-        this.name = name;
-    }
+	public Tag(String name) {
+		this.name = name;
+	}
 
-    public String getName() {
-        return name;
-    }
-
+	public String getName() {
+		return name;
+	}
 
 
 }

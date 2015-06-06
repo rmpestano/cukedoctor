@@ -2,14 +2,14 @@ package com.github.cukedoctor.api.model;
 
 public class Row {
 
-    private String[] cells;
+	private String[] cells;
 
-    public Row() {
+	public Row() {
 
-    }
+	}
 
-    public String[] getCells() {
-        return cells;
-    }
+	public String[] getCells() {
+		return cells;
+	}
 }
 

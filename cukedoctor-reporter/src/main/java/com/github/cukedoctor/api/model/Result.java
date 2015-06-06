@@ -1,28 +1,27 @@
 package com.github.cukedoctor.api.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Result {
 
-    private Status status;
-    private String error_message;
-    private Long duration;
+	private Status status;
+	private String error_message;
+	private Long duration;
 
-    public Result() {
+	public Result() {
 
-    }
+	}
 
-    public Status getStatus() {
-        return status;
-    }
+	public Status getStatus() {
+		return status;
+	}
 
-    public Long getDuration() {
-        return duration == null ? 0L : duration;
-    }
+	public Long getDuration() {
+		return duration == null ? 0L : duration;
+	}
 
-    public String getErrorMessage() {
-        return error_message;
-    }
+	public String getErrorMessage() {
+		return error_message;
+	}
 }
