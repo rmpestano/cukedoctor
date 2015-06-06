@@ -8,8 +8,10 @@ import com.github.cukedoctor.api.model.Feature;
 import com.github.cukedoctor.api.model.Step;
 import com.github.cukedoctor.api.model.Tag;
 import com.github.cukedoctor.util.Constants;
+import com.github.cukedoctor.util.DocWriter;
 import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
+import java.io.Writer;
 import java.util.List;
 
 /**
@@ -23,6 +25,7 @@ public class CukedoctorReporter {
     private StringBuilder documentation;
     private DocumentAttributes documentAttributes;
     private String documentTitle;
+    private DocWriter writer;
 
     private CukedoctorReporter() {
 
@@ -32,10 +35,10 @@ public class CukedoctorReporter {
     /**
      * @param features      used to generate the documentation
      * @param documentTitle first section (H1) documentTitle
-     * @param config        document attributes
+     * @param attrs        document attributes
      * @return a Cukedoctor reporter instance
      */
-    public synchronized static CukedoctorReporter instance(List<Feature> features, String documentTitle, DocumentAttributes config) {
+    public synchronized static CukedoctorReporter instance(List<Feature> features, String documentTitle, DocumentAttributes attrs) {
 
         if (features == null || features.isEmpty()) {
             throw new RuntimeException("No features found");
@@ -48,16 +51,17 @@ public class CukedoctorReporter {
         if (instance == null) {
             instance = new CukedoctorReporter();
         }
-        if (config == null) {
-            config = new DocumentAttributes();
+        if (attrs == null) {
+            attrs = new DocumentAttributes();
         }
-        if(config.getDocTitle() == null){
-            config.docTitle(documentTitle); //use documentTitle as docTitle attr if no title is provided
+        if (attrs.getDocTitle() == null) {
+            attrs.docTitle(documentTitle); //use documentTitle as docTitle attr if no title is provided
         }
-        instance.documentAttributes = config;
+        instance.documentAttributes = attrs;
         instance.features = features;
         instance.documentTitle = documentTitle;
         instance.documentation = new StringBuilder();
+        instance.writer = DocWriter.getInstance(instance.documentation);
         return instance;
     }
 
@@ -110,7 +114,7 @@ public class CukedoctorReporter {
 
     protected CukedoctorReporter renderFeature(Feature feature) {
         renderFeatureOverview(feature).
-        renderFeatureTags(feature.getTags());
+                renderFeatureTags(feature.getTags());
         renderFeatureScenarios(feature.getElements());
         return instance;
     }
@@ -132,15 +136,14 @@ public class CukedoctorReporter {
     }
 
     protected CukedoctorReporter renderAttributes() {
-        append(Constants.Markup.TOC,true).
-                append(documentAttributes.getToc(),true).
-                append(Constants.Markup.BACKEND).append(documentAttributes.getBackend(),true).
-                append(Constants.Markup.DOC_TITLE).append(documentAttributes.getDocTitle(), true).
-                append(Constants.Markup.DOC_TYPE).append(documentAttributes.getDocType(),true).
-                append(Constants.Markup.ICONS).append(documentAttributes.getIcons(),true).
-                append(documentAttributes.isNumbered() ? Constants.Markup.NUMBERED : Constants.Markup.NOT_NUMBERED,true).
-                append(documentAttributes.isSectAnchors() ? Constants.Markup.SECT_ANCHORS : Constants.Markup.NOT_SECT_ANCHORS,true).
-                append(documentAttributes.isSectLink() ? Constants.Markup.SECT_LINK : Constants.Markup.NOT_SECT_LINK,true);
+        writer.write(Constants.Markup.TOC, documentAttributes.getToc(), Constants.NEW_LINE).
+                write(Constants.Markup.BACKEND, documentAttributes.getBackend(), Constants.NEW_LINE).
+                write(Constants.Markup.DOC_TITLE, documentAttributes.getDocTitle(), Constants.NEW_LINE).
+                write(Constants.Markup.DOC_TYPE, documentAttributes.getDocType(), Constants.NEW_LINE).
+                write(Constants.Markup.ICONS, documentAttributes.getIcons(), Constants.NEW_LINE).
+                write(documentAttributes.isNumbered() ? Constants.Markup.NUMBERED : Constants.Markup.NOT_NUMBERED, true).
+                write(documentAttributes.isSectAnchors() ? Constants.Markup.SECT_ANCHORS : Constants.Markup.NOT_SECT_ANCHORS, true).
+                write(documentAttributes.isSectLink() ? Constants.Markup.SECT_LINK : Constants.Markup.NOT_SECT_LINK, true);
         return instance;
     }
 
@@ -149,31 +152,12 @@ public class CukedoctorReporter {
      * number of steps, execution time, total passed scenarios and so on
      */
     protected CukedoctorReporter renderSummary() {
-        append(Constants.Markup.H1).append(documentTitle);
-
+        writer.write(Constants.Markup.H1, documentTitle);
 
         for (Feature feature : features) {
             StepResults stepResults = feature.getStepResults();
             ScenarioResults scenarioResults = feature.getScenarioResults();
             //TODO render a table with features general results
-        }
-        return instance;
-    }
-
-
-    protected CukedoctorReporter append(String value) {
-        if (value != null) {
-            documentation.append(value.replaceAll("\\n", Constants.NEW_LINE));
-        }
-        return instance;
-    }
-
-    protected CukedoctorReporter append(String value, boolean newLine) {
-        if (value != null) {
-            documentation.append(value.replaceAll("\\n", Constants.NEW_LINE));
-        }
-        if(newLine){
-            documentation.append(Constants.NEW_LINE);
         }
         return instance;
     }

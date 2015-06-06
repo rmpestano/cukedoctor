@@ -45,7 +45,7 @@
             <dependency>
                 <groupId>info.cukes</groupId>
                 <artifactId>cucumber-junit</artifactId>
-                <version>${cucmber.version}</version>
+                <version>${cucumber.version}</version>
                 <scope>test</scope>
             </dependency>
             <dependency>
@@ -100,9 +100,9 @@
                             </execution>
                         </executions>
                         <configuration>
-                            <excludes>
+                          <!--  <excludes>
                                 <exclude>com/github/cukedoctor/api/model/*.class</exclude>
-                            </excludes>
+                            </excludes>-->
                         </configuration>
                     </plugin>
                     <plugin>
