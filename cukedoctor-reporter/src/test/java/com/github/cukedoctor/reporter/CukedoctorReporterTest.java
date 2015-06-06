@@ -29,15 +29,30 @@ public class CukedoctorReporterTest {
     }
 
 
-    @Test(expected = RuntimeException.class)
+    @Test//(expected = RuntimeException.class)
     public void shouldFailToCreateDocumentationWithoutFeatures() {
-        CukedoctorReporter.instance(new ArrayList<Feature>(), "A test");
+        String msg = null;
+        try {
+            CukedoctorReporter.instance(new ArrayList<Feature>(), "A test");
+        } catch (RuntimeException re) {
+            msg = re.getMessage();
+        }
+
+        assertEquals("No features found", msg);
     }
 
-    @Test(expected = RuntimeException.class)
+    @Test//(expected = RuntimeException.class)
     public void shouldFailToCreateDocumentationWithoutTitle() {
+        String msg = null;
         List<Feature> features = FeatureParser.parse(onePassingOneFailing);
-        CukedoctorReporter.instance(features, " ");
+        try {
+
+            CukedoctorReporter.instance(features, " ");
+        } catch (RuntimeException re) {
+            msg = re.getMessage();
+        }
+
+        assertEquals("Provide document title", msg);
     }
 
 
