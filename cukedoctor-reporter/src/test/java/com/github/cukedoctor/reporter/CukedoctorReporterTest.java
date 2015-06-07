@@ -4,7 +4,7 @@ import com.github.cukedoctor.api.DocumentAttributes;
 import com.github.cukedoctor.api.model.Feature;
 import com.github.cukedoctor.parser.FeatureParser;
 import com.github.cukedoctor.util.Constants;
-import com.github.cukedoctor.util.FeatureBuilder;
+import com.github.cukedoctor.util.builder.FeatureBuilder;
 import com.github.cukedoctor.util.FileUtil;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -165,6 +165,14 @@ public class CukedoctorReporterTest {
 		String document = CukedoctorReporter.instance(features, "Documentation Title", attrs).renderAttributes().
 				getDocumentation().toString();
 		assertEquals(document, expected);
+	}
+
+
+	// renderSummary() tests
+
+	@Test
+	public void shouldRenderSummary(){
+
 	}
 
 

@@ -13,13 +13,19 @@ public class Result {
 
 	}
 
+
 	public Status getStatus() {
 		return status;
+	}
+
+	public void setStatus(Status status) {
+		this.status = status;
 	}
 
 	public Long getDuration() {
 		return duration == null ? 0L : duration;
 	}
+
 
 	public String getErrorMessage() {
 		return error_message;

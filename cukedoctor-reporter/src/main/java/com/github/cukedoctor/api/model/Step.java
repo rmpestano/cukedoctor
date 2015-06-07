@@ -105,4 +105,20 @@ public class Step {
 		return getStatus().equals(Status.skipped);
 	}
 
+	@Override
+	public boolean equals(Object o) {
+		if (this == o) return true;
+		if (o == null || getClass() != o.getClass()) return false;
+
+		Step step = (Step) o;
+
+		if (!name.equals(step.name)) return false;
+		return match.equals(step.match);
+
+	}
+
+	@Override
+	public int hashCode() {
+		return name.hashCode();
+	}
 }

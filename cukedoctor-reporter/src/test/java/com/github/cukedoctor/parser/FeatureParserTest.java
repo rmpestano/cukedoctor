@@ -1,7 +1,7 @@
 package com.github.cukedoctor.parser;
 
 import com.github.cukedoctor.api.model.Feature;
-import com.github.cukedoctor.util.FeatureBuilder;
+import com.github.cukedoctor.util.builder.FeatureBuilder;
 import com.github.cukedoctor.util.FileUtil;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -54,4 +54,6 @@ public class FeatureParserTest {
 		List<Feature> features = FeatureParser.parse(filePath);
 		assertNull(features);
 	}
+
+
 }

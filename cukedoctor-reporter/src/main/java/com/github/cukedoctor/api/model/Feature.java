@@ -20,11 +20,13 @@ public class Feature {
 	private String description;
 	private String keyword;
 	private List<Element> elements;
+	private List<Element> scenarios;
 	private List<Tag> tags;
 	private StepResults stepResults;
 	private ScenarioResults scenarioResults;
 
 	public Feature() {
+		initScenarios();
 		processSteps();
 	}
 
@@ -50,7 +52,7 @@ public class Feature {
 	}
 
 	public Status getStatus() {
-		return scenarioResults.getFailedScenarios().isEmpty() ? Status.failed : Status.passed;
+		return !scenarioResults.getFailedScenarios().isEmpty() ? Status.failed : Status.passed;
 	}
 
 	public String getName() {
@@ -160,21 +162,40 @@ public class Feature {
 		return scenarioResults.getNumberOfScenariosFailed();
 	}
 
+	public List<Element> getScenarios(){
+		return scenarios;//scenario & scenario outline
+	}
+
+	public void initScenarios() {
+		if(elements != null){
+			scenarios = new ArrayList<>();
+			for (Element element : elements) {
+				if(!element.isBackground()){
+					scenarios.add(element);
+				}
+			}
+		}
+
+	}
+
 	public void processSteps() {
 		if (!isCucumberFeature()) {
 			return;
 		}
 		List<Step> allSteps = new ArrayList<Step>();
 		Map<Status, AtomicInteger> statusCounter = new HashMap<>();
+		for (Status status : Status.values()) {
+			statusCounter.put(status,new AtomicInteger(0));
+		}
 		List<Element> passedScenarios = new ArrayList<Element>();
 		List<Element> failedScenarios = new ArrayList<Element>();
 		long totalDuration = 0L;
 
-		if (elements != null) {
-			for (Element element : elements) {
-				calculateScenarioStats(passedScenarios, failedScenarios, element);
-				if (element.hasSteps()) {
-					for (Step step : element.getSteps()) {
+		if (scenarios != null) {
+			for (Element scenario : scenarios) {
+				calculateScenarioStats(passedScenarios, failedScenarios, scenario);
+				if (scenario.hasSteps()) {
+					for (Step step : scenario.getSteps()) {
 						allSteps.add(step);
 						statusCounter.get(step.getStatus()).incrementAndGet();
 						totalDuration += step.getDuration();
