@@ -232,7 +232,7 @@ public class CukedoctorReporter {
 				write(Markup.TABLE_COL, totalPassedSteps, Markup.TABLE_COL, totalFailedSteps).
 				write(Markup.TABLE_COL,totalSkippedSteps,Markup.TABLE_COL, totalPendingSteps).
 				write(Markup.TABLE_COL,totalUndefinedSteps,Markup.TABLE_COL,totalMissingSteps).
-				write(Markup.TABLE_COL,totalSteps,Markup.TABLE_COL, Formatter.formatTime(totalDuration));
+				write(Markup.TABLE_COL,totalSteps,Markup.TABLE_COL, Formatter.formatTime(totalDuration),"|{empty}");
 		writer.write(newLine());
 
 		return instance;

@@ -41,7 +41,7 @@ public interface Expectations {
 			"|010ms" + newLine() +
 			"|failed" + newLine() +
 			"12+^|*Totals*" + newLine() +
-			"|1|1|2|1|1|0|0|0|0|2|010ms" + newLine() +
+			"|1|1|2|1|1|0|0|0|0|2|010ms|{empty}" + newLine() +
 			"|===" + newLine();
 
 
@@ -107,7 +107,7 @@ public interface Expectations {
 			"|000ms"+newLine() +
 			"|failed"+newLine() +
 			"12+^|*Totals*" + newLine() +
-			"|4|2|6|4|1|0|0|0|1|6|010ms" + newLine() +
+			"|4|2|6|4|1|0|0|0|1|6|010ms|{empty}" + newLine() +
 			"|==="+newLine();
 	String DOCUMENTATION_FOR_ONE_FEATURE = ":toc: left"+newLine() +
 			":backend: html5"+newLine() +
@@ -152,7 +152,7 @@ public interface Expectations {
 			"|010ms"+newLine() +
 			"|failed"+newLine() +
 			"12+^|*Totals*" + newLine() +
-			"|1|1|2|1|1|0|0|0|0|2|010ms" + newLine() +
+			"|1|1|2|1|1|0|0|0|0|2|010ms|{empty}" + newLine() +
 			"|==="+newLine();
 	
 	String DOCUMENTATION_FOR_MULTIPLE_FEATURES = ":toc: left"+newLine() +
@@ -226,6 +226,6 @@ public interface Expectations {
 			"|000ms"+newLine() +
 			"|failed"+newLine() +
 			"12+^|*Totals*" + newLine() +
-			"|4|2|6|4|1|0|0|0|1|6|010ms" + newLine() +
+			"|4|2|6|4|1|0|0|0|1|6|010ms|{empty}" + newLine() +
 			"|==="+newLine();
 }
