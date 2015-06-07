@@ -18,18 +18,18 @@ public abstract class Constants {
 		String TABLE_COL = "|";
 		String ALIGN_LEFT = "<";
 
-		String TOC = ":toc:";
-		String ICONS = ":icons:";
+		String TOC = ":toc: ";
+		String ICONS = ":icons: ";
 		String NUMBERED = ":numbered:";
 		String NOT_NUMBERED = ":!numbered:";
 		String SECT_ANCHORS = ":sectanchors:";
 		String NOT_SECT_ANCHORS = ":!sectanchors:";
 		String SECT_LINK = ":sectlink:";
 		String NOT_SECT_LINK = ":!sectlink:";
-		String BACKEND = ":backend:";
-		String DOC_TITLE = ":doctitle:";
-		String DOC_FILE = ":docfile:";
-		String DOC_TYPE = ":doctype:";
+		String BACKEND = ":backend: ";
+		String DOC_TITLE = ":doctitle: ";
+		String DOC_FILE = ":docfile: ";
+		String DOC_TYPE = ":doctype: ";
 	}
 }
 

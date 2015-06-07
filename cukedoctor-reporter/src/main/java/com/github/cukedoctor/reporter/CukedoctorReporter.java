@@ -155,12 +155,11 @@ public class CukedoctorReporter {
 	protected CukedoctorReporter renderSummary() {
 		writer.write(Markup.H1, documentTitle, newLine(),newLine());
 
-		writer.write(".Summary").write(newLine());
-		writer.write("[cols=\"2h,12*^1\", options=\"header,footer\"]"+newLine() +
+		writer.write("== Summary").write(newLine());
+		writer.write("[cols=\"12*^1\", options=\"header,footer\"]"+newLine() +
 				"|==="+newLine() +
-				"|{empty} 3+|Scenarios 7+|Steps |{empty}|{empty}"+newLine() +
-				""+newLine() +
-				"|Feature"+newLine() +
+				"3+|Scenarios 7+|Steps 2+|Features: "+features.size() +
+				""+newLine() + newLine() +
 				"|Passed"+newLine() +
 				"|Failed"+newLine() +
 				"|Total"+newLine() +
@@ -176,7 +175,7 @@ public class CukedoctorReporter {
 
 		for (Feature feature : features) {
 			writer.write(newLine());
-			writer.write(Constants.Markup.ALIGN_LEFT,Markup.TABLE_COL,feature.getName(),newLine());
+			writer.write("12+^"+Markup.TABLE_COL,"<<",feature.getName(),">>",newLine());
 			StepResults stepResults = feature.getStepResults();
 			ScenarioResults scenarioResults = feature.getScenarioResults();
 

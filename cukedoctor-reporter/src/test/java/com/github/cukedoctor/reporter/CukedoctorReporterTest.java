@@ -87,11 +87,11 @@ public class CukedoctorReporterTest {
 				.sectAnchors(true).sectLink(true);
 
 		String expected =
-				":toc:right" + newLine() +
-						":backend:html5" + newLine() +
-						":doctitle:Title" + newLine() +
-						":doctype:article" + newLine() +
-						":icons:font" + newLine() +
+				":toc: right" + newLine() +
+						":backend: html5" + newLine() +
+						":doctitle: Title" + newLine() +
+						":doctype: article" + newLine() +
+						":icons: font" + newLine() +
 						":!numbered:" + newLine() +
 						":sectanchors:" + newLine() +
 						":sectlink:" + newLine();
@@ -108,11 +108,11 @@ public class CukedoctorReporterTest {
 		features.add(FeatureBuilder.instance().id("id").name("name").build());
 
 
-		String expected = ":toc:right" + newLine() +
-				":backend:html5" + newLine() +
-				":doctitle:Documentation Title" + newLine() +
-				":doctype:article" + newLine() +
-				":icons:font" + newLine() +
+		String expected = ":toc: right" + newLine() +
+				":backend: html5" + newLine() +
+				":doctitle: Documentation Title" + newLine() +
+				":doctype: article" + newLine() +
+				":icons: font" + newLine() +
 				":!numbered:" + newLine() +
 				":sectanchors:" + newLine() +
 				":sectlink:" + newLine();
@@ -135,10 +135,10 @@ public class CukedoctorReporterTest {
 				.sectAnchors(true).sectLink(true);
 
 		String expected =
-				":backend:html5" + newLine() +
-						":doctitle:Title" + newLine() +
-						":doctype:article" + newLine() +
-						":icons:font" + newLine() +
+				":backend: html5" + newLine() +
+						":doctitle: Title" + newLine() +
+						":doctype: article" + newLine() +
+						":icons: font" + newLine() +
 						":!numbered:" + newLine() +
 						":sectanchors:" + newLine() +
 						":sectlink:" + newLine();
@@ -161,11 +161,11 @@ public class CukedoctorReporterTest {
 				.sectAnchors(true).sectLink(true);
 
 		String expected =
-				":toc:left" + newLine() +
-						":backend:html5" + newLine() +
-						":doctitle:Documentation Title" + newLine() +
-						":doctype:book" + newLine() +
-						":icons:font" + newLine() +
+				":toc: left" + newLine() +
+						":backend: html5" + newLine() +
+						":doctitle: Documentation Title" + newLine() +
+						":doctype: book" + newLine() +
+						":icons: font" + newLine() +
 						":!numbered:" + newLine() +
 						":sectanchors:" + newLine() +
 						":sectlink:" + newLine();
@@ -184,7 +184,7 @@ public class CukedoctorReporterTest {
 		List<Feature> features = FeatureParser.parse(onePassingOneFailing);
 		String resultDoc = CukedoctorReporter.instance(features,"Title").renderSummary().getDocumentation().toString();
 		assertThat(resultDoc).isNotNull().
-				containsOnlyOnce("<|One passing scenario, one failing scenario").
+				containsOnlyOnce("<<One passing scenario, one failing scenario>>").
 				containsOnlyOnce("|failed").
 		        containsOnlyOnce("|010ms");
 
@@ -203,10 +203,10 @@ public class CukedoctorReporterTest {
 		String resultDoc = CukedoctorReporter.instance(features,"Living Documentation", attrs).
 				createDocumentation();
 				assertThat(resultDoc).isNotNull().
-				containsOnlyOnce(":doctype:book" + newLine()).
-				containsOnlyOnce(":toc:left" + newLine()).
+				containsOnlyOnce(":doctype: book" + newLine()).
+				containsOnlyOnce(":toc: left" + newLine()).
 				containsOnlyOnce("= Living Documentation" + newLine()).
-		        containsOnlyOnce("<|One passing scenario, one failing scenario").
+		        containsOnlyOnce("<<One passing scenario, one failing scenario>>").
 				containsOnlyOnce("|failed").
 				containsOnlyOnce("|010ms");
 
@@ -219,10 +219,10 @@ public class CukedoctorReporterTest {
 		List<Feature> features = FeatureParser.parse(onePassingOneFailing,embedDataDirectly,outline,invalidFeatureResult);
 		String resultDoc = CukedoctorReporter.instance(features,"Title").renderSummary().getDocumentation().toString();
 		assertThat(resultDoc).isNotNull().
-				containsOnlyOnce("<|One passing scenario, one failing scenario").
-				containsOnlyOnce("<|An embed data directly feature").
-				containsOnlyOnce("<|An outline feature").
-				doesNotContain("<|invalid feature result").
+				containsOnlyOnce("<<One passing scenario, one failing scenario>>").
+				containsOnlyOnce("<<An embed data directly feature>>").
+				containsOnlyOnce("<<An outline feature>>").
+				doesNotContain("<<invalid feature result>>").
 		        containsOnlyOnce("|passed").
 				contains("|failed").
 				containsOnlyOnce("|010ms");
@@ -244,13 +244,13 @@ public class CukedoctorReporterTest {
 		String resultDoc = CukedoctorReporter.instance(features,"Living Documentation", attrs).
 				createDocumentation();
 		assertThat(resultDoc).isNotNull().
-				containsOnlyOnce(":doctype:book" + newLine()).
-				containsOnlyOnce(":toc:left" + newLine()).
+				containsOnlyOnce(":doctype: book" + newLine()).
+				containsOnlyOnce(":toc: left" + newLine()).
 				containsOnlyOnce("= Living Documentation" + newLine()).
-				containsOnlyOnce("<|One passing scenario, one failing scenario").
-				containsOnlyOnce("<|An embed data directly feature").
-				containsOnlyOnce("<|An outline feature").
-				doesNotContain("<|invalid feature result").
+				containsOnlyOnce("<<One passing scenario, one failing scenario>>").
+				containsOnlyOnce("<<An embed data directly feature>>").
+				containsOnlyOnce("<<An outline feature>>").
+				doesNotContain("<<invalid feature result>>").
 				containsOnlyOnce("|passed").
 				contains("|failed").
 				containsOnlyOnce("|010ms");

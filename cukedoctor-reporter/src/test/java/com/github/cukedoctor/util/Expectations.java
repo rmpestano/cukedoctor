@@ -9,12 +9,11 @@ public interface Expectations {
 
 
 	 String SUMMARY_FOR_ONE_FEATURE = "= Title" + newLine() + newLine() +
-			".Summary" + newLine() +
-			"[cols=\"2h,12*^1\", options=\"header,footer\"]" + newLine() +
+			"== Summary" + newLine() +
+			"[cols=\"12*^1\", options=\"header,footer\"]" + newLine() +
 			"|===" + newLine() +
-			"|{empty} 3+|Scenarios 7+|Steps |{empty}|{empty}" + newLine() +
+			"3+|Scenarios 7+|Steps 2+|Features: 1" + newLine() +
 			"" + newLine() +
-			"|Feature" + newLine() +
 			"|Passed" + newLine() +
 			"|Failed" + newLine() +
 			"|Total" + newLine() +
@@ -28,7 +27,7 @@ public interface Expectations {
 			"|Duration" + newLine() +
 			"|Status" + newLine() +
 			"" + newLine() +
-			"<|One passing scenario, one failing scenario" + newLine() +
+			"12+^|<<One passing scenario, one failing scenario>>" + newLine() +
 			"|1" + newLine() +
 			"|1" + newLine() +
 			"|2" + newLine() +
@@ -46,12 +45,11 @@ public interface Expectations {
 
 	String SUMMARY_FOR_MULTIPLE_FEATURES = "= Title"+newLine() +
 			""+newLine() +
-			".Summary"+newLine() +
-			"[cols=\"2h,12*^1\", options=\"header,footer\"]"+newLine() +
+			"== Summary"+newLine() +
+			"[cols=\"12*^1\", options=\"header,footer\"]"+newLine() +
 			"|==="+newLine() +
-			"|{empty} 3+|Scenarios 7+|Steps |{empty}|{empty}"+newLine() +
+			"3+|Scenarios 7+|Steps 2+|Features: 3"+newLine() +
 			""+newLine() +
-			"|Feature"+newLine() +
 			"|Passed"+newLine() +
 			"|Failed"+newLine() +
 			"|Total"+newLine() +
@@ -65,7 +63,7 @@ public interface Expectations {
 			"|Duration"+newLine() +
 			"|Status"+newLine() +
 			""+newLine() +
-			"<|One passing scenario, one failing scenario"+newLine() +
+			"12+^|<<One passing scenario, one failing scenario>>"+newLine() +
 			"|1"+newLine() +
 			"|1"+newLine() +
 			"|2"+newLine() +
@@ -79,7 +77,7 @@ public interface Expectations {
 			"|010ms"+newLine() +
 			"|failed"+newLine() +
 			""+newLine() +
-			"<|An embed data directly feature"+newLine() +
+			"12+^|<<An embed data directly feature>>"+newLine() +
 			"|3"+newLine() +
 			"|0"+newLine() +
 			"|3"+newLine() +
@@ -93,7 +91,7 @@ public interface Expectations {
 			"|000ms"+newLine() +
 			"|passed"+newLine() +
 			""+newLine() +
-			"<|An outline feature"+newLine() +
+			"12+^|<<An outline feature>>"+newLine() +
 			"|0"+newLine() +
 			"|1"+newLine() +
 			"|1"+newLine() +
@@ -107,23 +105,22 @@ public interface Expectations {
 			"|000ms"+newLine() +
 			"|failed"+newLine() +
 			"|==="+newLine();
-	String DOCUMENTATION_FOR_ONE_FEATURE = ":toc:left"+newLine() +
-			":backend:html5"+newLine() +
-			":doctitle:Living Documentation"+newLine() +
-			":doctype:book"+newLine() +
-			":icons:font"+newLine() +
+	String DOCUMENTATION_FOR_ONE_FEATURE = ":toc: left"+newLine() +
+			":backend: html5"+newLine() +
+			":doctitle: Living Documentation"+newLine() +
+			":doctype: book"+newLine() +
+			":icons: font"+newLine() +
 			":!numbered:"+newLine() +
 			":sectanchors:"+newLine() +
 			":sectlink:"+newLine() +
 			""+newLine() +
 			"= Living Documentation"+newLine() +
 			""+newLine() +
-			".Summary"+newLine() +
-			"[cols=\"2h,12*^1\", options=\"header,footer\"]"+newLine() +
+			"== Summary"+newLine() +
+			"[cols=\"12*^1\", options=\"header,footer\"]"+newLine() +
 			"|==="+newLine() +
-			"|{empty} 3+|Scenarios 7+|Steps |{empty}|{empty}"+newLine() +
+			"3+|Scenarios 7+|Steps 2+|Features: 1"+newLine() +
 			""+newLine() +
-			"|Feature"+newLine() +
 			"|Passed"+newLine() +
 			"|Failed"+newLine() +
 			"|Total"+newLine() +
@@ -137,7 +134,7 @@ public interface Expectations {
 			"|Duration"+newLine() +
 			"|Status"+newLine() +
 			""+newLine() +
-			"<|One passing scenario, one failing scenario"+newLine() +
+			"12+^|<<One passing scenario, one failing scenario>>"+newLine() +
 			"|1"+newLine() +
 			"|1"+newLine() +
 			"|2"+newLine() +
@@ -152,23 +149,22 @@ public interface Expectations {
 			"|failed"+newLine() +
 			"|==="+newLine();
 	
-	String DOCUMENTATION_FOR_MULTIPLE_FEATURES = ":toc:left"+newLine() +
-			":backend:html5"+newLine() +
-			":doctitle:Living Documentation"+newLine() +
-			":doctype:book"+newLine() +
-			":icons:font"+newLine() +
+	String DOCUMENTATION_FOR_MULTIPLE_FEATURES = ":toc: left"+newLine() +
+			":backend: html5"+newLine() +
+			":doctitle: Living Documentation"+newLine() +
+			":doctype: book"+newLine() +
+			":icons: font"+newLine() +
 			":!numbered:"+newLine() +
 			":sectanchors:"+newLine() +
 			":sectlink:"+newLine() +
 			""+newLine() +
 			"= Living Documentation"+newLine() +
 			""+newLine() +
-			".Summary"+newLine() +
-			"[cols=\"2h,12*^1\", options=\"header,footer\"]"+newLine() +
+			"== Summary"+newLine() +
+			"[cols=\"12*^1\", options=\"header,footer\"]"+newLine() +
 			"|==="+newLine() +
-			"|{empty} 3+|Scenarios 7+|Steps |{empty}|{empty}"+newLine() +
+			"3+|Scenarios 7+|Steps 2+|Features: 3"+newLine() +
 			""+newLine() +
-			"|Feature"+newLine() +
 			"|Passed"+newLine() +
 			"|Failed"+newLine() +
 			"|Total"+newLine() +
@@ -182,7 +178,7 @@ public interface Expectations {
 			"|Duration"+newLine() +
 			"|Status"+newLine() +
 			""+newLine() +
-			"<|One passing scenario, one failing scenario"+newLine() +
+			"12+^|<<One passing scenario, one failing scenario>>"+newLine() +
 			"|1"+newLine() +
 			"|1"+newLine() +
 			"|2"+newLine() +
@@ -196,7 +192,7 @@ public interface Expectations {
 			"|010ms"+newLine() +
 			"|failed"+newLine() +
 			""+newLine() +
-			"<|An embed data directly feature"+newLine() +
+			"12+^|<<An embed data directly feature>>"+newLine() +
 			"|3"+newLine() +
 			"|0"+newLine() +
 			"|3"+newLine() +
@@ -210,7 +206,7 @@ public interface Expectations {
 			"|000ms"+newLine() +
 			"|passed"+newLine() +
 			""+newLine() +
-			"<|An outline feature"+newLine() +
+			"12+^|<<An outline feature>>"+newLine() +
 			"|0"+newLine() +
 			"|1"+newLine() +
 			"|1"+newLine() +

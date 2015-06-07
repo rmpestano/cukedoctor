@@ -1,0 +1,110 @@
+:toc: right
+:backend: html5
+:doctitle: Living Documentation
+:doctype: book
+:icons: font
+:!numbered:
+:sectanchors:
+:sectlink:
+
+= Living Documentation
+
+== Summary 
+
+
+[cols="12*^1", options="header,footer"]
+|===
+3+|Scenarios 7+|Steps 2+|Features: 3
+
+|passed
+|Failed
+|Total
+|Passed
+|Failed
+|Skipped
+|Pending
+|Undefined
+|Missing
+|Total
+|Duration
+|Status
+
+12+^|<<Feature 1 name can be long>>
+
+|1
+|2
+|3
+|1
+|1
+|1
+|1
+|1
+|1
+|6
+|2ms
+|passed
+
+12+^|<<Feature 2 name can also be very long>>
+
+|1
+|2
+|3
+|2
+|2
+|2
+|2
+|2
+|2
+|12
+|3ms
+<|passed
+
+12+^|<<Feature 3>>
+
+|1
+|2
+|3
+|2
+|2
+|2
+|2
+|2
+|2
+|12
+|3ms
+<|passed
+
+12+^|*Totals*
+
+|3
+|6
+|9
+|5
+|5
+|5
+|5
+|5
+|5
+|30
+|8ms
+| {empty}
+
+|===
+
+== Feature 1 name can be long
+
+=== Steps 
+
+TODO: detail steps execution
+
+== Feature 2 name can also be very long
+
+=== Steps
+
+TODO: detail steps execution
+
+== Feature 3
+
+=== Steps
+
+TODO: detail steps execution
