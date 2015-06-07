@@ -151,7 +151,7 @@ public class CukedoctorReporter {
 	 * number of steps, execution time, total passed scenarios and so on
 	 */
 	protected CukedoctorReporter renderSummary() {
-		writer.write(Markup.H1, documentTitle, newLine());
+		writer.write(Markup.H1, documentTitle, newLine(),newLine());
 
 		writer.write(".Summary").write(newLine());
 		writer.write("[cols=\"2h,12*^1\", options=\"header,footer\"]"+newLine() +
@@ -159,7 +159,7 @@ public class CukedoctorReporter {
 				"|{empty} 3+|Scenarios 7+|Steps |{empty}|{empty}"+newLine() +
 				""+newLine() +
 				"|Feature"+newLine() +
-				"|passed"+newLine() +
+				"|Passed"+newLine() +
 				"|Failed"+newLine() +
 				"|Total"+newLine() +
 				"|Passed"+newLine() +
@@ -178,17 +178,18 @@ public class CukedoctorReporter {
 			StepResults stepResults = feature.getStepResults();
 			ScenarioResults scenarioResults = feature.getScenarioResults();
 
-			writer.write(Markup.ALIGN_LEFT,Markup.TABLE_COL,scenarioResults.getNumberOfScenariosPassed(),newLine());
-			writer.write(Markup.ALIGN_LEFT,Markup.TABLE_COL,scenarioResults.getNumberOfScenariosFailed(),newLine());
-			writer.write(Markup.ALIGN_LEFT,Markup.TABLE_COL,scenarioResults.getNumberOfScenarios(),newLine());
-			writer.write(Markup.ALIGN_LEFT,Markup.TABLE_COL,stepResults.getNumberOfPasses(),newLine());
-			writer.write(Markup.ALIGN_LEFT,Markup.TABLE_COL,stepResults.getNumberOfFailures(),newLine());
-			writer.write(Markup.ALIGN_LEFT,Markup.TABLE_COL,stepResults.getNumberOfSkipped(),newLine());
-			writer.write(Markup.ALIGN_LEFT,Markup.TABLE_COL,stepResults.getNumberOfPending(),newLine());
-			writer.write(Markup.ALIGN_LEFT,Markup.TABLE_COL,stepResults.getNumberOfUndefined(),newLine());
-			writer.write(Markup.ALIGN_LEFT,Markup.TABLE_COL,stepResults.getNumberOfSteps(),newLine());
-			writer.write(Markup.ALIGN_LEFT,Markup.TABLE_COL,stepResults.getTotalDurationAsString(),newLine());
-			writer.write(Markup.ALIGN_LEFT,Markup.TABLE_COL,feature.getStatus(),newLine());
+			writer.write(Markup.TABLE_COL,scenarioResults.getNumberOfScenariosPassed(),newLine());
+			writer.write(Markup.TABLE_COL,scenarioResults.getNumberOfScenariosFailed(),newLine());
+			writer.write(Markup.TABLE_COL,scenarioResults.getNumberOfScenarios(),newLine());
+			writer.write(Markup.TABLE_COL,stepResults.getNumberOfPasses(),newLine());
+			writer.write(Markup.TABLE_COL,stepResults.getNumberOfFailures(),newLine());
+			writer.write(Markup.TABLE_COL,stepResults.getNumberOfSkipped(),newLine());
+			writer.write(Markup.TABLE_COL,stepResults.getNumberOfPending(),newLine());
+			writer.write(Markup.TABLE_COL,stepResults.getNumberOfUndefined(),newLine());
+			writer.write(Markup.TABLE_COL,stepResults.getNumberOfMissing(),newLine());
+			writer.write(Markup.TABLE_COL,stepResults.getNumberOfSteps(),newLine());
+			writer.write(Markup.TABLE_COL,stepResults.getTotalDurationAsString(),newLine());
+			writer.write(Markup.TABLE_COL,feature.getStatus(),newLine());
 		}
 		writer.write(Markup.TABLE,newLine());
 		return instance;

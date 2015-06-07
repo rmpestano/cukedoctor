@@ -63,4 +63,16 @@ public class FeatureParser {
 		}
 		return features;
 	}
+
+	public static List<Feature> parse(String... paths) {
+		List<Feature> features = new ArrayList<>();
+
+		for (String path : paths) {
+			List<Feature> result = parse(path);
+			if (result != null) {
+				features.addAll(result);
+			}
+		}
+		return features;
+	}
 }

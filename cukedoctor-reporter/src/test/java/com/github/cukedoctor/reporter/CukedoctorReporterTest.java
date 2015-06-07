@@ -3,6 +3,7 @@ package com.github.cukedoctor.reporter;
 import com.github.cukedoctor.api.DocumentAttributes;
 import com.github.cukedoctor.api.model.Feature;
 import com.github.cukedoctor.parser.FeatureParser;
+import com.github.cukedoctor.util.Expectations;
 import com.github.cukedoctor.util.FileUtil;
 import com.github.cukedoctor.util.builder.FeatureBuilder;
 import org.junit.BeforeClass;
@@ -25,10 +26,16 @@ import static org.assertj.core.api.Assertions.*;
 public class CukedoctorReporterTest {
 
 	private static String onePassingOneFailing;
+	private static String embedDataDirectly;
+	private static String outline;
+	private static String invalidFeatureResult;
 
 	@BeforeClass
 	public static void loadFeatures() {
 		onePassingOneFailing = FileUtil.findJsonFile("json-output/one_passing_one_failing.json");
+		embedDataDirectly = FileUtil.findJsonFile("json-output/embed_data_directly.json");
+		outline = FileUtil.findJsonFile("json-output/outline.json");
+		invalidFeatureResult = FileUtil.findJsonFile("json-output/invalid_feature_result.json");
 	}
 
 
@@ -173,14 +180,34 @@ public class CukedoctorReporterTest {
 	// renderSummary() tests
 
 	@Test
-	public void shouldRenderSummary(){
+	public void shouldRenderSummaryForOneFeature(){
 		List<Feature> features = FeatureParser.parse(onePassingOneFailing);
 		String resultDoc = CukedoctorReporter.instance(features,"Title").renderSummary().getDocumentation().toString();
 		assertThat(resultDoc).isNotNull().
 				containsOnlyOnce("<|One passing scenario, one failing scenario").
-				containsOnlyOnce("<|failed").
-		        containsOnlyOnce("<|010ms");
+				containsOnlyOnce("|failed").
+		        containsOnlyOnce("|010ms");
+
+		assertThat(resultDoc).isEqualTo(Expectations.SUMMARY_ONE_FEATURE);
 	}
+
+	@Test
+	public void shouldRenderSummaryForMultipleFeatures(){
+		List<Feature> features = FeatureParser.parse(onePassingOneFailing,embedDataDirectly,outline,invalidFeatureResult);
+		String resultDoc = CukedoctorReporter.instance(features,"Title").renderSummary().getDocumentation().toString();
+		assertThat(resultDoc).isNotNull().
+				containsOnlyOnce("<|One passing scenario, one failing scenario").
+				containsOnlyOnce("<|An embed data directly feature").
+				containsOnlyOnce("<|An outline feature").
+				doesNotContain("<|invalid feature result").
+		        containsOnlyOnce("|passed").
+				contains("|failed").
+				containsOnlyOnce("|010ms");
+
+
+		assertThat(resultDoc).isEqualTo(Expectations.SUMMARY_MULTIPLE_FEATURES);
+	}
+
 
 
 }

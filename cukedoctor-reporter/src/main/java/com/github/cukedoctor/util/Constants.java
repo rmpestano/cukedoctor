@@ -11,8 +11,8 @@ public abstract class Constants {
 
 	public interface Markup {
 
-		String H1 = "=";
-		String H2 = "==";
+		String H1 = "= ";
+		String H2 = "== ";
 
 		String TABLE = "|===";
 		String TABLE_COL = "|";
