@@ -62,6 +62,6 @@ public class StepBuilder {
 
 
 	public Step build() {
-		return step;
+		return this.getStep();
 	}
 }

@@ -26,21 +26,26 @@ public class FeatureTest {
 		Step step1 = StepBuilder.instance().match(new Match("/match"))
 				.name("my step").durations(1500000).status(Status.passed).build();
 		Step step2 = StepBuilder.instance().match(new Match("/match2"))
-				.name("my step 2").durations(500000).status(Status.passed).build();
+				.name("my step 2").status(Status.passed).durations(500000).build();
+
+		Result result = new Result();
+		result.setDuration(1000000L);
+		result.setStatus(Status.failed);
 
 		Step step3 = StepBuilder.instance().match(new Match("/match2"))
-				.name("my step 3").status(Status.failed).durations(1000000).build();
+				.name("my step 3").result(result).build();
 
 
 		Element passingScenario = ScenarioBuilder.instance().name("scenario 1")
-				.type(Type.scenario)
+				.type(Type.scenario).description("scenario desc")
 				.step(step1).step(step2).build();
 
 		Element failingScenario = ScenarioBuilder.instance().name("scenario 2")
-				.type(Type.scenario)
-				.step(step1).step(step2).step(step3).build();
+				.type(Type.scenario).keyword("keyword")
+				.step(step1).step(step2).step(step3).step(step3).build();
 
 		feature = FeatureBuilder.instance().id("id").name("feature").keyword("keyword").
+				uri("uri").description("feature description").
 				scenario(passingScenario).scenario(failingScenario).build();
 
 	}

@@ -10,9 +10,11 @@ import com.github.cukedoctor.api.model.Tag;
 import com.github.cukedoctor.util.Constants;
 import com.github.cukedoctor.util.DocWriter;
 import sun.reflect.generics.reflectiveObjects.NotImplementedException;
-import static com.github.cukedoctor.util.Constants.*;
 
 import java.util.List;
+
+import static com.github.cukedoctor.util.Constants.Markup;
+import static com.github.cukedoctor.util.Constants.newLine;
 
 /**
  * Created by pestano on 02/06/15.
@@ -175,7 +177,7 @@ public class CukedoctorReporter {
 
 		for (Feature feature : features) {
 			writer.write(newLine());
-			writer.write("12+^"+Markup.TABLE_COL,"<<",feature.getName(),">>",newLine());
+			writer.write("12+^"+Constants.Markup.TABLE_COL,"<<",feature.getName(),">>",newLine());
 			StepResults stepResults = feature.getStepResults();
 			ScenarioResults scenarioResults = feature.getScenarioResults();
 
