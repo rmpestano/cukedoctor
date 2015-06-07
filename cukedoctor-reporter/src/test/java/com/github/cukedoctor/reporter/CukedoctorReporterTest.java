@@ -3,9 +3,8 @@ package com.github.cukedoctor.reporter;
 import com.github.cukedoctor.api.DocumentAttributes;
 import com.github.cukedoctor.api.model.Feature;
 import com.github.cukedoctor.parser.FeatureParser;
-import com.github.cukedoctor.util.Constants;
-import com.github.cukedoctor.util.builder.FeatureBuilder;
 import com.github.cukedoctor.util.FileUtil;
+import com.github.cukedoctor.util.builder.FeatureBuilder;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -14,7 +13,10 @@ import org.junit.runners.JUnit4;
 import java.util.ArrayList;
 import java.util.List;
 
+import static com.github.cukedoctor.util.Constants.newLine;
 import static org.junit.Assert.assertEquals;
+import static org.assertj.core.api.Assertions.*;
+
 
 /**
  * Created by pestano on 02/06/15.
@@ -78,14 +80,14 @@ public class CukedoctorReporterTest {
 				.sectAnchors(true).sectLink(true);
 
 		String expected =
-				":toc:right" + Constants.NEW_LINE +
-						":backend:html5" + Constants.NEW_LINE +
-						":doctitle:Title" + Constants.NEW_LINE +
-						":doctype:article" + Constants.NEW_LINE +
-						":icons:font" + Constants.NEW_LINE +
-						":!numbered:" + Constants.NEW_LINE +
-						":sectanchors:" + Constants.NEW_LINE +
-						":sectlink:" + Constants.NEW_LINE;
+				":toc:right" + newLine() +
+						":backend:html5" + newLine() +
+						":doctitle:Title" + newLine() +
+						":doctype:article" + newLine() +
+						":icons:font" + newLine() +
+						":!numbered:" + newLine() +
+						":sectanchors:" + newLine() +
+						":sectlink:" + newLine();
 
 
 		String document = CukedoctorReporter.instance(features, "Documentation Title", attrs).renderAttributes().
@@ -99,14 +101,14 @@ public class CukedoctorReporterTest {
 		features.add(FeatureBuilder.instance().id("id").name("name").build());
 
 
-		String expected = ":toc:right" + Constants.NEW_LINE +
-				":backend:html5" + Constants.NEW_LINE +
-				":doctitle:Documentation Title" + Constants.NEW_LINE +
-				":doctype:article" + Constants.NEW_LINE +
-				":icons:font" + Constants.NEW_LINE +
-				":!numbered:" + Constants.NEW_LINE +
-				":sectanchors:" + Constants.NEW_LINE +
-				":sectlink:" + Constants.NEW_LINE;
+		String expected = ":toc:right" + newLine() +
+				":backend:html5" + newLine() +
+				":doctitle:Documentation Title" + newLine() +
+				":doctype:article" + newLine() +
+				":icons:font" + newLine() +
+				":!numbered:" + newLine() +
+				":sectanchors:" + newLine() +
+				":sectlink:" + newLine();
 
 
 		String document = CukedoctorReporter.instance(features, "Documentation Title").renderAttributes().
@@ -126,13 +128,13 @@ public class CukedoctorReporterTest {
 				.sectAnchors(true).sectLink(true);
 
 		String expected =
-				":backend:html5" + Constants.NEW_LINE +
-						":doctitle:Title" + Constants.NEW_LINE +
-						":doctype:article" + Constants.NEW_LINE +
-						":icons:font" + Constants.NEW_LINE +
-						":!numbered:" + Constants.NEW_LINE +
-						":sectanchors:" + Constants.NEW_LINE +
-						":sectlink:" + Constants.NEW_LINE;
+				":backend:html5" + newLine() +
+						":doctitle:Title" + newLine() +
+						":doctype:article" + newLine() +
+						":icons:font" + newLine() +
+						":!numbered:" + newLine() +
+						":sectanchors:" + newLine() +
+						":sectlink:" + newLine();
 
 
 		String document = CukedoctorReporter.instance(features, "Documentation Title", attrs).renderAttributes().
@@ -152,14 +154,14 @@ public class CukedoctorReporterTest {
 				.sectAnchors(true).sectLink(true);
 
 		String expected =
-				":toc:left" + Constants.NEW_LINE +
-						":backend:html5" + Constants.NEW_LINE +
-						":doctitle:Documentation Title" + Constants.NEW_LINE +
-						":doctype:book" + Constants.NEW_LINE +
-						":icons:font" + Constants.NEW_LINE +
-						":!numbered:" + Constants.NEW_LINE +
-						":sectanchors:" + Constants.NEW_LINE +
-						":sectlink:" + Constants.NEW_LINE;
+				":toc:left" + newLine() +
+						":backend:html5" + newLine() +
+						":doctitle:Documentation Title" + newLine() +
+						":doctype:book" + newLine() +
+						":icons:font" + newLine() +
+						":!numbered:" + newLine() +
+						":sectanchors:" + newLine() +
+						":sectlink:" + newLine();
 
 
 		String document = CukedoctorReporter.instance(features, "Documentation Title", attrs).renderAttributes().
@@ -172,7 +174,12 @@ public class CukedoctorReporterTest {
 
 	@Test
 	public void shouldRenderSummary(){
-
+		List<Feature> features = FeatureParser.parse(onePassingOneFailing);
+		String resultDoc = CukedoctorReporter.instance(features,"Title").renderSummary().getDocumentation().toString();
+		assertThat(resultDoc).isNotNull().
+				containsOnlyOnce("<|One passing scenario, one failing scenario").
+				containsOnlyOnce("<|failed").
+		        containsOnlyOnce("<|010ms");
 	}
 
 

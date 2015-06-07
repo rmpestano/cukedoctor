@@ -36,7 +36,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 1
+              "duration": 1996000
             }
           }
         ]
@@ -65,7 +65,7 @@
             "result": {
               "status": "failed",
               "error_message": " (RuntimeError)\n./features/step_definitions/steps.rb:4:in /^this step fails$/'\nfeatures/one_passing_one_failing.feature:10:in Given this step fails'",
-              "duration": 1
+              "duration": 8346004
             }
           }
         ]

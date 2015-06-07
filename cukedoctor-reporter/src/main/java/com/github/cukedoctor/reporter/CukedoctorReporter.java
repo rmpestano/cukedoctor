@@ -7,9 +7,9 @@ import com.github.cukedoctor.api.model.Element;
 import com.github.cukedoctor.api.model.Feature;
 import com.github.cukedoctor.api.model.Step;
 import com.github.cukedoctor.api.model.Tag;
-import com.github.cukedoctor.util.Constants;
 import com.github.cukedoctor.util.DocWriter;
 import sun.reflect.generics.reflectiveObjects.NotImplementedException;
+import static com.github.cukedoctor.util.Constants.*;
 
 import java.util.List;
 
@@ -135,14 +135,14 @@ public class CukedoctorReporter {
 	}
 
 	protected CukedoctorReporter renderAttributes() {
-		writer.write(Constants.Markup.TOC, documentAttributes.getToc(), Constants.NEW_LINE).
-				write(Constants.Markup.BACKEND, documentAttributes.getBackend(), Constants.NEW_LINE).
-				write(Constants.Markup.DOC_TITLE, documentAttributes.getDocTitle(), Constants.NEW_LINE).
-				write(Constants.Markup.DOC_TYPE, documentAttributes.getDocType(), Constants.NEW_LINE).
-				write(Constants.Markup.ICONS, documentAttributes.getIcons(), Constants.NEW_LINE).
-				write(documentAttributes.isNumbered() ? Constants.Markup.NUMBERED : Constants.Markup.NOT_NUMBERED, true).
-				write(documentAttributes.isSectAnchors() ? Constants.Markup.SECT_ANCHORS : Constants.Markup.NOT_SECT_ANCHORS, true).
-				write(documentAttributes.isSectLink() ? Constants.Markup.SECT_LINK : Constants.Markup.NOT_SECT_LINK, true);
+		writer.write(Markup.TOC, documentAttributes.getToc(), newLine()).
+				write(Markup.BACKEND, documentAttributes.getBackend(), newLine()).
+				write(Markup.DOC_TITLE, documentAttributes.getDocTitle(), newLine()).
+				write(Markup.DOC_TYPE, documentAttributes.getDocType(), newLine()).
+				write(Markup.ICONS, documentAttributes.getIcons(), newLine()).
+				write(documentAttributes.isNumbered() ? Markup.NUMBERED : Markup.NOT_NUMBERED, true).
+				write(documentAttributes.isSectAnchors() ? Markup.SECT_ANCHORS : Markup.NOT_SECT_ANCHORS, true).
+				write(documentAttributes.isSectLink() ? Markup.SECT_LINK : Markup.NOT_SECT_LINK, true);
 		return instance;
 	}
 
@@ -151,13 +151,46 @@ public class CukedoctorReporter {
 	 * number of steps, execution time, total passed scenarios and so on
 	 */
 	protected CukedoctorReporter renderSummary() {
-		writer.write(Constants.Markup.H1, documentTitle);
+		writer.write(Markup.H1, documentTitle, newLine());
+
+		writer.write(".Summary").write(newLine());
+		writer.write("[cols=\"2h,12*^1\", options=\"header,footer\"]"+newLine() +
+				"|==="+newLine() +
+				"|{empty} 3+|Scenarios 7+|Steps |{empty}|{empty}"+newLine() +
+				""+newLine() +
+				"|Feature"+newLine() +
+				"|passed"+newLine() +
+				"|Failed"+newLine() +
+				"|Total"+newLine() +
+				"|Passed"+newLine() +
+				"|Failed"+newLine() +
+				"|Skipped"+newLine() +
+				"|Pending"+newLine() +
+				"|Undefined"+newLine() +
+				"|Missing"+newLine() +
+				"|Total"+newLine() +
+				"|Duration"+newLine() +
+				"|Status"+newLine());
 
 		for (Feature feature : features) {
+			writer.write(newLine());
+			writer.write(Markup.ALIGN_LEFT,Markup.TABLE_COL,feature.getName(),newLine());
 			StepResults stepResults = feature.getStepResults();
 			ScenarioResults scenarioResults = feature.getScenarioResults();
-			//TODO render a table with features general results
+
+			writer.write(Markup.ALIGN_LEFT,Markup.TABLE_COL,scenarioResults.getNumberOfScenariosPassed(),newLine());
+			writer.write(Markup.ALIGN_LEFT,Markup.TABLE_COL,scenarioResults.getNumberOfScenariosFailed(),newLine());
+			writer.write(Markup.ALIGN_LEFT,Markup.TABLE_COL,scenarioResults.getNumberOfScenarios(),newLine());
+			writer.write(Markup.ALIGN_LEFT,Markup.TABLE_COL,stepResults.getNumberOfPasses(),newLine());
+			writer.write(Markup.ALIGN_LEFT,Markup.TABLE_COL,stepResults.getNumberOfFailures(),newLine());
+			writer.write(Markup.ALIGN_LEFT,Markup.TABLE_COL,stepResults.getNumberOfSkipped(),newLine());
+			writer.write(Markup.ALIGN_LEFT,Markup.TABLE_COL,stepResults.getNumberOfPending(),newLine());
+			writer.write(Markup.ALIGN_LEFT,Markup.TABLE_COL,stepResults.getNumberOfUndefined(),newLine());
+			writer.write(Markup.ALIGN_LEFT,Markup.TABLE_COL,stepResults.getNumberOfSteps(),newLine());
+			writer.write(Markup.ALIGN_LEFT,Markup.TABLE_COL,stepResults.getTotalDurationAsString(),newLine());
+			writer.write(Markup.ALIGN_LEFT,Markup.TABLE_COL,feature.getStatus(),newLine());
 		}
+		writer.write(Markup.TABLE,newLine());
 		return instance;
 	}
 

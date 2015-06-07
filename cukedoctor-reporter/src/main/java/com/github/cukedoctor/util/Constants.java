@@ -3,15 +3,20 @@ package com.github.cukedoctor.util;
 /**
  * Created by pestano on 04/06/15.
  */
-public interface Constants {
+public abstract class Constants {
 
-	final String NEW_LINE = System.getProperty("line.separator");
+	public static String newLine(){
+		return System.getProperty("line.separator");
+	}
 
-	interface Markup {
-		final String H1 = "=";
-		final String H2 = "==";
+	public interface Markup {
 
-		final String TABLE = "|===";
+		String H1 = "=";
+		String H2 = "==";
+
+		String TABLE = "|===";
+		String TABLE_COL = "|";
+		String ALIGN_LEFT = "<";
 
 		String TOC = ":toc:";
 		String ICONS = ":icons:";

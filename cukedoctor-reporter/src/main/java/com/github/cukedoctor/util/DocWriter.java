@@ -1,5 +1,7 @@
 package com.github.cukedoctor.util;
 
+import static com.github.cukedoctor.util.Constants.*;
+
 
 /**
  * Created by pestano on 06/06/15.
@@ -18,30 +20,30 @@ public class DocWriter {
 		return instance;
 	}
 
-	public DocWriter write(String value) {
+	public DocWriter write(Object value) {
 		if (value != null) {
-			doc.append(value.replaceAll("\\n", Constants.NEW_LINE));//cucumber puts \n in new lines
+			doc.append(value.toString().replaceAll("\\n", newLine()));//cucumber puts \n in new lines
 		}
 		return instance;
 	}
 
-	public DocWriter write(String value, boolean newLine) {
+	public DocWriter write(Object value, boolean newLine) {
 		if (value != null) {
-			doc.append(value.replaceAll("\\n", Constants.NEW_LINE));//cucumber puts \n in new lines
+			doc.append(value.toString().replaceAll("\\n", newLine()));//cucumber puts \n in new lines
 		}
 		if (newLine) {
-			doc.append(Constants.NEW_LINE);
+			doc.append(Constants.newLine());
 		}
 		return instance;
 	}
 
-	public DocWriter write(String... value) {
-		for (String s : value) {
-			if (s == null || (s != Constants.NEW_LINE && s.trim().equals(""))) {
+	public DocWriter write(Object... value) {
+		for (Object s : value) {
+			if (s == null || (s.toString() != newLine() && s.toString().trim().equals(""))) {
 				return instance;
 			}
 		}
-		for (String s : value) {
+		for (Object s : value) {
 			write(s);
 		}
 		return instance;

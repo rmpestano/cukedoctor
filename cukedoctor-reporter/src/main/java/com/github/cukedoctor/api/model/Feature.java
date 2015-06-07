@@ -26,8 +26,7 @@ public class Feature {
 	private ScenarioResults scenarioResults;
 
 	public Feature() {
-		initScenarios();
-		processSteps();
+
 	}
 
 
@@ -108,8 +107,8 @@ public class Feature {
 	}
 
 
-	public int getNumberOfScenarios() {
-		int result = 0;
+	public Integer getNumberOfScenarios() {
+		Integer result = 0;
 		if (elements != null) {
 			List<Element> elementList = new ArrayList<Element>();
 			for (Element element : elements) {
@@ -122,31 +121,31 @@ public class Feature {
 		return result;
 	}
 
-	public int getNumberOfSteps() {
+	public Integer getNumberOfSteps() {
 		return stepResults.getNumberOfSteps();
 	}
 
-	public int getNumberOfPasses() {
+	public Integer getNumberOfPasses() {
 		return stepResults.getNumberOfPasses();
 	}
 
-	public int getNumberOfFailures() {
+	public Integer getNumberOfFailures() {
 		return stepResults.getNumberOfFailures();
 	}
 
-	public int getNumberOfPending() {
+	public Integer getNumberOfPending() {
 		return stepResults.getNumberOfPending();
 	}
 
-	public int getNumberOfSkipped() {
+	public Integer getNumberOfSkipped() {
 		return stepResults.getNumberOfSkipped();
 	}
 
-	public int getNumberOfMissing() {
+	public Integer getNumberOfMissing() {
 		return stepResults.getNumberOfMissing();
 	}
 
-	public int getNumberOfUndefined() {
+	public Integer getNumberOfUndefined() {
 		return stepResults.getNumberOfUndefined();
 	}
 
@@ -154,11 +153,11 @@ public class Feature {
 		return stepResults.getTotalDurationAsString();
 	}
 
-	public int getNumberOfScenariosPassed() {
+	public Integer getNumberOfScenariosPassed() {
 		return scenarioResults.getNumberOfScenariosPassed();
 	}
 
-	public int getNumberOfScenariosFailed() {
+	public Integer getNumberOfScenariosFailed() {
 		return scenarioResults.getNumberOfScenariosFailed();
 	}
 
@@ -236,7 +235,7 @@ public class Feature {
 
 	@Override
 	public int hashCode() {
-		int result = name.hashCode();
+		Integer result = name.hashCode();
 		result = 31 * result + (uri != null ? uri.hashCode() : 0);
 		return result;
 	}

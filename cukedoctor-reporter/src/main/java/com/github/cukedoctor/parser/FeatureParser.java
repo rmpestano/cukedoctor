@@ -30,9 +30,13 @@ public class FeatureParser {
 			});
 			Iterator<Feature> it = features.iterator();
 			while (it.hasNext()) {
-				if (!it.next().isCucumberFeature()) {
+				Feature feature = it.next();
+				if (!feature.isCucumberFeature()) {
 					log.warning("json:" + json + " is NOT a Cucumber feature result file and will be ignored");
 					it.remove();
+				}else{
+					feature.initScenarios();
+					feature.processSteps();
 				}
 			}
 

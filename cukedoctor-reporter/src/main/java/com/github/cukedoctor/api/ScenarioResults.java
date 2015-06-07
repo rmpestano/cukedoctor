@@ -16,11 +16,11 @@ public class ScenarioResults {
 		this.failedScenarios = failedScenarios;
 	}
 
-	public int getNumberOfScenariosPassed() {
+	public Integer getNumberOfScenariosPassed() {
 		return passedScenarios.size();
 	}
 
-	public int getNumberOfScenariosFailed() {
+	public Integer getNumberOfScenariosFailed() {
 		return failedScenarios.size();
 	}
 
@@ -30,5 +30,9 @@ public class ScenarioResults {
 
 	public List<Element> getFailedScenarios() {
 		return failedScenarios;
+	}
+
+	public Object getNumberOfScenarios() {
+		return getNumberOfScenariosFailed() + getNumberOfScenariosPassed();
 	}
 }
