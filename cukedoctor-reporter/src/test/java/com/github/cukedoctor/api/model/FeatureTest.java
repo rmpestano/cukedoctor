@@ -24,12 +24,12 @@ public class FeatureTest {
 	@Before
 	public void fixture() {
 		Step step1 = StepBuilder.instance().match(new Match("/match"))
-				.name("my step").status(Status.passed).build();
+				.name("my step").durations(1500000).status(Status.passed).build();
 		Step step2 = StepBuilder.instance().match(new Match("/match2"))
-				.name("my step 2").status(Status.passed).build();
+				.name("my step 2").durations(500000).status(Status.passed).build();
 
-		Step failedStep = StepBuilder.instance().match(new Match("/match2"))
-				.name("my step 2").status(Status.failed).build();
+		Step step3 = StepBuilder.instance().match(new Match("/match2"))
+				.name("my step 3").status(Status.failed).durations(1000000).build();
 
 
 		Element passingScenario = ScenarioBuilder.instance().name("scenario 1")
@@ -38,7 +38,7 @@ public class FeatureTest {
 
 		Element failingScenario = ScenarioBuilder.instance().name("scenario 2")
 				.type(Type.scenario)
-				.step(step1).step(step2).step(failedStep).build();
+				.step(step1).step(step2).step(step3).build();
 
 		feature = FeatureBuilder.instance().id("id").name("feature").keyword("keyword").
 				scenario(passingScenario).scenario(failingScenario).build();
@@ -51,6 +51,8 @@ public class FeatureTest {
 		assertThat(feature.getNumberOfScenarios()).isEqualTo(2);
 		assertThat(feature.getNumberOfSteps()).isEqualTo(5); //2 steps in scenario 1 and 3 in scenario 2
 		assertThat(feature.getStatus()).isEqualTo(Status.failed);
+		assertThat(feature.getStepResults().getTotalDuration()).isEqualTo(5000000L);
+		assertThat(feature.getDurationOfSteps()).isEqualTo("005ms");
 		assertThat(feature.getNumberOfFailures()).isEqualTo(1); //1 in scenario 2
 		assertThat(feature.getNumberOfPasses()).isEqualTo(4);//2 passes in each scenario
 		assertThat(feature.getNumberOfPending()).isEqualTo(0);

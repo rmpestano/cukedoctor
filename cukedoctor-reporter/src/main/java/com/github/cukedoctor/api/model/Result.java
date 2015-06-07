@@ -26,6 +26,9 @@ public class Result {
 		return duration == null ? 0L : duration;
 	}
 
+	public void setDuration(Long duration) {
+		this.duration = duration;
+	}
 
 	public String getErrorMessage() {
 		return error_message;

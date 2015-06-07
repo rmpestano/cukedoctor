@@ -52,6 +52,14 @@ public class StepBuilder {
 		return instance;
 	}
 
+	public StepBuilder durations(long duration) {
+		if (step.getResult() == null) {
+			step.setResult(new Result());
+		}
+		step.getResult().setDuration(duration);
+		return instance;
+	}
+
 
 	public Step build() {
 		return step;
