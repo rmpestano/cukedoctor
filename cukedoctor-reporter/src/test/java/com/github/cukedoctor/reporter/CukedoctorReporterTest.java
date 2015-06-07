@@ -124,6 +124,27 @@ public class CukedoctorReporterTest {
 	}
 
 	@Test
+	public void shouldRenderAttributesUsingDefaultConfigPassingNullAttrs() {
+		List<Feature> features = new ArrayList<>();
+		features.add(FeatureBuilder.instance().id("id").name("name").build());
+
+
+		String expected = ":toc: right" + newLine() +
+				":backend: html5" + newLine() +
+				":doctitle: Documentation Title" + newLine() +
+				":doctype: article" + newLine() +
+				":icons: font" + newLine() +
+				":!numbered:" + newLine() +
+				":sectanchors:" + newLine() +
+				":sectlink:" + newLine();
+
+
+		String document = CukedoctorReporter.instance(features, "Documentation Title",null).renderAttributes().
+				getDocumentation().toString();
+		assertEquals(document, expected);
+	}
+
+	@Test
 	public void shouldRenderAttributesWithoutToc() {
 		List<Feature> features = new ArrayList<>();
 		features.add(FeatureBuilder.instance().id("id").name("name").build());
@@ -186,9 +207,47 @@ public class CukedoctorReporterTest {
 		assertThat(resultDoc).isNotNull().
 				containsOnlyOnce("<<One passing scenario, one failing scenario>>").
 				containsOnlyOnce("|failed").
-		        containsOnlyOnce("|010ms");
+		        contains("|010ms");
 
 		assertThat(resultDoc).isEqualTo(Expectations.SUMMARY_FOR_ONE_FEATURE);
+	}
+
+
+	@Test
+	public void shouldRenderSummaryForMultipleFeatures(){
+		List<Feature> features = FeatureParser.parse(onePassingOneFailing,embedDataDirectly,outline,invalidFeatureResult);
+		String resultDoc = CukedoctorReporter.instance(features,"Title").renderSummary().getDocumentation().toString();
+		assertThat(resultDoc).isNotNull().
+				containsOnlyOnce("<<One passing scenario, one failing scenario>>").
+				containsOnlyOnce("<<An embed data directly feature>>").
+				containsOnlyOnce("<<An outline feature>>").
+				doesNotContain("<<invalid feature result>>").
+		        containsOnlyOnce("|passed").
+				contains("|failed").
+				contains("|010ms");
+
+
+		assertThat(resultDoc).isEqualTo(Expectations.SUMMARY_FOR_MULTIPLE_FEATURES);
+	}
+
+	// renderTotalsRow() tests
+
+	@Test
+	public void shouldRenderTotalRowForOneFeature(){
+		List<Feature> features = FeatureParser.parse(onePassingOneFailing);
+		String resultDoc = CukedoctorReporter.instance(features,"Title").renderTotalsRow().getDocumentation().toString();
+		assertThat(resultDoc).isNotNull().
+				containsOnlyOnce("12+^|*Totals*").
+				contains("|1|1|2|1|1|0|0|0|0|2|010ms");
+	}
+
+	@Test
+	public void shouldRenderTotalRowForMultipleFeature(){
+		List<Feature> features = FeatureParser.parse(onePassingOneFailing,embedDataDirectly,outline,invalidFeatureResult);
+		String resultDoc = CukedoctorReporter.instance(features,"Title").renderTotalsRow().getDocumentation().toString();
+		assertThat(resultDoc).isNotNull().
+				containsOnlyOnce("12+^|*Totals*").
+				contains("|4|2|6|4|1|0|0|0|1|6|010ms");
 	}
 
 	@Test
@@ -202,33 +261,17 @@ public class CukedoctorReporterTest {
 
 		String resultDoc = CukedoctorReporter.instance(features,"Living Documentation", attrs).
 				createDocumentation();
-				assertThat(resultDoc).isNotNull().
+		assertThat(resultDoc).isNotNull().
 				containsOnlyOnce(":doctype: book" + newLine()).
 				containsOnlyOnce(":toc: left" + newLine()).
 				containsOnlyOnce("= Living Documentation" + newLine()).
-		        containsOnlyOnce("<<One passing scenario, one failing scenario>>").
+				containsOnlyOnce("<<One passing scenario, one failing scenario>>").
 				containsOnlyOnce("|failed").
-				containsOnlyOnce("|010ms");
+				contains("|010ms").
+				containsOnlyOnce("|1|1|2|1|1|0|0|0|0|2|010ms");
 
 
 		assertThat(resultDoc).isEqualTo(Expectations.DOCUMENTATION_FOR_ONE_FEATURE);
-	}
-
-	@Test
-	public void shouldRenderSummaryForMultipleFeatures(){
-		List<Feature> features = FeatureParser.parse(onePassingOneFailing,embedDataDirectly,outline,invalidFeatureResult);
-		String resultDoc = CukedoctorReporter.instance(features,"Title").renderSummary().getDocumentation().toString();
-		assertThat(resultDoc).isNotNull().
-				containsOnlyOnce("<<One passing scenario, one failing scenario>>").
-				containsOnlyOnce("<<An embed data directly feature>>").
-				containsOnlyOnce("<<An outline feature>>").
-				doesNotContain("<<invalid feature result>>").
-		        containsOnlyOnce("|passed").
-				contains("|failed").
-				containsOnlyOnce("|010ms");
-
-
-		assertThat(resultDoc).isEqualTo(Expectations.SUMMARY_FOR_MULTIPLE_FEATURES);
 	}
 
 	@Test
@@ -253,7 +296,8 @@ public class CukedoctorReporterTest {
 				doesNotContain("<<invalid feature result>>").
 				containsOnlyOnce("|passed").
 				contains("|failed").
-				containsOnlyOnce("|010ms");
+				contains("|010ms").
+				containsOnlyOnce("|4|2|6|4|1|0|0|0|1|6|010ms");
 
 		assertThat(resultDoc).isEqualTo(Expectations.DOCUMENTATION_FOR_MULTIPLE_FEATURES);
 	}

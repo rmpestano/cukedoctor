@@ -9,6 +9,7 @@ import com.github.cukedoctor.api.model.Step;
 import com.github.cukedoctor.api.model.Tag;
 import com.github.cukedoctor.util.Constants;
 import com.github.cukedoctor.util.DocWriter;
+import com.github.cukedoctor.util.Formatter;
 import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
 import java.util.List;
@@ -194,7 +195,46 @@ public class CukedoctorReporter {
 			writer.write(Markup.TABLE_COL,stepResults.getTotalDurationAsString(),newLine());
 			writer.write(Markup.TABLE_COL,feature.getStatus(),newLine());
 		}
+		renderTotalsRow();
 		writer.write(Markup.TABLE,newLine());
+		return instance;
+	}
+
+	//should be only called inside renderSummary()
+	protected CukedoctorReporter renderTotalsRow() {
+		int totalPassedScenarios = 0;
+		int totalFailedScenarios = 0;
+		int totalScenarios = 0;
+		int totalPassedSteps = 0;
+		int totalFailedSteps = 0;
+		int totalSkippedSteps = 0;
+		int totalPendingSteps = 0;
+		int totalMissingSteps = 0;
+		int totalUndefinedSteps	 = 0;
+		int totalSteps = 0;
+		long totalDuration = 0;
+		for (Feature feature : features) {
+			totalPassedScenarios += feature.getScenarioResults().getNumberOfScenariosPassed();
+			totalFailedScenarios += feature.getScenarioResults().getNumberOfScenariosFailed();
+			totalScenarios += feature.getNumberOfScenarios();
+			totalPassedSteps += feature.getStepResults().getNumberOfPasses();
+			totalFailedSteps += feature.getStepResults().getNumberOfFailures();
+			totalSkippedSteps += feature.getStepResults().getNumberOfSkipped();
+			totalPendingSteps += feature.getStepResults().getNumberOfPending();
+			totalMissingSteps += feature.getStepResults().getNumberOfMissing();
+			totalUndefinedSteps += feature.getStepResults().getNumberOfUndefined();
+			totalSteps += feature.getNumberOfSteps();
+			totalDuration += feature.getStepResults().getTotalDuration();
+		}
+		writer.write("12+^|*Totals*",newLine()).
+		  		write(Markup.TABLE_COL,totalPassedScenarios,Markup.TABLE_COL,totalFailedScenarios).
+				write(Markup.TABLE_COL,totalScenarios).
+				write(Markup.TABLE_COL, totalPassedSteps, Markup.TABLE_COL, totalFailedSteps).
+				write(Markup.TABLE_COL,totalSkippedSteps,Markup.TABLE_COL, totalPendingSteps).
+				write(Markup.TABLE_COL,totalUndefinedSteps,Markup.TABLE_COL,totalMissingSteps).
+				write(Markup.TABLE_COL,totalSteps,Markup.TABLE_COL, Formatter.formatTime(totalDuration));
+		writer.write(newLine());
+
 		return instance;
 	}
 

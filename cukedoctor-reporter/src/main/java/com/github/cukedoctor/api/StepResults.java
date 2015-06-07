@@ -2,6 +2,7 @@ package com.github.cukedoctor.api;
 
 import com.github.cukedoctor.api.model.Status;
 import com.github.cukedoctor.api.model.Step;
+import com.github.cukedoctor.util.Formatter;
 import org.joda.time.Period;
 import org.joda.time.format.PeriodFormatter;
 import org.joda.time.format.PeriodFormatterBuilder;
@@ -14,25 +15,7 @@ import java.util.concurrent.atomic.AtomicInteger;
  * Created by pestano on 04/06/15.
  */
 public class StepResults {
-	private final PeriodFormatter TIME_FORMATTER = new PeriodFormatterBuilder()
-			.appendDays()
-			.appendSuffix("d")
-			.appendSeparator(" ")
-			.appendHours()
-			.appendSuffix("h")
-			.appendSeparator(" ")
-			.minimumPrintedDigits(2)
-			.appendMinutes()
-			.appendSuffix("m")
-			.appendSeparator(" ")
-			.minimumPrintedDigits(2)
-			.appendSeconds()
-			.appendSuffix("s")
-			.appendSeparator(" ")
-			.minimumPrintedDigits(3)
-			.appendMillis()
-			.appendSuffix("ms")
-			.toFormatter();
+
 
 	private List<Step> allSteps;
 	private Map<Status, AtomicInteger> statusCounter;
@@ -77,6 +60,6 @@ public class StepResults {
 	}
 
 	public String getTotalDurationAsString() {
-		return TIME_FORMATTER.print(new Period(0, totalDuration / 1000000));
+		return Formatter.formatTime(totalDuration);
 	}
 }
