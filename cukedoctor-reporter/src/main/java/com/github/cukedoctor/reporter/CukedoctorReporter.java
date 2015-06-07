@@ -7,6 +7,7 @@ import com.github.cukedoctor.api.model.Element;
 import com.github.cukedoctor.api.model.Feature;
 import com.github.cukedoctor.api.model.Step;
 import com.github.cukedoctor.api.model.Tag;
+import com.github.cukedoctor.util.Constants;
 import com.github.cukedoctor.util.DocWriter;
 import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 import static com.github.cukedoctor.util.Constants.*;
@@ -103,9 +104,10 @@ public class CukedoctorReporter {
 	 */
 	protected String createDocumentation() {
 		renderAttributes();
+		writer.write(newLine());
 		renderSummary();
 		for (Feature feature : features) {
-			renderFeature(feature);
+			//renderFeature(feature);
 		}
 
 		return documentation.toString();
@@ -174,7 +176,7 @@ public class CukedoctorReporter {
 
 		for (Feature feature : features) {
 			writer.write(newLine());
-			writer.write(Markup.ALIGN_LEFT,Markup.TABLE_COL,feature.getName(),newLine());
+			writer.write(Constants.Markup.ALIGN_LEFT,Markup.TABLE_COL,feature.getName(),newLine());
 			StepResults stepResults = feature.getStepResults();
 			ScenarioResults scenarioResults = feature.getScenarioResults();
 

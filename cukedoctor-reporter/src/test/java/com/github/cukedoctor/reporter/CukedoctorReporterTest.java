@@ -188,7 +188,30 @@ public class CukedoctorReporterTest {
 				containsOnlyOnce("|failed").
 		        containsOnlyOnce("|010ms");
 
-		assertThat(resultDoc).isEqualTo(Expectations.SUMMARY_ONE_FEATURE);
+		assertThat(resultDoc).isEqualTo(Expectations.SUMMARY_FOR_ONE_FEATURE);
+	}
+
+	@Test
+	public void shouldRenderDocumentationForOneFeature(){
+		List<Feature> features = FeatureParser.parse(onePassingOneFailing);
+		DocumentAttributes attrs = new DocumentAttributes();
+		attrs.toc("left").backend("html5")
+				.docType("book")
+				.icons("font").numbered(false)
+				.sectAnchors(true).sectLink(true);
+
+		String resultDoc = CukedoctorReporter.instance(features,"Living Documentation", attrs).
+				createDocumentation();
+				assertThat(resultDoc).isNotNull().
+				containsOnlyOnce(":doctype:book" + newLine()).
+				containsOnlyOnce(":toc:left" + newLine()).
+				containsOnlyOnce("= Living Documentation" + newLine()).
+		        containsOnlyOnce("<|One passing scenario, one failing scenario").
+				containsOnlyOnce("|failed").
+				containsOnlyOnce("|010ms");
+
+
+		assertThat(resultDoc).isEqualTo(Expectations.DOCUMENTATION_FOR_ONE_FEATURE);
 	}
 
 	@Test
@@ -205,9 +228,35 @@ public class CukedoctorReporterTest {
 				containsOnlyOnce("|010ms");
 
 
-		assertThat(resultDoc).isEqualTo(Expectations.SUMMARY_MULTIPLE_FEATURES);
+		assertThat(resultDoc).isEqualTo(Expectations.SUMMARY_FOR_MULTIPLE_FEATURES);
 	}
 
+	@Test
+	public void shouldRenderDocumentationForMultipleFeatures(){
+		List<Feature> features =  FeatureParser.parse(onePassingOneFailing, embedDataDirectly, outline, invalidFeatureResult);
+
+		DocumentAttributes attrs = new DocumentAttributes();
+		attrs.toc("left").backend("html5")
+				.docType("book")
+				.icons("font").numbered(false)
+				.sectAnchors(true).sectLink(true);
+
+		String resultDoc = CukedoctorReporter.instance(features,"Living Documentation", attrs).
+				createDocumentation();
+		assertThat(resultDoc).isNotNull().
+				containsOnlyOnce(":doctype:book" + newLine()).
+				containsOnlyOnce(":toc:left" + newLine()).
+				containsOnlyOnce("= Living Documentation" + newLine()).
+				containsOnlyOnce("<|One passing scenario, one failing scenario").
+				containsOnlyOnce("<|An embed data directly feature").
+				containsOnlyOnce("<|An outline feature").
+				doesNotContain("<|invalid feature result").
+				containsOnlyOnce("|passed").
+				contains("|failed").
+				containsOnlyOnce("|010ms");
+
+		assertThat(resultDoc).isEqualTo(Expectations.DOCUMENTATION_FOR_MULTIPLE_FEATURES);
+	}
 
 
 }
