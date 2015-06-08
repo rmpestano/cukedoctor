@@ -22,14 +22,14 @@ public class DocWriter {
 
 	public DocWriter write(Object value) {
 		if (value != null) {
-			doc.append(value.toString().replaceAll("\\n", newLine()));//cucumber puts \n in new lines
+			doc.append(value);
 		}
 		return instance;
 	}
 
 	public DocWriter write(Object value, boolean newLine) {
 		if (value != null) {
-			doc.append(value.toString().replaceAll("\\n", newLine()));//cucumber puts \n in new lines
+			doc.append(value);
 		}
 		if (newLine) {
 			doc.append(Constants.newLine());
