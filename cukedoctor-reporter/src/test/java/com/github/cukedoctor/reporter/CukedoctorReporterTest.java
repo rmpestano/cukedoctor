@@ -176,13 +176,13 @@ public class CukedoctorReporterTest {
 		features.add(FeatureBuilder.instance().id("id").name("name").build());
 
 		DocumentAttributes attrs = new DocumentAttributes();
-		attrs.toc("left").backend("html5")
+		attrs.toc("right").backend("html5")
 				.docType("book")
 				.icons("font").numbered(false)
 				.sectAnchors(true).sectLink(true);
 
 		String expected =
-				":toc: left" + newLine() +
+				":toc: right" + newLine() +
 						":backend: html5" + newLine() +
 						":doctitle: Documentation Title" + newLine() +
 						":doctype: book" + newLine() +

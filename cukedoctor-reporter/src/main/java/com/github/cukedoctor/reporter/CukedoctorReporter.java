@@ -109,35 +109,49 @@ public class CukedoctorReporter {
 		renderAttributes();
 		writer.write(newLine());
 		renderSummary();
+		writer.write(newLine());
 		for (Feature feature : features) {
-			//renderFeature(feature);
+			renderFeature(feature);
 		}
 
 		return documentation.toString();
 	}
 
 	protected CukedoctorReporter renderFeature(Feature feature) {
-		renderFeatureOverview(feature).
-				renderFeatureTags(feature.getTags());
-		renderFeatureScenarios(feature.getElements());
+		writer.write(Markup.H2,feature.getName(),newLine(),newLine())
+				.write(feature.getDescription(),newLine(),newLine());
+
+		renderFeatureScenarios(feature.getScenarios());
 		return instance;
 	}
 
 	protected CukedoctorReporter renderFeatureScenarios(List<Element> elements) {
-		throw new NotImplementedException();
+		for (Element scenario : elements) {
+			writer.write(Markup.H3,scenario.getKeyword(), ": ",scenario.getName(),newLine());
+			if(scenario.hasTags()){
+				writer.write("[small]#tags: ");
+				for (Tag tag : scenario.getTags()) {
+					writer.write(tag.getName());
+				}
+				writer.write("#",newLine(),newLine());
+			}
+
+			writer.write(scenario.getDescription());
+
+			if(scenario.hasSteps()){
+				renderScenarioSteps(scenario.getSteps());
+			}
+
+			writer.write(newLine());
+		}
+		return instance;
 	}
 
 	protected CukedoctorReporter renderScenarioSteps(List<Step> steps) {
-		throw new NotImplementedException();
+		return instance;
 	}
 
-	protected CukedoctorReporter renderFeatureTags(List<Tag> tags) {
-		throw new NotImplementedException();
-	}
 
-	protected CukedoctorReporter renderFeatureOverview(Feature feature) {
-		throw new NotImplementedException();
-	}
 
 	protected CukedoctorReporter renderAttributes() {
 		writer.write(Markup.TOC, documentAttributes.getToc(), newLine()).
@@ -159,7 +173,7 @@ public class CukedoctorReporter {
 		writer.write(Markup.H1, documentTitle, newLine(),newLine());
 
 		writer.write("== Summary").write(newLine());
-		writer.write("[cols=\"12*^1\", options=\"header,footer\"]"+newLine() +
+		writer.write("[cols=\"12*^m\", options=\"header,footer\"]"+newLine() +
 				"|==="+newLine() +
 				"3+|Scenarios 7+|Steps 2+|Features: "+features.size() +
 				""+newLine() + newLine() +
@@ -178,7 +192,7 @@ public class CukedoctorReporter {
 
 		for (Feature feature : features) {
 			writer.write(newLine());
-			writer.write("12+^"+Constants.Markup.TABLE_COL,"<<",feature.getName(),">>",newLine());
+			writer.write("12+^"+Constants.Markup.TABLE_COL,"*<<",feature.getName(),">>*",newLine());
 			StepResults stepResults = feature.getStepResults();
 			ScenarioResults scenarioResults = feature.getScenarioResults();
 

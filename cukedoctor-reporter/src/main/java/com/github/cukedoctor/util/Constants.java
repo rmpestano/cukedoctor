@@ -13,11 +13,12 @@ public abstract class Constants {
 
 		String H1 = "= ";
 		String H2 = "== ";
+		String H3 = "=== ";
 
 		String TABLE = "|===";
 		String TABLE_COL = "|";
-		String ALIGN_LEFT = "<";
 
+		String ALIGN_LEFT = "<";
 		String TOC = ":toc: ";
 		String ICONS = ":icons: ";
 		String NUMBERED = ":numbered:";

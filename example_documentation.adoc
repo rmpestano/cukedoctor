@@ -12,7 +12,7 @@
 == Summary 
 
 
-[cols="12*^1", options="header,footer"]
+[cols="12*^m", options="header,footer"]
 |===
 3+|Scenarios 7+|Steps 2+|Features: 3
 
@@ -29,7 +29,7 @@
 |Duration
 |Status
 
-12+^|<<Feature 1 name can be long>>
+12+^|*<<Feature 1 name can be long>>*
 
 |1
 |2
@@ -44,7 +44,7 @@
 |2ms
 |passed
 
-12+^|<<Feature 2 name can also be very long>>
+12+^|*<<Feature 2 name can also be very long>>*
 
 |1
 |2
@@ -59,7 +59,7 @@
 |3ms
 <|passed
 
-12+^|<<Feature 3>>
+12+^|*<<Feature 3>>*
 
 |1
 |2

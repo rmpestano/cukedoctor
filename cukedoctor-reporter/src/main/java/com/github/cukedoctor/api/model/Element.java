@@ -98,4 +98,8 @@ public class Element {
 	public int hashCode() {
 		return type.hashCode();
 	}
+
+	public boolean hasTags() {
+		return tags != null && !tags.isEmpty();
+	}
 }

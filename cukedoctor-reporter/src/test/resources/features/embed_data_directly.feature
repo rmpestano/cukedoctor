@@ -1,9 +1,9 @@
 Feature: An embed data directly feature
 
-  Scenario:
+  Scenario: scenario 1
     Given I embed data directly
 
-  Scenario Outline:
+  Scenario Outline: scenario 2
     Given I embed data directly
 
     Examples:

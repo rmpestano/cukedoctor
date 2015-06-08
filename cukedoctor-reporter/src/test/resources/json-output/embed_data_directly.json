@@ -10,7 +10,7 @@
       {
         "id": "an-embed-data-directly-feature;",
         "keyword": "Scenario",
-        "name": "",
+        "name": "scenario 1",
         "line": 3,
         "description": "",
         "type": "scenario",
@@ -37,7 +37,7 @@
       },
       {
         "keyword": "Scenario Outline",
-        "name": "",
+        "name": "scenario 2",
         "line": 11,
         "description": "",
         "id": "an-embed-data-directly-feature;;;2",
