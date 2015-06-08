@@ -248,5 +248,5 @@ public interface Expectations {
 			""+newLine() +
 			"== An outline feature"+newLine() +
 			""+newLine() +
-			"=== Scenario Outline: outline\n"+newLine();
+			"=== Scenario Outline: outline"+newLine()+newLine();
 }
