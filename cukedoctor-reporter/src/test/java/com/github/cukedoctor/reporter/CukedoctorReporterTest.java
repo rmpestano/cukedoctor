@@ -270,7 +270,7 @@ public class CukedoctorReporterTest {
 				contains("|010ms").
 				containsOnlyOnce("|1|1|2|1|1|0|0|0|0|2|010ms|{empty}");
 
-
+		FileUtil.saveFile("../test-docs/doc_one_feature.adoc",resultDoc); //save to target/test-docs folder
 		assertThat(resultDoc).isEqualTo(Expectations.DOCUMENTATION_FOR_ONE_FEATURE);
 	}
 
@@ -299,6 +299,7 @@ public class CukedoctorReporterTest {
 				contains("|010ms").
 				containsOnlyOnce("|4|2|6|4|1|0|0|0|1|6|010ms|{empty}");
 
+		FileUtil.saveFile("../test-docs/doc_multiple_feature.adoc",resultDoc); //save to target/test-docs folder
 		assertThat(resultDoc).isEqualTo(Expectations.DOCUMENTATION_FOR_MULTIPLE_FEATURES);
 	}
 

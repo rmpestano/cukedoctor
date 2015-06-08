@@ -1,8 +1,12 @@
 package com.github.cukedoctor.util;
 
 import org.apache.maven.shared.utils.io.DirectoryScanner;
+import org.apache.maven.shared.utils.io.FileUtils;
 
 import java.io.File;
+import java.io.IOException;
+import java.net.URISyntaxException;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
@@ -51,4 +55,30 @@ public class FileUtil {
 		}
 
 	}
+
+	public static void saveFile(String name, String data){
+		if(name == null){
+			throw new RuntimeException("Provide file name");
+		}
+
+		if(!name.startsWith("/")){
+			name = "/"+name;
+		}
+		try {
+			//String relativePath = Paths.get("").toAbsolutePath().toString();
+			String relativePath = new File(FileUtil.class.getClassLoader().getResource("").toURI()).getAbsolutePath();
+
+			File f = new File(relativePath+name.substring(0,name.lastIndexOf("/")));//create subdirs (if there any)
+			f.mkdirs();
+			File file = new File(relativePath+name);
+			file.createNewFile();
+			FileUtils.fileWrite(file,"UTF-8",data);
+			Logger.getLogger(FileUtil.class.getName()).info("Wrote: "+file.getAbsolutePath());
+		} catch (IOException e) {
+			Logger.getLogger(FileUtil.class.getName()).log(Level.SEVERE, "Could not create file " + name,e);
+		} catch (URISyntaxException e) {
+			e.printStackTrace();
+		}
+	}
+
 }

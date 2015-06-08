@@ -157,9 +157,9 @@ public interface Expectations {
 			"|==="+newLine() + newLine() +
 			"== One passing scenario, one failing scenario"+newLine() + newLine() +
 			"=== Scenario: Passing"+newLine() +
-			"[small]#tags: @b#"+newLine() + newLine() + newLine() +
+			"[small]#tags: @a,@b#"+newLine() + newLine() + newLine() +
 			"=== Scenario: Failing" + newLine() +
-			"[small]#tags: @c#"+newLine() +newLine()+newLine();
+			"[small]#tags: @a,@c#"+newLine() +newLine()+newLine();
 	
 	String DOCUMENTATION_FOR_MULTIPLE_FEATURES = ":toc: left"+newLine() +
 			":backend: html5"+newLine() +
@@ -236,9 +236,9 @@ public interface Expectations {
 			"|==="+newLine() + newLine() +
 			"== One passing scenario, one failing scenario"+newLine() + newLine() +
 			"=== Scenario: Passing"+newLine() +
-			"[small]#tags: @b#"+newLine() + newLine() + newLine() +
+			"[small]#tags: @a,@b#"+newLine() + newLine() + newLine() +
 			"=== Scenario: Failing" + newLine() +
-			"[small]#tags: @c#"+newLine() +newLine() + newLine() +
+			"[small]#tags: @a,@c#"+newLine() +newLine() + newLine() +
 			"== An embed data directly feature"+newLine() +
 			""+newLine() +
 			"=== Scenario: scenario 1"+newLine() +

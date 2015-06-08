@@ -121,18 +121,26 @@ public class CukedoctorReporter {
 		writer.write(Markup.H2,feature.getName(),newLine(),newLine())
 				.write(feature.getDescription(),newLine(),newLine());
 
-		renderFeatureScenarios(feature.getScenarios());
+		renderFeatureScenarios(feature);
 		return instance;
 	}
 
-	protected CukedoctorReporter renderFeatureScenarios(List<Element> elements) {
-		for (Element scenario : elements) {
+	protected CukedoctorReporter renderFeatureScenarios(Feature feature) {
+		for (Element scenario : feature.getScenarios()) {
 			writer.write(Markup.H3,scenario.getKeyword(), ": ",scenario.getName(),newLine());
 			if(scenario.hasTags()){
 				writer.write("[small]#tags: ");
-				for (Tag tag : scenario.getTags()) {
-					writer.write(tag.getName());
+				StringBuilder tags = new StringBuilder();
+				for (Tag featureTag : feature.getTags()) {
+					tags.append(featureTag.getName()).append(",");
 				}
+				for (Tag scenarioTag : scenario.getTags()) {
+					tags.append(scenarioTag.getName()).append(",");
+				}
+				if(tags.indexOf(",") != -1){//delete last comma
+					tags.deleteCharAt(tags.lastIndexOf(","));
+				}
+				writer.write(tags.toString());
 				writer.write("#",newLine(),newLine());
 			}
 
