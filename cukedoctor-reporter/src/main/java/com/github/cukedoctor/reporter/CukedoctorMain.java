@@ -2,6 +2,7 @@ package com.github.cukedoctor.reporter;
 
 import com.beust.jcommander.JCommander;
 import com.beust.jcommander.Parameter;
+import com.beust.jcommander.ParameterException;
 import com.github.cukedoctor.api.model.Feature;
 import com.github.cukedoctor.parser.FeatureParser;
 import com.github.cukedoctor.util.FileUtil;
@@ -29,8 +30,14 @@ public class CukedoctorMain {
 	
 	
 	public void execute(String args[]){
-		JCommander commandLine = new JCommander(this,args);
-
+		JCommander commandLine = null;
+		try {
+			 commandLine = new JCommander(this);
+			commandLine.parse(args);
+		}catch (ParameterException pe){
+			commandLine.usage();
+			throw pe;
+		}
 		if (title == null) {
 			title = docName.trim().substring(0, 1).toUpperCase() + docName.trim().substring(1);//Document title should be upper
 		}
