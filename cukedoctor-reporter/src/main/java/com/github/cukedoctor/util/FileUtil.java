@@ -6,6 +6,7 @@ import org.apache.maven.shared.utils.io.FileUtils;
 import java.io.File;
 import java.io.IOException;
 import java.net.URISyntaxException;
+import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
@@ -23,7 +24,7 @@ public class FileUtil {
 	 */
 	public static String findJsonFile(String path) {
 		try {
-			return new File(FileUtil.class.getClassLoader().getResource(path).toURI()).getAbsolutePath();
+			return Paths.get(path.trim()).toAbsolutePath().toString();
 		} catch (Exception e) {
 			e.printStackTrace();
 			Logger.getLogger(FileUtil.class.getName()).log(Level.SEVERE, "Could not load feature from " + path);
@@ -40,7 +41,7 @@ public class FileUtil {
 		try {
 			DirectoryScanner scanner = new DirectoryScanner();
 			scanner.setIncludes(new String[]{"**/*.json"});
-			scanner.setBasedir(new File(FileUtil.class.getClassLoader().getResource(startDir).toURI()));
+			scanner.setBasedir(new File(Paths.get(startDir.trim()).toAbsolutePath().toString()));
 			scanner.scan();
 			List<String> absolutePaths = new ArrayList<>(scanner.getIncludedFiles().length);
 			for (int i = 0; i < scanner.getIncludedFiles().length; i++) {
@@ -65,8 +66,8 @@ public class FileUtil {
 			name = "/"+name;
 		}
 		try {
-			//String relativePath = Paths.get("").toAbsolutePath().toString();
-			String relativePath = new File(FileUtil.class.getClassLoader().getResource("").toURI()).getAbsolutePath();
+			String relativePath = Paths.get("").toAbsolutePath().toString();
+			//String relativePath = new File(FileUtil.class.getClassLoader().getResource("").toURI()).getAbsolutePath();
 
 			File f = new File(relativePath+name.substring(0,name.lastIndexOf("/")));//create subdirs (if there any)
 			f.mkdirs();
@@ -76,9 +77,10 @@ public class FileUtil {
 			Logger.getLogger(FileUtil.class.getName()).info("Wrote: "+file.getAbsolutePath());
 		} catch (IOException e) {
 			Logger.getLogger(FileUtil.class.getName()).log(Level.SEVERE, "Could not create file " + name,e);
-		} catch (URISyntaxException e) {
-			e.printStackTrace();
 		}
 	}
 
+	public static File loadFile(String path) {
+		return new File(Paths.get(path.trim()).toAbsolutePath().toString());
+	}
 }

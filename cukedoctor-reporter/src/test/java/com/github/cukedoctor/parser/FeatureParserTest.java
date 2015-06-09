@@ -23,14 +23,14 @@ public class FeatureParserTest {
 
 	@Test
 	public void shouldParseFeature() throws IOException {
-		String path = FileUtil.findJsonFile("json-output/" + onePassingOneFailing);
+		String path = FileUtil.findJsonFile("target/test-classes/json-output/" + onePassingOneFailing);
 		List<Feature> features = FeatureParser.parse(path);
 		assertThat(features).isNotNull().hasSize(1).contains(FeatureBuilder.instance().name("One passing scenario, one failing scenario").id("one-passing-scenario,-one-failing-scenario").build());
 	}
 
 	@Test
 	public void shouldParseFeaturesInDir() throws IOException {
-		List<String> paths = FileUtil.findJsonFiles("json-output");
+		List<String> paths = FileUtil.findJsonFiles("target/test-classes/json-output");
 		assertThat(paths).hasSize(6);
 		List<Feature> features = FeatureParser.parse(paths);
 		assertThat(features).hasSize(4).contains(FeatureBuilder.instance().name("An embed data directly feature").id("an-embed-data-directly-feature").build());

@@ -32,10 +32,10 @@ public class CukedoctorReporterTest {
 
 	@BeforeClass
 	public static void loadFeatures() {
-		onePassingOneFailing = FileUtil.findJsonFile("json-output/one_passing_one_failing.json");
-		embedDataDirectly = FileUtil.findJsonFile("json-output/embed_data_directly.json");
-		outline = FileUtil.findJsonFile("json-output/outline.json");
-		invalidFeatureResult = FileUtil.findJsonFile("json-output/invalid_feature_result.json");
+		onePassingOneFailing = FileUtil.findJsonFile("target/test-classes/json-output/one_passing_one_failing.json");
+		embedDataDirectly = FileUtil.findJsonFile("target/test-classes/json-output/embed_data_directly.json");
+		outline = FileUtil.findJsonFile("target/test-classes/json-output/outline.json");
+		invalidFeatureResult = FileUtil.findJsonFile("target/test-classes/json-output/invalid_feature_result.json");
 	}
 
 
@@ -270,7 +270,7 @@ public class CukedoctorReporterTest {
 				contains("|010ms").
 				containsOnlyOnce("|1|1|2|1|1|0|0|0|0|2|010ms|{empty}");
 
-		FileUtil.saveFile("../test-docs/doc_one_feature.adoc",resultDoc); //save to target/test-docs folder
+		FileUtil.saveFile("target/test-docs/doc_one_feature.adoc",resultDoc); //save to target/test-docs folder
 		assertThat(resultDoc).isEqualTo(Expectations.DOCUMENTATION_FOR_ONE_FEATURE);
 	}
 
@@ -299,7 +299,7 @@ public class CukedoctorReporterTest {
 				contains("|010ms").
 				containsOnlyOnce("|4|2|6|4|1|0|0|0|1|6|010ms|{empty}");
 
-		FileUtil.saveFile("../test-docs/doc_multiple_feature.adoc",resultDoc); //save to target/test-docs folder
+		FileUtil.saveFile("target/test-docs/doc_multiple_feature.adoc",resultDoc); //save to target/test-docs folder
 		assertThat(resultDoc).isEqualTo(Expectations.DOCUMENTATION_FOR_MULTIPLE_FEATURES);
 	}
 
