@@ -27,8 +27,8 @@ public class CukedoctorMain {
 
   @Parameter(names = "-t", description = "Documentation title (first section). Document name will be used if title is not provided", required = false)
   private String title;
-	
-	
+
+
 	public void execute(String args[]){
 		JCommander commandLine = null;
 		try {
@@ -39,7 +39,9 @@ public class CukedoctorMain {
 			throw pe;
 		}
 		if (title == null) {
-			title = docName.trim().substring(0, 1).toUpperCase() + docName.trim().substring(1);//Document title should be upper
+			//Use docName as title with first char in uppercase
+			int indexOfFirstDocTitleChar = docName.contains("/") ? docName.lastIndexOf("/")+1 : 0;
+			title = docName.trim().substring(indexOfFirstDocTitleChar, indexOfFirstDocTitleChar+1).toUpperCase() + docName.trim().substring(indexOfFirstDocTitleChar+1);
 		}
 
 		System.out.println("Generating living documentation with args:");
