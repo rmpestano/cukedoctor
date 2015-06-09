@@ -1,13 +1,13 @@
 package com.github.cukedoctor.reporter;
 
+import com.beust.jcommander.ParameterException;
 import com.github.cukedoctor.util.FileUtil;
-import org.apache.commons.cli.ParseException;
+import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;
 
-import java.net.URISyntaxException;
-
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 /**
@@ -17,13 +17,53 @@ import static org.junit.Assert.assertTrue;
 public class CukedoctorMainTest {
 
 	@Test
-	public void shouldCreateDocumentationViaMainClass() throws ParseException, URISyntaxException {
-		String[] args = new String[3];
-		args[0] = "-n target/test-classes/document.adoc";
-		args[1] = "-p target/test-classes/json-output";
-		args[2] = "-t Living Documentation";
-		CukedoctorMain.main(args);
+	public void shouldCreateDocumentationViaMainClass() {
+		new CukedoctorMain().execute(new String[] {
+				"-n", "\"target/test-classes/document.adoc\"",
+				"-p", "\"target/test-classes/json-output\"",
+				"-t", "Living Documentation"
+		});
 		assertTrue(FileUtil.loadFile("target/test-classes/document.adoc").exists());
+	}
+
+	@Test
+	public void shouldCreateDocumentationUsingDocNameAsTitle() {
+		new CukedoctorMain().execute(new String[] {
+				"-n", "\"target/test-classes/living Documentation.adoc\"",
+				"-p", "\"target/test-classes/json-output\"",
+				"-t", "Living Documentation"
+		});
+		assertTrue(FileUtil.loadFile("target/test-classes/living Documentation.adoc").exists());
+	}
+
+	@Test
+	public void shouldFailToCreateDocumentationWithoutDocNameParam() {
+		try {
+			new CukedoctorMain().execute(new String[] {
+					"-p", "\"target/test-classes/json-output\"",
+					"-t", "Living Documentation"
+			});
+		} catch (ParameterException pe) {
+			assertEquals(pe.getMessage(),"The following option is required: -n ");
+			return;
+		}
+
+		Assert.fail("Should not reach here");
+	}
+
+	@Test
+	public void shouldFailToCreateDocumentationWithoutPathParam() {
+		try {
+			new CukedoctorMain().execute(new String[] {
+					"-n", "\"target/test-classes/living Documentation.adoc\"",
+					"-t", "Living Documentation"
+			});
+		} catch (ParameterException pe) {
+			assertEquals(pe.getMessage(),"The following option is required: -p ");
+			return;
+		}
+
+		Assert.fail("Should not reach here");
 	}
 
 
