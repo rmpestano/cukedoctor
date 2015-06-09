@@ -254,7 +254,7 @@ public class CukedoctorReporter {
 				write(Markup.TABLE_COL, totalPassedSteps, Markup.TABLE_COL, totalFailedSteps).
 				write(Markup.TABLE_COL,totalSkippedSteps,Markup.TABLE_COL, totalPendingSteps).
 				write(Markup.TABLE_COL,totalUndefinedSteps,Markup.TABLE_COL,totalMissingSteps).
-				write(Markup.TABLE_COL,totalSteps,Markup.TABLE_COL, Formatter.formatTime(totalDuration),"|{empty}");
+				write(Markup.TABLE_COL,totalSteps," 2+",Markup.TABLE_COL, Formatter.formatTime(totalDuration));
 		writer.write(newLine());
 
 		return instance;

@@ -207,7 +207,7 @@ public class CukedoctorReporterTest {
 		assertThat(resultDoc).isNotNull().
 				containsOnlyOnce("<<One passing scenario, one failing scenario>>").
 				containsOnlyOnce("|failed").
-		        contains("|010ms|{empty}");
+		        contains("2+|010ms");
 
 		assertThat(resultDoc).isEqualTo(Expectations.SUMMARY_FOR_ONE_FEATURE);
 	}
@@ -224,7 +224,7 @@ public class CukedoctorReporterTest {
 				doesNotContain("<<invalid feature result>>").
 		        containsOnlyOnce("|passed").
 				contains("|failed").
-				containsOnlyOnce("|010ms|{empty}");
+				containsOnlyOnce("2+|010ms");
 
 
 		assertThat(resultDoc).isEqualTo(Expectations.SUMMARY_FOR_MULTIPLE_FEATURES);
@@ -238,7 +238,7 @@ public class CukedoctorReporterTest {
 		String resultDoc = CukedoctorReporter.instance(features,"Title").renderTotalsRow().getDocumentation().toString();
 		assertThat(resultDoc).isNotNull().
 				containsOnlyOnce("12+^|*Totals*").
-				contains("|1|1|2|1|1|0|0|0|0|2|010ms|{empty}");
+				contains("|1|1|2|1|1|0|0|0|0|2 2+|010ms");
 	}
 
 	@Test
@@ -247,7 +247,7 @@ public class CukedoctorReporterTest {
 		String resultDoc = CukedoctorReporter.instance(features,"Title").renderTotalsRow().getDocumentation().toString();
 		assertThat(resultDoc).isNotNull().
 				containsOnlyOnce("12+^|*Totals*").
-				contains("|4|2|6|4|1|0|0|0|1|6|010ms|{empty}");
+				contains("|4|2|6|4|1|0|0|0|1|6 2+|010ms");
 	}
 
 	@Test
@@ -268,7 +268,7 @@ public class CukedoctorReporterTest {
 				containsOnlyOnce("<<One passing scenario, one failing scenario>>").
 				containsOnlyOnce("|failed").
 				contains("|010ms").
-				containsOnlyOnce("|1|1|2|1|1|0|0|0|0|2|010ms|{empty}");
+				containsOnlyOnce("|1|1|2|1|1|0|0|0|0|2 2+|010ms");
 
 		FileUtil.saveFile("target/test-docs/doc_one_feature.adoc",resultDoc); //save to target/test-docs folder
 		assertThat(resultDoc).isEqualTo(Expectations.DOCUMENTATION_FOR_ONE_FEATURE);
@@ -297,7 +297,7 @@ public class CukedoctorReporterTest {
 				containsOnlyOnce("|passed").
 				contains("|failed").
 				contains("|010ms").
-				containsOnlyOnce("|4|2|6|4|1|0|0|0|1|6|010ms|{empty}");
+				containsOnlyOnce("|4|2|6|4|1|0|0|0|1|6 2+|010ms");
 
 		FileUtil.saveFile("target/test-docs/doc_multiple_feature.adoc",resultDoc); //save to target/test-docs folder
 		assertThat(resultDoc).isEqualTo(Expectations.DOCUMENTATION_FOR_MULTIPLE_FEATURES);

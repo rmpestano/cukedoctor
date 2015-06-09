@@ -41,7 +41,7 @@ public interface Expectations {
 			"|010ms" + newLine() +
 			"|failed" + newLine() +
 			"12+^|*Totals*" + newLine() +
-			"|1|1|2|1|1|0|0|0|0|2|010ms|{empty}" + newLine() +
+			"|1|1|2|1|1|0|0|0|0|2 2+|010ms" + newLine() +
 			"|===" + newLine();
 
 
@@ -107,7 +107,7 @@ public interface Expectations {
 			"|000ms"+newLine() +
 			"|failed"+newLine() +
 			"12+^|*Totals*" + newLine() +
-			"|4|2|6|4|1|0|0|0|1|6|010ms|{empty}" + newLine() +
+			"|4|2|6|4|1|0|0|0|1|6 2+|010ms" + newLine() +
 			"|==="+newLine();
 	
 	String DOCUMENTATION_FOR_ONE_FEATURE = ":toc: left"+newLine() +
@@ -153,7 +153,7 @@ public interface Expectations {
 			"|010ms"+newLine() +
 			"|failed"+newLine() +
 			"12+^|*Totals*" + newLine() +
-			"|1|1|2|1|1|0|0|0|0|2|010ms|{empty}" + newLine() +
+			"|1|1|2|1|1|0|0|0|0|2 2+|010ms" + newLine() +
 			"|==="+newLine() + newLine() +
 			"== One passing scenario, one failing scenario"+newLine() + newLine() +
 			"=== Scenario: Passing"+newLine() +
@@ -232,7 +232,7 @@ public interface Expectations {
 			"|000ms"+newLine() +
 			"|failed"+newLine() +
 			"12+^|*Totals*" + newLine() +
-			"|4|2|6|4|1|0|0|0|1|6|010ms|{empty}" + newLine() +
+			"|4|2|6|4|1|0|0|0|1|6 2+|010ms" + newLine() +
 			"|==="+newLine() + newLine() +
 			"== One passing scenario, one failing scenario"+newLine() + newLine() +
 			"=== Scenario: Passing"+newLine() +

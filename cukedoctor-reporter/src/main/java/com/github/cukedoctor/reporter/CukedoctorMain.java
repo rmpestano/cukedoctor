@@ -49,11 +49,19 @@ public class CukedoctorMain {
 		}
 
 
-		List<Feature> features = FeatureParser.parse(FileUtil.findJsonFiles(path));
+
+		List<Feature> features = null;
+		if(path.endsWith(".json")){
+		  features	= FeatureParser.parse(FileUtil.findJsonFile(path));
+		} else{
+			features	= FeatureParser.parse(FileUtil.findJsonFiles(path));
+		}
 
 		if (features == null || features.isEmpty()) {
 			System.out.println("No features found in path:" + path);
 			return;
+		} else{
+			System.out.println("Found "+features.size() + " feature(s)");
 		}
 		if (docName.toLowerCase().endsWith("html")) {
 			generateHtml(features);

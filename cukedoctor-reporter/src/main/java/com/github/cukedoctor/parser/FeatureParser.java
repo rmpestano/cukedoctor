@@ -6,9 +6,7 @@ import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.github.cukedoctor.api.model.Feature;
 
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -22,11 +20,11 @@ public class FeatureParser {
 	static final Logger log = Logger.getLogger(FeatureParser.class.getName());
 
 	public static List<Feature> parse(String json) {
-		FileReader fr = null;
+		InputStreamReader is = null;
 		List<Feature> features = null;
 		try {
-			fr = new FileReader(json);
-			features = new ObjectMapper().readValue(fr, new TypeReference<List<Feature>>() {
+			is = new InputStreamReader(new FileInputStream(json),"UTF-8");
+			features = new ObjectMapper().readValue(is, new TypeReference<List<Feature>>() {
 			});
 			Iterator<Feature> it = features.iterator();
 			while (it.hasNext()) {
