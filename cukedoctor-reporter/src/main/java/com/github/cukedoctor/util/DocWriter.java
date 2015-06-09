@@ -49,9 +49,5 @@ public class DocWriter {
 		return instance;
 	}
 
-	public String build() {
-		return doc.toString();
-	}
-
 
 }
