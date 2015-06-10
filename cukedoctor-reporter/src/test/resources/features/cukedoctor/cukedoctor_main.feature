@@ -5,7 +5,7 @@ Feature: Cukedoctor Main
 
   Scenario: Generate documentation of a single file
     Given Cucumber json output file located at "/target/test-classes/json-output/sample.json"
-    When I execute CukedoctorMain with args "-n outputFile.adoc" "-p /target/test-classes/json-output/sample.json" and "-t Documentation"
+    When I execute CukedoctorMain with args "-n /target/test-classes/outputFile.adoc" "-p /target/test-classes/json-output/sample.json" and "-t Documentation"
     Then A file named outputFile.adoc should be generated with the following content:
     """
 :toc: right
