@@ -1,0 +1,48 @@
+package com.github.cukedoctor.bdd;
+
+import com.github.cukedoctor.reporter.CukedoctorMain;
+import cucumber.api.PendingException;
+import cucumber.api.java.en.Given;
+import cucumber.api.java.en.Then;
+import cucumber.api.java.en.When;
+
+import static org.junit.Assert.assertEquals;
+
+/**
+ * Created by pestano on 09/06/15.
+ */
+public class CukedoctorMainSteps {
+
+	String path;
+
+	String generatedDoc;
+
+	@Given("^Cucumber json output file located at \"([^\"]*)\"$")
+	public void Cucumeber_json_output_file_located_at(String arg1) throws Throwable {
+		path = arg1;
+	}
+
+
+	@When("^I execute CukedoctorMain with args \"([^\"]*)\" \"([^\"]*)\" and \"([^\"]*)\"$")
+	public void I_execute_CukedoctorMain_with_args_and(String arg1, String arg2, String arg3) throws Throwable {
+		String[] args = new String[6];
+
+		args[0] = arg1.split(" ")[0];
+		args[1] = arg1.split(" ")[1];
+		args[2] = arg2.split(" ")[0];
+		args[3] = arg2.split(" ")[1];
+		args[4] = arg3.split(" ")[0];
+		args[5] = arg3.split(" ")[1];
+		generatedDoc = new CukedoctorMain().execute(args);
+
+	}
+
+	@Then("^A file named outputFile.adoc should be generated with the following content:$")
+	public void A_file_named_outputFile_adoc_should_be_generated_with_the_following_content(final String fileContent) throws Throwable {
+		 assertEquals(fileContent,generatedDoc);
+	}
+
+
+
+
+}

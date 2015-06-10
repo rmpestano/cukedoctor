@@ -24,7 +24,14 @@ public class FileUtil {
 	 */
 	public static String findJsonFile(String path) {
 		try {
-			return Paths.get(path.trim()).toAbsolutePath().toString();
+			if(path == null){
+				path = "/";
+			}
+
+			if(path.startsWith("/")==false){
+				path = "/"+path;
+			}
+			return Paths.get("").toAbsolutePath().toString()+path.trim().toString();
 		} catch (Exception e) {
 			e.printStackTrace();
 			Logger.getLogger(FileUtil.class.getName()).log(Level.SEVERE, "Could not load feature from " + path);

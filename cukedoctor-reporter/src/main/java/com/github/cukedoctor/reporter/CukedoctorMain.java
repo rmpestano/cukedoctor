@@ -7,9 +7,7 @@ import com.github.cukedoctor.api.model.Feature;
 import com.github.cukedoctor.parser.FeatureParser;
 import com.github.cukedoctor.util.FileUtil;
 
-import java.beans.ParameterDescriptor;
 import java.util.List;
-import java.util.Map;
 
 /**
  * Created by pestano on 08/06/15.
@@ -19,36 +17,36 @@ import java.util.Map;
  */
 public class CukedoctorMain {
 
-  @Parameter(names = "-n", description = "Document name (with extension - supported html and pdf)", required = true, echoInput = true)
-  private String docName;
+	@Parameter(names = "-n", description = "Document name (with extension - supported html and pdf)", required = true, echoInput = true)
+	private String docName;
 
-  @Parameter(names = "-p", description = "Path to cucumber json output files (can be a directory or a file) ", required = true)
-  private String path;
+	@Parameter(names = "-p", description = "Path to cucumber json output files (can be a directory or a file) ", required = true)
+	private String path;
 
-  @Parameter(names = "-t", description = "Documentation title (first section). Document name will be used if title is not provided", required = false)
-  private String title;
+	@Parameter(names = "-t", description = "Documentation title (first section). Document name will be used if title is not provided", required = false)
+	private String title;
 
 
-	public void execute(String args[]){
+	public String execute(String args[]) {
 		JCommander commandLine = null;
 		try {
-			 commandLine = new JCommander(this);
+			commandLine = new JCommander(this);
 			commandLine.parse(args);
-		}catch (ParameterException pe){
+		} catch (ParameterException pe) {
 			commandLine.usage();
 			throw pe;
 		}
 		if (title == null) {
 			//Use docName as title with first char in uppercase
-			int indexOfFirstDocTitleChar = docName.contains("/") ? docName.lastIndexOf("/")+1 : 0;
-			title = docName.trim().substring(indexOfFirstDocTitleChar, indexOfFirstDocTitleChar+1).toUpperCase() + docName.trim().substring(indexOfFirstDocTitleChar+1);
+			int indexOfFirstDocTitleChar = docName.contains("/") ? docName.lastIndexOf("/") + 1 : 0;
+			title = docName.trim().substring(indexOfFirstDocTitleChar, indexOfFirstDocTitleChar + 1).toUpperCase() + docName.trim().substring(indexOfFirstDocTitleChar + 1);
 		}
 
 		System.out.println("Generating living documentation with args:");
 
-	 System.out.println("-n" + ": " + docName);
-	 System.out.println("-p" + ": " + path);
-	 System.out.println("-t" + ": " + title);
+		System.out.println("-n" + ": " + docName);
+		System.out.println("-p" + ": " + path);
+		System.out.println("-t" + ": " + title);
 
 		List<Feature> features = null;
 		if (path.endsWith(".json")) {
@@ -59,31 +57,31 @@ public class CukedoctorMain {
 
 		if (features == null || features.isEmpty()) {
 			System.out.println("No features found in path:" + path);
-			return;
+			return null;
 		} else {
 			System.out.println("Found " + features.size() + " feature(s)");
 		}
+		String doc = CukedoctorReporter.instance(features, title).createDocumentation();
 		if (docName.toLowerCase().endsWith("html")) {
-			generateHtml(features);
+			generateHtml(doc);
 		} else if (docName.toLowerCase().endsWith("pdf")) {
-			generatePdf(features);
+			generatePdf(doc);
 		} else {
-			String doc = CukedoctorReporter.instance(features, title).createDocumentation();
 			FileUtil.saveFile(docName, doc);
 		}
-
+		return doc;
 	}
 
-  public static void main(String args[]) {
-    CukedoctorMain main = new CukedoctorMain();
+	public static void main(String args[]) {
+		CukedoctorMain main = new CukedoctorMain();
 		main.execute(args);
-  }
+	}
 
-  private static void generateHtml(List<Feature> features) {
-    throw new UnsupportedOperationException("Not implemented");
-  }
+	private static void generateHtml(String docContent) {
+		throw new UnsupportedOperationException("Not implemented");
+	}
 
-  private static void generatePdf(List<Feature> features) {
-    throw new UnsupportedOperationException("Not implemented");
-  }
+	private static void generatePdf(String docContent) {
+		throw new UnsupportedOperationException("Not implemented");
+	}
 }

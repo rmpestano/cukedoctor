@@ -312,7 +312,7 @@ public class CukedoctorReporterTest {
 		assertThat(resultDoc).contains("****" + newLine() +
 				"As a user +"+newLine() +
 				"I want to do something +"+newLine() +
-				" In order to achieve another thing"+newLine() +
+				"In order to achieve another thing"+newLine() +
 				"****");
 	}
 }

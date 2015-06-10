@@ -4,22 +4,20 @@ Feature: Cukedoctor Main
   So that I can generate wonderful living documentation
 
   Scenario: Generate documentation of a single file
-    Given Cucumeber json output file located at "test-classes/json-output/sample.json"
-    And cukedoctor.jar file
-    When I run java -jar cukedoctor.jar -n"outputFile.adoc" -p"test-classes/json-output/sample.json"
-    -t"Documentation Title"
+    Given Cucumber json output file located at "/target/test-classes/json-output/sample.json"
+    When I execute CukedoctorMain with args "-n outputFile.adoc" "-p /target/test-classes/json-output/sample.json" and "-t Documentation"
     Then A file named outputFile.adoc should be generated with the following content:
     """
 :toc: right
 :backend: html5
-:doctitle: Living Documentation
+:doctitle: Documentation
 :doctype: article
 :icons: font
 :!numbered:
 :sectanchors:
 :sectlink:
 
-= Living Documentation
+= Documentation
 
 == Summary
 [cols="12*^m", options="header,footer"]
@@ -61,7 +59,7 @@ Feature: Cukedoctor Main
 ****
 As a user +
 I want to do something +
- In order to achieve another thing
+In order to achieve another thing
 ****
 
 === Scenario Outline: Parsing scenarios with multiple examples
