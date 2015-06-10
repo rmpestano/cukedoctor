@@ -118,8 +118,14 @@ public class CukedoctorReporter {
 	}
 
 	protected CukedoctorReporter renderFeature(Feature feature) {
-		writer.write(Markup.H2,feature.getName(),newLine(),newLine())
-				.write(feature.getDescription(),newLine(),newLine());
+		writer.write(Markup.H2,feature.getName(),newLine(),newLine());
+				if(feature.getDescription() != null && !"".equals(feature.getDescription().trim())){
+					writer.write("****",newLine()).
+					//feature description has \n to delimit new lines
+					write(feature.getDescription().trim().replaceAll("\\n","+"+newLine())).
+					write(newLine(),"****",newLine(),newLine());
+				}
+
 
 		renderFeatureScenarios(feature);
 		return instance;

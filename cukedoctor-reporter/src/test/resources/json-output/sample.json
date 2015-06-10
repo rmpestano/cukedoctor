@@ -3,7 +3,7 @@
     "keyword": "Feature",
     "name": "Sample test",
     "line": 1,
-    "description": "",
+    "description": "As a user \nI want to do something \n In order to achieve another thing",
     "id": "sample-test",
     "uri": "features/test_outline.feature",
     "elements": [

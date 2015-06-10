@@ -15,8 +15,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static com.github.cukedoctor.util.Constants.newLine;
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.Assert.assertEquals;
-import static org.assertj.core.api.Assertions.*;
 
 
 /**
@@ -139,7 +139,7 @@ public class CukedoctorReporterTest {
 				":sectlink:" + newLine();
 
 
-		String document = CukedoctorReporter.instance(features, "Documentation Title",null).renderAttributes().
+		String document = CukedoctorReporter.instance(features, "Documentation Title", null).renderAttributes().
 				getDocumentation().toString();
 		assertEquals(document, expected);
 	}
@@ -201,28 +201,28 @@ public class CukedoctorReporterTest {
 	// renderSummary() tests
 
 	@Test
-	public void shouldRenderSummaryForOneFeature(){
+	public void shouldRenderSummaryForOneFeature() {
 		List<Feature> features = FeatureParser.parse(onePassingOneFailing);
-		String resultDoc = CukedoctorReporter.instance(features,"Title").renderSummary().getDocumentation().toString();
+		String resultDoc = CukedoctorReporter.instance(features, "Title").renderSummary().getDocumentation().toString();
 		assertThat(resultDoc).isNotNull().
 				containsOnlyOnce("<<One passing scenario, one failing scenario>>").
 				containsOnlyOnce("|failed").
-		        contains("2+|010ms");
+				contains("2+|010ms");
 
 		assertThat(resultDoc).isEqualTo(Expectations.SUMMARY_FOR_ONE_FEATURE);
 	}
 
 
 	@Test
-	public void shouldRenderSummaryForMultipleFeatures(){
-		List<Feature> features = FeatureParser.parse(onePassingOneFailing,embedDataDirectly,outline,invalidFeatureResult);
-		String resultDoc = CukedoctorReporter.instance(features,"Title").renderSummary().getDocumentation().toString();
+	public void shouldRenderSummaryForMultipleFeatures() {
+		List<Feature> features = FeatureParser.parse(onePassingOneFailing, embedDataDirectly, outline, invalidFeatureResult);
+		String resultDoc = CukedoctorReporter.instance(features, "Title").renderSummary().getDocumentation().toString();
 		assertThat(resultDoc).isNotNull().
 				containsOnlyOnce("<<One passing scenario, one failing scenario>>").
 				containsOnlyOnce("<<An embed data directly feature>>").
 				containsOnlyOnce("<<An outline feature>>").
 				doesNotContain("<<invalid feature result>>").
-		        containsOnlyOnce("|passed").
+				containsOnlyOnce("|passed").
 				contains("|failed").
 				containsOnlyOnce("2+|010ms");
 
@@ -233,25 +233,25 @@ public class CukedoctorReporterTest {
 	// renderTotalsRow() tests
 
 	@Test
-	public void shouldRenderTotalRowForOneFeature(){
+	public void shouldRenderTotalRowForOneFeature() {
 		List<Feature> features = FeatureParser.parse(onePassingOneFailing);
-		String resultDoc = CukedoctorReporter.instance(features,"Title").renderTotalsRow().getDocumentation().toString();
+		String resultDoc = CukedoctorReporter.instance(features, "Title").renderTotalsRow().getDocumentation().toString();
 		assertThat(resultDoc).isNotNull().
 				containsOnlyOnce("12+^|*Totals*").
 				contains("|1|1|2|1|1|0|0|0|0|2 2+|010ms");
 	}
 
 	@Test
-	public void shouldRenderTotalRowForMultipleFeature(){
-		List<Feature> features = FeatureParser.parse(onePassingOneFailing,embedDataDirectly,outline,invalidFeatureResult);
-		String resultDoc = CukedoctorReporter.instance(features,"Title").renderTotalsRow().getDocumentation().toString();
+	public void shouldRenderTotalRowForMultipleFeature() {
+		List<Feature> features = FeatureParser.parse(onePassingOneFailing, embedDataDirectly, outline, invalidFeatureResult);
+		String resultDoc = CukedoctorReporter.instance(features, "Title").renderTotalsRow().getDocumentation().toString();
 		assertThat(resultDoc).isNotNull().
 				containsOnlyOnce("12+^|*Totals*").
 				contains("|4|2|6|4|1|0|0|0|1|6 2+|010ms");
 	}
 
 	@Test
-	public void shouldRenderDocumentationForOneFeature(){
+	public void shouldRenderDocumentationForOneFeature() {
 		List<Feature> features = FeatureParser.parse(onePassingOneFailing);
 		DocumentAttributes attrs = new DocumentAttributes();
 		attrs.toc("left").backend("html5")
@@ -259,7 +259,7 @@ public class CukedoctorReporterTest {
 				.icons("font").numbered(false)
 				.sectAnchors(true).sectLink(true);
 
-		String resultDoc = CukedoctorReporter.instance(features,"Living Documentation", attrs).
+		String resultDoc = CukedoctorReporter.instance(features, "Living Documentation", attrs).
 				createDocumentation();
 		assertThat(resultDoc).isNotNull().
 				containsOnlyOnce(":doctype: book" + newLine()).
@@ -270,13 +270,13 @@ public class CukedoctorReporterTest {
 				contains("|010ms").
 				containsOnlyOnce("|1|1|2|1|1|0|0|0|0|2 2+|010ms");
 
-		FileUtil.saveFile("target/test-docs/doc_one_feature.adoc",resultDoc); //save to target/test-docs folder
+		FileUtil.saveFile("target/test-docs/doc_one_feature.adoc", resultDoc); //save to target/test-docs folder
 		assertThat(resultDoc).isEqualTo(Expectations.DOCUMENTATION_FOR_ONE_FEATURE);
 	}
 
 	@Test
-	public void shouldRenderDocumentationForMultipleFeatures(){
-		List<Feature> features =  FeatureParser.parse(onePassingOneFailing, embedDataDirectly, outline, invalidFeatureResult);
+	public void shouldRenderDocumentationForMultipleFeatures() {
+		List<Feature> features = FeatureParser.parse(onePassingOneFailing, embedDataDirectly, outline, invalidFeatureResult);
 
 		DocumentAttributes attrs = new DocumentAttributes();
 		attrs.toc("left").backend("html5")
@@ -284,7 +284,7 @@ public class CukedoctorReporterTest {
 				.icons("font").numbered(false)
 				.sectAnchors(true).sectLink(true);
 
-		String resultDoc = CukedoctorReporter.instance(features,"Living Documentation", attrs).
+		String resultDoc = CukedoctorReporter.instance(features, "Living Documentation", attrs).
 				createDocumentation();
 		assertThat(resultDoc).isNotNull().
 				containsOnlyOnce(":doctype: book" + newLine()).
@@ -299,9 +299,20 @@ public class CukedoctorReporterTest {
 				contains("|010ms").
 				containsOnlyOnce("|4|2|6|4|1|0|0|0|1|6 2+|010ms");
 
-		FileUtil.saveFile("target/test-docs/doc_multiple_feature.adoc",resultDoc); //save to target/test-docs folder
+		FileUtil.saveFile("target/test-docs/doc_multiple_feature.adoc", resultDoc); //save to target/test-docs folder
 		assertThat(resultDoc).isEqualTo(Expectations.DOCUMENTATION_FOR_MULTIPLE_FEATURES);
 	}
 
-
+	@Test
+	public void shouldRenderFeatureDescriptionWithNewLines(){
+		List<Feature> features = FeatureParser.parse(FileUtil.findJsonFile("target/test-classes/json-output/sample.json"));
+		assertThat(features).hasSize(1);
+		String resultDoc = CukedoctorReporter.instance(features, "Living Documentation", new DocumentAttributes()).
+				createDocumentation();
+		assertThat(resultDoc).contains("****" + newLine() +
+				"As a user +"+newLine() +
+				"I want to do something +"+newLine() +
+				" In order to achieve another thing"+newLine() +
+				"****");
+	}
 }

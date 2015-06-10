@@ -13,9 +13,8 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.PrintStream;
 
-import static org.assertj.core.api.Assertions.*;
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
 /**
@@ -29,7 +28,7 @@ public class CukedoctorMainTest {
 	ByteArrayOutputStream baos;
 
 	@Before
-	public void setup(){
+	public void setup() {
 		baos = new ByteArrayOutputStream();
 		newOut = new PrintStream(baos);
 		defaultOut = System.out;
@@ -44,7 +43,7 @@ public class CukedoctorMainTest {
 
 	@Test
 	public void shouldCreateDocumentationForOneFeature() {
-		new CukedoctorMain().execute(new String[] {
+		new CukedoctorMain().execute(new String[]{
 				"-n", "\"target/test-classes/document-one.adoc\"",
 				"-p", "\"target/test-classes/json-output/outline.json\"",
 				"-t", "Living Documentation"
@@ -54,7 +53,7 @@ public class CukedoctorMainTest {
 
 	@Test
 	public void shouldCreateDocumentationForMultipleFeatures() {
-		new CukedoctorMain().execute(new String[] {
+		new CukedoctorMain().execute(new String[]{
 				"-n", "\"target/test-classes/document-mult.adoc\"",
 				"-p", "\"target/test-classes/json-output\"",
 				"-t", "Living Documentation"
@@ -67,7 +66,7 @@ public class CukedoctorMainTest {
 
 	@Test
 	public void shouldCreateDocumentationUsingDocNameAsTitle() {
-		new CukedoctorMain().execute(new String[] {
+		new CukedoctorMain().execute(new String[]{
 				"-n", "\"target/test-classes/living Documentation.adoc\"",
 				"-p", "\"target/test-classes/json-output\""
 		});
@@ -80,7 +79,7 @@ public class CukedoctorMainTest {
 
 	@Test
 	public void shouldNotFindFeatures() {
-		new CukedoctorMain().execute(new String[] {
+		new CukedoctorMain().execute(new String[]{
 				"-n", "\"target/test-classes/document.adoc\"",
 				"-p", "\"target/classes/\"",
 				"-t", "Living Documentation"
@@ -94,12 +93,12 @@ public class CukedoctorMainTest {
 	@Test
 	public void shouldFailToCreateDocumentationWithoutDocNameParam() {
 		try {
-			new CukedoctorMain().execute(new String[] {
+			new CukedoctorMain().execute(new String[]{
 					"-p", "\"target/test-classes/json-output\"",
 					"-t", "Living Documentation"
 			});
 		} catch (ParameterException pe) {
-			assertEquals(pe.getMessage(),"The following option is required: -n ");
+			assertEquals(pe.getMessage(), "The following option is required: -n ");
 			return;
 		}
 
@@ -109,12 +108,12 @@ public class CukedoctorMainTest {
 	@Test
 	public void shouldFailToCreateDocumentationWithoutPathParam() {
 		try {
-			new CukedoctorMain().execute(new String[] {
+			new CukedoctorMain().execute(new String[]{
 					"-n", "\"target/test-classes/living Documentation.adoc\"",
 					"-t", "Living Documentation"
 			});
 		} catch (ParameterException pe) {
-			assertEquals(pe.getMessage(),"The following option is required: -p ");
+			assertEquals(pe.getMessage(), "The following option is required: -p ");
 			return;
 		}
 
