@@ -8,7 +8,7 @@ Feature: Cukedoctor Main
     When I execute CukedoctorMain with args "-n /target/test-classes/outputFile.adoc" "-p /target/test-classes/json-output/one_passing_one_failing.json" and "-t Documentation"
     Then A file named outputFile.adoc should be generated with the following content:
     """
- :toc: right
+    :toc: right
 :backend: html5
 :doctitle: Documentation
 :doctype: article
@@ -68,12 +68,13 @@ Feature: Cukedoctor Main
     """
 
 
+
   Scenario: Generate documentation using multiple files
     Given Cucumber multiple json execution files are already generate
     When I execute CukedoctorMain with args "-n /target/test-classes/outputFile.adoc" "-p /target/test-classes/json-output/" and "-t Documentation"
     Then A file named outputFile.adoc should be generated with the following content:
       """
- :toc: right
+      :toc: right
 :backend: html5
 :doctitle: Documentation
 :doctype: article
@@ -102,6 +103,20 @@ Feature: Cukedoctor Main
 |Duration
 |Status
 
+12+^|*<<An embed data directly feature>>*
+|3
+|0
+|3
+|3
+|0
+|0
+|0
+|0
+|0
+|3
+|000ms
+|passed
+
 12+^|*<<An outline feature>>*
 |0
 |1
@@ -114,20 +129,6 @@ Feature: Cukedoctor Main
 |1
 |1
 |000ms
-|failed
-
-12+^|*<<Sample test>>*
-|1
-|2
-|3
-|3
-|1
-|0
-|0
-|0
-|2
-|6
-|10s 104ms
 |failed
 
 12+^|*<<One passing scenario, one failing scenario>>*
@@ -144,26 +145,43 @@ Feature: Cukedoctor Main
 |010ms
 |failed
 
-12+^|*<<An embed data directly feature>>*
+12+^|*<<Sample test>>*
+|1
+|2
 |3
-|0
 |3
-|3
+|1
 |0
 |0
 |0
-|0
-|0
-|3
-|000ms
-|passed
+|2
+|6
+|10s 104ms
+|failed
 12+^|*Totals*
 |5|4|9|7|2|0|0|0|3|12 2+|10s 114ms
 |===
 
+== An embed data directly feature
+
+=== Scenario: scenario 1
+
+=== Scenario Outline: scenario 2
+
+
 == An outline feature
 
 === Scenario Outline: outline
+
+== One passing scenario, one failing scenario
+
+=== Scenario: Passing
+[small]#tags: @a,@b#
+
+
+=== Scenario: Failing
+[small]#tags: @a,@c#
+
 
 == Sample test
 
@@ -178,23 +196,6 @@ In order to achieve another thing
 === Scenario: Basic
 
 === Scenario: Basic failure
-
-== One passing scenario, one failing scenario
-
-=== Scenario: Passing
-[small]#tags: @a,@b#
-
-
-=== Scenario: Failing
-[small]#tags: @a,@c#
-
-
-== An embed data directly feature
-
-=== Scenario: scenario 1
-
-=== Scenario Outline: scenario 2
-
 
 
       """

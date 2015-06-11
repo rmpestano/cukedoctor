@@ -7,9 +7,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.github.cukedoctor.api.model.Feature;
 
 import java.io.*;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
+import java.util.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -47,7 +45,22 @@ public class FeatureParser {
 		} catch (IOException e) {
 			log.log(Level.SEVERE, "Could not read json file:" + json, e);
 		}
+		if(features != null){
+			sortFeatures(features);
+		}
+
 		return features;
+	}
+
+	private static void sortFeatures(List<Feature> features) {
+		if(features != null) {
+			Collections.sort(features, new Comparator<Feature>() {
+				@Override
+				public int compare(Feature f1, Feature f2) {
+					return f1.getName().toLowerCase().compareTo(f2.getName().toLowerCase());
+				}
+			});
+		}
 	}
 
 	public static List<Feature> parse(List<String> paths) {
@@ -59,6 +72,7 @@ public class FeatureParser {
 				features.addAll(result);
 			}
 		}
+		sortFeatures(features);
 		return features;
 	}
 
@@ -71,6 +85,8 @@ public class FeatureParser {
 				features.addAll(result);
 			}
 		}
+		sortFeatures(features);
+
 		return features;
 	}
 }
