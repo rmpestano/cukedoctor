@@ -95,6 +95,13 @@ public class FileUtil {
 	}
 
 	public static File loadFile(String path) {
+		if(path == null){
+			path = "";
+		}
+
+		if(path.startsWith("/")){//remove slash to use relative paths
+			path = path.substring(1);
+		}
 		return new File(Paths.get(path.trim()).toAbsolutePath().toString());
 	}
 }
