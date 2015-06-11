@@ -1,33 +1,35 @@
 package com.github.cukedoctor.util;
 
+import com.github.cukedoctor.api.DocWriter;
+
 import static com.github.cukedoctor.util.Constants.*;
 
 
 /**
  * Created by pestano on 06/06/15.
  */
-public class DocWriter {
+public class DocWriterImpl implements DocWriter<StringBuilder> {
 
-	private static DocWriter instance;
+	private static DocWriterImpl instance;
 	private StringBuilder doc;
 
-	private DocWriter() {
+	private DocWriterImpl() {
 	}
 
-	public static synchronized DocWriter getInstance(StringBuilder doc) {
-		instance = new DocWriter();
+	public static synchronized DocWriterImpl getInstance(StringBuilder doc) {
+		instance = new DocWriterImpl();
 		instance.doc = doc;
 		return instance;
 	}
 
-	public DocWriter write(Object value) {
+	public DocWriterImpl write(Object value) {
 		if (value != null) {
 			doc.append(value);
 		}
 		return instance;
 	}
 
-	public DocWriter write(Object value, boolean newLine) {
+	public DocWriterImpl write(Object value, boolean newLine) {
 		if (value != null) {
 			doc.append(value);
 		}
@@ -37,7 +39,7 @@ public class DocWriter {
 		return instance;
 	}
 
-	public DocWriter write(Object... value) {
+	public DocWriterImpl write(Object... value) {
 		for (Object s : value) {
 			if (s == null || (s.toString() != newLine() && s.toString().trim().equals(""))) {
 				return instance;
@@ -49,5 +51,7 @@ public class DocWriter {
 		return instance;
 	}
 
-
+	public StringBuilder getCurrentDoc() {
+		return doc;
+	}
 }

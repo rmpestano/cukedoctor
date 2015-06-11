@@ -43,7 +43,7 @@ public class CukedoctorReporterTest {
 	public void shouldFailToCreateDocumentationWithoutFeatures() {
 		String msg = null;
 		try {
-			CukedoctorReporter.instance(new ArrayList<Feature>(), "A test");
+			Cukedoctor.instance(new ArrayList<Feature>(), "A test");
 		} catch (RuntimeException re) {
 			msg = re.getMessage();
 		}
@@ -57,7 +57,7 @@ public class CukedoctorReporterTest {
 		List<Feature> features = FeatureParser.parse(onePassingOneFailing);
 		try {
 
-			CukedoctorReporter.instance(features, " ");
+			Cukedoctor.instance(features, " ");
 		} catch (RuntimeException re) {
 			msg = re.getMessage();
 		}
@@ -65,13 +65,6 @@ public class CukedoctorReporterTest {
 		assertEquals("Provide document title", msg);
 	}
 
-
-	@Test
-	public void shouldGetCurrentInstance() {
-		List<Feature> features = FeatureParser.parse(onePassingOneFailing);
-		CukedoctorReporter.instance(features, "Title");
-		CukedoctorReporter.getCurrentInstance();
-	}
 
 	// renderAttributes() tests
 
@@ -97,7 +90,7 @@ public class CukedoctorReporterTest {
 						":sectlink:" + newLine();
 
 
-		String document = CukedoctorReporter.instance(features, "Documentation Title", attrs).renderAttributes().
+		String document = Cukedoctor.instance(features, "Documentation Title", attrs).renderAttributes().
 				getDocumentation().toString();
 		assertEquals(document, expected);
 	}
@@ -118,7 +111,7 @@ public class CukedoctorReporterTest {
 				":sectlink:" + newLine();
 
 
-		String document = CukedoctorReporter.instance(features, "Documentation Title").renderAttributes().
+		String document = Cukedoctor.instance(features, "Documentation Title").renderAttributes().
 				getDocumentation().toString();
 		assertEquals(document, expected);
 	}
@@ -139,7 +132,7 @@ public class CukedoctorReporterTest {
 				":sectlink:" + newLine();
 
 
-		String document = CukedoctorReporter.instance(features, "Documentation Title", null).renderAttributes().
+		String document = Cukedoctor.instance(features, "Documentation Title", null).renderAttributes().
 				getDocumentation().toString();
 		assertEquals(document, expected);
 	}
@@ -165,7 +158,7 @@ public class CukedoctorReporterTest {
 						":sectlink:" + newLine();
 
 
-		String document = CukedoctorReporter.instance(features, "Documentation Title", attrs).renderAttributes().
+		String document = Cukedoctor.instance(features, "Documentation Title", attrs).renderAttributes().
 				getDocumentation().toString();
 		assertEquals(document, expected);
 	}
@@ -192,7 +185,7 @@ public class CukedoctorReporterTest {
 						":sectlink:" + newLine();
 
 
-		String document = CukedoctorReporter.instance(features, "Documentation Title", attrs).renderAttributes().
+		String document = Cukedoctor.instance(features, "Documentation Title", attrs).renderAttributes().
 				getDocumentation().toString();
 		assertEquals(document, expected);
 	}
@@ -203,7 +196,7 @@ public class CukedoctorReporterTest {
 	@Test
 	public void shouldRenderSummaryForOneFeature() {
 		List<Feature> features = FeatureParser.parse(onePassingOneFailing);
-		String resultDoc = CukedoctorReporter.instance(features, "Title").renderSummary().getDocumentation().toString();
+		String resultDoc = Cukedoctor.instance(features, "Title").renderSummary().getDocumentation().toString();
 		assertThat(resultDoc).isNotNull().
 				containsOnlyOnce("<<One passing scenario, one failing scenario>>").
 				containsOnlyOnce("|failed").
@@ -216,7 +209,7 @@ public class CukedoctorReporterTest {
 	@Test
 	public void shouldRenderSummaryForMultipleFeatures() {
 		List<Feature> features = FeatureParser.parse(onePassingOneFailing, embedDataDirectly, outline, invalidFeatureResult);
-		String resultDoc = CukedoctorReporter.instance(features, "Title").renderSummary().getDocumentation().toString();
+		String resultDoc = Cukedoctor.instance(features, "Title").renderSummary().getDocumentation().toString();
 		assertThat(resultDoc).isNotNull().
 				containsOnlyOnce("<<One passing scenario, one failing scenario>>").
 				containsOnlyOnce("<<An embed data directly feature>>").
@@ -235,7 +228,7 @@ public class CukedoctorReporterTest {
 	@Test
 	public void shouldRenderTotalRowForOneFeature() {
 		List<Feature> features = FeatureParser.parse(onePassingOneFailing);
-		String resultDoc = CukedoctorReporter.instance(features, "Title").renderTotalsRow().getDocumentation().toString();
+		String resultDoc = Cukedoctor.instance(features, "Title").renderTotalsRow().getDocumentation().toString();
 		assertThat(resultDoc).isNotNull().
 				containsOnlyOnce("12+^|*Totals*").
 				contains("|1|1|2|1|1|0|0|0|0|2 2+|010ms");
@@ -244,7 +237,7 @@ public class CukedoctorReporterTest {
 	@Test
 	public void shouldRenderTotalRowForMultipleFeature() {
 		List<Feature> features = FeatureParser.parse(onePassingOneFailing, embedDataDirectly, outline, invalidFeatureResult);
-		String resultDoc = CukedoctorReporter.instance(features, "Title").renderTotalsRow().getDocumentation().toString();
+		String resultDoc = Cukedoctor.instance(features, "Title").renderTotalsRow().getDocumentation().toString();
 		assertThat(resultDoc).isNotNull().
 				containsOnlyOnce("12+^|*Totals*").
 				contains("|4|2|6|4|1|0|0|0|1|6 2+|010ms");
@@ -259,7 +252,7 @@ public class CukedoctorReporterTest {
 				.icons("font").numbered(false)
 				.sectAnchors(true).sectLink(true);
 
-		String resultDoc = CukedoctorReporter.instance(features, "Living Documentation", attrs).
+		String resultDoc = Cukedoctor.instance(features, "Living Documentation", attrs).
 				createDocumentation();
 		assertThat(resultDoc).isNotNull().
 				containsOnlyOnce(":doctype: book" + newLine()).
@@ -284,7 +277,7 @@ public class CukedoctorReporterTest {
 				.icons("font").numbered(false)
 				.sectAnchors(true).sectLink(true);
 
-		String resultDoc = CukedoctorReporter.instance(features, "Living Documentation", attrs).
+		String resultDoc = Cukedoctor.instance(features, "Living Documentation", attrs).
 				createDocumentation();
 		assertThat(resultDoc).isNotNull().
 				containsOnlyOnce(":doctype: book" + newLine()).
@@ -307,7 +300,7 @@ public class CukedoctorReporterTest {
 	public void shouldRenderFeatureDescriptionWithNewLines(){
 		List<Feature> features = FeatureParser.parse(FileUtil.findJsonFile("target/test-classes/json-output/sample.json"));
 		assertThat(features).hasSize(1);
-		String resultDoc = CukedoctorReporter.instance(features, "Living Documentation", new DocumentAttributes()).
+		String resultDoc = Cukedoctor.instance(features, "Living Documentation", new DocumentAttributes()).
 				createDocumentation();
 		assertThat(resultDoc).contains("****" + newLine() +
 				"As a user  +"+newLine() +
