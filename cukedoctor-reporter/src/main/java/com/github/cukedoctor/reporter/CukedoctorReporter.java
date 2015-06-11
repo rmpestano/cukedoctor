@@ -122,7 +122,7 @@ public class CukedoctorReporter {
 				if(feature.getDescription() != null && !"".equals(feature.getDescription().trim())){
 					writer.write("****",newLine()).
 					//feature description has \n to delimit new lines
-					write(feature.getDescription().trim().replaceAll("\\n","+"+newLine())).
+					write(feature.getDescription().trim().replaceAll("\\n"," +"+newLine())).
 					write(newLine(),"****",newLine(),newLine());
 				}
 

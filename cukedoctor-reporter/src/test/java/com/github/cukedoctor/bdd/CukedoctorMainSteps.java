@@ -13,13 +13,16 @@ import static org.junit.Assert.assertEquals;
  */
 public class CukedoctorMainSteps {
 
-	String path;
 
 	String generatedDoc;
 
-	@Given("^Cucumber json output file located at \"([^\"]*)\"$")
-	public void Cucumeber_json_output_file_located_at(String arg1) throws Throwable {
-		path = arg1;
+
+	@Given("^A Cucumber json execution file is are already generated$")
+	public void A_Cucumber_json_execution_file_is_are_already_generated() throws Throwable {
+	}
+
+	@Given("^Cucumber multiple json execution files are already generate$")
+	public void Cucumber_multiple_json_execution_files_are_already_generate() throws Throwable {
 	}
 
 
@@ -41,7 +44,6 @@ public class CukedoctorMainSteps {
 	public void A_file_named_outputFile_adoc_should_be_generated_with_the_following_content(final String fileContent) throws Throwable {
 		 assertEquals(fileContent,generatedDoc);
 	}
-
 
 
 

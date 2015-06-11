@@ -25,13 +25,13 @@ public class FileUtil {
 	public static String findJsonFile(String path) {
 		try {
 			if(path == null){
-				path = "/";
+				path = "";
 			}
 
-			if(path.startsWith("/")==false){
-				path = "/"+path;
+			if(path.startsWith("/")){//remove slash to use relative paths
+				path = path.substring(1);
 			}
-			return Paths.get("").toAbsolutePath().toString()+path.trim().toString();
+			return Paths.get(path.trim()).toAbsolutePath().toString();
 		} catch (Exception e) {
 			e.printStackTrace();
 			Logger.getLogger(FileUtil.class.getName()).log(Level.SEVERE, "Could not load feature from " + path);
@@ -46,6 +46,13 @@ public class FileUtil {
 	 */
 	public static List<String> findJsonFiles(String startDir) {
 		try {
+			if(startDir == null){
+				startDir = "";
+			}
+
+			if(startDir.startsWith("/")){//remove slash to use relative paths
+				startDir = startDir.substring(1);
+			}
 			DirectoryScanner scanner = new DirectoryScanner();
 			scanner.setIncludes(new String[]{"**/*.json"});
 			scanner.setBasedir(new File(Paths.get(startDir.trim()).toAbsolutePath().toString()));
