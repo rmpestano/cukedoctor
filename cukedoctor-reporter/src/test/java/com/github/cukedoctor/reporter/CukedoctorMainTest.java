@@ -1,6 +1,7 @@
 package com.github.cukedoctor.reporter;
 
 import com.beust.jcommander.ParameterException;
+import com.github.cukedoctor.CukedoctorMain;
 import com.github.cukedoctor.util.FileUtil;
 import org.junit.After;
 import org.junit.Assert;

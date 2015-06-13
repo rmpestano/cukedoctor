@@ -1,7 +1,6 @@
 package com.github.cukedoctor.bdd;
 
-import com.github.cukedoctor.reporter.CukedoctorMain;
-import cucumber.api.PendingException;
+import com.github.cukedoctor.CukedoctorMain;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;

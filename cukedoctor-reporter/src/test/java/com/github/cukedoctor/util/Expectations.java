@@ -13,15 +13,15 @@ public interface Expectations {
 			"|===" + newLine() +
 			"3+|Scenarios 7+|Steps 2+|Features: 1" + newLine() +
 			"" + newLine() +
-			"|Passed" + newLine() +
-			"|Failed" + newLine() +
+			"|[green]#*Passed*#" + newLine() +
+			"|[red]#*Failed*#" + newLine() +
 			"|Total" + newLine() +
-			"|Passed" + newLine() +
-			"|Failed" + newLine() +
-			"|Skipped" + newLine() +
-			"|Pending" + newLine() +
-			"|Undefined" + newLine() +
-			"|Missing" + newLine() +
+			"|[green]#*Passed*#" + newLine() +
+			"|[red]#*Failed*#" + newLine() +
+			"|[blue]#Skipped#" + newLine() +
+			"|[orange]#*Pending*#" + newLine() +
+			"|[yellow]#*Undefined*#" + newLine() +
+			"|[blue]#*Missing*#" + newLine() +
 			"|Total" + newLine() +
 			"|Duration" + newLine() +
 			"|Status" + newLine() +
@@ -38,10 +38,10 @@ public interface Expectations {
 			"|0" + newLine() +
 			"|2" + newLine() +
 			"|010ms" + newLine() +
-			"|failed" + newLine() +
+			"|[red]#*failed*#" + newLine() +
 			"12+^|*Totals*" + newLine() +
 			"|1|1|2|1|1|0|0|0|0|2 2+|010ms" + newLine() +
-			"|===" + newLine();
+			"|===";
 
 	String SUMMARY_FOR_MULTIPLE_FEATURES = "= Title"+newLine() +
 			""+newLine() +
@@ -50,15 +50,15 @@ public interface Expectations {
 			"|==="+newLine() +
 			"3+|Scenarios 7+|Steps 2+|Features: 3"+newLine() +
 			""+newLine() +
-			"|Passed"+newLine() +
-			"|Failed"+newLine() +
+			"|[green]#*Passed*#"+newLine() +
+			"|[red]#*Failed*#"+newLine() +
 			"|Total"+newLine() +
-			"|Passed"+newLine() +
-			"|Failed"+newLine() +
-			"|Skipped"+newLine() +
-			"|Pending"+newLine() +
-			"|Undefined"+newLine() +
-			"|Missing"+newLine() +
+			"|[green]#*Passed*#"+newLine() +
+			"|[red]#*Failed*#"+newLine() +
+			"|[blue]#Skipped#"+newLine() +
+			"|[orange]#*Pending*#"+newLine() +
+			"|[yellow]#*Undefined*#"+newLine() +
+			"|[blue]#*Missing*#"+newLine() +
 			"|Total"+newLine() +
 			"|Duration"+newLine() +
 			"|Status"+newLine() +
@@ -75,7 +75,7 @@ public interface Expectations {
 			"|0"+newLine() +
 			"|3"+newLine() +
 			"|000ms"+newLine() +
-			"|passed"+newLine() +
+			"|[green]#*passed*#"+newLine() +
 			""+newLine() +
 			"12+^|*<<An outline feature>>*"+newLine() +
 			"|0"+newLine() +
@@ -89,7 +89,7 @@ public interface Expectations {
 			"|1"+newLine() +
 			"|1"+newLine() +
 			"|000ms"+newLine() +
-			"|failed"+newLine() +
+			"|[red]#*failed*#"+newLine() +
 			""+newLine() +
 			"12+^|*<<One passing scenario, one failing scenario>>*"+newLine() +
 			"|1"+newLine() +
@@ -103,10 +103,10 @@ public interface Expectations {
 			"|0"+newLine() +
 			"|2"+newLine() +
 			"|010ms"+newLine() +
-			"|failed"+newLine() +
+			"|[red]#*failed*#"+newLine() +
 			"12+^|*Totals*"+newLine() +
 			"|4|2|6|4|1|0|0|0|1|6 2+|010ms"+newLine() +
-			"|==="+newLine();
+			"|===";
 
 	String DOCUMENTATION_FOR_ONE_FEATURE = ":toc: left" + newLine() +
 			":backend: html5" + newLine() +
@@ -114,6 +114,7 @@ public interface Expectations {
 			":doctype: book" + newLine() +
 			":icons: font" + newLine() +
 			":!numbered:" + newLine() +
+			":!linkcss:" + newLine() +
 			":sectanchors:" + newLine() +
 			":sectlink:" + newLine() +
 			"" + newLine() +
@@ -124,15 +125,15 @@ public interface Expectations {
 			"|===" + newLine() +
 			"3+|Scenarios 7+|Steps 2+|Features: 1" + newLine() +
 			"" + newLine() +
-			"|Passed" + newLine() +
-			"|Failed" + newLine() +
+			"|[green]#*Passed*#" + newLine() +
+			"|[red]#*Failed*#" + newLine() +
 			"|Total" + newLine() +
-			"|Passed" + newLine() +
-			"|Failed" + newLine() +
-			"|Skipped" + newLine() +
-			"|Pending" + newLine() +
-			"|Undefined" + newLine() +
-			"|Missing" + newLine() +
+			"|[green]#*Passed*#" + newLine() +
+			"|[red]#*Failed*#" + newLine() +
+			"|[blue]#Skipped#" + newLine() +
+			"|[orange]#*Pending*#" + newLine() +
+			"|[yellow]#*Undefined*#" + newLine() +
+			"|[blue]#*Missing*#" + newLine() +
 			"|Total" + newLine() +
 			"|Duration" + newLine() +
 			"|Status" + newLine() +
@@ -149,10 +150,11 @@ public interface Expectations {
 			"|0" + newLine() +
 			"|2" + newLine() +
 			"|010ms" + newLine() +
-			"|failed" + newLine() +
+			"|[red]#*failed*#" + newLine() +
 			"12+^|*Totals*" + newLine() +
 			"|1|1|2|1|1|0|0|0|0|2 2+|010ms" + newLine() +
 			"|===" + newLine() + newLine() +
+			"= Features"+newLine()+newLine()+
 			"== One passing scenario, one failing scenario" + newLine() + newLine() +
 			"=== Scenario: Passing" + newLine() +
 			"[small]#tags: @a,@b#" + newLine() + newLine() + newLine() +
@@ -165,6 +167,7 @@ public interface Expectations {
 			":doctype: book" + newLine() +
 			":icons: font" + newLine() +
 			":!numbered:" + newLine() +
+			":!linkcss:" + newLine() +
 			":sectanchors:" + newLine() +
 			":sectlink:" + newLine() +
 			"" + newLine() +
@@ -175,15 +178,15 @@ public interface Expectations {
 			"|===" + newLine() +
 			"3+|Scenarios 7+|Steps 2+|Features: 3" + newLine() +
 			"" + newLine() +
-			"|Passed" + newLine() +
-			"|Failed" + newLine() +
+			"|[green]#*Passed*#" + newLine() +
+			"|[red]#*Failed*#" + newLine() +
 			"|Total" + newLine() +
-			"|Passed" + newLine() +
-			"|Failed" + newLine() +
-			"|Skipped" + newLine() +
-			"|Pending" + newLine() +
-			"|Undefined" + newLine() +
-			"|Missing" + newLine() +
+			"|[green]#*Passed*#" + newLine() +
+			"|[red]#*Failed*#" + newLine() +
+			"|[blue]#Skipped#" + newLine() +
+			"|[orange]#*Pending*#" + newLine() +
+			"|[yellow]#*Undefined*#" + newLine() +
+			"|[blue]#*Missing*#" + newLine() +
 			"|Total" + newLine() +
 			"|Duration" + newLine() +
 			"|Status" + newLine() +
@@ -200,7 +203,7 @@ public interface Expectations {
 			"|0" + newLine() +
 			"|3" + newLine() +
 			"|000ms" + newLine() +
-			"|passed" + newLine() +
+			"|[green]#*passed*#" + newLine() +
 			"" + newLine() +
 			"12+^|*<<An outline feature>>*" + newLine() +
 			"|0" + newLine() +
@@ -214,7 +217,7 @@ public interface Expectations {
 			"|1" + newLine() +
 			"|1" + newLine() +
 			"|000ms" + newLine() +
-			"|failed" + newLine() +
+			"|[red]#*failed*#" + newLine() +
 			"" + newLine() +
 			"12+^|*<<One passing scenario, one failing scenario>>*" + newLine() +
 			"|1" + newLine() +
@@ -228,11 +231,12 @@ public interface Expectations {
 			"|0" + newLine() +
 			"|2" + newLine() +
 			"|010ms" + newLine() +
-			"|failed" + newLine() +
+			"|[red]#*failed*#" + newLine() +
 			"12+^|*Totals*" + newLine() +
 			"|4|2|6|4|1|0|0|0|1|6 2+|010ms" + newLine() +
 			"|===" + newLine() +
 			"" + newLine() +
+			"= Features"+newLine()+newLine()+
 			"== An embed data directly feature" + newLine() +
 			"" + newLine() +
 			"=== Scenario: scenario 1" + newLine() +

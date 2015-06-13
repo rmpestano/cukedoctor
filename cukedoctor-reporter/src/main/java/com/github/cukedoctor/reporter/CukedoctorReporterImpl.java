@@ -1,14 +1,7 @@
 package com.github.cukedoctor.reporter;
 
-import com.github.cukedoctor.api.DocWriter;
-import com.github.cukedoctor.api.DocumentAttributes;
-import com.github.cukedoctor.api.ScenarioResults;
-import com.github.cukedoctor.api.StepResults;
-import com.github.cukedoctor.api.model.Element;
-import com.github.cukedoctor.api.model.Feature;
-import com.github.cukedoctor.api.model.Step;
-import com.github.cukedoctor.api.model.Tag;
-import com.github.cukedoctor.util.DocWriterImpl;
+import com.github.cukedoctor.api.*;
+import com.github.cukedoctor.api.model.*;
 import com.github.cukedoctor.util.Formatter;
 
 import java.util.List;
@@ -19,7 +12,7 @@ import static com.github.cukedoctor.util.Constants.newLine;
 /**
  * Created by pestano on 02/06/15.
  */
-public class CukedoctorReporterImpl implements CukedoctorReporter{
+public class CukedoctorReporterImpl implements CukedoctorReporter {
 
 
 	private List<Feature> features;
@@ -56,7 +49,8 @@ public class CukedoctorReporterImpl implements CukedoctorReporter{
 		renderAttributes();
 		writer.write(newLine());
 		renderSummary();
-		writer.write(newLine());
+		writer.write(newLine(), newLine());
+		writer.write(Markup.H1, "Features", newLine(), newLine());
 		for (Feature feature : features) {
 			renderFeature(feature);
 		}
@@ -81,20 +75,9 @@ public class CukedoctorReporterImpl implements CukedoctorReporter{
 	public CukedoctorReporterImpl renderFeatureScenarios(Feature feature) {
 		for (Element scenario : feature.getScenarios()) {
 			writer.write(Markup.H3, scenario.getKeyword(), ": ", scenario.getName(), newLine());
-			if (scenario.hasTags()) {
-				writer.write("[small]#tags: ");
-				StringBuilder tags = new StringBuilder();
-				for (Tag featureTag : feature.getTags()) {
-					tags.append(featureTag.getName()).append(",");
-				}
-				for (Tag scenarioTag : scenario.getTags()) {
-					tags.append(scenarioTag.getName()).append(",");
-				}
-				if (tags.indexOf(",") != -1) {//delete last comma
-					tags.deleteCharAt(tags.lastIndexOf(","));
-				}
-				writer.write(tags.toString());
-				writer.write("#", newLine(), newLine());
+			if(feature.hasTags() || scenario.hasTags()){
+				renderScenarioTags(feature, scenario);
+				writer.write(newLine(), newLine());
 			}
 
 			writer.write(scenario.getDescription());
@@ -108,20 +91,52 @@ public class CukedoctorReporterImpl implements CukedoctorReporter{
 		return this;
 	}
 
+	public CukedoctorReporter renderScenarioTags(Feature feature, Element scenario) {
+		writer.write("[small]#tags: ");
+		StringBuilder tags = new StringBuilder();
+		if (feature.hasTags()) {
+			for (Tag featureTag : feature.getTags()) {
+				tags.append(featureTag.getName()).append(",");
+			}
+		}
+		if (scenario.hasTags()) {
+			for (Tag scenarioTag : scenario.getTags()) {
+				tags.append(scenarioTag.getName()).append(",");
+			}
+		}
+		if (tags.indexOf(",") != -1) {//delete last comma
+			tags.deleteCharAt(tags.lastIndexOf(","));
+		}
+		writer.write(tags.toString());
+		writer.write("#");
+
+		return this;
+	}
+
 	public CukedoctorReporterImpl renderScenarioSteps(List<Step> steps) {
+		/*writer.write("****", newLine());
+		for (Step step : steps) {
+			writer.write(step.getKeyword(), "::", newLine());
+			writer.write(step.getName(), newLine(), step.getStatus().name(), newLine());
+			if (step.getResult() != null && !Status.passed.equals(step.getStatus())) {
+				writer.write(step.getResult().getErrorMessage());
+			}
+		}
+		writer.write("****", newLine());*/
 		return this;
 	}
 
 
-	public CukedoctorReporterImpl renderAttributes() {
+	public CukedoctorReporter renderAttributes() {
 		writer.write(Markup.TOC, documentAttributes.getToc(), newLine()).
 				write(Markup.BACKEND, documentAttributes.getBackend(), newLine()).
 				write(Markup.DOC_TITLE, documentAttributes.getDocTitle(), newLine()).
 				write(Markup.DOC_TYPE, documentAttributes.getDocType(), newLine()).
 				write(Markup.ICONS, documentAttributes.getIcons(), newLine()).
-				write(documentAttributes.isNumbered() ? Markup.NUMBERED : Markup.NOT_NUMBERED, true).
-				write(documentAttributes.isSectAnchors() ? Markup.SECT_ANCHORS : Markup.NOT_SECT_ANCHORS, true).
-				write(documentAttributes.isSectLink() ? Markup.SECT_LINK : Markup.NOT_SECT_LINK, true);
+				write(documentAttributes.isNumbered() ? Markup.NUMBERED : Markup.NOT_NUMBERED, newLine()).
+				write(documentAttributes.isLinkCss() ? Markup.LINKCSS : Markup.NOT_LINKCSS, newLine()).
+				write(documentAttributes.isSectAnchors() ? Markup.SECT_ANCHORS : Markup.NOT_SECT_ANCHORS, newLine()).
+				write(documentAttributes.isSectLink() ? Markup.SECT_LINK : Markup.NOT_SECT_LINK, newLine());
 		return this;
 	}
 
@@ -134,15 +149,15 @@ public class CukedoctorReporterImpl implements CukedoctorReporter{
 				"|===" + newLine() +
 				"3+|Scenarios 7+|Steps 2+|Features: " + features.size() +
 				"" + newLine() + newLine() +
-				"|Passed" + newLine() +
-				"|Failed" + newLine() +
+				"|[green]#*Passed*#" + newLine() +
+				"|[red]#*Failed*#" + newLine() +
 				"|Total" + newLine() +
-				"|Passed" + newLine() +
-				"|Failed" + newLine() +
-				"|Skipped" + newLine() +
-				"|Pending" + newLine() +
-				"|Undefined" + newLine() +
-				"|Missing" + newLine() +
+				"|[green]#*Passed*#" + newLine() +
+				"|[red]#*Failed*#" + newLine() +
+				"|[blue]#Skipped#" + newLine() +
+				"|[orange]#*Pending*#" + newLine() +
+				"|[yellow]#*Undefined*#" + newLine() +
+				"|[blue]#*Missing*#" + newLine() +
 				"|Total" + newLine() +
 				"|Duration" + newLine() +
 				"|Status" + newLine());
@@ -164,10 +179,10 @@ public class CukedoctorReporterImpl implements CukedoctorReporter{
 			writer.write(Markup.TABLE_COL, stepResults.getNumberOfMissing(), newLine());
 			writer.write(Markup.TABLE_COL, stepResults.getNumberOfSteps(), newLine());
 			writer.write(Markup.TABLE_COL, stepResults.getTotalDurationAsString(), newLine());
-			writer.write(Markup.TABLE_COL, feature.getStatus(), newLine());
+			writer.write(Markup.TABLE_COL, Status.getStatusColor(feature.getStatus()), newLine());
 		}
 		renderTotalsRow();
-		writer.write(Markup.TABLE, newLine());
+		writer.write(Markup.TABLE);
 		return this;
 	}
 

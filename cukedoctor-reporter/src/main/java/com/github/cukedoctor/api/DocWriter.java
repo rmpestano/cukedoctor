@@ -7,8 +7,6 @@ public interface DocWriter<T> {
 
 	DocWriter write(Object value);
 
-	DocWriter write(Object value, boolean newLine);
-
 	DocWriter write(Object... value);
 
 	T getCurrentDoc();

@@ -1,10 +1,8 @@
-package com.github.cukedoctor.reporter;
+package com.github.cukedoctor.api;
 
-import com.github.cukedoctor.api.DocWriter;
-import com.github.cukedoctor.api.DocumentAttributes;
+import com.github.cukedoctor.api.model.Element;
 import com.github.cukedoctor.api.model.Feature;
 import com.github.cukedoctor.api.model.Step;
-import com.github.cukedoctor.util.DocWriterImpl;
 
 import java.util.List;
 
@@ -30,6 +28,8 @@ public interface CukedoctorReporter {
 	CukedoctorReporter renderFeature(Feature feature);
 
 	CukedoctorReporter renderFeatureScenarios(Feature feature);
+
+	CukedoctorReporter renderScenarioTags(Feature feature, Element scenario);
 
 	CukedoctorReporter renderScenarioSteps(List<Step> steps);
 

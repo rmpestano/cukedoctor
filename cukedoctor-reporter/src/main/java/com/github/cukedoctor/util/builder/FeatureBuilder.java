@@ -2,6 +2,7 @@ package com.github.cukedoctor.util.builder;
 
 import com.github.cukedoctor.api.model.Element;
 import com.github.cukedoctor.api.model.Feature;
+import com.github.cukedoctor.api.model.Type;
 
 import java.util.ArrayList;
 
@@ -24,6 +25,11 @@ public class FeatureBuilder {
 
 	public static synchronized FeatureBuilder instance() {
 		instance = new FeatureBuilder(new Feature());
+		return instance;
+	}
+
+	public static synchronized FeatureBuilder instance(Feature feature) {
+		instance = new FeatureBuilder(feature);
 		return instance;
 	}
 
@@ -64,6 +70,18 @@ public class FeatureBuilder {
 	public Feature build() {
 		feature.initScenarios();
 		return instance.getFeature();
+	}
+
+	public Feature aFeatureWithTwoScenarios() {
+
+		final Feature feature = FeatureBuilder.instance().description("Feature description").
+				scenario(ScenarioBuilder.instance().name("scenario 1").description("description")
+						.keyword("Scenario").type(Type.scenario).build()).
+				scenario(ScenarioBuilder.instance().name("scenario 2").description("description 2")
+						.keyword("Scenario").type(Type.scenario).build()).
+				name("Feature name").build();
+
+		return feature;
 	}
 
 }

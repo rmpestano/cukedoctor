@@ -11,6 +11,7 @@ public class DocumentAttributes {
 	private String docType = "article";
 	private String toc = "right";
 	private String icons = "font";
+	private boolean linkCss = false;
 	private boolean sectAnchors = true;
 	private boolean sectLink = true;
 	private boolean numbered = false;
@@ -57,6 +58,11 @@ public class DocumentAttributes {
 		return this;
 	}
 
+	public DocumentAttributes linkCss(boolean linkCss) {
+		this.linkCss = linkCss;
+		return this;
+	}
+
 	public String getBackend() {
 		return backend;
 	}
@@ -87,5 +93,9 @@ public class DocumentAttributes {
 
 	public boolean isNumbered() {
 		return numbered;
+	}
+
+	public boolean isLinkCss() {
+		return linkCss;
 	}
 }

@@ -14,6 +14,7 @@ Feature: Cukedoctor Main
 :doctype: article
 :icons: font
 :!numbered:
+:!linkcss:
 :sectanchors:
 :sectlink:
 
@@ -24,15 +25,15 @@ Feature: Cukedoctor Main
 |===
 3+|Scenarios 7+|Steps 2+|Features: 1
 
-|Passed
-|Failed
+|[green]#*Passed*#
+|[red]#*Failed*#
 |Total
-|Passed
-|Failed
-|Skipped
-|Pending
-|Undefined
-|Missing
+|[green]#*Passed*#
+|[red]#*Failed*#
+|[blue]#Skipped#
+|[orange]#*Pending*#
+|[yellow]#*Undefined*#
+|[blue]#*Missing*#
 |Total
 |Duration
 |Status
@@ -49,10 +50,12 @@ Feature: Cukedoctor Main
 |0
 |2
 |010ms
-|failed
+|[red]#*failed*#
 12+^|*Totals*
 |1|1|2|1|1|0|0|0|0|2 2+|010ms
 |===
+
+= Features
 
 == One passing scenario, one failing scenario
 
@@ -69,6 +72,7 @@ Feature: Cukedoctor Main
 
 
 
+
   Scenario: Generate documentation using multiple files
     Given Cucumber multiple json execution files are already generate
     When I execute CukedoctorMain with args "-n /target/test-classes/outputFile.adoc" "-p /target/test-classes/json-output/" and "-t Documentation"
@@ -80,6 +84,7 @@ Feature: Cukedoctor Main
 :doctype: article
 :icons: font
 :!numbered:
+:!linkcss:
 :sectanchors:
 :sectlink:
 
@@ -90,15 +95,15 @@ Feature: Cukedoctor Main
 |===
 3+|Scenarios 7+|Steps 2+|Features: 4
 
-|Passed
-|Failed
+|[green]#*Passed*#
+|[red]#*Failed*#
 |Total
-|Passed
-|Failed
-|Skipped
-|Pending
-|Undefined
-|Missing
+|[green]#*Passed*#
+|[red]#*Failed*#
+|[blue]#Skipped#
+|[orange]#*Pending*#
+|[yellow]#*Undefined*#
+|[blue]#*Missing*#
 |Total
 |Duration
 |Status
@@ -115,7 +120,7 @@ Feature: Cukedoctor Main
 |0
 |3
 |000ms
-|passed
+|[green]#*passed*#
 
 12+^|*<<An outline feature>>*
 |0
@@ -129,7 +134,7 @@ Feature: Cukedoctor Main
 |1
 |1
 |000ms
-|failed
+|[red]#*failed*#
 
 12+^|*<<One passing scenario, one failing scenario>>*
 |1
@@ -143,7 +148,7 @@ Feature: Cukedoctor Main
 |0
 |2
 |010ms
-|failed
+|[red]#*failed*#
 
 12+^|*<<Sample test>>*
 |1
@@ -157,10 +162,12 @@ Feature: Cukedoctor Main
 |2
 |6
 |10s 104ms
-|failed
+|[red]#*failed*#
 12+^|*Totals*
 |5|4|9|7|2|0|0|0|3|12 2+|10s 114ms
 |===
+
+= Features
 
 == An embed data directly feature
 

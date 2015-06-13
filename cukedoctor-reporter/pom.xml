@@ -98,7 +98,7 @@
                                     </descriptors>
                                     <archive>
                                         <manifest>
-                                            <mainClass>com.github.cukedoctor.reporter.CukedoctorMain</mainClass>
+                                            <mainClass>com.github.cukedoctor.CukedoctorMain</mainClass>
                                         </manifest>
                                     </archive>
                                 </configuration>

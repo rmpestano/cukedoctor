@@ -9,6 +9,35 @@ public abstract class Constants {
 		return System.getProperty("line.separator");
 	}
 
+	public static String bold(String value){
+		return "*"+value+"*";
+	}
+
+	public static String li(String value){
+		return "* "+value;
+	}
+
+	public static String style(String style, String value){
+		return "[" + style +"]#"+value+"#";
+	}
+
+	public static String red(String value){
+		return style("red",value);
+	}
+
+	public static String green(String value){
+		return style("green",value);
+	}
+
+	public static String iconFail(){
+		return "icon:thumbs-down[role=\"red\"]";
+	}
+
+	public static String iconPass(){
+		return "icon:thumbs-up[role=\"green\"]";
+	}
+
+
 	public interface Markup {
 
 		String H1 = "= ";
@@ -23,6 +52,8 @@ public abstract class Constants {
 		String ICONS = ":icons: ";
 		String NUMBERED = ":numbered:";
 		String NOT_NUMBERED = ":!numbered:";
+		String LINKCSS = ":linkcss:";
+		String NOT_LINKCSS = ":!linkcss:";
 		String SECT_ANCHORS = ":sectanchors:";
 		String NOT_SECT_ANCHORS = ":!sectanchors:";
 		String SECT_LINK = ":sectlink:";

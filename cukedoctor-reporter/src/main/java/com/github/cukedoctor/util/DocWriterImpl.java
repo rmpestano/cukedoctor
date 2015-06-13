@@ -29,16 +29,6 @@ public class DocWriterImpl implements DocWriter<StringBuilder> {
 		return instance;
 	}
 
-	public DocWriterImpl write(Object value, boolean newLine) {
-		if (value != null) {
-			doc.append(value);
-		}
-		if (newLine) {
-			doc.append(Constants.newLine());
-		}
-		return instance;
-	}
-
 	public DocWriterImpl write(Object... value) {
 		for (Object s : value) {
 			if (s == null || (s.toString() != newLine() && s.toString().trim().equals(""))) {

@@ -1,8 +1,10 @@
-package com.github.cukedoctor.reporter;
+package com.github.cukedoctor;
 
 import com.github.cukedoctor.api.DocWriter;
 import com.github.cukedoctor.api.DocumentAttributes;
 import com.github.cukedoctor.api.model.Feature;
+import com.github.cukedoctor.api.CukedoctorReporter;
+import com.github.cukedoctor.reporter.CukedoctorReporterImpl;
 import com.github.cukedoctor.util.DocWriterImpl;
 
 import java.util.List;
@@ -21,7 +23,7 @@ public class Cukedoctor {
 	 * @param attrs         document attributes
 	 * @return a Cukedoctor reporter instance
 	 */
-	public synchronized static CukedoctorReporter instance(List<Feature> features, String documentTitle, DocumentAttributes attrs) {
+	public static CukedoctorReporter instance(List<Feature> features, String documentTitle, DocumentAttributes attrs) {
 
 		if (features == null || features.isEmpty()) {
 			throw new RuntimeException("No features found");
@@ -50,7 +52,7 @@ public class Cukedoctor {
 	 * @param title    first section (H1) documentTitle
 	 * @return a Cukedoctor reporter instance
 	 */
-	public synchronized static CukedoctorReporter instance(List<Feature> features, String title) {
+	public static CukedoctorReporter instance(List<Feature> features, String title) {
 
 		return instance(features, title, new DocumentAttributes());
 	}

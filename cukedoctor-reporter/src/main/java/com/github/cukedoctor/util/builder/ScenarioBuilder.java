@@ -2,6 +2,7 @@ package com.github.cukedoctor.util.builder;
 
 import com.github.cukedoctor.api.model.Element;
 import com.github.cukedoctor.api.model.Step;
+import com.github.cukedoctor.api.model.Tag;
 import com.github.cukedoctor.api.model.Type;
 
 import java.util.ArrayList;
@@ -26,6 +27,12 @@ public class ScenarioBuilder {
 	public static synchronized ScenarioBuilder instance() {
 		instance = new ScenarioBuilder(new Element());
 		return instance;
+	}
+
+	public static synchronized ScenarioBuilder instance(Element scenario) {
+		instance = new ScenarioBuilder(scenario);
+		return instance;
+
 	}
 
 
@@ -57,6 +64,17 @@ public class ScenarioBuilder {
 
 		if(!instance.getScenario().getSteps().contains(step)){
 			instance.getScenario().getSteps().add(step);
+		}
+		return instance;
+	}
+
+	public ScenarioBuilder tag(Tag tag) {
+		if(instance.getScenario().getTags() == null){
+			instance.getScenario().setTags(new ArrayList<Tag>());
+		}
+
+		if(!instance.getScenario().getTags().contains(tag)){
+			instance.getScenario().getTags().add(tag);
 		}
 		return instance;
 	}

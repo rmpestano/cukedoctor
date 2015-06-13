@@ -19,9 +19,9 @@ public class Feature {
 	private String uri;
 	private String description;
 	private String keyword;
-	private List<Element> elements;
-	private List<Element> scenarios;
-	private List<Tag> tags;
+	private List<Element> elements = new ArrayList<>();
+	private List<Element> scenarios = new ArrayList<>();
+	private List<Tag> tags = new ArrayList<>();
 	private StepResults stepResults;
 	private ScenarioResults scenarioResults;
 
@@ -43,7 +43,7 @@ public class Feature {
 	}
 
 	public boolean hasTags() {
-		return !tags.isEmpty();
+		return tags != null && !tags.isEmpty();
 	}
 
 	public boolean hasScenarios() {
@@ -167,7 +167,6 @@ public class Feature {
 
 	public void initScenarios() {
 		if(elements != null){
-			scenarios = new ArrayList<>();
 			for (Element element : elements) {
 				if(!element.isBackground()){
 					scenarios.add(element);
