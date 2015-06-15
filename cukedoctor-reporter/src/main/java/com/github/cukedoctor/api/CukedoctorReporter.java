@@ -23,7 +23,7 @@ public interface CukedoctorReporter {
 	/**
 	 * creates a string representation of the current document in Asciidoctor format
 	 */
-	String createDocumentation();
+	String renderDocumentation();
 
 	CukedoctorReporter renderFeature(Feature feature);
 
@@ -49,5 +49,17 @@ public interface CukedoctorReporter {
 	 */
 	CukedoctorReporter renderTotalsRow();
 
+	/**
+	 * set output file name without extension(should always be .adoc or other asciidoc compatible extensions)
+	 * If no filename is set then Documentation title (first H1 section) will be used as filename (underline will be used to remove spaces)
+	 * The filename is used mainly for asciidoc docinfo creation.
+	 * @param filename
+	 */
+	CukedoctorReporter setFilename(String filename);
 
+
+	String getFilename();
+
+
+	CukedoctorReporter renderDocInfo();
 }

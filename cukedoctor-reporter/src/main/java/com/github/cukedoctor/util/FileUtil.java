@@ -2,21 +2,24 @@ package com.github.cukedoctor.util;
 
 import org.apache.maven.shared.utils.io.DirectoryScanner;
 import org.apache.maven.shared.utils.io.FileUtils;
+import org.apache.maven.shared.utils.io.IOUtil;
 
-import java.io.File;
-import java.io.IOException;
-import java.net.URISyntaxException;
-import java.nio.file.Files;
+import java.io.*;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  * Created by pestano on 02/06/15.
  */
 public class FileUtil {
+
+	public static Logger log = Logger.getLogger(FileUtil.class.getName());
+	public static final Pattern ADOC_FILE_EXTENSION = Pattern.compile("([^\\s]+(\\.(?i)(ad|adoc|asciidoc|asc))$)");
 
 	/**
 	 * @param path full path to the json feature result
@@ -24,17 +27,16 @@ public class FileUtil {
 	 */
 	public static String findJsonFile(String path) {
 		try {
-			if(path == null){
+			if (path == null) {
 				path = "";
 			}
 
-			if(path.startsWith("/")){//remove slash to use relative paths
+			if (path.startsWith("/")) {//remove slash to use relative paths
 				path = path.substring(1);
 			}
 			return Paths.get(path.trim()).toAbsolutePath().toString();
 		} catch (Exception e) {
-			e.printStackTrace();
-			Logger.getLogger(FileUtil.class.getName()).log(Level.SEVERE, "Could not load feature from " + path);
+			log.log(Level.SEVERE, "Could not load feature from " + path, e);
 			return null;
 		}
 
@@ -46,11 +48,11 @@ public class FileUtil {
 	 */
 	public static List<String> findJsonFiles(String startDir) {
 		try {
-			if(startDir == null){
+			if (startDir == null) {
 				startDir = "";
 			}
 
-			if(startDir.startsWith("/")){//remove slash to use relative paths
+			if (startDir.startsWith("/")) {//remove slash to use relative paths
 				startDir = startDir.substring(1);
 			}
 			DirectoryScanner scanner = new DirectoryScanner();
@@ -64,44 +66,84 @@ public class FileUtil {
 			//scanner.getIncludedFiles()
 			return absolutePaths;
 		} catch (Exception e) {
-			e.printStackTrace();
-			Logger.getLogger(FileUtil.class.getName()).log(Level.SEVERE, "Could not load features from " + startDir);
+			log.log(Level.SEVERE, "Could not load features from " + startDir, e);
 			return null;
 		}
 
 	}
 
-	public static void saveFile(String name, String data){
-		if(name == null){
-			throw new RuntimeException("Provide file name");
+	public static void saveFile(String name, String data) {
+		if (name == null) {
+			name = "";
 		}
 
-		if(!name.startsWith("/")){
+		if (!name.startsWith("/")) {
 			name = "/"+name;
 		}
 		try {
 			String relativePath = Paths.get("").toAbsolutePath().toString();
 			//String relativePath = new File(FileUtil.class.getClassLoader().getResource("").toURI()).getAbsolutePath();
 
-			File f = new File(relativePath+name.substring(0,name.lastIndexOf("/")));//create subdirs (if there any)
+			File f = new File(relativePath + name.substring(0, name.lastIndexOf("/")));//create subdirs (if there any)
 			f.mkdirs();
-			File file = new File(relativePath+name);
+			File file = new File(relativePath + name);
 			file.createNewFile();
-			FileUtils.fileWrite(file,"UTF-8",data);
-			Logger.getLogger(FileUtil.class.getName()).info("Wrote: "+file.getAbsolutePath());
+			FileUtils.fileWrite(file, "UTF-8", data);
+			log.info("Wrote: " + file.getAbsolutePath());
 		} catch (IOException e) {
-			Logger.getLogger(FileUtil.class.getName()).log(Level.SEVERE, "Could not create file " + name,e);
+			log.log(Level.SEVERE, "Could not create file " + name, e);
 		}
 	}
 
 	public static File loadFile(String path) {
-		if(path == null){
-			path = "";
+		if (path == null) {
+			path = "/";
 		}
 
-		if(path.startsWith("/")){//remove slash to use relative paths
-			path = path.substring(1);
+		if(!path.startsWith("/")){
+			path = "/"+path;
 		}
-		return new File(Paths.get(path.trim()).toAbsolutePath().toString());
+
+		return new File(Paths.get("").toAbsolutePath().toString() + path.trim());
+	}
+
+	public static void removeFile(String path) {
+		 File fileToRemove = new File(path);
+
+		 if(!fileToRemove.exists()){
+			 log.warning("Could not find file:"+fileToRemove.getAbsolutePath());
+		 }else{
+			 fileToRemove.delete();
+		 }
+	}
+
+	public static InputStream loadResourceFromClasspath(String resourceName){
+		return Thread.currentThread().getContextClassLoader().getResourceAsStream(resourceName);
+	}
+
+	public static void copyFile(String source, String dest) {
+
+		if (source != null && dest != null) {
+
+			if (!source.startsWith("/")) {
+				source = source.substring(source.indexOf("/")+1);//add leading slash to load from classpath (using resources as relative folder)
+			}
+			/*if (dest.startsWith("/")) { //remove slash to use relative paths. Dest file is saved using folder where Cukedoctor is executed as relative path
+				dest = dest.substring(1);
+			}*/
+			try {
+				InputStream in = Thread.currentThread().getContextClassLoader().getResourceAsStream(source);
+				//OutputStream out = new FileOutputStream(new File(Paths.get(dest).toAbsolutePath().toString()));
+				//IOUtil.copy(in, out);
+				saveFile(dest, IOUtil.toString(in));
+
+			} catch (FileNotFoundException e) {
+				log.log(Level.SEVERE, "Could not copy source file: " + source + " to dest file: " + dest, e);
+			} catch (IOException e) {
+				log.log(Level.SEVERE, "Could not copy source file: " + source + " to dest file: " + dest, e);
+			}
+		}
+
+
 	}
 }

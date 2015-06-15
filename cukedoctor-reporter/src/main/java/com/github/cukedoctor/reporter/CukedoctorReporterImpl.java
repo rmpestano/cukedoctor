@@ -2,6 +2,7 @@ package com.github.cukedoctor.reporter;
 
 import com.github.cukedoctor.api.*;
 import com.github.cukedoctor.api.model.*;
+import com.github.cukedoctor.util.FileUtil;
 import com.github.cukedoctor.util.Formatter;
 
 import java.util.List;
@@ -19,6 +20,7 @@ public class CukedoctorReporterImpl implements CukedoctorReporter {
 	private DocumentAttributes documentAttributes;
 	private String documentTitle;
 	private DocWriter<StringBuilder> writer;
+	private String filename;
 
 	public CukedoctorReporterImpl(List<Feature> features, DocumentAttributes attrs, String documentTitle, DocWriter<StringBuilder> writer) {
 		this.features = features;
@@ -45,7 +47,10 @@ public class CukedoctorReporterImpl implements CukedoctorReporter {
 	}
 
 
-	public String createDocumentation() {
+	/**
+	 * @return a String representation of generated documentation
+	 */
+	public String renderDocumentation() {
 		renderAttributes();
 		writer.write(newLine());
 		renderSummary();
@@ -75,7 +80,7 @@ public class CukedoctorReporterImpl implements CukedoctorReporter {
 	public CukedoctorReporterImpl renderFeatureScenarios(Feature feature) {
 		for (Element scenario : feature.getScenarios()) {
 			writer.write(Markup.H3, scenario.getKeyword(), ": ", scenario.getName(), newLine());
-			if(feature.hasTags() || scenario.hasTags()){
+			if (feature.hasTags() || scenario.hasTags()) {
 				renderScenarioTags(feature, scenario);
 				writer.write(newLine(), newLine());
 			}
@@ -136,10 +141,20 @@ public class CukedoctorReporterImpl implements CukedoctorReporter {
 				write(documentAttributes.isNumbered() ? Markup.NUMBERED : Markup.NOT_NUMBERED, newLine()).
 				write(documentAttributes.isLinkCss() ? Markup.LINKCSS : Markup.NOT_LINKCSS, newLine()).
 				write(documentAttributes.isSectAnchors() ? Markup.SECT_ANCHORS : Markup.NOT_SECT_ANCHORS, newLine()).
-				write(documentAttributes.isSectLink() ? Markup.SECT_LINK : Markup.NOT_SECT_LINK, newLine());
+				write(documentAttributes.isSectLink() ? Markup.SECT_LINK : Markup.NOT_SECT_LINK, newLine()).
+				write(documentAttributes.isDocInfo() ? Markup.DOCINFO : Markup.NOT_DOCINFO, newLine());
 		return this;
 	}
 
+	public CukedoctorReporter renderDocInfo() {
+		if (documentAttributes.isDocInfo()) {
+			//name must be filename-docinfo.html
+			String docInfoName = filename.substring(0, filename.lastIndexOf(".")) + "-docinfo.html";
+			FileUtil.copyFile("docinfo.html", docInfoName);
+		}
+
+		return this;
+	}
 
 	public CukedoctorReporterImpl renderSummary() {
 		writer.write(Markup.H1, documentTitle, newLine(), newLine());
@@ -222,6 +237,27 @@ public class CukedoctorReporterImpl implements CukedoctorReporter {
 		writer.write(newLine());
 
 		return this;
+	}
+
+	@Override
+	public CukedoctorReporter setFilename(String filename) {
+		if (filename == null) {
+			filename = documentTitle.replaceAll(" ", "_") + ".adoc";
+		}
+		if(!filename.contains(".")){
+			filename = filename + ".adoc";
+		}
+		if(!FileUtil.ADOC_FILE_EXTENSION.matcher(filename).matches()){
+ 			throw new RuntimeException("Invalid filename extension for file: "+filename+". Valid formats are: ad, adoc, asciidoc and asc");
+		}
+
+		this.filename = filename;
+		return this;
+	}
+
+	@Override
+	public String getFilename() {
+		return filename;
 	}
 
 }

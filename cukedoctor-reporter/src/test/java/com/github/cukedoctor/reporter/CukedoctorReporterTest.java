@@ -13,10 +13,8 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;
-import org.mockito.Mockito;
-import org.mockito.invocation.InvocationOnMock;
-import org.mockito.stubbing.Answer;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -97,7 +95,8 @@ public class CukedoctorReporterTest {
 						":!numbered:" + newLine() +
 						":!linkcss:" + newLine() +
 						":sectanchors:" + newLine() +
-						":sectlink:" + newLine();
+						":sectlink:" + newLine() +
+						":docinfo:" + newLine();
 
 
 		String document = Cukedoctor.instance(features, "Documentation Title", attrs).renderAttributes().
@@ -119,7 +118,8 @@ public class CukedoctorReporterTest {
 				":!numbered:" + newLine() +
 				":!linkcss:" + newLine() +
 				":sectanchors:" + newLine() +
-				":sectlink:" + newLine();
+				":sectlink:" + newLine() +
+				":docinfo:" + newLine();
 
 
 		String document = Cukedoctor.instance(features, "Documentation Title").renderAttributes().
@@ -141,7 +141,8 @@ public class CukedoctorReporterTest {
 				":!numbered:" + newLine() +
 				":!linkcss:" + newLine() +
 				":sectanchors:" + newLine() +
-				":sectlink:" + newLine();
+				":sectlink:" + newLine() +
+				":docinfo:" + newLine();
 
 
 		String document = Cukedoctor.instance(features, "Documentation Title", null).renderAttributes().
@@ -168,7 +169,8 @@ public class CukedoctorReporterTest {
 						":!numbered:" + newLine() +
 						":!linkcss:" + newLine() +
 						":sectanchors:" + newLine() +
-						":sectlink:" + newLine();
+						":sectlink:" + newLine() +
+						":docinfo:" + newLine();
 
 
 		String document = Cukedoctor.instance(features, "Documentation Title", attrs).renderAttributes().
@@ -197,7 +199,8 @@ public class CukedoctorReporterTest {
 						":!numbered:" + newLine() +
 						":linkcss:" + newLine() +
 						":sectanchors:" + newLine() +
-						":sectlink:" + newLine();
+						":sectlink:" + newLine() +
+						":docinfo:" + newLine();
 
 
 		String document = Cukedoctor.instance(features, "Documentation Title", attrs).renderAttributes().
@@ -360,6 +363,53 @@ public class CukedoctorReporterTest {
 				"description 2"+newLine());
 	}
 
+	@Test
+	public void shouldRenderDocinfo(){
+		final Feature feature = FeatureBuilder.instance().aFeatureWithTwoScenarios();
+		List<Feature> features = new ArrayList<>();
+		features.add(feature);
+		CukedoctorReporter reporter = Cukedoctor.instance(features, "Doc Title", new DocumentAttributes());
+		reporter.setFilename("/target/document.adoc");
+		reporter.renderDocInfo();
+		assertThat(FileUtil.loadFile("/target/document-docinfo.html")).exists();
+	}
+
+	@Test
+	public void shouldNotSetInvalidFilename(){
+		final Feature feature = FeatureBuilder.instance().aFeatureWithTwoScenarios();
+		List<Feature> features = new ArrayList<>();
+		features.add(feature);
+		CukedoctorReporter reporter = Cukedoctor.instance(features, "Doc Title", new DocumentAttributes());
+
+		reporter.setFilename("test");
+		assertThat(reporter.getFilename()).isEqualTo("test.adoc");
+		try{
+			reporter.setFilename("test.txt");
+		}catch (RuntimeException re){
+			assertThat(re.getMessage()).isEqualTo("Invalid filename extension for file: test.txt. Valid formats are: ad, adoc, asciidoc and asc");
+		}
+
+		try{
+			reporter.setFilename("test.doc");
+		}catch (RuntimeException re){
+			assertThat(re.getMessage()).isEqualTo("Invalid filename extension for file: test.doc. Valid formats are: ad, adoc, asciidoc and asc");
+		}
+
+		reporter.setFilename("test.ad");
+		assertThat(reporter.getFilename()).isEqualTo("test.ad");
+	}
+
+	@Test
+	public void shouldRenderDocinfoUsingDocTitleAsName(){
+		final Feature feature = FeatureBuilder.instance().aFeatureWithTwoScenarios();
+		List<Feature> features = new ArrayList<>();
+		features.add(feature);
+		CukedoctorReporter reporter = Cukedoctor.instance(features, "Doc Title", new DocumentAttributes());
+		reporter.renderDocInfo();
+		File savedFile = FileUtil.loadFile("Doc_Title-docinfo.html");
+		assertThat(savedFile).exists();
+		FileUtil.removeFile(savedFile.getAbsolutePath());
+	}
 
 	// Integration tests
 
@@ -373,7 +423,7 @@ public class CukedoctorReporterTest {
 				.sectAnchors(true).sectLink(true);
 
 		String resultDoc = Cukedoctor.instance(features, "Living Documentation", attrs).
-				createDocumentation();
+				renderDocumentation();
 		assertThat(resultDoc).isNotNull().
 				containsOnlyOnce(":doctype: book" + newLine()).
 				containsOnlyOnce(":toc: left" + newLine()).
@@ -398,7 +448,7 @@ public class CukedoctorReporterTest {
 				.sectAnchors(true).sectLink(true);
 
 		String resultDoc = Cukedoctor.instance(features, "Living Documentation", attrs).
-				createDocumentation();
+				renderDocumentation();
 		assertThat(resultDoc).isNotNull().
 				containsOnlyOnce(":doctype: book" + newLine()).
 				containsOnlyOnce(":toc: left" + newLine()).
@@ -421,12 +471,12 @@ public class CukedoctorReporterTest {
 		List<Feature> features = FeatureParser.parse(FileUtil.findJsonFile("target/test-classes/json-output/sample.json"));
 		assertThat(features).hasSize(1);
 		String resultDoc = Cukedoctor.instance(features, "Living Documentation", new DocumentAttributes()).
-				createDocumentation();
+				renderDocumentation();
 		assertThat(resultDoc).contains("****" + newLine() +
 				"As a user  +"+newLine() +
 				"I want to do something  +"+newLine() +
 				"In order to achieve another thing"+newLine() +
 				"****");
-		FileUtil.saveFile("sample.adoc",resultDoc);
+		FileUtil.saveFile("/target/sample.adoc",resultDoc);
 	}
 }

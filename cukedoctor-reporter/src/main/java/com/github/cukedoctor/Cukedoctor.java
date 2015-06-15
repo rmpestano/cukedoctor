@@ -39,10 +39,13 @@ public class Cukedoctor {
 		if (attrs.getDocTitle() == null) {
 			attrs.docTitle(documentTitle); //use documentTitle as docTitle attr if no title is provided
 		}
+
+
 		StringBuilder documentation = new StringBuilder();
 		DocWriter<StringBuilder> writer = DocWriterImpl.getInstance(documentation);
 
 		CukedoctorReporter instance = new CukedoctorReporterImpl(features,attrs,documentTitle,writer);
+		instance.setFilename(documentTitle.replaceAll(" ", "_") + ".adoc");//by default use documentTitle as filename
 
 		return instance;
 	}

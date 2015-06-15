@@ -15,6 +15,7 @@ public class DocumentAttributes {
 	private boolean sectAnchors = true;
 	private boolean sectLink = true;
 	private boolean numbered = false;
+	private boolean docInfo = true;
 
 
 	public DocumentAttributes docTitle(String docTitle) {
@@ -63,6 +64,11 @@ public class DocumentAttributes {
 		return this;
 	}
 
+	public DocumentAttributes docInfo(boolean docInfo) {
+		this.docInfo = docInfo;
+		return this;
+	}
+
 	public String getBackend() {
 		return backend;
 	}
@@ -97,5 +103,9 @@ public class DocumentAttributes {
 
 	public boolean isLinkCss() {
 		return linkCss;
+	}
+
+	public boolean isDocInfo() {
+		return docInfo;
 	}
 }

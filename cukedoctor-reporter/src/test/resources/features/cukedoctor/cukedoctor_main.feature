@@ -17,6 +17,7 @@ Feature: Cukedoctor Main
 :!linkcss:
 :sectanchors:
 :sectlink:
+:docinfo:
 
 = Documentation
 
@@ -87,6 +88,7 @@ Feature: Cukedoctor Main
 :!linkcss:
 :sectanchors:
 :sectlink:
+:docinfo:
 
 = Documentation
 

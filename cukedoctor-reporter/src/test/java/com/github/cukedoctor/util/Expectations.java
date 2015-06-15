@@ -117,6 +117,7 @@ public interface Expectations {
 			":!linkcss:" + newLine() +
 			":sectanchors:" + newLine() +
 			":sectlink:" + newLine() +
+			":docinfo:" + newLine() +
 			"" + newLine() +
 			"= Living Documentation" + newLine() +
 			"" + newLine() +
@@ -170,6 +171,7 @@ public interface Expectations {
 			":!linkcss:" + newLine() +
 			":sectanchors:" + newLine() +
 			":sectlink:" + newLine() +
+			":docinfo:" + newLine() +
 			"" + newLine() +
 			"= Living Documentation" + newLine() +
 			"" + newLine() +

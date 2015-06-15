@@ -47,7 +47,6 @@ public abstract class Constants {
 		String TABLE = "|===";
 		String TABLE_COL = "|";
 
-		String ALIGN_LEFT = "<";
 		String TOC = ":toc: ";
 		String ICONS = ":icons: ";
 		String NUMBERED = ":numbered:";
@@ -62,6 +61,8 @@ public abstract class Constants {
 		String DOC_TITLE = ":doctitle: ";
 		String DOC_FILE = ":docfile: ";
 		String DOC_TYPE = ":doctype: ";
+		String DOCINFO = ":docinfo:";
+		String NOT_DOCINFO = ":!docinfo:";
 	}
 }
 

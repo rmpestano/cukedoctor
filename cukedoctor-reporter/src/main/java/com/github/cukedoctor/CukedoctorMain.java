@@ -61,7 +61,7 @@ public class CukedoctorMain {
 		} else {
 			System.out.println("Found " + features.size() + " feature(s)");
 		}
-		String doc = Cukedoctor.instance(features, title).createDocumentation();
+		String doc = Cukedoctor.instance(features, title).renderDocumentation();
 		if (docName.toLowerCase().endsWith("html")) {
 			generateHtml(doc);
 		} else if (docName.toLowerCase().endsWith("pdf")) {
