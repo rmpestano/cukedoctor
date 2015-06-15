@@ -72,7 +72,7 @@ public class FileUtil {
 
 	}
 
-	public static void saveFile(String name, String data) {
+	public static File saveFile(String name, String data) {
 		if (name == null) {
 			name = "";
 		}
@@ -90,8 +90,10 @@ public class FileUtil {
 			file.createNewFile();
 			FileUtils.fileWrite(file, "UTF-8", data);
 			log.info("Wrote: " + file.getAbsolutePath());
+			return file;
 		} catch (IOException e) {
 			log.log(Level.SEVERE, "Could not create file " + name, e);
+			return null;
 		}
 	}
 
@@ -121,7 +123,7 @@ public class FileUtil {
 		return Thread.currentThread().getContextClassLoader().getResourceAsStream(resourceName);
 	}
 
-	public static void copyFile(String source, String dest) {
+	public static File copyFile(String source, String dest) {
 
 		if (source != null && dest != null) {
 
@@ -135,14 +137,14 @@ public class FileUtil {
 				InputStream in = Thread.currentThread().getContextClassLoader().getResourceAsStream(source);
 				//OutputStream out = new FileOutputStream(new File(Paths.get(dest).toAbsolutePath().toString()));
 				//IOUtil.copy(in, out);
-				saveFile(dest, IOUtil.toString(in));
-
+				return saveFile(dest, IOUtil.toString(in));
 			} catch (FileNotFoundException e) {
 				log.log(Level.SEVERE, "Could not copy source file: " + source + " to dest file: " + dest, e);
 			} catch (IOException e) {
 				log.log(Level.SEVERE, "Could not copy source file: " + source + " to dest file: " + dest, e);
 			}
 		}
+		return null;
 
 
 	}

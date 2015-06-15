@@ -5,6 +5,7 @@ import com.github.cukedoctor.api.model.*;
 import com.github.cukedoctor.util.FileUtil;
 import com.github.cukedoctor.util.Formatter;
 
+import java.io.File;
 import java.util.List;
 
 import static com.github.cukedoctor.util.Constants.Markup;
@@ -150,7 +151,16 @@ public class CukedoctorReporterImpl implements CukedoctorReporter {
 		if (documentAttributes.isDocInfo()) {
 			//name must be filename-docinfo.html
 			String docInfoName = filename.substring(0, filename.lastIndexOf(".")) + "-docinfo.html";
-			FileUtil.copyFile("docinfo.html", docInfoName);
+			File savedFile = FileUtil.copyFile("docinfo.html", docInfoName);
+			//docinfo depends on cukedoctor.js and cukedoctor.css
+			//save js and css file in same dir as docinfo
+			String basePath = "";
+			if(filename.contains("/")){
+				basePath = filename.substring(0,filename.lastIndexOf("/"));
+			}
+			FileUtil.copyFile("cukedoctor.js", basePath+"/cukedoctor.js");
+			FileUtil.copyFile("cukedoctor.css", basePath+"/cukedoctor.css");
+
 		}
 
 		return this;

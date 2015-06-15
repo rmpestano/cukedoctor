@@ -372,6 +372,8 @@ public class CukedoctorReporterTest {
 		reporter.setFilename("/target/document.adoc");
 		reporter.renderDocInfo();
 		assertThat(FileUtil.loadFile("/target/document-docinfo.html")).exists();
+		assertThat(FileUtil.loadFile("/target/cukedoctor.css")).exists();
+		assertThat(FileUtil.loadFile("/target/cukedoctor.js")).exists();
 	}
 
 	@Test
