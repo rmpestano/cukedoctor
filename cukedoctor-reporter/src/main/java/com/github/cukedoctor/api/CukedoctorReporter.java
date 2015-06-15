@@ -61,5 +61,5 @@ public interface CukedoctorReporter {
 	String getFilename();
 
 
-	CukedoctorReporter renderDocInfo();
+	CukedoctorReporter generateDocInfo();
 }

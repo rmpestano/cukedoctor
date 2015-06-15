@@ -60,7 +60,7 @@ public class CukedoctorReporterImpl implements CukedoctorReporter {
 		for (Feature feature : features) {
 			renderFeature(feature);
 		}
-
+		generateDocInfo();
 		return writer.getCurrentDoc().toString();
 	}
 
@@ -147,7 +147,7 @@ public class CukedoctorReporterImpl implements CukedoctorReporter {
 		return this;
 	}
 
-	public CukedoctorReporter renderDocInfo() {
+	public CukedoctorReporter generateDocInfo() {
 		if (documentAttributes.isDocInfo()) {
 			//name must be filename-docinfo.html
 			String docInfoName = filename.substring(0, filename.lastIndexOf(".")) + "-docinfo.html";
@@ -257,9 +257,12 @@ public class CukedoctorReporterImpl implements CukedoctorReporter {
 		if(!filename.contains(".")){
 			filename = filename + ".adoc";
 		}
+		filename = filename.replaceAll(" ","_");//remove blank spaces
+
 		if(!FileUtil.ADOC_FILE_EXTENSION.matcher(filename).matches()){
  			throw new RuntimeException("Invalid filename extension for file: "+filename+". Valid formats are: ad, adoc, asciidoc and asc");
 		}
+
 
 		this.filename = filename;
 		return this;

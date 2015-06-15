@@ -68,14 +68,14 @@ public class CukedoctorMainTest {
 	@Test
 	public void shouldCreateDocumentationUsingDocNameAsTitle() {
 		new CukedoctorMain().execute(new String[]{
-				"-n", "\"target/test-classes/living Documentation.adoc\"",
+				"-n", "\"target/test-classes/Living Documentation.adoc\"",
 				"-p", "\"target/test-classes/json-output\""
 		});
 		System.out.flush();
 		String output = baos.toString();
-		assertThat(output).contains("-t: Living Documentation.adoc").
+		assertThat(output).contains("-t: Living Documentation").
 				contains("Found 4 feature(s)");
-		assertTrue(FileUtil.loadFile("target/test-classes/living Documentation.adoc").exists());
+		assertTrue(FileUtil.loadFile("target/test-classes/Living_Documentation.adoc").exists());
 	}
 
 	@Test

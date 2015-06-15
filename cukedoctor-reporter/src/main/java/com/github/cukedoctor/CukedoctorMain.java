@@ -3,6 +3,7 @@ package com.github.cukedoctor;
 import com.beust.jcommander.JCommander;
 import com.beust.jcommander.Parameter;
 import com.beust.jcommander.ParameterException;
+import com.github.cukedoctor.api.CukedoctorReporter;
 import com.github.cukedoctor.api.model.Feature;
 import com.github.cukedoctor.parser.FeatureParser;
 import com.github.cukedoctor.util.FileUtil;
@@ -37,9 +38,12 @@ public class CukedoctorMain {
 			throw pe;
 		}
 		if (title == null) {
-			//Use docName as title with first char in uppercase
+			//find index where docname starts
 			int indexOfFirstDocTitleChar = docName.contains("/") ? docName.lastIndexOf("/") + 1 : 0;
-			title = docName.trim().substring(indexOfFirstDocTitleChar, indexOfFirstDocTitleChar + 1).toUpperCase() + docName.trim().substring(indexOfFirstDocTitleChar + 1);
+			//end index is used to excluse file extension
+			int endIndex = docName.contains(".") ? docName.indexOf(".") : docName.length() -1;
+			//Use docName as title with first char in uppercase
+			title = docName.trim().substring(indexOfFirstDocTitleChar, indexOfFirstDocTitleChar + 1).toUpperCase() + docName.trim().substring(indexOfFirstDocTitleChar + 1,endIndex);
 		}
 
 		System.out.println("Generating living documentation with args:");
@@ -61,13 +65,16 @@ public class CukedoctorMain {
 		} else {
 			System.out.println("Found " + features.size() + " feature(s)");
 		}
-		String doc = Cukedoctor.instance(features, title).renderDocumentation();
-		if (docName.toLowerCase().endsWith("html")) {
+		CukedoctorReporter reporter = Cukedoctor.instance(features, title);
+		reporter.setFilename(docName);
+		String doc = reporter.renderDocumentation();
+		//replace line below by: Cukedotor.generateDocumentation(doc,DocType.pdf|html)
+		if (reporter.getFilename().toLowerCase().endsWith("html")) {
 			generateHtml(doc);
-		} else if (docName.toLowerCase().endsWith("pdf")) {
+		} else if (reporter.getFilename().toLowerCase().endsWith("pdf")) {
 			generatePdf(doc);
 		} else {
-			FileUtil.saveFile(docName, doc);
+			FileUtil.saveFile(reporter.getFilename(), doc);
 		}
 		return doc;
 	}

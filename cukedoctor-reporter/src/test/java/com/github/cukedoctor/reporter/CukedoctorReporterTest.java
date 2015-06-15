@@ -370,7 +370,7 @@ public class CukedoctorReporterTest {
 		features.add(feature);
 		CukedoctorReporter reporter = Cukedoctor.instance(features, "Doc Title", new DocumentAttributes());
 		reporter.setFilename("/target/document.adoc");
-		reporter.renderDocInfo();
+		reporter.generateDocInfo();
 		assertThat(FileUtil.loadFile("/target/document-docinfo.html")).exists();
 		assertThat(FileUtil.loadFile("/target/cukedoctor.css")).exists();
 		assertThat(FileUtil.loadFile("/target/cukedoctor.js")).exists();
@@ -407,7 +407,7 @@ public class CukedoctorReporterTest {
 		List<Feature> features = new ArrayList<>();
 		features.add(feature);
 		CukedoctorReporter reporter = Cukedoctor.instance(features, "Doc Title", new DocumentAttributes());
-		reporter.renderDocInfo();
+		reporter.generateDocInfo();
 		File savedFile = FileUtil.loadFile("Doc_Title-docinfo.html");
 		assertThat(savedFile).exists();
 		FileUtil.removeFile(savedFile.getAbsolutePath());
