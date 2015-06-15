@@ -406,9 +406,9 @@ public class CukedoctorReporterTest {
 		final Feature feature = FeatureBuilder.instance().aFeatureWithTwoScenarios();
 		List<Feature> features = new ArrayList<>();
 		features.add(feature);
-		CukedoctorReporter reporter = Cukedoctor.instance(features, "Doc Title", new DocumentAttributes());
+		CukedoctorReporter reporter = Cukedoctor.instance(features, "/target/Doc Title", new DocumentAttributes());
 		reporter.generateDocInfo();
-		File savedFile = FileUtil.loadFile("Doc_Title-docinfo.html");
+		File savedFile = FileUtil.loadFile("/target/Doc_Title-docinfo.html");
 		assertThat(savedFile).exists();
 		FileUtil.removeFile(savedFile.getAbsolutePath());
 	}
@@ -424,8 +424,10 @@ public class CukedoctorReporterTest {
 				.icons("font").numbered(false)
 				.sectAnchors(true).sectLink(true);
 
-		String resultDoc = Cukedoctor.instance(features, "Living Documentation", attrs).
-				renderDocumentation();
+		CukedoctorReporter reporter = Cukedoctor.instance(features, "Living Documentation", attrs);
+		reporter.setFilename("/target/living_documentation.adoc");
+		String resultDoc =	reporter.renderDocumentation();
+
 		assertThat(resultDoc).isNotNull().
 				containsOnlyOnce(":doctype: book" + newLine()).
 				containsOnlyOnce(":toc: left" + newLine()).
@@ -449,8 +451,9 @@ public class CukedoctorReporterTest {
 				.icons("font").numbered(false)
 				.sectAnchors(true).sectLink(true);
 
-		String resultDoc = Cukedoctor.instance(features, "Living Documentation", attrs).
-				renderDocumentation();
+		CukedoctorReporter reporter = Cukedoctor.instance(features, "Living Documentation", attrs);
+		reporter.setFilename("/target/living_documentation.adoc");
+		String resultDoc =	reporter.renderDocumentation();
 		assertThat(resultDoc).isNotNull().
 				containsOnlyOnce(":doctype: book" + newLine()).
 				containsOnlyOnce(":toc: left" + newLine()).
@@ -472,8 +475,9 @@ public class CukedoctorReporterTest {
 	public void shouldRenderFeatureDescriptionWithNewLines(){
 		List<Feature> features = FeatureParser.parse(FileUtil.findJsonFile("target/test-classes/json-output/sample.json"));
 		assertThat(features).hasSize(1);
-		String resultDoc = Cukedoctor.instance(features, "Living Documentation", new DocumentAttributes()).
-				renderDocumentation();
+		CukedoctorReporter reporter = Cukedoctor.instance(features, "Living Documentation", new DocumentAttributes());
+		reporter.setFilename("/target/living_documentation.adoc");
+		String resultDoc =	reporter.renderDocumentation();
 		assertThat(resultDoc).contains("****" + newLine() +
 				"As a user  +"+newLine() +
 				"I want to do something  +"+newLine() +
