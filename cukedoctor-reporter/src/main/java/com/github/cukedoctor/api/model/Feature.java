@@ -232,12 +232,4 @@ public class Feature {
 
 	}
 
-	@Override
-	public int hashCode() {
-		Integer result = name.hashCode();
-		result = 31 * result + (uri != null ? uri.hashCode() : 0);
-		return result;
-	}
-
-
 }

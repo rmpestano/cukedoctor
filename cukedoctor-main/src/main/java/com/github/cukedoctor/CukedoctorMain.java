@@ -85,13 +85,10 @@ public class CukedoctorMain {
 		reporter.setFilename(reporterFinename);
 		String doc = reporter.renderDocumentation();
 		File adocFile = FileUtil.saveFile(reporterFinename,doc);
-		//replace line below by: Cukedotor.generateDocumentation(doc,DocType.pdf|html)
 		if (format.equals("html")) {
-			generateHtml(adocFile,reporter.getDocumentAttributes());
+			generateHtml(adocFile);
 		} else if (format.equals("pdf")) {
 			generatePdf(adocFile);
-		} else {
-			FileUtil.saveFile(reporter.getFilename(), doc);
 		}
 		return doc;
 	}
@@ -101,7 +98,7 @@ public class CukedoctorMain {
 		main.execute(args);
 	}
 
-	private void generateHtml(File document, DocumentAttributes docAttributes) {
+	private void generateHtml(File document) {
 		Asciidoctor asciidoctor = Asciidoctor.Factory.create();
 		String html = asciidoctor.convertFile(document,OptionsBuilder.options().safe(SafeMode.UNSAFE).asMap());
 		System.out.println(html);
