@@ -1,0 +1,33 @@
+= Cukedoctor Main module
+
+This module brings the ability to execute cukedoctor reporter as a Java main application (using command line: *java -jar*).
+
+This module also converts generated adoc files into html and pdf(soon), here's an example:
+
+[source, java]
+----
+@Test
+public void shouldRenderHtmlForOneFeature(){
+	CukedoctorMain main = new CukedoctorMain();
+	main.execute(new String[]{
+			"-o", "\"target/document-one\"", <1>
+			"-p", "\"target/test-classes/json-output/one_passing_one_failing.json\"", <2>
+			"-t", "Living Documentation", <3>
+			"-f", "html" <4>
+		});
+
+	File generatedFile = FileUtil.loadFile("target/document-one.html");
+	assertThat(generatedFile).exists();
+	}
+----
+<1> output file name
+<2> path to cucumber json files
+<3> Document title (first section - H1)
+<4> document format
+
+Using in command line, the above test should be something like:
+
+****
+java -jar cukedoctor-main.jar -o "target/document-one" -p "target/test-classes/json-output/one_passing_one_failing.json"
+							   -t "Living Documentation" -f html
+****

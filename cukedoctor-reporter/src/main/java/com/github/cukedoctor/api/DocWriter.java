@@ -10,4 +10,6 @@ public interface DocWriter<T> {
 	DocWriter write(Object... value);
 
 	T getCurrentDoc();
+
+	void clear();
 }

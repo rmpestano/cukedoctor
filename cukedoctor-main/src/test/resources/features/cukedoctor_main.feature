@@ -11,7 +11,7 @@ Feature: Cukedoctor Main
     :toc: right
 :backend: html5
 :doctitle: Documentation
-:doctype: article
+:doctype: book
 :icons: font
 :!numbered:
 :!linkcss:
@@ -82,7 +82,7 @@ Feature: Cukedoctor Main
       :toc: right
 :backend: html5
 :doctitle: Documentation
-:doctype: article
+:doctype: book
 :icons: font
 :!numbered:
 :!linkcss:

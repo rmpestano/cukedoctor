@@ -485,4 +485,15 @@ public class CukedoctorReporterTest {
 				"****");
 		FileUtil.saveFile("/target/sample.adoc",resultDoc);
 	}
+
+	@Test
+	public void shouldSaveDocumentationIntoDisk(){
+		List<Feature> features = FeatureParser.parse(onePassingOneFailing);
+
+		CukedoctorReporter reporter = Cukedoctor.instance(features, "Living Documentation", new DocumentAttributes());
+		reporter.setFilename("/target/living_documentation.adoc");
+
+		reporter.saveDocumentation();
+		assertThat(FileUtil.loadFile("/target/living_documentation.adoc")).exists();
+	}
 }

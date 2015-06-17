@@ -53,6 +53,7 @@ public class CukedoctorReporterImpl implements CukedoctorReporter {
 	 * @return a String representation of generated documentation
 	 */
 	public String renderDocumentation() {
+		writer.clear();
 		renderAttributes();
 		writer.write(newLine());
 		renderSummary();
@@ -272,6 +273,11 @@ public class CukedoctorReporterImpl implements CukedoctorReporter {
 	@Override
 	public String getFilename() {
 		return filename;
+	}
+
+	public CukedoctorReporter saveDocumentation(){
+		FileUtil.saveFile(filename,renderDocumentation());
+		return this;
 	}
 
 }

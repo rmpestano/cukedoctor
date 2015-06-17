@@ -44,4 +44,9 @@ public class DocWriterImpl implements DocWriter<StringBuilder> {
 	public StringBuilder getCurrentDoc() {
 		return doc;
 	}
+
+	@Override
+	public void clear() {
+		doc = new StringBuilder();
+	}
 }

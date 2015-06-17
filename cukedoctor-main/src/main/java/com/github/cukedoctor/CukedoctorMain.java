@@ -8,8 +8,7 @@ import com.github.cukedoctor.api.DocumentAttributes;
 import com.github.cukedoctor.api.model.Feature;
 import com.github.cukedoctor.parser.FeatureParser;
 import com.github.cukedoctor.util.FileUtil;
-import org.asciidoctor.Asciidoctor;
-import org.asciidoctor.Attributes;
+import org.asciidoctor.*;
 
 import java.io.File;
 import java.util.HashMap;
@@ -104,7 +103,7 @@ public class CukedoctorMain {
 
 	private void generateHtml(File document, DocumentAttributes docAttributes) {
 		Asciidoctor asciidoctor = Asciidoctor.Factory.create();
-		String html = asciidoctor.convertFile(document,new HashMap<String, Object>());
+		String html = asciidoctor.convertFile(document,OptionsBuilder.options().safe(SafeMode.UNSAFE).asMap());
 		System.out.println(html);
 	}
 

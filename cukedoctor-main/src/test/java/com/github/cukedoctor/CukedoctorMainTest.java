@@ -127,7 +127,7 @@ public class CukedoctorMainTest {
 		CukedoctorMain main = new CukedoctorMain();
 		main.execute(new String[]{
 				"-o", "\"target/document-one\"",
-				"-p", "\"target/test-classes/json-output/outline.json\"",
+				"-p", "\"target/test-classes/json-output/one_passing_one_failing.json\"",
 				"-t", "Living Documentation",
 				"-f", "html"
 
