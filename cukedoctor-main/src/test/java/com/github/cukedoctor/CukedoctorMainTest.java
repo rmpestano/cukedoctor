@@ -1,4 +1,4 @@
-package com.github.cukedoctor.reporter;
+package com.github.cukedoctor;
 
 import com.beust.jcommander.ParameterException;
 import com.github.cukedoctor.CukedoctorMain;

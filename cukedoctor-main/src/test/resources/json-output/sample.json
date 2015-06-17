@@ -1,0 +1,170 @@
+[
+  {
+    "keyword": "Feature",
+    "name": "Sample test",
+    "line": 1,
+    "description": "As a user \nI want to do something \nIn order to achieve another thing",
+    "id": "sample-test",
+    "uri": "features/test_outline.feature",
+    "elements": [
+      {
+        "keyword": "Scenario Outline",
+        "name": "Parsing scenarios with multiple examples",
+        "line": 2,
+        "description": "",
+        "id": "sample-test;parsing-scenarios-with-multiple-examples",
+        "type": "scenario_outline",
+        "steps": [
+          {
+            "keyword": "Given ",
+            "name": "I navigate to the home page",
+            "line": 3,
+            "match": {
+              "arguments": [
+                {
+                  "offset": 18,
+                  "val": "home page"
+                }
+              ],
+              "location": "features/step_definitions/navigation_steps.rb:20"
+            }
+          },
+          {
+            "keyword": "Then ",
+            "name": "I see the text 'Home'",
+            "line": 4,
+            "match": {
+              "arguments": [
+                {
+                  "offset": 16,
+                  "val": "Home"
+                }
+              ],
+              "location": "features/step_definitions/study_admin_steps.rb:13"
+            }
+          }
+        ],
+        "examples": [
+          {
+            "keyword": "Examples",
+            "name": "",
+            "line": 5,
+            "description": "",
+            "id": "sample-test;parsing-scenarios-with-multiple-examples;",
+            "rows": [
+              {
+                "cells": [
+                  "a",
+                  "b"
+                ],
+                "line": 6,
+                "id": "sample-test;parsing-scenarios-with-multiple-examples;;1"
+              },
+              {
+                "cells": [
+                  "1",
+                  "2"
+                ],
+                "line": 7,
+                "id": "sample-test;parsing-scenarios-with-multiple-examples;;2"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "keyword": "Scenario",
+        "name": "Basic",
+        "line": 9,
+        "description": "",
+        "id": "sample-test;basic",
+        "type": "scenario",
+        "steps": [
+          {
+            "keyword": "Given ",
+            "name": "I navigate to the home page",
+            "line": 10,
+            "match": {
+              "arguments": [
+                {
+                  "offset": 18,
+                  "val": "home page"
+                }
+              ],
+              "location": "features/step_definitions/navigation_steps.rb:20"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 44139764
+            }
+          },
+          {
+            "keyword": "Then ",
+            "name": "I see the text 'Home'",
+            "line": 11,
+            "match": {
+              "arguments": [
+                {
+                  "offset": 16,
+                  "val": "Home"
+                }
+              ],
+              "location": "features/step_definitions/study_admin_steps.rb:13"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1970847
+            }
+          }
+        ]
+      },
+      {
+        "keyword": "Scenario",
+        "name": "Basic failure",
+        "line": 13,
+        "description": "",
+        "id": "sample-test;basic-failure",
+        "type": "scenario",
+        "steps": [
+          {
+            "keyword": "Given ",
+            "name": "I navigate to the home page",
+            "line": 14,
+            "match": {
+              "arguments": [
+                {
+                  "offset": 18,
+                  "val": "home page"
+                }
+              ],
+              "location": "features/step_definitions/navigation_steps.rb:20"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 40398375
+            }
+          },
+          {
+            "keyword": "Then ",
+            "name": "I see the text 'Hacienda'",
+            "line": 15,
+            "match": {
+              "arguments": [
+                {
+                  "offset": 16,
+                  "val": "Hacienda"
+                }
+              ],
+              "location": "features/step_definitions/study_admin_steps.rb:13"
+            },
+            "result": {
+              "status": "failed",
+              "error_message": "expected to find text \"Hacienda\" in \"Home | Login Clinical Studies some engaging copy View Available Studies\" (RSpec::Expectations::ExpectationNotMetError)\n./features/step_definitions/study_admin_steps.rb:14:in `/^I see the text '(.+)'$/'\nfeatures/test_outline.feature:15:in `Then I see the text 'Hacienda''",
+              "duration": 10017706118
+            }
+          }
+        ]
+      }
+    ]
+  }
+]

@@ -12,6 +12,7 @@ import org.asciidoctor.Asciidoctor;
 import org.asciidoctor.Attributes;
 
 import java.io.File;
+import java.util.HashMap;
 import java.util.List;
 
 import static org.asciidoctor.OptionsBuilder.options;
@@ -103,8 +104,7 @@ public class CukedoctorMain {
 
 	private void generateHtml(File document, DocumentAttributes docAttributes) {
 		Asciidoctor asciidoctor = Asciidoctor.Factory.create();
-		Attributes attributes = docAttributes.toAsciidoctorJAttributes();
-		String html = asciidoctor.convertFile(document,options().attributes(attributes).asMap());
+		String html = asciidoctor.convertFile(document,new HashMap<String, Object>());
 		System.out.println(html);
 	}
 
