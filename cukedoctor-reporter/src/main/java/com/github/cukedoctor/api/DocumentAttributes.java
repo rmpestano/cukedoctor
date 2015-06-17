@@ -9,7 +9,7 @@ public class DocumentAttributes {
 
 	private String docTitle;
 	private String backend = "html5";
-	private String docType = "article";
+	private String docType = "book";
 	private String toc = "right";
 	private String icons = "font";
 	private boolean linkCss = false;

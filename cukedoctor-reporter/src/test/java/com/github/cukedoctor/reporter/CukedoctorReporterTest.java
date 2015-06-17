@@ -113,7 +113,7 @@ public class CukedoctorReporterTest {
 		String expected = ":toc: right" + newLine() +
 				":backend: html5" + newLine() +
 				":doctitle: Documentation Title" + newLine() +
-				":doctype: article" + newLine() +
+				":doctype: book" + newLine() +
 				":icons: font" + newLine() +
 				":!numbered:" + newLine() +
 				":!linkcss:" + newLine() +
@@ -136,7 +136,7 @@ public class CukedoctorReporterTest {
 		String expected = ":toc: right" + newLine() +
 				":backend: html5" + newLine() +
 				":doctitle: Documentation Title" + newLine() +
-				":doctype: article" + newLine() +
+				":doctype: book" + newLine() +
 				":icons: font" + newLine() +
 				":!numbered:" + newLine() +
 				":!linkcss:" + newLine() +
