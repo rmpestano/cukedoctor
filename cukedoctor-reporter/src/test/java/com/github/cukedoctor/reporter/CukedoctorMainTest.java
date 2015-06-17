@@ -11,6 +11,7 @@ import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;
 
 import java.io.ByteArrayOutputStream;
+import java.io.File;
 import java.io.IOException;
 import java.io.PrintStream;
 
@@ -45,7 +46,7 @@ public class CukedoctorMainTest {
 	@Test
 	public void shouldCreateDocumentationForOneFeature() {
 		new CukedoctorMain().execute(new String[]{
-				"-n", "\"target/test-classes/document-one.adoc\"",
+				"-o", "\"target/test-classes/document-one\"",
 				"-p", "\"target/test-classes/json-output/outline.json\"",
 				"-t", "Living Documentation"
 		});
@@ -55,7 +56,7 @@ public class CukedoctorMainTest {
 	@Test
 	public void shouldCreateDocumentationForMultipleFeatures() {
 		new CukedoctorMain().execute(new String[]{
-				"-n", "\"target/test-classes/document-mult.adoc\"",
+				"-o", "\"target/test-classes/document-mult\"",
 				"-p", "\"target/test-classes/json-output\"",
 				"-t", "Living Documentation"
 		});
@@ -68,20 +69,20 @@ public class CukedoctorMainTest {
 	@Test
 	public void shouldCreateDocumentationUsingDocNameAsTitle() {
 		new CukedoctorMain().execute(new String[]{
-				"-n", "\"target/test-classes/Living Documentation.adoc\"",
+				"-t", "\"target/test-classes/Living Documentation\"",
 				"-p", "\"target/test-classes/json-output\""
 		});
 		System.out.flush();
 		String output = baos.toString();
-		assertThat(output).contains("-t: Living Documentation").
+		assertThat(output).contains("-t: target/test-classes/Living Documentation").
 				contains("Found 4 feature(s)");
-		assertTrue(FileUtil.loadFile("target/test-classes/Living_Documentation.adoc").exists());
+		assertTrue(FileUtil.loadFile("target/test-classes/Living-Documentation.html").exists());
 	}
 
 	@Test
 	public void shouldNotFindFeatures() {
 		new CukedoctorMain().execute(new String[]{
-				"-n", "\"target/test-classes/document.adoc\"",
+				"-o", "\"target/test-classes/document\"",
 				"-p", "\"target/classes/\"",
 				"-t", "Living Documentation"
 		});
@@ -92,14 +93,14 @@ public class CukedoctorMainTest {
 
 
 	@Test
-	public void shouldFailToCreateDocumentationWithoutDocNameParam() {
+	public void shouldFailToCreateDocumentationWithoutTitleParam() {
 		try {
 			new CukedoctorMain().execute(new String[]{
 					"-p", "\"target/test-classes/json-output\"",
-					"-t", "Living Documentation"
+					"-o", "Living_Documentation"
 			});
 		} catch (ParameterException pe) {
-			assertEquals(pe.getMessage(), "The following option is required: -n ");
+			assertEquals(pe.getMessage(), "The following option is required: -t ");
 			return;
 		}
 
@@ -110,7 +111,7 @@ public class CukedoctorMainTest {
 	public void shouldFailToCreateDocumentationWithoutPathParam() {
 		try {
 			new CukedoctorMain().execute(new String[]{
-					"-n", "\"target/test-classes/living Documentation.adoc\"",
+					"-o", "\"target/test-classes/living Documentation\"",
 					"-t", "Living Documentation"
 			});
 		} catch (ParameterException pe) {
@@ -119,6 +120,22 @@ public class CukedoctorMainTest {
 		}
 
 		Assert.fail("Should not reach here");
+	}
+
+	@Test
+	public void shouldRenderHtmlForOneFeature(){
+		CukedoctorMain main = new CukedoctorMain();
+		main.execute(new String[]{
+				"-o", "\"target/document-one\"",
+				"-p", "\"target/test-classes/json-output/outline.json\"",
+				"-t", "Living Documentation",
+				"-f", "html"
+
+		});
+
+		File generatedFile = FileUtil.loadFile("target/document-one.html");
+		assertThat(generatedFile).exists();
+
 	}
 
 

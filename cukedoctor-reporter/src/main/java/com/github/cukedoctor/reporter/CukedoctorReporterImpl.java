@@ -11,6 +11,7 @@ import java.util.List;
 import static com.github.cukedoctor.util.Constants.Markup;
 import static com.github.cukedoctor.util.Constants.newLine;
 
+
 /**
  * Created by pestano on 02/06/15.
  */
@@ -252,12 +253,12 @@ public class CukedoctorReporterImpl implements CukedoctorReporter {
 	@Override
 	public CukedoctorReporter setFilename(String filename) {
 		if (filename == null) {
-			filename = documentTitle.replaceAll(" ", "_") + ".adoc";
+			filename = documentTitle;
 		}
 		if(!filename.contains(".")){
 			filename = filename + ".adoc";
 		}
-		filename = filename.replaceAll(" ","_");//remove blank spaces
+		filename = filename.replaceAll(" ","-");//remove blank spaces
 
 		if(!FileUtil.ADOC_FILE_EXTENSION.matcher(filename).matches()){
  			throw new RuntimeException("Invalid filename extension for file: "+filename+". Valid formats are: ad, adoc, asciidoc and asc");

@@ -29,7 +29,7 @@ public class Formatter {
 			.appendSuffix("ms")
 			.toFormatter();
 
-	public static String formatTime(Long time){
+	public static String formatTime(Long time) {
 		return TIME_FORMATTER.print(new Period(0, time / 1000000));
 	}
 }

@@ -1,5 +1,10 @@
 package com.github.cukedoctor.api;
 
+import org.asciidoctor.Attributes;
+import org.asciidoctor.Placement;
+
+import static org.asciidoctor.AttributesBuilder.attributes;
+
 /**
  * Created by pestano on 04/06/15.
  * Document overall configuration
@@ -107,5 +112,14 @@ public class DocumentAttributes {
 
 	public boolean isDocInfo() {
 		return docInfo;
+	}
+
+	public Attributes toAsciidoctorJAttributes() {
+		return attributes().backend(getBackend()).docType(getDocType()).icons(icons).
+				sectionNumbers(isNumbered()).linkCss(isLinkCss()).setAnchors(isSectAnchors()).
+				setAnchors(isSectAnchors()).title(docTitle).attribute("docinfo",":docinfo:").
+				tableOfContents(toc.equalsIgnoreCase("left") ? Placement.LEFT : toc.equalsIgnoreCase("right") ? Placement.RIGHT :
+				toc.equalsIgnoreCase("top") ? Placement.TOP : null).get();
+
 	}
 }
