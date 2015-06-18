@@ -491,9 +491,9 @@ public class CukedoctorReporterTest {
 		List<Feature> features = FeatureParser.parse(onePassingOneFailing);
 
 		CukedoctorReporter reporter = Cukedoctor.instance(features, "Living Documentation", new DocumentAttributes());
-		reporter.setFilename("/target/living_documentation.adoc");
+		reporter.setFilename("/target/living documentation.adoc");
 
 		reporter.saveDocumentation();
-		assertThat(FileUtil.loadFile("/target/living_documentation.adoc")).exists();
+		assertThat(FileUtil.loadFile("/target/living-documentation.adoc")).exists();
 	}
 }

@@ -99,6 +99,24 @@
             }
           },
           {
+            "keyword": "When ",
+            "name": "I do something",
+            "line": 10,
+            "match": {
+              "arguments": [
+                {
+                  "offset": 18,
+                  "val": "home page"
+                }
+              ],
+              "location": "features/step_definitions/navigation_steps.rb:20"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 44139764
+            }
+          },
+          {
             "keyword": "Then ",
             "name": "I see the text 'Home'",
             "line": 11,
