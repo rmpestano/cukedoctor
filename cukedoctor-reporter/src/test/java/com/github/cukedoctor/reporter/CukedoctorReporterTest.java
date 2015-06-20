@@ -413,6 +413,91 @@ public class CukedoctorReporterTest {
 		FileUtil.removeFile(savedFile.getAbsolutePath());
 	}
 
+
+	@Test
+	public void shouldRenderFeatureStepsWithOnePassingStep(){
+		final Feature feature = FeatureBuilder.instance().aFeatureWithOneScenarioWithOnePassingStep();
+		List<Feature> features = new ArrayList<>();
+		features.add(feature);
+		CukedoctorReporter reporter = Cukedoctor.instance(features, "/target/Doc Title", new DocumentAttributes());
+		List<Step> steps = feature.getScenarios().get(0).getSteps();
+		String resultDoc = reporter.renderScenarioSteps(steps).getDocumentation().toString();
+		assertThat(resultDoc).isEqualTo("****"+newLine() +
+				"Given::"+newLine() +
+				"passing step icon:thumbs-up[role=\"green\",title=\"Passed\"] [small right]#(000ms)#"+newLine() +
+				"****"+newLine());
+	}
+
+	@Test
+	public void shouldRenderFeatureStepsWithOnePassingAndOneFaillingStep(){
+		final Feature feature = FeatureBuilder.instance().aFeatureWithOneScenarioWithOnePassingAndOneFailingStep();
+		List<Feature> features = new ArrayList<>();
+		features.add(feature);
+		CukedoctorReporter reporter = Cukedoctor.instance(features, "/target/Doc Title", new DocumentAttributes());
+		List<Step> steps = feature.getScenarios().get(0).getSteps();
+		String resultDoc = reporter.renderScenarioSteps(steps).getDocumentation().toString();
+		assertThat(resultDoc).isEqualTo("****"+newLine() +
+				"Given::"+newLine() +
+				"passing step icon:thumbs-up[role=\"green\",title=\"Passed\"] [small right]#(000ms)#"+newLine() +
+				"When::"+newLine() +
+				"failing step icon:thumbs-down[role=\"red\",title=\"Failed\"] [small right]#(000ms)#"+newLine() +
+				"****"+newLine());
+	}
+
+	@Test
+	public void shouldRenderFeatureStepsWithOneScenarioWithMultipleStep(){
+		final Feature feature = FeatureBuilder.instance().aFeatureWithOneScenarioWithMultipleSteps();
+		List<Feature> features = new ArrayList<>();
+		features.add(feature);
+		CukedoctorReporter reporter = Cukedoctor.instance(features, "/target/Doc Title", new DocumentAttributes());
+		List<Step> steps = feature.getScenarios().get(0).getSteps();
+		String resultDoc = reporter.renderScenarioSteps(steps).getDocumentation().toString();
+		assertThat(resultDoc).isEqualTo("****"+newLine() +
+				"Given::"+newLine() +
+				"passing step icon:thumbs-up[role=\"green\",title=\"Passed\"] [small right]#(000ms)#"+newLine() +
+				"When::"+newLine() +
+				"failing step icon:thumbs-down[role=\"red\",title=\"Failed\"] [small right]#(000ms)#"+newLine() +
+				"When::"+newLine() +
+				"pending step icon:thumbs-down[role=\"orange\",title=\"Pending\"] [small right]#(000ms)#"+newLine() +
+				"When::"+newLine() +
+				"missing step icon:thumbs-down[role=\"blue\",title=\"Missing\"] [small right]#(000ms)#"+newLine() +
+				"When::"+newLine() +
+				"undefined step icon:thumbs-down[role=\"yellow\",title=\"Undefined\"] [small right]#(000ms)#"+newLine() +
+				"Then::"+newLine() +
+				"skipped step icon:thumbs-down[role=\"purple\",title=\"Skipped\"] [small right]#(000ms)#"+newLine() +
+				"****"+newLine());
+	}
+
+	@Test
+	public void shouldRenderFeatureScenariosWithMultipleSteps(){
+		final Feature feature = FeatureBuilder.instance().aFeatureWithMultipleScenariosAndSteps();
+		List<Feature> features = new ArrayList<>();
+		features.add(feature);
+		CukedoctorReporter reporter = Cukedoctor.instance(features, "/target/Doc Title", new DocumentAttributes());
+
+		String resultDoc = reporter.renderFeatureScenarios(feature).getDocumentation().toString();
+		assertThat(resultDoc).isEqualTo("=== Scenario: scenario"+newLine() +
+				"description****"+newLine() +
+				"Given::"+newLine() +
+				"passing step icon:thumbs-up[role=\"green\",title=\"Passed\"] [small right]#(000ms)#"+newLine() +
+				"When::"+newLine() +
+				"failing step icon:thumbs-down[role=\"red\",title=\"Failed\"] [small right]#(000ms)#"+newLine() +
+				"****"+newLine() +
+				""+newLine() +
+				"=== Scenario: scenario"+newLine() +
+				"description****"+newLine() +
+				"Then::"+newLine() +
+				"skipped step icon:thumbs-down[role=\"purple\",title=\"Skipped\"] [small right]#(000ms)#"+newLine() +
+				"****"+newLine() +
+				""+newLine() +
+				"=== Scenario: scenario"+newLine() +
+				"description****"+newLine() +
+				"Given::"+newLine() +
+				"undefined step icon:thumbs-down[role=\"yellow\",title=\"Undefined\"] [small right]#(000ms)#"+newLine() +
+				"****"+newLine() +
+				""+newLine());
+	}
+
 	// Integration tests
 
 	@Test
@@ -481,7 +566,7 @@ public class CukedoctorReporterTest {
 		assertThat(resultDoc).contains("****" + newLine() +
 				"As a user  +"+newLine() +
 				"I want to do something  +"+newLine() +
-				"In order to achieve another thing"+newLine() +
+				"In order to achieve an important goal"+newLine() +
 				"****");
 		FileUtil.saveFile("/target/sample.adoc",resultDoc);
 	}
@@ -494,6 +579,8 @@ public class CukedoctorReporterTest {
 		reporter.setFilename("/target/living documentation.adoc");
 
 		reporter.saveDocumentation();
-		assertThat(FileUtil.loadFile("/target/living-documentation.adoc")).exists();
+		assertThat(FileUtil.loadFile("/target/living_documentation.adoc")).exists();
 	}
+
+
 }

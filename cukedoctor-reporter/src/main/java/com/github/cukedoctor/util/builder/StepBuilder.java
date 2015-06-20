@@ -27,6 +27,11 @@ public class StepBuilder {
 		return instance;
 	}
 
+	public StepBuilder keyword(String keyword) {
+		step.setKeyword(keyword);
+		return instance;
+	}
+
 
 	public StepBuilder name(String name) {
 		step.setName(name);

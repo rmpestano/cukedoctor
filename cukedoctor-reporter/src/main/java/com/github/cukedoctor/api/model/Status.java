@@ -35,4 +35,28 @@ public enum Status {
 		}
 	}
 
+	public static String getStatusIcon(Status status){
+		switch (status){
+			case passed: {
+				return "icon:thumbs-up[role=\"green\",title=\"Passed\"]";
+			}
+			case failed: {
+				return "icon:thumbs-down[role=\"red\",title=\"Failed\"]";
+			}
+			case skipped: {
+				return "icon:thumbs-down[role=\"purple\",title=\"Skipped\"]";
+			}
+			case pending: {
+				return "icon:thumbs-down[role=\"orange\",title=\"Pending\"]";
+			}
+			case undefined: {
+				return "icon:thumbs-down[role=\"yellow\",title=\"Undefined\"]";
+			}
+			case missing: {
+				return "icon:thumbs-down[role=\"blue\",title=\"Missing\"]";
+			}
+			default:return "";
+		}
+	}
+
 }

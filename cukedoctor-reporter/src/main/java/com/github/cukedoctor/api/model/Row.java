@@ -6,6 +6,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 public class Row {
 
 	private String[] cells;
+	private String id;
 
 	public Row() {
 
@@ -13,6 +14,10 @@ public class Row {
 
 	public String[] getCells() {
 		return cells;
+	}
+
+	public String getId() {
+		return id;
 	}
 }
 

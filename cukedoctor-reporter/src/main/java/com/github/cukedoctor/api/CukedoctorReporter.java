@@ -51,7 +51,7 @@ public interface CukedoctorReporter {
 
 	/**
 	 * set output file name without extension (should always be .adoc or other asciidoc compatible extensions)
-	 * If no filename is set then Documentation title (first H1 section) will be used as filename (hyphen will be used to remove spaces)
+	 * If no filename is set then Documentation title (first H1 section) will be used as filename (underline will be used to remove spaces)
 	 * The filename is used mainly for asciidoc docinfo creation.
 	 * @param filename
 	 */

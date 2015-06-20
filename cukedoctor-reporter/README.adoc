@@ -22,3 +22,4 @@ public void shouldSaveDocumentationIntoDisk(){
 }
 ----
 
+NOTE: docinfo .js and .css are also generated.

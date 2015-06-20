@@ -13,6 +13,9 @@ public class Result {
 
 	}
 
+	public Result(Status status) {
+		this.status = status;
+	}
 
 	public Status getStatus() {
 		return status;

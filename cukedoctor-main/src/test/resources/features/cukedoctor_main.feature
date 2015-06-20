@@ -31,10 +31,10 @@ Feature: Cukedoctor Main
 |Total
 |[green]#*Passed*#
 |[red]#*Failed*#
-|[blue]#Skipped#
+|[purple]#Skipped#
 |[orange]#*Pending*#
 |[yellow]#*Undefined*#
-|[blue]#*Missing*#
+|[blue]#Missing#
 |Total
 |Duration
 |Status
@@ -63,10 +63,18 @@ Feature: Cukedoctor Main
 === Scenario: Passing
 [small]#tags: @a,@b#
 
+****
+Given ::
+this step passes icon:thumbs-up[role="green",title="Passed"] [small right]#(001ms)#
+****
 
 === Scenario: Failing
 [small]#tags: @a,@c#
 
+****
+Given ::
+this step fails icon:thumbs-down[role="red",title="Failed"] [small right]#(008ms)#
+****
 
 
     """
@@ -102,10 +110,10 @@ Feature: Cukedoctor Main
 |Total
 |[green]#*Passed*#
 |[red]#*Failed*#
-|[blue]#Skipped#
+|[purple]#Skipped#
 |[orange]#*Pending*#
 |[yellow]#*Undefined*#
-|[blue]#*Missing*#
+|[blue]#Missing#
 |Total
 |Duration
 |Status
@@ -174,23 +182,47 @@ Feature: Cukedoctor Main
 == An embed data directly feature
 
 === Scenario: scenario 1
+****
+Given ::
+I embed data directly icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+****
 
 === Scenario Outline: scenario 2
+****
+Given ::
+I embed data directly icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+****
 
+****
+Given ::
+I embed data directly icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+****
 
 == An outline feature
 
 === Scenario Outline: outline
+****
+Given ::
+this step <status> icon:thumbs-down[role="blue",title="Missing"]
+****
 
 == One passing scenario, one failing scenario
 
 === Scenario: Passing
 [small]#tags: @a,@b#
 
+****
+Given ::
+this step passes icon:thumbs-up[role="green",title="Passed"] [small right]#(001ms)#
+****
 
 === Scenario: Failing
 [small]#tags: @a,@c#
 
+****
+Given ::
+this step fails icon:thumbs-down[role="red",title="Failed"] [small right]#(008ms)#
+****
 
 == Sample test
 
@@ -201,10 +233,28 @@ In order to achieve another thing
 ****
 
 === Scenario Outline: Parsing scenarios with multiple examples
+****
+Given ::
+I navigate to the home page icon:thumbs-down[role="blue",title="Missing"]
+Then ::
+I see the text 'Home' icon:thumbs-down[role="blue",title="Missing"]
+****
 
 === Scenario: Basic
+****
+Given ::
+I navigate to the home page icon:thumbs-up[role="green",title="Passed"] [small right]#(044ms)#
+Then ::
+I see the text 'Home' icon:thumbs-up[role="green",title="Passed"] [small right]#(001ms)#
+****
 
 === Scenario: Basic failure
+****
+Given ::
+I navigate to the home page icon:thumbs-up[role="green",title="Passed"] [small right]#(040ms)#
+Then ::
+I see the text 'Hacienda' icon:thumbs-down[role="red",title="Failed"] [small right]#(10s 017ms)#
+****
 
 
       """

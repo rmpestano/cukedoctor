@@ -71,7 +71,7 @@ public class CukedoctorReporterImpl implements CukedoctorReporter {
 		if (feature.getDescription() != null && !"".equals(feature.getDescription().trim())) {
 			writer.write("****", newLine()).
 					//feature description has \n to delimit new lines
-							write(feature.getDescription().trim().replaceAll("\\n", " +" + newLine())).
+					write(feature.getDescription().trim().replaceAll("\\n", " +" + newLine())).
 					write(newLine(), "****", newLine(), newLine());
 		}
 
@@ -122,16 +122,24 @@ public class CukedoctorReporterImpl implements CukedoctorReporter {
 	}
 
 	public CukedoctorReporterImpl renderScenarioSteps(List<Step> steps) {
-		/*writer.write("****", newLine());
+		writer.write("****", newLine());
 		for (Step step : steps) {
 			writer.write(step.getKeyword(), "::", newLine());
-			writer.write(step.getName(), newLine(), step.getStatus().name(), newLine());
+			writer.write(step.getName()+" ", Status.getStatusIcon(step.getStatus()));
+			writer.write(renderStepTime(step.getResult())).write(newLine());
 			if (step.getResult() != null && !Status.passed.equals(step.getStatus())) {
-				writer.write(step.getResult().getErrorMessage());
+				writer.write("IMPORTANT:",step.getResult().getErrorMessage(),newLine());
 			}
 		}
-		writer.write("****", newLine());*/
+		writer.write("****", newLine());
 		return this;
+	}
+
+	public String renderStepTime(Result result) {
+		if(result == null || result.getDuration() == null){
+			return "";
+		}
+		return " [small right]#("+Formatter.formatTime(result.getDuration())+")#";
 	}
 
 
@@ -181,10 +189,10 @@ public class CukedoctorReporterImpl implements CukedoctorReporter {
 				"|Total" + newLine() +
 				"|[green]#*Passed*#" + newLine() +
 				"|[red]#*Failed*#" + newLine() +
-				"|[blue]#Skipped#" + newLine() +
+				"|[purple]#Skipped#" + newLine() +
 				"|[orange]#*Pending*#" + newLine() +
 				"|[yellow]#*Undefined*#" + newLine() +
-				"|[blue]#*Missing*#" + newLine() +
+				"|[blue]#Missing#" + newLine() +
 				"|Total" + newLine() +
 				"|Duration" + newLine() +
 				"|Status" + newLine());
@@ -259,7 +267,7 @@ public class CukedoctorReporterImpl implements CukedoctorReporter {
 		if(!filename.contains(".")){
 			filename = filename + ".adoc";
 		}
-		filename = filename.replaceAll(" ","-");//remove blank spaces
+		filename = filename.replaceAll(" ","_");//remove blank spaces with underline
 
 		if(!FileUtil.ADOC_FILE_EXTENSION.matcher(filename).matches()){
  			throw new RuntimeException("Invalid filename extension for file: "+filename+". Valid formats are: ad, adoc, asciidoc and asc");

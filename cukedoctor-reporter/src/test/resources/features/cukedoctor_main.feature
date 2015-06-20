@@ -31,10 +31,10 @@ Feature: Cukedoctor Main
 |Total
 |[green]#*Passed*#
 |[red]#*Failed*#
-|[blue]#Skipped#
+|[purple]#Skipped#
 |[orange]#*Pending*#
 |[yellow]#*Undefined*#
-|[blue]#*Missing*#
+|[blue]#Missing#
 |Total
 |Duration
 |Status
@@ -102,10 +102,10 @@ Feature: Cukedoctor Main
 |Total
 |[green]#*Passed*#
 |[red]#*Failed*#
-|[blue]#Skipped#
+|[purple]#Skipped#
 |[orange]#*Pending*#
 |[yellow]#*Undefined*#
-|[blue]#*Missing*#
+|[blue]#Missing#
 |Total
 |Duration
 |Status

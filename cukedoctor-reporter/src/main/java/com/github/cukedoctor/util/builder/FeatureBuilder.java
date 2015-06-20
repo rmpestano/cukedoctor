@@ -1,8 +1,6 @@
 package com.github.cukedoctor.util.builder;
 
-import com.github.cukedoctor.api.model.Element;
-import com.github.cukedoctor.api.model.Feature;
-import com.github.cukedoctor.api.model.Type;
+import com.github.cukedoctor.api.model.*;
 
 import java.util.ArrayList;
 
@@ -54,8 +52,8 @@ public class FeatureBuilder {
 		return instance;
 	}
 
-	public FeatureBuilder scenario(Element scenario){
-		if(feature.getElements() == null){
+	public FeatureBuilder scenario(Element scenario) {
+		if (feature.getElements() == null) {
 			feature.setElements(new ArrayList<Element>());
 		}
 		feature.getElements().add(scenario);
@@ -84,4 +82,109 @@ public class FeatureBuilder {
 		return feature;
 	}
 
+	public Feature aFeatureWithOneScenarioWithOnePassingStep() {
+
+		final Feature feature = FeatureBuilder.instance().description("Feature description").
+				scenario(ScenarioBuilder.instance().name("scenario").description("description")
+						.keyword("Scenario").type(Type.scenario).
+								step(StepBuilder.instance().name("passing step")
+										.result(new Result(Status.passed))
+										.keyword("Given").build()). //step
+								build()).//build scenario
+				name("Feature name").build();
+
+		return feature;
+	}
+
+	public Feature aFeatureWithOneScenarioWithOnePassingAndOneFailingStep() {
+
+		final Feature feature = FeatureBuilder.instance().description("Feature description").
+				scenario(ScenarioBuilder.instance().name("scenario").description("description")
+						.keyword("Scenario").type(Type.scenario).
+								step(StepBuilder.instance().name("passing step")
+										.result(new Result(Status.passed))
+										.match(new Match("match 1"))
+										.keyword("Given").build()).
+								step(StepBuilder.instance().name("failing step")
+										.result(new Result(Status.failed))
+										.match(new Match("match 2"))
+										.keyword("When").build()).
+								build()).//build scenario
+				name("Feature name").build();
+
+		return feature;
+	}
+
+	public Feature aFeatureWithOneScenarioWithMultipleSteps() {
+
+		final Feature feature = FeatureBuilder.instance().description("Feature description").
+				scenario(ScenarioBuilder.instance().name("scenario").description("description")
+						.keyword("Scenario").type(Type.scenario).
+								step(StepBuilder.instance().name("passing step")
+										.result(new Result(Status.passed))
+										.match(new Match("match 1"))
+										.keyword("Given").build()).
+								step(StepBuilder.instance().name("failing step")
+										.result(new Result(Status.failed))
+										.match(new Match("match 2"))
+										.keyword("When").build()).
+								step(StepBuilder.instance().name("pending step")
+										.result(new Result(Status.pending))
+										.match(new Match("match 3"))
+										.keyword("When").build()).
+								step(StepBuilder.instance().name("missing step")
+										.result(new Result(Status.missing))
+										.match(new Match("match 4"))
+										.keyword("When").build()).
+								step(StepBuilder.instance().name("undefined step")
+										.result(new Result(Status.undefined))
+										.match(new Match("match 5"))
+										.keyword("When").build()).
+								step(StepBuilder.instance().name("skipped step")
+										.result(new Result(Status.skipped))
+										.match(new Match("match 6"))
+										.keyword("Then").build()).
+								build()).
+				name("Feature name").build();
+
+		return feature;
+	}
+
+	public Feature aFeatureWithMultipleScenariosAndSteps() {
+		Element scenario1 = ScenarioBuilder.instance().name("scenario").description("description")
+				.keyword("Scenario").type(Type.scenario).
+						step(StepBuilder.instance().name("passing step")
+								.result(new Result(Status.passed))
+								.match(new Match("match 1"))
+								.keyword("Given").build()).
+						step(StepBuilder.instance().name("failing step")
+								.result(new Result(Status.failed))
+								.match(new Match("match 2"))
+								.keyword("When").build()).
+						build();
+
+		Element scenario2 = ScenarioBuilder.instance().name("scenario").description("description")
+				.keyword("Scenario").type(Type.scenario).
+						step(StepBuilder.instance().name("skipped step")
+								.result(new Result(Status.skipped))
+								.match(new Match("match 6"))
+								.keyword("Then").build()). //skipped step
+						build();
+
+		Element scenario3 = ScenarioBuilder.instance().name("scenario").description("description")
+				.keyword("Scenario").type(Type.scenario).
+						step(StepBuilder.instance().name("undefined step")
+								.result(new Result(Status.undefined))
+								.match(new Match("match1"))
+								.keyword("Given").build()).
+						build();
+
+		final Feature feature = FeatureBuilder.instance().description("Feature description").
+				scenario(scenario1).
+				scenario(scenario2).
+				scenario(scenario3).
+				name("Feature name").build();
+		return feature;
+
+	}
 }
