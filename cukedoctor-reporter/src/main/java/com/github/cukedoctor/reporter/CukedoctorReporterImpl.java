@@ -9,6 +9,7 @@ import java.io.File;
 import java.util.List;
 
 import static com.github.cukedoctor.util.Constants.Markup;
+import static com.github.cukedoctor.util.Constants.bold;
 import static com.github.cukedoctor.util.Constants.newLine;
 
 
@@ -56,92 +57,16 @@ public class CukedoctorReporterImpl implements CukedoctorReporter {
 		writer.clear();
 		renderAttributes();
 		writer.write(newLine());
+		writer.write(Markup.H1, bold(documentTitle), newLine(), newLine());
 		renderSummary();
 		writer.write(newLine(), newLine());
-		writer.write(Markup.H1, "Features", newLine(), newLine());
+		writer.write(Markup.H1, bold("Features"), newLine(), newLine());
 		for (Feature feature : features) {
 			renderFeature(feature);
 		}
 		generateDocInfo();
 		return writer.getCurrentDoc().toString();
 	}
-
-	public CukedoctorReporterImpl renderFeature(Feature feature) {
-		writer.write(Markup.H2, feature.getName(), newLine(), newLine());
-		if (feature.getDescription() != null && !"".equals(feature.getDescription().trim())) {
-			writer.write("****", newLine()).
-					//feature description has \n to delimit new lines
-					write(feature.getDescription().trim().replaceAll("\\n", " +" + newLine())).
-					write(newLine(), "****", newLine(), newLine());
-		}
-
-
-		renderFeatureScenarios(feature);
-		return this;
-	}
-
-	public CukedoctorReporterImpl renderFeatureScenarios(Feature feature) {
-		for (Element scenario : feature.getScenarios()) {
-			writer.write(Markup.H3, scenario.getKeyword(), ": ", scenario.getName(), newLine());
-			if (feature.hasTags() || scenario.hasTags()) {
-				renderScenarioTags(feature, scenario);
-				writer.write(newLine(), newLine());
-			}
-
-			writer.write(scenario.getDescription());
-
-			if (scenario.hasSteps()) {
-				renderScenarioSteps(scenario.getSteps());
-			}
-
-			writer.write(newLine());
-		}
-		return this;
-	}
-
-	public CukedoctorReporter renderScenarioTags(Feature feature, Element scenario) {
-		writer.write("[small]#tags: ");
-		StringBuilder tags = new StringBuilder();
-		if (feature.hasTags()) {
-			for (Tag featureTag : feature.getTags()) {
-				tags.append(featureTag.getName()).append(",");
-			}
-		}
-		if (scenario.hasTags()) {
-			for (Tag scenarioTag : scenario.getTags()) {
-				tags.append(scenarioTag.getName()).append(",");
-			}
-		}
-		if (tags.indexOf(",") != -1) {//delete last comma
-			tags.deleteCharAt(tags.lastIndexOf(","));
-		}
-		writer.write(tags.toString());
-		writer.write("#");
-
-		return this;
-	}
-
-	public CukedoctorReporterImpl renderScenarioSteps(List<Step> steps) {
-		writer.write("****", newLine());
-		for (Step step : steps) {
-			writer.write(step.getKeyword(), "::", newLine());
-			writer.write(step.getName()+" ", Status.getStatusIcon(step.getStatus()));
-			writer.write(renderStepTime(step.getResult())).write(newLine());
-			if (step.getResult() != null && !Status.passed.equals(step.getStatus())) {
-				writer.write("IMPORTANT:",step.getResult().getErrorMessage(),newLine());
-			}
-		}
-		writer.write("****", newLine());
-		return this;
-	}
-
-	public String renderStepTime(Result result) {
-		if(result == null || result.getDuration() == null){
-			return "";
-		}
-		return " [small right]#("+Formatter.formatTime(result.getDuration())+")#";
-	}
-
 
 	public CukedoctorReporter renderAttributes() {
 		writer.write(Markup.TOC, documentAttributes.getToc(), newLine()).
@@ -177,9 +102,7 @@ public class CukedoctorReporterImpl implements CukedoctorReporter {
 	}
 
 	public CukedoctorReporterImpl renderSummary() {
-		writer.write(Markup.H1, documentTitle, newLine(), newLine());
-
-		writer.write("== Summary").write(newLine());
+		writer.write(Markup.H1,bold("Summary")).write(newLine());
 		writer.write("[cols=\"12*^m\", options=\"header,footer\"]" + newLine() +
 				"|===" + newLine() +
 				"3+|Scenarios 7+|Steps 2+|Features: " + features.size() +
@@ -189,10 +112,10 @@ public class CukedoctorReporterImpl implements CukedoctorReporter {
 				"|Total" + newLine() +
 				"|[green]#*Passed*#" + newLine() +
 				"|[red]#*Failed*#" + newLine() +
-				"|[purple]#Skipped#" + newLine() +
+				"|[purple]#*Skipped*#" + newLine() +
 				"|[orange]#*Pending*#" + newLine() +
 				"|[yellow]#*Undefined*#" + newLine() +
-				"|[blue]#Missing#" + newLine() +
+				"|[blue]#*Missing*#" + newLine() +
 				"|Total" + newLine() +
 				"|Duration" + newLine() +
 				"|Status" + newLine());
@@ -258,6 +181,83 @@ public class CukedoctorReporterImpl implements CukedoctorReporter {
 
 		return this;
 	}
+
+	public CukedoctorReporterImpl renderFeature(Feature feature) {
+		writer.write(Markup.H2, feature.getName(), newLine(), newLine());
+		if (feature.getDescription() != null && !"".equals(feature.getDescription().trim())) {
+			writer.write("****", newLine()).
+					//feature description has \n to delimit new lines
+					write(feature.getDescription().trim().replaceAll("\\n", " +" + newLine())).
+					write(newLine(), "****", newLine(), newLine());
+		}
+
+
+		renderFeatureScenarios(feature);
+		return this;
+	}
+
+	public CukedoctorReporterImpl renderFeatureScenarios(Feature feature) {
+		for (Element scenario : feature.getScenarios()) {
+			writer.write(Markup.H3, scenario.getKeyword(), ": ", scenario.getName(), newLine());
+			if (feature.hasTags() || scenario.hasTags()) {
+				renderScenarioTags(feature, scenario);
+				writer.write(newLine(), newLine());
+			}
+
+			writer.write(scenario.getDescription());
+
+			if (scenario.hasSteps()) {
+				renderScenarioSteps(scenario.getSteps());
+			}
+
+			writer.write(newLine());
+		}
+		return this;
+	}
+
+	public CukedoctorReporter renderScenarioTags(Feature feature, Element scenario) {
+		writer.write("[small]#tags: ");
+		StringBuilder tags = new StringBuilder();
+		if (feature.hasTags()) {
+			for (Tag featureTag : feature.getTags()) {
+				tags.append(featureTag.getName()).append(",");
+			}
+		}
+		if (scenario.hasTags()) {
+			for (Tag scenarioTag : scenario.getTags()) {
+				tags.append(scenarioTag.getName()).append(",");
+			}
+		}
+		if (tags.indexOf(",") != -1) {//delete last comma
+			tags.deleteCharAt(tags.lastIndexOf(","));
+		}
+		writer.write(tags.toString());
+		writer.write("#");
+
+		return this;
+	}
+
+	public CukedoctorReporterImpl renderScenarioSteps(List<Step> steps) {
+		writer.write("****", newLine());
+		for (Step step : steps) {
+			writer.write(step.getKeyword(), "::", newLine());
+			writer.write(step.getName()+" ", Status.getStatusIcon(step.getStatus()));
+			writer.write(renderStepTime(step.getResult())).write(newLine());
+			if (step.getResult() != null && !Status.passed.equals(step.getStatus())) {
+				writer.write(newLine(),"IMPORTANT:",step.getResult().getErrorMessage(),newLine());
+			}
+		}
+		writer.write("****", newLine());
+		return this;
+	}
+
+	public String renderStepTime(Result result) {
+		if(result == null || result.getDuration() == null){
+			return "";
+		}
+		return " [small right]#("+Formatter.formatTime(result.getDuration())+")#";
+	}
+
 
 	@Override
 	public CukedoctorReporter setFilename(String filename) {

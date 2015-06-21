@@ -4,12 +4,10 @@
     "keyword": "Feature",
     "id": "one-passing-scenario,-one-failing-scenario",
     "name": "One passing scenario, one failing scenario",
-    "line": 2,
     "description": "",
     "tags": [
       {
-        "name": "@a",
-        "line": 1
+        "name": "@a"
       }
     ],
     "elements": [
@@ -17,12 +15,10 @@
         "keyword": "Scenario",
         "id": "one-passing-scenario,-one-failing-scenario;passing",
         "name": "Passing",
-        "line": 5,
         "description": "",
         "tags": [
           {
-            "name": "@b",
-            "line": 4
+            "name": "@b"
           }
         ],
         "type": "scenario",
@@ -30,7 +26,6 @@
           {
             "keyword": "Given ",
             "name": "this step passes",
-            "line": 6,
             "match": {
               "location": "features/step_definitions/steps.rb:1"
             },
@@ -45,12 +40,10 @@
         "keyword": "Scenario",
         "id": "one-passing-scenario,-one-failing-scenario;failing",
         "name": "Failing",
-        "line": 9,
         "description": "",
         "tags": [
           {
-            "name": "@c",
-            "line": 8
+            "name": "@c"
           }
         ],
         "type": "scenario",
@@ -58,7 +51,6 @@
           {
             "keyword": "Given ",
             "name": "this step fails",
-            "line": 10,
             "match": {
               "location": "features/step_definitions/steps.rb:4"
             },

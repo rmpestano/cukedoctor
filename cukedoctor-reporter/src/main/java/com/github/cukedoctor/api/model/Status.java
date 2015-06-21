@@ -20,7 +20,7 @@ public enum Status {
 				return style("red",bold(failed.name()));
 			}
 			case skipped: {
-				return style("blue",skipped.name());
+				return style("purple",bold(skipped.name()));
 			}
 			case pending: {
 				return style("orange",bold(pending.name()));

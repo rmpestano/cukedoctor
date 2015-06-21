@@ -19,9 +19,9 @@ Feature: Cukedoctor Main
 :sectlink:
 :docinfo:
 
-= Documentation
+= *Documentation*
 
-== Summary
+= *Summary*
 [cols="12*^m", options="header,footer"]
 |===
 3+|Scenarios 7+|Steps 2+|Features: 1
@@ -31,10 +31,10 @@ Feature: Cukedoctor Main
 |Total
 |[green]#*Passed*#
 |[red]#*Failed*#
-|[purple]#Skipped#
+|[purple]#*Skipped*#
 |[orange]#*Pending*#
 |[yellow]#*Undefined*#
-|[blue]#Missing#
+|[blue]#*Missing*#
 |Total
 |Duration
 |Status
@@ -56,7 +56,7 @@ Feature: Cukedoctor Main
 |1|1|2|1|1|0|0|0|0|2 2+|010ms
 |===
 
-= Features
+= *Features*
 
 == One passing scenario, one failing scenario
 
@@ -74,6 +74,10 @@ this step passes icon:thumbs-up[role="green",title="Passed"] [small right]#(001m
 ****
 Given ::
 this step fails icon:thumbs-down[role="red",title="Failed"] [small right]#(008ms)#
+
+IMPORTANT: (RuntimeError)
+./features/step_definitions/steps.rb:4:in /^this step fails$/'
+features/one_passing_one_failing.feature:10:in Given this step fails'
 ****
 
 
@@ -98,9 +102,9 @@ this step fails icon:thumbs-down[role="red",title="Failed"] [small right]#(008ms
 :sectlink:
 :docinfo:
 
-= Documentation
+= *Documentation*
 
-== Summary
+= *Summary*
 [cols="12*^m", options="header,footer"]
 |===
 3+|Scenarios 7+|Steps 2+|Features: 4
@@ -110,10 +114,10 @@ this step fails icon:thumbs-down[role="red",title="Failed"] [small right]#(008ms
 |Total
 |[green]#*Passed*#
 |[red]#*Failed*#
-|[purple]#Skipped#
+|[purple]#*Skipped*#
 |[orange]#*Pending*#
 |[yellow]#*Undefined*#
-|[blue]#Missing#
+|[blue]#*Missing*#
 |Total
 |Duration
 |Status
@@ -177,7 +181,7 @@ this step fails icon:thumbs-down[role="red",title="Failed"] [small right]#(008ms
 |5|4|9|7|2|0|0|0|3|12 2+|10s 114ms
 |===
 
-= Features
+= *Features*
 
 == An embed data directly feature
 
@@ -222,6 +226,10 @@ this step passes icon:thumbs-up[role="green",title="Passed"] [small right]#(001m
 ****
 Given ::
 this step fails icon:thumbs-down[role="red",title="Failed"] [small right]#(008ms)#
+
+IMPORTANT: (RuntimeError)
+./features/step_definitions/steps.rb:4:in /^this step fails$/'
+features/one_passing_one_failing.feature:10:in Given this step fails'
 ****
 
 == Sample test
@@ -254,6 +262,10 @@ Given ::
 I navigate to the home page icon:thumbs-up[role="green",title="Passed"] [small right]#(040ms)#
 Then ::
 I see the text 'Hacienda' icon:thumbs-down[role="red",title="Failed"] [small right]#(10s 017ms)#
+
+IMPORTANT:expected to find text "Hacienda" in "Home | Login Clinical Studies some engaging copy View Available Studies" (RSpec::Expectations::ExpectationNotMetError)
+./features/step_definitions/study_admin_steps.rb:14:in `/^I see the text '(.+)'$/'
+features/test_outline.feature:15:in `Then I see the text 'Hacienda''
 ****
 
 

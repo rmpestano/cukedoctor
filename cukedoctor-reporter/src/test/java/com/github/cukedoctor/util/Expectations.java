@@ -7,8 +7,8 @@ import static com.github.cukedoctor.util.Constants.newLine;
  */
 public interface Expectations {
 
-	String SUMMARY_FOR_ONE_FEATURE = "= Title" + newLine() + newLine() +
-			"== Summary" + newLine() +
+	String SUMMARY_FOR_ONE_FEATURE =
+			"= *Summary*" + newLine() +
 			"[cols=\"12*^m\", options=\"header,footer\"]" + newLine() +
 			"|===" + newLine() +
 			"3+|Scenarios 7+|Steps 2+|Features: 1" + newLine() +
@@ -18,10 +18,10 @@ public interface Expectations {
 			"|Total" + newLine() +
 			"|[green]#*Passed*#" + newLine() +
 			"|[red]#*Failed*#" + newLine() +
-			"|[purple]#Skipped#" + newLine() +
+			"|[purple]#*Skipped*#" + newLine() +
 			"|[orange]#*Pending*#" + newLine() +
 			"|[yellow]#*Undefined*#" + newLine() +
-			"|[blue]#Missing#" + newLine() +
+			"|[blue]#*Missing*#" + newLine() +
 			"|Total" + newLine() +
 			"|Duration" + newLine() +
 			"|Status" + newLine() +
@@ -43,9 +43,8 @@ public interface Expectations {
 			"|1|1|2|1|1|0|0|0|0|2 2+|010ms" + newLine() +
 			"|===";
 
-	String SUMMARY_FOR_MULTIPLE_FEATURES = "= Title"+newLine() +
-			""+newLine() +
-			"== Summary"+newLine() +
+	String SUMMARY_FOR_MULTIPLE_FEATURES =
+			"= *Summary*"+newLine() +
 			"[cols=\"12*^m\", options=\"header,footer\"]"+newLine() +
 			"|==="+newLine() +
 			"3+|Scenarios 7+|Steps 2+|Features: 3"+newLine() +
@@ -55,10 +54,10 @@ public interface Expectations {
 			"|Total"+newLine() +
 			"|[green]#*Passed*#"+newLine() +
 			"|[red]#*Failed*#"+newLine() +
-			"|[purple]#Skipped#"+newLine() +
+			"|[purple]#*Skipped*#"+newLine() +
 			"|[orange]#*Pending*#"+newLine() +
 			"|[yellow]#*Undefined*#"+newLine() +
-			"|[blue]#Missing#"+newLine() +
+			"|[blue]#*Missing*#"+newLine() +
 			"|Total"+newLine() +
 			"|Duration"+newLine() +
 			"|Status"+newLine() +
@@ -119,9 +118,9 @@ public interface Expectations {
 			":sectlink:"+newLine() +
 			":docinfo:"+newLine() +
 			""+newLine() +
-			"= Living Documentation"+newLine() +
+			"= *Living Documentation*"+newLine() +
 			""+newLine() +
-			"== Summary"+newLine() +
+			"= *Summary*"+newLine() +
 			"[cols=\"12*^m\", options=\"header,footer\"]"+newLine() +
 			"|==="+newLine() +
 			"3+|Scenarios 7+|Steps 2+|Features: 1"+newLine() +
@@ -131,10 +130,10 @@ public interface Expectations {
 			"|Total"+newLine() +
 			"|[green]#*Passed*#"+newLine() +
 			"|[red]#*Failed*#"+newLine() +
-			"|[purple]#Skipped#"+newLine() +
+			"|[purple]#*Skipped*#"+newLine() +
 			"|[orange]#*Pending*#"+newLine() +
 			"|[yellow]#*Undefined*#"+newLine() +
-			"|[blue]#Missing#"+newLine() +
+			"|[blue]#*Missing*#"+newLine() +
 			"|Total"+newLine() +
 			"|Duration"+newLine() +
 			"|Status"+newLine() +
@@ -156,7 +155,7 @@ public interface Expectations {
 			"|1|1|2|1|1|0|0|0|0|2 2+|010ms"+newLine() +
 			"|==="+newLine() +
 			""+newLine() +
-			"= Features"+newLine() +
+			"= *Features*"+newLine() +
 			""+newLine() +
 			"== One passing scenario, one failing scenario"+newLine() +
 			""+newLine() +
@@ -173,8 +172,11 @@ public interface Expectations {
 			""+newLine() +
 			"****"+newLine() +
 			"Given ::"+newLine() +
-			"this step fails icon:thumbs-down[role=\"red\",title=\"Failed\"] [small right]#(008ms)#"+newLine() +
-			"****\n"+newLine();
+			"this step fails icon:thumbs-down[role=\"red\",title=\"Failed\"] [small right]#(008ms)#"+newLine() + newLine()+
+			"IMPORTANT: (RuntimeError)" + newLine()  +
+			"./features/step_definitions/steps.rb:4:in /^this step fails$/'" + newLine()  +
+			"features/one_passing_one_failing.feature:10:in Given this step fails'" + newLine()  +
+			"****"+newLine()+newLine();
 
 	String DOCUMENTATION_FOR_MULTIPLE_FEATURES = ":toc: left"+newLine() +
 			":backend: html5"+newLine() +
@@ -187,9 +189,9 @@ public interface Expectations {
 			":sectlink:"+newLine() +
 			":docinfo:"+newLine() +
 			""+newLine() +
-			"= Living Documentation"+newLine() +
+			"= *Living Documentation*"+newLine() +
 			""+newLine() +
-			"== Summary"+newLine() +
+			"= *Summary*"+newLine() +
 			"[cols=\"12*^m\", options=\"header,footer\"]"+newLine() +
 			"|==="+newLine() +
 			"3+|Scenarios 7+|Steps 2+|Features: 3"+newLine() +
@@ -199,10 +201,10 @@ public interface Expectations {
 			"|Total"+newLine() +
 			"|[green]#*Passed*#"+newLine() +
 			"|[red]#*Failed*#"+newLine() +
-			"|[purple]#Skipped#"+newLine() +
+			"|[purple]#*Skipped*#"+newLine() +
 			"|[orange]#*Pending*#"+newLine() +
 			"|[yellow]#*Undefined*#"+newLine() +
-			"|[blue]#Missing#"+newLine() +
+			"|[blue]#*Missing*#"+newLine() +
 			"|Total"+newLine() +
 			"|Duration"+newLine() +
 			"|Status"+newLine() +
@@ -252,7 +254,7 @@ public interface Expectations {
 			"|4|2|6|4|1|0|0|0|1|6 2+|010ms"+newLine() +
 			"|==="+newLine() +
 			""+newLine() +
-			"= Features"+newLine() +
+			"= *Features*"+newLine() +
 			""+newLine() +
 			"== An embed data directly feature"+newLine() +
 			""+newLine() +
@@ -296,6 +298,9 @@ public interface Expectations {
 			""+newLine() +
 			"****"+newLine() +
 			"Given ::"+newLine() +
-			"this step fails icon:thumbs-down[role=\"red\",title=\"Failed\"] [small right]#(008ms)#"+newLine() +
+			"this step fails icon:thumbs-down[role=\"red\",title=\"Failed\"] [small right]#(008ms)#"+newLine() + newLine()+
+			"IMPORTANT: (RuntimeError)" + newLine()  +
+			"./features/step_definitions/steps.rb:4:in /^this step fails$/'" + newLine()  +
+			"features/one_passing_one_failing.feature:10:in Given this step fails'" + newLine()  +
 			"****"+newLine()+newLine();
 }

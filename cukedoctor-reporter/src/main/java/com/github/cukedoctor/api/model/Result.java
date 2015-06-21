@@ -36,4 +36,8 @@ public class Result {
 	public String getErrorMessage() {
 		return error_message;
 	}
+
+	public void setError_message(String error_message) {
+		this.error_message = error_message;
+	}
 }

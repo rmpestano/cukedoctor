@@ -516,7 +516,7 @@ public class CukedoctorReporterTest {
 		assertThat(resultDoc).isNotNull().
 				containsOnlyOnce(":doctype: book" + newLine()).
 				containsOnlyOnce(":toc: left" + newLine()).
-				containsOnlyOnce("= Living Documentation" + newLine()).
+				containsOnlyOnce("= *Living Documentation*" + newLine()).
 				containsOnlyOnce("<<One passing scenario, one failing scenario>>").
 				containsOnlyOnce("|[red]#*failed*#").
 				contains("|010ms").
@@ -542,7 +542,7 @@ public class CukedoctorReporterTest {
 		assertThat(resultDoc).isNotNull().
 				containsOnlyOnce(":doctype: book" + newLine()).
 				containsOnlyOnce(":toc: left" + newLine()).
-				containsOnlyOnce("= Living Documentation" + newLine()).
+				containsOnlyOnce("= *Living Documentation*" + newLine()).
 				containsOnlyOnce("<<One passing scenario, one failing scenario>>").
 				containsOnlyOnce("<<An embed data directly feature>>").
 				containsOnlyOnce("<<An outline feature>>").

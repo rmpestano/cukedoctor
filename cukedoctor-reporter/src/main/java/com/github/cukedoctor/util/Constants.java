@@ -13,28 +13,8 @@ public abstract class Constants {
 		return "*"+value+"*";
 	}
 
-	public static String li(String value){
-		return "* "+value;
-	}
-
 	public static String style(String style, String value){
 		return "[" + style +"]#"+value+"#";
-	}
-
-	public static String red(String value){
-		return style("red",value);
-	}
-
-	public static String green(String value){
-		return style("green",value);
-	}
-
-	public static String iconFail(){
-		return "icon:thumbs-down[role=\"red\"]";
-	}
-
-	public static String iconPass(){
-		return "icon:thumbs-up[role=\"green\"]";
 	}
 
 

@@ -19,9 +19,9 @@ Feature: Cukedoctor Main
 :sectlink:
 :docinfo:
 
-= Documentation
+= *Documentation*
 
-== Summary
+= *Summary*
 [cols="12*^m", options="header,footer"]
 |===
 3+|Scenarios 7+|Steps 2+|Features: 1
@@ -31,10 +31,10 @@ Feature: Cukedoctor Main
 |Total
 |[green]#*Passed*#
 |[red]#*Failed*#
-|[purple]#Skipped#
+|[purple]#*Skipped*#
 |[orange]#*Pending*#
 |[yellow]#*Undefined*#
-|[blue]#Missing#
+|[blue]#*Missing*#
 |Total
 |Duration
 |Status
@@ -56,7 +56,7 @@ Feature: Cukedoctor Main
 |1|1|2|1|1|0|0|0|0|2 2+|010ms
 |===
 
-= Features
+= *Features*
 
 == One passing scenario, one failing scenario
 
@@ -90,9 +90,9 @@ Feature: Cukedoctor Main
 :sectlink:
 :docinfo:
 
-= Documentation
+= *Documentation*
 
-== Summary
+= *Summary*
 [cols="12*^m", options="header,footer"]
 |===
 3+|Scenarios 7+|Steps 2+|Features: 4
@@ -102,10 +102,10 @@ Feature: Cukedoctor Main
 |Total
 |[green]#*Passed*#
 |[red]#*Failed*#
-|[purple]#Skipped#
+|[purple]#*Skipped*#
 |[orange]#*Pending*#
 |[yellow]#*Undefined*#
-|[blue]#Missing#
+|[blue]#*Missing*#
 |Total
 |Duration
 |Status
@@ -169,7 +169,7 @@ Feature: Cukedoctor Main
 |5|4|9|7|2|0|0|0|3|12 2+|10s 114ms
 |===
 
-= Features
+= *Features*
 
 == An embed data directly feature
 
