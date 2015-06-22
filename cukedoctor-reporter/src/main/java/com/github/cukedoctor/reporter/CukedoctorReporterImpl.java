@@ -197,14 +197,18 @@ public class CukedoctorReporterImpl implements CukedoctorReporter {
 	}
 
 	public CukedoctorReporterImpl renderFeatureScenarios(Feature feature) {
-		for (Element scenario : feature.getScenarios()) {
+		for (Scenario scenario : feature.getScenarios()) {
 			writer.write(Markup.H3, scenario.getKeyword(), ": ", scenario.getName(), newLine());
 			if (feature.hasTags() || scenario.hasTags()) {
 				renderScenarioTags(feature, scenario);
 				writer.write(newLine(), newLine());
 			}
 
-			writer.write(scenario.getDescription());
+			writer.write(scenario.getDescription(),newLine());
+
+			if(scenario.hasExamples()){
+				renderScenarioExamples(scenario);
+			}
 
 			if (scenario.hasSteps()) {
 				renderScenarioSteps(scenario.getSteps());
@@ -215,7 +219,7 @@ public class CukedoctorReporterImpl implements CukedoctorReporter {
 		return this;
 	}
 
-	public CukedoctorReporter renderScenarioTags(Feature feature, Element scenario) {
+	public CukedoctorReporter renderScenarioTags(Feature feature, Scenario scenario) {
 		writer.write("[small]#tags: ");
 		StringBuilder tags = new StringBuilder();
 		if (feature.hasTags()) {
@@ -285,6 +289,30 @@ public class CukedoctorReporterImpl implements CukedoctorReporter {
 
 	public CukedoctorReporter saveDocumentation(){
 		FileUtil.saveFile(filename,renderDocumentation());
+		return this;
+	}
+
+	@Override
+	public CukedoctorReporter renderScenarioExamples(Scenario scenario) {
+		if(scenario.hasExamples()){
+			writer.write(newLine());
+			for (Example example : scenario.getExamples()) {
+				writer.write("."+(example.getName() == null || "".equals(example.getName())  ? "Example":example.getName()),newLine());
+				writer.write("[cols=\""+example.getRows()[0].getCells().length+"*\", options=\"header\"]",newLine());
+				writer.write(Markup.TABLE, newLine());
+				Row header = example.getRows()[0];
+				for (String col : header.getCells()) {
+					writer.write(Markup.TABLE_COL,col,newLine());
+				}
+
+				for (int i=1;i<example.getRows().length;i++) {
+					for (String cell : example.getRows()[i].getCells()) {
+						writer.write(Markup.TABLE_COL,cell , newLine());
+					}
+				}
+				writer.write(Markup.TABLE, newLine(),newLine());
+			}
+		}
 		return this;
 	}
 

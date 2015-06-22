@@ -1,6 +1,6 @@
 package com.github.cukedoctor.util.builder;
 
-import com.github.cukedoctor.api.model.Element;
+import com.github.cukedoctor.api.model.Scenario;
 import com.github.cukedoctor.api.model.Step;
 import com.github.cukedoctor.api.model.Tag;
 import com.github.cukedoctor.api.model.Type;
@@ -12,24 +12,24 @@ import java.util.ArrayList;
  */
 public class ScenarioBuilder {
 
-	private Element scenario;
+	private Scenario scenario;
 	private static ScenarioBuilder instance;
 
 
-	private ScenarioBuilder(Element scenario) {
+	private ScenarioBuilder(Scenario scenario) {
 		this.scenario = scenario;
 	}
 
-	private Element getScenario() {
+	private Scenario getScenario() {
 		return scenario;
 	}
 
 	public static synchronized ScenarioBuilder instance() {
-		instance = new ScenarioBuilder(new Element());
+		instance = new ScenarioBuilder(new Scenario());
 		return instance;
 	}
 
-	public static synchronized ScenarioBuilder instance(Element scenario) {
+	public static synchronized ScenarioBuilder instance(Scenario scenario) {
 		instance = new ScenarioBuilder(scenario);
 		return instance;
 
@@ -80,7 +80,7 @@ public class ScenarioBuilder {
 	}
 
 
-	public Element build() {
+	public Scenario build() {
 		return scenario;
 	}
 }

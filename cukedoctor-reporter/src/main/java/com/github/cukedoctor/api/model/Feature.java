@@ -19,8 +19,8 @@ public class Feature {
 	private String uri;
 	private String description;
 	private String keyword;
-	private List<Element> elements = new ArrayList<>();
-	private List<Element> scenarios = new ArrayList<>();
+	private List<Scenario> elements = new ArrayList<>();
+	private List<Scenario> scenarios = new ArrayList<>();
 	private List<Tag> tags = new ArrayList<>();
 	private StepResults stepResults;
 	private ScenarioResults scenarioResults;
@@ -82,11 +82,11 @@ public class Feature {
 		this.keyword = keyword;
 	}
 
-	public List<Element> getElements() {
+	public List<Scenario> getElements() {
 		return elements;
 	}
 
-	public void setElements(List<Element> elements) {
+	public void setElements(List<Scenario> elements) {
 		this.elements = elements;
 	}
 
@@ -110,8 +110,8 @@ public class Feature {
 	public Integer getNumberOfScenarios() {
 		Integer result = 0;
 		if (elements != null) {
-			List<Element> elementList = new ArrayList<Element>();
-			for (Element element : elements) {
+			List<Scenario> elementList = new ArrayList<Scenario>();
+			for (Scenario element : elements) {
 				if (!element.isBackground()) {
 					elementList.add(element);
 				}
@@ -161,13 +161,13 @@ public class Feature {
 		return scenarioResults.getNumberOfScenariosFailed();
 	}
 
-	public List<Element> getScenarios(){
+	public List<Scenario> getScenarios(){
 		return scenarios;//scenario & scenario outline
 	}
 
 	public void initScenarios() {
 		if(elements != null){
-			for (Element element : elements) {
+			for (Scenario element : elements) {
 				if(!element.isBackground()){
 					scenarios.add(element);
 				}
@@ -185,12 +185,12 @@ public class Feature {
 		for (Status status : Status.values()) {
 			statusCounter.put(status,new AtomicInteger(0));
 		}
-		List<Element> passedScenarios = new ArrayList<Element>();
-		List<Element> failedScenarios = new ArrayList<Element>();
+		List<Scenario> passedScenarios = new ArrayList<Scenario>();
+		List<Scenario> failedScenarios = new ArrayList<Scenario>();
 		long totalDuration = 0L;
 
 		if (scenarios != null) {
-			for (Element scenario : scenarios) {
+			for (Scenario scenario : scenarios) {
 				calculateScenarioStats(passedScenarios, failedScenarios, scenario);
 				if (scenario.hasSteps()) {
 					for (Step step : scenario.getSteps()) {
@@ -205,7 +205,7 @@ public class Feature {
 		stepResults = new StepResults(allSteps, statusCounter, totalDuration);
 	}
 
-	private void calculateScenarioStats(List<Element> passedScenarios, List<Element> failedScenarios, Element element) {
+	private void calculateScenarioStats(List<Scenario> passedScenarios, List<Scenario> failedScenarios, Scenario element) {
 		if (!element.isBackground()) {
 			if (element.getStatus() == Status.passed) {
 				passedScenarios.add(element);

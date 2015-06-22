@@ -205,6 +205,22 @@ I embed data directly icon:thumbs-up[role="green",title="Passed"] [small right]#
 == An outline feature
 
 === Scenario Outline: outline
+
+.examples1
+[cols="1*", options="header"]
+|===
+|status
+|passes
+|fails
+|===
+
+.examples2
+[cols="1*", options="header"]
+|===
+|status
+|passes
+|===
+
 ****
 Given ::
 this step <status> icon:thumbs-down[role="blue",title="Missing"]
@@ -241,6 +257,16 @@ In order to achieve another thing
 ****
 
 === Scenario Outline: Parsing scenarios with multiple examples
+
+.Example
+[cols="2*", options="header"]
+|===
+|a
+|b
+|1
+|2
+|===
+
 ****
 Given ::
 I navigate to the home page icon:thumbs-down[role="blue",title="Missing"]

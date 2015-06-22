@@ -1,6 +1,6 @@
 package com.github.cukedoctor.api;
 
-import com.github.cukedoctor.api.model.Element;
+import com.github.cukedoctor.api.model.Scenario;
 import com.github.cukedoctor.api.model.Feature;
 import com.github.cukedoctor.api.model.Step;
 
@@ -29,7 +29,7 @@ public interface CukedoctorReporter {
 
 	CukedoctorReporter renderFeatureScenarios(Feature feature);
 
-	CukedoctorReporter renderScenarioTags(Feature feature, Element scenario);
+	CukedoctorReporter renderScenarioTags(Feature feature, Scenario scenario);
 
 	CukedoctorReporter renderScenarioSteps(List<Step> steps);
 
@@ -68,4 +68,6 @@ public interface CukedoctorReporter {
 	 * {@link CukedoctorReporter#renderDocumentation()} will be called and used as content to save the file.
 	 */
 	CukedoctorReporter saveDocumentation();
+
+	CukedoctorReporter renderScenarioExamples(Scenario scenario);
 }

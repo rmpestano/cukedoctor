@@ -92,6 +92,3 @@ Here is a cucumber json file which is the result of a test execution:
 Cukedoctor will convert it into the following document:
 
 image::cukedoctor-sample.png[]
-
-
-image:https://d2weczhvl823v0.cloudfront.net/rmpestano/cukedoctor/trend.png[Bitdeli Badge, link=https://bitdeli.com/free]

@@ -278,6 +278,22 @@ public interface Expectations {
 			"== An outline feature"+newLine() +
 			""+newLine() +
 			"=== Scenario Outline: outline"+newLine() +
+			""+newLine() +
+			".examples1"+newLine() +
+			"[cols=\"1*\", options=\"header\"]"+newLine() +
+			"|==="+newLine() +
+			"|status"+newLine() +
+			"|passes"+newLine() +
+			"|fails"+newLine() +
+			"|==="+newLine() +
+			""+newLine() +
+			".examples2"+newLine() +
+			"[cols=\"1*\", options=\"header\"]"+newLine() +
+			"|==="+newLine() +
+			"|status"+newLine() +
+			"|passes"+newLine() +
+			"|==="+newLine() +
+			""+newLine()+
 			"****"+newLine() +
 			"Given ::"+newLine() +
 			"this step <status> icon:thumbs-down[role=\"blue\",title=\"Missing\"]"+newLine() +

@@ -52,9 +52,9 @@ public class FeatureBuilder {
 		return instance;
 	}
 
-	public FeatureBuilder scenario(Element scenario) {
+	public FeatureBuilder scenario(Scenario scenario) {
 		if (feature.getElements() == null) {
-			feature.setElements(new ArrayList<Element>());
+			feature.setElements(new ArrayList<Scenario>());
 		}
 		feature.getElements().add(scenario);
 		return instance;
@@ -151,7 +151,7 @@ public class FeatureBuilder {
 	}
 
 	public Feature aFeatureWithMultipleScenariosAndSteps() {
-		Element scenario1 = ScenarioBuilder.instance().name("scenario").description("description")
+		Scenario scenario1 = ScenarioBuilder.instance().name("scenario").description("description")
 				.keyword("Scenario").type(Type.scenario).
 						step(StepBuilder.instance().name("passing step")
 								.result(new Result(Status.passed))
@@ -163,7 +163,7 @@ public class FeatureBuilder {
 								.keyword("When").build()).
 						build();
 
-		Element scenario2 = ScenarioBuilder.instance().name("scenario").description("description")
+		Scenario scenario2 = ScenarioBuilder.instance().name("scenario").description("description")
 				.keyword("Scenario").type(Type.scenario).
 						step(StepBuilder.instance().name("skipped step")
 								.result(new Result(Status.skipped))
@@ -171,7 +171,7 @@ public class FeatureBuilder {
 								.keyword("Then").build()). //skipped step
 						build();
 
-		Element scenario3 = ScenarioBuilder.instance().name("scenario").description("description")
+		Scenario scenario3 = ScenarioBuilder.instance().name("scenario").description("description")
 				.keyword("Scenario").type(Type.scenario).
 						step(StepBuilder.instance().name("undefined step")
 								.result(new Result(Status.undefined))

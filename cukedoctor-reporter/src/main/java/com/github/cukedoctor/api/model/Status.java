@@ -19,18 +19,6 @@ public enum Status {
 			case failed: {
 				return style("red",bold(failed.name()));
 			}
-			case skipped: {
-				return style("purple",bold(skipped.name()));
-			}
-			case pending: {
-				return style("orange",bold(pending.name()));
-			}
-			case undefined: {
-				return style("yellow",bold(undefined.name()));
-			}
-			case missing: {
-				return style("blue",bold(missing.name()));
-			}
 			default:return "";
 		}
 	}

@@ -3,13 +3,10 @@ package com.github.cukedoctor.api.model;
 import com.github.cukedoctor.util.builder.FeatureBuilder;
 import com.github.cukedoctor.util.builder.ScenarioBuilder;
 import com.github.cukedoctor.util.builder.StepBuilder;
-import org.assertj.core.api.Condition;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;
-
-import java.util.Set;
 
 import static org.assertj.core.api.Assertions.*;
 
@@ -36,11 +33,11 @@ public class FeatureTest {
 				.name("my step 3").result(result).build();
 
 
-		Element passingScenario = ScenarioBuilder.instance().name("scenario 1")
+		Scenario passingScenario = ScenarioBuilder.instance().name("scenario 1")
 				.type(Type.scenario).description("scenario desc")
 				.step(step1).step(step2).build();
 
-		Element failingScenario = ScenarioBuilder.instance().name("scenario 2")
+		Scenario failingScenario = ScenarioBuilder.instance().name("scenario 2")
 				.type(Type.scenario).keyword("keyword")
 				.step(step1).step(step2).step(step3).step(step3).build();
 

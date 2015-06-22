@@ -4,8 +4,11 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import java.util.List;
 
+/**
+ * represents a scenario is most of the cses but can be also a background
+ */
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class Element {
+public class Scenario {
 
 	private String name;
 	private String description;
@@ -13,6 +16,7 @@ public class Element {
 	private List<Step> steps;
 	private List<Tag> tags;
 	private Type type;
+	private List<Example> examples;
 
 
 	public String getName() {
@@ -63,6 +67,15 @@ public class Element {
 		this.type = type;
 	}
 
+
+	public List<Example> getExamples() {
+		return examples;
+	}
+
+	public void setExamples(List<Example> examples) {
+		this.examples = examples;
+	}
+
 	public boolean isBackground() {
 		return Type.background.equals(type);
 	}
@@ -82,12 +95,16 @@ public class Element {
 		return steps != null && !steps.isEmpty();
 	}
 
+	public boolean hasExamples() {
+		return examples != null && !examples.isEmpty();
+	}
+
 	@Override
 	public boolean equals(Object o) {
 		if (this == o) return true;
 		if (o == null || getClass() != o.getClass()) return false;
 
-		Element element = (Element) o;
+		Scenario element = (Scenario) o;
 
 		if (!name.equals(element.name)) return false;
 		return type == element.type;

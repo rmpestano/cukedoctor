@@ -290,15 +290,15 @@ public class CukedoctorReporterTest {
 		doReturn(cukedoctorReporter).when(cukedoctorReporter).renderScenarioSteps(anyListOf(Step.class));
 		String resultDoc = cukedoctorReporter.renderFeatureScenarios(feature).getDocumentation().toString();
 		assertThat(resultDoc).isEqualTo("=== Scenario: scenario 1"+newLine() +
-				"description"+newLine() +
+				"description"+newLine() + newLine() +
 				"=== Scenario: scenario 2"+newLine() +
-				"description 2"+newLine());
+				"description 2"+newLine() +newLine());
 	}
 
 	@Test
 	public void shouldRenderFeatureScenariosWithTagsInScenarios(){
 		final Feature feature = FeatureBuilder.instance().aFeatureWithTwoScenarios();
-		for (Element scenario : feature.getScenarios()) {
+		for (Scenario scenario : feature.getScenarios()) {
 			ScenarioBuilder.instance(scenario).tag(new Tag("@Tag1")).tag(new Tag("@tag2"));
 		}
 		CukedoctorReporter cukedoctorReporter = Cukedoctor.instance(new ArrayList<Feature>() {{
@@ -311,11 +311,11 @@ public class CukedoctorReporterTest {
 		assertThat(resultDoc).isEqualTo("=== Scenario: scenario 1"+newLine() +
 				"[small]#tags: @Tag1,@tag2#"+newLine() +
 				""+newLine() +
-				"description"+newLine() +
+				"description"+newLine() + newLine() +
 				"=== Scenario: scenario 2"+newLine() +
 				"[small]#tags: @Tag1,@tag2#"+newLine() +
 				""+newLine() +
-				"description 2"+newLine());
+				"description 2"+newLine() + newLine());
 	}
 
 	@Test
@@ -332,18 +332,18 @@ public class CukedoctorReporterTest {
 		assertThat(resultDoc).isEqualTo("=== Scenario: scenario 1"+newLine() +
 				"[small]#tags: @FeatureTag#"+newLine() +
 				""+newLine() +
-				"description"+newLine() +
+				"description"+newLine() + newLine() +
 				"=== Scenario: scenario 2"+newLine() +
 				"[small]#tags: @FeatureTag#"+newLine() +
 				""+newLine() +
-				"description 2"+newLine());
+				"description 2"+newLine() + newLine());
 	}
 
 	@Test
 	public void shouldRenderFeatureScenariosWithTagsInFeaturesAndScenarios(){
 		final Feature feature = FeatureBuilder.instance().aFeatureWithTwoScenarios();
 		feature.getTags().add(new Tag("@FeatureTag"));
-		for (Element scenario : feature.getScenarios()) {
+		for (Scenario scenario : feature.getScenarios()) {
 			ScenarioBuilder.instance(scenario).tag(new Tag("@Tag1")).tag(new Tag("@tag2"));
 		}
 		CukedoctorReporter cukedoctorReporter = Cukedoctor.instance(new ArrayList<Feature>() {{
@@ -356,11 +356,11 @@ public class CukedoctorReporterTest {
 		assertThat(resultDoc).isEqualTo("=== Scenario: scenario 1"+newLine() +
 				"[small]#tags: @FeatureTag,@Tag1,@tag2#"+newLine() +
 				""+newLine() +
-				"description"+newLine() +
+				"description"+newLine() + newLine() +
 				"=== Scenario: scenario 2"+newLine() +
 				"[small]#tags: @FeatureTag,@Tag1,@tag2#"+newLine() +
 				""+newLine() +
-				"description 2"+newLine());
+				"description 2"+newLine() +newLine());
 	}
 
 	@Test
@@ -429,7 +429,7 @@ public class CukedoctorReporterTest {
 	}
 
 	@Test
-	public void shouldRenderFeatureStepsWithOnePassingAndOneFaillingStep(){
+	public void shouldRenderFeatureStepsWithOnePassingAndOneFailingStep(){
 		final Feature feature = FeatureBuilder.instance().aFeatureWithOneScenarioWithOnePassingAndOneFailingStep();
 		List<Feature> features = new ArrayList<>();
 		features.add(feature);
@@ -477,7 +477,8 @@ public class CukedoctorReporterTest {
 
 		String resultDoc = reporter.renderFeatureScenarios(feature).getDocumentation().toString();
 		assertThat(resultDoc).isEqualTo("=== Scenario: scenario"+newLine() +
-				"description****"+newLine() +
+				"description" + newLine() +
+				"****"+newLine() +
 				"Given::"+newLine() +
 				"passing step icon:thumbs-up[role=\"green\",title=\"Passed\"] [small right]#(000ms)#"+newLine() +
 				"When::"+newLine() +
@@ -485,20 +486,47 @@ public class CukedoctorReporterTest {
 				"****"+newLine() +
 				""+newLine() +
 				"=== Scenario: scenario"+newLine() +
-				"description****"+newLine() +
+				"description" +newLine() +
+				"****" + newLine() +
 				"Then::"+newLine() +
 				"skipped step icon:thumbs-down[role=\"purple\",title=\"Skipped\"] [small right]#(000ms)#"+newLine() +
 				"****"+newLine() +
 				""+newLine() +
 				"=== Scenario: scenario"+newLine() +
-				"description****"+newLine() +
+				"description" + newLine()+
+				"****"+newLine() +
 				"Given::"+newLine() +
 				"undefined step icon:thumbs-down[role=\"yellow\",title=\"Undefined\"] [small right]#(000ms)#"+newLine() +
 				"****"+newLine() +
 				""+newLine());
 	}
 
+
 	// Integration tests
+
+	@Test
+	public void shouldRenderScenarioExamples(){
+		List<Feature> features = FeatureParser.parse(outline);
+		CukedoctorReporter reporter = Cukedoctor.instance(features, "Living Documentation", new DocumentAttributes());
+		assertThat(features).hasSize(1);
+		String resultDoc = reporter.renderScenarioExamples(features.get(0).getElements().get(0)).getDocumentation().toString();
+		assertThat(resultDoc).isEqualTo(""+newLine() +
+				".examples1"+newLine() +
+				"[cols=\"1*\", options=\"header\"]"+newLine() +
+				"|==="+newLine() +
+				"|status"+newLine() +
+				"|passes"+newLine() +
+				"|fails"+newLine() +
+				"|==="+newLine() +
+				""+newLine() +
+				".examples2"+newLine() +
+				"[cols=\"1*\", options=\"header\"]"+newLine() +
+				"|==="+newLine() +
+				"|status"+newLine() +
+				"|passes"+newLine() +
+				"|==="+newLine() +
+				""+newLine());
+	}
 
 	@Test
 	public void shouldRenderDocumentationForOneFeature() {
