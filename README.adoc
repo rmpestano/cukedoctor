@@ -1,5 +1,7 @@
 = BDD living documentation using http://cukes.info/[Cucumber] and http://asciidoctor.org[Asciidoctor]
 
+image:https://badges.gitter.im/Join%20Chat.svg[link="https://gitter.im/rmpestano/cukedoctor?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge"]
+
 image:https://travis-ci.org/rmpestano/cukedoctor.svg[Build Status (Travis CI), link=https://travis-ci.org/rmpestano/cukedoctor]
 image:https://coveralls.io/repos/rmpestano/cukedoctor/badge.png[Coverage, link=https://coveralls.io/r/rmpestano/cukedoctor]
 
