@@ -159,7 +159,7 @@
             },
             "result": {
               "status": "failed",
-              "error_message": "expected to find text \"Hacienda\" in \"Home | Login Clinical Studies some engaging copy View Available Studies\" (RSpec::Expectations::ExpectationNotMetError)\r\n./features/step_definitions/study_admin_steps.rb:14:in `/^I see the text '(.+)'$/'\r\nfeatures/test_outline.feature:15:in `Then I see the text 'Hacienda''",
+              "error_message": "expected to find text \"Hacienda\" in \"Home | Login Clinical Studies some engaging copy View Available Studies\" (RSpec::Expectations::ExpectationNotMetError)\n./features/step_definitions/study_admin_steps.rb:14:in `/^I see the text '(.+)'$/'\nfeatures/test_outline.feature:15:in `Then I see the text 'Hacienda''",
               "duration": 10017706118
             }
           }
