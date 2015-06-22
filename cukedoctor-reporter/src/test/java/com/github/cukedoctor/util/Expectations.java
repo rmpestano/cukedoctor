@@ -173,9 +173,9 @@ public interface Expectations {
 			"****"+newLine() +
 			"Given ::"+newLine() +
 			"this step fails icon:thumbs-down[role=\"red\",title=\"Failed\"] [small right]#(008ms)#"+newLine() + newLine()+
-			"IMPORTANT: (RuntimeError)" + newLine()  +
-			"./features/step_definitions/steps.rb:4:in /^this step fails$/'" + newLine()  +
-			"features/one_passing_one_failing.feature:10:in Given this step fails'" + newLine()  +
+			"IMPORTANT: (RuntimeError)" + "\n"  +
+			"./features/step_definitions/steps.rb:4:in /^this step fails$/'" + "\n"  +
+			"features/one_passing_one_failing.feature:10:in Given this step fails'" + newLine() +
 			"****"+newLine()+newLine();
 
 	String DOCUMENTATION_FOR_MULTIPLE_FEATURES = ":toc: left"+newLine() +
@@ -315,8 +315,8 @@ public interface Expectations {
 			"****"+newLine() +
 			"Given ::"+newLine() +
 			"this step fails icon:thumbs-down[role=\"red\",title=\"Failed\"] [small right]#(008ms)#"+newLine() + newLine()+
-			"IMPORTANT: (RuntimeError)" + newLine()  +
-			"./features/step_definitions/steps.rb:4:in /^this step fails$/'" + newLine()  +
+			"IMPORTANT: (RuntimeError)" + "\n"  +
+			"./features/step_definitions/steps.rb:4:in /^this step fails$/'" + "\n"  +
 			"features/one_passing_one_failing.feature:10:in Given this step fails'" + newLine()  +
 			"****"+newLine()+newLine();
 }
