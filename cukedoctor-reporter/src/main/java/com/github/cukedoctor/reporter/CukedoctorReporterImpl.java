@@ -2,6 +2,7 @@ package com.github.cukedoctor.reporter;
 
 import com.github.cukedoctor.api.*;
 import com.github.cukedoctor.api.model.*;
+import com.github.cukedoctor.config.CukedoctorConfig;
 import com.github.cukedoctor.util.FileUtil;
 import com.github.cukedoctor.util.Formatter;
 
@@ -248,7 +249,9 @@ public class CukedoctorReporterImpl implements CukedoctorReporter {
 			writer.write(step.getName()+" ", Status.getStatusIcon(step.getStatus()));
 			writer.write(renderStepTime(step.getResult())).write(newLine());
 			if (step.getResult() != null && !Status.passed.equals(step.getStatus())) {
-				writer.write(newLine(),"IMPORTANT:",step.getResult().getErrorMessage(),newLine());
+				if(step.getResult().getErrorMessage() != null){
+					writer.write(newLine(),"IMPORTANT:",step.getResult().getErrorMessage(),newLine());
+				}
 			}
 		}
 		writer.write("****", newLine());

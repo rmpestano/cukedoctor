@@ -1,6 +1,7 @@
 package com.github.cukedoctor.api.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.github.cukedoctor.config.CukedoctorConfig;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Result {
@@ -34,6 +35,11 @@ public class Result {
 	}
 
 	public String getErrorMessage() {
+		if(error_message != null){
+			if(error_message.length() > CukedoctorConfig.ERROR_MESSAGE_SIZE){
+				error_message = error_message.substring(0,CukedoctorConfig.ERROR_MESSAGE_SIZE) + "...";
+			}
+		}
 		return error_message;
 	}
 
