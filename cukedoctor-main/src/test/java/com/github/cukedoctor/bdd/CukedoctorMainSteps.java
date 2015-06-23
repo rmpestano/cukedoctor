@@ -41,7 +41,7 @@ public class CukedoctorMainSteps {
 
 	@Then("^A file named outputFile.adoc should be generated with the following content:$")
 	public void A_file_named_outputFile_adoc_should_be_generated_with_the_following_content(final String fileContent) throws Throwable {
-		 assertEquals(fileContent,generatedDoc);
+		assertEquals(fileContent.replaceAll("\n",""),generatedDoc.replaceAll("\n",""));
 	}
 
 
