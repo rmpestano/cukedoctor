@@ -8,7 +8,7 @@ import static com.github.cukedoctor.util.Constants.newLine;
 public interface Expectations {
 
 	String SUMMARY_FOR_ONE_FEATURE =
-			"= *Summary*" + newLine() +
+			"== *Summary*" + newLine() +
 			"[cols=\"12*^m\", options=\"header,footer\"]" + newLine() +
 			"|===" + newLine() +
 			"3+|Scenarios 7+|Steps 2+|Features: 1" + newLine() +
@@ -44,7 +44,7 @@ public interface Expectations {
 			"|===";
 
 	String SUMMARY_FOR_MULTIPLE_FEATURES =
-			"= *Summary*"+newLine() +
+			"== *Summary*"+newLine() +
 			"[cols=\"12*^m\", options=\"header,footer\"]"+newLine() +
 			"|==="+newLine() +
 			"3+|Scenarios 7+|Steps 2+|Features: 3"+newLine() +
@@ -117,10 +117,11 @@ public interface Expectations {
 			":sectanchors:"+newLine() +
 			":sectlink:"+newLine() +
 			":docinfo:"+newLine() +
+			":toclevels: 3"+newLine() +
 			""+newLine() +
 			"= *Living Documentation*"+newLine() +
 			""+newLine() +
-			"= *Summary*"+newLine() +
+			"== *Summary*"+newLine() +
 			"[cols=\"12*^m\", options=\"header,footer\"]"+newLine() +
 			"|==="+newLine() +
 			"3+|Scenarios 7+|Steps 2+|Features: 1"+newLine() +
@@ -155,11 +156,11 @@ public interface Expectations {
 			"|1|1|2|1|1|0|0|0|0|2 2+|010ms"+newLine() +
 			"|==="+newLine() +
 			""+newLine() +
-			"= *Features*"+newLine() +
+			"== *Features*"+newLine() +
 			""+newLine() +
-			"== One passing scenario, one failing scenario"+newLine() +
+			"=== One passing scenario, one failing scenario"+newLine() +
 			""+newLine() +
-			"=== Scenario: Passing"+newLine() +
+			"==== Scenario: Passing"+newLine() +
 			"[small]#tags: @a,@b#"+newLine() +
 			""+newLine() +
 			"****"+newLine() +
@@ -167,13 +168,13 @@ public interface Expectations {
 			"this step passes icon:thumbs-up[role=\"green\",title=\"Passed\"] [small right]#(001ms)#"+newLine() +
 			"****"+newLine() +
 			""+newLine() +
-			"=== Scenario: Failing"+newLine() +
+			"==== Scenario: Failing"+newLine() +
 			"[small]#tags: @a,@c#"+newLine() +
 			""+newLine() +
 			"****"+newLine() +
 			"Given ::"+newLine() +
 			"this step fails icon:thumbs-down[role=\"red\",title=\"Failed\"] [small right]#(008ms)#"+newLine() + newLine()+
-			"IMPORTANT: (RuntimeError)" + "\n"  +
+			"IMPORTANT:  (RuntimeError)" + "\n"  +
 			"./features/step_definitions/steps.rb:4:in /^this step fails$/'" + "\n"  +
 			"features/one_passing_one_failing.feature:10:in Given this step fails'" + newLine() +
 			"****"+newLine()+newLine();
@@ -188,10 +189,11 @@ public interface Expectations {
 			":sectanchors:"+newLine() +
 			":sectlink:"+newLine() +
 			":docinfo:"+newLine() +
+			":toclevels: 3"+newLine() +
 			""+newLine() +
 			"= *Living Documentation*"+newLine() +
 			""+newLine() +
-			"= *Summary*"+newLine() +
+			"== *Summary*"+newLine() +
 			"[cols=\"12*^m\", options=\"header,footer\"]"+newLine() +
 			"|==="+newLine() +
 			"3+|Scenarios 7+|Steps 2+|Features: 3"+newLine() +
@@ -254,17 +256,17 @@ public interface Expectations {
 			"|4|2|6|4|1|0|0|0|1|6 2+|010ms"+newLine() +
 			"|==="+newLine() +
 			""+newLine() +
-			"= *Features*"+newLine() +
+			"== *Features*"+newLine() +
 			""+newLine() +
-			"== An embed data directly feature"+newLine() +
+			"=== An embed data directly feature"+newLine() +
 			""+newLine() +
-			"=== Scenario: scenario 1"+newLine() +
+			"==== Scenario: scenario 1"+newLine() +
 			"****"+newLine() +
 			"Given ::"+newLine() +
 			"I embed data directly icon:thumbs-up[role=\"green\",title=\"Passed\"] [small right]#(000ms)#"+newLine() +
 			"****"+newLine() +
 			""+newLine() +
-			"=== Scenario Outline: scenario 2"+newLine() +
+			"==== Scenario Outline: scenario 2"+newLine() +
 			"****"+newLine() +
 			"Given ::"+newLine() +
 			"I embed data directly icon:thumbs-up[role=\"green\",title=\"Passed\"] [small right]#(000ms)#"+newLine() +
@@ -275,9 +277,9 @@ public interface Expectations {
 			"I embed data directly icon:thumbs-up[role=\"green\",title=\"Passed\"] [small right]#(000ms)#"+newLine() +
 			"****"+newLine() +
 			""+newLine() +
-			"== An outline feature"+newLine() +
+			"=== An outline feature"+newLine() +
 			""+newLine() +
-			"=== Scenario Outline: outline"+newLine() +
+			"==== Scenario Outline: outline"+newLine() +
 			""+newLine() +
 			".examples1"+newLine() +
 			"[cols=\"1*\", options=\"header\"]"+newLine() +
@@ -299,9 +301,9 @@ public interface Expectations {
 			"this step <status> icon:thumbs-down[role=\"blue\",title=\"Missing\"]"+newLine() +
 			"****"+newLine() +
 			""+newLine() +
-			"== One passing scenario, one failing scenario"+newLine() +
+			"=== One passing scenario, one failing scenario"+newLine() +
 			""+newLine() +
-			"=== Scenario: Passing"+newLine() +
+			"==== Scenario: Passing"+newLine() +
 			"[small]#tags: @a,@b#"+newLine() +
 			""+newLine() +
 			"****"+newLine() +
@@ -309,13 +311,13 @@ public interface Expectations {
 			"this step passes icon:thumbs-up[role=\"green\",title=\"Passed\"] [small right]#(001ms)#"+newLine() +
 			"****"+newLine() +
 			""+newLine() +
-			"=== Scenario: Failing"+newLine() +
+			"==== Scenario: Failing"+newLine() +
 			"[small]#tags: @a,@c#"+newLine() +
 			""+newLine() +
 			"****"+newLine() +
 			"Given ::"+newLine() +
 			"this step fails icon:thumbs-down[role=\"red\",title=\"Failed\"] [small right]#(008ms)#"+newLine() + newLine()+
-			"IMPORTANT: (RuntimeError)" + "\n"  +
+			"IMPORTANT:  (RuntimeError)" + "\n"  +
 			"./features/step_definitions/steps.rb:4:in /^this step fails$/'" + "\n"  +
 			"features/one_passing_one_failing.feature:10:in Given this step fails'" + newLine()  +
 			"****"+newLine()+newLine();

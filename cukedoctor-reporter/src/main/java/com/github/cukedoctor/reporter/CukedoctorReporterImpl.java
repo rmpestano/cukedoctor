@@ -61,7 +61,7 @@ public class CukedoctorReporterImpl implements CukedoctorReporter {
 		writer.write(Markup.H1, bold(documentTitle), newLine(), newLine());
 		renderSummary();
 		writer.write(newLine(), newLine());
-		writer.write(Markup.H1, bold("Features"), newLine(), newLine());
+		writer.write(Markup.H2, bold("Features"), newLine(), newLine());
 		for (Feature feature : features) {
 			renderFeature(feature);
 		}
@@ -79,7 +79,8 @@ public class CukedoctorReporterImpl implements CukedoctorReporter {
 				write(documentAttributes.isLinkCss() ? Markup.LINKCSS : Markup.NOT_LINKCSS, newLine()).
 				write(documentAttributes.isSectAnchors() ? Markup.SECT_ANCHORS : Markup.NOT_SECT_ANCHORS, newLine()).
 				write(documentAttributes.isSectLink() ? Markup.SECT_LINK : Markup.NOT_SECT_LINK, newLine()).
-				write(documentAttributes.isDocInfo() ? Markup.DOCINFO : Markup.NOT_DOCINFO, newLine());
+				write(documentAttributes.isDocInfo() ? Markup.DOCINFO : Markup.NOT_DOCINFO, newLine()).
+				write(Markup.TOC_LEVELS, documentAttributes.getTocLevels(), newLine());
 		return this;
 	}
 
@@ -103,7 +104,7 @@ public class CukedoctorReporterImpl implements CukedoctorReporter {
 	}
 
 	public CukedoctorReporterImpl renderSummary() {
-		writer.write(Markup.H1,bold("Summary")).write(newLine());
+		writer.write(Markup.H2,bold("Summary")).write(newLine());
 		writer.write("[cols=\"12*^m\", options=\"header,footer\"]" + newLine() +
 				"|===" + newLine() +
 				"3+|Scenarios 7+|Steps 2+|Features: " + features.size() +
@@ -184,7 +185,7 @@ public class CukedoctorReporterImpl implements CukedoctorReporter {
 	}
 
 	public CukedoctorReporterImpl renderFeature(Feature feature) {
-		writer.write(Markup.H2, feature.getName(), newLine(), newLine());
+		writer.write(Markup.H3, feature.getName(), newLine(), newLine());
 		if (feature.getDescription() != null && !"".equals(feature.getDescription().trim())) {
 			writer.write("****", newLine()).
 					//feature description has \n to delimit new lines
@@ -199,7 +200,7 @@ public class CukedoctorReporterImpl implements CukedoctorReporter {
 
 	public CukedoctorReporterImpl renderFeatureScenarios(Feature feature) {
 		for (Scenario scenario : feature.getScenarios()) {
-			writer.write(Markup.H3, scenario.getKeyword(), ": ", scenario.getName(), newLine());
+			writer.write(Markup.H4, scenario.getKeyword(), ": ", scenario.getName(), newLine());
 			if (feature.hasTags() || scenario.hasTags()) {
 				renderScenarioTags(feature, scenario);
 				writer.write(newLine(), newLine());
@@ -250,7 +251,7 @@ public class CukedoctorReporterImpl implements CukedoctorReporter {
 			writer.write(renderStepTime(step.getResult())).write(newLine());
 			if (step.getResult() != null && !Status.passed.equals(step.getStatus())) {
 				if(step.getResult().getErrorMessage() != null){
-					writer.write(newLine(),"IMPORTANT:",step.getResult().getErrorMessage(),newLine());
+					writer.write(newLine(),"IMPORTANT: ",step.getResult().getErrorMessage(),newLine());
 				}
 			}
 		}

@@ -18,10 +18,11 @@ Feature: Cukedoctor Main
 :sectanchors:
 :sectlink:
 :docinfo:
+:toclevels: 3
 
 = *Documentation*
 
-= *Summary*
+== *Summary*
 [cols="12*^m", options="header,footer"]
 |===
 3+|Scenarios 7+|Steps 2+|Features: 1
@@ -56,11 +57,11 @@ Feature: Cukedoctor Main
 |1|1|2|1|1|0|0|0|0|2 2+|010ms
 |===
 
-= *Features*
+== *Features*
 
-== One passing scenario, one failing scenario
+=== One passing scenario, one failing scenario
 
-=== Scenario: Passing
+==== Scenario: Passing
 [small]#tags: @a,@b#
 
 ****
@@ -68,14 +69,14 @@ Given ::
 this step passes icon:thumbs-up[role="green",title="Passed"] [small right]#(001ms)#
 ****
 
-=== Scenario: Failing
+==== Scenario: Failing
 [small]#tags: @a,@c#
 
 ****
 Given ::
 this step fails icon:thumbs-down[role="red",title="Failed"] [small right]#(008ms)#
 
-IMPORTANT: (RuntimeError)
+IMPORTANT:  (RuntimeError)
 ./features/step_definitions/steps.rb:4:in /^this step fails$/'
 features/one_passing_one_failing.feature:10:in Given this step fails'
 ****
@@ -101,10 +102,11 @@ features/one_passing_one_failing.feature:10:in Given this step fails'
 :sectanchors:
 :sectlink:
 :docinfo:
+:toclevels: 3
 
 = *Documentation*
 
-= *Summary*
+== *Summary*
 [cols="12*^m", options="header,footer"]
 |===
 3+|Scenarios 7+|Steps 2+|Features: 4
@@ -181,17 +183,17 @@ features/one_passing_one_failing.feature:10:in Given this step fails'
 |5|4|9|7|2|0|0|0|3|12 2+|10s 114ms
 |===
 
-= *Features*
+== *Features*
 
-== An embed data directly feature
+=== An embed data directly feature
 
-=== Scenario: scenario 1
+==== Scenario: scenario 1
 ****
 Given ::
 I embed data directly icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ****
 
-=== Scenario Outline: scenario 2
+==== Scenario Outline: scenario 2
 ****
 Given ::
 I embed data directly icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
@@ -202,9 +204,9 @@ Given ::
 I embed data directly icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ****
 
-== An outline feature
+=== An outline feature
 
-=== Scenario Outline: outline
+==== Scenario Outline: outline
 
 .examples1
 [cols="1*", options="header"]
@@ -226,9 +228,9 @@ Given ::
 this step <status> icon:thumbs-down[role="blue",title="Missing"]
 ****
 
-== One passing scenario, one failing scenario
+=== One passing scenario, one failing scenario
 
-=== Scenario: Passing
+==== Scenario: Passing
 [small]#tags: @a,@b#
 
 ****
@@ -236,19 +238,19 @@ Given ::
 this step passes icon:thumbs-up[role="green",title="Passed"] [small right]#(001ms)#
 ****
 
-=== Scenario: Failing
+==== Scenario: Failing
 [small]#tags: @a,@c#
 
 ****
 Given ::
 this step fails icon:thumbs-down[role="red",title="Failed"] [small right]#(008ms)#
 
-IMPORTANT: (RuntimeError)
+IMPORTANT:  (RuntimeError)
 ./features/step_definitions/steps.rb:4:in /^this step fails$/'
 features/one_passing_one_failing.feature:10:in Given this step fails'
 ****
 
-== Sample test
+=== Sample test
 
 ****
 As a user  +
@@ -256,7 +258,7 @@ I want to do something  +
 In order to achieve another thing
 ****
 
-=== Scenario Outline: Parsing scenarios with multiple examples
+==== Scenario Outline: Parsing scenarios with multiple examples
 
 .Example
 [cols="2*", options="header"]
@@ -274,7 +276,7 @@ Then ::
 I see the text 'Home' icon:thumbs-down[role="blue",title="Missing"]
 ****
 
-=== Scenario: Basic
+==== Scenario: Basic
 ****
 Given ::
 I navigate to the home page icon:thumbs-up[role="green",title="Passed"] [small right]#(044ms)#
@@ -282,14 +284,14 @@ Then ::
 I see the text 'Home' icon:thumbs-up[role="green",title="Passed"] [small right]#(001ms)#
 ****
 
-=== Scenario: Basic failure
+==== Scenario: Basic failure
 ****
 Given ::
 I navigate to the home page icon:thumbs-up[role="green",title="Passed"] [small right]#(040ms)#
 Then ::
 I see the text 'Hacienda' icon:thumbs-down[role="red",title="Failed"] [small right]#(10s 017ms)#
 
-IMPORTANT:expected to find text "Hacienda" in "Home | Login Clinical Studies some engaging copy View Available Studies" (RSpec::Expectations::ExpectationNotMetError)
+IMPORTANT: expected to find text "Hacienda" in "Home | Login Clinical Studies some engaging copy View Available Studies" (RSpec::Expectations::ExpectationNotMetError)
 ./features/step_definitions/study_admin_steps.rb:14:in `/^I see the text '(.+)'$/'
 features/test_outline.feature:15:in `Then I see the text 'Hacienda''
 ****

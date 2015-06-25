@@ -24,11 +24,13 @@ public abstract class Constants {
 		String H1 = "= ";
 		String H2 = "== ";
 		String H3 = "=== ";
+		String H4 = "==== ";
 
 		String TABLE = "|===";
 		String TABLE_COL = "|";
 
 		String TOC = ":toc: ";
+		String TOC_LEVELS = ":toclevels: ";
 		String ICONS = ":icons: ";
 		String NUMBERED = ":numbered:";
 		String NOT_NUMBERED = ":!numbered:";

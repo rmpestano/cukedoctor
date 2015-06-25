@@ -12,6 +12,7 @@ public class DocumentAttributes {
 	private String docType = "book";
 	private String toc = "right";
 	private String icons = "font";
+	private String tocLevels = "3";
 	private boolean linkCss = false;
 	private boolean sectAnchors = true;
 	private boolean sectLink = true;
@@ -36,6 +37,11 @@ public class DocumentAttributes {
 
 	public DocumentAttributes toc(String toc) {
 		this.toc = toc;
+		return this;
+	}
+
+	public DocumentAttributes tocLevels(String tocLevels) {
+		this.tocLevels = tocLevels;
 		return this;
 	}
 
@@ -88,6 +94,10 @@ public class DocumentAttributes {
 
 	public String getIcons() {
 		return icons;
+	}
+
+	public String getTocLevels() {
+		return tocLevels;
 	}
 
 	public boolean isSectAnchors() {

@@ -69,7 +69,7 @@
                         <artifactId>maven-duplicate-finder-plugin</artifactId>
                         <version>1.0.9</version>
                         <configuration>
-                            <failBuildInCaseOfConflict>true</failBuildInCaseOfConflict>
+                            <failBuildInCaseOfConflict>false</failBuildInCaseOfConflict>
                         </configuration>
                         <executions>
                             <execution>

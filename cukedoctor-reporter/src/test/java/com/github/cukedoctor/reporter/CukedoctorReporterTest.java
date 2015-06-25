@@ -96,7 +96,8 @@ public class CukedoctorReporterTest {
 						":!linkcss:" + newLine() +
 						":sectanchors:" + newLine() +
 						":sectlink:" + newLine() +
-						":docinfo:" + newLine();
+						":docinfo:" + newLine() +
+						":toclevels: 3"+newLine();
 
 
 		String document = Cukedoctor.instance(features, "Documentation Title", attrs).renderAttributes().
@@ -119,7 +120,8 @@ public class CukedoctorReporterTest {
 				":!linkcss:" + newLine() +
 				":sectanchors:" + newLine() +
 				":sectlink:" + newLine() +
-				":docinfo:" + newLine();
+				":docinfo:" + newLine() +
+				":toclevels: 3"+newLine();
 
 
 		String document = Cukedoctor.instance(features, "Documentation Title").renderAttributes().
@@ -142,7 +144,8 @@ public class CukedoctorReporterTest {
 				":!linkcss:" + newLine() +
 				":sectanchors:" + newLine() +
 				":sectlink:" + newLine() +
-				":docinfo:" + newLine();
+				":docinfo:" + newLine() +
+				":toclevels: 3"+newLine();
 
 
 		String document = Cukedoctor.instance(features, "Documentation Title", null).renderAttributes().
@@ -170,7 +173,8 @@ public class CukedoctorReporterTest {
 						":!linkcss:" + newLine() +
 						":sectanchors:" + newLine() +
 						":sectlink:" + newLine() +
-						":docinfo:" + newLine();
+						":docinfo:" + newLine() +
+						":toclevels: 3"+newLine();
 
 
 		String document = Cukedoctor.instance(features, "Documentation Title", attrs).renderAttributes().
@@ -200,7 +204,8 @@ public class CukedoctorReporterTest {
 						":linkcss:" + newLine() +
 						":sectanchors:" + newLine() +
 						":sectlink:" + newLine() +
-						":docinfo:" + newLine();
+						":docinfo:" + newLine() +
+						":toclevels: 3"+newLine();
 
 
 		String document = Cukedoctor.instance(features, "Documentation Title", attrs).renderAttributes().
@@ -271,7 +276,7 @@ public class CukedoctorReporterTest {
 		cukedoctorReporter = spy(cukedoctorReporter);
 		doReturn(cukedoctorReporter).when(cukedoctorReporter).renderFeatureScenarios(feature);
 		String resultDoc = cukedoctorReporter.renderFeature(feature).getDocumentation().toString();
-		assertThat(resultDoc).isEqualTo("== Feature name"+newLine() +
+		assertThat(resultDoc).isEqualTo("=== Feature name"+newLine() +
 				""+newLine() +
 				"****"+newLine() +
 				"Feature description"+newLine() +
@@ -289,9 +294,9 @@ public class CukedoctorReporterTest {
 		cukedoctorReporter = spy(cukedoctorReporter);
 		doReturn(cukedoctorReporter).when(cukedoctorReporter).renderScenarioSteps(anyListOf(Step.class));
 		String resultDoc = cukedoctorReporter.renderFeatureScenarios(feature).getDocumentation().toString();
-		assertThat(resultDoc).isEqualTo("=== Scenario: scenario 1"+newLine() +
+		assertThat(resultDoc).isEqualTo("==== Scenario: scenario 1"+newLine() +
 				"description"+newLine() + newLine() +
-				"=== Scenario: scenario 2"+newLine() +
+				"==== Scenario: scenario 2"+newLine() +
 				"description 2"+newLine() +newLine());
 	}
 
@@ -308,11 +313,11 @@ public class CukedoctorReporterTest {
 		cukedoctorReporter = spy(cukedoctorReporter);
 		doReturn(cukedoctorReporter).when(cukedoctorReporter).renderScenarioSteps(anyListOf(Step.class));
 		String resultDoc = cukedoctorReporter.renderFeatureScenarios(feature).getDocumentation().toString();
-		assertThat(resultDoc).isEqualTo("=== Scenario: scenario 1"+newLine() +
+		assertThat(resultDoc).isEqualTo("==== Scenario: scenario 1"+newLine() +
 				"[small]#tags: @Tag1,@tag2#"+newLine() +
 				""+newLine() +
 				"description"+newLine() + newLine() +
-				"=== Scenario: scenario 2"+newLine() +
+				"==== Scenario: scenario 2"+newLine() +
 				"[small]#tags: @Tag1,@tag2#"+newLine() +
 				""+newLine() +
 				"description 2"+newLine() + newLine());
@@ -329,11 +334,11 @@ public class CukedoctorReporterTest {
 		cukedoctorReporter = spy(cukedoctorReporter);
 		doReturn(cukedoctorReporter).when(cukedoctorReporter).renderScenarioSteps(anyListOf(Step.class));
 		String resultDoc = cukedoctorReporter.renderFeatureScenarios(feature).getDocumentation().toString();
-		assertThat(resultDoc).isEqualTo("=== Scenario: scenario 1"+newLine() +
+		assertThat(resultDoc).isEqualTo("==== Scenario: scenario 1"+newLine() +
 				"[small]#tags: @FeatureTag#"+newLine() +
 				""+newLine() +
 				"description"+newLine() + newLine() +
-				"=== Scenario: scenario 2"+newLine() +
+				"==== Scenario: scenario 2"+newLine() +
 				"[small]#tags: @FeatureTag#"+newLine() +
 				""+newLine() +
 				"description 2"+newLine() + newLine());
@@ -353,11 +358,11 @@ public class CukedoctorReporterTest {
 		cukedoctorReporter = spy(cukedoctorReporter);
 		doReturn(cukedoctorReporter).when(cukedoctorReporter).renderScenarioSteps(anyListOf(Step.class));
 		String resultDoc = cukedoctorReporter.renderFeatureScenarios(feature).getDocumentation().toString();
-		assertThat(resultDoc).isEqualTo("=== Scenario: scenario 1"+newLine() +
+		assertThat(resultDoc).isEqualTo("==== Scenario: scenario 1"+newLine() +
 				"[small]#tags: @FeatureTag,@Tag1,@tag2#"+newLine() +
 				""+newLine() +
 				"description"+newLine() + newLine() +
-				"=== Scenario: scenario 2"+newLine() +
+				"==== Scenario: scenario 2"+newLine() +
 				"[small]#tags: @FeatureTag,@Tag1,@tag2#"+newLine() +
 				""+newLine() +
 				"description 2"+newLine() +newLine());
@@ -476,7 +481,7 @@ public class CukedoctorReporterTest {
 		CukedoctorReporter reporter = Cukedoctor.instance(features, "/target/Doc Title", new DocumentAttributes());
 
 		String resultDoc = reporter.renderFeatureScenarios(feature).getDocumentation().toString();
-		assertThat(resultDoc).isEqualTo("=== Scenario: scenario"+newLine() +
+		assertThat(resultDoc).isEqualTo("==== Scenario: scenario"+newLine() +
 				"description" + newLine() +
 				"****"+newLine() +
 				"Given::"+newLine() +
@@ -485,14 +490,14 @@ public class CukedoctorReporterTest {
 				"failing step icon:thumbs-down[role=\"red\",title=\"Failed\"] [small right]#(000ms)#"+newLine() +
 				"****"+newLine() +
 				""+newLine() +
-				"=== Scenario: scenario"+newLine() +
+				"==== Scenario: scenario"+newLine() +
 				"description" +newLine() +
 				"****" + newLine() +
 				"Then::"+newLine() +
 				"skipped step icon:thumbs-down[role=\"purple\",title=\"Skipped\"] [small right]#(000ms)#"+newLine() +
 				"****"+newLine() +
 				""+newLine() +
-				"=== Scenario: scenario"+newLine() +
+				"==== Scenario: scenario"+newLine() +
 				"description" + newLine()+
 				"****"+newLine() +
 				"Given::"+newLine() +
