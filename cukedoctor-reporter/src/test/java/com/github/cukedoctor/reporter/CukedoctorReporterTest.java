@@ -21,6 +21,7 @@ import java.util.List;
 import static com.github.cukedoctor.util.Constants.newLine;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 import static org.mockito.Matchers.anyListOf;
 import static org.mockito.Mockito.doReturn;
 import static org.mockito.Mockito.spy;
@@ -183,6 +184,37 @@ public class CukedoctorReporterTest {
 	}
 
 	@Test
+	public void shouldRenderAttributesWithoutTocLevels2() {
+		List<Feature> features = new ArrayList<>();
+		features.add(FeatureBuilder.instance().id("id").name("name").build());
+
+		DocumentAttributes attrs = new DocumentAttributes();
+		attrs.toc("").backend("html5")
+				.docType("article").docTitle("Title")
+				.icons("font").numbered(false)
+				.sectAnchors(true).sectLink(true)
+				.tocLevels("2")
+				;
+
+		String expected =
+				":backend: html5" + newLine() +
+						":doctitle: Title" + newLine() +
+						":doctype: article" + newLine() +
+						":icons: font" + newLine() +
+						":!numbered:" + newLine() +
+						":!linkcss:" + newLine() +
+						":sectanchors:" + newLine() +
+						":sectlink:" + newLine() +
+						":docinfo:" + newLine() +
+						":toclevels: 2"+newLine();
+
+
+		String document = Cukedoctor.instance(features, "Documentation Title", attrs).renderAttributes().
+				getDocumentation().toString();
+		assertEquals(expected,document);
+	}
+
+	@Test
 	public void shouldUseDocumentationTitleAsDocTitleAttribute() {
 		List<Feature> features = new ArrayList<>();
 		features.add(FeatureBuilder.instance().id("id").name("name").build());
@@ -212,6 +244,8 @@ public class CukedoctorReporterTest {
 				getDocumentation().toString();
 		assertEquals(document, expected);
 	}
+
+
 
 
 	// renderSummary() tests
@@ -276,12 +310,12 @@ public class CukedoctorReporterTest {
 		cukedoctorReporter = spy(cukedoctorReporter);
 		doReturn(cukedoctorReporter).when(cukedoctorReporter).renderFeatureScenarios(feature);
 		String resultDoc = cukedoctorReporter.renderFeature(feature).getDocumentation().toString();
-		assertThat(resultDoc).isEqualTo("=== Feature name"+newLine() +
-				""+newLine() +
-				"****"+newLine() +
-				"Feature description"+newLine() +
-				"****"+newLine() +
-				""+newLine());
+		assertThat(resultDoc).isEqualTo("=== Feature name" + newLine() +
+				"" + newLine() +
+				"****" + newLine() +
+				"Feature description" + newLine() +
+				"****" + newLine() +
+				"" + newLine());
 	}
 
 	@Test
@@ -294,10 +328,10 @@ public class CukedoctorReporterTest {
 		cukedoctorReporter = spy(cukedoctorReporter);
 		doReturn(cukedoctorReporter).when(cukedoctorReporter).renderScenarioSteps(anyListOf(Step.class));
 		String resultDoc = cukedoctorReporter.renderFeatureScenarios(feature).getDocumentation().toString();
-		assertThat(resultDoc).isEqualTo("==== Scenario: scenario 1"+newLine() +
-				"description"+newLine() + newLine() +
-				"==== Scenario: scenario 2"+newLine() +
-				"description 2"+newLine() +newLine());
+		assertThat(resultDoc).isEqualTo("==== Scenario: scenario 1" + newLine() +
+				"description" + newLine() + newLine() +
+				"==== Scenario: scenario 2" + newLine() +
+				"description 2" + newLine() + newLine());
 	}
 
 	@Test
@@ -374,12 +408,60 @@ public class CukedoctorReporterTest {
 		List<Feature> features = new ArrayList<>();
 		features.add(feature);
 		CukedoctorReporter reporter = Cukedoctor.instance(features, "Doc Title", new DocumentAttributes());
-		reporter.setFilename("/target/document.adoc");
+		reporter.setFilename("/target/docinfo/document.adoc");
 		reporter.generateDocInfo();
-		assertThat(FileUtil.loadFile("/target/document-docinfo.html")).exists();
-		assertThat(FileUtil.loadFile("/target/cukedoctor.css")).exists();
-		assertThat(FileUtil.loadFile("/target/cukedoctor.js")).exists();
+		File docInfo = FileUtil.loadFile("/target/docinfo/document-docinfo.html");
+		assertThat(docInfo).exists();
+		docInfo.delete();
+		File css = FileUtil.loadFile("/target/docinfo/cukedoctor.css");
+		assertThat(css).exists();
+		css.delete();
+		File js = FileUtil.loadFile("/target/docinfo/cukedoctor.js");
+		assertThat(js).exists();
+		js.delete();
 	}
+
+	@Test
+	public void shouldNotRenderDocinfo(){
+		final Feature feature = FeatureBuilder.instance().aFeatureWithTwoScenarios();
+		List<Feature> features = new ArrayList<>();
+		features.add(feature);
+		CukedoctorReporter reporter = Cukedoctor.instance(features, "Doc Title", new DocumentAttributes().docInfo(false));
+		reporter.setFilename("/target/docinfo/document.adoc");
+		reporter.generateDocInfo();
+		File docInfo = FileUtil.loadFile("/target/docinfo/document-docinfo.html");
+		assertThat(docInfo).doesNotExist();
+		File css = FileUtil.loadFile("/target/docinfo/cukedoctor.css");
+		assertThat(css).doesNotExist();
+		File js = FileUtil.loadFile("/target/docinfo/cukedoctor.js");
+		assertThat(js).doesNotExist();
+	}
+
+	@Test
+	public void shouldGeneratePdfTheme(){
+		final Feature feature = FeatureBuilder.instance().aFeatureWithTwoScenarios();
+		List<Feature> features = new ArrayList<>();
+		features.add(feature);
+		CukedoctorReporter reporter = Cukedoctor.instance(features, "Living Documentation", new DocumentAttributes());
+		reporter.setFilename("/target/pdf/living documentation.adoc");
+		reporter.generatePdfTheme();
+		File file = FileUtil.loadFile("/target/pdf/living_documentation-theme.yml");
+		assertThat(file).exists();
+		assertTrue(file.delete());
+	}
+
+	@Test
+	public void shouldNotGeneratePdfTheme(){
+		final Feature feature = FeatureBuilder.instance().aFeatureWithTwoScenarios();
+		List<Feature> features = new ArrayList<>();
+		features.add(feature);
+		DocumentAttributes docAttrs = new DocumentAttributes().pdfTheme(false);
+		CukedoctorReporter reporter = Cukedoctor.instance(features, "Living Documentation", docAttrs);
+		reporter.setFilename("/target/pdf//living documentation.adoc");
+		reporter.generatePdfTheme();
+		assertThat(FileUtil.loadFile("/target/pdf/living_documentation-theme.yml")).doesNotExist();
+	}
+
 
 	@Test
 	public void shouldNotSetInvalidFilename(){
@@ -415,7 +497,7 @@ public class CukedoctorReporterTest {
 		reporter.generateDocInfo();
 		File savedFile = FileUtil.loadFile("/target/Doc_Title-docinfo.html");
 		assertThat(savedFile).exists();
-		FileUtil.removeFile(savedFile.getAbsolutePath());
+		savedFile.delete();
 	}
 
 
@@ -613,15 +695,6 @@ public class CukedoctorReporterTest {
 
 		reporter.saveDocumentation();
 		assertThat(FileUtil.loadFile("/target/living_documentation.adoc")).exists();
-	}
-
-	@Test
-	public void shouldGeneratePdfTheme(){
-		List<Feature> features = FeatureParser.parse(onePassingOneFailing);
-		CukedoctorReporter reporter = Cukedoctor.instance(features, "Living Documentation", new DocumentAttributes());
-		reporter.setFilename("/target/living documentation.adoc");
-		reporter.generatePdfTheme();
-		assertThat(FileUtil.loadFile("/target/living_documentation-theme.yml")).exists();
 	}
 
 }

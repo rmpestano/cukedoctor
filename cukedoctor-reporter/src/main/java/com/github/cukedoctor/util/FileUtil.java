@@ -4,13 +4,15 @@ import org.apache.maven.shared.utils.io.DirectoryScanner;
 import org.apache.maven.shared.utils.io.FileUtils;
 import org.apache.maven.shared.utils.io.IOUtil;
 
-import java.io.*;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStream;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
@@ -78,7 +80,7 @@ public class FileUtil {
 		}
 
 		if (!name.startsWith("/")) {
-			name = "/"+name;
+			name = "/" + name;
 		}
 		try {
 			String relativePath = Paths.get("").toAbsolutePath().toString();
@@ -102,24 +104,36 @@ public class FileUtil {
 			path = "/";
 		}
 
-		if(!path.startsWith("/")){
-			path = "/"+path;
+		if (!path.startsWith("/")) {
+			path = "/" + path;
 		}
 
 		return new File(Paths.get("").toAbsolutePath().toString() + path.trim());
 	}
 
-	public static void removeFile(String path) {
-		 File fileToRemove = new File(path);
+	public static boolean removeFile(String path) {
+		if (path == null) {
+			path = "/";
+		}
 
-		 if(!fileToRemove.exists()){
-			 log.warning("Could not find file:"+fileToRemove.getAbsolutePath());
-		 }else{
-			 fileToRemove.delete();
-		 }
+		if (!path.startsWith("/")) {
+			path = "/" + path;
+		}
+
+		path = Paths.get("").toAbsolutePath().toString() + path.trim();
+
+
+		File fileToRemove = new File(path);
+
+		if (!fileToRemove.exists()) {
+			log.warning("Could not find file:" + fileToRemove.getAbsolutePath());
+			return false;
+		} else {
+			return fileToRemove.delete();
+		}
 	}
 
-	public static InputStream loadResourceFromClasspath(String resourceName){
+	public static InputStream loadResourceFromClasspath(String resourceName) {
 		return Thread.currentThread().getContextClassLoader().getResourceAsStream(resourceName);
 	}
 
@@ -128,7 +142,7 @@ public class FileUtil {
 		if (source != null && dest != null) {
 
 			if (!source.startsWith("/")) {
-				source = source.substring(source.indexOf("/")+1);//add leading slash to load from classpath (using resources as relative folder)
+				source = source.substring(source.indexOf("/") + 1);//add leading slash to load from classpath (using resources as relative folder)
 			}
 			/*if (dest.startsWith("/")) { //remove slash to use relative paths. Dest file is saved using folder where Cukedoctor is executed as relative path
 				dest = dest.substring(1);
