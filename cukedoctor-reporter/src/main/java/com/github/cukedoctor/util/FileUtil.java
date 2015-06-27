@@ -27,19 +27,14 @@ public class FileUtil {
 	 * @return absolute path to to json result file
 	 */
 	public static String findJsonFile(String path) {
-		try {
-			if (path == null) {
-				path = "";
-			}
-
-			if (path.startsWith("/")) {//remove slash to use relative paths
-				path = path.substring(1);
-			}
-			return Paths.get(path.trim()).toAbsolutePath().toString();
-		} catch (Exception e) {
-			log.log(Level.SEVERE, "Could not load feature from " + path, e);
-			return null;
+		if (path == null) {
+			path = "";
 		}
+
+		if (path.startsWith("/")) {//remove slash to use relative paths
+			path = path.substring(1);
+		}
+		return Paths.get(path.trim()).toAbsolutePath().toString();
 
 	}
 
@@ -48,28 +43,23 @@ public class FileUtil {
 	 * @return all found json files path that represent cucumber features
 	 */
 	public static List<String> findJsonFiles(String startDir) {
-		try {
-			if (startDir == null) {
-				startDir = "";
-			}
-
-			if (startDir.startsWith("/")) {//remove slash to use relative paths
-				startDir = startDir.substring(1);
-			}
-			DirectoryScanner scanner = new DirectoryScanner();
-			scanner.setIncludes(new String[]{"**/*.json"});
-			scanner.setBasedir(new File(Paths.get(startDir.trim()).toAbsolutePath().toString()));
-			scanner.scan();
-			List<String> absolutePaths = new ArrayList<>(scanner.getIncludedFiles().length);
-			for (int i = 0; i < scanner.getIncludedFiles().length; i++) {
-				absolutePaths.add(new File(scanner.getBasedir(), scanner.getIncludedFiles()[i]).getAbsolutePath());
-			}
-			//scanner.getIncludedFiles()
-			return absolutePaths;
-		} catch (Exception e) {
-			log.log(Level.SEVERE, "Could not load features from " + startDir, e);
-			return null;
+		if (startDir == null) {
+			startDir = "";
 		}
+
+		if (startDir.startsWith("/")) {//remove slash to use relative paths
+			startDir = startDir.substring(1);
+		}
+		DirectoryScanner scanner = new DirectoryScanner();
+		scanner.setIncludes(new String[]{"**/*.json"});
+		scanner.setBasedir(new File(Paths.get(startDir.trim()).toAbsolutePath().toString()));
+		scanner.scan();
+		List<String> absolutePaths = new ArrayList<>(scanner.getIncludedFiles().length);
+		for (int i = 0; i < scanner.getIncludedFiles().length; i++) {
+			absolutePaths.add(new File(scanner.getBasedir(), scanner.getIncludedFiles()[i]).getAbsolutePath());
+		}
+		//scanner.getIncludedFiles()
+		return absolutePaths;
 
 	}
 

@@ -2,11 +2,10 @@ package com.github.cukedoctor.api.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
-@JsonIgnoreProperties("line")
+@JsonIgnoreProperties({"line","id"})
 public class Row {
 
 	private String[] cells;
-	private String id;
 
 	public Row() {
 
@@ -16,8 +15,5 @@ public class Row {
 		return cells;
 	}
 
-	public String getId() {
-		return id;
-	}
 }
 
