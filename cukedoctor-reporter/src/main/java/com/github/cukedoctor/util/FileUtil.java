@@ -133,9 +133,6 @@ public class FileUtil {
 		}
 	}
 
-	public static InputStream loadResourceFromClasspath(String resourceName) {
-		return Thread.currentThread().getContextClassLoader().getResourceAsStream(resourceName);
-	}
 
 	public static File copyFile(String source, String dest) {
 
@@ -152,8 +149,6 @@ public class FileUtil {
 				//OutputStream out = new FileOutputStream(new File(Paths.get(dest).toAbsolutePath().toString()));
 				//IOUtil.copy(in, out);
 				return saveFile(dest, IOUtil.toString(in));
-			} catch (FileNotFoundException e) {
-				log.log(Level.SEVERE, "Could not copy source file: " + source + " to dest file: " + dest, e);
 			} catch (IOException e) {
 				log.log(Level.SEVERE, "Could not copy source file: " + source + " to dest file: " + dest, e);
 			}

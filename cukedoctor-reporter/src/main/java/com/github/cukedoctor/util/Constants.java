@@ -91,10 +91,6 @@ public abstract class Constants {
 			return ":doctitle: " + value;
 		}
 
-		public static String docFile(String value) {
-			return ":docfile: " + value;
-		}
-
 		public static String docType(String value) {
 			return ":doctype: " + value;
 		}
