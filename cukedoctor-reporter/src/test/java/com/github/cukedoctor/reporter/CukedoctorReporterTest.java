@@ -184,7 +184,7 @@ public class CukedoctorReporterTest {
 	}
 
 	@Test
-	public void shouldRenderAttributesWithoutTocLevels2() {
+	public void shouldRenderAttributesWithTocLevels2() {
 		List<Feature> features = new ArrayList<>();
 		features.add(FeatureBuilder.instance().id("id").name("name").build());
 

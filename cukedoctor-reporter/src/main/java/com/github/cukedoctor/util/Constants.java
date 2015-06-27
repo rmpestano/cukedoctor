@@ -5,47 +5,106 @@ package com.github.cukedoctor.util;
  */
 public abstract class Constants {
 
-	public static String newLine(){
+	public static String newLine() {
 		return System.getProperty("line.separator");
 	}
 
-	public static String bold(String value){
-		return "*"+value+"*";
+	public abstract static class Markup {
+
+		public static String bold(String value) {
+			return "*" + value + "*";
+		}
+
+		public static String style(String style, String value) {
+			return "[" + style + "]#" + value + "#";
+		}
+
+
+		public static String H1(String value) {
+			return "= " + value;
+		}
+
+		public static String H2(String value) {
+			return "== " + value;
+		}
+
+		public static String H3(String value) {
+			return "=== " + value;
+		}
+
+		public static String H4(String value) {
+			return "==== " + value;
+		}
+
+		public static String table() {
+			return "|===";
+		}
+
+		public static String tableCol() {
+			return "|";
+		}
 	}
 
-	public static String style(String style, String value){
-		return "[" + style +"]#"+value+"#";
+	public abstract static class Atributes {
+
+
+		public static String toc(String value) {
+			if(value == null || "".equals(value.trim())){
+				return "";
+			}
+			return ":toc: " +value;
+		}
+
+		public static String tocLevels(String value) {
+			return ":toclevels: " + value;
+		}
+
+		public static String icons(String value) {
+			return ":icons: " + value;
+		}
+
+		public static String numbered(boolean numbered) {
+			return numbered ? ":numbered:":":!numbered:";
+		}
+
+
+		public static String linkcss(boolean linkcss) {
+			return linkcss ? ":linkcss:":":!linkcss:";
+		}
+
+
+		public static String sectAnchors(boolean sectAnchors) {
+			return sectAnchors ? ":sectanchors:":":!sectanchors:";
+		}
+
+
+		public static String sectLink(boolean sectLink) {
+			return sectLink ? ":sectlink:":":!sectlink:";
+		}
+
+
+		public static String backend(String value) {
+			return ":backend: " + value;
+		}
+
+		public static String docTitle(String value) {
+			return ":doctitle: " + value;
+		}
+
+		public static String docFile(String value) {
+			return ":docfile: " + value;
+		}
+
+		public static String docType(String value) {
+			return ":doctype: " + value;
+		}
+
+		public static String docInfo(boolean docInfo) {
+			return docInfo ? ":docinfo:":":!docinfo:";
+		}
+
+
 	}
 
-
-
-	public interface Markup {
-
-		String H1 = "= ";
-		String H2 = "== ";
-		String H3 = "=== ";
-		String H4 = "==== ";
-
-		String TABLE = "|===";
-		String TABLE_COL = "|";
-
-		String TOC = ":toc: ";
-		String TOC_LEVELS = ":toclevels: ";
-		String ICONS = ":icons: ";
-		String NUMBERED = ":numbered:";
-		String NOT_NUMBERED = ":!numbered:";
-		String LINKCSS = ":linkcss:";
-		String NOT_LINKCSS = ":!linkcss:";
-		String SECT_ANCHORS = ":sectanchors:";
-		String NOT_SECT_ANCHORS = ":!sectanchors:";
-		String SECT_LINK = ":sectlink:";
-		String NOT_SECT_LINK = ":!sectlink:";
-		String BACKEND = ":backend: ";
-		String DOC_TITLE = ":doctitle: ";
-		String DOC_FILE = ":docfile: ";
-		String DOC_TYPE = ":doctype: ";
-		String DOCINFO = ":docinfo:";
-		String NOT_DOCINFO = ":!docinfo:";
-	}
 }
 
