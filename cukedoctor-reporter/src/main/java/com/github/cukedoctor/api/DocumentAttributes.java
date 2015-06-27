@@ -18,6 +18,7 @@ public class DocumentAttributes {
 	private boolean sectLink = true;
 	private boolean numbered = false;
 	private boolean docInfo = true;
+	private boolean pdfTheme = true;
 
 
 	public DocumentAttributes docTitle(String docTitle) {
@@ -76,6 +77,11 @@ public class DocumentAttributes {
 		return this;
 	}
 
+	public DocumentAttributes pdfTheme(boolean pdfTheme) {
+		this.pdfTheme = pdfTheme;
+		return this;
+	}
+
 	public String getBackend() {
 		return backend;
 	}
@@ -120,7 +126,11 @@ public class DocumentAttributes {
 		return docInfo;
 	}
 
-/*	public Attributes toAsciidoctorJAttributes() {
+	public boolean isPdfTheme() {
+		return pdfTheme;
+	}
+
+	/*	public Attributes toAsciidoctorJAttributes() {
 		return attributes().backend(getBackend()).docType(getDocType()).icons(icons).
 				sectionNumbers(isNumbered()).linkCss(isLinkCss()).setAnchors(isSectAnchors()).
 				setAnchors(isSectAnchors()).title(docTitle).attribute("docinfo",":docinfo:").

@@ -63,6 +63,8 @@ public interface CukedoctorReporter {
 
 	CukedoctorReporter generateDocInfo();
 
+	CukedoctorReporter generatePdfTheme();
+
 	/**
 	 * saves the documentation into disk using {@link CukedoctorReporter#getFilename()}  as name (also path). Note that
 	 * {@link CukedoctorReporter#renderDocumentation()} will be called and used as content to save the file.

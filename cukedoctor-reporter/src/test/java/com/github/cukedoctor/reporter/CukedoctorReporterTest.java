@@ -597,11 +597,11 @@ public class CukedoctorReporterTest {
 		reporter.setFilename("/target/living_documentation.adoc");
 		String resultDoc =	reporter.renderDocumentation();
 		assertThat(resultDoc).contains("****" + newLine() +
-				"As a user  +"+newLine() +
-				"I want to do something  +"+newLine() +
-				"In order to achieve an important goal"+newLine() +
+				"As a user  +" + newLine() +
+				"I want to do something  +" + newLine() +
+				"In order to achieve an important goal" + newLine() +
 				"****");
-		FileUtil.saveFile("/target/sample.adoc",resultDoc);
+		FileUtil.saveFile("/target/sample.adoc", resultDoc);
 	}
 
 	@Test
@@ -615,5 +615,13 @@ public class CukedoctorReporterTest {
 		assertThat(FileUtil.loadFile("/target/living_documentation.adoc")).exists();
 	}
 
+	@Test
+	public void shouldGeneratePdfTheme(){
+		List<Feature> features = FeatureParser.parse(onePassingOneFailing);
+		CukedoctorReporter reporter = Cukedoctor.instance(features, "Living Documentation", new DocumentAttributes());
+		reporter.setFilename("/target/living documentation.adoc");
+		reporter.generatePdfTheme();
+		assertThat(FileUtil.loadFile("/target/living_documentation-theme.yml")).exists();
+	}
 
 }

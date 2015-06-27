@@ -26,7 +26,7 @@ public class EatCukesSteps {
 
 	@Then("^Am I hungry\\? \"([^\"]*)\"$")
 	public void amIHungry(String hungry){
-		assertEquals(belly.isHungry(), Boolean.getBoolean(hungry));
+		assertEquals(belly.isHungry(), Boolean.parseBoolean(hungry));
 	}
 
 

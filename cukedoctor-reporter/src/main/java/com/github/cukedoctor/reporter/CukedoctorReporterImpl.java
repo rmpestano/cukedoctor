@@ -103,6 +103,15 @@ public class CukedoctorReporterImpl implements CukedoctorReporter {
 		return this;
 	}
 
+	public CukedoctorReporter generatePdfTheme() {
+		if (documentAttributes.isPdfTheme()) {
+			//name must be filename-theme.yml
+			String pdfThemeName = filename.substring(0, filename.lastIndexOf(".")) + "-theme.yml";
+			File savedFile = FileUtil.copyFile("theme.yml", pdfThemeName);
+		}
+		return this;
+	}
+
 	public CukedoctorReporterImpl renderSummary() {
 		writer.write(Markup.H2,bold("Summary")).write(newLine());
 		writer.write("[cols=\"12*^m\", options=\"header,footer\"]" + newLine() +
