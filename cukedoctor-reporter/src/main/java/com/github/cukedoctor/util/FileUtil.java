@@ -5,7 +5,6 @@ import org.apache.maven.shared.utils.io.FileUtils;
 import org.apache.maven.shared.utils.io.IOUtil;
 
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.nio.file.Paths;
@@ -125,12 +124,7 @@ public class FileUtil {
 
 		File fileToRemove = new File(path);
 
-		if (!fileToRemove.exists()) {
-			log.warning("Could not find file:" + fileToRemove.getAbsolutePath());
-			return false;
-		} else {
-			return fileToRemove.delete();
-		}
+		return fileToRemove.delete();
 	}
 
 

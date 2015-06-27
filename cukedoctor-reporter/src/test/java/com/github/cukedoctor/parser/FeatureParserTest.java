@@ -29,6 +29,13 @@ public class FeatureParserTest {
 	}
 
 	@Test
+	public void shouldParseFeatureUsingLeadingSlash() throws IOException {
+		String path = FileUtil.findJsonFile("/target/test-classes/json-output/" + onePassingOneFailing);
+		List<Feature> features = FeatureParser.parse(path);
+		assertThat(features).isNotNull().hasSize(1).contains(FeatureBuilder.instance().name("One passing scenario, one failing scenario").id("one-passing-scenario,-one-failing-scenario").build());
+	}
+
+	@Test
 	public void shouldParseFeaturesInDir() throws IOException {
 		List<String> paths = FileUtil.findJsonFiles("target/test-classes/json-output");
 		assertThat(paths).hasSize(7);

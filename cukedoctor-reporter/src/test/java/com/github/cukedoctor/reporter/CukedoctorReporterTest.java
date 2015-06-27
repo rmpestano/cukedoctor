@@ -459,7 +459,7 @@ public class CukedoctorReporterTest {
 		CukedoctorReporter reporter = Cukedoctor.instance(features, "Living Documentation", docAttrs);
 		reporter.setFilename("/target/pdf//living documentation.adoc");
 		reporter.generatePdfTheme();
-		assertThat(FileUtil.loadFile("/target/pdf/living_documentation-theme.yml")).doesNotExist();
+		assertThat(FileUtil.loadFile("target/pdf/living_documentation-theme.yml")).doesNotExist();
 	}
 
 
