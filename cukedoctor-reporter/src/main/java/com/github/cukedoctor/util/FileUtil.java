@@ -33,7 +33,7 @@ public class FileUtil {
 		}
 
 		File f = new File(path);
-		if (f.isAbsolute() && f.exists()) {
+		if (f.exists()) {
 			return f.getAbsolutePath();
 		}
 
@@ -59,7 +59,7 @@ public class FileUtil {
 		scanner.setIncludes(new String[]{"**/*.json"});
 
 		File f = new File(startDir);
-		if (f.isAbsolute() && f.exists()) {
+		if (f.exists()) {
 			startDir = f.getAbsolutePath();
 			scanner.setBasedir(startDir);
 		} else {//relative path
@@ -109,7 +109,7 @@ public class FileUtil {
 		}
 
 		File f = new File(path);
-		if (f.isAbsolute() && f.exists()) {
+		if (f.exists()) {
 			return f;
 		}
 
@@ -121,18 +121,9 @@ public class FileUtil {
 	}
 
 	public static boolean removeFile(String path) {
-		if (path == null) {
-			path = "/";
-		}
-
-		if (!path.startsWith("/")) {
-			path = "/" + path;
-		}
-
-		path = Paths.get("").toAbsolutePath().toString() + path.trim();
 
 
-		File fileToRemove = new File(path);
+		File fileToRemove = loadFile(path);
 
 		return fileToRemove.delete();
 	}

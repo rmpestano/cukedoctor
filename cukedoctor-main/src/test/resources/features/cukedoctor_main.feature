@@ -33,7 +33,7 @@ Feature: Cukedoctor Main
 |[green]#*Passed*#
 |[red]#*Failed*#
 |[purple]#*Skipped*#
-|[orange]#*Pending*#
+|[maroon]#*Pending*#
 |[yellow]#*Undefined*#
 |[blue]#*Missing*#
 |Total
@@ -117,7 +117,7 @@ features/one_passing_one_failing.feature:10:in Given this step fails'
 |[green]#*Passed*#
 |[red]#*Failed*#
 |[purple]#*Skipped*#
-|[orange]#*Pending*#
+|[maroon]#*Pending*#
 |[yellow]#*Undefined*#
 |[blue]#*Missing*#
 |Total

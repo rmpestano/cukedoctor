@@ -19,7 +19,7 @@ public interface Expectations {
 			"|[green]#*Passed*#" + newLine() +
 			"|[red]#*Failed*#" + newLine() +
 			"|[purple]#*Skipped*#" + newLine() +
-			"|[orange]#*Pending*#" + newLine() +
+			"|[maroon]#*Pending*#" + newLine() +
 			"|[yellow]#*Undefined*#" + newLine() +
 			"|[blue]#*Missing*#" + newLine() +
 			"|Total" + newLine() +
@@ -55,7 +55,7 @@ public interface Expectations {
 			"|[green]#*Passed*#"+newLine() +
 			"|[red]#*Failed*#"+newLine() +
 			"|[purple]#*Skipped*#"+newLine() +
-			"|[orange]#*Pending*#"+newLine() +
+			"|[maroon]#*Pending*#"+newLine() +
 			"|[yellow]#*Undefined*#"+newLine() +
 			"|[blue]#*Missing*#"+newLine() +
 			"|Total"+newLine() +
@@ -132,7 +132,7 @@ public interface Expectations {
 			"|[green]#*Passed*#"+newLine() +
 			"|[red]#*Failed*#"+newLine() +
 			"|[purple]#*Skipped*#"+newLine() +
-			"|[orange]#*Pending*#"+newLine() +
+			"|[maroon]#*Pending*#"+newLine() +
 			"|[yellow]#*Undefined*#"+newLine() +
 			"|[blue]#*Missing*#"+newLine() +
 			"|Total"+newLine() +
@@ -204,7 +204,7 @@ public interface Expectations {
 			"|[green]#*Passed*#"+newLine() +
 			"|[red]#*Failed*#"+newLine() +
 			"|[purple]#*Skipped*#"+newLine() +
-			"|[orange]#*Pending*#"+newLine() +
+			"|[maroon]#*Pending*#"+newLine() +
 			"|[yellow]#*Undefined*#"+newLine() +
 			"|[blue]#*Missing*#"+newLine() +
 			"|Total"+newLine() +

@@ -28,7 +28,7 @@ public class CukedoctorMojoTest extends AbstractMojoTestCase {
 
 		assertNotNull(mojo);
 		mojo.execute();
-		assertTrue(FileUtil.loadFile(mojo.resolveTargetDir() + mojo.outputFile + ".html").exists());
+		assertTrue(FileUtil.loadFile(mojo.getDocumentationDir() + mojo.outputFileName + ".html").exists());
 	}
 
 	/**
@@ -40,7 +40,7 @@ public class CukedoctorMojoTest extends AbstractMojoTestCase {
 
 		assertNotNull(mojo);
 		mojo.execute();
-		assertTrue(FileUtil.loadFile(mojo.resolveTargetDir()+mojo.outputFile+".pdf").exists());
+		assertTrue(FileUtil.loadFile(mojo.getDocumentationDir()+mojo.outputFileName+".pdf").exists());
 	}
 
 	/*private MavenProject getMavenProject(String pomPath) throws Exception {

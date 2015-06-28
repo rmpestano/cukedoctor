@@ -64,7 +64,7 @@ public class CukedoctorReporterImpl implements CukedoctorReporter {
 		for (Feature feature : features) {
 			renderFeature(feature);
 		}
-		generateDocInfo();
+		//generateDocInfo();
 		generatePdfTheme();
 		return writer.getCurrentDoc().toString();
 	}
@@ -124,7 +124,7 @@ public class CukedoctorReporterImpl implements CukedoctorReporter {
 				"|[green]#*Passed*#" + newLine() +
 				"|[red]#*Failed*#" + newLine() +
 				"|[purple]#*Skipped*#" + newLine() +
-				"|[orange]#*Pending*#" + newLine() +
+				"|[maroon]#*Pending*#" + newLine() +
 				"|[yellow]#*Undefined*#" + newLine() +
 				"|[blue]#*Missing*#" + newLine() +
 				"|Total" + newLine() +

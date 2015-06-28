@@ -13,9 +13,7 @@
                 <!--<version>0.1-SNAPSHOT</version>-->
                 <configuration>
                     <project implementation="com.github.cukedoctor.mojo.stub.CukedoctorMojoStub"/>
-                    <skip>false</skip>
-                    <outputFile>documentation</outputFile>
-                    <jsonPath>target/test-classes</jsonPath>
+                    <outputFileName>documentation</outputFileName>
                     <format>html</format>
                 </configuration>
             </plugin>

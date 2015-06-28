@@ -13,7 +13,6 @@
         <module>cukedoctor-reporter</module>
         <module>cukedoctor-maven-plugin</module>
         <module>cukedoctor-main</module>
-        <module>cukedoctor-arquillian-extension</module>
     </modules>
 
     <properties>
@@ -137,22 +136,6 @@
                     </systemPropertyVariables>
                 </configuration>
             </plugin>
-            <!--<plugin>
-                <groupId>com.github.cukedoctor</groupId>
-                <artifactId>cukedoctor-maven-plugin</artifactId>
-                <version>0.1-SNAPSHOT</version>
-                <configuration>
-                    <skip>true</skip>
-                </configuration>
-               &lt;!&ndash; <executions>
-                    <execution>
-                        <goals>
-                            <goal>execute</goal>
-                        </goals>
-                        <phase>install</phase>
-                    </execution>
-                </executions>&ndash;&gt;
-            </plugin>-->
         </plugins>
     </build>
 

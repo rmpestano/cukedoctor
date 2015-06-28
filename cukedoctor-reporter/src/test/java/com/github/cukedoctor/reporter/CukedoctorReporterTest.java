@@ -696,9 +696,6 @@ public class CukedoctorReporterTest {
 		reporter.saveDocumentation();
 		assertThat(FileUtil.loadFile("/target/living_documentation.adoc")).exists();
 		assertTrue(FileUtil.removeFile("target/living_documentation.adoc"));
-		assertTrue(FileUtil.removeFile("/target/living_documentation-docinfo.html"));
-		assertTrue(FileUtil.removeFile("/target/cukedoctor.js"));
-		assertTrue(FileUtil.removeFile("/target/cukedoctor.css"));
 	}
 
 }
