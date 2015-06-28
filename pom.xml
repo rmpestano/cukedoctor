@@ -6,7 +6,7 @@
 
     <groupId>com.github.cukedoctor</groupId>
     <artifactId>cukedoctor</artifactId>
-    <version>0.1-SNAPSHOT</version>
+    <version>0.1</version>
     <packaging>pom</packaging>
 
     <modules>
@@ -136,6 +136,25 @@
                     </systemPropertyVariables>
                 </configuration>
             </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-source-plugin</artifactId>
+                <version>2.4</version>
+                <executions>
+                    <execution>
+                        <id>attach-sources</id>
+                        <phase>verify</phase>
+                        <goals>
+                            <goal>jar-no-fork</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-javadoc-plugin</artifactId>
+                <version>2.10.3</version>
+            </plugin>
         </plugins>
     </build>
 
@@ -167,9 +186,9 @@
                             </execution>
                         </executions>
                         <configuration>
-                          <!--  <excludes>
-                                <exclude>com/github/cukedoctor/api/model/*.class</exclude>
-                            </excludes>-->
+                            <!--  <excludes>
+                                  <exclude>com/github/cukedoctor/api/model/*.class</exclude>
+                              </excludes>-->
                         </configuration>
                     </plugin>
                     <plugin>

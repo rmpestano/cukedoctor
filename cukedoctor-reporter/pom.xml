@@ -6,12 +6,12 @@
     <parent>
         <groupId>com.github.cukedoctor</groupId>
         <artifactId>cukedoctor</artifactId>
-        <version>0.1-SNAPSHOT</version>
+        <version>0.1</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
 
     <artifactId>cukedoctor-reporter</artifactId>
-    <version>0.1-SNAPSHOT</version>
+    <version>0.1</version>
     <packaging>jar</packaging>
 
     <dependencies>

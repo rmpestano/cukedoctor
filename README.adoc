@@ -92,3 +92,14 @@ Here is a cucumber json file which is the result of a test execution:
 Cukedoctor will convert it into the following document:
 
 image::cukedoctor-sample.png[]
+
+== Usage
+
+=== Standalone jar
+
+To use Cukedoctor as a standalone jar you can download it here[TODO LINK]. For more details, see https://github.com/rmpestano/cukedoctor/tree/master/cukedoctor-main[cukedoctor-main] module.
+
+=== Maven plugin
+
+If you use maven and have execute your cucumber tests through maven you can use cukedoctor-maven plugin.
+For more details see https://github.com/rmpestano/cukedoctor/tree/master/cukedoctor-maven-plugin[cukedoctor-maven-plugin] module.

@@ -2,7 +2,9 @@
 
 This module brings the ability to execute cukedoctor reporter as a Java main application (using command line: *java -jar*).
 
-This module also converts generated adoc files into html and pdf(soon), here's an example:
+== Usage
+
+This module  converts generated adoc files into html and pdf, here's an example:
 
 [source, java]
 ----
