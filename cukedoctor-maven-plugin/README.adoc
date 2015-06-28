@@ -1,0 +1,41 @@
+= Cukedoctor maven plugin
+
+This module brings the ability to execute cukedoctor reporter through a maven plugin.
+
+The plugin just scans *.json* cucumber execution files in _target_ dir and generates asciidoc documentation on _target/cukedoctor_ folder.
+
+
+== Usage
+
+Just declare the plugin in your _pom.xml_:
+
+[source, xml]
+----
+<plugin>
+    <groupId>com.github.cukedoctor</groupId>
+    <artifactId>cukedoctor-maven-plugin</artifactId>
+    <version>0.1</version>
+    <executions>
+        <execution>
+            <goals>
+                <goal>execute</goal>
+            </goals>
+            <phase>install</phase> <1>
+        </execution>
+    </executions>
+</plugin>
+----
+<1> You need to use a phase that runs after your tests, see https://maven.apache.org/guides/introduction/introduction-to-the-lifecycle.html[maven lifecycle].
+
+[IMPORTANT]
+====
+To generate cucumber .json output files just execute your tests with *json* formater, example:
+
+[source,java]
+----
+@RunWith(Cucumber.class)
+@CucumberOptions(plugins = {"json:target/cucumber.json"} )
+----
+NOTE: *plugin* option replaced *format* option which was deprecated in newer cucumber versions
+
+====
