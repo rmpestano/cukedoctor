@@ -23,7 +23,7 @@ import static org.asciidoctor.OptionsBuilder.options;
  */
 public class CukedoctorMain {
 
-	@Parameter(names = "-f", description = "Document format - supported html (default) and pdf", required = false, echoInput = true)
+	@Parameter(names = "-f", description = "Document format - supported html5(default), html and pdf", required = false, echoInput = true)
 	private String format;
 
 	@Parameter(names = "-p", description = "Path to cucumber json output files (can be a directory or a file) ", required = true)
@@ -49,8 +49,8 @@ public class CukedoctorMain {
 			outputName = title.replaceAll(" ", "-");
 		}
 
-		if (format == null || (!format.equals("html") && !format.equals("pdf"))) {
-			format = "html";
+		if (format == null || (!format.equals("html") && !format.equals("html5") && !format.equals("pdf"))) {
+			format = "html5";
 		}
 
 
@@ -74,7 +74,14 @@ public class CukedoctorMain {
 		} else {
 			System.out.println("Found " + features.size() + " feature(s)");
 		}
-		CukedoctorReporter reporter = Cukedoctor.instance(features, title);
+
+		DocumentAttributes documentAttributes = new DocumentAttributes().backend(format);
+		if(format.equalsIgnoreCase("pdf")){
+			documentAttributes.pdfTheme(true).docInfo(false);
+		}else {
+			documentAttributes.docInfo(true).pdfTheme(false);
+		}
+		CukedoctorReporter reporter = Cukedoctor.instance(features, title,documentAttributes);
 		//reporter filename needs to end with adoc
 		String reporterFinename = "";
 		if (outputName.contains(".")) {
@@ -84,12 +91,10 @@ public class CukedoctorMain {
 		}
 		reporter.setFilename(reporterFinename);
 		String doc = reporter.renderDocumentation();
-		File adocFile = FileUtil.saveFile(reporterFinename,doc);
-		if (format.equals("html")) {
-			generateHtml(adocFile);
-		} else if (format.equals("pdf")) {
-			generatePdf(adocFile);
-		}
+		File adocFile = FileUtil.saveFile(reporterFinename, doc);
+		Asciidoctor asciidoctor = Asciidoctor.Factory.create();
+		asciidoctor.convertFile(adocFile, OptionsBuilder.options().backend(documentAttributes.getBackend()).safe(SafeMode.UNSAFE).asMap());
+
 		return doc;
 	}
 
@@ -98,13 +103,4 @@ public class CukedoctorMain {
 		main.execute(args);
 	}
 
-	private void generateHtml(File document) {
-		Asciidoctor asciidoctor = Asciidoctor.Factory.create();
-		String html = asciidoctor.convertFile(document,OptionsBuilder.options().safe(SafeMode.UNSAFE).asMap());
-		System.out.println(html);
-	}
-
-	private static void generatePdf(File docContent) {
-		throw new UnsupportedOperationException("Not implemented");
-	}
 }

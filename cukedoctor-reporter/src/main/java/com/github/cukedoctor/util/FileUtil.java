@@ -27,13 +27,21 @@ public class FileUtil {
 	 * @return absolute path to to json result file
 	 */
 	public static String findJsonFile(String path) {
+
 		if (path == null) {
 			path = "";
 		}
 
+		File f = new File(path);
+		if (f.isAbsolute() && f.exists()) {
+			return f.getAbsolutePath();
+		}
+
+		//relative path
 		if (path.startsWith("/")) {//remove slash to use relative paths
 			path = path.substring(1);
 		}
+
 		return Paths.get(path.trim()).toAbsolutePath().toString();
 
 	}
@@ -47,12 +55,19 @@ public class FileUtil {
 			startDir = "";
 		}
 
-		if (startDir.startsWith("/")) {//remove slash to use relative paths
-			startDir = startDir.substring(1);
-		}
 		DirectoryScanner scanner = new DirectoryScanner();
 		scanner.setIncludes(new String[]{"**/*.json"});
-		scanner.setBasedir(new File(Paths.get(startDir.trim()).toAbsolutePath().toString()));
+
+		File f = new File(startDir);
+		if (f.isAbsolute() && f.exists()) {
+			startDir = f.getAbsolutePath();
+			scanner.setBasedir(startDir);
+		} else {//relative path
+			if (startDir.startsWith("/")) {//remove slash to use relative paths
+				startDir = startDir.substring(1);
+			}
+			scanner.setBasedir(new File(Paths.get(startDir.trim()).toAbsolutePath().toString()));
+		}
 		scanner.scan();
 		List<String> absolutePaths = new ArrayList<>(scanner.getIncludedFiles().length);
 		for (int i = 0; i < scanner.getIncludedFiles().length; i++) {
@@ -91,6 +106,11 @@ public class FileUtil {
 	public static File loadFile(String path) {
 		if (path == null) {
 			path = "/";
+		}
+
+		File f = new File(path);
+		if (f.isAbsolute() && f.exists()) {
+			return f;
 		}
 
 		if (!path.startsWith("/")) {

@@ -5,6 +5,7 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.github.cukedoctor.api.model.Feature;
+import com.github.cukedoctor.util.FileUtil;
 
 import java.io.*;
 import java.util.*;
@@ -17,6 +18,11 @@ import java.util.logging.Logger;
 public class FeatureParser {
 	static final Logger log = Logger.getLogger(FeatureParser.class.getName());
 
+	/**
+	 *
+	 * @param json absolute path to cucumber json output file
+	 * @return list of cucumber features found in json output files
+	 */
 	public static List<Feature> parse(String json) {
 		InputStreamReader is = null;
 		List<Feature> features = null;
@@ -63,6 +69,11 @@ public class FeatureParser {
 		}
 	}
 
+	/**
+	 *
+	 * @param paths absolute paths to cucumber json output files
+	 * @return list of cucumber features found in json output files
+	 */
 	public static List<Feature> parse(List<String> paths) {
 		List<Feature> features = new ArrayList<>();
 
@@ -76,6 +87,11 @@ public class FeatureParser {
 		return features;
 	}
 
+	/**
+	 *
+	 * @param paths absolute paths to cucumber json output files
+	 * @return list of cucumber features found in json output files
+	 */
 	public static List<Feature> parse(String... paths) {
 		List<Feature> features = new ArrayList<>();
 
@@ -88,5 +104,15 @@ public class FeatureParser {
 		sortFeatures(features);
 
 		return features;
+	}
+
+	/**
+	 *
+	 * @param basePath relative or absolute path to a directory containing cucumber json output files
+	 * @return list of cucumber features found in json output files
+	 */
+	public static List<Feature> findAndParse(String basePath){
+		List<String> paths = FileUtil.findJsonFiles(basePath);
+		return parse(paths);
 	}
 }

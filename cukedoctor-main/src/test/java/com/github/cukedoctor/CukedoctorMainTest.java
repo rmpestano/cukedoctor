@@ -138,5 +138,21 @@ public class CukedoctorMainTest {
 
 	}
 
+	@Test
+	public void shouldRenderPdfForOneFeature(){
+		CukedoctorMain main = new CukedoctorMain();
+		main.execute(new String[]{
+				"-o", "\"target/document-one\"",
+				"-p", "\"target/test-classes/json-output/one_passing_one_failing.json\"",
+				"-t", "Living Documentation",
+				"-f", "pdf"
+
+		});
+
+		File generatedFile = FileUtil.loadFile("target/document-one.pdf");
+		assertThat(generatedFile).exists();
+
+	}
+
 
 }

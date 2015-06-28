@@ -65,6 +65,7 @@ public class CukedoctorReporterImpl implements CukedoctorReporter {
 			renderFeature(feature);
 		}
 		generateDocInfo();
+		generatePdfTheme();
 		return writer.getCurrentDoc().toString();
 	}
 
@@ -106,7 +107,7 @@ public class CukedoctorReporterImpl implements CukedoctorReporter {
 		if (documentAttributes.isPdfTheme()) {
 			//name must be filename-theme.yml
 			String pdfThemeName = filename.substring(0, filename.lastIndexOf(".")) + "-theme.yml";
-			File savedFile = FileUtil.copyFile("theme.yml", pdfThemeName);
+			FileUtil.copyFile("theme.yml", pdfThemeName);
 		}
 		return this;
 	}

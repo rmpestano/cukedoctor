@@ -7,7 +7,9 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;
 
+import java.io.File;
 import java.io.IOException;
+import java.nio.file.Paths;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -41,6 +43,34 @@ public class FeatureParserTest {
 		assertThat(paths).hasSize(7);
 		List<Feature> features = FeatureParser.parse(paths);
 		assertThat(features).hasSize(5).contains(FeatureBuilder.instance().name("An embed data directly feature").id("an-embed-data-directly-feature").build());
+	}
+
+	@Test
+	public void shouldParseAndFindFeaturesInDir() throws IOException {
+		List<Feature> features = FeatureParser.findAndParse("target/test-classes/json-output");
+		assertThat(features).hasSize(5).contains(FeatureBuilder.instance().name("An embed data directly feature").id("an-embed-data-directly-feature").build());
+	}
+
+	@Test
+	public void shouldParseAndFindFeaturesInDirUsingLeadingSlash() throws IOException {
+		List<Feature> features = FeatureParser.findAndParse("/target/test-classes/json-output");
+		assertThat(features).hasSize(5).contains(FeatureBuilder.instance().name("An embed data directly feature").id("an-embed-data-directly-feature").build());
+	}
+
+	@Test
+	public void shouldParseAndFindFeaturesInDirUsingAbsoluteath() throws IOException {
+		List<Feature> features = FeatureParser.findAndParse(Paths.get("").toAbsolutePath().toString() +"/target/test-classes/json-output");
+		assertThat(features).hasSize(5).contains(FeatureBuilder.instance().name("An embed data directly feature").id("an-embed-data-directly-feature").build());
+	}
+
+	@Test
+	public void shouldParseFeatureInAbsolutePath() throws IOException {
+		String absolutePath = Paths.get("").toAbsolutePath() + "/target/test-classes/json-output/" + onePassingOneFailing;
+		String path = FileUtil.findJsonFile(absolutePath);
+		assertThat(path).isNotNull();
+		List<Feature> features = FeatureParser.parse(path);
+		assertThat(features).isNotNull().hasSize(1).contains(FeatureBuilder.instance().name("One passing scenario, one failing scenario").id("one-passing-scenario,-one-failing-scenario").build());
+
 	}
 
 	@Test
