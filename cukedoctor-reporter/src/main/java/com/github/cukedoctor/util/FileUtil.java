@@ -82,17 +82,15 @@ public class FileUtil {
 		if (name == null) {
 			name = "";
 		}
+		String absoluteName = name;
 
-		if (!name.startsWith("/")) {
-			name = "/" + name;
+		if(!new File(absoluteName).isAbsolute()){
+			absoluteName = Paths.get("").toAbsolutePath().toString() + "/"+name;
 		}
 		try {
-			String relativePath = Paths.get("").toAbsolutePath().toString();
-			//String relativePath = new File(FileUtil.class.getClassLoader().getResource("").toURI()).getAbsolutePath();
-
-			File f = new File(relativePath + name.substring(0, name.lastIndexOf("/")));//create subdirs (if there any)
+			File f = new File(absoluteName.substring(0, absoluteName.lastIndexOf("/")));//create subdirs (if there any)
 			f.mkdirs();
-			File file = new File(relativePath + name);
+			File file = new File(absoluteName);
 			file.createNewFile();
 			FileUtils.fileWrite(file, "UTF-8", data);
 			log.info("Wrote: " + file.getAbsolutePath());
@@ -133,9 +131,6 @@ public class FileUtil {
 
 		if (source != null && dest != null) {
 
-			if (!source.startsWith("/")) {
-				source = source.substring(source.indexOf("/") + 1);//add leading slash to load from classpath (using resources as relative folder)
-			}
 			/*if (dest.startsWith("/")) { //remove slash to use relative paths. Dest file is saved using folder where Cukedoctor is executed as relative path
 				dest = dest.substring(1);
 			}*/

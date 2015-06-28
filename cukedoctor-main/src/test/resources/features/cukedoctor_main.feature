@@ -5,7 +5,7 @@ Feature: Cukedoctor Main
 
   Scenario: Generate documentation of a single file
     Given A Cucumber json execution file is are already generated
-    When I execute CukedoctorMain with args "-o /target/test-classes/outputFile.adoc" "-p /target/test-classes/json-output/one_passing_one_failing.json" and "-t Documentation"
+    When I execute CukedoctorMain with args "-o target/test-classes/outputFile.adoc" "-p target/test-classes/json-output/one_passing_one_failing.json" and "-t Documentation"
     Then A file named outputFile.adoc should be generated with the following content:
     """
     :toc: right
@@ -89,7 +89,7 @@ features/one_passing_one_failing.feature:10:in Given this step fails'
 
   Scenario: Generate documentation using multiple files
     Given Cucumber multiple json execution files are already generate
-    When I execute CukedoctorMain with args "-o /target/test-classes/outputFile.adoc" "-p /target/test-classes/json-output/" and "-t Documentation"
+    When I execute CukedoctorMain with args "-o target/test-classes/outputFile.adoc" "-p target/test-classes/json-output/" and "-t Documentation"
     Then A file named outputFile.adoc should be generated with the following content:
       """
       :toc: right

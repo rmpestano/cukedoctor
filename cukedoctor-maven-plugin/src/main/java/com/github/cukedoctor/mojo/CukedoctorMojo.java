@@ -60,9 +60,10 @@ public class CukedoctorMojo extends AbstractMojo {
 
 	public void execute() throws MojoExecutionException, MojoFailureException {
 		String targetDir = getDocumentationDir();
-		List<Feature> features = FeatureParser.findAndParse(project.getBuild().getOutputDirectory());
+		List<Feature> features = FeatureParser.findAndParse(project.getBuild().getDirectory());
 		if (features == null || features.isEmpty()) {
-			getLog().warn("No cucumber json files found in " + targetDir + " or " + Paths.get("").toAbsolutePath().toString() + targetDir);
+			getLog().warn("No cucumber json files found in " + project.getBuild().getDirectory());
+			return;
 		}
 
 		DocumentAttributes documentAttributes = new DocumentAttributes().backend(format.name().toLowerCase());
@@ -101,7 +102,7 @@ public class CukedoctorMojo extends AbstractMojo {
 	 * documentation is saved under ${buildDir}/cukedoctor folder
 	 */
 	String getDocumentationDir() {
-		String dir = project.getBuild().getOutputDirectory();
+		String dir = project.getBuild().getDirectory();
 		if (dir == null) {
 			dir = "target/";
 		}

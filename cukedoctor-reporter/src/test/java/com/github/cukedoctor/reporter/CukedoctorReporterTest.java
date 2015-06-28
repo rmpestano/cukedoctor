@@ -408,15 +408,15 @@ public class CukedoctorReporterTest {
 		List<Feature> features = new ArrayList<>();
 		features.add(feature);
 		CukedoctorReporter reporter = Cukedoctor.instance(features, "Doc Title", new DocumentAttributes());
-		reporter.setFilename("/target/docinfo/document.adoc");
+		reporter.setFilename("target/docinfo/document.adoc");
 		reporter.generateDocInfo();
-		File docInfo = FileUtil.loadFile("/target/docinfo/document-docinfo.html");
+		File docInfo = FileUtil.loadFile("target/docinfo/document-docinfo.html");
 		assertThat(docInfo).exists();
 		docInfo.delete();
-		File css = FileUtil.loadFile("/target/docinfo/cukedoctor.css");
+		File css = FileUtil.loadFile("target/docinfo/cukedoctor.css");
 		assertThat(css).exists();
 		css.delete();
-		File js = FileUtil.loadFile("/target/docinfo/cukedoctor.js");
+		File js = FileUtil.loadFile("target/docinfo/cukedoctor.js");
 		assertThat(js).exists();
 		js.delete();
 	}
@@ -443,9 +443,9 @@ public class CukedoctorReporterTest {
 		List<Feature> features = new ArrayList<>();
 		features.add(feature);
 		CukedoctorReporter reporter = Cukedoctor.instance(features, "Living Documentation", new DocumentAttributes());
-		reporter.setFilename("/target/pdf/living documentation.adoc");
+		reporter.setFilename("target/pdf/living documentation.adoc");
 		reporter.generatePdfTheme();
-		File file = FileUtil.loadFile("/target/pdf/living_documentation-theme.yml");
+		File file = FileUtil.loadFile("target/pdf/living_documentation-theme.yml");
 		assertThat(file).exists();
 		assertTrue(file.delete());
 	}
@@ -493,9 +493,9 @@ public class CukedoctorReporterTest {
 		final Feature feature = FeatureBuilder.instance().aFeatureWithTwoScenarios();
 		List<Feature> features = new ArrayList<>();
 		features.add(feature);
-		CukedoctorReporter reporter = Cukedoctor.instance(features, "/target/Doc Title", new DocumentAttributes());
+		CukedoctorReporter reporter = Cukedoctor.instance(features, "target/Doc Title", new DocumentAttributes());
 		reporter.generateDocInfo();
-		File savedFile = FileUtil.loadFile("/target/Doc_Title-docinfo.html");
+		File savedFile = FileUtil.loadFile("target/Doc_Title-docinfo.html");
 		assertThat(savedFile).exists();
 		savedFile.delete();
 	}
@@ -691,10 +691,10 @@ public class CukedoctorReporterTest {
 		List<Feature> features = FeatureParser.parse(onePassingOneFailing);
 
 		CukedoctorReporter reporter = Cukedoctor.instance(features, "Living Documentation", new DocumentAttributes());
-		reporter.setFilename("/target/living documentation.adoc");
+		reporter.setFilename("target/living documentation.adoc");
 
 		reporter.saveDocumentation();
-		assertThat(FileUtil.loadFile("/target/living_documentation.adoc")).exists();
+		assertThat(FileUtil.loadFile("target/living_documentation.adoc")).exists();
 		assertTrue(FileUtil.removeFile("target/living_documentation.adoc"));
 	}
 
