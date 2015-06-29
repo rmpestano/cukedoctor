@@ -113,7 +113,7 @@ To use Cukedoctor as a standalone jar you can https://bintray.com/artifact/downl
 
 === Maven plugin
 
-If you use maven and have execute your cucumber tests through maven you can use cukedoctor-maven plugin.
+If you use maven and execute your cucumber tests through maven you can use cukedoctor-maven plugin.
 For more details see https://github.com/rmpestano/cukedoctor/tree/master/cukedoctor-maven-plugin[cukedoctor-maven-plugin] module.
 
 === Reporter
@@ -123,7 +123,7 @@ Cukedoctor reporter is the basis for the above projects, it generates asciidoc f
 
 == Distribution
 
-Cukedoctor is available at Bintray on https://bintray.com/rmpestano/cukedoctor[this address^].
+Cukedoctor is available at Bintray on https://bintray.com/rmpestano/cukedoctor[here^].
 
 Its also available at maven central [TODO link].
 
