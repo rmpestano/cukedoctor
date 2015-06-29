@@ -33,3 +33,5 @@ Using in command line, the above test should be something like:
 java -jar cukedoctor-main.jar -o "target/document-one" -p "target/test-classes/json-output/one_passing_one_failing.json"
 							   -t "Living Documentation" -f html
 ****
+
+You can download Cukedoctor main https://bintray.com/artifact/download/rmpestano/cukedoctor/com/github/cukedoctor/cukedoctor-main/0.1/cukedoctor-main-0.1.jar[jar here^]

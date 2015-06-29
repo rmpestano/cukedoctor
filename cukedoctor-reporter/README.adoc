@@ -43,7 +43,7 @@ NOTE: *plugins* option replaced *format* option which was deprecated in newer cu
 ----
  <dependency>
       <groupId>com.github.cukedoctor</groupId>
-      <artifactId>cukedoctor-main</artifactId>
+      <artifactId>cukedoctor-reporter</artifactId>
       <version>0.1</version>
   </dependency>
 ----
