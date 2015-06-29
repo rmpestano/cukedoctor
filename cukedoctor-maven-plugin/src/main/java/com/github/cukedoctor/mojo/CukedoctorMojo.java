@@ -37,9 +37,6 @@ import org.asciidoctor.SafeMode;
 import java.io.File;
 import java.util.List;
 
-/**
- * @phase install
- */
 @Mojo(name = "execute",
 		defaultPhase = LifecyclePhase.INSTALL)
 public class CukedoctorMojo extends AbstractMojo {

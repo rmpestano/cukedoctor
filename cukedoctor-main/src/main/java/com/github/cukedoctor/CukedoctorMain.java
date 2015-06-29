@@ -18,7 +18,6 @@ import static org.asciidoctor.OptionsBuilder.options;
 
 /**
  * Created by pestano on 08/06/15.
- * <p/>
  * java -jar cukedoctor.jar -o docName -f html|pdf -p /path/to/cucumber-json-files/
  */
 public class CukedoctorMain {
