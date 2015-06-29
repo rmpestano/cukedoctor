@@ -35,7 +35,6 @@ import org.asciidoctor.OptionsBuilder;
 import org.asciidoctor.SafeMode;
 
 import java.io.File;
-import java.nio.file.Paths;
 import java.util.List;
 
 /**

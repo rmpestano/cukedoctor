@@ -2,6 +2,7 @@
 
 image:https://travis-ci.org/rmpestano/cukedoctor.svg[Build Status (Travis CI), link=https://travis-ci.org/rmpestano/cukedoctor]
 image:https://coveralls.io/repos/rmpestano/cukedoctor/badge.png[Coverage, link=https://coveralls.io/r/rmpestano/cukedoctor]
+image:https://api.bintray.com/packages/rmpestano/cukedoctor/cukedoctor/images/download.svg[link="https://bintray.com/rmpestano/cukedoctor/cukedoctor/_latestVersion"]
 image:https://badges.gitter.im/Join%20Chat.svg[link="https://gitter.im/rmpestano/cukedoctor?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge"]
 
 Documentation is generated based on Cucumber http://www.relishapp.com/cucumber/cucumber/docs/formatters/json-output-formatter[JSON execution output].
@@ -97,9 +98,21 @@ image::cukedoctor-sample.png[]
 
 === Standalone jar
 
-To use Cukedoctor as a standalone jar you can download it here[TODO LINK]. For more details, see https://github.com/rmpestano/cukedoctor/tree/master/cukedoctor-main[cukedoctor-main] module.
+To use Cukedoctor as a standalone jar you can https://bintray.com/artifact/download/rmpestano/cukedoctor/com/github/cukedoctor/cukedoctor-main/0.1/cukedoctor-main-0.1.jar[download it here^]. For more details, see https://github.com/rmpestano/cukedoctor/tree/master/cukedoctor-main[cukedoctor-main] module.
 
 === Maven plugin
 
 If you use maven and have execute your cucumber tests through maven you can use cukedoctor-maven plugin.
 For more details see https://github.com/rmpestano/cukedoctor/tree/master/cukedoctor-maven-plugin[cukedoctor-maven-plugin] module.
+
+=== Reporter
+
+Cukedoctor reporter is the basis for the above projects, it generates asciidoc files based on Cucumber json execution files. For more details see https://github.com/rmpestano/cukedoctor/tree/master/cukedoctor-reporter[cukedoctor-reporter] module.
+
+
+== Distribution
+
+Cukedoctor is available at Bintray on https://bintray.com/rmpestano/cukedoctor[this address^].
+
+Its also available at maven central [TODO link].
+

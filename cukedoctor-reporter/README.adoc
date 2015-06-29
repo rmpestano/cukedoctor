@@ -1,6 +1,8 @@
 = Cukedoctor Reporter module
 
-This module is responsible for generating adoc files from .json cucumber execution files, for example:
+This module is responsible for generating adoc files from .json cucumber execution files.
+
+== Example
 
 [source, java]
 ----
@@ -22,4 +24,26 @@ public void shouldSaveDocumentationIntoDisk(){
 }
 ----
 
-NOTE: docinfo .js and .css are also generated.
+[IMPORTANT]
+====
+To generate cucumber .json output files just execute your _BDD_ tests with *json* formatter, example:
+
+[source,java]
+----
+@RunWith(Cucumber.class)
+@CucumberOptions(plugins = {"json:target/cucumber.json"} )
+----
+NOTE: *plugins* option replaced *format* option which was deprecated in newer cucumber versions
+
+====
+
+== Maven coordinates
+
+[source,xml]
+----
+ <dependency>
+      <groupId>com.github.cukedoctor</groupId>
+      <artifactId>cukedoctor-main</artifactId>
+      <version>0.1</version>
+  </dependency>
+----

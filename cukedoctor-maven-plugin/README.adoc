@@ -29,7 +29,7 @@ Just declare the plugin in your _pom.xml_:
 
 [IMPORTANT]
 ====
-To generate cucumber .json output files just execute your tests with *json* formater, example:
+To generate cucumber .json output files just execute your tests with *json* formatter, example:
 
 [source,java]
 ----
