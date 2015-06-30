@@ -20,6 +20,8 @@ import com.github.cukedoctor.Cukedoctor;
 import com.github.cukedoctor.api.CukedoctorReporter;
 import com.github.cukedoctor.api.DocumentAttributes;
 import com.github.cukedoctor.api.model.Feature;
+import com.github.cukedoctor.mojo.model.Format;
+import com.github.cukedoctor.mojo.model.Toc;
 import com.github.cukedoctor.parser.FeatureParser;
 import com.github.cukedoctor.util.FileUtil;
 import org.apache.maven.plugin.AbstractMojo;
@@ -44,25 +46,39 @@ public class CukedoctorMojo extends AbstractMojo {
 	@Parameter(defaultValue = "documentation", required = false)
 	String outputFileName;
 
+	@Parameter(defaultValue = "cukedoctor", required = false)
+	String outputDir;
+
 	@Parameter(required = false)
-	private String documentTitle;
+	String documentTitle;
 
 	@Parameter(defaultValue = "html5", required = true)
 	Format format;
 
+	@Parameter(defaultValue = "right", required = false)
+	Toc toc;
+
+	@Parameter(defaultValue = "false", required = false)
+	boolean numbered;
+
 	@Component
 	MavenProject project;
 
+	private String generatedFile = null;//only for tests
+
 
 	public void execute() throws MojoExecutionException, MojoFailureException {
-		String targetDir = getDocumentationDir();
 		List<Feature> features = FeatureParser.findAndParse(project.getBuild().getDirectory());
 		if (features == null || features.isEmpty()) {
 			getLog().warn("No cucumber json files found in " + project.getBuild().getDirectory());
 			return;
+		}else{
+			getLog().info("Generating living documentation for " + features.size() + " features...");
 		}
 
-		DocumentAttributes documentAttributes = new DocumentAttributes().backend(format.name().toLowerCase());
+		DocumentAttributes documentAttributes = new DocumentAttributes().
+				backend(format.name().toLowerCase()).
+				toc(toc.name().toLowerCase()).numbered(numbered);
 		if (format.equals(Format.pdf)) {
 			documentAttributes.pdfTheme(true).docInfo(false);
 		} else {
@@ -80,10 +96,11 @@ public class CukedoctorMojo extends AbstractMojo {
 			targetFile = outputFileName + ".adoc";
 		}
 
+		String targetDir = getDocumentationDir();
 		String pathToSave = targetDir + targetFile;
 		reporter.setFilename(pathToSave);//needed by docinfo, pdf-theme
-		String adoc = reporter.renderDocumentation();
-		File adocFile = FileUtil.saveFile(pathToSave, adoc);
+		generatedFile = reporter.renderDocumentation();
+		File adocFile = FileUtil.saveFile(pathToSave, generatedFile);
 		Asciidoctor asciidoctor = Asciidoctor.Factory.create();
 		asciidoctor.convertFile(adocFile, OptionsBuilder.options().backend(documentAttributes.getBackend()).safe(SafeMode.UNSAFE).asMap());
 		//remove auxiliary files
@@ -98,16 +115,27 @@ public class CukedoctorMojo extends AbstractMojo {
 	 * documentation is saved under ${buildDir}/cukedoctor folder
 	 */
 	String getDocumentationDir() {
-		String dir = project.getBuild().getDirectory();
-		if (dir == null) {
-			dir = "target/";
+		String baseDir = project.getBuild().getDirectory();
+		if (baseDir == null) {
+			baseDir = "target/";
 		}
-		if (!dir.endsWith("/")) {
-			dir = dir + "/";
+		if (!baseDir.endsWith("/")) {
+			baseDir = baseDir + "/";
 		}
-		return dir + "cukedoctor/";
+
+		if(outputDir == null){
+			outputDir = "cukedoctor/";
+		}
+
+		if(!outputDir.endsWith("/")){
+			outputDir = outputDir +"/";
+		}
+
+		return baseDir + outputDir;
 
 	}
 
-
+	public String getGeneratedFile() {
+		return generatedFile;
+	}
 }

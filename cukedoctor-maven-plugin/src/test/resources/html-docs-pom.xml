@@ -14,7 +14,10 @@
                 <configuration>
                     <project implementation="com.github.cukedoctor.mojo.stub.CukedoctorMojoStub"/>
                     <outputFileName>documentation</outputFileName>
-                    <format>html</format>
+                    <outputDir>docs</outputDir>
+                    <format>html5</format>
+                    <toc>left</toc>
+                    <numbered>true</numbered>
                 </configuration>
             </plugin>
         </plugins>

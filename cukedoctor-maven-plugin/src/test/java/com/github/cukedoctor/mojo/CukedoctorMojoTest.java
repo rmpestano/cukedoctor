@@ -3,6 +3,10 @@ package com.github.cukedoctor.mojo;
 import com.github.cukedoctor.util.FileUtil;
 import org.apache.maven.plugin.testing.AbstractMojoTestCase;
 
+import java.io.File;
+
+import static org.assertj.core.api.Assertions.assertThat;
+
 /**
  * Created by pestano on 27/06/15.
  */
@@ -28,7 +32,12 @@ public class CukedoctorMojoTest extends AbstractMojoTestCase {
 
 		assertNotNull(mojo);
 		mojo.execute();
-		assertTrue(FileUtil.loadFile(mojo.getDocumentationDir() + mojo.outputFileName + ".html").exists());
+		File file = FileUtil.loadFile(mojo.getDocumentationDir() + mojo.outputFileName + ".html");
+		assertThat(file).exists().hasParent("target/docs");
+		assertThat(mojo.getGeneratedFile()).
+				contains(":backend: html5").
+				contains(":toc: left").
+				contains(":numbered:");
 	}
 
 	/**
@@ -40,14 +49,11 @@ public class CukedoctorMojoTest extends AbstractMojoTestCase {
 
 		assertNotNull(mojo);
 		mojo.execute();
-		assertTrue(FileUtil.loadFile(mojo.getDocumentationDir()+mojo.outputFileName+".pdf").exists());
+		File file = FileUtil.loadFile(mojo.getDocumentationDir() + mojo.outputFileName + ".pdf");
+		assertThat(file).exists().hasParent("target/cukedoctor");
+		assertThat(mojo.getGeneratedFile()).
+				contains(":toc: right").
+				contains(":backend: pdf");
 	}
 
-	/*private MavenProject getMavenProject(String pomPath) throws Exception {
-		File pom = new File(pomPath);
-		MavenExecutionRequest request = new DefaultMavenExecutionRequest();
-		request.setPom(pom);
-		ProjectBuildingRequest configuration = request.getProjectBuildingRequest();
-		return lookup(ProjectBuilder.class).build( pom, configuration ).getProject();
-	}*/
 }

@@ -1,4 +1,4 @@
-package com.github.cukedoctor.mojo;
+package com.github.cukedoctor.mojo.model;
 
 /**
  * Created by pestano on 28/06/15.
