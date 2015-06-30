@@ -39,3 +39,34 @@ To generate cucumber .json output files just execute your tests with *json* form
 NOTE: *plugins* option replaced *format* option which was deprecated in newer cucumber versions
 
 ====
+
+== Example of configuration
+
+[source, xml]
+----
+<plugin>
+    <groupId>com.github.cukedoctor</groupId>
+    <artifactId>cukedoctor-maven-plugin</artifactId>
+    <version>0.1</version>
+         <configuration>
+            <outputFileName>documentation</outputFileName> <1>
+            <outputDir>docs</outputDir> <2>
+            <format>pdf</format> <3>
+            <toc>left</toc> <4>
+            <numbered>false</numbered> <5>
+         </configuration>
+        <executions>
+            <execution>
+                <goals>
+                    <goal>execute</goal>
+                </goals>
+                <phase>install</phase>
+            </execution>
+        </executions>
+</plugin>
+----
+<1> documentation filename
+<2> name of directory (relative to /target) to generate the docs (default is _cukedoctor_)
+<3> document format, default is html5
+<4> table of content position, default is right
+<5> section numbering, default is true

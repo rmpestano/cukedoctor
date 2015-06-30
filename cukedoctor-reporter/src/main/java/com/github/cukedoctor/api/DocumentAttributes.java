@@ -16,7 +16,7 @@ public class DocumentAttributes {
 	private boolean linkCss = false;
 	private boolean sectAnchors = true;
 	private boolean sectLink = true;
-	private boolean numbered = false;
+	private boolean numbered = true;
 	private boolean docInfo = true;
 	private boolean pdfTheme = true;
 

@@ -13,7 +13,7 @@ Feature: Cukedoctor Main
 :doctitle: Documentation
 :doctype: book
 :icons: font
-:!numbered:
+:numbered:
 :!linkcss:
 :sectanchors:
 :sectlink:
@@ -59,7 +59,7 @@ Feature: Cukedoctor Main
 
 == *Features*
 
-=== One passing scenario, one failing scenario
+=== *One passing scenario, one failing scenario*
 
 ==== Scenario: Passing
 [small]#tags: @a,@b#
@@ -97,7 +97,7 @@ features/one_passing_one_failing.feature:10:in Given this step fails'
 :doctitle: Documentation
 :doctype: book
 :icons: font
-:!numbered:
+:numbered:
 :!linkcss:
 :sectanchors:
 :sectlink:
@@ -185,7 +185,7 @@ features/one_passing_one_failing.feature:10:in Given this step fails'
 
 == *Features*
 
-=== An embed data directly feature
+=== *An embed data directly feature*
 
 ==== Scenario: scenario 1
 ****
@@ -204,7 +204,7 @@ Given ::
 I embed data directly icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ****
 
-=== An outline feature
+=== *An outline feature*
 
 ==== Scenario Outline: outline
 
@@ -228,7 +228,7 @@ Given ::
 this step <status> icon:thumbs-down[role="blue",title="Missing"]
 ****
 
-=== One passing scenario, one failing scenario
+=== *One passing scenario, one failing scenario*
 
 ==== Scenario: Passing
 [small]#tags: @a,@b#
@@ -250,7 +250,7 @@ IMPORTANT:  (RuntimeError)
 features/one_passing_one_failing.feature:10:in Given this step fails'
 ****
 
-=== Sample test
+=== *Sample test*
 
 ****
 As a user  +

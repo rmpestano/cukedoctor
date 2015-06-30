@@ -37,7 +37,7 @@ import org.asciidoctor.OptionsBuilder;
 import org.asciidoctor.SafeMode;
 
 import java.io.File;
-import java.util.List;
+import java.util.*;
 
 @Mojo(name = "execute",
 		defaultPhase = LifecyclePhase.INSTALL)
@@ -68,12 +68,12 @@ public class CukedoctorMojo extends AbstractMojo {
 
 
 	public void execute() throws MojoExecutionException, MojoFailureException {
-		List<Feature> features = FeatureParser.findAndParse(project.getBuild().getDirectory());
-		if (features == null || features.isEmpty()) {
+		Set<Feature> featuresFound = new HashSet<>(FeatureParser.findAndParse(project.getBuild().getDirectory()));
+		if (featuresFound == null || featuresFound.isEmpty()) {
 			getLog().warn("No cucumber json files found in " + project.getBuild().getDirectory());
 			return;
 		}else{
-			getLog().info("Generating living documentation for " + features.size() + " features...");
+			getLog().info("Generating living documentation for " + featuresFound.size() + " feature(s)...");
 		}
 
 		DocumentAttributes documentAttributes = new DocumentAttributes().
@@ -88,7 +88,8 @@ public class CukedoctorMojo extends AbstractMojo {
 		if (documentTitle == null) {
 			documentTitle = "Living Documentation";
 		}
-		CukedoctorReporter reporter = Cukedoctor.instance(features, documentTitle, documentAttributes);
+		List<Feature> featuresList = new ArrayList<>(featuresFound);
+		CukedoctorReporter reporter = Cukedoctor.instance(featuresList, documentTitle, documentAttributes);
 		String targetFile = "";
 		if (outputFileName.contains(".")) {
 			targetFile = outputFileName.substring(0, outputFileName.lastIndexOf(".")) + ".adoc";

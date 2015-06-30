@@ -117,7 +117,7 @@ public class CukedoctorReporterTest {
 				":doctitle: Documentation Title" + newLine() +
 				":doctype: book" + newLine() +
 				":icons: font" + newLine() +
-				":!numbered:" + newLine() +
+				":numbered:" + newLine() +
 				":!linkcss:" + newLine() +
 				":sectanchors:" + newLine() +
 				":sectlink:" + newLine() +
@@ -141,7 +141,7 @@ public class CukedoctorReporterTest {
 				":doctitle: Documentation Title" + newLine() +
 				":doctype: book" + newLine() +
 				":icons: font" + newLine() +
-				":!numbered:" + newLine() +
+				":numbered:" + newLine() +
 				":!linkcss:" + newLine() +
 				":sectanchors:" + newLine() +
 				":sectlink:" + newLine() +
@@ -310,7 +310,7 @@ public class CukedoctorReporterTest {
 		cukedoctorReporter = spy(cukedoctorReporter);
 		doReturn(cukedoctorReporter).when(cukedoctorReporter).renderFeatureScenarios(feature);
 		String resultDoc = cukedoctorReporter.renderFeature(feature).getDocumentation().toString();
-		assertThat(resultDoc).isEqualTo("=== Feature name" + newLine() +
+		assertThat(resultDoc).isEqualTo("=== *Feature name*" + newLine() +
 				"" + newLine() +
 				"****" + newLine() +
 				"Feature description" + newLine() +

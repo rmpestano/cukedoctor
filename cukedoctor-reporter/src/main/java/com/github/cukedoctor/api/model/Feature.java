@@ -232,4 +232,8 @@ public class Feature {
 
 	}
 
+	@Override
+	public int hashCode() {
+		return id.hashCode();
+	}
 }

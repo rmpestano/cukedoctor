@@ -194,7 +194,7 @@ public class CukedoctorReporterImpl implements CukedoctorReporter {
 	}
 
 	public CukedoctorReporterImpl renderFeature(Feature feature) {
-		writer.write(H3(feature.getName()), newLine(), newLine());
+		writer.write(H3(bold(feature.getName())), newLine(), newLine());
 		if (feature.getDescription() != null && !"".equals(feature.getDescription().trim())) {
 			writer.write("****", newLine()).
 					//feature description has \n to delimit new lines

@@ -158,7 +158,7 @@ public interface Expectations {
 			""+newLine() +
 			"== *Features*"+newLine() +
 			""+newLine() +
-			"=== One passing scenario, one failing scenario"+newLine() +
+			"=== *One passing scenario, one failing scenario*"+newLine() +
 			""+newLine() +
 			"==== Scenario: Passing"+newLine() +
 			"[small]#tags: @a,@b#"+newLine() +
@@ -258,7 +258,7 @@ public interface Expectations {
 			""+newLine() +
 			"== *Features*"+newLine() +
 			""+newLine() +
-			"=== An embed data directly feature"+newLine() +
+			"=== *An embed data directly feature*"+newLine() +
 			""+newLine() +
 			"==== Scenario: scenario 1"+newLine() +
 			"****"+newLine() +
@@ -277,7 +277,7 @@ public interface Expectations {
 			"I embed data directly icon:thumbs-up[role=\"green\",title=\"Passed\"] [small right]#(000ms)#"+newLine() +
 			"****"+newLine() +
 			""+newLine() +
-			"=== An outline feature"+newLine() +
+			"=== *An outline feature*"+newLine() +
 			""+newLine() +
 			"==== Scenario Outline: outline"+newLine() +
 			""+newLine() +
@@ -301,7 +301,7 @@ public interface Expectations {
 			"this step <status> icon:thumbs-down[role=\"blue\",title=\"Missing\"]"+newLine() +
 			"****"+newLine() +
 			""+newLine() +
-			"=== One passing scenario, one failing scenario"+newLine() +
+			"=== *One passing scenario, one failing scenario*"+newLine() +
 			""+newLine() +
 			"==== Scenario: Passing"+newLine() +
 			"[small]#tags: @a,@b#"+newLine() +
