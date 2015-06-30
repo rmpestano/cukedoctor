@@ -14,7 +14,7 @@ Just declare the plugin in your _pom.xml_:
 <plugin>
     <groupId>com.github.cukedoctor</groupId>
     <artifactId>cukedoctor-maven-plugin</artifactId>
-    <version>0.1</version>
+    <version>0.2</version>
     <executions>
         <execution>
             <goals>
@@ -47,7 +47,7 @@ NOTE: *plugins* option replaced *format* option which was deprecated in newer cu
 <plugin>
     <groupId>com.github.cukedoctor</groupId>
     <artifactId>cukedoctor-maven-plugin</artifactId>
-    <version>0.1</version>
+    <version>0.2</version>
          <configuration>
             <outputFileName>documentation</outputFileName> <1>
             <outputDir>docs</outputDir> <2>
@@ -66,7 +66,7 @@ NOTE: *plugins* option replaced *format* option which was deprecated in newer cu
 </plugin>
 ----
 <1> documentation filename
-<2> name of directory (relative to /target) to generate the docs (default is _cukedoctor_)
+<2> directory name (relative to /target) to generate documetation (default is _cukedoctor_)
 <3> document format, default is html5
 <4> table of content position, default is right
 <5> section numbering, default is true

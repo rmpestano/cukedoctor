@@ -107,14 +107,14 @@ image::cukedoctor-sample.png[]
 
 == Modules
 
-=== Standalone jar
-
-To use Cukedoctor as a standalone jar you can https://bintray.com/artifact/download/rmpestano/cukedoctor/com/github/cukedoctor/cukedoctor-main/0.1/cukedoctor-main-0.1.jar[download it here^]. For more details, see https://github.com/rmpestano/cukedoctor/tree/master/cukedoctor-main[cukedoctor-main] module.
-
 === Maven plugin
 
 If you use maven and execute your cucumber tests through maven you can use cukedoctor-maven plugin.
 For more details see https://github.com/rmpestano/cukedoctor/tree/master/cukedoctor-maven-plugin[cukedoctor-maven-plugin] module.
+
+=== Standalone jar
+
+To use Cukedoctor as a standalone jar you can https://bintray.com/artifact/download/rmpestano/cukedoctor/com/github/cukedoctor/cukedoctor-main/0.2/cukedoctor-main-0.2.jar[download it here^]. For more details, see https://github.com/rmpestano/cukedoctor/tree/master/cukedoctor-main[cukedoctor-main] module.
 
 === Reporter
 
@@ -123,7 +123,7 @@ Cukedoctor reporter is the basis for the above projects, it generates asciidoc f
 
 == Distribution
 
-Cukedoctor is available at Bintray on https://bintray.com/rmpestano/cukedoctor[here^] and also at http://search.maven.org/#search%7Cga%7C1%7Ccukedoctor[Maven central^].
+Cukedoctor is available at https://bintray.com/rmpestano/cukedoctor[Bintray] and at http://search.maven.org/#search%7Cga%7C1%7Ccukedoctor[Maven central^].
 
 
 
