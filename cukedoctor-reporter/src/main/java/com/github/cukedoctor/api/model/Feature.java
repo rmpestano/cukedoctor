@@ -4,12 +4,15 @@ package com.github.cukedoctor.api.model;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.github.cukedoctor.api.ScenarioResults;
 import com.github.cukedoctor.api.StepResults;
+import com.github.cukedoctor.util.Assert;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicInteger;
+
+import static com.github.cukedoctor.util.Assert.notEmpty;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Feature {
@@ -43,7 +46,7 @@ public class Feature {
 	}
 
 	public boolean hasTags() {
-		return tags != null && !tags.isEmpty();
+		return notEmpty(tags);
 	}
 
 	public boolean hasScenarios() {
@@ -51,7 +54,7 @@ public class Feature {
 	}
 
 	public Status getStatus() {
-		return !scenarioResults.getFailedScenarios().isEmpty() ? Status.failed : Status.passed;
+		return notEmpty(scenarioResults.getFailedScenarios()) ? Status.failed : Status.passed;
 	}
 
 	public String getName() {

@@ -93,7 +93,7 @@ public class CukedoctorReporterImpl implements CukedoctorReporter {
 			//docinfo depends on cukedoctor.js and cukedoctor.css
 			//save js and css file in same dir as docinfo
 			String basePath = "";
-			if(filename.contains("/")){
+			if(contains(filename,"/")){
 				basePath = filename.substring(0,filename.lastIndexOf("/"));
 			}
 			FileUtil.copyFile("cukedoctor.js", basePath+"/cukedoctor.js");
@@ -197,7 +197,7 @@ public class CukedoctorReporterImpl implements CukedoctorReporter {
 	public CukedoctorReporterImpl renderFeature(Feature feature) {
 		writer.write(renderFeatureSectionId(feature),newLine());
 		writer.write(H3(bold(feature.getName())), newLine(), newLine());
-		if (feature.getDescription() != null && !"".equals(feature.getDescription().trim())) {
+		if (hasText(feature.getDescription())) {
 			writer.write("****", newLine()).
 					//feature description has \n to delimit new lines
 					write(feature.getDescription().trim().replaceAll("\\n", " +" + newLine())).
