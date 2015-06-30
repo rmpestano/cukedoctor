@@ -6,7 +6,7 @@
     <parent>
         <groupId>com.github.cukedoctor</groupId>
         <artifactId>cukedoctor</artifactId>
-        <version>0.3-SNAPSHOT</version>
+        <version>0.2.1</version>
     </parent>
 
     <artifactId>cukedoctor-reporter</artifactId>

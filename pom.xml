@@ -8,12 +8,12 @@
         <groupId>org.sonatype.oss</groupId>
         <artifactId>oss-parent</artifactId>
         <version>7</version>
-        <relativePath />
+        <relativePath/>
     </parent>
 
     <groupId>com.github.cukedoctor</groupId>
     <artifactId>cukedoctor</artifactId>
-    <version>0.3-SNAPSHOT</version>
+    <version>0.2.1</version>
     <packaging>pom</packaging>
 
     <name>cukedoctor</name>
@@ -22,6 +22,13 @@
     <description>
         BDD living documentation based on Cucumber and Asciidoctor
     </description>
+
+    <developers>
+        <developer>
+            <name>Rafael M. Pestano</name>
+            <email>rmpestanoATgmail.com</email>
+        </developer>
+    </developers>
 
 
     <modules>
