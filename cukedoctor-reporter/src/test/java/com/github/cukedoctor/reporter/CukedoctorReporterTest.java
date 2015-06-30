@@ -118,7 +118,7 @@ public class CukedoctorReporterTest {
 				":doctitle: Documentation Title" + newLine() +
 				":doctype: book" + newLine() +
 				":icons: font" + newLine() +
-				":numbered:" + newLine() +
+				":!numbered:" + newLine() +
 				":!linkcss:" + newLine() +
 				":sectanchors:" + newLine() +
 				":sectlink:" + newLine() +
@@ -142,7 +142,7 @@ public class CukedoctorReporterTest {
 				":doctitle: Documentation Title" + newLine() +
 				":doctype: book" + newLine() +
 				":icons: font" + newLine() +
-				":numbered:" + newLine() +
+				":!numbered:" + newLine() +
 				":!linkcss:" + newLine() +
 				":sectanchors:" + newLine() +
 				":sectlink:" + newLine() +

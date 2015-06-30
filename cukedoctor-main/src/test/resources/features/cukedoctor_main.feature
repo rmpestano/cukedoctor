@@ -13,7 +13,7 @@ Feature: Cukedoctor Main
 :doctitle: Documentation
 :doctype: book
 :icons: font
-:numbered:
+:!numbered:
 :!linkcss:
 :sectanchors:
 :sectlink:
@@ -98,7 +98,7 @@ features/one_passing_one_failing.feature:10:in Given this step fails'
 :doctitle: Documentation
 :doctype: book
 :icons: font
-:numbered:
+:!numbered:
 :!linkcss:
 :sectanchors:
 :sectlink:
