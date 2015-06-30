@@ -4,16 +4,45 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
+    <parent>
+        <groupId>org.sonatype.oss</groupId>
+        <artifactId>oss-parent</artifactId>
+        <version>7</version>
+        <relativePath />
+    </parent>
+
     <groupId>com.github.cukedoctor</groupId>
     <artifactId>cukedoctor</artifactId>
-    <version>0.2</version>
+    <version>0.3-SNAPSHOT</version>
     <packaging>pom</packaging>
+
+    <name>cukedoctor</name>
+    <url>github.com/rmpestano/cukedoctor</url>
+
+    <description>
+        BDD living documentation based on Cucumber and Asciidoctor
+    </description>
+
 
     <modules>
         <module>cukedoctor-reporter</module>
         <module>cukedoctor-maven-plugin</module>
         <module>cukedoctor-main</module>
     </modules>
+
+    <licenses>
+        <license>
+            <name>Apache 2</name>
+            <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+            <distribution>repo</distribution>
+            <comments>A business-friendly OSS license</comments>
+        </license>
+    </licenses>
+    <scm>
+        <connection>scm:git:git://github.com/rmpestano/cukedoctor.git</connection>
+        <developerConnection>scm:git:git@github.com:rmpestano/cukedoctor.git</developerConnection>
+        <url>git@github.com:rmpestano/cukedoctor.git</url>
+    </scm>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

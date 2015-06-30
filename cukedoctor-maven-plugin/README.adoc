@@ -53,7 +53,7 @@ NOTE: *plugins* option replaced *format* option which was deprecated in newer cu
             <outputDir>docs</outputDir> <2>
             <format>pdf</format> <3>
             <toc>left</toc> <4>
-            <numbered>false</numbered> <5>
+            <numbered>true</numbered> <5>
          </configuration>
         <executions>
             <execution>
@@ -69,4 +69,4 @@ NOTE: *plugins* option replaced *format* option which was deprecated in newer cu
 <2> directory name (relative to /target) to generate documetation (default is _cukedoctor_)
 <3> document format, default is html5
 <4> table of content position, default is right
-<5> section numbering, default is true
+<5> section numbering, default is false
