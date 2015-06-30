@@ -37,6 +37,7 @@ public class CukedoctorReporterTest {
 	private static String embedDataDirectly;
 	private static String outline;
 	private static String invalidFeatureResult;
+	private static String featureWithTableInStep;
 
 	@BeforeClass
 	public static void loadFeatures() {
@@ -44,6 +45,7 @@ public class CukedoctorReporterTest {
 		embedDataDirectly = FileUtil.findJsonFile("target/test-classes/json-output/embed_data_directly.json");
 		outline = FileUtil.findJsonFile("target/test-classes/json-output/outline.json");
 		invalidFeatureResult = FileUtil.findJsonFile("target/test-classes/json-output/invalid_feature_result.json");
+		featureWithTableInStep = FileUtil.findJsonFile("target/test-classes/json-output/step-with-table.json");
 	}
 
 
@@ -370,14 +372,14 @@ public class CukedoctorReporterTest {
 		cukedoctorReporter = spy(cukedoctorReporter);
 		doReturn(cukedoctorReporter).when(cukedoctorReporter).renderScenarioSteps(anyListOf(Step.class));
 		String resultDoc = cukedoctorReporter.renderFeatureScenarios(feature).getDocumentation().toString();
-		assertThat(resultDoc).isEqualTo("==== Scenario: scenario 1"+newLine() +
-				"[small]#tags: @FeatureTag#"+newLine() +
-				""+newLine() +
-				"description"+newLine() + newLine() +
-				"==== Scenario: scenario 2"+newLine() +
-				"[small]#tags: @FeatureTag#"+newLine() +
-				""+newLine() +
-				"description 2"+newLine() + newLine());
+		assertThat(resultDoc).isEqualTo("==== Scenario: scenario 1" + newLine() +
+				"[small]#tags: @FeatureTag#" + newLine() +
+				"" + newLine() +
+				"description" + newLine() + newLine() +
+				"==== Scenario: scenario 2" + newLine() +
+				"[small]#tags: @FeatureTag#" + newLine() +
+				"" + newLine() +
+				"description 2" + newLine() + newLine());
 	}
 
 	@Test
@@ -394,14 +396,14 @@ public class CukedoctorReporterTest {
 		cukedoctorReporter = spy(cukedoctorReporter);
 		doReturn(cukedoctorReporter).when(cukedoctorReporter).renderScenarioSteps(anyListOf(Step.class));
 		String resultDoc = cukedoctorReporter.renderFeatureScenarios(feature).getDocumentation().toString();
-		assertThat(resultDoc).isEqualTo("==== Scenario: scenario 1"+newLine() +
-				"[small]#tags: @FeatureTag,@Tag1,@tag2#"+newLine() +
-				""+newLine() +
-				"description"+newLine() + newLine() +
-				"==== Scenario: scenario 2"+newLine() +
-				"[small]#tags: @FeatureTag,@Tag1,@tag2#"+newLine() +
-				""+newLine() +
-				"description 2"+newLine() +newLine());
+		assertThat(resultDoc).isEqualTo("==== Scenario: scenario 1" + newLine() +
+				"[small]#tags: @FeatureTag,@Tag1,@tag2#" + newLine() +
+				"" + newLine() +
+				"description" + newLine() + newLine() +
+				"==== Scenario: scenario 2" + newLine() +
+				"[small]#tags: @FeatureTag,@Tag1,@tag2#" + newLine() +
+				"" + newLine() +
+				"description 2" + newLine() + newLine());
 	}
 
 	@Test
@@ -525,12 +527,12 @@ public class CukedoctorReporterTest {
 		CukedoctorReporter reporter = Cukedoctor.instance(features, "/target/Doc Title", new DocumentAttributes());
 		List<Step> steps = feature.getScenarios().get(0).getSteps();
 		String resultDoc = reporter.renderScenarioSteps(steps).getDocumentation().toString();
-		assertThat(resultDoc).isEqualTo("****"+newLine() +
-				"Given::"+newLine() +
-				"passing step icon:thumbs-up[role=\"green\",title=\"Passed\"] [small right]#(000ms)#"+newLine() +
-				"When::"+newLine() +
-				"failing step icon:thumbs-down[role=\"red\",title=\"Failed\"] [small right]#(000ms)#"+newLine() +
-				"****"+newLine());
+		assertThat(resultDoc).isEqualTo("****" + newLine() +
+				"Given::" + newLine() +
+				"passing step icon:thumbs-up[role=\"green\",title=\"Passed\"] [small right]#(000ms)#" + newLine() +
+				"When::" + newLine() +
+				"failing step icon:thumbs-down[role=\"red\",title=\"Failed\"] [small right]#(000ms)#" + newLine() +
+				"****" + newLine());
 	}
 
 	@Test
@@ -541,20 +543,20 @@ public class CukedoctorReporterTest {
 		CukedoctorReporter reporter = Cukedoctor.instance(features, "/target/Doc Title", new DocumentAttributes());
 		List<Step> steps = feature.getScenarios().get(0).getSteps();
 		String resultDoc = reporter.renderScenarioSteps(steps).getDocumentation().toString();
-		assertThat(resultDoc).isEqualTo("****"+newLine() +
-				"Given::"+newLine() +
-				"passing step icon:thumbs-up[role=\"green\",title=\"Passed\"] [small right]#(000ms)#"+newLine() +
-				"When::"+newLine() +
-				"failing step icon:thumbs-down[role=\"red\",title=\"Failed\"] [small right]#(000ms)#"+newLine() +
-				"When::"+newLine() +
-				"pending step icon:thumbs-down[role=\"orange\",title=\"Pending\"] [small right]#(000ms)#"+newLine() +
-				"When::"+newLine() +
-				"missing step icon:thumbs-down[role=\"blue\",title=\"Missing\"] [small right]#(000ms)#"+newLine() +
-				"When::"+newLine() +
-				"undefined step icon:thumbs-down[role=\"yellow\",title=\"Undefined\"] [small right]#(000ms)#"+newLine() +
-				"Then::"+newLine() +
-				"skipped step icon:thumbs-down[role=\"purple\",title=\"Skipped\"] [small right]#(000ms)#"+newLine() +
-				"****"+newLine());
+		assertThat(resultDoc).isEqualTo("****" + newLine() +
+				"Given::" + newLine() +
+				"passing step icon:thumbs-up[role=\"green\",title=\"Passed\"] [small right]#(000ms)#" + newLine() +
+				"When::" + newLine() +
+				"failing step icon:thumbs-down[role=\"red\",title=\"Failed\"] [small right]#(000ms)#" + newLine() +
+				"When::" + newLine() +
+				"pending step icon:thumbs-down[role=\"orange\",title=\"Pending\"] [small right]#(000ms)#" + newLine() +
+				"When::" + newLine() +
+				"missing step icon:thumbs-down[role=\"blue\",title=\"Missing\"] [small right]#(000ms)#" + newLine() +
+				"When::" + newLine() +
+				"undefined step icon:thumbs-down[role=\"yellow\",title=\"Undefined\"] [small right]#(000ms)#" + newLine() +
+				"Then::" + newLine() +
+				"skipped step icon:thumbs-down[role=\"purple\",title=\"Skipped\"] [small right]#(000ms)#" + newLine() +
+				"****" + newLine());
 	}
 
 	@Test
@@ -586,6 +588,86 @@ public class CukedoctorReporterTest {
 				"****"+newLine() +
 				"Given::"+newLine() +
 				"undefined step icon:thumbs-down[role=\"yellow\",title=\"Undefined\"] [small right]#(000ms)#"+newLine() +
+				"****"+newLine() +
+				""+newLine());
+	}
+
+	@Test
+	public void shouldRenderFeatureWithTableInSteps(){
+		List<Feature> features = FeatureParser.parse(featureWithTableInStep);
+		CukedoctorReporter reporter = Cukedoctor.instance(features, "/target/Doc Title", new DocumentAttributes());
+
+		String resultDoc = reporter.renderStepTable(features.get(0).getScenarios().get(0).getSteps().get(0)).renderDocumentation();
+		assertThat(resultDoc).isEqualTo(":toc: right"+newLine() +
+				":backend: html5"+newLine() +
+				":doctitle: /target/Doc Title"+newLine() +
+				":doctype: book"+newLine() +
+				":icons: font"+newLine() +
+				":!numbered:"+newLine() +
+				":!linkcss:"+newLine() +
+				":sectanchors:"+newLine() +
+				":sectlink:"+newLine() +
+				":docinfo:"+newLine() +
+				":toclevels: 3"+newLine() +
+				""+newLine() +
+				"= */target/Doc Title*"+newLine() +
+				""+newLine() +
+				"== *Summary*"+newLine() +
+				"[cols=\"12*^m\", options=\"header,footer\"]"+newLine() +
+				"|==="+newLine() +
+				"3+|Scenarios 7+|Steps 2+|Features: 1"+newLine() +
+				""+newLine() +
+				"|[green]#*Passed*#"+newLine() +
+				"|[red]#*Failed*#"+newLine() +
+				"|Total"+newLine() +
+				"|[green]#*Passed*#"+newLine() +
+				"|[red]#*Failed*#"+newLine() +
+				"|[purple]#*Skipped*#"+newLine() +
+				"|[maroon]#*Pending*#"+newLine() +
+				"|[yellow]#*Undefined*#"+newLine() +
+				"|[blue]#*Missing*#"+newLine() +
+				"|Total"+newLine() +
+				"|Duration"+newLine() +
+				"|Status"+newLine() +
+				""+newLine() +
+				"12+^|*<<Search>>*"+newLine() +
+				"|1"+newLine() +
+				"|0"+newLine() +
+				"|1"+newLine() +
+				"|1"+newLine() +
+				"|0"+newLine() +
+				"|0"+newLine() +
+				"|0"+newLine() +
+				"|0"+newLine() +
+				"|0"+newLine() +
+				"|1"+newLine() +
+				"|111ms"+newLine() +
+				"|[green]#*passed*#"+newLine() +
+				"12+^|*Totals*"+newLine() +
+				"|1|0|1|1|0|0|0|0|0|1 2+|111ms"+newLine() +
+				"|==="+newLine() +
+				""+newLine() +
+				"== *Features*"+newLine() +
+				""+newLine() +
+				"[[Search, Search]]"+newLine() +
+				"=== *Search*"+newLine() +
+				""+newLine() +
+				"==== Cenario: Find messages by content"+newLine() +
+				"[small]#tags: @txn#"+newLine() +
+				""+newLine() +
+				"****"+newLine() +
+				"Dado ::"+newLine() +
+				"a User has posted the following messages: icon:thumbs-up[role=\"green\",title=\"Passed\"] [small right]#(111ms)#"+newLine() +
+				""+newLine() +
+				""+newLine() +
+				"[cols=\"1*\", options=\"header\"]"+newLine() +
+				"|==="+newLine() +
+				"|content"+newLine() +
+				"|I am making dinner"+newLine() +
+				"|I just woke up"+newLine() +
+				"|I am going to work"+newLine() +
+				"|==="+newLine() +
+				""+newLine() +
 				"****"+newLine() +
 				""+newLine());
 	}

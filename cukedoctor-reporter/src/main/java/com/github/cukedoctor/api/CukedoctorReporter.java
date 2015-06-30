@@ -33,6 +33,7 @@ public interface CukedoctorReporter {
 
 	CukedoctorReporter renderScenarioSteps(List<Step> steps);
 
+	CukedoctorReporter renderStepTable(Step step);
 
 	CukedoctorReporter renderAttributes();
 

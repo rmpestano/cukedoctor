@@ -9,8 +9,8 @@ import java.io.File;
 import java.util.List;
 
 import static com.github.cukedoctor.util.Assert.*;
-import static com.github.cukedoctor.util.Constants.Markup.*;
 import static com.github.cukedoctor.util.Constants.Atributes.*;
+import static com.github.cukedoctor.util.Constants.Markup.*;
 import static com.github.cukedoctor.util.Constants.newLine;
 
 
@@ -93,11 +93,11 @@ public class CukedoctorReporterImpl implements CukedoctorReporter {
 			//docinfo depends on cukedoctor.js and cukedoctor.css
 			//save js and css file in same dir as docinfo
 			String basePath = "";
-			if(contains(filename,"/")){
-				basePath = filename.substring(0,filename.lastIndexOf("/"));
+			if (contains(filename, "/")) {
+				basePath = filename.substring(0, filename.lastIndexOf("/"));
 			}
-			FileUtil.copyFile("cukedoctor.js", basePath+"/cukedoctor.js");
-			FileUtil.copyFile("cukedoctor.css", basePath+"/cukedoctor.css");
+			FileUtil.copyFile("cukedoctor.js", basePath + "/cukedoctor.js");
+			FileUtil.copyFile("cukedoctor.css", basePath + "/cukedoctor.css");
 
 		}
 
@@ -134,7 +134,7 @@ public class CukedoctorReporterImpl implements CukedoctorReporter {
 
 		for (Feature feature : features) {
 			writer.write(newLine());
-			writer.write("12+^" + tableCol(), "*<<", feature.getName().replaceAll(" ","-").replaceAll(",","-"), ">>*", newLine());
+			writer.write("12+^" + tableCol(), "*<<", feature.getName().replaceAll(" ", "-").replaceAll(",", "-"), ">>*", newLine());
 			StepResults stepResults = feature.getStepResults();
 			ScenarioResults scenarioResults = feature.getScenarioResults();
 
@@ -195,12 +195,12 @@ public class CukedoctorReporterImpl implements CukedoctorReporter {
 	}
 
 	public CukedoctorReporterImpl renderFeature(Feature feature) {
-		writer.write(renderFeatureSectionId(feature),newLine());
+		writer.write(renderFeatureSectionId(feature), newLine());
 		writer.write(H3(bold(feature.getName())), newLine(), newLine());
 		if (hasText(feature.getDescription())) {
 			writer.write("****", newLine()).
 					//feature description has \n to delimit new lines
-					write(feature.getDescription().trim().replaceAll("\\n", " +" + newLine())).
+							write(feature.getDescription().trim().replaceAll("\\n", " +" + newLine())).
 					write(newLine(), "****", newLine(), newLine());
 		}
 
@@ -210,11 +210,11 @@ public class CukedoctorReporterImpl implements CukedoctorReporter {
 	}
 
 	public String renderFeatureSectionId(Feature feature) {
-		if(isNull(feature) || not(hasText(feature.getName()))){
+		if (isNull(feature) || not(hasText(feature.getName()))) {
 			return "";
 		}
-		return "[[" + feature.getName().replaceAll(" ","-").replaceAll(",","-") +
-				", " + feature.getName()+"]]";
+		return "[[" + feature.getName().replaceAll(" ", "-").replaceAll(",", "-") +
+				", " + feature.getName() + "]]";
 	}
 
 	public CukedoctorReporterImpl renderFeatureScenarios(Feature feature) {
@@ -225,9 +225,9 @@ public class CukedoctorReporterImpl implements CukedoctorReporter {
 				writer.write(newLine(), newLine());
 			}
 
-			writer.write(scenario.getDescription(),newLine());
+			writer.write(scenario.getDescription(), newLine());
 
-			if(scenario.hasExamples()){
+			if (scenario.hasExamples()) {
 				renderScenarioExamples(scenario);
 			}
 
@@ -266,11 +266,14 @@ public class CukedoctorReporterImpl implements CukedoctorReporter {
 		writer.write("****", newLine());
 		for (Step step : steps) {
 			writer.write(step.getKeyword(), "::", newLine());
-			writer.write(step.getName()+" ", Status.getStatusIcon(step.getStatus()));
+			writer.write(step.getName() + " ", Status.getStatusIcon(step.getStatus()));
 			writer.write(renderStepTime(step.getResult())).write(newLine());
+
+			renderStepTable(step);
+
 			if (step.getResult() != null && !Status.passed.equals(step.getStatus())) {
-				if(step.getResult().getErrorMessage() != null){
-					writer.write(newLine(),"IMPORTANT: ",step.getResult().getErrorMessage(),newLine());
+				if (step.getResult().getErrorMessage() != null) {
+					writer.write(newLine(), "IMPORTANT: ", step.getResult().getErrorMessage(), newLine());
 				}
 			}
 		}
@@ -278,11 +281,31 @@ public class CukedoctorReporterImpl implements CukedoctorReporter {
 		return this;
 	}
 
+	public CukedoctorReporter renderStepTable(Step step) {
+		if (notEmpty(step.getRows())) {
+			writer.write(newLine(),newLine(),"[cols=\"" + step.getRows()[0].getCells().length + "*\", options=\"header\"]", newLine());
+			writer.write(table(), newLine());
+			Row header = step.getRows()[0];
+			for (String col : header.getCells()) {
+				writer.write(tableCol(), col, newLine());
+			}
+
+			for (int i = 1; i < step.getRows().length; i++) {
+				for (String cell : step.getRows()[i].getCells()) {
+					writer.write(tableCol(), cell, newLine());
+				}
+			}
+			writer.write(table(), newLine(), newLine());
+		}
+
+		return this;
+	}
+
 	public String renderStepTime(Result result) {
-		if(result == null || result.getDuration() == null){
+		if (result == null || result.getDuration() == null) {
 			return "";
 		}
-		return " [small right]#("+Formatter.formatTime(result.getDuration())+")#";
+		return " [small right]#(" + Formatter.formatTime(result.getDuration()) + ")#";
 	}
 
 
@@ -291,13 +314,13 @@ public class CukedoctorReporterImpl implements CukedoctorReporter {
 		if (filename == null) {
 			filename = documentTitle;
 		}
-		if(!filename.contains(".")){
+		if (!filename.contains(".")) {
 			filename = filename + ".adoc";
 		}
-		filename = filename.replaceAll(" ","_");//remove blank spaces with underline
+		filename = filename.replaceAll(" ", "_");//remove blank spaces with underline
 
-		if(!FileUtil.ADOC_FILE_EXTENSION.matcher(filename).matches()){
- 			throw new RuntimeException("Invalid filename extension for file: "+filename+". Valid formats are: ad, adoc, asciidoc and asc");
+		if (!FileUtil.ADOC_FILE_EXTENSION.matcher(filename).matches()) {
+			throw new RuntimeException("Invalid filename extension for file: " + filename + ". Valid formats are: ad, adoc, asciidoc and asc");
 		}
 
 
@@ -310,30 +333,30 @@ public class CukedoctorReporterImpl implements CukedoctorReporter {
 		return filename;
 	}
 
-	public CukedoctorReporter saveDocumentation(){
-		FileUtil.saveFile(filename,renderDocumentation());
+	public CukedoctorReporter saveDocumentation() {
+		FileUtil.saveFile(filename, renderDocumentation());
 		return this;
 	}
 
 	@Override
 	public CukedoctorReporter renderScenarioExamples(Scenario scenario) {
-		if(scenario.hasExamples()){
+		if (scenario.hasExamples()) {
 			writer.write(newLine());
 			for (Example example : scenario.getExamples()) {
-				writer.write("."+(example.getName() == null || "".equals(example.getName())  ? "Example":example.getName()),newLine());
-				writer.write("[cols=\""+example.getRows()[0].getCells().length+"*\", options=\"header\"]",newLine());
+				writer.write("." + (example.getName() == null || "".equals(example.getName()) ? "Example" : example.getName()), newLine());
+				writer.write("[cols=\"" + example.getRows()[0].getCells().length + "*\", options=\"header\"]", newLine());
 				writer.write(table(), newLine());
 				Row header = example.getRows()[0];
 				for (String col : header.getCells()) {
-					writer.write(tableCol(),col,newLine());
+					writer.write(tableCol(), col, newLine());
 				}
 
-				for (int i=1;i<example.getRows().length;i++) {
+				for (int i = 1; i < example.getRows().length; i++) {
 					for (String cell : example.getRows()[i].getCells()) {
-						writer.write(tableCol(),cell , newLine());
+						writer.write(tableCol(), cell, newLine());
 					}
 				}
-				writer.write(table(), newLine(),newLine());
+				writer.write(table(), newLine(), newLine());
 			}
 		}
 		return this;
