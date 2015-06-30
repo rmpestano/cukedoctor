@@ -1,5 +1,6 @@
 package com.github.cukedoctor.api.model;
 
+import com.github.cukedoctor.Cukedoctor;
 import com.github.cukedoctor.util.builder.FeatureBuilder;
 import com.github.cukedoctor.util.builder.ScenarioBuilder;
 import com.github.cukedoctor.util.builder.StepBuilder;
@@ -7,6 +8,9 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import static org.assertj.core.api.Assertions.*;
 
@@ -32,6 +36,12 @@ public class FeatureTest {
 		Step step3 = StepBuilder.instance().match(new Match("/match2"))
 				.name("my step 3").result(result).build();
 
+		Step stepMissing = StepBuilder.instance().match(new Match("/match3"))
+				.name("step missing").result(new Result(Status.missing)).build();
+
+		Step stepPending = StepBuilder.instance().match(new Match("/match4"))
+				.name("step pending").result(new Result(Status.pending)).build();
+
 
 		Scenario passingScenario = ScenarioBuilder.instance().name("scenario 1")
 				.type(Type.scenario).description("scenario desc")
@@ -41,23 +51,45 @@ public class FeatureTest {
 				.type(Type.scenario).keyword("keyword")
 				.step(step1).step(step2).step(step3).step(step3).build();
 
+		Scenario missingScenario = ScenarioBuilder.instance().name("scenario 3")
+				.type(Type.scenario).keyword("keyword")
+				.step(stepMissing).build();
+
+		Scenario pendingScenario = ScenarioBuilder.instance().name("scenario 4")
+				.type(Type.scenario).keyword("keyword")
+				.step(stepPending).build();
+
+
 		feature = FeatureBuilder.instance().id("id").name("feature").keyword("keyword").
 				uri("uri").description("feature description").
-				scenario(passingScenario).scenario(failingScenario).build();
+				scenario(passingScenario).scenario(failingScenario).
+				scenario(missingScenario).scenario(pendingScenario).
+				build();
 
 	}
 
 	@Test
 	public void shouldProcessSteps() {
 		feature.processSteps();
-		assertThat(feature.getNumberOfScenarios()).isEqualTo(2);
-		assertThat(feature.getNumberOfSteps()).isEqualTo(5); //2 steps in scenario 1 and 3 in scenario 2
+		assertThat(feature.getNumberOfScenarios()).isEqualTo(4);
+		assertThat(feature.getNumberOfSteps()).isEqualTo(7); //2 steps in scenario 1 and 3 in scenario 2
 		assertThat(feature.getStatus()).isEqualTo(Status.failed);
 		assertThat(feature.getStepResults().getTotalDuration()).isEqualTo(5000000L);
 		assertThat(feature.getDurationOfSteps()).isEqualTo("005ms");
 		assertThat(feature.getNumberOfFailures()).isEqualTo(1); //1 in scenario 2
 		assertThat(feature.getNumberOfPasses()).isEqualTo(4);//2 passes in each scenario
-		assertThat(feature.getNumberOfPending()).isEqualTo(0);
+		assertThat(feature.getNumberOfPending()).isEqualTo(1);
 		assertThat(feature.getNumberOfSkipped()).isEqualTo(0);
+		assertThat(feature.getNumberOfMissing()).isEqualTo(1);
+		assertThat(feature.getNumberOfUndefined()).isEqualTo(0);
+		assertThat(feature.getNumberOfScenariosPassed()).isEqualTo(1);
+		assertThat(feature.getNumberOfScenariosFailed()).isEqualTo(3);
+	}
+
+	@Test
+	public void shouldNotProcessStepsForInvalidFeature(){
+		Feature invalidFeature = new Feature();
+		invalidFeature.setName("name");
+		invalidFeature.processSteps();
 	}
 }

@@ -6,7 +6,7 @@
 
     <groupId>com.github.cukedoctor</groupId>
     <artifactId>cukedoctor</artifactId>
-    <version>0.2-SNAPSHOT</version>
+    <version>0.2</version>
     <packaging>pom</packaging>
 
     <modules>

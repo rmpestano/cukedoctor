@@ -227,13 +227,12 @@ public class Feature {
 
 		Feature feature = (Feature) o;
 
-		if (!name.equals(feature.name)) return false;
 		return !(id != null ? !id.equals(feature.id) : feature.id != null);
 
 	}
 
 	@Override
 	public int hashCode() {
-		return id.hashCode();
+		return name != null ? name.hashCode():42;
 	}
 }

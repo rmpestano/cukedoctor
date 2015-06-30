@@ -106,6 +106,7 @@ public class CukedoctorReporterTest {
 		assertEquals(expected,document);
 	}
 
+
 	@Test
 	public void shouldRenderAttributesUsingDefaultConfig() {
 		List<Feature> features = new ArrayList<>();
