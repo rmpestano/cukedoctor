@@ -26,7 +26,7 @@ public interface Expectations {
 			"|Duration" + newLine() +
 			"|Status" + newLine() +
 			"" + newLine() +
-			"12+^|*<<One passing scenario, one failing scenario>>*" + newLine() +
+			"12+^|*<<One-passing-scenario--one-failing-scenario>>*" + newLine() +
 			"|1" + newLine() +
 			"|1" + newLine() +
 			"|2" + newLine() +
@@ -62,7 +62,7 @@ public interface Expectations {
 			"|Duration"+newLine() +
 			"|Status"+newLine() +
 			""+newLine() +
-			"12+^|*<<An embed data directly feature>>*"+newLine() +
+			"12+^|*<<An-embed-data-directly-feature>>*"+newLine() +
 			"|3"+newLine() +
 			"|0"+newLine() +
 			"|3"+newLine() +
@@ -76,7 +76,7 @@ public interface Expectations {
 			"|000ms"+newLine() +
 			"|[green]#*passed*#"+newLine() +
 			""+newLine() +
-			"12+^|*<<An outline feature>>*"+newLine() +
+			"12+^|*<<An-outline-feature>>*"+newLine() +
 			"|0"+newLine() +
 			"|1"+newLine() +
 			"|1"+newLine() +
@@ -90,7 +90,7 @@ public interface Expectations {
 			"|000ms"+newLine() +
 			"|[red]#*failed*#"+newLine() +
 			""+newLine() +
-			"12+^|*<<One passing scenario, one failing scenario>>*"+newLine() +
+			"12+^|*<<One-passing-scenario--one-failing-scenario>>*"+newLine() +
 			"|1"+newLine() +
 			"|1"+newLine() +
 			"|2"+newLine() +
@@ -139,7 +139,7 @@ public interface Expectations {
 			"|Duration"+newLine() +
 			"|Status"+newLine() +
 			""+newLine() +
-			"12+^|*<<One passing scenario, one failing scenario>>*"+newLine() +
+			"12+^|*<<One-passing-scenario--one-failing-scenario>>*"+newLine() +
 			"|1"+newLine() +
 			"|1"+newLine() +
 			"|2"+newLine() +
@@ -158,6 +158,7 @@ public interface Expectations {
 			""+newLine() +
 			"== *Features*"+newLine() +
 			""+newLine() +
+			"[[One-passing-scenario--one-failing-scenario, One passing scenario, one failing scenario]]" +newLine() +
 			"=== *One passing scenario, one failing scenario*"+newLine() +
 			""+newLine() +
 			"==== Scenario: Passing"+newLine() +
@@ -211,7 +212,7 @@ public interface Expectations {
 			"|Duration"+newLine() +
 			"|Status"+newLine() +
 			""+newLine() +
-			"12+^|*<<An embed data directly feature>>*"+newLine() +
+			"12+^|*<<An-embed-data-directly-feature>>*"+newLine() +
 			"|3"+newLine() +
 			"|0"+newLine() +
 			"|3"+newLine() +
@@ -225,7 +226,7 @@ public interface Expectations {
 			"|000ms"+newLine() +
 			"|[green]#*passed*#"+newLine() +
 			""+newLine() +
-			"12+^|*<<An outline feature>>*"+newLine() +
+			"12+^|*<<An-outline-feature>>*"+newLine() +
 			"|0"+newLine() +
 			"|1"+newLine() +
 			"|1"+newLine() +
@@ -239,7 +240,7 @@ public interface Expectations {
 			"|000ms"+newLine() +
 			"|[red]#*failed*#"+newLine() +
 			""+newLine() +
-			"12+^|*<<One passing scenario, one failing scenario>>*"+newLine() +
+			"12+^|*<<One-passing-scenario--one-failing-scenario>>*"+newLine() +
 			"|1"+newLine() +
 			"|1"+newLine() +
 			"|2"+newLine() +
@@ -258,6 +259,7 @@ public interface Expectations {
 			""+newLine() +
 			"== *Features*"+newLine() +
 			""+newLine() +
+			"[[An-embed-data-directly-feature, An embed data directly feature]]" + newLine() +
 			"=== *An embed data directly feature*"+newLine() +
 			""+newLine() +
 			"==== Scenario: scenario 1"+newLine() +
@@ -277,6 +279,7 @@ public interface Expectations {
 			"I embed data directly icon:thumbs-up[role=\"green\",title=\"Passed\"] [small right]#(000ms)#"+newLine() +
 			"****"+newLine() +
 			""+newLine() +
+			"[[An-outline-feature, An outline feature]]" + newLine() +
 			"=== *An outline feature*"+newLine() +
 			""+newLine() +
 			"==== Scenario Outline: outline"+newLine() +
@@ -301,6 +304,7 @@ public interface Expectations {
 			"this step <status> icon:thumbs-down[role=\"blue\",title=\"Missing\"]"+newLine() +
 			"****"+newLine() +
 			""+newLine() +
+			"[[One-passing-scenario--one-failing-scenario, One passing scenario, one failing scenario]]"+newLine()+
 			"=== *One passing scenario, one failing scenario*"+newLine() +
 			""+newLine() +
 			"==== Scenario: Passing"+newLine() +

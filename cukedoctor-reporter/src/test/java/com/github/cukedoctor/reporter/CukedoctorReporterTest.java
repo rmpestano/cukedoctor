@@ -212,7 +212,7 @@ public class CukedoctorReporterTest {
 
 		String document = Cukedoctor.instance(features, "Documentation Title", attrs).renderAttributes().
 				getDocumentation().toString();
-		assertEquals(expected,document);
+		assertEquals(expected, document);
 	}
 
 	@Test
@@ -256,7 +256,7 @@ public class CukedoctorReporterTest {
 		List<Feature> features = FeatureParser.parse(onePassingOneFailing);
 		String resultDoc = Cukedoctor.instance(features, "Title").renderSummary().getDocumentation().toString();
 		assertThat(resultDoc).isNotNull().
-				containsOnlyOnce("<<One passing scenario, one failing scenario>>").
+				containsOnlyOnce("<<One-passing-scenario--one-failing-scenario>>").
 				containsOnlyOnce("|[red]#*failed*#").
 				contains("2+|010ms");
 
@@ -269,9 +269,9 @@ public class CukedoctorReporterTest {
 		List<Feature> features = FeatureParser.parse(onePassingOneFailing, embedDataDirectly, outline, invalidFeatureResult);
 		String resultDoc = Cukedoctor.instance(features, "Title").renderSummary().getDocumentation().toString();
 		assertThat(resultDoc).isNotNull().
-				containsOnlyOnce("<<One passing scenario, one failing scenario>>").
-				containsOnlyOnce("<<An embed data directly feature>>").
-				containsOnlyOnce("<<An outline feature>>").
+				containsOnlyOnce("<<One-passing-scenario--one-failing-scenario>>").
+				containsOnlyOnce("<<An-embed-data-directly-feature>>").
+				containsOnlyOnce("<<An-outline-feature>>").
 				doesNotContain("<<invalid feature result>>").
 				containsOnlyOnce("|[green]#*passed*#").
 				contains("|[red]#*Failed*#").
@@ -311,7 +311,8 @@ public class CukedoctorReporterTest {
 		cukedoctorReporter = spy(cukedoctorReporter);
 		doReturn(cukedoctorReporter).when(cukedoctorReporter).renderFeatureScenarios(feature);
 		String resultDoc = cukedoctorReporter.renderFeature(feature).getDocumentation().toString();
-		assertThat(resultDoc).isEqualTo("=== *Feature name*" + newLine() +
+		assertThat(resultDoc).isEqualTo("[[Feature-name, Feature name]]" + newLine() +
+				"=== *Feature name*" + newLine() +
 				"" + newLine() +
 				"****" + newLine() +
 				"Feature description" + newLine() +
@@ -510,10 +511,10 @@ public class CukedoctorReporterTest {
 		CukedoctorReporter reporter = Cukedoctor.instance(features, "/target/Doc Title", new DocumentAttributes());
 		List<Step> steps = feature.getScenarios().get(0).getSteps();
 		String resultDoc = reporter.renderScenarioSteps(steps).getDocumentation().toString();
-		assertThat(resultDoc).isEqualTo("****"+newLine() +
-				"Given::"+newLine() +
-				"passing step icon:thumbs-up[role=\"green\",title=\"Passed\"] [small right]#(000ms)#"+newLine() +
-				"****"+newLine());
+		assertThat(resultDoc).isEqualTo("****" + newLine() +
+				"Given::" + newLine() +
+				"passing step icon:thumbs-up[role=\"green\",title=\"Passed\"] [small right]#(000ms)#" + newLine() +
+				"****" + newLine());
 	}
 
 	@Test
@@ -590,6 +591,61 @@ public class CukedoctorReporterTest {
 	}
 
 
+	@Test
+	public void shouldNotGenerateSectionIdForFeatureBlankName(){
+		final Feature feature = FeatureBuilder.instance().aFeatureWithOneScenarioWithOnePassingStep();
+		feature.setName("    ");
+		List<Feature> features = new ArrayList<>();
+		features.add(feature);
+		CukedoctorReporter reporter = Cukedoctor.instance(features, "/target/Doc Title", new DocumentAttributes());
+		assertThat(reporter.renderFeatureSectionId(feature)).isEqualTo("");
+
+	}
+
+	@Test
+	public void shouldNotRenderSectionIdForFeatureWithNullName(){
+		final Feature feature = FeatureBuilder.instance().aFeatureWithOneScenarioWithOnePassingStep();
+		feature.setName(null);
+		List<Feature> features = new ArrayList<>();
+		features.add(feature);
+		CukedoctorReporter reporter = Cukedoctor.instance(features, "/target/Doc Title", new DocumentAttributes());
+		assertThat(reporter.renderFeatureSectionId(feature)).isEqualTo("");
+
+	}
+
+	@Test
+		 public void shouldRenderSectionIdForFeatureWithNameWithSpaces(){
+		final Feature feature = FeatureBuilder.instance().aFeatureWithOneScenarioWithOnePassingStep();
+		feature.setName("Feature name");
+		List<Feature> features = new ArrayList<>();
+		features.add(feature);
+		CukedoctorReporter reporter = Cukedoctor.instance(features, "/target/Doc Title", new DocumentAttributes());
+		assertThat(reporter.renderFeatureSectionId(feature)).isEqualTo("[[Feature-name, Feature name]]");
+
+	}
+
+	@Test
+	public void shouldRenderSectionIdForFeatureWithNameWithSpacesAndComma(){
+		final Feature feature = FeatureBuilder.instance().aFeatureWithOneScenarioWithOnePassingStep();
+		feature.setName("Feature name, subname");
+		List<Feature> features = new ArrayList<>();
+		features.add(feature);
+		CukedoctorReporter reporter = Cukedoctor.instance(features, "/target/Doc Title", new DocumentAttributes());
+		assertThat(reporter.renderFeatureSectionId(feature)).isEqualTo("[[Feature-name--subname, Feature name, subname]]");
+
+	}
+
+	@Test
+	public void shouldRenderFeatureSectionId(){
+		final Feature feature = FeatureBuilder.instance().aFeatureWithOneScenarioWithOnePassingStep();
+		feature.setName("Name");
+		List<Feature> features = new ArrayList<>();
+		features.add(feature);
+		CukedoctorReporter reporter = Cukedoctor.instance(features, "/target/Doc Title", new DocumentAttributes());
+		assertThat(reporter.renderFeatureSectionId(feature)).isEqualTo("[[Name, Name]]");
+
+	}
+
 	// Integration tests
 
 	@Test
@@ -633,7 +689,7 @@ public class CukedoctorReporterTest {
 				containsOnlyOnce(":doctype: book" + newLine()).
 				containsOnlyOnce(":toc: left" + newLine()).
 				containsOnlyOnce("= *Living Documentation*" + newLine()).
-				containsOnlyOnce("<<One passing scenario, one failing scenario>>").
+				containsOnlyOnce("<<One-passing-scenario--one-failing-scenario>>").
 				containsOnlyOnce("|[red]#*failed*#").
 				contains("|010ms").
 				containsOnlyOnce("|1|1|2|1|1|0|0|0|0|2 2+|010ms");
@@ -659,10 +715,10 @@ public class CukedoctorReporterTest {
 				containsOnlyOnce(":doctype: book" + newLine()).
 				containsOnlyOnce(":toc: left" + newLine()).
 				containsOnlyOnce("= *Living Documentation*" + newLine()).
-				containsOnlyOnce("<<One passing scenario, one failing scenario>>").
-				containsOnlyOnce("<<An embed data directly feature>>").
-				containsOnlyOnce("<<An outline feature>>").
-				doesNotContain("<<invalid feature result>>").
+				containsOnlyOnce("<<One-passing-scenario--one-failing-scenario>>").
+				containsOnlyOnce("<<An-embed-data-directly-feature>>").
+				containsOnlyOnce("<<An-outline-feature>>").
+				doesNotContain("<<invalid-feature-result*>>").
 				containsOnlyOnce("|[green]#*passed*#").
 				contains("|[red]#*Failed*#").
 				contains("|010ms").
@@ -698,5 +754,6 @@ public class CukedoctorReporterTest {
 		assertThat(FileUtil.loadFile("target/living_documentation.adoc")).exists();
 		assertTrue(FileUtil.removeFile("target/living_documentation.adoc"));
 	}
+
 
 }

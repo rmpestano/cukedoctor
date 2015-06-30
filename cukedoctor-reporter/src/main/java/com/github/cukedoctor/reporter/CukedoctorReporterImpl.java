@@ -8,6 +8,7 @@ import com.github.cukedoctor.util.Formatter;
 import java.io.File;
 import java.util.List;
 
+import static com.github.cukedoctor.util.Assert.*;
 import static com.github.cukedoctor.util.Constants.Markup.*;
 import static com.github.cukedoctor.util.Constants.Atributes.*;
 import static com.github.cukedoctor.util.Constants.newLine;
@@ -133,7 +134,7 @@ public class CukedoctorReporterImpl implements CukedoctorReporter {
 
 		for (Feature feature : features) {
 			writer.write(newLine());
-			writer.write("12+^" + tableCol(), "*<<", feature.getName(), ">>*", newLine());
+			writer.write("12+^" + tableCol(), "*<<", feature.getName().replaceAll(" ","-").replaceAll(",","-"), ">>*", newLine());
 			StepResults stepResults = feature.getStepResults();
 			ScenarioResults scenarioResults = feature.getScenarioResults();
 
@@ -194,6 +195,7 @@ public class CukedoctorReporterImpl implements CukedoctorReporter {
 	}
 
 	public CukedoctorReporterImpl renderFeature(Feature feature) {
+		writer.write(renderFeatureSectionId(feature),newLine());
 		writer.write(H3(bold(feature.getName())), newLine(), newLine());
 		if (feature.getDescription() != null && !"".equals(feature.getDescription().trim())) {
 			writer.write("****", newLine()).
@@ -205,6 +207,14 @@ public class CukedoctorReporterImpl implements CukedoctorReporter {
 
 		renderFeatureScenarios(feature);
 		return this;
+	}
+
+	public String renderFeatureSectionId(Feature feature) {
+		if(isNull(feature) || not(hasText(feature.getName()))){
+			return "";
+		}
+		return "[[" + feature.getName().replaceAll(" ","-").replaceAll(",","-") +
+				", " + feature.getName()+"]]";
 	}
 
 	public CukedoctorReporterImpl renderFeatureScenarios(Feature feature) {

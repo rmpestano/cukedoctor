@@ -72,4 +72,6 @@ public interface CukedoctorReporter {
 	CukedoctorReporter saveDocumentation();
 
 	CukedoctorReporter renderScenarioExamples(Scenario scenario);
+
+	String renderFeatureSectionId(Feature feature);
 }

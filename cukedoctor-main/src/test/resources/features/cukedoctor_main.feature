@@ -40,7 +40,7 @@ Feature: Cukedoctor Main
 |Duration
 |Status
 
-12+^|*<<One passing scenario, one failing scenario>>*
+12+^|*<<One-passing-scenario--one-failing-scenario>>*
 |1
 |1
 |2
@@ -59,6 +59,7 @@ Feature: Cukedoctor Main
 
 == *Features*
 
+[[One-passing-scenario--one-failing-scenario, One passing scenario, one failing scenario]]
 === *One passing scenario, one failing scenario*
 
 ==== Scenario: Passing
@@ -124,7 +125,7 @@ features/one_passing_one_failing.feature:10:in Given this step fails'
 |Duration
 |Status
 
-12+^|*<<An embed data directly feature>>*
+12+^|*<<An-embed-data-directly-feature>>*
 |3
 |0
 |3
@@ -138,7 +139,7 @@ features/one_passing_one_failing.feature:10:in Given this step fails'
 |000ms
 |[green]#*passed*#
 
-12+^|*<<An outline feature>>*
+12+^|*<<An-outline-feature>>*
 |0
 |1
 |1
@@ -152,7 +153,7 @@ features/one_passing_one_failing.feature:10:in Given this step fails'
 |000ms
 |[red]#*failed*#
 
-12+^|*<<One passing scenario, one failing scenario>>*
+12+^|*<<One-passing-scenario--one-failing-scenario>>*
 |1
 |1
 |2
@@ -166,7 +167,7 @@ features/one_passing_one_failing.feature:10:in Given this step fails'
 |010ms
 |[red]#*failed*#
 
-12+^|*<<Sample test>>*
+12+^|*<<Sample-test>>*
 |1
 |2
 |3
@@ -185,6 +186,7 @@ features/one_passing_one_failing.feature:10:in Given this step fails'
 
 == *Features*
 
+[[An-embed-data-directly-feature, An embed data directly feature]]
 === *An embed data directly feature*
 
 ==== Scenario: scenario 1
@@ -204,6 +206,7 @@ Given ::
 I embed data directly icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ****
 
+[[An-outline-feature, An outline feature]]
 === *An outline feature*
 
 ==== Scenario Outline: outline
@@ -228,6 +231,7 @@ Given ::
 this step <status> icon:thumbs-down[role="blue",title="Missing"]
 ****
 
+[[One-passing-scenario--one-failing-scenario, One passing scenario, one failing scenario]]
 === *One passing scenario, one failing scenario*
 
 ==== Scenario: Passing
@@ -250,6 +254,7 @@ IMPORTANT:  (RuntimeError)
 features/one_passing_one_failing.feature:10:in Given this step fails'
 ****
 
+[[Sample-test, Sample test]]
 === *Sample test*
 
 ****

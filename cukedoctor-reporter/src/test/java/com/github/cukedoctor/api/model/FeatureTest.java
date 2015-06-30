@@ -92,4 +92,5 @@ public class FeatureTest {
 		invalidFeature.setName("name");
 		invalidFeature.processSteps();
 	}
+
 }
