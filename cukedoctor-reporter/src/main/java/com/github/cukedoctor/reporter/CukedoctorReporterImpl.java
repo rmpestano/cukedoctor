@@ -65,7 +65,7 @@ public class CukedoctorReporterImpl implements CukedoctorReporter {
 			renderFeature(feature);
 		}
 		//generateDocInfo();
-		generatePdfTheme();
+		//generatePdfTheme();
 		return writer.getCurrentDoc().toString();
 	}
 

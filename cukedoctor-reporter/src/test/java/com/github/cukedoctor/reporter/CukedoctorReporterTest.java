@@ -652,7 +652,7 @@ public class CukedoctorReporterTest {
 				.sectAnchors(true).sectLink(true);
 
 		CukedoctorReporter reporter = Cukedoctor.instance(features, "Living Documentation", attrs);
-		reporter.setFilename("/target/living_documentation.adoc");
+		reporter.setFilename("target/living_documentation.adoc");
 		String resultDoc =	reporter.renderDocumentation();
 		assertThat(resultDoc).isNotNull().
 				containsOnlyOnce(":doctype: book" + newLine()).
@@ -676,14 +676,14 @@ public class CukedoctorReporterTest {
 		List<Feature> features = FeatureParser.parse(FileUtil.findJsonFile("target/test-classes/json-output/sample.json"));
 		assertThat(features).hasSize(1);
 		CukedoctorReporter reporter = Cukedoctor.instance(features, "Living Documentation", new DocumentAttributes());
-		reporter.setFilename("/target/living_documentation.adoc");
+		reporter.setFilename("target/living_documentation.adoc");
 		String resultDoc =	reporter.renderDocumentation();
 		assertThat(resultDoc).contains("****" + newLine() +
 				"As a user  +" + newLine() +
 				"I want to do something  +" + newLine() +
 				"In order to achieve an important goal" + newLine() +
 				"****");
-		FileUtil.saveFile("/target/sample.adoc", resultDoc);
+		FileUtil.saveFile("target/sample.adoc", resultDoc);
 	}
 
 	@Test

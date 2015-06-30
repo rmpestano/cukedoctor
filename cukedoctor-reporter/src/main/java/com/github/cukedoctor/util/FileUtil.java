@@ -78,19 +78,29 @@ public class FileUtil {
 
 	}
 
+	/**
+	 * Saves a file into filesystem. Note that name can be saved as absolute (if it has a leading slash) or relative to current path.
+	 * EX: /target/name.adoc will save the file into
+	 * @param name file name
+	 * @param data file content
+	 * @return
+	 */
 	public static File saveFile(String name, String data) {
 		if (name == null) {
 			name = "";
 		}
-		String absoluteName = name;
+		String fullyQualifiedName = name;
 
-		if(!new File(absoluteName).isAbsolute()){
-			absoluteName = Paths.get("").toAbsolutePath().toString() + "/"+name;
+		/**
+		 * if filename is not absolute use current path as base dir
+		 */
+		if(!new File(fullyQualifiedName).isAbsolute()){
+			fullyQualifiedName = Paths.get("").toAbsolutePath().toString() + "/"+name;
 		}
 		try {
-			File f = new File(absoluteName.substring(0, absoluteName.lastIndexOf("/")));//create subdirs (if there any)
+			File f = new File(fullyQualifiedName.substring(0, fullyQualifiedName.lastIndexOf("/")));//create subdirs (if there any)
 			f.mkdirs();
-			File file = new File(absoluteName);
+			File file = new File(fullyQualifiedName);
 			file.createNewFile();
 			FileUtils.fileWrite(file, "UTF-8", data);
 			log.info("Wrote: " + file.getAbsolutePath());
