@@ -110,6 +110,7 @@ public class CukedoctorMojo extends AbstractMojo {
 		}
 
 		getLog().info("Generated documentation at: " + adocFile.getParent());
+		asciidoctor.shutdown();
 	}
 
 	/**
