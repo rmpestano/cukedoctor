@@ -110,15 +110,15 @@ image::cukedoctor-sample.png[]
 === Maven plugin
 
 If you use maven and execute your cucumber tests through maven you can use cukedoctor-maven plugin.
-For more details see https://github.com/rmpestano/cukedoctor/tree/master/cukedoctor-maven-plugin[cukedoctor-maven-plugin] module.
+For more details see https://github.com/rmpestano/cukedoctor/tree/master/cukedoctor-maven-plugin[cukedoctor-maven-plugin].
 
 === Standalone jar
 
-To use Cukedoctor as a standalone jar you can https://bintray.com/artifact/download/rmpestano/cukedoctor/com/github/cukedoctor/cukedoctor-main/0.2.1/cukedoctor-main-0.2.1.jar[download it here^]. For more details, see https://github.com/rmpestano/cukedoctor/tree/master/cukedoctor-main[cukedoctor-main] module.
+To use Cukedoctor as a standalone jar you can https://bintray.com/artifact/download/rmpestano/cukedoctor/com/github/cukedoctor/cukedoctor-main/0.2.1/cukedoctor-main-0.2.1.jar[download it here^]. For more details, see https://github.com/rmpestano/cukedoctor/tree/master/cukedoctor-main[cukedoctor-main].
 
 === Reporter
 
-Cukedoctor reporter is the basis for the above projects, it generates asciidoc files based on Cucumber json execution files. For more details see https://github.com/rmpestano/cukedoctor/tree/master/cukedoctor-reporter[cukedoctor-reporter] module.
+Cukedoctor reporter is the basis for the above projects, it generates asciidoc files based on Cucumber json execution files. For more details see https://github.com/rmpestano/cukedoctor/tree/master/cukedoctor-reporter[cukedoctor-reporter].
 
 
 == Distribution

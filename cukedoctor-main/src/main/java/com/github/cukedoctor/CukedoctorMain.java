@@ -7,6 +7,7 @@ import com.github.cukedoctor.api.CukedoctorReporter;
 import com.github.cukedoctor.api.DocumentAttributes;
 import com.github.cukedoctor.api.model.Feature;
 import com.github.cukedoctor.parser.FeatureParser;
+import com.github.cukedoctor.util.Assert;
 import com.github.cukedoctor.util.FileUtil;
 import org.asciidoctor.*;
 
@@ -14,6 +15,7 @@ import java.io.File;
 import java.util.HashMap;
 import java.util.List;
 
+import static com.github.cukedoctor.util.Assert.hasText;
 import static org.asciidoctor.OptionsBuilder.options;
 
 /**
@@ -22,17 +24,23 @@ import static org.asciidoctor.OptionsBuilder.options;
  */
 public class CukedoctorMain {
 
-	@Parameter(names = "-f", description = "Document format - supported html5(default), html and pdf", required = false, echoInput = true)
+	@Parameter(names = "-f", description = "Document format - supported html5, html and pdf. Default is 'html5'", required = false, echoInput = true)
 	private String format;
 
-	@Parameter(names = "-p", description = "Path to cucumber json output files (can be a directory or a file) ", required = true)
+	@Parameter(names = "-p", description = "Path to cucumber json output files (can be a directory or a file). Default is current directory", required = false)
 	private String path;
 
-	@Parameter(names = "-t", description = "Documentation title (first section)", required = true)
+	@Parameter(names = "-t", description = "Documentation title (first section). Default is 'Living Documentation'", required = false)
 	private String title;
 
 	@Parameter(names = "-o", description = "File output name, can be a path eg: /home/doc which will result in doc.html|pdf in /home dir. Document title will be used if output name is not provided", required = false)
 	private String outputName;
+
+	@Parameter(names = "-toc", description = "Table of contents position. Default is 'right' ", required = false)
+	private String toc;
+
+	@Parameter(names = "-numbered", description = "Section numbering. Default is false ", required = false)
+	private Boolean numbered;
 
 
 	public String execute(String args[]) {
@@ -44,6 +52,11 @@ public class CukedoctorMain {
 			commandLine.usage();
 			throw pe;
 		}
+
+		if(!hasText(title)){
+			title = "Living Documentation";
+		}
+
 		if (outputName == null) {
 			outputName = title.replaceAll(" ", "-");
 		}
@@ -52,6 +65,22 @@ public class CukedoctorMain {
 			format = "html5";
 		}
 
+		if(!hasText(path)){
+			path = "";
+		}
+
+
+		if(!hasText(outputName)){
+			outputName = "documentation";
+		}
+
+		if(!hasText(toc)){
+			toc = "right";
+		}
+
+		if(numbered == null){
+			numbered = false;
+		}
 
 		System.out.println("Generating living documentation with args:");
 
@@ -74,7 +103,11 @@ public class CukedoctorMain {
 			System.out.println("Found " + features.size() + " feature(s)");
 		}
 
-		DocumentAttributes documentAttributes = new DocumentAttributes().backend(format);
+		DocumentAttributes documentAttributes = new DocumentAttributes().
+				backend(format).
+				toc(toc).
+				numbered(numbered);
+
 		if(format.equalsIgnoreCase("pdf")){
 			documentAttributes.pdfTheme(true).docInfo(false);
 		}else {

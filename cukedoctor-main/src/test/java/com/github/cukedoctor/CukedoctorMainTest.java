@@ -15,6 +15,7 @@ import java.io.File;
 import java.io.IOException;
 import java.io.PrintStream;
 
+import static com.github.cukedoctor.util.Constants.newLine;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
@@ -93,34 +94,20 @@ public class CukedoctorMainTest {
 
 
 	@Test
-	public void shouldFailToCreateDocumentationWithoutTitleParam() {
-		try {
-			new CukedoctorMain().execute(new String[]{
-					"-p", "\"target/test-classes/json-output\"",
-					"-o", "Living_Documentation"
+	public void shouldCreateDocumentationUsingDefaults() {
+			new CukedoctorMain().execute(new String[] {
 			});
-		} catch (ParameterException pe) {
-			assertEquals(pe.getMessage(), "The following option is required: -t ");
-			return;
-		}
 
-		Assert.fail("Should not reach here");
+		System.out.flush();
+		String output = baos.toString();
+		assertThat(output).isEqualTo("Generating living documentation with args:"+newLine() +
+				"-f: html5"+newLine() +
+				"-p: "+newLine() +
+				"-t: Living Documentation"+newLine() +
+				"-o: Living-Documentation"+newLine() +
+				"Found 9 feature(s)"+newLine());
 	}
 
-	@Test
-	public void shouldFailToCreateDocumentationWithoutPathParam() {
-		try {
-			new CukedoctorMain().execute(new String[]{
-					"-o", "\"target/test-classes/living Documentation\"",
-					"-t", "Living Documentation"
-			});
-		} catch (ParameterException pe) {
-			assertEquals(pe.getMessage(), "The following option is required: -p ");
-			return;
-		}
-
-		Assert.fail("Should not reach here");
-	}
 
 	@Test
 	public void shouldRenderHtmlForOneFeature(){
