@@ -104,8 +104,7 @@ public class CukedoctorMainTest {
 				"-f: html5" + newLine() +
 				"-p: " + newLine() +
 				"-t: Living Documentation" + newLine() +
-				"-o: Living-Documentation" + newLine() +
-				"Found 9 feature(s)" + newLine());
+				"-o: Living-Documentation" + newLine());
 
 		baos.close();
     assertThat(generatedDoc).
