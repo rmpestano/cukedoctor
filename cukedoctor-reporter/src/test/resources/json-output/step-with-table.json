@@ -75,6 +75,11 @@
                 "line": 12
               }
             ],
+            "doc_string": {
+              "value": ":toc: right\n:backend: html5\n:doctitle: Documentation\n",
+              "line": 10,
+              "content_type": ""
+            },
             "keyword": "Dado "
           }
         ]

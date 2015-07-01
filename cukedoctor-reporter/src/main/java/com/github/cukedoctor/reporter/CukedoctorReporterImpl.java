@@ -213,6 +213,7 @@ public class CukedoctorReporterImpl implements CukedoctorReporter {
 		if (isNull(feature) || not(hasText(feature.getName()))) {
 			return "";
 		}
+		//Anchor must not have blanks neither commas to work
 		return "[[" + feature.getName().replaceAll(" ", "-").replaceAll(",", "-") +
 				", " + feature.getName() + "]]";
 	}
@@ -271,6 +272,12 @@ public class CukedoctorReporterImpl implements CukedoctorReporter {
 
 			renderStepTable(step);
 
+			if(notNull(step.getDocString()) && hasText(step.getDocString().getValue())){
+				writer.write(listing(),newLine());
+				writer.write(step.getDocString().getValue().replaceAll("\\n",newLine()));
+				writer.write(listing(),newLine());
+			}
+
 			if (step.getResult() != null && !Status.passed.equals(step.getStatus())) {
 				if (step.getResult().getErrorMessage() != null) {
 					writer.write(newLine(), "IMPORTANT: ", step.getResult().getErrorMessage(), newLine());
@@ -295,7 +302,7 @@ public class CukedoctorReporterImpl implements CukedoctorReporter {
 					writer.write(tableCol(), cell, newLine());
 				}
 			}
-			writer.write(table(), newLine(), newLine());
+			writer.write(table(),newLine(),newLine());
 		}
 
 		return this;

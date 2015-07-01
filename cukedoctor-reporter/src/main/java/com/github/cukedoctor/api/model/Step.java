@@ -2,6 +2,7 @@ package com.github.cukedoctor.api.model;
 
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.util.logging.Logger;
 
@@ -14,6 +15,7 @@ public class Step {
 	private Result result;
 	private Row[] rows;
 	private Match match;
+	private DocString docString;
 
 
 	public String getName() {
@@ -62,6 +64,16 @@ public class Step {
 
 	public void setMatch(Match match) {
 		this.match = match;
+	}
+
+	@JsonProperty("doc_string")
+	public DocString getDocString() {
+		return docString;
+	}
+
+	@JsonProperty("doc_string")
+	public void setDocString(DocString docString) {
+		this.docString = docString;
 	}
 
 	public Long getDuration() {

@@ -595,12 +595,12 @@ public class CukedoctorReporterTest {
 	@Test
 	public void shouldRenderFeatureWithTableInSteps(){
 		List<Feature> features = FeatureParser.parse(featureWithTableInStep);
-		CukedoctorReporter reporter = Cukedoctor.instance(features, "/target/Doc Title", new DocumentAttributes());
+		CukedoctorReporter reporter = Cukedoctor.instance(features, "Doc Title", new DocumentAttributes());
 
 		String resultDoc = reporter.renderStepTable(features.get(0).getScenarios().get(0).getSteps().get(0)).renderDocumentation();
 		assertThat(resultDoc).isEqualTo(":toc: right"+newLine() +
 				":backend: html5"+newLine() +
-				":doctitle: /target/Doc Title"+newLine() +
+				":doctitle: Doc Title"+newLine() +
 				":doctype: book"+newLine() +
 				":icons: font"+newLine() +
 				":!numbered:"+newLine() +
@@ -610,7 +610,7 @@ public class CukedoctorReporterTest {
 				":docinfo:"+newLine() +
 				":toclevels: 3"+newLine() +
 				""+newLine() +
-				"= */target/Doc Title*"+newLine() +
+				"= *Doc Title*"+newLine() +
 				""+newLine() +
 				"== *Summary*"+newLine() +
 				"[cols=\"12*^m\", options=\"header,footer\"]"+newLine() +
@@ -668,6 +668,11 @@ public class CukedoctorReporterTest {
 				"|I am going to work"+newLine() +
 				"|==="+newLine() +
 				""+newLine() +
+				"----"+newLine() +
+				":toc: right"+newLine() +
+				":backend: html5"+newLine() +
+				":doctitle: Documentation"+newLine() +
+				"----"+newLine() +
 				"****"+newLine() +
 				""+newLine());
 	}

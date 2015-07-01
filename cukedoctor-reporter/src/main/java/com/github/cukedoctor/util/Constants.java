@@ -19,7 +19,6 @@ public abstract class Constants {
 			return "[" + style + "]#" + value + "#";
 		}
 
-
 		public static String H1(String value) {
 			return "= " + value;
 		}
@@ -42,6 +41,10 @@ public abstract class Constants {
 
 		public static String tableCol() {
 			return "|";
+		}
+
+		public static String listing() {
+			return "----";
 		}
 	}
 
