@@ -100,7 +100,7 @@ public class CukedoctorMainTest {
 
 		System.out.flush();
 		String output = baos.toString();
-		assertThat(output).isEqualTo("Generating living documentation with args:" + newLine() +
+		assertThat(output).contains("Generating living documentation with args:" + newLine() +
 				"-f: html5" + newLine() +
 				"-p: " + newLine() +
 				"-t: Living Documentation" + newLine() +
