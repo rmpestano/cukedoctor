@@ -15,17 +15,22 @@ public void shouldRenderHtmlForOneFeature(){
 			"-o", "\"target/document-one\"", <1>
 			"-p", "\"target/test-classes/json-output/one_passing_one_failing.json\"", <2>
 			"-t", "Living Documentation", <3>
-			"-f", "html" <4>
+			"-f", "html", <4>
+			"-toc", "left", <5>
+                        "-numbering", "true" <6>
 		});
 
 	File generatedFile = FileUtil.loadFile("target/document-one.html");
 	assertThat(generatedFile).exists();
 	}
 ----
-<1> output file name
-<2> path to cucumber json files
-<3> Document title (first section - H1)
-<4> document format
+<1> output file name (default is 'documentation')
+<2> path to cucumber json files (default is current dir)
+<3> Document title (default is 'Living Documentation') 
+<4> document format (Default is html)
+<5> table of contents position (Default is right)
+<6> Section numbering (Default is false)
+
 
 Using in command line, the above test should be something like:
 
