@@ -46,7 +46,7 @@ public class CukedoctorMainTest {
 
 	@Test
 	public void shouldCreateDocumentationForOneFeature() {
-		new CukedoctorMain().execute(new String[]{
+		new CukedoctorMain().execute(new String[] {
 				"-o", "\"target/test-classes/document-one\"",
 				"-p", "\"target/test-classes/json-output/outline.json\"",
 				"-t", "Living Documentation"
@@ -82,7 +82,7 @@ public class CukedoctorMainTest {
 
 	@Test
 	public void shouldNotFindFeatures() {
-		new CukedoctorMain().execute(new String[]{
+		new CukedoctorMain().execute(new String[] {
 				"-o", "\"target/test-classes/document\"",
 				"-p", "\"target/classes/\"",
 				"-t", "Living Documentation"
@@ -94,25 +94,35 @@ public class CukedoctorMainTest {
 
 
 	@Test
-	public void shouldCreateDocumentationUsingDefaults() {
-			new CukedoctorMain().execute(new String[] {
-			});
+	public void shouldCreateDocumentationUsingDefaults() throws IOException {
+		String generatedDoc =	new CukedoctorMain().execute(new String[] {
+		});
 
 		System.out.flush();
 		String output = baos.toString();
-		assertThat(output).isEqualTo("Generating living documentation with args:"+newLine() +
-				"-f: html5"+newLine() +
-				"-p: "+newLine() +
-				"-t: Living Documentation"+newLine() +
-				"-o: Living-Documentation"+newLine() +
-				"Found 9 feature(s)"+newLine());
+		assertThat(output).isEqualTo("Generating living documentation with args:" + newLine() +
+				"-f: html5" + newLine() +
+				"-p: " + newLine() +
+				"-t: Living Documentation" + newLine() +
+				"-o: Living-Documentation" + newLine() +
+				"Found 9 feature(s)" + newLine());
+
+		baos.close();
+    assertThat(generatedDoc).
+				contains(":!numbered:").contains(":toc: right").
+				contains(":sectlink:").
+				containsOnlyOnce("= *Living Documentation*");
+ 
+
+		FileUtil.removeFile("Living-Documentation.adoc");
+		FileUtil.removeFile("Living-Documentation.html");
 	}
 
 
 	@Test
 	public void shouldRenderHtmlForOneFeature(){
 		CukedoctorMain main = new CukedoctorMain();
-		main.execute(new String[]{
+		main.execute(new String[] {
 				"-o", "\"target/document-one\"",
 				"-p", "\"target/test-classes/json-output/one_passing_one_failing.json\"",
 				"-t", "Living Documentation",
@@ -122,8 +132,8 @@ public class CukedoctorMainTest {
 
 		File generatedFile = FileUtil.loadFile("target/document-one.html");
 		assertThat(generatedFile).exists();
-
 	}
+
 
 	@Test
 	public void shouldRenderPdfForOneFeature(){

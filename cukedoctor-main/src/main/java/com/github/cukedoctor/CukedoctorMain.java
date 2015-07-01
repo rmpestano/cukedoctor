@@ -126,7 +126,7 @@ public class CukedoctorMain {
 		File adocFile = FileUtil.saveFile(reporterFinename, doc);
 		Asciidoctor asciidoctor = Asciidoctor.Factory.create();
 		asciidoctor.convertFile(adocFile, OptionsBuilder.options().backend(documentAttributes.getBackend()).safe(SafeMode.UNSAFE).asMap());
-
+		asciidoctor.shutdown();
 		return doc;
 	}
 

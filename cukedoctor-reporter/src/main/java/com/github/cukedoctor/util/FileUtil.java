@@ -98,8 +98,11 @@ public class FileUtil {
 			fullyQualifiedName = Paths.get("").toAbsolutePath().toString() + "/"+name;
 		}
 		try {
-			File f = new File(fullyQualifiedName.substring(0, fullyQualifiedName.lastIndexOf("/")));//create subdirs (if there any)
-			f.mkdirs();
+			//create subdirs (if there any)
+			if(fullyQualifiedName.contains("/")){
+				File f = new File(fullyQualifiedName.substring(0, fullyQualifiedName.lastIndexOf("/")));
+				f.mkdirs();
+			}
 			File file = new File(fullyQualifiedName);
 			file.createNewFile();
 			FileUtils.fileWrite(file, "UTF-8", data);
@@ -118,7 +121,7 @@ public class FileUtil {
 
 		File f = new File(path);
 		if (f.exists()) {
-			return f;
+			return f.getAbsoluteFile();
 		}
 
 		if (!path.startsWith("/")) {
