@@ -1,5 +1,5 @@
 :toc: right
-:backend: pdf
+:backend: html
 :doctitle: Asciidoctor Living Documentation
 :doctype: book
 :icons: font
@@ -7,7 +7,7 @@
 :!linkcss:
 :sectanchors:
 :sectlink:
-:!docinfo:
+:docinfo:
 :toclevels: 3
 
 = *Asciidoctor Living Documentation*
@@ -105,18 +105,22 @@ I want to be able to use a cross reference macro
 Given ::
 the AsciiDoc source icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
+
 |===
 a|See <<_install>>
 |===
 
 == Install
 
-Instructions go here.----
+Instructions go here.
+
+----
 When ::
 it is converted to html icon:thumbs-up[role="green",title="Passed"] [small right]#(002ms)#
 Then ::
 the result should match the HTML structure icon:thumbs-up[role="green",title="Passed"] [small right]#(005ms)#
 ----
+
 table.tableblock.frame-all.grid-all.spread
   colgroup
     col style='width: 100%;'
@@ -130,7 +134,9 @@ table.tableblock.frame-all.grid-all.spread
 .sect1
   h2#_install Install
   .sectionbody
-    .paragraph: p Instructions go here.----
+    .paragraph: p Instructions go here.
+
+----
 ****
 
 ==== Scenario: Create a cross reference using the target section title
@@ -138,18 +144,22 @@ table.tableblock.frame-all.grid-all.spread
 Given ::
 the AsciiDoc source icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
+
 == Section One
 
 content
 
 == Section Two
 
-refer to <<Section One>>----
+refer to <<Section One>>
+
+----
 When ::
 it is converted to html icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 Then ::
 the result should match the HTML structure icon:thumbs-up[role="green",title="Passed"] [small right]#(004ms)#
 ----
+
 .sect1
   h2#_section_one Section One
   .sectionbody: .paragraph: p content
@@ -157,7 +167,9 @@ the result should match the HTML structure icon:thumbs-up[role="green",title="Pa
   h2#_section_two Section Two
   .sectionbody: .paragraph: p
     'refer to
-    a href='#_section_one' Section One----
+    a href='#_section_one' Section One
+
+----
 ****
 
 ==== Scenario: Create a cross reference using the target reftext
@@ -165,6 +177,7 @@ the result should match the HTML structure icon:thumbs-up[role="green",title="Pa
 Given ::
 the AsciiDoc source icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
+
 [reftext="the first section"]
 == Section One
 
@@ -172,12 +185,15 @@ content
 
 == Section Two
 
-refer to <<the first section>>----
+refer to <<the first section>>
+
+----
 When ::
 it is converted to html icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 Then ::
 the result should match the HTML structure icon:thumbs-up[role="green",title="Passed"] [small right]#(005ms)#
 ----
+
 .sect1
   h2#_section_one Section One
   .sectionbody: .paragraph: p content
@@ -185,7 +201,9 @@ the result should match the HTML structure icon:thumbs-up[role="green",title="Pa
   h2#_section_two Section Two
   .sectionbody: .paragraph: p
     'refer to
-    a href='#_section_one' the first section----
+    a href='#_section_one' the first section
+
+----
 ****
 
 ==== Scenario: Create a cross reference using the formatted target title
@@ -193,18 +211,22 @@ the result should match the HTML structure icon:thumbs-up[role="green",title="Pa
 Given ::
 the AsciiDoc source icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
+
 == Section *One*
 
 content
 
 == Section Two
 
-refer to <<Section *One*>>----
+refer to <<Section *One*>>
+
+----
 When ::
 it is converted to html icon:thumbs-up[role="green",title="Passed"] [small right]#(001ms)#
 Then ::
 the result should match the HTML structure icon:thumbs-up[role="green",title="Passed"] [small right]#(005ms)#
 ----
+
 .sect1
   h2#_section_strong_one_strong
     'Section
@@ -216,7 +238,9 @@ the result should match the HTML structure icon:thumbs-up[role="green",title="Pa
     'refer to
     a href='#_section_strong_one_strong'
       'Section
-      strong One----
+      strong One
+
+----
 ****
 
 [[Open-Blocks, Open Blocks]]
@@ -233,21 +257,27 @@ I want to be able to wrap content in an open block
 Given ::
 the AsciiDoc source icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
+
 --
 A paragraph in an open block.
-------
+--
+
+----
 When ::
 it is converted to html icon:thumbs-up[role="green",title="Passed"] [small right]#(008ms)#
 Then ::
 the result should match the HTML source icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
+
 <div class="openblock">
 <div class="content">
 <div class="paragraph">
 <p>A paragraph in an open block.</p>
 </div>
 </div>
-</div>----
+</div>
+
+----
 ****
 
 ==== Scenario: Render an open block that contains a paragraph to DocBook
@@ -255,15 +285,21 @@ the result should match the HTML source icon:thumbs-up[role="green",title="Passe
 Given ::
 the AsciiDoc source icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
+
 --
 A paragraph in an open block.
-------
+--
+
+----
 When ::
 it is converted to docbook icon:thumbs-up[role="green",title="Passed"] [small right]#(003ms)#
 Then ::
 the result should match the XML source icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
-<simpara>A paragraph in an open block.</simpara>----
+
+<simpara>A paragraph in an open block.</simpara>
+
+----
 ****
 
 ==== Scenario: Render an open block that contains a paragraph to HTML (alt)
@@ -271,18 +307,24 @@ the result should match the XML source icon:thumbs-up[role="green",title="Passed
 Given ::
 the AsciiDoc source icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
+
 --
 A paragraph in an open block.
-------
+--
+
+----
 When ::
 it is converted to html icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 Then ::
 the result should match the HTML structure icon:thumbs-up[role="green",title="Passed"] [small right]#(019ms)#
 ----
+
 .openblock
   .content
     .paragraph
-      p A paragraph in an open block.----
+      p A paragraph in an open block.
+
+----
 ****
 
 ==== Scenario: Render an open block that contains a paragraph to DocBook (alt)
@@ -290,15 +332,21 @@ the result should match the HTML structure icon:thumbs-up[role="green",title="Pa
 Given ::
 the AsciiDoc source icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
+
 --
 A paragraph in an open block.
-------
+--
+
+----
 When ::
 it is converted to docbook icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 Then ::
 the result should match the XML structure icon:thumbs-up[role="green",title="Passed"] [small right]#(003ms)#
 ----
-simpara A paragraph in an open block.----
+
+simpara A paragraph in an open block.
+
+----
 ****
 
 ==== Scenario: Render an open block that contains a list to HTML
@@ -306,23 +354,29 @@ simpara A paragraph in an open block.----
 Given ::
 the AsciiDoc source icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
+
 --
 * one
 * two
 * three
-------
+--
+
+----
 When ::
 it is converted to html icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 Then ::
 the result should match the HTML structure icon:thumbs-up[role="green",title="Passed"] [small right]#(004ms)#
 ----
+
 .openblock
   .content
     .ulist
       ul
         li: p one
         li: p two
-        li: p three----
+        li: p three
+
+----
 ****
 
 [[Open-Blocks, Open Blocks]]
@@ -339,21 +393,27 @@ I want to be able to mark passthrough content using a pass block
 Given ::
 the AsciiDoc source icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
+
 :name: value
 
 ++++
 <p>{name}</p>
 
 image:tiger.png[]
-++++----
+++++
+
+----
 When ::
 it is converted to html icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 Then ::
 the result should match the HTML source icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
+
 <p>{name}</p>
 
-image:tiger.png[]----
+image:tiger.png[]
+
+----
 ****
 
 ==== Scenario: Render a pass block without performing substitutions by default to DocBook
@@ -361,21 +421,27 @@ image:tiger.png[]----
 Given ::
 the AsciiDoc source icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
+
 :name: value
 
 ++++
 <simpara>{name}</simpara>
 
 image:tiger.png[]
-++++----
+++++
+
+----
 When ::
 it is converted to docbook icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 Then ::
 the result should match the XML source icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
+
 <simpara>{name}</simpara>
 
-image:tiger.png[]----
+image:tiger.png[]
+
+----
 ****
 
 ==== Scenario: Render a pass block performing explicit substitutions to HTML
@@ -383,6 +449,7 @@ image:tiger.png[]----
 Given ::
 the AsciiDoc source icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
+
 :name: value
 
 [subs="attributes,macros"]
@@ -390,15 +457,20 @@ the AsciiDoc source icon:thumbs-up[role="green",title="Passed"] [small right]#(0
 <p>{name}</p>
 
 image:tiger.png[]
-++++----
+++++
+
+----
 When ::
 it is converted to html icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 Then ::
 the result should match the HTML source icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
+
 <p>value</p>
 
-<span class="image"><img src="tiger.png" alt="tiger"></span>----
+<span class="image"><img src="tiger.png" alt="tiger"></span>
+
+----
 ****
 
 [[Text-Formatting, Text Formatting]]
@@ -415,23 +487,29 @@ I want to be able to markup inline text with formatting characters
 Given ::
 the AsciiDoc source icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
+
 _v_~rocket~ is the value
 ^3^He is the isotope
 log~4~x^n^ is the expression
 M^me^ White is the address
-the 10^th^ point has coordinate (x~10~, y~10~)----
+the 10^th^ point has coordinate (x~10~, y~10~)
+
+----
 When ::
 it is converted to html icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 Then ::
 the result should match the HTML source icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
+
 <div class="paragraph">
 <p><em>v</em><sub>rocket</sub> is the value
 <sup>3</sup>He is the isotope
 log<sub>4</sub>x<sup>n</sup> is the expression
 M<sup>me</sup> White is the address
 the 10<sup>th</sup> point has coordinate (x<sub>10</sub>, y<sub>10</sub>)</p>
-</div>----
+</div>
+
+----
 ****
 
 ==== Scenario: Convert text that has ex-inline literal formatting
@@ -439,15 +517,21 @@ the 10<sup>th</sup> point has coordinate (x<sub>10</sub>, y<sub>10</sub>)</p>
 Given ::
 the AsciiDoc source icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
-Use [x-]`{asciidoctor-version}` to print the version of Asciidoctor.----
+
+Use [x-]`{asciidoctor-version}` to print the version of Asciidoctor.
+
+----
 When ::
 it is converted to html icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 Then ::
 the result should match the HTML source icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
+
 <div class="paragraph">
 <p>Use <code>{asciidoctor-version}</code> to print the version of Asciidoctor.</p>
-</div>----
+</div>
+
+----
 ****
 
 ==== Scenario: Convert text that has ex-inline monospaced formatting
@@ -455,14 +539,20 @@ the result should match the HTML source icon:thumbs-up[role="green",title="Passe
 Given ::
 the AsciiDoc source icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
-The document is assumed to be encoded as [x-]+{encoding}+.----
+
+The document is assumed to be encoded as [x-]+{encoding}+.
+
+----
 When ::
 it is converted to html icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 Then ::
 the result should match the HTML source icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
+
 <div class="paragraph">
 <p>The document is assumed to be encoded as <code>UTF-8</code>.</p>
-</div>----
+</div>
+
+----
 ****
 

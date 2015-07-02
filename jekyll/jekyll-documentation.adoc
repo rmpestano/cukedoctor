@@ -1,5 +1,5 @@
 :toc: right
-:backend: html
+:backend: pdf
 :doctitle: Jekyll Living Documentation
 :doctype: book
 :icons: font
@@ -7,7 +7,7 @@
 :!linkcss:
 :sectanchors:
 :sectlink:
-:docinfo:
+:!docinfo:
 :toclevels: 3
 
 = *Jekyll Living Documentation*
@@ -325,10 +325,13 @@ I have fixture collections icon:thumbs-up[role="green",title="Passed"] [small ri
 And ::
 I have a "_config.yml" file with content: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
+
 collections:
   methods:
     output: true
-    foo:   bar----
+    foo:   bar
+
+----
 When ::
 I run jekyll build icon:thumbs-up[role="green",title="Passed"] [small right]#(558ms)#
 Then ::
@@ -352,10 +355,13 @@ I have fixture collections icon:thumbs-up[role="green",title="Passed"] [small ri
 And ::
 I have a "_config.yml" file with content: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
+
 collections:
   methods:
     output: true
-    permalink: /:collection/:path/----
+    permalink: /:collection/:path/
+
+----
 When ::
 I run jekyll build icon:thumbs-up[role="green",title="Passed"] [small right]#(547ms)#
 Then ::
@@ -375,10 +381,13 @@ I have fixture collections icon:thumbs-up[role="green",title="Passed"] [small ri
 And ::
 I have a "_config.yml" file with content: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
+
 collections:
   methods:
     output: true
-    foo:   bar----
+    foo:   bar
+
+----
 When ::
 I run jekyll build icon:thumbs-up[role="green",title="Passed"] [small right]#(547ms)#
 Then ::
@@ -402,8 +411,11 @@ I have fixture collections icon:thumbs-up[role="green",title="Passed"] [small ri
 And ::
 I have a "_config.yml" file with content: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
+
 collections:
-- methods----
+- methods
+
+----
 When ::
 I run jekyll build icon:thumbs-up[role="green",title="Passed"] [small right]#(647ms)#
 Then ::
@@ -421,8 +433,11 @@ I have fixture collections icon:thumbs-up[role="green",title="Passed"] [small ri
 And ::
 I have a "_config.yml" file with content: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
+
 collections:
-- methods----
+- methods
+
+----
 When ::
 I run jekyll build icon:thumbs-up[role="green",title="Passed"] [small right]#(620ms)#
 Then ::
@@ -440,8 +455,11 @@ I have fixture collections icon:thumbs-up[role="green",title="Passed"] [small ri
 And ::
 I have a "_config.yml" file with content: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
+
 collections:
-- methods----
+- methods
+
+----
 When ::
 I run jekyll build icon:thumbs-up[role="green",title="Passed"] [small right]#(566ms)#
 Then ::
@@ -459,8 +477,11 @@ I have fixture collections icon:thumbs-up[role="green",title="Passed"] [small ri
 And ::
 I have a "_config.yml" file with content: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
+
 collections:
-- methods----
+- methods
+
+----
 When ::
 I run jekyll build icon:thumbs-up[role="green",title="Passed"] [small right]#(609ms)#
 Then ::
@@ -478,8 +499,11 @@ I have fixture collections icon:thumbs-up[role="green",title="Passed"] [small ri
 And ::
 I have a "_config.yml" file with content: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
+
 collections:
-- methods----
+- methods
+
+----
 When ::
 I run jekyll build icon:thumbs-up[role="green",title="Passed"] [small right]#(599ms)#
 Then ::
@@ -497,8 +521,11 @@ I have fixture collections icon:thumbs-up[role="green",title="Passed"] [small ri
 And ::
 I have a "_config.yml" file with content: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
+
 collections:
-- methods----
+- methods
+
+----
 When ::
 I run jekyll build icon:thumbs-up[role="green",title="Passed"] [small right]#(558ms)#
 Then ::
@@ -516,8 +543,11 @@ I have fixture collections icon:thumbs-up[role="green",title="Passed"] [small ri
 And ::
 I have a "_config.yml" file with content: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
+
 collections:
-- methods----
+- methods
+
+----
 When ::
 I run jekyll build icon:thumbs-up[role="green",title="Passed"] [small right]#(634ms)#
 Then ::
@@ -1001,10 +1031,13 @@ I have a _data directory icon:thumbs-up[role="green",title="Passed"] [small righ
 And ::
 I have a "_data/products.yaml" file with content: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
+
 - name: sugar
   price: 5.3
 - name: salt
-  price: 2.5----
+  price: 2.5
+
+----
 And ::
 I have an "index.html" page that contains "{% for product in site.data.products %}{{product.name}}{% endfor %}" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 When ::
@@ -1024,10 +1057,13 @@ I have a _data directory icon:thumbs-up[role="green",title="Passed"] [small righ
 And ::
 I have a "_data/members.yml" file with content: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
+
 - name: Jack
   age: 28
 - name: Leon
-  age: 34----
+  age: 34
+
+----
 And ::
 I have an "index.html" page that contains "{% for member in site.data.members %}{{member.name}}{% endfor %}" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 When ::
@@ -1047,7 +1083,10 @@ I have a _data directory icon:thumbs-up[role="green",title="Passed"] [small righ
 And ::
 I have a "_data/members.json" file with content: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
-[{"name": "Jack", "age": 28},{"name": "Leon", "age": 34}]----
+
+[{"name": "Jack", "age": 28},{"name": "Leon", "age": 34}]
+
+----
 And ::
 I have an "index.html" page that contains "{% for member in site.data.members %}{{member.name}}{% endfor %}" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 When ::
@@ -1067,9 +1106,12 @@ I have a _data directory icon:thumbs-up[role="green",title="Passed"] [small righ
 And ::
 I have a "_data/members.csv" file with content: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
+
 name,age
 Jack,28
-Leon,34----
+Leon,34
+
+----
 And ::
 I have an "index.html" page that contains "{% for member in site.data.members %}{{member.name}}{% endfor %}" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 When ::
@@ -1089,10 +1131,13 @@ I have a _data directory icon:thumbs-up[role="green",title="Passed"] [small righ
 And ::
 I have a "_data/team members.yml" file with content: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
+
 - name: Jack
   age: 28
 - name: Leon
-  age: 34----
+  age: 34
+
+----
 And ::
 I have an "index.html" page that contains "{% for member in site.data.team_members %}{{member.name}}{% endfor %}" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 When ::
@@ -1114,7 +1159,10 @@ I have a _data/categories directory icon:thumbs-up[role="green",title="Passed"] 
 And ::
 I have a "_data/categories/dairy.yaml" file with content: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
-name: Dairy Products----
+
+name: Dairy Products
+
+----
 And ::
 I have an "index.html" page that contains "{{ site.data.categories.dairy.name }}" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 When ::
@@ -1134,12 +1182,18 @@ I have a _data/categories directory icon:thumbs-up[role="green",title="Passed"] 
 And ::
 I have a "_data/categories/dairy.yaml" file with content: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
-name: Dairy Products----
+
+name: Dairy Products
+
+----
 And ::
 I have a "_data/categories.yaml" file with content: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
+
 dairy:
-  name: Should not display this----
+  name: Should not display this
+
+----
 And ::
 I have an "index.html" page that contains "{{ site.data.categories.dairy.name }}" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 When ::
@@ -1155,11 +1209,14 @@ I should see "Dairy Products" in "_site/index.html" icon:thumbs-up[role="green",
 Given ::
 I have a "_config.yml" file with content: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
+
 data:
   - name: Jack
     age: 28
   - name: Leon
-    age: 34----
+    age: 34
+
+----
 And ::
 I have an "index.html" page that contains "{% for member in site.data %}{{member.name}}{% endfor %}" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 When ::
@@ -2167,12 +2224,16 @@ I have a "index.html" file that contains "nothing" icon:thumbs-up[role="green",t
 And ::
 I have a "_slides/slide1.html" file with content: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
+
 ---
 ---
-Value: {{ page.myval }}----
+Value: {{ page.myval }}
+
+----
 And ::
 I have a "_config.yml" file with content: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
+
   collections:
     slides:
       output: true
@@ -2182,7 +2243,9 @@ I have a "_config.yml" file with content: icon:thumbs-up[role="green",title="Pas
         path: ""
         type: slides
       values:
-        myval: "Test"----
+        myval: "Test"
+
+----
 When ::
 I run jekyll build icon:thumbs-up[role="green",title="Passed"] [small right]#(607ms)#
 Then ::
@@ -2200,13 +2263,17 @@ I have a "index.html" file that contains "nothing" icon:thumbs-up[role="green",t
 And ::
 I have a "_slides/slide2.html" file with content: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
+
 ---
 myval: Override
 ---
-Value: {{ page.myval }}----
+Value: {{ page.myval }}
+
+----
 And ::
 I have a "_config.yml" file with content: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
+
   collections:
     slides:
       output: true
@@ -2216,7 +2283,9 @@ I have a "_config.yml" file with content: icon:thumbs-up[role="green",title="Pas
         path: ""
         type: slides
       values:
-        myval: "Test"----
+        myval: "Test"
+
+----
 When ::
 I run jekyll build icon:thumbs-up[role="green",title="Passed"] [small right]#(509ms)#
 Then ::
@@ -2252,6 +2321,7 @@ I have a _plugins directory icon:thumbs-up[role="green",title="Passed"] [small r
 And ::
 I have a "_plugins/ext.rb" file with content: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
+
 Jekyll::Hooks.register :site, :after_reset do |site|
   pageklass = Class.new(Jekyll::Page) do
     def initialize(site, base)
@@ -2267,7 +2337,9 @@ Jekyll::Hooks.register :site, :after_reset do |site|
   end
 
   site.pages << pageklass.new(site, site.source)
-end----
+end
+
+----
 When ::
 I run jekyll build icon:thumbs-up[role="green",title="Passed"] [small right]#(513ms)#
 Then ::
@@ -2285,9 +2357,12 @@ I have a "index.html" page that contains "{{ site.injected }}!" icon:thumbs-up[r
 And ::
 I have a "_plugins/ext.rb" file with content: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
+
 Jekyll::Hooks.register :site, :pre_render do |site, payload|
   payload['site']['injected'] = 'myparam'
-end----
+end
+
+----
 When ::
 I run jekyll build icon:thumbs-up[role="green",title="Passed"] [small right]#(558ms)#
 Then ::
@@ -2307,9 +2382,12 @@ I have a "page2.html" page that contains "page2" icon:thumbs-up[role="green",tit
 And ::
 I have a "_plugins/ext.rb" file with content: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
+
 Jekyll::Hooks.register :site, :post_read do |site|
   site.pages.delete_if { |p| p.name == 'page1.html' }
-end----
+end
+
+----
 When ::
 I run jekyll build icon:thumbs-up[role="green",title="Passed"] [small right]#(639ms)#
 Then ::
@@ -2327,11 +2405,14 @@ I have a _plugins directory icon:thumbs-up[role="green",title="Passed"] [small r
 And ::
 I have a "_plugins/ext.rb" file with content: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
+
 Jekyll::Hooks.register :site, :post_write do |site|
   firstpage = site.pages.first
   content = File.read firstpage.destination(site.dest)
   File.write(File.join(site.dest, 'firstpage.html'), content)
-end----
+end
+
+----
 And ::
 I have a "page1.html" page that contains "page1" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 When ::
@@ -2349,10 +2430,13 @@ I have a _plugins directory icon:thumbs-up[role="green",title="Passed"] [small r
 And ::
 I have a "_plugins/ext.rb" file with content: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
+
 Jekyll::Hooks.register :page, :post_init do |page|
   page.name = 'renamed.html'
   page.process(page.name)
-end----
+end
+
+----
 And ::
 I have a "page1.html" page that contains "page1" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 When ::
@@ -2370,9 +2454,12 @@ I have a _plugins directory icon:thumbs-up[role="green",title="Passed"] [small r
 And ::
 I have a "_plugins/ext.rb" file with content: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
+
 Jekyll::Hooks.register :page, :pre_render do |page, payload|
   payload['myparam'] = 'special' if page.name == 'page1.html'
-end----
+end
+
+----
 And ::
 I have a "page1.html" page that contains "{{ myparam }}" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 And ::
@@ -2394,9 +2481,12 @@ I have a "index.html" page that contains "WRAP ME" icon:thumbs-up[role="green",t
 And ::
 I have a "_plugins/ext.rb" file with content: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
+
 Jekyll::Hooks.register :page, :post_render do |page|
   page.output = "{{{{{ #{page.output.chomp} }}}}}"
-end----
+end
+
+----
 When ::
 I run jekyll build icon:thumbs-up[role="green",title="Passed"] [small right]#(569ms)#
 Then ::
@@ -2412,11 +2502,14 @@ I have a "index.html" page that contains "HELLO FROM A PAGE" icon:thumbs-up[role
 And ::
 I have a "_plugins/ext.rb" file with content: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
+
 Jekyll::Hooks.register :page, :post_write do |page|
   require 'fileutils'
   filename = page.destination(page.site.dest)
   FileUtils.mv(filename, "#{filename}.moved")
-end----
+end
+
+----
 When ::
 I run jekyll build icon:thumbs-up[role="green",title="Passed"] [small right]#(560ms)#
 Then ::
@@ -2430,11 +2523,14 @@ I have a _plugins directory icon:thumbs-up[role="green",title="Passed"] [small r
 And ::
 I have a "_plugins/ext.rb" file with content: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
+
 # rot13 translate
 Jekyll::Hooks.register :post, :post_init do |post|
   post.content.tr!('abcdefghijklmnopqrstuvwxyz',
     'nopqrstuvwxyzabcdefghijklm')
-end----
+end
+
+----
 And ::
 I have a _posts directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 And ::
@@ -2468,6 +2564,7 @@ I have a _plugins directory icon:thumbs-up[role="green",title="Passed"] [small r
 And ::
 I have a "_plugins/ext.rb" file with content: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
+
 # Add myvar = 'old' to posts before 2015-03-15, and myvar = 'new' for
 # others
 Jekyll::Hooks.register :post, :pre_render do |post, payload|
@@ -2476,7 +2573,9 @@ Jekyll::Hooks.register :post, :pre_render do |post, payload|
   else
     payload['myvar'] = 'new'
   end
-end----
+end
+
+----
 And ::
 I have a _posts directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 And ::
@@ -2514,10 +2613,13 @@ I have a _plugins directory icon:thumbs-up[role="green",title="Passed"] [small r
 And ::
 I have a "_plugins/ext.rb" file with content: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
+
 # Replace content after rendering
 Jekyll::Hooks.register :post, :post_render do |post|
   post.output.gsub! /42/, 'the answer to life, the universe and everything'
-end----
+end
+
+----
 And ::
 I have a _posts directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 And ::
@@ -2555,13 +2657,16 @@ I have a _plugins directory icon:thumbs-up[role="green",title="Passed"] [small r
 And ::
 I have a "_plugins/ext.rb" file with content: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
+
 # Log all post filesystem writes
 Jekyll::Hooks.register :post, :post_write do |post|
   filename = post.destination(post.site.dest)
   open('_site/post-build.log', 'a') do |f|
     f.puts "Wrote #{filename} at #{Time.now}"
   end
-end----
+end
+
+----
 And ::
 I have a _posts directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 And ::
@@ -2599,9 +2704,12 @@ I have a _plugins directory icon:thumbs-up[role="green",title="Passed"] [small r
 And ::
 I have a "_plugins/ext.rb" file with content: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
+
 Jekyll::Hooks.register [:page, :post], :post_render do |owner|
   owner.output = "{{{{{ #{owner.output.chomp} }}}}}"
-end----
+end
+
+----
 And ::
 I have a "index.html" page that contains "WRAP ME" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 And ::
@@ -2637,6 +2745,7 @@ I have a _plugins directory icon:thumbs-up[role="green",title="Passed"] [small r
 And ::
 I have a "_plugins/ext.rb" file with content: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
+
 Jekyll::Hooks.register :page, :post_render, priority: :normal do |owner|
   # first normal runs second
   owner.output = "1 #{owner.output.chomp}"
@@ -2652,7 +2761,9 @@ end
 Jekyll::Hooks.register :page, :post_render, priority: :low do |owner|
   # low runs first
   owner.output = "4 #{owner.output.chomp}"
-end----
+end
+
+----
 And ::
 I have a "index.html" page that contains "WRAP ME" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 When ::
@@ -2668,9 +2779,12 @@ I have a _plugins directory icon:thumbs-up[role="green",title="Passed"] [small r
 And ::
 I have a "_plugins/ext.rb" file with content: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
+
 Jekyll::Hooks.register :document, :pre_render do |doc, payload|
   doc.data['text'] = doc.data['text'] << ' are belong to us'
-end----
+end
+
+----
 And ::
 I have a "_config.yml" file that contains "collections: [ memes ]" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 And ::
@@ -2678,15 +2792,21 @@ I have a _memes directory icon:thumbs-up[role="green",title="Passed"] [small rig
 And ::
 I have a "_memes/doc1.md" file with content: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
+
 ---
 text: all your base
--------
+---
+
+----
 And ::
 I have an "index.md" file with content: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
+
 ---
 ---
-{{ site.memes.first.text }}----
+{{ site.memes.first.text }}
+
+----
 When ::
 I run jekyll build icon:thumbs-up[role="green",title="Passed"] [small right]#(566ms)#
 Then ::
@@ -2702,24 +2822,33 @@ I have a _plugins directory icon:thumbs-up[role="green",title="Passed"] [small r
 And ::
 I have a "_plugins/ext.rb" file with content: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
+
 Jekyll::Hooks.register :document, :post_render do |doc|
   doc.output.gsub! /<p>/, '<p class="meme">'
-end----
+end
+
+----
 And ::
 I have a "_config.yml" file with content: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
+
 collections:
   memes:
-    output: true----
+    output: true
+
+----
 And ::
 I have a _memes directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 And ::
 I have a "_memes/doc1.md" file with content: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
+
 ---
 text: all your base are belong to us
 ---
-{{ page.text }}----
+{{ page.text }}
+
+----
 When ::
 I run jekyll build icon:thumbs-up[role="green",title="Passed"] [small right]#(619ms)#
 Then ::
@@ -2735,26 +2864,35 @@ I have a _plugins directory icon:thumbs-up[role="green",title="Passed"] [small r
 And ::
 I have a "_plugins/ext.rb" file with content: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
+
 Jekyll::Hooks.register :document, :post_write do |doc|
   open('_site/document-build.log', 'a') do |f|
     f.puts "Wrote document #{doc.collection.docs.index doc} at #{Time.now}"
   end
-end----
+end
+
+----
 And ::
 I have a "_config.yml" file with content: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
+
 collections:
   memes:
-    output: true----
+    output: true
+
+----
 And ::
 I have a _memes directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 And ::
 I have a "_memes/doc1.md" file with content: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
+
 ---
 text: all your base are belong to us
 ---
-{{ page.text }}----
+{{ page.text }}
+
+----
 When ::
 I run jekyll build icon:thumbs-up[role="green",title="Passed"] [small right]#(623ms)#
 Then ::
