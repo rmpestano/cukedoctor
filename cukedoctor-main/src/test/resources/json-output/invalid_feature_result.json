@@ -1,9 +1,0 @@
-[
-  {
-    "name": "invalid feature result",
-    "blabla": "features/blabla.feature",
-    "ble": "Invalid Feature",
-    "blo": "one-passing-scenario,-one-failing-scenario",
-    "blu": "One passing scenario, one failing scenario"
-  }
-]
