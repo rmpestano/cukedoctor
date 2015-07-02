@@ -669,9 +669,11 @@ public class CukedoctorReporterTest {
 				"|==="+newLine() +
 				""+newLine() +
 				"----"+newLine() +
-				":toc: right"+newLine() +
-				":backend: html5"+newLine() +
-				":doctitle: Documentation"+newLine() +
+				""+newLine() +
+				"--"+newLine() +
+				"A paragraph in an open block."+newLine() +
+				"--"+newLine() +
+				""+newLine() +
 				"----"+newLine() +
 				"****"+newLine() +
 				""+newLine());
