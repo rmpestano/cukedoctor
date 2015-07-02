@@ -273,9 +273,9 @@ public class CukedoctorReporterImpl implements CukedoctorReporter {
 			renderStepTable(step);
 
 			if(notNull(step.getDocString()) && hasText(step.getDocString().getValue())){
-				writer.write(listing(),newLine());
+				writer.write(listing(),newLine(),newLine());
 				writer.write(step.getDocString().getValue().replaceAll("\\n",newLine()));
-				writer.write(listing(),newLine());
+				writer.write(newLine(),newLine(),listing(),newLine());
 			}
 
 			if (step.getResult() != null && !Status.passed.equals(step.getStatus())) {

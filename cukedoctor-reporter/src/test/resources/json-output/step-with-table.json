@@ -76,9 +76,9 @@
               }
             ],
             "doc_string": {
-              "value": ":toc: right\n:backend: html5\n:doctitle: Documentation\n",
-              "line": 10,
-              "content_type": ""
+              "value": "--\nA paragraph in an open block.\n--",
+              "content_type": "",
+              "line": 10
             },
             "keyword": "Dado "
           }
