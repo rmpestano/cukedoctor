@@ -105,6 +105,11 @@ Cukedoctor will convert it into the following document:
 
 image::cukedoctor-sample.png[]
 
+More documentation examples can be found here:
+
+http://rmpestano.github.io/cukedoctor/[http://rmpestano.github.io/cukedoctor/^]
+
+
 == Modules
 
 === Maven plugin
