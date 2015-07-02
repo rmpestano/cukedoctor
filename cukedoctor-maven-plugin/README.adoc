@@ -73,7 +73,7 @@ NOTE: *plugins* option replaced *format* option which was deprecated in newer cu
 
 [NOTE]
 ====
-You can also execute the plugin without building the project but make sure you have cucumber json files in build dir.
+You can also execute the plugin without building the project but make sure you already have cucumber json files in build dir.
 
 ----
 mvn cukedoctor:execute
