@@ -36,7 +36,7 @@ To generate cucumber .json output files just execute your tests with *json* form
 @RunWith(Cucumber.class)
 @CucumberOptions(plugins = {"json:target/cucumber.json"} )
 ----
-NOTE: *plugins* option replaced *format* option which was deprecated in newer cucumber versions
+NOTE: *plugins* option replaced *format* option which was deprecated in newer cucumber versions.
 
 ====
 
