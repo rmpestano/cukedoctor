@@ -104,7 +104,7 @@ public class CukedoctorReporterTest {
 
 		String expected = ":toc: right" + newLine() +
 				":backend: html5" + newLine() +
-				":doctitle: Documentation Title" + newLine() +
+				":doctitle: Living Documentation" + newLine() +
 				":doctype: book" + newLine() +
 				":icons: font" + newLine() +
 				":!numbered:" + newLine() +
@@ -115,7 +115,7 @@ public class CukedoctorReporterTest {
 				":toclevels: 3"+newLine();
 
 
-		String document = Cukedoctor.instance(features, new DocumentAttributes().docTitle("Documentation Title")).renderAttributes().
+		String document = Cukedoctor.instance(features).renderAttributes().
 				getDocumentation().toString();
 		assertEquals(expected,document);
 	}
