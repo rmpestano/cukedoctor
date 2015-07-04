@@ -36,7 +36,7 @@ To generate cucumber .json output files just execute your tests with *json* form
 @RunWith(Cucumber.class)
 @CucumberOptions(plugins = {"json:target/cucumber.json"} )
 ----
-NOTE: *plugins* option replaced *format* option which was deprecated in newer cucumber versions
+NOTE: *plugins* option replaced *format* option which was deprecated in newer cucumber versions.
 
 ====
 
@@ -60,7 +60,7 @@ NOTE: *plugins* option replaced *format* option which was deprecated in newer cu
                 <goals>
                     <goal>execute</goal>
                 </goals>
-                <phase>install</phase>
+                <phase>verify</phase>
             </execution>
         </executions>
 </plugin>
@@ -70,3 +70,12 @@ NOTE: *plugins* option replaced *format* option which was deprecated in newer cu
 <3> document format, default is html5
 <4> table of content position, default is right
 <5> section numbering, default is false
+
+[NOTE]
+====
+You can also execute the plugin without building the project but make sure you already have cucumber json files in build dir.
+
+----
+mvn cukedoctor:execute
+----
+====
