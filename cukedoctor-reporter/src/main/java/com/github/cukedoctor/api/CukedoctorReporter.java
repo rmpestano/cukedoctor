@@ -18,8 +18,6 @@ public interface CukedoctorReporter {
 
 	StringBuilder getDocumentation();
 
-	String getDocumentTitle();
-
 	/**
 	 * creates a string representation of the current document in Asciidoctor format
 	 */

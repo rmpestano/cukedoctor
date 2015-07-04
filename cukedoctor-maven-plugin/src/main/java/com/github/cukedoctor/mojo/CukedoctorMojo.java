@@ -37,7 +37,10 @@ import org.asciidoctor.OptionsBuilder;
 import org.asciidoctor.SafeMode;
 
 import java.io.File;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 @Mojo(name = "execute",
 		defaultPhase = LifecyclePhase.INSTALL)
@@ -72,7 +75,7 @@ public class CukedoctorMojo extends AbstractMojo {
 		if (featuresFound == null || featuresFound.isEmpty()) {
 			getLog().warn("No cucumber json files found in " + project.getBuild().getDirectory());
 			return;
-		}else{
+		} else {
 			getLog().info("Generating living documentation for " + featuresFound.size() + " feature(s)...");
 		}
 
@@ -88,8 +91,9 @@ public class CukedoctorMojo extends AbstractMojo {
 		if (documentTitle == null) {
 			documentTitle = "Living Documentation";
 		}
+		documentAttributes.docTitle(documentTitle);
 		List<Feature> featuresList = new ArrayList<>(featuresFound);
-		CukedoctorReporter reporter = Cukedoctor.instance(featuresList, documentTitle, documentAttributes);
+		CukedoctorReporter reporter = Cukedoctor.instance(featuresList, documentAttributes);
 		String targetFile = "";
 		if (outputFileName.contains(".")) {
 			targetFile = outputFileName.substring(0, outputFileName.lastIndexOf(".")) + ".adoc";
@@ -102,15 +106,29 @@ public class CukedoctorMojo extends AbstractMojo {
 		reporter.setFilename(pathToSave);//needed by docinfo, pdf-theme
 		generatedFile = reporter.renderDocumentation();
 		File adocFile = FileUtil.saveFile(pathToSave, generatedFile);
+
 		Asciidoctor asciidoctor = Asciidoctor.Factory.create();
+
+		if (format.equals(Format.all)) {
+			documentAttributes.backend(Format.html5.name().toLowerCase());
+			generateDocumentation(documentAttributes, adocFile, asciidoctor);
+			documentAttributes.backend(Format.pdf.name().toLowerCase());
+			generateDocumentation(documentAttributes, adocFile, asciidoctor);
+		} else {
+			generateDocumentation(documentAttributes, adocFile, asciidoctor);
+		}
+
+		asciidoctor.shutdown();
+	}
+
+	private void generateDocumentation(DocumentAttributes documentAttributes, File adocFile, Asciidoctor asciidoctor) {
 		asciidoctor.convertFile(adocFile, OptionsBuilder.options().backend(documentAttributes.getBackend()).safe(SafeMode.UNSAFE).asMap());
 		//remove auxiliary files
-		if (format.equals(Format.pdf)) {
-			FileUtil.removeFile(adocFile.getParent() + "/"+outputFileName + "-theme.yml");
+		if ("pdf".equals(documentAttributes.getBackend())) {
+			FileUtil.removeFile(adocFile.getParent() + "/" + outputFileName + "-theme.yml");
 		}
 
 		getLog().info("Generated documentation at: " + adocFile.getParent());
-		asciidoctor.shutdown();
 	}
 
 	/**
@@ -125,12 +143,12 @@ public class CukedoctorMojo extends AbstractMojo {
 			baseDir = baseDir + "/";
 		}
 
-		if(outputDir == null){
+		if (outputDir == null) {
 			outputDir = "cukedoctor/";
 		}
 
-		if(!outputDir.endsWith("/")){
-			outputDir = outputDir +"/";
+		if (!outputDir.endsWith("/")) {
+			outputDir = outputDir + "/";
 		}
 
 		return baseDir + outputDir;

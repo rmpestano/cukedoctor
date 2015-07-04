@@ -86,6 +86,38 @@ public class Assert implements Serializable {
     }
   }
 
+  /**
+   * TRUE when given array has at least one not null element;  FALSE
+   * otherwise
+   */
+  public static boolean hasElements(Object[] array) {
+    if(array == null || array.length > 0){
+      return false;
+    }
+    for (Object o : array) {
+      if(o != null){
+        return true;
+      }
+    }
+    return false;
+  }
+
+  /**
+   * TRUE when given array has at least one not null element;  FALSE
+   * otherwise
+   */
+  public static boolean hasElements(Collection array) {
+    if(array == null || array.isEmpty()){
+      return false;
+    }
+    for (Object o : array) {
+      if(o != null){
+        return true;
+      }
+    }
+    return false;
+  }
+
 
   /**
    * @return TRUE if given Map has entries; that is, it must not be {@code null}
@@ -125,17 +157,7 @@ public class Assert implements Serializable {
     return true;
   }
 
-  /**
-   * TRUE when given array has at least one not null element;  FALSE
-   * otherwise
-   */
-  public static boolean hasElements(Object[] array) {
-    if (hasElements(array)) {
-     return true;
-    } else {
-     return false;
-    }
-  }
+
 
 
 

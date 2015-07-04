@@ -113,26 +113,41 @@ public class CukedoctorMain {
 		}else {
 			documentAttributes.docInfo(true).pdfTheme(false);
 		}
-		CukedoctorReporter reporter = Cukedoctor.instance(features, title,documentAttributes);
-		//reporter filename needs to end with adoc
-		String reporterFinename = "";
 		if (outputName.contains(".")) {
-			reporterFinename = outputName.substring(0, outputName.lastIndexOf(".")) + ".adoc";
+			outputName = outputName.substring(0, outputName.lastIndexOf(".")) + ".adoc";
 		} else {
-			reporterFinename = outputName + ".adoc";
+			outputName = outputName + ".adoc";
 		}
-		reporter.setFilename(reporterFinename);
-		String doc = reporter.renderDocumentation();
-		File adocFile = FileUtil.saveFile(reporterFinename, doc);
-		Asciidoctor asciidoctor = Asciidoctor.Factory.create();
-		asciidoctor.convertFile(adocFile, OptionsBuilder.options().backend(documentAttributes.getBackend()).safe(SafeMode.UNSAFE).asMap());
-		asciidoctor.shutdown();
-		return doc;
+		documentAttributes.docTitle(title);
+
+		return this.execute(features,documentAttributes,outputName);
 	}
 
 	public static void main(String args[]) {
 		CukedoctorMain main = new CukedoctorMain();
 		main.execute(args);
+	}
+
+	public String execute(List<Feature> features, DocumentAttributes attrs, String outputName){
+		if(title == null){
+			title = "Living Documentation";
+		}
+		if(attrs == null){
+			attrs = new DocumentAttributes().docTitle(title);
+		}
+		if(!hasText(attrs.getBackend())){
+			attrs.backend("html5");
+		}
+		if(outputName == null){
+			outputName = title.replaceAll(" ", "_");
+		}
+		CukedoctorReporter reporter = Cukedoctor.instance(features, attrs);
+		String doc = reporter.renderDocumentation();
+		File adocFile = FileUtil.saveFile(outputName,doc);
+		Asciidoctor asciidoctor = Asciidoctor.Factory.create();
+		asciidoctor.convertFile(adocFile, OptionsBuilder.options().backend(attrs.getBackend()).safe(SafeMode.UNSAFE).asMap());
+		asciidoctor.shutdown();
+		return doc;
 	}
 
 }

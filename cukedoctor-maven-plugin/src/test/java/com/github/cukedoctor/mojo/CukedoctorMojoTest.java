@@ -56,4 +56,24 @@ public class CukedoctorMojoTest extends AbstractMojoTestCase {
 				contains(":backend: pdf");
 	}
 
+	/**
+	 * @throws Exception
+	 */
+	public void testAllDocs() throws Exception {
+
+		CukedoctorMojo mojo = (CukedoctorMojo) lookupMojo("execute", getTestFile("src/test/resources/html-pdf-docs-pom.xml"));
+
+		assertNotNull(mojo);
+		mojo.execute();
+		File pdfFile = FileUtil.loadFile(mojo.getDocumentationDir() + mojo.outputFileName + ".pdf");
+		assertThat(pdfFile).exists().hasParent("target/docs");
+
+		File htmlFile = FileUtil.loadFile(mojo.getDocumentationDir() + mojo.outputFileName + ".html");
+		assertThat(htmlFile).exists().hasParent("target/docs");
+		assertThat(mojo.getGeneratedFile()).
+				contains(":toc: left").
+				contains(":backend: all").
+				contains(":numbered:");
+	}
+
 }

@@ -22,14 +22,12 @@ public class CukedoctorReporterImpl implements CukedoctorReporter {
 
 	private List<Feature> features;
 	private DocumentAttributes documentAttributes;
-	private String documentTitle;
 	private DocWriter<StringBuilder> writer;
 	private String filename;
 
-	public CukedoctorReporterImpl(List<Feature> features, DocumentAttributes attrs, String documentTitle, DocWriter<StringBuilder> writer) {
+	public CukedoctorReporterImpl(List<Feature> features, DocumentAttributes attrs, DocWriter<StringBuilder> writer) {
 		this.features = features;
 		this.documentAttributes = attrs;
-		this.documentTitle = documentTitle;
 		this.writer = writer;
 	}
 
@@ -46,11 +44,6 @@ public class CukedoctorReporterImpl implements CukedoctorReporter {
 		return writer.getCurrentDoc();
 	}
 
-	public String getDocumentTitle() {
-		return documentTitle;
-	}
-
-
 	/**
 	 * @return a String representation of generated documentation
 	 */
@@ -58,7 +51,7 @@ public class CukedoctorReporterImpl implements CukedoctorReporter {
 		writer.clear();
 		renderAttributes();
 		writer.write(newLine());
-		writer.write(H1(bold(documentTitle)), newLine(), newLine());
+		writer.write(H1(bold(documentAttributes.getDocTitle())), newLine(), newLine());
 		renderSummary();
 		writer.write(newLine(), newLine());
 		writer.write(H2(bold("Features")), newLine(), newLine());
@@ -319,7 +312,7 @@ public class CukedoctorReporterImpl implements CukedoctorReporter {
 	@Override
 	public CukedoctorReporter setFilename(String filename) {
 		if (filename == null) {
-			filename = documentTitle;
+			filename = documentAttributes.getDocTitle();
 		}
 		if (!filename.contains(".")) {
 			filename = filename + ".adoc";

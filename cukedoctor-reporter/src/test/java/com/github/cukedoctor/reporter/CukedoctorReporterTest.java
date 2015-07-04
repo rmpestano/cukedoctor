@@ -53,26 +53,12 @@ public class CukedoctorReporterTest {
 	public void shouldFailToCreateDocumentationWithoutFeatures() {
 		String msg = null;
 		try {
-			Cukedoctor.instance(new ArrayList<Feature>(), "A test");
+			Cukedoctor.instance(new ArrayList<Feature>());
 		} catch (RuntimeException re) {
 			msg = re.getMessage();
 		}
 
 		assertEquals("No features found", msg);
-	}
-
-	@Test//(expected = RuntimeException.class)
-	public void shouldFailToCreateDocumentationWithoutTitle() {
-		String msg = null;
-		List<Feature> features = FeatureParser.parse(onePassingOneFailing);
-		try {
-
-			Cukedoctor.instance(features, " ");
-		} catch (RuntimeException re) {
-			msg = re.getMessage();
-		}
-
-		assertEquals("Provide document title", msg);
 	}
 
 
@@ -103,7 +89,8 @@ public class CukedoctorReporterTest {
 						":toclevels: 3"+newLine();
 
 
-		String document = Cukedoctor.instance(features, "Documentation Title", attrs).renderAttributes().
+		attrs.docTitle("Title");
+		String document = Cukedoctor.instance(features, attrs).renderAttributes().
 				getDocumentation().toString();
 		assertEquals(expected,document);
 	}
@@ -128,7 +115,7 @@ public class CukedoctorReporterTest {
 				":toclevels: 3"+newLine();
 
 
-		String document = Cukedoctor.instance(features, "Documentation Title").renderAttributes().
+		String document = Cukedoctor.instance(features, new DocumentAttributes().docTitle("Documentation Title")).renderAttributes().
 				getDocumentation().toString();
 		assertEquals(expected,document);
 	}
@@ -141,7 +128,7 @@ public class CukedoctorReporterTest {
 
 		String expected = ":toc: right" + newLine() +
 				":backend: html5" + newLine() +
-				":doctitle: Documentation Title" + newLine() +
+				":doctitle: Living Documentation" + newLine() +
 				":doctype: book" + newLine() +
 				":icons: font" + newLine() +
 				":!numbered:" + newLine() +
@@ -152,7 +139,7 @@ public class CukedoctorReporterTest {
 				":toclevels: 3"+newLine();
 
 
-		String document = Cukedoctor.instance(features, "Documentation Title", null).renderAttributes().
+		String document = Cukedoctor.instance(features, null).renderAttributes().
 				getDocumentation().toString();
 		assertEquals(expected,document);
 	}
@@ -180,8 +167,8 @@ public class CukedoctorReporterTest {
 						":docinfo:" + newLine() +
 						":toclevels: 3"+newLine();
 
-
-		String document = Cukedoctor.instance(features, "Documentation Title", attrs).renderAttributes().
+		attrs.docTitle("Title");
+		String document = Cukedoctor.instance(features, attrs).renderAttributes().
 				getDocumentation().toString();
 		assertEquals(expected,document);
 	}
@@ -212,7 +199,8 @@ public class CukedoctorReporterTest {
 						":toclevels: 2"+newLine();
 
 
-		String document = Cukedoctor.instance(features, "Documentation Title", attrs).renderAttributes().
+		attrs.docTitle("Title");
+		String document = Cukedoctor.instance(features, attrs).renderAttributes().
 				getDocumentation().toString();
 		assertEquals(expected, document);
 	}
@@ -243,11 +231,11 @@ public class CukedoctorReporterTest {
 						":toclevels: 3"+newLine();
 
 
-		String document = Cukedoctor.instance(features, "Documentation Title", attrs).renderAttributes().
+		attrs.docTitle("Documentation Title");
+		String document = Cukedoctor.instance(features, attrs).renderAttributes().
 				getDocumentation().toString();
 		assertEquals(document, expected);
 	}
-
 
 
 
@@ -256,7 +244,7 @@ public class CukedoctorReporterTest {
 	@Test
 	public void shouldRenderSummaryForOneFeature() {
 		List<Feature> features = FeatureParser.parse(onePassingOneFailing);
-		String resultDoc = Cukedoctor.instance(features, "Title").renderSummary().getDocumentation().toString();
+		String resultDoc = Cukedoctor.instance(features, new DocumentAttributes().docTitle("Title")).renderSummary().getDocumentation().toString();
 		assertThat(resultDoc).isNotNull().
 				containsOnlyOnce("<<One-passing-scenario--one-failing-scenario>>").
 				containsOnlyOnce("|[red]#*failed*#").
@@ -269,7 +257,7 @@ public class CukedoctorReporterTest {
 	@Test
 	public void shouldRenderSummaryForMultipleFeatures() {
 		List<Feature> features = FeatureParser.parse(onePassingOneFailing, embedDataDirectly, outline, invalidFeatureResult);
-		String resultDoc = Cukedoctor.instance(features, "Title").renderSummary().getDocumentation().toString();
+		String resultDoc = Cukedoctor.instance(features, new DocumentAttributes().docTitle("Title")).renderSummary().getDocumentation().toString();
 		assertThat(resultDoc).isNotNull().
 				containsOnlyOnce("<<One-passing-scenario--one-failing-scenario>>").
 				containsOnlyOnce("<<An-embed-data-directly-feature>>").
@@ -288,7 +276,7 @@ public class CukedoctorReporterTest {
 	@Test
 	public void shouldRenderTotalRowForOneFeature() {
 		List<Feature> features = FeatureParser.parse(onePassingOneFailing);
-		String resultDoc = Cukedoctor.instance(features, "Title").renderTotalsRow().getDocumentation().toString();
+		String resultDoc = Cukedoctor.instance(features, new DocumentAttributes().docTitle("Title")).renderTotalsRow().getDocumentation().toString();
 		assertThat(resultDoc).isNotNull().
 				containsOnlyOnce("12+^|*Totals*").
 				contains("|1|1|2|1|1|0|0|0|0|2 2+|010ms");
@@ -297,7 +285,7 @@ public class CukedoctorReporterTest {
 	@Test
 	public void shouldRenderTotalRowForMultipleFeature() {
 		List<Feature> features = FeatureParser.parse(onePassingOneFailing, embedDataDirectly, outline, invalidFeatureResult);
-		String resultDoc = Cukedoctor.instance(features, "Title").renderTotalsRow().getDocumentation().toString();
+		String resultDoc = Cukedoctor.instance(features, new DocumentAttributes().docTitle("Title")).renderTotalsRow().getDocumentation().toString();
 		assertThat(resultDoc).isNotNull().
 				containsOnlyOnce("12+^|*Totals*").
 				contains("|4|2|6|4|1|0|0|0|1|6 2+|010ms");
@@ -309,7 +297,7 @@ public class CukedoctorReporterTest {
 
 		CukedoctorReporter cukedoctorReporter = Cukedoctor.instance(new ArrayList<Feature>() {{
 			add(feature);
-		}}, "doc.adoc", null);
+		}}, null);
 		cukedoctorReporter = spy(cukedoctorReporter);
 		doReturn(cukedoctorReporter).when(cukedoctorReporter).renderFeatureScenarios(feature);
 		String resultDoc = cukedoctorReporter.renderFeature(feature).getDocumentation().toString();
@@ -327,7 +315,7 @@ public class CukedoctorReporterTest {
 		final Feature feature = FeatureBuilder.instance().aFeatureWithTwoScenarios();
 		CukedoctorReporter cukedoctorReporter = Cukedoctor.instance(new ArrayList<Feature>() {{
 			add(feature);
-		}}, "doc.adoc", null);
+		}}, null);
 
 		cukedoctorReporter = spy(cukedoctorReporter);
 		doReturn(cukedoctorReporter).when(cukedoctorReporter).renderScenarioSteps(anyListOf(Step.class));
@@ -346,7 +334,7 @@ public class CukedoctorReporterTest {
 		}
 		CukedoctorReporter cukedoctorReporter = Cukedoctor.instance(new ArrayList<Feature>() {{
 			add(feature);
-		}}, "doc.adoc", null);
+		}}, null);
 
 		cukedoctorReporter = spy(cukedoctorReporter);
 		doReturn(cukedoctorReporter).when(cukedoctorReporter).renderScenarioSteps(anyListOf(Step.class));
@@ -367,7 +355,7 @@ public class CukedoctorReporterTest {
 		feature.getTags().add(new Tag("@FeatureTag"));
 		CukedoctorReporter cukedoctorReporter = Cukedoctor.instance(new ArrayList<Feature>() {{
 			add(feature);
-		}}, "doc.adoc", null);
+		}}, null);
 
 		cukedoctorReporter = spy(cukedoctorReporter);
 		doReturn(cukedoctorReporter).when(cukedoctorReporter).renderScenarioSteps(anyListOf(Step.class));
@@ -391,7 +379,7 @@ public class CukedoctorReporterTest {
 		}
 		CukedoctorReporter cukedoctorReporter = Cukedoctor.instance(new ArrayList<Feature>() {{
 			add(feature);
-		}}, "doc.adoc", null);
+		}}, null);
 
 		cukedoctorReporter = spy(cukedoctorReporter);
 		doReturn(cukedoctorReporter).when(cukedoctorReporter).renderScenarioSteps(anyListOf(Step.class));
@@ -411,7 +399,7 @@ public class CukedoctorReporterTest {
 		final Feature feature = FeatureBuilder.instance().aFeatureWithTwoScenarios();
 		List<Feature> features = new ArrayList<>();
 		features.add(feature);
-		CukedoctorReporter reporter = Cukedoctor.instance(features, "Doc Title", new DocumentAttributes());
+		CukedoctorReporter reporter = Cukedoctor.instance(features, new DocumentAttributes().docTitle("DocTitle"));
 		reporter.setFilename("target/docinfo/document.adoc");
 		reporter.generateDocInfo();
 		File docInfo = FileUtil.loadFile("target/docinfo/document-docinfo.html");
@@ -430,7 +418,8 @@ public class CukedoctorReporterTest {
 		final Feature feature = FeatureBuilder.instance().aFeatureWithTwoScenarios();
 		List<Feature> features = new ArrayList<>();
 		features.add(feature);
-		CukedoctorReporter reporter = Cukedoctor.instance(features, "Doc Title", new DocumentAttributes().docInfo(false));
+		CukedoctorReporter reporter = Cukedoctor.instance(features, new DocumentAttributes().
+				docTitle("Doc Title").docInfo(false));
 		reporter.setFilename("/target/docinfo/document.adoc");
 		reporter.generateDocInfo();
 		File docInfo = FileUtil.loadFile("/target/docinfo/document-docinfo.html");
@@ -446,7 +435,7 @@ public class CukedoctorReporterTest {
 		final Feature feature = FeatureBuilder.instance().aFeatureWithTwoScenarios();
 		List<Feature> features = new ArrayList<>();
 		features.add(feature);
-		CukedoctorReporter reporter = Cukedoctor.instance(features, "Living Documentation", new DocumentAttributes());
+		CukedoctorReporter reporter = Cukedoctor.instance(features, new DocumentAttributes());
 		reporter.setFilename("target/pdf/living documentation.adoc");
 		reporter.generatePdfTheme();
 		File file = FileUtil.loadFile("target/pdf/living_documentation-theme.yml");
@@ -460,7 +449,7 @@ public class CukedoctorReporterTest {
 		List<Feature> features = new ArrayList<>();
 		features.add(feature);
 		DocumentAttributes docAttrs = new DocumentAttributes().pdfTheme(false);
-		CukedoctorReporter reporter = Cukedoctor.instance(features, "Living Documentation", docAttrs);
+		CukedoctorReporter reporter = Cukedoctor.instance(features, docAttrs);
 		reporter.setFilename("/target/pdf//living documentation.adoc");
 		reporter.generatePdfTheme();
 		assertThat(FileUtil.loadFile("target/pdf/living_documentation-theme.yml")).doesNotExist();
@@ -472,7 +461,7 @@ public class CukedoctorReporterTest {
 		final Feature feature = FeatureBuilder.instance().aFeatureWithTwoScenarios();
 		List<Feature> features = new ArrayList<>();
 		features.add(feature);
-		CukedoctorReporter reporter = Cukedoctor.instance(features, "Doc Title", new DocumentAttributes());
+		CukedoctorReporter reporter = Cukedoctor.instance(features, new DocumentAttributes().docTitle("Doc Title"));
 
 		reporter.setFilename("test");
 		assertThat(reporter.getFilename()).isEqualTo("test.adoc");
@@ -497,7 +486,8 @@ public class CukedoctorReporterTest {
 		final Feature feature = FeatureBuilder.instance().aFeatureWithTwoScenarios();
 		List<Feature> features = new ArrayList<>();
 		features.add(feature);
-		CukedoctorReporter reporter = Cukedoctor.instance(features, "target/Doc Title", new DocumentAttributes());
+		CukedoctorReporter reporter = Cukedoctor.instance(features,  new DocumentAttributes().docTitle("Doc Title"));
+		reporter.setFilename("target/Doc_Title");
 		reporter.generateDocInfo();
 		File savedFile = FileUtil.loadFile("target/Doc_Title-docinfo.html");
 		assertThat(savedFile).exists();
@@ -510,7 +500,7 @@ public class CukedoctorReporterTest {
 		final Feature feature = FeatureBuilder.instance().aFeatureWithOneScenarioWithOnePassingStep();
 		List<Feature> features = new ArrayList<>();
 		features.add(feature);
-		CukedoctorReporter reporter = Cukedoctor.instance(features, "/target/Doc Title", new DocumentAttributes());
+		CukedoctorReporter reporter = Cukedoctor.instance(features, new DocumentAttributes());
 		List<Step> steps = feature.getScenarios().get(0).getSteps();
 		String resultDoc = reporter.renderScenarioSteps(steps).getDocumentation().toString();
 		assertThat(resultDoc).isEqualTo("****" + newLine() +
@@ -524,7 +514,7 @@ public class CukedoctorReporterTest {
 		final Feature feature = FeatureBuilder.instance().aFeatureWithOneScenarioWithOnePassingAndOneFailingStep();
 		List<Feature> features = new ArrayList<>();
 		features.add(feature);
-		CukedoctorReporter reporter = Cukedoctor.instance(features, "/target/Doc Title", new DocumentAttributes());
+		CukedoctorReporter reporter = Cukedoctor.instance(features, new DocumentAttributes());
 		List<Step> steps = feature.getScenarios().get(0).getSteps();
 		String resultDoc = reporter.renderScenarioSteps(steps).getDocumentation().toString();
 		assertThat(resultDoc).isEqualTo("****" + newLine() +
@@ -540,7 +530,7 @@ public class CukedoctorReporterTest {
 		final Feature feature = FeatureBuilder.instance().aFeatureWithOneScenarioWithMultipleSteps();
 		List<Feature> features = new ArrayList<>();
 		features.add(feature);
-		CukedoctorReporter reporter = Cukedoctor.instance(features, "/target/Doc Title", new DocumentAttributes());
+		CukedoctorReporter reporter = Cukedoctor.instance(features, new DocumentAttributes());
 		List<Step> steps = feature.getScenarios().get(0).getSteps();
 		String resultDoc = reporter.renderScenarioSteps(steps).getDocumentation().toString();
 		assertThat(resultDoc).isEqualTo("****" + newLine() +
@@ -564,7 +554,7 @@ public class CukedoctorReporterTest {
 		final Feature feature = FeatureBuilder.instance().aFeatureWithMultipleScenariosAndSteps();
 		List<Feature> features = new ArrayList<>();
 		features.add(feature);
-		CukedoctorReporter reporter = Cukedoctor.instance(features, "/target/Doc Title", new DocumentAttributes());
+		CukedoctorReporter reporter = Cukedoctor.instance(features, new DocumentAttributes());
 
 		String resultDoc = reporter.renderFeatureScenarios(feature).getDocumentation().toString();
 		assertThat(resultDoc).isEqualTo("==== Scenario: scenario"+newLine() +
@@ -595,7 +585,7 @@ public class CukedoctorReporterTest {
 	@Test
 	public void shouldRenderFeatureWithTableInSteps(){
 		List<Feature> features = FeatureParser.parse(featureWithTableInStep);
-		CukedoctorReporter reporter = Cukedoctor.instance(features, "Doc Title", new DocumentAttributes());
+		CukedoctorReporter reporter = Cukedoctor.instance(features, new DocumentAttributes().docTitle("Doc Title"));
 
 		String resultDoc = reporter.renderStepTable(features.get(0).getScenarios().get(0).getSteps().get(0)).renderDocumentation();
 		assertThat(resultDoc).isEqualTo(":toc: right"+newLine() +
@@ -686,7 +676,7 @@ public class CukedoctorReporterTest {
 		feature.setName("    ");
 		List<Feature> features = new ArrayList<>();
 		features.add(feature);
-		CukedoctorReporter reporter = Cukedoctor.instance(features, "/target/Doc Title", new DocumentAttributes());
+		CukedoctorReporter reporter = Cukedoctor.instance(features, new DocumentAttributes());
 		assertThat(reporter.renderFeatureSectionId(feature)).isEqualTo("");
 
 	}
@@ -697,7 +687,7 @@ public class CukedoctorReporterTest {
 		feature.setName(null);
 		List<Feature> features = new ArrayList<>();
 		features.add(feature);
-		CukedoctorReporter reporter = Cukedoctor.instance(features, "/target/Doc Title", new DocumentAttributes());
+		CukedoctorReporter reporter = Cukedoctor.instance(features, new DocumentAttributes());
 		assertThat(reporter.renderFeatureSectionId(feature)).isEqualTo("");
 
 	}
@@ -708,7 +698,7 @@ public class CukedoctorReporterTest {
 		feature.setName("Feature name");
 		List<Feature> features = new ArrayList<>();
 		features.add(feature);
-		CukedoctorReporter reporter = Cukedoctor.instance(features, "/target/Doc Title", new DocumentAttributes());
+		CukedoctorReporter reporter = Cukedoctor.instance(features, new DocumentAttributes());
 		assertThat(reporter.renderFeatureSectionId(feature)).isEqualTo("[[Feature-name, Feature name]]");
 
 	}
@@ -719,7 +709,7 @@ public class CukedoctorReporterTest {
 		feature.setName("Feature name, subname");
 		List<Feature> features = new ArrayList<>();
 		features.add(feature);
-		CukedoctorReporter reporter = Cukedoctor.instance(features, "/target/Doc Title", new DocumentAttributes());
+		CukedoctorReporter reporter = Cukedoctor.instance(features, new DocumentAttributes());
 		assertThat(reporter.renderFeatureSectionId(feature)).isEqualTo("[[Feature-name--subname, Feature name, subname]]");
 
 	}
@@ -730,7 +720,7 @@ public class CukedoctorReporterTest {
 		feature.setName("Name");
 		List<Feature> features = new ArrayList<>();
 		features.add(feature);
-		CukedoctorReporter reporter = Cukedoctor.instance(features, "/target/Doc Title", new DocumentAttributes());
+		CukedoctorReporter reporter = Cukedoctor.instance(features, new DocumentAttributes());
 		assertThat(reporter.renderFeatureSectionId(feature)).isEqualTo("[[Name, Name]]");
 
 	}
@@ -740,7 +730,7 @@ public class CukedoctorReporterTest {
 	@Test
 	public void shouldRenderScenarioExamples(){
 		List<Feature> features = FeatureParser.parse(outline);
-		CukedoctorReporter reporter = Cukedoctor.instance(features, "Living Documentation", new DocumentAttributes());
+		CukedoctorReporter reporter = Cukedoctor.instance(features, new DocumentAttributes());
 		assertThat(features).hasSize(1);
 		String resultDoc = reporter.renderScenarioExamples(features.get(0).getElements().get(0)).getDocumentation().toString();
 		assertThat(resultDoc).isEqualTo(""+newLine() +
@@ -770,7 +760,7 @@ public class CukedoctorReporterTest {
 				.icons("font").numbered(false)
 				.sectAnchors(true).sectLink(true);
 
-		CukedoctorReporter reporter = Cukedoctor.instance(features, "Living Documentation", attrs);
+		CukedoctorReporter reporter = Cukedoctor.instance(features, attrs);
 		reporter.setFilename("/target/living_documentation.adoc");
 		String resultDoc =	reporter.renderDocumentation();
 
@@ -797,13 +787,13 @@ public class CukedoctorReporterTest {
 				.icons("font").numbered(false)
 				.sectAnchors(true).sectLink(true);
 
-		CukedoctorReporter reporter = Cukedoctor.instance(features, "Living Documentation", attrs);
+		CukedoctorReporter reporter = Cukedoctor.instance(features, attrs);
 		reporter.setFilename("target/living_documentation.adoc");
 		String resultDoc =	reporter.renderDocumentation();
 		assertThat(resultDoc).isNotNull().
 				containsOnlyOnce(":doctype: book" + newLine()).
 				containsOnlyOnce(":toc: left" + newLine()).
-				containsOnlyOnce("= *Living Documentation*" + newLine()).
+				contains("= *Living Documentation*" + newLine()).
 				containsOnlyOnce("<<One-passing-scenario--one-failing-scenario>>").
 				containsOnlyOnce("<<An-embed-data-directly-feature>>").
 				containsOnlyOnce("<<An-outline-feature>>").
@@ -821,7 +811,7 @@ public class CukedoctorReporterTest {
 	public void shouldRenderFeatureDescriptionWithNewLines(){
 		List<Feature> features = FeatureParser.parse(FileUtil.findJsonFile("target/test-classes/json-output/sample.json"));
 		assertThat(features).hasSize(1);
-		CukedoctorReporter reporter = Cukedoctor.instance(features, "Living Documentation", new DocumentAttributes());
+		CukedoctorReporter reporter = Cukedoctor.instance(features, new DocumentAttributes());
 		reporter.setFilename("target/living_documentation.adoc");
 		String resultDoc =	reporter.renderDocumentation();
 		assertThat(resultDoc).contains("****" + newLine() +
@@ -836,7 +826,7 @@ public class CukedoctorReporterTest {
 	public void shouldSaveDocumentationIntoDisk(){
 		List<Feature> features = FeatureParser.parse(onePassingOneFailing);
 
-		CukedoctorReporter reporter = Cukedoctor.instance(features, "Living Documentation", new DocumentAttributes());
+		CukedoctorReporter reporter = Cukedoctor.instance(features, new DocumentAttributes());
 		reporter.setFilename("target/living documentation.adoc");
 
 		reporter.saveDocumentation();

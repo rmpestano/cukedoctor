@@ -9,6 +9,8 @@ import com.github.cukedoctor.util.DocWriterImpl;
 
 import java.util.List;
 
+import static com.github.cukedoctor.util.Assert.*;
+
 /**
  * Created by pestano on 10/06/15.
  *
@@ -19,45 +21,40 @@ public class Cukedoctor {
 
 	/**
 	 * @param features      used to generate the documentation
-	 * @param documentTitle first section (H1) documentTitle
 	 * @param attrs         document attributes
 	 * @return a Cukedoctor reporter instance
 	 */
-	public static CukedoctorReporter instance(List<Feature> features, String documentTitle, DocumentAttributes attrs) {
+	public static CukedoctorReporter instance(List<Feature> features, DocumentAttributes attrs) {
 
-		if (features == null || features.isEmpty()) {
+		if (!hasElements(features)) {
 			throw new RuntimeException("No features found");
-		}
-
-		if (documentTitle == null || "".equals(documentTitle.trim())) {
-			throw new RuntimeException("Provide document title");
 		}
 
 		if (attrs == null) {
 			attrs = new DocumentAttributes();
 		}
-		if (attrs.getDocTitle() == null) {
-			attrs.docTitle(documentTitle); //use documentTitle as docTitle attr if no title is provided
+
+		if (!hasText(attrs.getDocTitle())) {
+			 attrs.docTitle("Living Documentation");
 		}
 
 
 		StringBuilder documentation = new StringBuilder();
 		DocWriter<StringBuilder> writer = DocWriterImpl.getInstance(documentation);
 
-		CukedoctorReporter instance = new CukedoctorReporterImpl(features,attrs,documentTitle,writer);
-		instance.setFilename(documentTitle.replaceAll(" ", "_") + ".adoc");//by default use documentTitle as filename
+		CukedoctorReporter instance = new CukedoctorReporterImpl(features,attrs,writer);
+		instance.setFilename(attrs.getDocTitle().replaceAll(" ", "_") + ".adoc");//by default use documentTitle as filename
 
 		return instance;
 	}
 
 	/**
 	 * @param features used to generate the documentation
-	 * @param title    first section (H1) documentTitle
 	 * @return a Cukedoctor reporter instance
 	 */
-	public static CukedoctorReporter instance(List<Feature> features, String title) {
+	public static CukedoctorReporter instance(List<Feature> features) {
 
-		return instance(features, title, new DocumentAttributes());
+		return instance(features, new DocumentAttributes());
 	}
 
 }
