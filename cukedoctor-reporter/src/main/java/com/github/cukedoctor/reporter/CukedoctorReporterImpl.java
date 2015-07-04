@@ -55,12 +55,17 @@ public class CukedoctorReporterImpl implements CukedoctorReporter {
 		renderSummary();
 		writer.write(newLine(), newLine());
 		writer.write(H2(bold("Features")), newLine(), newLine());
-		for (Feature feature : features) {
-			renderFeature(feature);
-		}
+		renderFeatures(features);
 		//generateDocInfo();
 		//generatePdfTheme();
 		return writer.getCurrentDoc().toString();
+	}
+
+	public CukedoctorReporter renderFeatures(List<Feature> features) {
+		for (Feature feature : features) {
+			renderFeature(feature);
+		}
+		return this;
 	}
 
 	public CukedoctorReporter renderAttributes() {
@@ -188,6 +193,9 @@ public class CukedoctorReporterImpl implements CukedoctorReporter {
 	}
 
 	public CukedoctorReporterImpl renderFeature(Feature feature) {
+		if(feature.hasIgnoreDocsTag()){
+			return this;
+		}
 		writer.write(renderFeatureSectionId(feature), newLine());
 		writer.write(H3(bold(feature.getName())), newLine(), newLine());
 		if (hasText(feature.getDescription())) {
@@ -213,6 +221,9 @@ public class CukedoctorReporterImpl implements CukedoctorReporter {
 
 	public CukedoctorReporterImpl renderFeatureScenarios(Feature feature) {
 		for (Scenario scenario : feature.getScenarios()) {
+			if(scenario.hasIgnoreDocsTag()){
+				continue;
+			}
 			writer.write(H4(scenario.getKeyword()), ": ", scenario.getName(), newLine());
 			if (feature.hasTags() || scenario.hasTags()) {
 				renderScenarioTags(feature, scenario);

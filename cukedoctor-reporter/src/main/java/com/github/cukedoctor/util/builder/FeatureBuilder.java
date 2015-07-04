@@ -3,6 +3,7 @@ package com.github.cukedoctor.util.builder;
 import com.github.cukedoctor.api.model.*;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by pestano on 04/06/15.

@@ -1,11 +1,12 @@
 package com.github.cukedoctor.api.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.github.cukedoctor.util.Constants;
 
 import java.util.List;
 
 /**
- * represents a scenario is most of the cses but can be also a background
+ * represents a scenario is most of the cases but can be also a background
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Scenario {
@@ -118,5 +119,16 @@ public class Scenario {
 
 	public boolean hasTags() {
 		return tags != null && !tags.isEmpty();
+	}
+
+	public boolean hasIgnoreDocsTag() {
+		if(hasTags()){
+			for (Tag tag : tags) {
+				if(Constants.SKIP_DOCS.equalsIgnoreCase(tag.getName())){
+					return true;
+				}
+			}
+		}
+		return false;
 	}
 }

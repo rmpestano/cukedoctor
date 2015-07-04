@@ -23,6 +23,8 @@ public interface CukedoctorReporter {
 	 */
 	String renderDocumentation();
 
+	CukedoctorReporter renderFeatures(List<Feature> features);
+
 	CukedoctorReporter renderFeature(Feature feature);
 
 	CukedoctorReporter renderFeatureScenarios(Feature feature);

@@ -5,6 +5,9 @@ package com.github.cukedoctor.util;
  */
 public abstract class Constants {
 
+	public static final String SKIP_DOCS = "@skipDocs";
+
+
 	public static String newLine() {
 		return System.getProperty("line.separator");
 	}

@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.github.cukedoctor.api.ScenarioResults;
 import com.github.cukedoctor.api.StepResults;
 import com.github.cukedoctor.util.Assert;
+import com.github.cukedoctor.util.Constants;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -237,5 +238,16 @@ public class Feature {
 	@Override
 	public int hashCode() {
 		return name != null ? name.hashCode():42;
+	}
+
+	public boolean hasIgnoreDocsTag() {
+		if(hasTags()){
+			for (Tag tag : tags) {
+				if(Constants.SKIP_DOCS.equalsIgnoreCase(tag.getName())){
+					return true;
+				}
+			}
+		}
+		return false;
 	}
 }

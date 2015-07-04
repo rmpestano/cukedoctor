@@ -526,6 +526,60 @@ public class CukedoctorReporterTest {
 	}
 
 	@Test
+	public void shouldNotRenderFeatureWithSkipDocsTag(){
+		final Feature feature = FeatureBuilder.instance().aFeatureWithTwoScenarios();
+		final Feature featureToSkip = FeatureBuilder.instance().aFeatureWithTwoScenarios();
+		featureToSkip.getTags().add(new Tag("@skipDocs"));
+		featureToSkip.setName("feature to skip");
+		featureToSkip.setId("skippedFeature");
+		List<Feature> features = new ArrayList<>();
+		features.add(feature);
+		features.add(featureToSkip);
+		String resultDoc = Cukedoctor.instance(features, new DocumentAttributes()).
+				renderFeatures(features).getDocumentation().toString();
+
+		assertThat(resultDoc).
+				doesNotContain("feature to skip").
+				isEqualTo("[[Feature-name, Feature name]]"+newLine() +
+						"=== *Feature name*"+newLine() +
+						""+newLine() +
+						"****"+newLine() +
+						"Feature description"+newLine() +
+						"****"+newLine() +
+						""+newLine() +
+						"==== Scenario: scenario 1"+newLine() +
+						"description"+newLine() +
+						""+newLine() +
+						"==== Scenario: scenario 2"+newLine() +
+						"description 2"+newLine() +
+						""+newLine());
+	}
+
+	@Test
+	public void shouldNotRenderScenarioWithSkipDocsTag(){
+		final Feature feature = FeatureBuilder.instance().aFeatureWithOneScenarioWithOnePassingStep();
+		Scenario scenarioToSkip = ScenarioBuilder.instance().name("scenario to skip").tag(new Tag("@skipDocs")).
+				type(Type.scenario).build();;
+		feature.getScenarios().add(scenarioToSkip);
+		List<Feature> features = new ArrayList<>();
+		features.add(feature);
+		CukedoctorReporter reporter = Cukedoctor.instance(features, new DocumentAttributes());
+
+		String resultDoc  = reporter.renderFeatureScenarios(feature).getDocumentation().toString();
+
+		assertThat(resultDoc).
+				doesNotContain("scenario to skip").
+				isEqualTo("==== Scenario: scenario"+newLine() +
+				"description"+newLine() +
+				"****"+newLine() +
+				"Given::"+newLine() +
+				"passing step icon:thumbs-up[role=\"green\",title=\"Passed\"] [small right]#(000ms)#"+newLine() +
+				"****"+newLine() +
+				""+newLine());
+	}
+
+
+	@Test
 	public void shouldRenderFeatureStepsWithOneScenarioWithMultipleStep(){
 		final Feature feature = FeatureBuilder.instance().aFeatureWithOneScenarioWithMultipleSteps();
 		List<Feature> features = new ArrayList<>();
