@@ -246,7 +246,7 @@ public class CukedoctorReporterTest {
 		List<Feature> features = FeatureParser.parse(onePassingOneFailing);
 		String resultDoc = Cukedoctor.instance(features, new DocumentAttributes().docTitle("Title")).renderSummary().getDocumentation().toString();
 		assertThat(resultDoc).isNotNull().
-				containsOnlyOnce("<<One-passing-scenario--one-failing-scenario>>").
+				containsOnlyOnce("<<One-passing-scenario-one-failing-scenario>>").
 				containsOnlyOnce("|[red]#*failed*#").
 				contains("2+|010ms");
 
@@ -259,7 +259,7 @@ public class CukedoctorReporterTest {
 		List<Feature> features = FeatureParser.parse(onePassingOneFailing, embedDataDirectly, outline, invalidFeatureResult);
 		String resultDoc = Cukedoctor.instance(features, new DocumentAttributes().docTitle("Title")).renderSummary().getDocumentation().toString();
 		assertThat(resultDoc).isNotNull().
-				containsOnlyOnce("<<One-passing-scenario--one-failing-scenario>>").
+				containsOnlyOnce("<<One-passing-scenario-one-failing-scenario>>").
 				containsOnlyOnce("<<An-embed-data-directly-feature>>").
 				containsOnlyOnce("<<An-outline-feature>>").
 				doesNotContain("<<invalid feature result>>").
@@ -764,7 +764,7 @@ public class CukedoctorReporterTest {
 		List<Feature> features = new ArrayList<>();
 		features.add(feature);
 		CukedoctorReporter reporter = Cukedoctor.instance(features, new DocumentAttributes());
-		assertThat(reporter.renderFeatureSectionId(feature)).isEqualTo("[[Feature-name--subname, Feature name, subname]]");
+		assertThat(reporter.renderFeatureSectionId(feature)).isEqualTo("[[Feature-name-subname, Feature name, subname]]");
 
 	}
 
@@ -822,7 +822,7 @@ public class CukedoctorReporterTest {
 				containsOnlyOnce(":doctype: book" + newLine()).
 				containsOnlyOnce(":toc: left" + newLine()).
 				containsOnlyOnce("= *Living Documentation*" + newLine()).
-				containsOnlyOnce("<<One-passing-scenario--one-failing-scenario>>").
+				containsOnlyOnce("<<One-passing-scenario-one-failing-scenario>>").
 				containsOnlyOnce("|[red]#*failed*#").
 				contains("|010ms").
 				containsOnlyOnce("|1|1|2|1|1|0|0|0|0|2 2+|010ms");
@@ -848,7 +848,7 @@ public class CukedoctorReporterTest {
 				containsOnlyOnce(":doctype: book" + newLine()).
 				containsOnlyOnce(":toc: left" + newLine()).
 				contains("= *Living Documentation*" + newLine()).
-				containsOnlyOnce("<<One-passing-scenario--one-failing-scenario>>").
+				containsOnlyOnce("<<One-passing-scenario-one-failing-scenario>>").
 				containsOnlyOnce("<<An-embed-data-directly-feature>>").
 				containsOnlyOnce("<<An-outline-feature>>").
 				doesNotContain("<<invalid-feature-result*>>").

@@ -26,7 +26,7 @@ public interface Expectations {
 			"|Duration" + newLine() +
 			"|Status" + newLine() +
 			"" + newLine() +
-			"12+^|*<<One-passing-scenario--one-failing-scenario>>*" + newLine() +
+			"12+^|*<<One-passing-scenario-one-failing-scenario>>*" + newLine() +
 			"|1" + newLine() +
 			"|1" + newLine() +
 			"|2" + newLine() +
@@ -90,7 +90,7 @@ public interface Expectations {
 			"|000ms"+newLine() +
 			"|[red]#*failed*#"+newLine() +
 			""+newLine() +
-			"12+^|*<<One-passing-scenario--one-failing-scenario>>*"+newLine() +
+			"12+^|*<<One-passing-scenario-one-failing-scenario>>*"+newLine() +
 			"|1"+newLine() +
 			"|1"+newLine() +
 			"|2"+newLine() +
@@ -139,7 +139,7 @@ public interface Expectations {
 			"|Duration"+newLine() +
 			"|Status"+newLine() +
 			""+newLine() +
-			"12+^|*<<One-passing-scenario--one-failing-scenario>>*"+newLine() +
+			"12+^|*<<One-passing-scenario-one-failing-scenario>>*"+newLine() +
 			"|1"+newLine() +
 			"|1"+newLine() +
 			"|2"+newLine() +
@@ -158,7 +158,7 @@ public interface Expectations {
 			""+newLine() +
 			"== *Features*"+newLine() +
 			""+newLine() +
-			"[[One-passing-scenario--one-failing-scenario, One passing scenario, one failing scenario]]" +newLine() +
+			"[[One-passing-scenario-one-failing-scenario, One passing scenario, one failing scenario]]" +newLine() +
 			"=== *One passing scenario, one failing scenario*"+newLine() +
 			""+newLine() +
 			"==== Scenario: Passing"+newLine() +
@@ -240,7 +240,7 @@ public interface Expectations {
 			"|000ms"+newLine() +
 			"|[red]#*failed*#"+newLine() +
 			""+newLine() +
-			"12+^|*<<One-passing-scenario--one-failing-scenario>>*"+newLine() +
+			"12+^|*<<One-passing-scenario-one-failing-scenario>>*"+newLine() +
 			"|1"+newLine() +
 			"|1"+newLine() +
 			"|2"+newLine() +
@@ -304,7 +304,7 @@ public interface Expectations {
 			"this step <status> icon:thumbs-down[role=\"blue\",title=\"Missing\"]"+newLine() +
 			"****"+newLine() +
 			""+newLine() +
-			"[[One-passing-scenario--one-failing-scenario, One passing scenario, one failing scenario]]"+newLine()+
+			"[[One-passing-scenario-one-failing-scenario, One passing scenario, one failing scenario]]"+newLine()+
 			"=== *One passing scenario, one failing scenario*"+newLine() +
 			""+newLine() +
 			"==== Scenario: Passing"+newLine() +

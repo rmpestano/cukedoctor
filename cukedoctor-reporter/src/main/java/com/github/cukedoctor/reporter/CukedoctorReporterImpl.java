@@ -61,13 +61,6 @@ public class CukedoctorReporterImpl implements CukedoctorReporter {
 		return writer.getCurrentDoc().toString();
 	}
 
-	public CukedoctorReporter renderFeatures(List<Feature> features) {
-		for (Feature feature : features) {
-			renderFeature(feature);
-		}
-		return this;
-	}
-
 	public CukedoctorReporter renderAttributes() {
 		writer.write(toc(documentAttributes.getToc()), newLine()).
 				write(backend(documentAttributes.getBackend()), newLine()).
@@ -132,7 +125,7 @@ public class CukedoctorReporterImpl implements CukedoctorReporter {
 
 		for (Feature feature : features) {
 			writer.write(newLine());
-			writer.write("12+^" + tableCol(), "*<<", feature.getName().replaceAll(" ", "-").replaceAll(",", "-"), ">>*", newLine());
+			writer.write("12+^" + tableCol(), "*<<", feature.getName().replaceAll(",", "").replaceAll(" ", "-"), ">>*", newLine());
 			StepResults stepResults = feature.getStepResults();
 			ScenarioResults scenarioResults = feature.getScenarioResults();
 
@@ -192,6 +185,14 @@ public class CukedoctorReporterImpl implements CukedoctorReporter {
 		return this;
 	}
 
+	public CukedoctorReporter renderFeatures(List<Feature> features) {
+		for (Feature feature : features) {
+			renderFeature(feature);
+		}
+		return this;
+	}
+
+
 	public CukedoctorReporterImpl renderFeature(Feature feature) {
 		if(feature.hasIgnoreDocsTag()){
 			return this;
@@ -215,7 +216,7 @@ public class CukedoctorReporterImpl implements CukedoctorReporter {
 			return "";
 		}
 		//Anchor must not have blanks neither commas to work
-		return "[[" + feature.getName().replaceAll(" ", "-").replaceAll(",", "-") +
+		return "[[" + feature.getName().replaceAll(",", "").replaceAll(" ", "-") +
 				", " + feature.getName() + "]]";
 	}
 
