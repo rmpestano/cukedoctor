@@ -115,33 +115,30 @@ public class CukedoctorConverterTest {
 				":toclevels: 3"+newLine();
 
 
-		String document = Cukedoctor.instance(features).renderAttributes().
+		String document = Cukedoctor.instance(features,new DocumentAttributes()).renderAttributes().
 				getDocumentation().toString();
 		assertEquals(expected,document);
 	}
 
 	@Test
-	public void shouldRenderAttributesUsingDefaultConfigPassingNullAttrs() {
+	public void shouldNotRenderAttributesWhenNoDocAttrIsProvided() {
 		List<Feature> features = new ArrayList<>();
 		features.add(FeatureBuilder.instance().id("id").name("name").build());
 
 
-		String expected = ":toc: right" + newLine() +
-				":backend: html5" + newLine() +
-				":doctitle: Living Documentation" + newLine() +
-				":doctype: book" + newLine() +
-				":icons: font" + newLine() +
-				":!numbered:" + newLine() +
-				":!linkcss:" + newLine() +
-				":sectanchors:" + newLine() +
-				":sectlink:" + newLine() +
-				":docinfo:" + newLine() +
-				":toclevels: 3"+newLine();
+		String document = Cukedoctor.instance(features).renderAttributes().
+				getDocumentation().toString();
+		assertEquals("",document);
+	}
 
+	@Test
+	public void shouldNotRenderAttributesPassingNullDocAttrs() {
+		List<Feature> features = new ArrayList<>();
+		features.add(FeatureBuilder.instance().id("id").name("name").build());
 
 		String document = Cukedoctor.instance(features, null).renderAttributes().
 				getDocumentation().toString();
-		assertEquals(expected,document);
+		assertEquals("",document);
 	}
 
 	@Test
@@ -810,7 +807,7 @@ public class CukedoctorConverterTest {
 		List<Feature> features = FeatureParser.parse(onePassingOneFailing);
 		DocumentAttributes attrs = new DocumentAttributes();
 		attrs.toc("left").backend("html5")
-				.docType("book")
+				.docType("book").docTitle("Living Documentation")
 				.icons("font").numbered(false)
 				.sectAnchors(true).sectLink(true);
 
@@ -837,7 +834,7 @@ public class CukedoctorConverterTest {
 
 		DocumentAttributes attrs = new DocumentAttributes();
 		attrs.toc("left").backend("html5")
-				.docType("book")
+				.docType("book").docTitle("Living Documentation")
 				.icons("font").numbered(false)
 				.sectAnchors(true).sectLink(true);
 

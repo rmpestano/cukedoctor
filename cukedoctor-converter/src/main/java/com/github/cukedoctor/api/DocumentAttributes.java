@@ -7,7 +7,7 @@ package com.github.cukedoctor.api;
  */
 public class DocumentAttributes {
 
-	private String docTitle;
+	private String docTitle = "Living Documentation";
 	private String backend = "html5";
 	private String docType = "book";
 	private String toc = "right";

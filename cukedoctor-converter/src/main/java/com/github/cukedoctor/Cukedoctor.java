@@ -30,20 +30,11 @@ public class Cukedoctor {
 			throw new RuntimeException("No features found");
 		}
 
-		if (attrs == null) {
-			attrs = new DocumentAttributes();
-		}
-
-		if (!hasText(attrs.getDocTitle())) {
-			 attrs.docTitle("Living Documentation");
-		}
-
-
 		StringBuilder documentation = new StringBuilder();
 		DocWriter<StringBuilder> writer = DocWriterImpl.getInstance(documentation);
 
 		CukedoctorConverter instance = new CukedoctorConverterImpl(features,attrs,writer);
-		instance.setFilename(attrs.getDocTitle().replaceAll(" ", "_") + ".adoc");//by default use documentTitle as filename
+		instance.setFilename(instance.getDocumentationTitle().replaceAll(" ", "_") + ".adoc");//by default use documentTitle as filename
 
 		return instance;
 	}
@@ -54,7 +45,7 @@ public class Cukedoctor {
 	 */
 	public static CukedoctorConverter instance(List<Feature> features) {
 
-		return instance(features, new DocumentAttributes());
+		return instance(features, null);
 	}
 
 }

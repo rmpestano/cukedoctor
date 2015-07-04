@@ -2,6 +2,7 @@ package com.github.cukedoctor.converter;
 
 import com.github.cukedoctor.api.*;
 import com.github.cukedoctor.api.model.*;
+import com.github.cukedoctor.config.CukedoctorConfig;
 import com.github.cukedoctor.util.FileUtil;
 import com.github.cukedoctor.util.Formatter;
 
@@ -51,7 +52,7 @@ public class CukedoctorConverterImpl implements CukedoctorConverter {
 		writer.clear();
 		renderAttributes();
 		writer.write(newLine());
-		writer.write(H1(bold(documentAttributes.getDocTitle())), newLine(), newLine());
+		writer.write(H1(bold(getDocumentationTitle())), newLine(), newLine());
 		renderSummary();
 		writer.write(newLine(), newLine());
 		writer.write(H2(bold("Features")), newLine(), newLine());
@@ -61,23 +62,34 @@ public class CukedoctorConverterImpl implements CukedoctorConverter {
 		return writer.getCurrentDoc().toString();
 	}
 
+	public String getDocumentationTitle() {
+		if(documentAttributes != null && hasText(documentAttributes.getDocTitle())){
+			return documentAttributes.getDocTitle();
+		} else {
+			return CukedoctorConfig.DOCUMENT_TITLE;
+		}
+
+	}
+
 	public CukedoctorConverter renderAttributes() {
-		writer.write(toc(documentAttributes.getToc()), newLine()).
-				write(backend(documentAttributes.getBackend()), newLine()).
-				write(docTitle(documentAttributes.getDocTitle()), newLine()).
-				write(docType(documentAttributes.getDocType()), newLine()).
-				write(icons(documentAttributes.getIcons()), newLine()).
-				write(numbered(documentAttributes.isNumbered()), newLine()).
-				write(linkcss(documentAttributes.isLinkCss()), newLine()).
-				write(sectAnchors(documentAttributes.isSectAnchors()), newLine()).
-				write(sectLink(documentAttributes.isSectLink()), newLine()).
-				write(docInfo(documentAttributes.isDocInfo()), newLine()).
-				write(tocLevels(documentAttributes.getTocLevels()), newLine());
+		if(documentAttributes != null){
+			writer.write(toc(documentAttributes.getToc()), newLine()).
+					write(backend(documentAttributes.getBackend()), newLine()).
+					write(docTitle(documentAttributes.getDocTitle()), newLine()).
+					write(docType(documentAttributes.getDocType()), newLine()).
+					write(icons(documentAttributes.getIcons()), newLine()).
+					write(numbered(documentAttributes.isNumbered()), newLine()).
+					write(linkcss(documentAttributes.isLinkCss()), newLine()).
+					write(sectAnchors(documentAttributes.isSectAnchors()), newLine()).
+					write(sectLink(documentAttributes.isSectLink()), newLine()).
+					write(docInfo(documentAttributes.isDocInfo()), newLine()).
+					write(tocLevels(documentAttributes.getTocLevels()), newLine());
+		}
 		return this;
 	}
 
 	public CukedoctorConverter generateDocInfo() {
-		if (documentAttributes.isDocInfo()) {
+		if (notNull(documentAttributes) && documentAttributes.isDocInfo()) {
 			//name must be filename-docinfo.html
 			String docInfoName = filename.substring(0, filename.lastIndexOf(".")) + "-docinfo.html";
 			File savedFile = FileUtil.copyFile("docinfo.html", docInfoName);
@@ -96,7 +108,7 @@ public class CukedoctorConverterImpl implements CukedoctorConverter {
 	}
 
 	public CukedoctorConverter generatePdfTheme() {
-		if (documentAttributes.isPdfTheme()) {
+		if (notNull(documentAttributes) && documentAttributes.isPdfTheme()) {
 			//name must be filename-theme.yml
 			String pdfThemeName = filename.substring(0, filename.lastIndexOf(".")) + "-theme.yml";
 			FileUtil.copyFile("theme.yml", pdfThemeName);
@@ -324,7 +336,7 @@ public class CukedoctorConverterImpl implements CukedoctorConverter {
 	@Override
 	public CukedoctorConverter setFilename(String filename) {
 		if (filename == null) {
-			filename = documentAttributes.getDocTitle();
+			filename = getDocumentationTitle();
 		}
 		if (!filename.contains(".")) {
 			filename = filename + ".adoc";
