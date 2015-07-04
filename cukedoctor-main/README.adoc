@@ -1,6 +1,6 @@
 = Cukedoctor Main module
 
-This module brings the ability to execute cukedoctor reporter as a Java main application (using command line: *java -jar*).
+This module brings the ability to execute cukedoctor converter as a Java main application (using command line: *java -jar*).
 
 == Usage
 

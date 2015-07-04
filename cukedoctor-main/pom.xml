@@ -16,7 +16,7 @@
     <dependencies>
         <dependency>
             <groupId>com.github.cukedoctor</groupId>
-            <artifactId>cukedoctor-reporter</artifactId>
+            <artifactId>cukedoctor-converter</artifactId>
             <version>${project.version}</version>
         </dependency>
         <dependency>

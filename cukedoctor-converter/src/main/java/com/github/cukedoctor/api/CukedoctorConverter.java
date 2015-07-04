@@ -9,7 +9,7 @@ import java.util.List;
 /**
  * Created by pestano on 02/06/15.
  */
-public interface CukedoctorReporter {
+public interface CukedoctorConverter {
 
 
 	DocumentAttributes getDocumentAttributes();
@@ -23,32 +23,32 @@ public interface CukedoctorReporter {
 	 */
 	String renderDocumentation();
 
-	CukedoctorReporter renderFeatures(List<Feature> features);
+	CukedoctorConverter renderFeatures(List<Feature> features);
 
-	CukedoctorReporter renderFeature(Feature feature);
+	CukedoctorConverter renderFeature(Feature feature);
 
-	CukedoctorReporter renderFeatureScenarios(Feature feature);
+	CukedoctorConverter renderFeatureScenarios(Feature feature);
 
-	CukedoctorReporter renderScenarioTags(Feature feature, Scenario scenario);
+	CukedoctorConverter renderScenarioTags(Feature feature, Scenario scenario);
 
-	CukedoctorReporter renderScenarioSteps(List<Step> steps);
+	CukedoctorConverter renderScenarioSteps(List<Step> steps);
 
-	CukedoctorReporter renderStepTable(Step step);
+	CukedoctorConverter renderStepTable(Step step);
 
-	CukedoctorReporter renderAttributes();
+	CukedoctorConverter renderAttributes();
 
 	/**
 	 * Document overall summary which gathers information about all features like
 	 * number of steps, execution time, total passed scenarios and so on
 	 */
-	CukedoctorReporter renderSummary();
+	CukedoctorConverter renderSummary();
 
 
 	/**
 	 * Row gathering all features and steps sum
 	 * @return
 	 */
-	CukedoctorReporter renderTotalsRow();
+	CukedoctorConverter renderTotalsRow();
 
 	/**
 	 * set output file name without extension (should always be .adoc or other asciidoc compatible extensions)
@@ -56,23 +56,23 @@ public interface CukedoctorReporter {
 	 * The filename is used mainly for asciidoc docinfo creation.
 	 * @param filename
 	 */
-	CukedoctorReporter setFilename(String filename);
+	CukedoctorConverter setFilename(String filename);
 
 
 	String getFilename();
 
 
-	CukedoctorReporter generateDocInfo();
+	CukedoctorConverter generateDocInfo();
 
-	CukedoctorReporter generatePdfTheme();
+	CukedoctorConverter generatePdfTheme();
 
 	/**
-	 * saves the documentation into disk using {@link CukedoctorReporter#getFilename()}  as name (also path). Note that
-	 * {@link CukedoctorReporter#renderDocumentation()} will be called and used as content to save the file.
+	 * saves the documentation into disk using {@link CukedoctorConverter#getFilename()}  as name (also path). Note that
+	 * {@link CukedoctorConverter#renderDocumentation()} will be called and used as content to save the file.
 	 */
-	CukedoctorReporter saveDocumentation();
+	CukedoctorConverter saveDocumentation();
 
-	CukedoctorReporter renderScenarioExamples(Scenario scenario);
+	CukedoctorConverter renderScenarioExamples(Scenario scenario);
 
 	String renderFeatureSectionId(Feature feature);
 }

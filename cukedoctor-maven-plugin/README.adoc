@@ -1,6 +1,6 @@
 = Cukedoctor maven plugin
 
-This module brings the ability to execute cukedoctor reporter through a maven plugin.
+This module brings the ability to execute cukedoctor converter through a maven plugin.
 
 The plugin just scans *.json* cucumber execution files in _target_ dir and generates asciidoc documentation on _target/cukedoctor_ folder.
 

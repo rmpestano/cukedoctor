@@ -1,4 +1,4 @@
-= Cukedoctor Reporter module
+= Cukedoctor Converter module
 
 This module is responsible for generating adoc files from .json cucumber execution files.
 
@@ -16,10 +16,10 @@ public void shouldSaveDocumentationIntoDisk(){
 			.icons("font").numbered(false)
 		.sectAnchors(true).sectLink(true);
 
-	CukedoctorReporter reporter = Cukedoctor.instance(features, "Living Documentation", attrs);
-	reporter.setFilename("/target/living_documentation.adoc");
+	CukedoctorConverter converter = Cukedoctor.instance(features, "Living Documentation", attrs);
+	converter.setFilename("/target/living_documentation.adoc");
 
-	reporter.saveDocumentation();
+	converter.saveDocumentation();
 	assertThat(FileUtil.loadFile("/target/living_documentation.adoc")).exists();
 }
 ----
@@ -43,7 +43,7 @@ NOTE: *plugins* option replaced *format* option which was deprecated in newer cu
 ----
  <dependency>
       <groupId>com.github.cukedoctor</groupId>
-      <artifactId>cukedoctor-reporter</artifactId>
+      <artifactId>cukedoctor-converter</artifactId>
       <version>0.3.1</version>
   </dependency>
 ----

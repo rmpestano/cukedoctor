@@ -17,7 +17,7 @@ package com.github.cukedoctor.mojo;
  */
 
 import com.github.cukedoctor.Cukedoctor;
-import com.github.cukedoctor.api.CukedoctorReporter;
+import com.github.cukedoctor.api.CukedoctorConverter;
 import com.github.cukedoctor.api.DocumentAttributes;
 import com.github.cukedoctor.api.model.Feature;
 import com.github.cukedoctor.mojo.model.Format;
@@ -93,7 +93,7 @@ public class CukedoctorMojo extends AbstractMojo {
 		}
 		documentAttributes.docTitle(documentTitle);
 		List<Feature> featuresList = new ArrayList<>(featuresFound);
-		CukedoctorReporter reporter = Cukedoctor.instance(featuresList, documentAttributes);
+		CukedoctorConverter converter = Cukedoctor.instance(featuresList, documentAttributes);
 		String targetFile = "";
 		if (outputFileName.contains(".")) {
 			targetFile = outputFileName.substring(0, outputFileName.lastIndexOf(".")) + ".adoc";
@@ -103,8 +103,8 @@ public class CukedoctorMojo extends AbstractMojo {
 
 		String targetDir = getDocumentationDir();
 		String pathToSave = targetDir + targetFile;
-		reporter.setFilename(pathToSave);//needed by docinfo, pdf-theme
-		generatedFile = reporter.renderDocumentation();
+		converter.setFilename(pathToSave);//needed by docinfo, pdf-theme
+		generatedFile = converter.renderDocumentation();
 		File adocFile = FileUtil.saveFile(pathToSave, generatedFile);
 
 		Asciidoctor asciidoctor = Asciidoctor.Factory.create();

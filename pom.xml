@@ -32,7 +32,7 @@
 
 
     <modules>
-        <module>cukedoctor-reporter</module>
+        <module>cukedoctor-converter</module>
         <module>cukedoctor-maven-plugin</module>
         <module>cukedoctor-main</module>
     </modules>

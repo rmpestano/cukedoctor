@@ -9,7 +9,7 @@
         <version>0.4.0-SNAPSHOT</version>
     </parent>
 
-    <artifactId>cukedoctor-reporter</artifactId>
+    <artifactId>cukedoctor-converter</artifactId>
     <packaging>jar</packaging>
 
     <dependencies>

@@ -1,4 +1,4 @@
-package com.github.cukedoctor.reporter;
+package com.github.cukedoctor.converter;
 
 import com.github.cukedoctor.api.*;
 import com.github.cukedoctor.api.model.*;
@@ -17,7 +17,7 @@ import static com.github.cukedoctor.util.Constants.newLine;
 /**
  * Created by pestano on 02/06/15.
  */
-public class CukedoctorReporterImpl implements CukedoctorReporter {
+public class CukedoctorConverterImpl implements CukedoctorConverter {
 
 
 	private List<Feature> features;
@@ -25,7 +25,7 @@ public class CukedoctorReporterImpl implements CukedoctorReporter {
 	private DocWriter<StringBuilder> writer;
 	private String filename;
 
-	public CukedoctorReporterImpl(List<Feature> features, DocumentAttributes attrs, DocWriter<StringBuilder> writer) {
+	public CukedoctorConverterImpl(List<Feature> features, DocumentAttributes attrs, DocWriter<StringBuilder> writer) {
 		this.features = features;
 		this.documentAttributes = attrs;
 		this.writer = writer;
@@ -61,7 +61,7 @@ public class CukedoctorReporterImpl implements CukedoctorReporter {
 		return writer.getCurrentDoc().toString();
 	}
 
-	public CukedoctorReporter renderAttributes() {
+	public CukedoctorConverter renderAttributes() {
 		writer.write(toc(documentAttributes.getToc()), newLine()).
 				write(backend(documentAttributes.getBackend()), newLine()).
 				write(docTitle(documentAttributes.getDocTitle()), newLine()).
@@ -76,7 +76,7 @@ public class CukedoctorReporterImpl implements CukedoctorReporter {
 		return this;
 	}
 
-	public CukedoctorReporter generateDocInfo() {
+	public CukedoctorConverter generateDocInfo() {
 		if (documentAttributes.isDocInfo()) {
 			//name must be filename-docinfo.html
 			String docInfoName = filename.substring(0, filename.lastIndexOf(".")) + "-docinfo.html";
@@ -95,7 +95,7 @@ public class CukedoctorReporterImpl implements CukedoctorReporter {
 		return this;
 	}
 
-	public CukedoctorReporter generatePdfTheme() {
+	public CukedoctorConverter generatePdfTheme() {
 		if (documentAttributes.isPdfTheme()) {
 			//name must be filename-theme.yml
 			String pdfThemeName = filename.substring(0, filename.lastIndexOf(".")) + "-theme.yml";
@@ -104,7 +104,7 @@ public class CukedoctorReporterImpl implements CukedoctorReporter {
 		return this;
 	}
 
-	public CukedoctorReporterImpl renderSummary() {
+	public CukedoctorConverterImpl renderSummary() {
 		writer.write(H2(bold("Summary"))).write(newLine());
 		writer.write("[cols=\"12*^m\", options=\"header,footer\"]" + newLine() +
 				"|===" + newLine() +
@@ -148,7 +148,7 @@ public class CukedoctorReporterImpl implements CukedoctorReporter {
 	}
 
 	//should be only called inside renderSummary()
-	public CukedoctorReporterImpl renderTotalsRow() {
+	public CukedoctorConverterImpl renderTotalsRow() {
 		int totalPassedScenarios = 0;
 		int totalFailedScenarios = 0;
 		int totalScenarios = 0;
@@ -185,7 +185,7 @@ public class CukedoctorReporterImpl implements CukedoctorReporter {
 		return this;
 	}
 
-	public CukedoctorReporter renderFeatures(List<Feature> features) {
+	public CukedoctorConverter renderFeatures(List<Feature> features) {
 		for (Feature feature : features) {
 			renderFeature(feature);
 		}
@@ -193,7 +193,7 @@ public class CukedoctorReporterImpl implements CukedoctorReporter {
 	}
 
 
-	public CukedoctorReporterImpl renderFeature(Feature feature) {
+	public CukedoctorConverterImpl renderFeature(Feature feature) {
 		if(feature.hasIgnoreDocsTag()){
 			return this;
 		}
@@ -220,7 +220,7 @@ public class CukedoctorReporterImpl implements CukedoctorReporter {
 				", " + feature.getName() + "]]";
 	}
 
-	public CukedoctorReporterImpl renderFeatureScenarios(Feature feature) {
+	public CukedoctorConverterImpl renderFeatureScenarios(Feature feature) {
 		for (Scenario scenario : feature.getScenarios()) {
 			if(scenario.hasIgnoreDocsTag()){
 				continue;
@@ -246,7 +246,7 @@ public class CukedoctorReporterImpl implements CukedoctorReporter {
 		return this;
 	}
 
-	public CukedoctorReporter renderScenarioTags(Feature feature, Scenario scenario) {
+	public CukedoctorConverter renderScenarioTags(Feature feature, Scenario scenario) {
 		writer.write("[small]#tags: ");
 		StringBuilder tags = new StringBuilder();
 		if (feature.hasTags()) {
@@ -268,7 +268,7 @@ public class CukedoctorReporterImpl implements CukedoctorReporter {
 		return this;
 	}
 
-	public CukedoctorReporterImpl renderScenarioSteps(List<Step> steps) {
+	public CukedoctorConverterImpl renderScenarioSteps(List<Step> steps) {
 		writer.write("****", newLine());
 		for (Step step : steps) {
 			writer.write(step.getKeyword(), "::", newLine());
@@ -293,7 +293,7 @@ public class CukedoctorReporterImpl implements CukedoctorReporter {
 		return this;
 	}
 
-	public CukedoctorReporter renderStepTable(Step step) {
+	public CukedoctorConverter renderStepTable(Step step) {
 		if (notEmpty(step.getRows())) {
 			writer.write(newLine(),newLine(),"[cols=\"" + step.getRows()[0].getCells().length + "*\", options=\"header\"]", newLine());
 			writer.write(table(), newLine());
@@ -322,7 +322,7 @@ public class CukedoctorReporterImpl implements CukedoctorReporter {
 
 
 	@Override
-	public CukedoctorReporter setFilename(String filename) {
+	public CukedoctorConverter setFilename(String filename) {
 		if (filename == null) {
 			filename = documentAttributes.getDocTitle();
 		}
@@ -345,13 +345,13 @@ public class CukedoctorReporterImpl implements CukedoctorReporter {
 		return filename;
 	}
 
-	public CukedoctorReporter saveDocumentation() {
+	public CukedoctorConverter saveDocumentation() {
 		FileUtil.saveFile(filename, renderDocumentation());
 		return this;
 	}
 
 	@Override
-	public CukedoctorReporter renderScenarioExamples(Scenario scenario) {
+	public CukedoctorConverter renderScenarioExamples(Scenario scenario) {
 		if (scenario.hasExamples()) {
 			writer.write(newLine());
 			for (Example example : scenario.getExamples()) {

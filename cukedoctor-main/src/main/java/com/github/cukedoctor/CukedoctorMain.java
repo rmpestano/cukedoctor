@@ -3,20 +3,17 @@ package com.github.cukedoctor;
 import com.beust.jcommander.JCommander;
 import com.beust.jcommander.Parameter;
 import com.beust.jcommander.ParameterException;
-import com.github.cukedoctor.api.CukedoctorReporter;
+import com.github.cukedoctor.api.CukedoctorConverter;
 import com.github.cukedoctor.api.DocumentAttributes;
 import com.github.cukedoctor.api.model.Feature;
 import com.github.cukedoctor.parser.FeatureParser;
-import com.github.cukedoctor.util.Assert;
 import com.github.cukedoctor.util.FileUtil;
 import org.asciidoctor.*;
 
 import java.io.File;
-import java.util.HashMap;
 import java.util.List;
 
 import static com.github.cukedoctor.util.Assert.hasText;
-import static org.asciidoctor.OptionsBuilder.options;
 
 /**
  * Created by pestano on 08/06/15.
@@ -141,8 +138,8 @@ public class CukedoctorMain {
 		if(outputName == null){
 			outputName = title.replaceAll(" ", "_");
 		}
-		CukedoctorReporter reporter = Cukedoctor.instance(features, attrs);
-		String doc = reporter.renderDocumentation();
+		CukedoctorConverter converter = Cukedoctor.instance(features, attrs);
+		String doc = converter.renderDocumentation();
 		File adocFile = FileUtil.saveFile(outputName,doc);
 		Asciidoctor asciidoctor = Asciidoctor.Factory.create();
 		asciidoctor.convertFile(adocFile, OptionsBuilder.options().backend(attrs.getBackend()).safe(SafeMode.UNSAFE).asMap());
