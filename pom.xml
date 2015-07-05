@@ -47,7 +47,6 @@
         <connection>scm:git:https://github.com/rmpestano/cukedoctor.git</connection>
         <developerConnection>scm:git:git@github.com:rmpestano/cukedoctor.git</developerConnection>
         <url>https://github.com/rmpestano/cukedoctor.git</url>
-      <tag>cukedoctor-0.4.1</tag>
   </scm>
 
     <properties>
