@@ -77,6 +77,27 @@ Cukedoctor converter is the basis for the above projects, it generates asciidoc 
 
 Cukedoctor is available at https://bintray.com/rmpestano/cukedoctor[Bintray] and at http://search.maven.org/#search%7Cga%7C1%7Ccukedoctor[Maven central^].
 
+*Snapshots* are available at https://oss.jfrog.org/[https://oss.jfrog.org/webapp/search/artifact/?9&q=cukedoctor^] and you can enable them by adding the following snippets in pom.xml:
+
+[source,xml]
+----
+<repositories>
+    <repository>
+        <snapshots/>
+        <id>snapshots</id>
+        <name>libs-snapshot</name>
+        <url>http://oss.jfrog.org/artifactory/libs-snapshot</url>
+    </repository>
+</repositories>
+<pluginRepositories>
+    <pluginRepository>
+        <snapshots/>
+        <id>snapshots</id>
+        <name>plugins-snapshot</name>
+        <url>http://oss.jfrog.org/artifactory/plugins-snapshot</url>
+    </pluginRepository>
+</pluginRepositories>
+----
 
 
 
