@@ -197,6 +197,29 @@
                     </execution>
                 </executions>
             </plugin>
+            <plugin>
+                <groupId>org.jfrog.buildinfo</groupId>
+                <artifactId>artifactory-maven-plugin</artifactId>
+                <version>2.3.0</version>
+                <inherited>false</inherited>
+                <executions>
+                    <execution>
+                        <id>central</id>
+                        <goals>
+                            <goal>publish</goal>
+                        </goals>
+                        <configuration>
+                            <publisher>
+                                <contextUrl>https://oss.jfrog.org</contextUrl>
+                                <username>rmpestano</username>
+                                <password>AP2tT2tgPeuTyNahBZBabo9qKgJoMX2Lep4NEYo9JXBG6cvmdBZhyc93B8V29e6CnhuMV2g</password>
+                                <repoKey>libs-releases-local</repoKey>
+                                <snapshotRepoKey>libs-snapshots-local</snapshotRepoKey>
+                            </publisher>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
         </plugins>
     </build>
 
