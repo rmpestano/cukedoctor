@@ -209,6 +209,11 @@
                             <goal>publish</goal>
                         </goals>
                         <configuration>
+                            <artifactory>
+                                <includeEnvVars>true</includeEnvVars>
+                                <timeoutSec>60</timeoutSec>
+                                <propertiesFile>publish.properties</propertiesFile>
+                            </artifactory>
                             <publisher>
                                 <contextUrl>https://oss.jfrog.org</contextUrl>
                                 <username>rmpestano</username>
