@@ -4,4 +4,4 @@ jdk: oraclejdk7
 cache:
   directories:
     - '$HOME/.m2/repository'
-script: cd cukedoctor-converter && mvn clean install -Pcoverage && cd ../cukedoctor-main && mvn clean package && cd ../cukedoctor-maven-plugin && mvn clean package && cd ../ && mvn deploy -DskipTests=true
+script: cd cukedoctor-converter && mvn clean install -Pcoverage && cd ../cukedoctor-main && mvn clean package && cd ../cukedoctor-maven-plugin && mvn clean package && cd ../ && mvn -Pfat-jar deploy -DskipTests=true
