@@ -8,7 +8,10 @@ env:
   global:
     - secure: "e936lcbyk8GZ/WEcliJagjsVHepDzfk51vcTy9RuTQc1Cs3dGrLAn7VudSSyudQtk4rKZ0Q1dmPoSF0lCygsQaSLOONYPEt1HUPuifZzgxr3iLmIzYU+AbJxyKALCMNtJSQKsDyMoyJerwl8C2s2SKsHQZBhDnbkDfdDYkB+NlGFQpVzyKydElc4hoatjIFigsjMU+UTGGooi44eN5PqGVsb/9UAtAZCE2APXKfbTgH08R1ml/TwA/n/279GyXu6/T9BrIgRScrhy7Yxc9pC+rtDp6QVZN0/NsPNnbuzEF1EurQSRhL6dFLOT72iiCbAxQixxXwvo47eaGNZ3kIxVHYUcTjzIRM42atlI2Ghuipm39w0DlUuou1kcOAPXXCBl7oWpxgCnkny3ibN2XDXB7sH1jTnimuDI17QI5SUAiohVZHTB90LIb4j8C/rnOCVhMFGcT3JI9TKEXIlC7udd2gLgew7v+JVvFFqpcM8kIF1Fq1yaf2bW70hiqKKvHGwGvfX2jAPDQdcY4y/vlJmpm1jR4LJXbu+tZo/1OJFShMT0P2NXsYBBFassrMNLqVJW3gb5lwVAhQ2blOHcYfjH7c+PD5rc8zMUmzV9EPfhKquDOzkJn8uEqPBcNVG8IS/zHKvpFpN/0oo1o/QT0G8lH/TbDFr/0JXccgZnYoE4T0="
     - secure: "d6GNeNESpM/Nhn6xD7GG+DKWjuP6uDTPtM3s+F0gdwmjuZ6iW4pLH8fWGy31D6UBCgJojvALBLUr9MqSBXGG9LWzr9liNN/b1F1YW3GNeGe2LNzjp5PlF+Cmn+Fgbhqwr/nbhWN98crdLwNc6PKZ0aQ1eFZVQUi0b0HFC3IOv1poldb4ER0nzLH8K2BxRbiqe30ZidMYWYOs8kBRtRlCN2VLV7yHgJMW5EpTvok0BQNq2XgRgy5Co1dy1I1ujVGpkyj0iuDEJIwE4zQvCBEULa5zBMeg91jAj3buH0GN0AcQPcb8foQlqJOvecS2Hjl829NghsgNVrM70YTReblB6FjrM+0C2C0zRFL0H4rxq8qOToNRIJIVStyq+OCH2/MqaeBbH2IgZ/RqtihO/rW4QoYAQ+yo3q7Wrp/JSFQVqj++eN4BSNN90rshbn4TUUrGHdA0ab9BnOHF52pxTVUbEfQnBj03LCS3ttbjMp/0v7xJD8OxLsiD09CmxZW+tImCUSlPCFukxNWoY3XewoWmAjrXXPEkLEvVm4y94Gt407lHxlE8ez4hrPzrwzVqE15oU+Wh8aO9trTJowQCOXg9/sHlERkxQ4hFA8NFlxDWtEbDvFMhDVbHmdMuJCdBpR8YoZ9MOTwcuiTgFGmFHX+PVxzcezzxoXZZLOKRQIMHBXQ="
-script: cd cukedoctor-converter && mvn clean install -Pcoverage
-        && cd ../cukedoctor-main && mvn clean package && cd ../cukedoctor-maven-plugin
-        && mvn clean package && cd ../
-        && mvn -Pfat-jar deploy --settings settings.xml -DskipTests=true
+script:
+       - cd cukedoctor-converter && mvn clean install -Pcoverage
+       - cd ../cukedoctor-main && mvn clean package
+       - cd ../cukedoctor-maven-plugin mvn clean package
+
+
+after_success: mvn -Pfat-jar deploy --settings settings.xml -DskipTests=true
