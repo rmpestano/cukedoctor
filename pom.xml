@@ -63,6 +63,7 @@
         <asciidoctorj-pdf.version>1.5.0-alpha.8</asciidoctorj-pdf.version>
         <joda-time.version>2.8</joda-time.version>
         <cucumber.version>1.2.2</cucumber.version>
+        <jacoco.version>0.7.4.201502262128</jacoco.version>
     </properties>
 
 
@@ -210,9 +211,6 @@
 
         <profile>
             <id>coverage</id>
-            <properties>
-                <jacoco.version>0.7.4.201502262128</jacoco.version>
-            </properties>
             <build>
                 <plugins>
                     <plugin>
@@ -276,7 +274,6 @@
         <snapshotRepository>
             <id>snapshots</id>
             <url>https://oss.sonatype.org/content/repositories/snapshots</url>
-            <snapshots />
         </snapshotRepository>
     </distributionManagement>
 
