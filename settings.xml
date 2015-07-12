@@ -11,7 +11,7 @@
     <servers>
         <server>
             <id>snapshots</id>
-            <username>rmpestano</username>
+            <username>${env.USER}</username>
             <password>${env.PASS}</password>
         </server>
     </servers>
