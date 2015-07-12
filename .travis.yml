@@ -11,7 +11,7 @@ env:
 script:
        - cd cukedoctor-converter && mvn clean install -Pcoverage
        - cd ../cukedoctor-main && mvn clean package
-       - cd ../cukedoctor-maven-plugin mvn clean package
+       - cd ../cukedoctor-maven-plugin && mvn clean package
 
 
 after_success: cd ../ && mvn -Pfat-jar deploy --settings settings.xml -DskipTests=true
