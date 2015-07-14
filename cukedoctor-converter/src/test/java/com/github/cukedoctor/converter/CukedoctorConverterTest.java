@@ -590,7 +590,7 @@ public class CukedoctorConverterTest {
 				"When::" + newLine() +
 				"failing step icon:thumbs-down[role=\"red\",title=\"Failed\"] [small right]#(000ms)#" + newLine() +
 				"When::" + newLine() +
-				"pending step icon:thumbs-down[role=\"orange\",title=\"Pending\"] [small right]#(000ms)#" + newLine() +
+				"pending step icon:thumbs-down[role=\"maroon\",title=\"Pending\"] [small right]#(000ms)#" + newLine() +
 				"When::" + newLine() +
 				"missing step icon:thumbs-down[role=\"blue\",title=\"Missing\"] [small right]#(000ms)#" + newLine() +
 				"When::" + newLine() +

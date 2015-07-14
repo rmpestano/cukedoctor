@@ -35,7 +35,7 @@ public enum Status {
 				return "icon:thumbs-down[role=\"purple\",title=\"Skipped\"]";
 			}
 			case pending: {
-				return "icon:thumbs-down[role=\"orange\",title=\"Pending\"]";
+				return "icon:thumbs-down[role=\"maroon\",title=\"Pending\"]";
 			}
 			case undefined: {
 				return "icon:thumbs-down[role=\"yellow\",title=\"Undefined\"]";
