@@ -5,7 +5,7 @@ package com.github.cukedoctor.config;
  */
 public abstract class CukedoctorConfig {
 
-	public static final int ERROR_MESSAGE_SIZE = getProperty("ERROR_MESSAGE_SIZE",Integer.class) == null ? 350 : getProperty("ERROR_MESSAGE_SIZE",Integer.class);
+	public static final int ERROR_MESSAGE_SIZE = getProperty("ERROR_MESSAGE_SIZE",Integer.class) == null ? 400 : getProperty("ERROR_MESSAGE_SIZE",Integer.class);
 	public static final String DOCUMENT_TITLE= getProperty("DOCUMENT_TITLE") == null ? "Documentation" : getProperty("DOCUMENT_TITLE");
 
 
