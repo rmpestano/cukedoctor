@@ -1,16 +1,16 @@
 :toc: right
-:backend: html
-:doctitle: Asciidoctor Living Documentation
+:backend: pdf
+:doctitle: Living Documentation
 :doctype: book
 :icons: font
 :!numbered:
 :!linkcss:
 :sectanchors:
 :sectlink:
-:docinfo:
+:!docinfo:
 :toclevels: 3
 
-= *Asciidoctor Living Documentation*
+= *Living Documentation*
 
 == *Summary*
 [cols="12*^m", options="header,footer"]
@@ -92,6 +92,7 @@
 == *Features*
 
 [[Cross-References, Cross References]]
+[feature]
 === *Cross References*
 
 ****
@@ -244,6 +245,7 @@ the result should match the HTML structure icon:thumbs-up[role="green",title="Pa
 ****
 
 [[Open-Blocks, Open Blocks]]
+[feature]
 === *Open Blocks*
 
 ****
@@ -380,6 +382,7 @@ the result should match the HTML structure icon:thumbs-up[role="green",title="Pa
 ****
 
 [[Open-Blocks, Open Blocks]]
+[feature]
 === *Open Blocks*
 
 ****
@@ -474,6 +477,7 @@ the result should match the HTML source icon:thumbs-up[role="green",title="Passe
 ****
 
 [[Text-Formatting, Text Formatting]]
+[feature]
 === *Text Formatting*
 
 ****

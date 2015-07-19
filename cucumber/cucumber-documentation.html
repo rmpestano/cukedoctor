@@ -5,7 +5,7 @@
 <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 1.5.2">
-<title>Cucumber Living Documentation</title>
+<title>Living Documentation</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400">
 <style>
 /* Asciidoctor default stylesheet | MIT License | http://asciidoctor.org */
@@ -412,7 +412,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </head>
 <body class="book toc2 toc-right">
 <div id="header">
-<h1>Cucumber Living Documentation</h1>
+<h1>Living Documentation</h1>
 <div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
 <ul class="sectlevel1">
@@ -544,6 +544,10 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#Excluding-ruby-and-feature-files-from-runs"><strong>Excluding ruby and feature files from runs</strong></a>
 <ul class="sectlevel3">
 <li><a href="#_scenario_exclude_ruby_files">Scenario: exclude ruby files</a></li>
+</ul>
+</li>
+<li><a href="#__strong_formatter_api_step_file_path_and_line_number_issue_179_strong"><strong>Formatter API: Step file path and line number (Issue #179)</strong></a>
+<ul class="sectlevel3">
 <li><a href="#_scenario_my_own_formatter">Scenario: my own formatter</a></li>
 </ul>
 </li>
@@ -649,6 +653,10 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <ul class="sectlevel3">
 <li><a href="#_scenario_call_a_method_in_world_directly_from_a_step_def">Scenario: Call a method in World directly from a step def</a></li>
 <li><a href="#_scenario_call_a_method_on_an_actor_in_the_world_directly_from_a_step_def">Scenario: Call a method on an actor in the World directly from a step def</a></li>
+</ul>
+</li>
+<li><a href="#__strong_post_configuration_hook_423_strong"><strong>Post Configuration Hook [#423]</strong></a>
+<ul class="sectlevel3">
 <li><a href="#_scenario_using_options_directly_gets_a_deprecation_warning">Scenario: Using options directly gets a deprecation warning</a></li>
 <li><a href="#_scenario_changing_the_output_format">Scenario: Changing the output format</a></li>
 <li><a href="#_scenario_feature_directories_read_from_configuration">Scenario: feature directories read from configuration</a></li>
@@ -724,6 +732,10 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#Run-Cli::Main-with-existing-Runtime"><strong>Run Cli::Main with existing Runtime</strong></a>
 <ul class="sectlevel3">
 <li><a href="#_scenario_run_a_single_feature">Scenario: Run a single feature</a></li>
+</ul>
+</li>
+<li><a href="#__strong_run_feature_elements_matching_a_name_with_name_n_strong"><strong>Run feature elements matching a name with --name/-n</strong></a>
+<ul class="sectlevel3">
 <li><a href="#_scenario_matching_feature_names">Scenario: Matching Feature names</a></li>
 <li><a href="#_scenario_matching_scenario_names">Scenario: Matching Scenario names</a></li>
 <li><a href="#_scenario_matching_scenario_outline_names">Scenario: Matching Scenario Outline names</a></li>
@@ -839,6 +851,10 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#Using-descriptions-to-give-features-context"><strong>Using descriptions to give features context</strong></a>
 <ul class="sectlevel3">
 <li><a href="#_scenario_everything_with_a_description">Scenario: Everything with a description</a></li>
+</ul>
+</li>
+<li><a href="#__strong_using_star_notation_instead_of_given_when_then_strong"><strong>Using star notation instead of Given/When/Then</strong></a>
+<ul class="sectlevel3">
 <li><a href="#_scenario_use_some">Scenario: Use some *</a></li>
 </ul>
 </li>
@@ -5467,15 +5483,17 @@ certain environment files from certain runs.</p>
 </div>
 </div>
 <div class="paragraph">
-<p>[[Formatter-API:-Step-file-path-and-line-number-(Issue-#179), Formatter API: Step file path and line number (Issue #179)]]
-=== <strong>Formatter API: Step file path and line number (Issue #179)</strong></p>
+<p>[[Formatter-API:-Step-file-path-and-line-number-(Issue-#179), Formatter API: Step file path and line number (Issue #179)]]</p>
 </div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="__strong_formatter_api_step_file_path_and_line_number_issue_179_strong"><a class="anchor" href="#__strong_formatter_api_step_file_path_and_line_number_issue_179_strong"></a><strong>Formatter API: Step file path and line number (Issue #179)</strong></h3>
 <div class="sidebarblock">
 <div class="content">
 <div class="paragraph">
 <p>To all reporter to understand location of current executing step let&#8217;s fetch this information<br>
 from step/step_invocation and pass to reporters</p>
-</div>
 </div>
 </div>
 </div>
@@ -8729,16 +8747,18 @@ Then /The thing should be done/, :assert_done, :on =&gt; lambda { thing }</pre>
 </div>
 </div>
 <div class="paragraph">
-<p>[[Post-Configuration-Hook-[#423], Post Configuration Hook [#423]]]
-=== <strong>Post Configuration Hook [#423]</strong></p>
+<p>[[Post-Configuration-Hook-[#423], Post Configuration Hook [#423]]]</p>
 </div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="__strong_post_configuration_hook_423_strong"><a class="anchor" href="#__strong_post_configuration_hook_423_strong"></a><strong>Post Configuration Hook [#423]</strong></h3>
 <div class="sidebarblock">
 <div class="content">
 <div class="paragraph">
 <p>In order to extend Cucumber<br>
 As a developer<br>
 I want to manipulate the Cucumber configuration after it has been created</p>
-</div>
 </div>
 </div>
 </div>
@@ -10549,16 +10569,18 @@ Cucumber::Cli::Main.new([]).execute!(runtime)</pre>
 </div>
 </div>
 <div class="paragraph">
-<p>[[Run-feature-elements-matching-a-name-with---name/-n, Run feature elements matching a name with --name/-n]]
-=== <strong>Run feature elements matching a name with --name/-n</strong></p>
+<p>[[Run-feature-elements-matching-a-name-with---name/-n, Run feature elements matching a name with --name/-n]]</p>
 </div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="__strong_run_feature_elements_matching_a_name_with_name_n_strong"><a class="anchor" href="#__strong_run_feature_elements_matching_a_name_with_name_n_strong"></a><strong>Run feature elements matching a name with --name/-n</strong></h3>
 <div class="sidebarblock">
 <div class="content">
 <div class="paragraph">
 <p>The <code>--name NAME</code> option runs only scenarios which match a certain<br>
 name. The NAME can be a substring of the names of Features, Scenarios,<br>
 Scenario Outlines or Example blocks.</p>
-</div>
 </div>
 </div>
 </div>
@@ -12905,9 +12927,12 @@ fine: otherwise Gherkin will start to pay attention.</p>
 </div>
 </div>
 <div class="paragraph">
-<p>[[Using-star-notation-instead-of-Given/When/Then, Using star notation instead of Given/When/Then]]
-=== <strong>Using star notation instead of Given/When/Then</strong></p>
+<p>[[Using-star-notation-instead-of-Given/When/Then, Using star notation instead of Given/When/Then]]</p>
 </div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="__strong_using_star_notation_instead_of_given_when_then_strong"><a class="anchor" href="#__strong_using_star_notation_instead_of_given_when_then_strong"></a><strong>Using star notation instead of Given/When/Then</strong></h3>
 <div class="sidebarblock">
 <div class="content">
 <div class="paragraph">
@@ -12918,7 +12943,6 @@ use a bullet point.<br>
 When you run the feature for the first time, you still get a nice<br>
 message showing you the code snippet you need to use to implement the<br>
 step.</p>
-</div>
 </div>
 </div>
 </div>
@@ -13436,7 +13460,7 @@ cucumber features/wired.feature:2 # Scenario: Wired
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2015-07-02 22:40:37 BRT
+Last updated 2015-07-19 02:14:27 BRT
 </div>
 </div>
 </body>

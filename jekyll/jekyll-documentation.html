@@ -5,7 +5,7 @@
 <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 1.5.2">
-<title>Jekyll Living Documentation</title>
+<title>Living Documentation</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400">
 <style>
 /* Asciidoctor default stylesheet | MIT License | http://asciidoctor.org */
@@ -412,7 +412,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </head>
 <body class="book toc2 toc-right">
 <div id="header">
-<h1>Jekyll Living Documentation</h1>
+<h1>Living Documentation</h1>
 <div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
 <ul class="sectlevel1">
@@ -8364,62 +8364,6 @@ In order to make the posts slightly dynamic</p>
 </tr>
 </tbody>
 </table>
-<div class="sidebarblock">
-<div class="content">
-<div class="dlist">
-<dl>
-<dt class="hdlist1">Given </dt>
-<dd>
-<p>I have a &lt;dir&gt;/_posts directory <span class="icon blue"><i class="fa fa-thumbs-down" title="Missing"></i></span></p>
-</dd>
-<dt class="hdlist1">And </dt>
-<dd>
-<p>I have the following post in "&lt;dir&gt;": <span class="icon blue"><i class="fa fa-thumbs-down" title="Missing"></i></span></p>
-</dd>
-</dl>
-</div>
-<table class="tableblock frame-all grid-all spread">
-<colgroup>
-<col style="width: 25%;">
-<col style="width: 25%;">
-<col style="width: 25%;">
-<col style="width: 25%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">title</th>
-<th class="tableblock halign-left valign-top">type</th>
-<th class="tableblock halign-left valign-top">date</th>
-<th class="tableblock halign-left valign-top">content</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">my-post</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">html</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">2013-04-12</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Source path: {{ page.path }}</p></td>
-</tr>
-</tbody>
-</table>
-<div class="dlist">
-<dl>
-<dt class="hdlist1">When </dt>
-<dd>
-<p>I run jekyll build <span class="icon blue"><i class="fa fa-thumbs-down" title="Missing"></i></span></p>
-</dd>
-<dt class="hdlist1">Then </dt>
-<dd>
-<p>the _site directory should exist <span class="icon blue"><i class="fa fa-thumbs-down" title="Missing"></i></span></p>
-</dd>
-<dt class="hdlist1">And </dt>
-<dd>
-<p>I should see "Source path: &lt;path_prefix&gt;_posts/2013-04-12-my-post.html" in "_site/&lt;dir&gt;/2013/04/12/my-post.html" <span class="icon blue"><i class="fa fa-thumbs-down" title="Missing"></i></span></p>
-</dd>
-</dl>
-</div>
-</div>
-</div>
 </div>
 <div class="sect3">
 <h4 id="_scenario_override_page_path_variable"><a class="anchor" href="#_scenario_override_page_path_variable"></a>Scenario: Override page.path variable</h4>
@@ -9266,68 +9210,6 @@ In order to make setting up a site easier</p>
 </tr>
 </tbody>
 </table>
-<div class="sidebarblock">
-<div class="content">
-<div class="dlist">
-<dl>
-<dt class="hdlist1">Given </dt>
-<dd>
-<p>I have a blank site in "&lt;source&gt;" <span class="icon blue"><i class="fa fa-thumbs-down" title="Missing"></i></span></p>
-</dd>
-<dt class="hdlist1">And </dt>
-<dd>
-<p>I have an "&lt;source&gt;/index.md" page that contains "markdown" <span class="icon blue"><i class="fa fa-thumbs-down" title="Missing"></i></span></p>
-</dd>
-<dt class="hdlist1">And </dt>
-<dd>
-<p>I have a configuration file with: <span class="icon blue"><i class="fa fa-thumbs-down" title="Missing"></i></span></p>
-</dd>
-</dl>
-</div>
-<table class="tableblock frame-all grid-all spread">
-<colgroup>
-<col style="width: 50%;">
-<col style="width: 50%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">key</th>
-<th class="tableblock halign-left valign-top">value</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">source</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">&lt;source&gt;</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">destination</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">&lt;dest&gt;</p></td>
-</tr>
-</tbody>
-</table>
-<div class="dlist">
-<dl>
-<dt class="hdlist1">When </dt>
-<dd>
-<p>I run jekyll build <span class="icon blue"><i class="fa fa-thumbs-down" title="Missing"></i></span></p>
-</dd>
-<dt class="hdlist1">Then </dt>
-<dd>
-<p>the &lt;source&gt; directory should exist <span class="icon blue"><i class="fa fa-thumbs-down" title="Missing"></i></span></p>
-</dd>
-<dt class="hdlist1">And </dt>
-<dd>
-<p>the "&lt;dest&gt;/index.html" file should &lt;file_exist&gt; exist <span class="icon blue"><i class="fa fa-thumbs-down" title="Missing"></i></span></p>
-</dd>
-<dt class="hdlist1">And </dt>
-<dd>
-<p>I should see "markdown" in "&lt;source&gt;/index.md" <span class="icon blue"><i class="fa fa-thumbs-down" title="Missing"></i></span></p>
-</dd>
-</dl>
-</div>
-</div>
-</div>
 </div>
 <div class="sect3">
 <h4 id="_scenario_exclude_files_inline"><a class="anchor" href="#_scenario_exclude_files_inline"></a>Scenario: Exclude files inline</h4>
@@ -10518,34 +10400,6 @@ In order to make the site slightly dynamic</p>
 </tr>
 </tbody>
 </table>
-<div class="sidebarblock">
-<div class="content">
-<div class="dlist">
-<dl>
-<dt class="hdlist1">Given </dt>
-<dd>
-<p>I have a &lt;dir&gt; directory <span class="icon blue"><i class="fa fa-thumbs-down" title="Missing"></i></span></p>
-</dd>
-<dt class="hdlist1">And </dt>
-<dd>
-<p>I have a "&lt;path&gt;" page that contains "Source path: {{ page.path }}" <span class="icon blue"><i class="fa fa-thumbs-down" title="Missing"></i></span></p>
-</dd>
-<dt class="hdlist1">When </dt>
-<dd>
-<p>I run jekyll build <span class="icon blue"><i class="fa fa-thumbs-down" title="Missing"></i></span></p>
-</dd>
-<dt class="hdlist1">Then </dt>
-<dd>
-<p>the _site directory should exist <span class="icon blue"><i class="fa fa-thumbs-down" title="Missing"></i></span></p>
-</dd>
-<dt class="hdlist1">And </dt>
-<dd>
-<p>I should see "Source path: &lt;path&gt;" in "_site/&lt;path&gt;" <span class="icon blue"><i class="fa fa-thumbs-down" title="Missing"></i></span></p>
-</dd>
-</dl>
-</div>
-</div>
-</div>
 </div>
 <div class="sect3">
 <h4 id="_scenario_override_page_path"><a class="anchor" href="#_scenario_override_page_path"></a>Scenario: Override page.path</h4>
@@ -11062,126 +10916,6 @@ I want divide the posts in several pages</p>
 </tr>
 </tbody>
 </table>
-<div class="sidebarblock">
-<div class="content">
-<div class="dlist">
-<dl>
-<dt class="hdlist1">Given </dt>
-<dd>
-<p>I have a configuration file with: <span class="icon blue"><i class="fa fa-thumbs-down" title="Missing"></i></span></p>
-</dd>
-</dl>
-</div>
-<table class="tableblock frame-all grid-all spread">
-<colgroup>
-<col style="width: 50%;">
-<col style="width: 50%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">key</th>
-<th class="tableblock halign-left valign-top">value</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">paginate</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">&lt;num&gt;</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">gems</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">[jekyll-paginate]</p></td>
-</tr>
-</tbody>
-</table>
-<div class="dlist">
-<dl>
-<dt class="hdlist1">And </dt>
-<dd>
-<p>I have a _layouts directory <span class="icon blue"><i class="fa fa-thumbs-down" title="Missing"></i></span></p>
-</dd>
-<dt class="hdlist1">And </dt>
-<dd>
-<p>I have an "index.html" page that contains "{{ paginator.posts.size }}" <span class="icon blue"><i class="fa fa-thumbs-down" title="Missing"></i></span></p>
-</dd>
-<dt class="hdlist1">And </dt>
-<dd>
-<p>I have a _posts directory <span class="icon blue"><i class="fa fa-thumbs-down" title="Missing"></i></span></p>
-</dd>
-<dt class="hdlist1">And </dt>
-<dd>
-<p>I have the following posts: <span class="icon blue"><i class="fa fa-thumbs-down" title="Missing"></i></span></p>
-</dd>
-</dl>
-</div>
-<table class="tableblock frame-all grid-all spread">
-<colgroup>
-<col style="width: 25%;">
-<col style="width: 25%;">
-<col style="width: 25%;">
-<col style="width: 25%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">title</th>
-<th class="tableblock halign-left valign-top">date</th>
-<th class="tableblock halign-left valign-top">layout</th>
-<th class="tableblock halign-left valign-top">content</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Wargames</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">2009-03-27</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">default</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The only winning move is not to play.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Wargames2</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">2009-04-27</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">default</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The only winning move is not to play2.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Wargames3</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">2009-05-27</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">default</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The only winning move is not to play3.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Wargames4</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">2009-06-27</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">default</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The only winning move is not to play4.</p></td>
-</tr>
-</tbody>
-</table>
-<div class="dlist">
-<dl>
-<dt class="hdlist1">When </dt>
-<dd>
-<p>I run jekyll build <span class="icon blue"><i class="fa fa-thumbs-down" title="Missing"></i></span></p>
-</dd>
-<dt class="hdlist1">Then </dt>
-<dd>
-<p>the _site/page&lt;exist&gt; directory should exist <span class="icon blue"><i class="fa fa-thumbs-down" title="Missing"></i></span></p>
-</dd>
-<dt class="hdlist1">And </dt>
-<dd>
-<p>the "_site/page&lt;exist&gt;/index.html" file should exist <span class="icon blue"><i class="fa fa-thumbs-down" title="Missing"></i></span></p>
-</dd>
-<dt class="hdlist1">And </dt>
-<dd>
-<p>I should see "&lt;posts&gt;" in "_site/page&lt;exist&gt;/index.html" <span class="icon blue"><i class="fa fa-thumbs-down" title="Missing"></i></span></p>
-</dd>
-<dt class="hdlist1">And </dt>
-<dd>
-<p>the "_site/page&lt;not_exist&gt;/index.html" file should not exist <span class="icon blue"><i class="fa fa-thumbs-down" title="Missing"></i></span></p>
-</dd>
-</dl>
-</div>
-</div>
-</div>
 </div>
 <div class="sect3">
 <h4 id="_scenario_outline_setting_a_custom_pagination_path"><a class="anchor" href="#_scenario_outline_setting_a_custom_pagination_path"></a>Scenario Outline: Setting a custom pagination path</h4>
@@ -11217,134 +10951,6 @@ I want divide the posts in several pages</p>
 </tr>
 </tbody>
 </table>
-<div class="sidebarblock">
-<div class="content">
-<div class="dlist">
-<dl>
-<dt class="hdlist1">Given </dt>
-<dd>
-<p>I have a configuration file with: <span class="icon blue"><i class="fa fa-thumbs-down" title="Missing"></i></span></p>
-</dd>
-</dl>
-</div>
-<table class="tableblock frame-all grid-all spread">
-<colgroup>
-<col style="width: 50%;">
-<col style="width: 50%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">key</th>
-<th class="tableblock halign-left valign-top">value</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">paginate</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">paginate_path</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">/blog/page-:num</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">permalink</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">/blog/:year/:month/:day/:title</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">gems</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">[jekyll-paginate]</p></td>
-</tr>
-</tbody>
-</table>
-<div class="dlist">
-<dl>
-<dt class="hdlist1">And </dt>
-<dd>
-<p>I have a blog directory <span class="icon blue"><i class="fa fa-thumbs-down" title="Missing"></i></span></p>
-</dd>
-<dt class="hdlist1">And </dt>
-<dd>
-<p>I have an "blog/index.html" page that contains "{{ paginator.posts.size }}" <span class="icon blue"><i class="fa fa-thumbs-down" title="Missing"></i></span></p>
-</dd>
-<dt class="hdlist1">And </dt>
-<dd>
-<p>I have a _posts directory <span class="icon blue"><i class="fa fa-thumbs-down" title="Missing"></i></span></p>
-</dd>
-<dt class="hdlist1">And </dt>
-<dd>
-<p>I have the following posts: <span class="icon blue"><i class="fa fa-thumbs-down" title="Missing"></i></span></p>
-</dd>
-</dl>
-</div>
-<table class="tableblock frame-all grid-all spread">
-<colgroup>
-<col style="width: 25%;">
-<col style="width: 25%;">
-<col style="width: 25%;">
-<col style="width: 25%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">title</th>
-<th class="tableblock halign-left valign-top">date</th>
-<th class="tableblock halign-left valign-top">layout</th>
-<th class="tableblock halign-left valign-top">content</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Wargames</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">2009-03-27</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">default</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The only winning move is not to play.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Wargames2</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">2009-04-27</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">default</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The only winning move is not to play2.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Wargames3</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">2009-05-27</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">default</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The only winning move is not to play3.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Wargames4</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">2009-06-27</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">default</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The only winning move is not to play4.</p></td>
-</tr>
-</tbody>
-</table>
-<div class="dlist">
-<dl>
-<dt class="hdlist1">When </dt>
-<dd>
-<p>I run jekyll build <span class="icon blue"><i class="fa fa-thumbs-down" title="Missing"></i></span></p>
-</dd>
-<dt class="hdlist1">Then </dt>
-<dd>
-<p>the _site/blog/page-&lt;exist&gt; directory should exist <span class="icon blue"><i class="fa fa-thumbs-down" title="Missing"></i></span></p>
-</dd>
-<dt class="hdlist1">And </dt>
-<dd>
-<p>the "_site/blog/page-&lt;exist&gt;/index.html" file should exist <span class="icon blue"><i class="fa fa-thumbs-down" title="Missing"></i></span></p>
-</dd>
-<dt class="hdlist1">And </dt>
-<dd>
-<p>I should see "&lt;posts&gt;" in "_site/blog/page-&lt;exist&gt;/index.html" <span class="icon blue"><i class="fa fa-thumbs-down" title="Missing"></i></span></p>
-</dd>
-<dt class="hdlist1">And </dt>
-<dd>
-<p>the "_site/blog/page-&lt;not_exist&gt;/index.html" file should not exist <span class="icon blue"><i class="fa fa-thumbs-down" title="Missing"></i></span></p>
-</dd>
-</dl>
-</div>
-</div>
-</div>
 </div>
 <div class="sect3">
 <h4 id="_scenario_outline_setting_a_custom_pagination_path_without_an_index_html_in_it"><a class="anchor" href="#_scenario_outline_setting_a_custom_pagination_path_without_an_index_html_in_it"></a>Scenario Outline: Setting a custom pagination path without an index.html in it</h4>
@@ -11380,138 +10986,6 @@ I want divide the posts in several pages</p>
 </tr>
 </tbody>
 </table>
-<div class="sidebarblock">
-<div class="content">
-<div class="dlist">
-<dl>
-<dt class="hdlist1">Given </dt>
-<dd>
-<p>I have a configuration file with: <span class="icon blue"><i class="fa fa-thumbs-down" title="Missing"></i></span></p>
-</dd>
-</dl>
-</div>
-<table class="tableblock frame-all grid-all spread">
-<colgroup>
-<col style="width: 50%;">
-<col style="width: 50%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">key</th>
-<th class="tableblock halign-left valign-top">value</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">paginate</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">paginate_path</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">/blog/page/:num</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">permalink</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">/blog/:year/:month/:day/:title</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">gems</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">[jekyll-paginate]</p></td>
-</tr>
-</tbody>
-</table>
-<div class="dlist">
-<dl>
-<dt class="hdlist1">And </dt>
-<dd>
-<p>I have a blog directory <span class="icon blue"><i class="fa fa-thumbs-down" title="Missing"></i></span></p>
-</dd>
-<dt class="hdlist1">And </dt>
-<dd>
-<p>I have an "blog/index.html" page that contains "{{ paginator.posts.size }}" <span class="icon blue"><i class="fa fa-thumbs-down" title="Missing"></i></span></p>
-</dd>
-<dt class="hdlist1">And </dt>
-<dd>
-<p>I have an "index.html" page that contains "Don&#8217;t pick me!" <span class="icon blue"><i class="fa fa-thumbs-down" title="Missing"></i></span></p>
-</dd>
-<dt class="hdlist1">And </dt>
-<dd>
-<p>I have a _posts directory <span class="icon blue"><i class="fa fa-thumbs-down" title="Missing"></i></span></p>
-</dd>
-<dt class="hdlist1">And </dt>
-<dd>
-<p>I have the following posts: <span class="icon blue"><i class="fa fa-thumbs-down" title="Missing"></i></span></p>
-</dd>
-</dl>
-</div>
-<table class="tableblock frame-all grid-all spread">
-<colgroup>
-<col style="width: 25%;">
-<col style="width: 25%;">
-<col style="width: 25%;">
-<col style="width: 25%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">title</th>
-<th class="tableblock halign-left valign-top">date</th>
-<th class="tableblock halign-left valign-top">layout</th>
-<th class="tableblock halign-left valign-top">content</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Wargames</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">2009-03-27</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">default</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The only winning move is not to play.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Wargames2</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">2009-04-27</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">default</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The only winning move is not to play2.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Wargames3</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">2009-05-27</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">default</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The only winning move is not to play3.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Wargames4</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">2009-06-27</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">default</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The only winning move is not to play4.</p></td>
-</tr>
-</tbody>
-</table>
-<div class="dlist">
-<dl>
-<dt class="hdlist1">When </dt>
-<dd>
-<p>I run jekyll build <span class="icon blue"><i class="fa fa-thumbs-down" title="Missing"></i></span></p>
-</dd>
-<dt class="hdlist1">Then </dt>
-<dd>
-<p>the _site/blog/page/&lt;exist&gt; directory should exist <span class="icon blue"><i class="fa fa-thumbs-down" title="Missing"></i></span></p>
-</dd>
-<dt class="hdlist1">And </dt>
-<dd>
-<p>the "_site/blog/page/&lt;exist&gt;/index.html" file should exist <span class="icon blue"><i class="fa fa-thumbs-down" title="Missing"></i></span></p>
-</dd>
-<dt class="hdlist1">And </dt>
-<dd>
-<p>I should see "&lt;posts&gt;" in "_site/blog/page/&lt;exist&gt;/index.html" <span class="icon blue"><i class="fa fa-thumbs-down" title="Missing"></i></span></p>
-</dd>
-<dt class="hdlist1">And </dt>
-<dd>
-<p>the "_site/blog/page/&lt;not_exist&gt;/index.html" file should not exist <span class="icon blue"><i class="fa fa-thumbs-down" title="Missing"></i></span></p>
-</dd>
-</dl>
-</div>
-</div>
-</div>
 </div>
 </div>
 </div>
@@ -11519,7 +10993,7 @@ I want divide the posts in several pages</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2015-07-01 23:00:41 BRT
+Last updated 2015-07-19 02:07:32 BRT
 </div>
 </div>
 </body>

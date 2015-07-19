@@ -1,6 +1,6 @@
 :toc: right
 :backend: pdf
-:doctitle: Cucumber JS Living Documentation
+:doctitle: Living Documentation
 :doctype: book
 :icons: font
 :!numbered:
@@ -10,7 +10,7 @@
 :!docinfo:
 :toclevels: 3
 
-= *Cucumber JS Living Documentation*
+= *Living Documentation*
 
 == *Summary*
 [cols="12*^m", options="header,footer"]
@@ -344,6 +344,7 @@
 == *Features*
 
 [[Asynchronous-failing-steps, Asynchronous failing steps]]
+[feature]
 === *Asynchronous failing steps*
 
 ==== Scenario: see asynchronously failing scenarios
@@ -389,6 +390,7 @@ the scenario called "a failing scenario" is reported as failing icon:thumbs-down
 ****
 
 [[Asynchronous-pending-steps, Asynchronous pending steps]]
+[feature]
 === *Asynchronous pending steps*
 
 ==== Scenario: Pending step means the scenario is pending
@@ -414,6 +416,7 @@ the step "the result is 9" is skipped icon:thumbs-up[role="green",title="Passed"
 ****
 
 [[Asynchronous-step-definition-callbacks, Asynchronous step definition callbacks]]
+[feature]
 === *Asynchronous step definition callbacks*
 
 ****
@@ -443,6 +446,7 @@ the feature should have run successfully icon:thumbs-up[role="green",title="Pass
 ****
 
 [[Attachments, Attachments]]
+[feature]
 === *Attachments*
 
 ==== Scenario: Attach a buffer
@@ -1142,6 +1146,7 @@ it outputs this json: icon:thumbs-up[role="green",title="Passed"] [small right]#
 ****
 
 [[Background, Background]]
+[feature]
 === *Background*
 
 ****
@@ -1216,6 +1221,7 @@ the step "a second scenario step" passes icon:thumbs-up[role="green",title="Pass
 ****
 
 [[CoffeeScript-support, CoffeeScript support]]
+[feature]
 === *CoffeeScript support*
 
 ****
@@ -1237,6 +1243,7 @@ the mapping is run icon:thumbs-down[role="purple",title="Skipped"] [small right]
 ****
 
 [[Command-line-interface, Command line interface]]
+[feature]
 === *Command line interface*
 
 ****
@@ -1611,6 +1618,7 @@ the exit status should be 1 icon:thumbs-up[role="green",title="Passed"] [small r
 ****
 
 [[Core-feature-elements-execution, Core feature elements execution]]
+[feature]
 === *Core feature elements execution*
 
 ****
@@ -1783,6 +1791,7 @@ the feature should have run successfully icon:thumbs-up[role="green",title="Pass
 ****
 
 [[Data-Tables, Data Tables]]
+[feature]
 === *Data Tables*
 
 ==== Scenario: a data table can be read as a hash
@@ -1807,6 +1816,7 @@ the data table is converted to the following: icon:thumbs-up[role="green",title=
 ****
 
 [[Environment-Hooks, Environment Hooks]]
+[feature]
 === *Environment Hooks*
 
 ==== Scenario: Tagged around hook with untagged scenario
@@ -2992,6 +3002,7 @@ it outputs this json: icon:thumbs-up[role="green",title="Passed"] [small right]#
 ****
 
 [[JSON-Formatter, JSON Formatter]]
+[feature]
 === *JSON Formatter*
 
 ****
@@ -5181,6 +5192,7 @@ it outputs this json: icon:thumbs-up[role="green",title="Passed"] [small right]#
 ****
 
 [[PogoScript-support, PogoScript support]]
+[feature]
 === *PogoScript support*
 
 ****
@@ -5202,6 +5214,7 @@ the mapping is run icon:thumbs-down[role="purple",title="Skipped"] [small right]
 ****
 
 [[Pretty-Formatter, Pretty Formatter]]
+[feature]
 === *Pretty Formatter*
 
 ****
@@ -5364,6 +5377,7 @@ Failing scenarios:
 ****
 
 [[Scenario-Outlines-and-Examples, Scenario Outlines and Examples]]
+[feature]
 === *Scenario Outlines and Examples*
 
 ==== Scenario: Basic outline
@@ -5517,6 +5531,7 @@ the step "step d" passes icon:thumbs-up[role="green",title="Passed"] [small righ
 ****
 
 [[Scenario-Statuses, Scenario Statuses]]
+[feature]
 === *Scenario Statuses*
 
 ==== Scenario: Check scenario statuses
@@ -6184,6 +6199,7 @@ it outputs this json: icon:thumbs-up[role="green",title="Passed"] [small right]#
 ****
 
 [[Step-definition-callbacks, Step definition callbacks]]
+[feature]
 === *Step definition callbacks*
 
 ==== Scenario: fail with single-parameter error (Node.js style)
@@ -6240,6 +6256,7 @@ the scenario passes icon:thumbs-down[role="purple",title="Skipped"] [small right
 ****
 
 [[step-definition-snippets, step definition snippets]]
+[feature]
 === *step definition snippets*
 
 ==== Scenario: escape regexp special characters
@@ -6306,6 +6323,7 @@ a "Given" example step definition snippet for /^I have "(.*)" cucumbers$/ with 1
 ****
 
 [[step-definitions-with-string-pattern, step definitions with string pattern]]
+[feature]
 === *step definitions with string pattern*
 
 ****
@@ -6354,6 +6372,7 @@ the mapping receives the multipple arguments icon:thumbs-down[role="yellow",titl
 ****
 
 [[Strict-mode, Strict mode]]
+[feature]
 === *Strict mode*
 
 ****
@@ -6542,6 +6561,7 @@ the exit status should be 1 icon:thumbs-up[role="green",title="Passed"] [small r
 ****
 
 [[Summary-Formatter, Summary Formatter]]
+[feature]
 === *Summary Formatter*
 
 ****
@@ -6628,6 +6648,7 @@ it outputs this text: icon:thumbs-up[role="green",title="Passed"] [small right]#
 ****
 
 [[User-logs-into-the-system, User logs into the system]]
+[feature]
 === *User logs into the system*
 
 ****
@@ -6719,6 +6740,7 @@ I should not see any username icon:thumbs-down[role="yellow",title="Undefined"] 
 ****
 
 [[World-constructor-callback-with-object, World constructor callback with object]]
+[feature]
 === *World constructor callback with object*
 
 ****

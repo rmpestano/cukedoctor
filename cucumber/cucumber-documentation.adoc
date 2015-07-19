@@ -1,16 +1,16 @@
 :toc: right
-:backend: html5
-:doctitle: Cucumber Living Documentation
+:backend: pdf
+:doctitle: Living Documentation
 :doctype: book
 :icons: font
 :!numbered:
 :!linkcss:
 :sectanchors:
 :sectlink:
-:docinfo:
+:!docinfo:
 :toclevels: 3
 
-= *Cucumber Living Documentation*
+= *Living Documentation*
 
 == *Summary*
 [cols="12*^m", options="header,footer"]
@@ -988,6 +988,7 @@
 == *Features*
 
 [[After-Hooks, After Hooks]]
+[feature]
 === *After Hooks*
 
 ****
@@ -1183,6 +1184,7 @@ First
 ****
 
 [[Alle-bruker-ikke-UTF-8, Alle bruker ikke UTF-8]]
+[feature]
 === *Alle bruker ikke UTF-8*
 
 ==== Scenario: Dette bør gå bra
@@ -1194,6 +1196,7 @@ skal de andre si "skål" icon:thumbs-up[role="green",title="Passed"] [small righ
 ****
 
 [[Around-hooks, Around hooks]]
+[feature]
 === *Around hooks*
 
 ****
@@ -1557,6 +1560,7 @@ it should pass icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)
 ****
 
 [[Background, Background]]
+[feature]
 === *Background*
 
 ****
@@ -1985,6 +1989,7 @@ Feature: Passing background with multiline args
 ****
 
 [[Before-Hook, Before Hook]]
+[feature]
 === *Before Hook*
 
 ==== Scenario: Examine names of scenario and feature
@@ -2075,6 +2080,7 @@ the output should contain: icon:thumbs-up[role="green",title="Passed"] [small ri
 ****
 
 [[Choosing-the-language-from-the-feature-file-header, Choosing the language from the feature file header]]
+[feature]
 === *Choosing the language from the feature file header*
 
 ****
@@ -2120,6 +2126,7 @@ OH HAI: STUFFING
 ****
 
 [[Cucumber---work-in-progress-switch, Cucumber --work-in-progress switch]]
+[feature]
 === *Cucumber --work-in-progress switch*
 
 ****
@@ -2302,6 +2309,7 @@ features/passing_outline.feature:7:in `Scenario Outline: Passing, Examples (#1)'
 ****
 
 [[Custom-filter, Custom filter]]
+[feature]
 === *Custom filter*
 
 ==== Scenario: Add a custom filter via AfterConfiguration hook
@@ -2342,6 +2350,7 @@ it should pass icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)
 ****
 
 [[Custom-Formatter, Custom Formatter]]
+[feature]
 === *Custom Formatter*
 
 ==== Scenario: Use the new API
@@ -2455,6 +2464,7 @@ I'LL USE MY OWN
 ****
 
 [[Debug-formatter, Debug formatter]]
+[feature]
 === *Debug formatter*
 
 ****
@@ -2513,6 +2523,7 @@ done
 ****
 
 [[Doc-strings, Doc strings]]
+[feature]
 === *Doc strings*
 
 ****
@@ -2615,6 +2626,7 @@ ruby
 ****
 
 [[Dry-Run, Dry Run]]
+[feature]
 === *Dry Run*
 
 ****
@@ -2718,6 +2730,7 @@ Feature: test
 ****
 
 [[ERB-configuration, ERB configuration]]
+[feature]
 === *ERB configuration*
 
 ****
@@ -2787,6 +2800,7 @@ U
 ****
 
 [[Exception-in-After-Block, Exception in After Block]]
+[feature]
 === *Exception in After Block*
 
 ****
@@ -2928,6 +2942,7 @@ cucumber features/naughty_step_in_scenario.feature:3 # Scenario: Naughty Step
 ****
 
 [[Exception-in-AfterStep-Block, Exception in AfterStep Block]]
+[feature]
 === *Exception in AfterStep Block*
 
 ****
@@ -3035,6 +3050,7 @@ cucumber features/naughty_step_in_scenario_outline.feature:9 # Scenario Outline:
 ****
 
 [[Exception-in-Before-Block, Exception in Before Block]]
+[feature]
 === *Exception in Before Block*
 
 ****
@@ -3153,6 +3169,7 @@ cucumber features/naughty_step_in_scenario.feature:3 # Scenario: Run a good step
 ****
 
 [[Exceptions-in-Around-Hooks, Exceptions in Around Hooks]]
+[feature]
 === *Exceptions in Around Hooks*
 
 ****
@@ -3261,6 +3278,7 @@ cucumber features/test.feature:2
 ****
 
 [[Excluding-ruby-and-feature-files-from-runs, Excluding ruby and feature files from runs]]
+[feature]
 === *Excluding ruby and feature files from runs*
 
 ****
@@ -3296,6 +3314,7 @@ And ::
 ****
 
 [[Formatter-API:-Step-file-path-and-line-number-(Issue-#179), Formatter API: Step file path and line number (Issue #179)]]
+[feature]
 === *Formatter API: Step file path and line number (Issue #179)*
 
 ****
@@ -3360,6 +3379,7 @@ step name event: features/f.feature:5
 ****
 
 [[Getting-started, Getting started]]
+[feature]
 === *Getting started*
 
 ****
@@ -3410,6 +3430,7 @@ this will not be shown
 ****
 
 [[Handle-unexpected-response, Handle unexpected response]]
+[feature]
 === *Handle unexpected response*
 
 ****
@@ -3434,6 +3455,7 @@ undefined method `handle_yikes'
 ****
 
 [[Hooks-execute-in-defined-order, Hooks execute in defined order]]
+[feature]
 === *Hooks execute in defined order*
 
 ==== Scenario: Around hooks cover background steps
@@ -3467,6 +3489,7 @@ Event order: around_begin before background_step scenario_step after around_end
 ****
 
 [[HTML-output-formatter, HTML output formatter]]
+[feature]
 === *HTML output formatter*
 
 ==== Scenario: an scenario outline, one undefined step, one random example, expand flag on
@@ -3608,6 +3631,7 @@ makeRed('background_0')
 ****
 
 [[Invoke-message, Invoke message]]
+[feature]
 === *Invoke message*
 
 ****
@@ -3834,6 +3858,7 @@ the wire server should have received the following messages: icon:thumbs-up[role
 ****
 
 [[JSON-output-formatter, JSON output formatter]]
+[feature]
 === *JSON output formatter*
 
 ****
@@ -4578,6 +4603,7 @@ it should pass icon:thumbs-up[role="green",title="Passed"] [small right]#(001ms)
 ****
 
 [[JUnit-output-formatter, JUnit output formatter]]
+[feature]
 === *JUnit output formatter*
 
 ****
@@ -4985,6 +5011,7 @@ features/scenario_outline.feature:4:in `Given this step <type>']]>
 ****
 
 [[Language-help, Language help]]
+[feature]
 === *Language help*
 
 ****
@@ -5039,6 +5066,7 @@ cucumber lists all the supported languages icon:thumbs-up[role="green",title="Pa
 ****
 
 [[List-step-defs-as-json, List step defs as json]]
+[feature]
 === *List step defs as json*
 
 ****
@@ -5115,6 +5143,7 @@ it should pass with JSON: icon:thumbs-up[role="green",title="Passed"] [small rig
 ****
 
 [[Loading-the-steps-users-expect, Loading the steps users expect]]
+[feature]
 === *Loading the steps users expect*
 
 ****
@@ -5158,6 +5187,7 @@ Feature: Feature in Subdirectory
 ****
 
 [[Nested-Steps, Nested Steps]]
+[feature]
 === *Nested Steps*
 
 ==== Scenario: Use #steps to call several steps at once
@@ -5389,6 +5419,7 @@ cucumber features/call_undefined_step_from_step_def.feature:6
 ****
 
 [[Nested-Steps-in-I18n, Nested Steps in I18n]]
+[feature]
 === *Nested Steps in I18n*
 
 ==== Scenario: Use #steps to call several steps at once
@@ -5421,6 +5452,7 @@ turtle!
 ****
 
 [[Nested-Steps-with-either-table-or-doc-string, Nested Steps with either table or doc string]]
+[feature]
 === *Nested Steps with either table or doc string*
 
 ==== Scenario: Use #step with table
@@ -5526,6 +5558,7 @@ math
 ****
 
 [[One-line-step-definitions, One line step definitions]]
+[feature]
 === *One line step definitions*
 
 ****
@@ -5614,6 +5647,7 @@ it should pass icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)
 ****
 
 [[Post-Configuration-Hook-[#423], Post Configuration Hook [#423]]]
+[feature]
 === *Post Configuration Hook [#423]*
 
 ****
@@ -5695,6 +5729,7 @@ AfterConfiguration hook read feature directories: features
 ****
 
 [[Pretty-formatter---Printing-messages, Pretty formatter - Printing messages]]
+[feature]
 === *Pretty formatter - Printing messages*
 
 ****
@@ -5790,6 +5825,7 @@ Line: 2: anno2
 ****
 
 [[Pretty-output-formatter, Pretty output formatter]]
+[feature]
 === *Pretty output formatter*
 
 ==== Scenario: an scenario outline, one undefined step, one random example, expand flag on
@@ -5881,6 +5917,7 @@ cucumber features/test.feature:2
 ****
 
 [[Profiles, Profiles]]
+[feature]
 === *Profiles*
 
 ****
@@ -6074,6 +6111,7 @@ cucumber -p super features/sample.feature:2
 ****
 
 [[Progress-output-formatter, Progress output formatter]]
+[feature]
 === *Progress output formatter*
 
 ==== Scenario: an scenario outline, one undefined step, one random example, expand flag on
@@ -6107,6 +6145,7 @@ Using the default profile...
 ****
 
 [[Rake-task, Rake task]]
+[feature]
 === *Rake task*
 
 ****
@@ -6310,6 +6349,7 @@ Feature: The futures green
 ****
 
 [[Raketask, Raketask]]
+[feature]
 === *Raketask*
 
 ****
@@ -6343,6 +6383,7 @@ the output should not contain "rake aborted!" icon:thumbs-up[role="green",title=
 ****
 
 [[Randomize, Randomize]]
+[feature]
 === *Randomize*
 
 ****
@@ -6382,6 +6423,7 @@ Randomized with seed 41515
 ****
 
 [[Requiring-extra-step-files, Requiring extra step files]]
+[feature]
 === *Requiring extra step files*
 
 ****
@@ -6423,6 +6465,7 @@ Feature: Sample
 ****
 
 [[Rerun-formatter, Rerun formatter]]
+[feature]
 === *Rerun formatter*
 
 ****
@@ -6669,6 +6712,7 @@ features/one_passing_one_failing.feature:9
 ****
 
 [[Run-Cli::Main-with-existing-Runtime, Run Cli::Main with existing Runtime]]
+[feature]
 === *Run Cli::Main with existing Runtime*
 
 ****
@@ -6716,6 +6760,7 @@ Given this step passes
 ****
 
 [[Run-feature-elements-matching-a-name-with---name/-n, Run feature elements matching a name with --name/-n]]
+[feature]
 === *Run feature elements matching a name with --name/-n*
 
 ****
@@ -6819,6 +6864,7 @@ Feature: outline
 ****
 
 [[Run-specific-scenarios, Run specific scenarios]]
+[feature]
 === *Run specific scenarios*
 
 ****
@@ -6926,6 +6972,7 @@ F.
 ****
 
 [[Running-multiple-formatters, Running multiple formatters]]
+[feature]
 === *Running multiple formatters*
 
 ****
@@ -7011,6 +7058,7 @@ All but one formatter must use --out, only one can print to each stream (or STDO
 ****
 
 [[Scenario-outlines, Scenario outlines]]
+[feature]
 === *Scenario outlines*
 
 ****
@@ -7177,6 +7225,7 @@ cucumber features/outline_sample.feature:12
 ****
 
 [[Scenario-outlines---expand-option, Scenario outlines --expand option]]
+[feature]
 === *Scenario outlines --expand option*
 
 ****
@@ -7236,6 +7285,7 @@ Feature:
 ****
 
 [[Set-up-a-default-load-path, Set up a default load path]]
+[feature]
 === *Set up a default load path*
 
 ****
@@ -7267,6 +7317,7 @@ it should pass icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)
 ****
 
 [[Showing-differences-to-expected-output, Showing differences to expected output]]
+[feature]
 === *Showing differences to expected output*
 
 ****
@@ -7326,6 +7377,7 @@ cucumber features/failing_expectation.feature:3
 ****
 
 [[Skip-Scenario, Skip Scenario]]
+[feature]
 === *Skip Scenario*
 
 ==== Scenario: With a passing step
@@ -7413,6 +7465,7 @@ Feature: test
 ****
 
 [[Snippets, Snippets]]
+[feature]
 === *Snippets*
 
 ****
@@ -7491,6 +7544,7 @@ end
 ****
 
 [[Snippets-message, Snippets message]]
+[feature]
 === *Snippets message*
 
 ****
@@ -7537,6 +7591,7 @@ baz
 ****
 
 [[State, State]]
+[feature]
 === *State*
 
 ****
@@ -7581,6 +7636,7 @@ it should pass icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)
 ****
 
 [[Step-matches-message, Step matches message]]
+[feature]
 === *Step matches message*
 
 ****
@@ -7670,6 +7726,7 @@ the stderr should not contain anything icon:thumbs-up[role="green",title="Passed
 ****
 
 [[Strict-mode, Strict mode]]
+[feature]
 === *Strict mode*
 
 ****
@@ -7744,6 +7801,7 @@ Feature: Missing
 ****
 
 [[Table-diffing, Table diffing]]
+[feature]
 === *Table diffing*
 
 ****
@@ -7810,6 +7868,7 @@ cucumber features/tables.feature:2 # Scenario: Extra row
 ****
 
 [[Tag-logic, Tag logic]]
+[feature]
 === *Tag logic*
 
 ****
@@ -7949,6 +8008,7 @@ it should pass icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)
 ****
 
 [[Tagged-hooks, Tagged hooks]]
+[feature]
 === *Tagged hooks*
 
 ==== Scenario: omit tagged hook
@@ -8030,6 +8090,7 @@ cucumber features/f.feature:14 # Scenario Outline: omitting hook on specified ex
 ****
 
 [[Transforms, Transforms]]
+[feature]
 === *Transforms*
 
 ****
@@ -8088,6 +8149,7 @@ it should pass icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)
 ****
 
 [[Unicode-in-tables, Unicode in tables]]
+[feature]
 === *Unicode in tables*
 
 ****
@@ -8132,6 +8194,7 @@ Feature: Featuring unicode
 ****
 
 [[Usage-formatter, Usage formatter]]
+[feature]
 === *Usage formatter*
 
 ****
@@ -8225,6 +8288,7 @@ it should pass with exactly: icon:thumbs-up[role="green",title="Passed"] [small 
 ****
 
 [[Using-descriptions-to-give-features-context, Using descriptions to give features context]]
+[feature]
 === *Using descriptions to give features context*
 
 ****
@@ -8323,6 +8387,7 @@ Feature: descriptions everywhere
 ****
 
 [[Using-star-notation-instead-of-Given/When/Then, Using star notation instead of Given/When/Then]]
+[feature]
 === *Using star notation instead of Given/When/Then*
 
 ****
@@ -8377,6 +8442,7 @@ end
 ****
 
 [[Wire-protocol-table-diffing, Wire protocol table diffing]]
+[feature]
 === *Wire protocol table diffing*
 
 ****
@@ -8502,6 +8568,7 @@ cucumber features/wired.feature:2 # Scenario: Wired
 ****
 
 [[Wire-protocol-tags, Wire protocol tags]]
+[feature]
 === *Wire protocol tags*
 
 ****
@@ -8600,6 +8667,7 @@ Feature: Wired
 ****
 
 [[Wire-protocol-timeouts, Wire protocol timeouts]]
+[feature]
 === *Wire protocol timeouts*
 
 ****
