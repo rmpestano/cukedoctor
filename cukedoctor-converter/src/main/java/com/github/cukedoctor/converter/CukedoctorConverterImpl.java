@@ -210,6 +210,7 @@ public class CukedoctorConverterImpl implements CukedoctorConverter {
 			return this;
 		}
 		writer.write(renderFeatureSectionId(feature), newLine());
+		writer.write("[feature]",newLine());
 		writer.write(H3(bold(feature.getName())), newLine(), newLine());
 		if (hasText(feature.getDescription())) {
 			writer.write("****", newLine()).
@@ -247,6 +248,7 @@ public class CukedoctorConverterImpl implements CukedoctorConverter {
 
 			if (scenario.hasExamples()) {
 				renderScenarioExamples(scenario);
+				continue;
 			}
 
 			if (scenario.hasSteps()) {

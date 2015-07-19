@@ -9,6 +9,7 @@ import com.github.cukedoctor.api.model.Feature;
 import com.github.cukedoctor.parser.FeatureParser;
 import com.github.cukedoctor.util.FileUtil;
 import org.asciidoctor.*;
+import org.asciidoctor.extension.JavaExtensionRegistry;
 
 import java.io.File;
 import java.util.List;
@@ -140,8 +141,11 @@ public class CukedoctorMain {
 		}
 		CukedoctorConverter converter = Cukedoctor.instance(features, attrs);
 		String doc = converter.renderDocumentation();
-		File adocFile = FileUtil.saveFile(outputName,doc);
+		File adocFile = FileUtil.saveFile(outputName, doc);
 		Asciidoctor asciidoctor = Asciidoctor.Factory.create();
+		/*JavaExtensionRegistry extensionRegistry = asciidoctor.javaExtensionRegistry();
+
+		extensionRegistry.block("feature", FeatureMinimizerExtension.class);*/
 		asciidoctor.convertFile(adocFile, OptionsBuilder.options().backend(attrs.getBackend()).safe(SafeMode.UNSAFE).asMap());
 		asciidoctor.shutdown();
 		return doc;

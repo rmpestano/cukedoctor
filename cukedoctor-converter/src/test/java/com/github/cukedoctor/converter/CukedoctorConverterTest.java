@@ -299,6 +299,7 @@ public class CukedoctorConverterTest {
 		doReturn(cukedoctorConverter).when(cukedoctorConverter).renderFeatureScenarios(feature);
 		String resultDoc = cukedoctorConverter.renderFeature(feature).getDocumentation().toString();
 		assertThat(resultDoc).isEqualTo("[[Feature-name, Feature name]]" + newLine() +
+				"[feature]"+newLine()+
 				"=== *Feature name*" + newLine() +
 				"" + newLine() +
 				"****" + newLine() +
@@ -538,6 +539,7 @@ public class CukedoctorConverterTest {
 		assertThat(resultDoc).
 				doesNotContain("feature to skip").
 				isEqualTo("[[Feature-name, Feature name]]" + newLine() +
+						"[feature]"+newLine()+
 						"=== *Feature name*" + newLine() +
 						"" + newLine() +
 						"****" + newLine() +
@@ -691,6 +693,7 @@ public class CukedoctorConverterTest {
 				"== *Features*"+newLine() +
 				""+newLine() +
 				"[[Search, Search]]"+newLine() +
+				"[feature]"+newLine() +
 				"=== *Search*"+newLine() +
 				""+newLine() +
 				"==== Cenario: Find messages by content"+newLine() +
@@ -878,12 +881,10 @@ public class CukedoctorConverterTest {
 		List<Feature> features = FeatureParser.parse(onePassingOneFailing);
 
 		CukedoctorConverter converter = Cukedoctor.instance(features, new DocumentAttributes());
-		converter.setFilename("target/living documentation.adoc");
+		converter.setFilename("target/generated-test-sources/living documentation.adoc");
 
 		converter.saveDocumentation();
-		assertThat(FileUtil.loadFile("target/living_documentation.adoc")).exists();
-		assertTrue(FileUtil.removeFile("target/living_documentation.adoc"));
+		assertThat(FileUtil.loadFile("target/generated-test-sources/living_documentation.adoc")).exists();
 	}
-
 
 }

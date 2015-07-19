@@ -60,6 +60,7 @@ Feature: Cukedoctor Main
 == *Features*
 
 [[One-passing-scenario-one-failing-scenario, One passing scenario, one failing scenario]]
+[feature]
 === *One passing scenario, one failing scenario*
 
 ==== Scenario: Passing
@@ -187,6 +188,7 @@ features/one_passing_one_failing.feature:10:in Given this step fails'
 == *Features*
 
 [[An-embed-data-directly-feature, An embed data directly feature]]
+[feature]
 === *An embed data directly feature*
 
 ==== Scenario: scenario 1
@@ -207,6 +209,7 @@ I embed data directly icon:thumbs-up[role="green",title="Passed"] [small right]#
 ****
 
 [[An-outline-feature, An outline feature]]
+[feature]
 === *An outline feature*
 
 ==== Scenario Outline: outline
@@ -226,12 +229,8 @@ I embed data directly icon:thumbs-up[role="green",title="Passed"] [small right]#
 |passes
 |===
 
-****
-Given ::
-this step <status> icon:thumbs-down[role="blue",title="Missing"]
-****
-
 [[One-passing-scenario-one-failing-scenario, One passing scenario, one failing scenario]]
+[feature]
 === *One passing scenario, one failing scenario*
 
 ==== Scenario: Passing
@@ -255,6 +254,7 @@ features/one_passing_one_failing.feature:10:in Given this step fails'
 ****
 
 [[Sample-test, Sample test]]
+[feature]
 === *Sample test*
 
 ****
@@ -273,13 +273,6 @@ In order to achieve another thing
 |1
 |2
 |===
-
-****
-Given ::
-I navigate to the home page icon:thumbs-down[role="blue",title="Missing"]
-Then ::
-I see the text 'Home' icon:thumbs-down[role="blue",title="Missing"]
-****
 
 ==== Scenario: Basic
 ****

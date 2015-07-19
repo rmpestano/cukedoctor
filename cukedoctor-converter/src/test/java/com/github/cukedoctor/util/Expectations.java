@@ -159,6 +159,7 @@ public interface Expectations {
 			"== *Features*"+newLine() +
 			""+newLine() +
 			"[[One-passing-scenario-one-failing-scenario, One passing scenario, one failing scenario]]" +newLine() +
+			"[feature]" +newLine() +
 			"=== *One passing scenario, one failing scenario*"+newLine() +
 			""+newLine() +
 			"==== Scenario: Passing"+newLine() +
@@ -259,7 +260,8 @@ public interface Expectations {
 			""+newLine() +
 			"== *Features*"+newLine() +
 			""+newLine() +
-			"[[An-embed-data-directly-feature, An embed data directly feature]]" + newLine() +
+			"[[An-embed-data-directly-feature, An embed data directly feature]]"+newLine() +
+			"[feature]"+newLine() +
 			"=== *An embed data directly feature*"+newLine() +
 			""+newLine() +
 			"==== Scenario: scenario 1"+newLine() +
@@ -279,7 +281,8 @@ public interface Expectations {
 			"I embed data directly icon:thumbs-up[role=\"green\",title=\"Passed\"] [small right]#(000ms)#"+newLine() +
 			"****"+newLine() +
 			""+newLine() +
-			"[[An-outline-feature, An outline feature]]" + newLine() +
+			"[[An-outline-feature, An outline feature]]"+newLine() +
+			"[feature]"+newLine() +
 			"=== *An outline feature*"+newLine() +
 			""+newLine() +
 			"==== Scenario Outline: outline"+newLine() +
@@ -298,13 +301,9 @@ public interface Expectations {
 			"|status"+newLine() +
 			"|passes"+newLine() +
 			"|==="+newLine() +
-			""+newLine()+
-			"****"+newLine() +
-			"Given ::"+newLine() +
-			"this step <status> icon:thumbs-down[role=\"blue\",title=\"Missing\"]"+newLine() +
-			"****"+newLine() +
 			""+newLine() +
-			"[[One-passing-scenario-one-failing-scenario, One passing scenario, one failing scenario]]"+newLine()+
+			"[[One-passing-scenario-one-failing-scenario, One passing scenario, one failing scenario]]"+newLine() +
+			"[feature]"+newLine() +
 			"=== *One passing scenario, one failing scenario*"+newLine() +
 			""+newLine() +
 			"==== Scenario: Passing"+newLine() +
@@ -320,9 +319,11 @@ public interface Expectations {
 			""+newLine() +
 			"****"+newLine() +
 			"Given ::"+newLine() +
-			"this step fails icon:thumbs-down[role=\"red\",title=\"Failed\"] [small right]#(008ms)#"+newLine() + newLine()+
-			"IMPORTANT:  (RuntimeError)" + "\n"  +
-			"./features/step_definitions/steps.rb:4:in /^this step fails$/'" + "\n"  +
-			"features/one_passing_one_failing.feature:10:in Given this step fails'" + newLine()  +
-			"****"+newLine()+newLine();
+			"this step fails icon:thumbs-down[role=\"red\",title=\"Failed\"] [small right]#(008ms)#"+newLine() +
+			""+newLine() +
+			"IMPORTANT:  (RuntimeError)"+newLine() +
+			"./features/step_definitions/steps.rb:4:in /^this step fails$/'"+newLine() +
+			"features/one_passing_one_failing.feature:10:in Given this step fails'"+newLine() +
+			"****"+newLine() +
+			""+newLine() ;
 }

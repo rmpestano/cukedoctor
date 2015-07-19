@@ -1,20 +1,2 @@
-.orange {
-color:orange;
-}
 
-a.view-result {
-  float: right;
-  font-weight: normal;
-  text-decoration: none;
-  font-size: 0.9em;
-  line-height: 1.4;
-  margin-top: 0.15em;
-}
-
-.stacked {
-  margin-bottom: 0;
-  pre {
-    border-bottom: 0;
-  }
-}
 
