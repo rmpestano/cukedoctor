@@ -18,7 +18,8 @@
                     <format>all</format>
                     <toc>left</toc>
                     <numbered>true</numbered>
-                    <minimizable>false</minimizable>
+                    <minimizable>true</minimizable>
+                    <searchable>true</searchable>
                 </configuration>
             </plugin>
         </plugins>

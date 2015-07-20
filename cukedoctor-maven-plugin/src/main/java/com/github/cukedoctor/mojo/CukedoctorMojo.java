@@ -67,6 +67,9 @@ public class CukedoctorMojo extends AbstractMojo {
 	@Parameter(defaultValue = "true", required = false)
 	boolean minimizable;
 
+	@Parameter(defaultValue = "true", required = false)
+	boolean searchable;
+
 	@Component
 	MavenProject project;
 
@@ -85,9 +88,9 @@ public class CukedoctorMojo extends AbstractMojo {
 		DocumentAttributes documentAttributes = new DocumentAttributes().
 				backend(format.name().toLowerCase()).
 				toc(toc.name().toLowerCase()).
-				numbered(numbered).minimizableFeature(minimizable);
+				numbered(numbered).minimizable(minimizable).searchable(searchable);
 		if (format.equals(Format.pdf)) {
-			documentAttributes.pdfTheme(true).minimizableFeature(false).docInfo(false);
+			documentAttributes.pdfTheme(true).minimizable(false).docInfo(false);
 		} else {
 			documentAttributes.docInfo(true).pdfTheme(false);
 		}

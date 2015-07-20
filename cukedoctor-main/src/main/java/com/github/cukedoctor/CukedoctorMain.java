@@ -9,7 +9,6 @@ import com.github.cukedoctor.api.model.Feature;
 import com.github.cukedoctor.parser.FeatureParser;
 import com.github.cukedoctor.util.FileUtil;
 import org.asciidoctor.*;
-import org.asciidoctor.extension.JavaExtensionRegistry;
 
 import java.io.File;
 import java.util.List;
@@ -42,6 +41,9 @@ public class CukedoctorMain {
 
 	@Parameter(names = "-minimizable", description = "Turn features div minimizable", required = false)
 	private Boolean minimizable;
+
+	@Parameter(names = "-searchable", description = "Add input to search features by title", required = false)
+	private Boolean searchable;
 
 
 	public String execute(String args[]) {
@@ -87,6 +89,10 @@ public class CukedoctorMain {
 			minimizable = Boolean.TRUE;
 		}
 
+		if(searchable == null){
+			searchable = Boolean.TRUE;
+		}
+
 		System.out.println("Generating living documentation with args:");
 
 		System.out.println("-f" + ": " + format);
@@ -111,11 +117,12 @@ public class CukedoctorMain {
 		DocumentAttributes documentAttributes = new DocumentAttributes().
 				backend(format).
 				toc(toc).
-				minimizableFeature(minimizable).
+				minimizable(minimizable).
+				searchable(searchable).
 				numbered(numbered);
 
 		if(format.equalsIgnoreCase("pdf")){
-			documentAttributes.pdfTheme(true).minimizableFeature(false).docInfo(false);
+			documentAttributes.pdfTheme(true).minimizable(false).docInfo(false);
 		}else {
 			documentAttributes.docInfo(true).pdfTheme(false);
 		}

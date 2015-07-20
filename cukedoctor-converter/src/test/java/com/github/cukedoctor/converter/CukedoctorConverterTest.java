@@ -640,7 +640,7 @@ public class CukedoctorConverterTest {
 	@Test
 	public void shouldRenderFeatureWithTableInSteps(){
 		List<Feature> features = FeatureParser.parse(featureWithTableInStep);
-		CukedoctorConverter converter = Cukedoctor.instance(features, new DocumentAttributes().docTitle("Doc Title"));
+		CukedoctorConverter converter = Cukedoctor.instance(features, new DocumentAttributes().docTitle("Doc Title").searchable(false));
 
 		String resultDoc = converter.renderStepTable(features.get(0).getScenarios().get(0).getSteps().get(0)).renderDocumentation();
 		assertThat(resultDoc).isEqualTo(Expectations.FEATURE_WITH_STEP_TABLE);
@@ -734,7 +734,7 @@ public class CukedoctorConverterTest {
 		DocumentAttributes attrs = new DocumentAttributes();
 		attrs.toc("left").backend("html5")
 				.docType("book").docTitle("Living Documentation")
-				.icons("font").numbered(false)
+				.icons("font").numbered(false).searchable(false)
 				.sectAnchors(true).sectLink(true);
 
 		CukedoctorConverter converter = Cukedoctor.instance(features, attrs);
@@ -761,7 +761,7 @@ public class CukedoctorConverterTest {
 		DocumentAttributes attrs = new DocumentAttributes();
 		attrs.toc("left").backend("html5")
 				.docType("book").docTitle("Living Documentation")
-				.icons("font").numbered(false)
+				.icons("font").numbered(false).searchable(false)
 				.sectAnchors(true).sectLink(true);
 
 		CukedoctorConverter converter = Cukedoctor.instance(features, attrs);

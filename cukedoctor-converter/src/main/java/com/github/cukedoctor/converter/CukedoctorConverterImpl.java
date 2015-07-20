@@ -53,6 +53,9 @@ public class CukedoctorConverterImpl implements CukedoctorConverter {
 		renderAttributes();
 		writer.write(newLine());
 		writer.write(H1(bold(getDocumentationTitle())), newLine(), newLine());
+		if(documentAttributes.isSearchable()){
+			addSearchInput();
+		}
 		renderSummary();
 		writer.write(newLine(), newLine());
 		writer.write(H2(bold("Features")), newLine(), newLine());
@@ -64,6 +67,13 @@ public class CukedoctorConverterImpl implements CukedoctorConverter {
 		return writer.getCurrentDoc().toString();
 	}
 
+	private void addSearchInput() {
+		writer.write("++++",newLine());
+		writer.write("<span style=\"float:right\">\n" +
+        "\t<input value=\"Filter by feature title...\" onclick=\"this.value=''\" onblur=\"searchFeature(this.value);\"/>\n" +
+        "</span>\t",newLine());
+		writer.write("++++",newLine());
+	}
 
 	public String getDocumentationTitle() {
 		if(documentAttributes != null && hasText(documentAttributes.getDocTitle())){
@@ -214,7 +224,7 @@ public class CukedoctorConverterImpl implements CukedoctorConverter {
 		}
 		writer.write(renderFeatureSectionId(feature), newLine());
 		writer.write(H3(bold(feature.getName())), newLine(),newLine());
-		if(notNull(documentAttributes) && documentAttributes.isMinimizableFeature()){
+		if(notNull(documentAttributes) && documentAttributes.isMinimizable()){
 			renderMinimizable(feature);
 		}
 
@@ -413,7 +423,7 @@ public class CukedoctorConverterImpl implements CukedoctorConverter {
 	}
 
 	private void generateScripts() {
-		if(documentAttributes != null && documentAttributes.isMinimizableFeature()) {
+		if(documentAttributes != null && documentAttributes.isMinimizable()) {
 			writer.write(newLine(), "++++", newLine()).
 					write("<script type=\"text/javascript\">" + newLine() +
 							"\tfunction showFeatureScenarios(featureId){" + newLine() +
@@ -444,6 +454,44 @@ public class CukedoctorConverterImpl implements CukedoctorConverter {
 							"</script>").
 					write(newLine(), "++++");
 		}
+
+		if(documentAttributes != null && documentAttributes.isSearchable()) {
+			writer.write(newLine(), "++++", newLine()).
+					write("<script type=\"text/javascript\">" + newLine()).
+								write("function searchFeature(criteria){\n" +
+										" \t\tif(criteria != null && criteria.length >=3){\n" +
+										" \t\t\tvar sect2List = document.getElementsByClassName(\"sect2\");\n" +
+										" \t\t\tif(sect2List != null){\n" +
+										" \t\t\t\tfor (var i = 0; i < sect2List.length; i++) {\n" +
+										" \t\t\t\t\tvar h3 = null;\n" +
+										" \t\t\t\t\tfor (var j = 0; j < sect2List[i].childNodes.length; j++) {\n" +
+										" \t\t\t\t\t\t\tif(sect2List[i].childNodes[j].tagName == \"H3\"){\n" +
+										" \t\t\t\t\t\t\t\th3 = sect2List[i].childNodes[j];\n" +
+										" \t\t\t\t\t\t\t\tbreak;\n" +
+										" \t\t\t\t\t\t\t}\n" +
+										" \t\t\t\t\t}\n" +
+										" \t\t\t\t\tif(h3 != null && h3.id != null){\n" +
+										" \t\t\t\t\t\tif(!h3.id.match(criteria)){\n" +
+										" \t\t\t\t\t\t\tsect2List[i].style.display = 'none';\t\n" +
+										" \t\t\t\t\t\t} else{\n" +
+										" \t\t\t\t\t\t\tsect2List[i].style.display = 'inline';\t\n" +
+										" \t\t\t\t\t\t} \t\t\t\t\t\t\n" +
+										" \t\t\t\t\t  }\n" +
+										" \t\t\t\t\t}//end for\n" +
+										" \t\t\t\t\t\n" +
+										" \t\t\t\t}//sect2List != null\n" +
+										" \t\t}//end criteria.length >=3\n" +
+										" \t\telse {//clear search\n" +
+										"\t\t\tvar sect2List = document.getElementsByClassName(\"sect2\");\n" +
+										" \t\t\tif(sect2List != null){\n" +
+										" \t\t\t\tfor (var i = 0; i < sect2List.length; i++) {\n" +
+										" \t\t\t\t\t sect2List[i].style.display = 'inline';\t\n" +
+										" \t\t\t\t}//end for\n" +
+										" \t\t\t}//end elements != null \n" +
+										" \t\t}\t\n" +
+										" \t}", newLine(), "</script>",newLine(), "++++");
+		}
+
 	}
 
 }

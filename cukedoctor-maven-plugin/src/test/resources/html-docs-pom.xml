@@ -19,6 +19,7 @@
                     <toc>left</toc>
                     <numbered>true</numbered>
                     <minimizable>true</minimizable>
+                    <searchable>true</searchable>
                 </configuration>
             </plugin>
         </plugins>

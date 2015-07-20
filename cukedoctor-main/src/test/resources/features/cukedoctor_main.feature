@@ -22,6 +22,11 @@ Feature: Cukedoctor Main
 
 = *Documentation*
 
+++++
+<span style="float:right">
+	<input value="Filter by feature title..." onclick="this.value=''" onblur="searchFeature(this.value);"/>
+</span>
+++++
 == *Summary*
 [cols="12*^m", options="header,footer"]
 |===
@@ -117,6 +122,42 @@ features/one_passing_one_failing.feature:10:in Given this step fails'
 
 </script>
 ++++
+++++
+<script type="text/javascript">
+function searchFeature(criteria){
+ 		if(criteria != null && criteria.length >=3){
+ 			var sect2List = document.getElementsByClassName("sect2");
+ 			if(sect2List != null){
+ 				for (var i = 0; i < sect2List.length; i++) {
+ 					var h3 = null;
+ 					for (var j = 0; j < sect2List[i].childNodes.length; j++) {
+ 							if(sect2List[i].childNodes[j].tagName == "H3"){
+ 								h3 = sect2List[i].childNodes[j];
+ 								break;
+ 							}
+ 					}
+ 					if(h3 != null && h3.id != null){
+ 						if(!h3.id.match(criteria)){
+ 							sect2List[i].style.display = 'none';
+ 						} else{
+ 							sect2List[i].style.display = 'inline';
+ 						}
+ 					  }
+ 					}//end for
+
+ 				}//sect2List != null
+ 		}//end criteria.length >=3
+ 		else {//clear search
+			var sect2List = document.getElementsByClassName("sect2");
+ 			if(sect2List != null){
+ 				for (var i = 0; i < sect2List.length; i++) {
+ 					 sect2List[i].style.display = 'inline';
+ 				}//end for
+ 			}//end elements != null
+ 		}
+ 	}
+</script>
+++++
     """
 
 
@@ -141,6 +182,11 @@ features/one_passing_one_failing.feature:10:in Given this step fails'
 
 = *Documentation*
 
+++++
+<span style="float:right">
+	<input value="Filter by feature title..." onclick="this.value=''" onblur="searchFeature(this.value);"/>
+</span>
+++++
 == *Summary*
 [cols="12*^m", options="header,footer"]
 |===
@@ -371,6 +417,42 @@ features/test_outline.feature:15:in `Then I see the text 'Hacienda''
 	   document.getElementById(featureId).childNodes[0].click();
  	}
 
+</script>
+++++
+++++
+<script type="text/javascript">
+function searchFeature(criteria){
+ 		if(criteria != null && criteria.length >=3){
+ 			var sect2List = document.getElementsByClassName("sect2");
+ 			if(sect2List != null){
+ 				for (var i = 0; i < sect2List.length; i++) {
+ 					var h3 = null;
+ 					for (var j = 0; j < sect2List[i].childNodes.length; j++) {
+ 							if(sect2List[i].childNodes[j].tagName == "H3"){
+ 								h3 = sect2List[i].childNodes[j];
+ 								break;
+ 							}
+ 					}
+ 					if(h3 != null && h3.id != null){
+ 						if(!h3.id.match(criteria)){
+ 							sect2List[i].style.display = 'none';
+ 						} else{
+ 							sect2List[i].style.display = 'inline';
+ 						}
+ 					  }
+ 					}//end for
+
+ 				}//sect2List != null
+ 		}//end criteria.length >=3
+ 		else {//clear search
+			var sect2List = document.getElementsByClassName("sect2");
+ 			if(sect2List != null){
+ 				for (var i = 0; i < sect2List.length; i++) {
+ 					 sect2List[i].style.display = 'inline';
+ 				}//end for
+ 			}//end elements != null
+ 		}
+ 	}
 </script>
 ++++
       """

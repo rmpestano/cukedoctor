@@ -17,6 +17,7 @@
                     <format>pdf</format>
                     <toc>right</toc>
                     <minimizable>false</minimizable>
+                    <searchable>false</searchable>
                 </configuration>
             </plugin>
         </plugins>
