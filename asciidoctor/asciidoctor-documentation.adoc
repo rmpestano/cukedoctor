@@ -92,9 +92,13 @@
 == *Features*
 
 [[Cross-References, Cross References]]
-[feature]
 === *Cross References*
 
+++++
+<span class="fa fa-minus-square fa-fw" style="cursor:pointer;float:right;margin-top:-30px" title="minimize" onclick="hideFeatureScenarios('Cross-References');document.getElementById('hidden-Cross-References').style.display = 'inline';this.style.display = 'none'">  </span>
+
+<span id="hidden-Cross-References" class="fa fa-plus-square fa-fw" style="cursor:pointer;float:right;display:none;margin-top:-30px" title="maximize feature" onclick="showFeatureScenarios('Cross-References'); this.style.display = 'none'">  </span>
+++++
 ****
 In order to create links to other sections +
 As a writer +
@@ -245,9 +249,13 @@ the result should match the HTML structure icon:thumbs-up[role="green",title="Pa
 ****
 
 [[Open-Blocks, Open Blocks]]
-[feature]
 === *Open Blocks*
 
+++++
+<span class="fa fa-minus-square fa-fw" style="cursor:pointer;float:right;margin-top:-30px" title="minimize" onclick="hideFeatureScenarios('Open-Blocks');document.getElementById('hidden-Open-Blocks').style.display = 'inline';this.style.display = 'none'">  </span>
+
+<span id="hidden-Open-Blocks" class="fa fa-plus-square fa-fw" style="cursor:pointer;float:right;display:none;margin-top:-30px" title="maximize feature" onclick="showFeatureScenarios('Open-Blocks'); this.style.display = 'none'">  </span>
+++++
 ****
 In order to group content in a generic container +
 As a writer +
@@ -382,9 +390,13 @@ the result should match the HTML structure icon:thumbs-up[role="green",title="Pa
 ****
 
 [[Open-Blocks, Open Blocks]]
-[feature]
 === *Open Blocks*
 
+++++
+<span class="fa fa-minus-square fa-fw" style="cursor:pointer;float:right;margin-top:-30px" title="minimize" onclick="hideFeatureScenarios('Open-Blocks');document.getElementById('hidden-Open-Blocks').style.display = 'inline';this.style.display = 'none'">  </span>
+
+<span id="hidden-Open-Blocks" class="fa fa-plus-square fa-fw" style="cursor:pointer;float:right;display:none;margin-top:-30px" title="maximize feature" onclick="showFeatureScenarios('Open-Blocks'); this.style.display = 'none'">  </span>
+++++
 ****
 In order to pass content through unprocessed +
 As a writer +
@@ -477,9 +489,13 @@ the result should match the HTML source icon:thumbs-up[role="green",title="Passe
 ****
 
 [[Text-Formatting, Text Formatting]]
-[feature]
 === *Text Formatting*
 
+++++
+<span class="fa fa-minus-square fa-fw" style="cursor:pointer;float:right;margin-top:-30px" title="minimize" onclick="hideFeatureScenarios('Text-Formatting');document.getElementById('hidden-Text-Formatting').style.display = 'inline';this.style.display = 'none'">  </span>
+
+<span id="hidden-Text-Formatting" class="fa fa-plus-square fa-fw" style="cursor:pointer;float:right;display:none;margin-top:-30px" title="maximize feature" onclick="showFeatureScenarios('Text-Formatting'); this.style.display = 'none'">  </span>
+++++
 ****
 In order to apply formatting to the text +
 As a writer +
@@ -560,3 +576,33 @@ the result should match the HTML source icon:thumbs-up[role="green",title="Passe
 ----
 ****
 
+
+++++
+<script type="text/javascript">
+	function showFeatureScenarios(featureId){
+		var element = document.getElementById(featureId).parentNode;
+		for (var i = 0; i < element.childNodes.length; i++) {
+    		if (element.childNodes[i].className == "sect3" || element.childNodes[i].className == "fa fa-minus-square fa-fw") {
+      		     element.childNodes[i].style.display = 'inline';
+    			}
+    		if (element.childNodes[i].className == "sidebarblock") {
+      		     element.childNodes[i].style.display = 'block';
+    			}			        
+		}
+		 
+ 		document.getElementById(featureId).childNodes[0].click();
+	}
+
+	function hideFeatureScenarios(featureId){
+		var element = document.getElementById(featureId).parentNode;
+		for (var i = 0; i < element.childNodes.length; i++) {
+    		if (element.childNodes[i].className == "sect3" || element.childNodes[i].className == "sidebarblock") { 
+      		     element.childNodes[i].style.display = 'none';	   		    
+                 	}
+		      
+		}
+	   document.getElementById(featureId).childNodes[0].click();
+ 	}
+
+</script>
+++++

@@ -591,6 +591,9 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="sectionbody">
 <div class="sect2">
 <h3 id="Cross-References"><a class="anchor" href="#Cross-References"></a><strong>Cross References</strong></h3>
+<span class="fa fa-minus-square fa-fw" style="cursor:pointer;float:right;margin-top:-30px" title="minimize" onclick="hideFeatureScenarios('Cross-References');document.getElementById('hidden-Cross-References').style.display = 'inline';this.style.display = 'none'">  </span>
+
+<span id="hidden-Cross-References" class="fa fa-plus-square fa-fw" style="cursor:pointer;float:right;display:none;margin-top:-30px" title="maximize feature" onclick="showFeatureScenarios('Cross-References'); this.style.display = 'none'">  </span>
 <div class="sidebarblock">
 <div class="content">
 <div class="paragraph">
@@ -814,6 +817,9 @@ refer to &lt;&lt;Section *One*&gt;&gt;</pre>
 </div>
 <div class="sect2">
 <h3 id="Open-Blocks"><a class="anchor" href="#Open-Blocks"></a><strong>Open Blocks</strong></h3>
+<span class="fa fa-minus-square fa-fw" style="cursor:pointer;float:right;margin-top:-30px" title="minimize" onclick="hideFeatureScenarios('Open-Blocks');document.getElementById('hidden-Open-Blocks').style.display = 'inline';this.style.display = 'none'">  </span>
+
+<span id="hidden-Open-Blocks" class="fa fa-plus-square fa-fw" style="cursor:pointer;float:right;display:none;margin-top:-30px" title="maximize feature" onclick="showFeatureScenarios('Open-Blocks'); this.style.display = 'none'">  </span>
 <div class="sidebarblock">
 <div class="content">
 <div class="paragraph">
@@ -1038,6 +1044,9 @@ A paragraph in an open block.
 </div>
 <div class="sect2">
 <h3 id="Open-Blocks"><a class="anchor" href="#Open-Blocks"></a><strong>Open Blocks</strong></h3>
+<span class="fa fa-minus-square fa-fw" style="cursor:pointer;float:right;margin-top:-30px" title="minimize" onclick="hideFeatureScenarios('Open-Blocks');document.getElementById('hidden-Open-Blocks').style.display = 'inline';this.style.display = 'none'">  </span>
+
+<span id="hidden-Open-Blocks" class="fa fa-plus-square fa-fw" style="cursor:pointer;float:right;display:none;margin-top:-30px" title="maximize feature" onclick="showFeatureScenarios('Open-Blocks'); this.style.display = 'none'">  </span>
 <div class="sidebarblock">
 <div class="content">
 <div class="paragraph">
@@ -1186,6 +1195,9 @@ image:tiger.png[]
 </div>
 <div class="sect2">
 <h3 id="Text-Formatting"><a class="anchor" href="#Text-Formatting"></a><strong>Text Formatting</strong></h3>
+<span class="fa fa-minus-square fa-fw" style="cursor:pointer;float:right;margin-top:-30px" title="minimize" onclick="hideFeatureScenarios('Text-Formatting');document.getElementById('hidden-Text-Formatting').style.display = 'inline';this.style.display = 'none'">  </span>
+
+<span id="hidden-Text-Formatting" class="fa fa-plus-square fa-fw" style="cursor:pointer;float:right;display:none;margin-top:-30px" title="maximize feature" onclick="showFeatureScenarios('Text-Formatting'); this.style.display = 'none'">  </span>
 <div class="sidebarblock">
 <div class="content">
 <div class="paragraph">
@@ -1319,6 +1331,33 @@ the 10&lt;sup&gt;th&lt;/sup&gt; point has coordinate (x&lt;sub&gt;10&lt;/sub&gt;
 </div>
 </div>
 </div>
+<script type="text/javascript">
+	function showFeatureScenarios(featureId){
+		var element = document.getElementById(featureId).parentNode;
+		for (var i = 0; i < element.childNodes.length; i++) {
+    		if (element.childNodes[i].className == "sect3" || element.childNodes[i].className == "fa fa-minus-square fa-fw") {
+      		     element.childNodes[i].style.display = 'inline';
+    			}
+    		if (element.childNodes[i].className == "sidebarblock") {
+      		     element.childNodes[i].style.display = 'block';
+    			}
+		}
+
+ 		document.getElementById(featureId).childNodes[0].click();
+	}
+
+	function hideFeatureScenarios(featureId){
+		var element = document.getElementById(featureId).parentNode;
+		for (var i = 0; i < element.childNodes.length; i++) {
+    		if (element.childNodes[i].className == "sect3" || element.childNodes[i].className == "sidebarblock") {
+      		     element.childNodes[i].style.display = 'none';
+                 	}
+
+		}
+	   document.getElementById(featureId).childNodes[0].click();
+ 	}
+
+</script>
 </div>
 </div>
 </div>
@@ -1326,7 +1365,7 @@ the 10&lt;sup&gt;th&lt;/sup&gt; point has coordinate (x&lt;sub&gt;10&lt;/sub&gt;
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2015-07-19 02:10:10 BRT
+Last updated 2015-07-20 00:53:02 BRT
 </div>
 </div>
 </body>

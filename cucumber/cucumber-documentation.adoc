@@ -988,9 +988,13 @@
 == *Features*
 
 [[After-Hooks, After Hooks]]
-[feature]
 === *After Hooks*
 
+++++
+<span class="fa fa-minus-square fa-fw" style="cursor:pointer;float:right;margin-top:-30px" title="minimize" onclick="hideFeatureScenarios('After-Hooks');document.getElementById('hidden-After-Hooks').style.display = 'inline';this.style.display = 'none'">  </span>
+
+<span id="hidden-After-Hooks" class="fa fa-plus-square fa-fw" style="cursor:pointer;float:right;display:none;margin-top:-30px" title="maximize feature" onclick="showFeatureScenarios('After-Hooks'); this.style.display = 'none'">  </span>
+++++
 ****
 After hooks can be used to clean up any state you've altered during your +
 scenario, or to check the status of the scenario and act accordingly. +
@@ -1184,9 +1188,13 @@ First
 ****
 
 [[Alle-bruker-ikke-UTF-8, Alle bruker ikke UTF-8]]
-[feature]
 === *Alle bruker ikke UTF-8*
 
+++++
+<span class="fa fa-minus-square fa-fw" style="cursor:pointer;float:right;margin-top:-30px" title="minimize" onclick="hideFeatureScenarios('Alle-bruker-ikke-UTF-8');document.getElementById('hidden-Alle-bruker-ikke-UTF-8').style.display = 'inline';this.style.display = 'none'">  </span>
+
+<span id="hidden-Alle-bruker-ikke-UTF-8" class="fa fa-plus-square fa-fw" style="cursor:pointer;float:right;display:none;margin-top:-30px" title="maximize feature" onclick="showFeatureScenarios('Alle-bruker-ikke-UTF-8'); this.style.display = 'none'">  </span>
+++++
 ==== Scenario: Dette bør gå bra
 ****
 Når ::
@@ -1196,9 +1204,13 @@ skal de andre si "skål" icon:thumbs-up[role="green",title="Passed"] [small righ
 ****
 
 [[Around-hooks, Around hooks]]
-[feature]
 === *Around hooks*
 
+++++
+<span class="fa fa-minus-square fa-fw" style="cursor:pointer;float:right;margin-top:-30px" title="minimize" onclick="hideFeatureScenarios('Around-hooks');document.getElementById('hidden-Around-hooks').style.display = 'inline';this.style.display = 'none'">  </span>
+
+<span id="hidden-Around-hooks" class="fa fa-plus-square fa-fw" style="cursor:pointer;float:right;display:none;margin-top:-30px" title="maximize feature" onclick="showFeatureScenarios('Around-hooks'); this.style.display = 'none'">  </span>
+++++
 ****
 In order to support transactional scenarios for database libraries +
 that provide only a block syntax for transactions, Cucumber should +
@@ -1560,9 +1572,13 @@ it should pass icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)
 ****
 
 [[Background, Background]]
-[feature]
 === *Background*
 
+++++
+<span class="fa fa-minus-square fa-fw" style="cursor:pointer;float:right;margin-top:-30px" title="minimize" onclick="hideFeatureScenarios('Background');document.getElementById('hidden-Background').style.display = 'inline';this.style.display = 'none'">  </span>
+
+<span id="hidden-Background" class="fa fa-plus-square fa-fw" style="cursor:pointer;float:right;display:none;margin-top:-30px" title="maximize feature" onclick="showFeatureScenarios('Background'); this.style.display = 'none'">  </span>
+++++
 ****
 Often you find that several scenarios in the same feature start with  +
 a common context. +
@@ -1989,9 +2005,13 @@ Feature: Passing background with multiline args
 ****
 
 [[Before-Hook, Before Hook]]
-[feature]
 === *Before Hook*
 
+++++
+<span class="fa fa-minus-square fa-fw" style="cursor:pointer;float:right;margin-top:-30px" title="minimize" onclick="hideFeatureScenarios('Before-Hook');document.getElementById('hidden-Before-Hook').style.display = 'inline';this.style.display = 'none'">  </span>
+
+<span id="hidden-Before-Hook" class="fa fa-plus-square fa-fw" style="cursor:pointer;float:right;display:none;margin-top:-30px" title="maximize feature" onclick="showFeatureScenarios('Before-Hook'); this.style.display = 'none'">  </span>
+++++
 ==== Scenario: Examine names of scenario and feature
 ****
 Given ::
@@ -2080,9 +2100,13 @@ the output should contain: icon:thumbs-up[role="green",title="Passed"] [small ri
 ****
 
 [[Choosing-the-language-from-the-feature-file-header, Choosing the language from the feature file header]]
-[feature]
 === *Choosing the language from the feature file header*
 
+++++
+<span class="fa fa-minus-square fa-fw" style="cursor:pointer;float:right;margin-top:-30px" title="minimize" onclick="hideFeatureScenarios('Choosing-the-language-from-the-feature-file-header');document.getElementById('hidden-Choosing-the-language-from-the-feature-file-header').style.display = 'inline';this.style.display = 'none'">  </span>
+
+<span id="hidden-Choosing-the-language-from-the-feature-file-header" class="fa fa-plus-square fa-fw" style="cursor:pointer;float:right;display:none;margin-top:-30px" title="maximize feature" onclick="showFeatureScenarios('Choosing-the-language-from-the-feature-file-header'); this.style.display = 'none'">  </span>
+++++
 ****
 In order to simplify command line and settings in IDEs, Cucumber picks +
 up the parser language from a `# language` comment at the beginning of +
@@ -2126,9 +2150,13 @@ OH HAI: STUFFING
 ****
 
 [[Cucumber---work-in-progress-switch, Cucumber --work-in-progress switch]]
-[feature]
 === *Cucumber --work-in-progress switch*
 
+++++
+<span class="fa fa-minus-square fa-fw" style="cursor:pointer;float:right;margin-top:-30px" title="minimize" onclick="hideFeatureScenarios('Cucumber---work-in-progress-switch');document.getElementById('hidden-Cucumber---work-in-progress-switch').style.display = 'inline';this.style.display = 'none'">  </span>
+
+<span id="hidden-Cucumber---work-in-progress-switch" class="fa fa-plus-square fa-fw" style="cursor:pointer;float:right;display:none;margin-top:-30px" title="maximize feature" onclick="showFeatureScenarios('Cucumber---work-in-progress-switch'); this.style.display = 'none'">  </span>
+++++
 ****
 In order to ensure that feature scenarios do not pass until they are expected to +
 Developers should be able to run cucumber in a mode that +
@@ -2309,9 +2337,13 @@ features/passing_outline.feature:7:in `Scenario Outline: Passing, Examples (#1)'
 ****
 
 [[Custom-filter, Custom filter]]
-[feature]
 === *Custom filter*
 
+++++
+<span class="fa fa-minus-square fa-fw" style="cursor:pointer;float:right;margin-top:-30px" title="minimize" onclick="hideFeatureScenarios('Custom-filter');document.getElementById('hidden-Custom-filter').style.display = 'inline';this.style.display = 'none'">  </span>
+
+<span id="hidden-Custom-filter" class="fa fa-plus-square fa-fw" style="cursor:pointer;float:right;display:none;margin-top:-30px" title="maximize feature" onclick="showFeatureScenarios('Custom-filter'); this.style.display = 'none'">  </span>
+++++
 ==== Scenario: Add a custom filter via AfterConfiguration hook
 ****
 Given ::
@@ -2350,9 +2382,13 @@ it should pass icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)
 ****
 
 [[Custom-Formatter, Custom Formatter]]
-[feature]
 === *Custom Formatter*
 
+++++
+<span class="fa fa-minus-square fa-fw" style="cursor:pointer;float:right;margin-top:-30px" title="minimize" onclick="hideFeatureScenarios('Custom-Formatter');document.getElementById('hidden-Custom-Formatter').style.display = 'inline';this.style.display = 'none'">  </span>
+
+<span id="hidden-Custom-Formatter" class="fa fa-plus-square fa-fw" style="cursor:pointer;float:right;display:none;margin-top:-30px" title="maximize feature" onclick="showFeatureScenarios('Custom-Formatter'); this.style.display = 'none'">  </span>
+++++
 ==== Scenario: Use the new API
 ****
 Given ::
@@ -2464,9 +2500,13 @@ I'LL USE MY OWN
 ****
 
 [[Debug-formatter, Debug formatter]]
-[feature]
 === *Debug formatter*
 
+++++
+<span class="fa fa-minus-square fa-fw" style="cursor:pointer;float:right;margin-top:-30px" title="minimize" onclick="hideFeatureScenarios('Debug-formatter');document.getElementById('hidden-Debug-formatter').style.display = 'inline';this.style.display = 'none'">  </span>
+
+<span id="hidden-Debug-formatter" class="fa fa-plus-square fa-fw" style="cursor:pointer;float:right;display:none;margin-top:-30px" title="maximize feature" onclick="showFeatureScenarios('Debug-formatter'); this.style.display = 'none'">  </span>
+++++
 ****
 In order to help you easily visualise the listener API, you can use +
 the `debug` formatter that prints the calls to the listener as a +
@@ -2523,9 +2563,13 @@ done
 ****
 
 [[Doc-strings, Doc strings]]
-[feature]
 === *Doc strings*
 
+++++
+<span class="fa fa-minus-square fa-fw" style="cursor:pointer;float:right;margin-top:-30px" title="minimize" onclick="hideFeatureScenarios('Doc-strings');document.getElementById('hidden-Doc-strings').style.display = 'inline';this.style.display = 'none'">  </span>
+
+<span id="hidden-Doc-strings" class="fa fa-plus-square fa-fw" style="cursor:pointer;float:right;display:none;margin-top:-30px" title="maximize feature" onclick="showFeatureScenarios('Doc-strings'); this.style.display = 'none'">  </span>
+++++
 ****
 If you need to specify information in a scenario that won't fit on a single line,  +
 you can use a DocString. +
@@ -2626,9 +2670,13 @@ ruby
 ****
 
 [[Dry-Run, Dry Run]]
-[feature]
 === *Dry Run*
 
+++++
+<span class="fa fa-minus-square fa-fw" style="cursor:pointer;float:right;margin-top:-30px" title="minimize" onclick="hideFeatureScenarios('Dry-Run');document.getElementById('hidden-Dry-Run').style.display = 'inline';this.style.display = 'none'">  </span>
+
+<span id="hidden-Dry-Run" class="fa fa-plus-square fa-fw" style="cursor:pointer;float:right;display:none;margin-top:-30px" title="maximize feature" onclick="showFeatureScenarios('Dry-Run'); this.style.display = 'none'">  </span>
+++++
 ****
 Dry run gives you a way to quickly scan your features without actually running them. +
  +
@@ -2730,9 +2778,13 @@ Feature: test
 ****
 
 [[ERB-configuration, ERB configuration]]
-[feature]
 === *ERB configuration*
 
+++++
+<span class="fa fa-minus-square fa-fw" style="cursor:pointer;float:right;margin-top:-30px" title="minimize" onclick="hideFeatureScenarios('ERB-configuration');document.getElementById('hidden-ERB-configuration').style.display = 'inline';this.style.display = 'none'">  </span>
+
+<span id="hidden-ERB-configuration" class="fa fa-plus-square fa-fw" style="cursor:pointer;float:right;display:none;margin-top:-30px" title="maximize feature" onclick="showFeatureScenarios('ERB-configuration'); this.style.display = 'none'">  </span>
+++++
 ****
 As a developer on server with multiple users +
 I want to be able to configure which port my wire server runs on +
@@ -2800,9 +2852,13 @@ U
 ****
 
 [[Exception-in-After-Block, Exception in After Block]]
-[feature]
 === *Exception in After Block*
 
+++++
+<span class="fa fa-minus-square fa-fw" style="cursor:pointer;float:right;margin-top:-30px" title="minimize" onclick="hideFeatureScenarios('Exception-in-After-Block');document.getElementById('hidden-Exception-in-After-Block').style.display = 'inline';this.style.display = 'none'">  </span>
+
+<span id="hidden-Exception-in-After-Block" class="fa fa-plus-square fa-fw" style="cursor:pointer;float:right;display:none;margin-top:-30px" title="maximize feature" onclick="showFeatureScenarios('Exception-in-After-Block'); this.style.display = 'none'">  </span>
+++++
 ****
 In order to use custom assertions at the end of each scenario +
 As a developer +
@@ -2942,9 +2998,13 @@ cucumber features/naughty_step_in_scenario.feature:3 # Scenario: Naughty Step
 ****
 
 [[Exception-in-AfterStep-Block, Exception in AfterStep Block]]
-[feature]
 === *Exception in AfterStep Block*
 
+++++
+<span class="fa fa-minus-square fa-fw" style="cursor:pointer;float:right;margin-top:-30px" title="minimize" onclick="hideFeatureScenarios('Exception-in-AfterStep-Block');document.getElementById('hidden-Exception-in-AfterStep-Block').style.display = 'inline';this.style.display = 'none'">  </span>
+
+<span id="hidden-Exception-in-AfterStep-Block" class="fa fa-plus-square fa-fw" style="cursor:pointer;float:right;display:none;margin-top:-30px" title="maximize feature" onclick="showFeatureScenarios('Exception-in-AfterStep-Block'); this.style.display = 'none'">  </span>
+++++
 ****
 In order to use custom assertions at the end of each step +
 As a developer +
@@ -3050,9 +3110,13 @@ cucumber features/naughty_step_in_scenario_outline.feature:9 # Scenario Outline:
 ****
 
 [[Exception-in-Before-Block, Exception in Before Block]]
-[feature]
 === *Exception in Before Block*
 
+++++
+<span class="fa fa-minus-square fa-fw" style="cursor:pointer;float:right;margin-top:-30px" title="minimize" onclick="hideFeatureScenarios('Exception-in-Before-Block');document.getElementById('hidden-Exception-in-Before-Block').style.display = 'inline';this.style.display = 'none'">  </span>
+
+<span id="hidden-Exception-in-Before-Block" class="fa fa-plus-square fa-fw" style="cursor:pointer;float:right;display:none;margin-top:-30px" title="maximize feature" onclick="showFeatureScenarios('Exception-in-Before-Block'); this.style.display = 'none'">  </span>
+++++
 ****
 In order to know with confidence that my before blocks have run OK +
 As a developer +
@@ -3169,9 +3233,13 @@ cucumber features/naughty_step_in_scenario.feature:3 # Scenario: Run a good step
 ****
 
 [[Exceptions-in-Around-Hooks, Exceptions in Around Hooks]]
-[feature]
 === *Exceptions in Around Hooks*
 
+++++
+<span class="fa fa-minus-square fa-fw" style="cursor:pointer;float:right;margin-top:-30px" title="minimize" onclick="hideFeatureScenarios('Exceptions-in-Around-Hooks');document.getElementById('hidden-Exceptions-in-Around-Hooks').style.display = 'inline';this.style.display = 'none'">  </span>
+
+<span id="hidden-Exceptions-in-Around-Hooks" class="fa fa-plus-square fa-fw" style="cursor:pointer;float:right;display:none;margin-top:-30px" title="maximize feature" onclick="showFeatureScenarios('Exceptions-in-Around-Hooks'); this.style.display = 'none'">  </span>
+++++
 ****
 Around hooks are awkward beasts to handle internally. +
  +
@@ -3278,9 +3346,13 @@ cucumber features/test.feature:2
 ****
 
 [[Excluding-ruby-and-feature-files-from-runs, Excluding ruby and feature files from runs]]
-[feature]
 === *Excluding ruby and feature files from runs*
 
+++++
+<span class="fa fa-minus-square fa-fw" style="cursor:pointer;float:right;margin-top:-30px" title="minimize" onclick="hideFeatureScenarios('Excluding-ruby-and-feature-files-from-runs');document.getElementById('hidden-Excluding-ruby-and-feature-files-from-runs').style.display = 'inline';this.style.display = 'none'">  </span>
+
+<span id="hidden-Excluding-ruby-and-feature-files-from-runs" class="fa fa-plus-square fa-fw" style="cursor:pointer;float:right;display:none;margin-top:-30px" title="maximize feature" onclick="showFeatureScenarios('Excluding-ruby-and-feature-files-from-runs'); this.style.display = 'none'">  </span>
+++++
 ****
 Developers are able to easily exclude files from cucumber runs +
 This is a nice feature to have in conjunction with profiles, so you can exclude +
@@ -3314,9 +3386,13 @@ And ::
 ****
 
 [[Formatter-API:-Step-file-path-and-line-number-(Issue-#179), Formatter API: Step file path and line number (Issue #179)]]
-[feature]
 === *Formatter API: Step file path and line number (Issue #179)*
 
+++++
+<span class="fa fa-minus-square fa-fw" style="cursor:pointer;float:right;margin-top:-30px" title="minimize" onclick="hideFeatureScenarios('Formatter-API:-Step-file-path-and-line-number-(Issue-#179)');document.getElementById('hidden-Formatter-API:-Step-file-path-and-line-number-(Issue-#179)').style.display = 'inline';this.style.display = 'none'">  </span>
+
+<span id="hidden-Formatter-API:-Step-file-path-and-line-number-(Issue-#179)" class="fa fa-plus-square fa-fw" style="cursor:pointer;float:right;display:none;margin-top:-30px" title="maximize feature" onclick="showFeatureScenarios('Formatter-API:-Step-file-path-and-line-number-(Issue-#179)'); this.style.display = 'none'">  </span>
+++++
 ****
 To all reporter to understand location of current executing step let's fetch this information +
 from step/step_invocation and pass to reporters
@@ -3379,9 +3455,13 @@ step name event: features/f.feature:5
 ****
 
 [[Getting-started, Getting started]]
-[feature]
 === *Getting started*
 
+++++
+<span class="fa fa-minus-square fa-fw" style="cursor:pointer;float:right;margin-top:-30px" title="minimize" onclick="hideFeatureScenarios('Getting-started');document.getElementById('hidden-Getting-started').style.display = 'inline';this.style.display = 'none'">  </span>
+
+<span id="hidden-Getting-started" class="fa fa-plus-square fa-fw" style="cursor:pointer;float:right;display:none;margin-top:-30px" title="maximize feature" onclick="showFeatureScenarios('Getting-started'); this.style.display = 'none'">  </span>
+++++
 ****
 To get started, just open a command prompt in an empty directory and run  +
 `cucumber`. You'll be prompted for what to do next.
@@ -3430,9 +3510,13 @@ this will not be shown
 ****
 
 [[Handle-unexpected-response, Handle unexpected response]]
-[feature]
 === *Handle unexpected response*
 
+++++
+<span class="fa fa-minus-square fa-fw" style="cursor:pointer;float:right;margin-top:-30px" title="minimize" onclick="hideFeatureScenarios('Handle-unexpected-response');document.getElementById('hidden-Handle-unexpected-response').style.display = 'inline';this.style.display = 'none'">  </span>
+
+<span id="hidden-Handle-unexpected-response" class="fa fa-plus-square fa-fw" style="cursor:pointer;float:right;display:none;margin-top:-30px" title="maximize feature" onclick="showFeatureScenarios('Handle-unexpected-response'); this.style.display = 'none'">  </span>
+++++
 ****
 When the server sends us back a message we don't understand, this is how Cucumber will behave.
 ****
@@ -3455,9 +3539,13 @@ undefined method `handle_yikes'
 ****
 
 [[Hooks-execute-in-defined-order, Hooks execute in defined order]]
-[feature]
 === *Hooks execute in defined order*
 
+++++
+<span class="fa fa-minus-square fa-fw" style="cursor:pointer;float:right;margin-top:-30px" title="minimize" onclick="hideFeatureScenarios('Hooks-execute-in-defined-order');document.getElementById('hidden-Hooks-execute-in-defined-order').style.display = 'inline';this.style.display = 'none'">  </span>
+
+<span id="hidden-Hooks-execute-in-defined-order" class="fa fa-plus-square fa-fw" style="cursor:pointer;float:right;display:none;margin-top:-30px" title="maximize feature" onclick="showFeatureScenarios('Hooks-execute-in-defined-order'); this.style.display = 'none'">  </span>
+++++
 ==== Scenario: Around hooks cover background steps
 [small]#tags: @spawn,@spawn#
 
@@ -3489,9 +3577,13 @@ Event order: around_begin before background_step scenario_step after around_end
 ****
 
 [[HTML-output-formatter, HTML output formatter]]
-[feature]
 === *HTML output formatter*
 
+++++
+<span class="fa fa-minus-square fa-fw" style="cursor:pointer;float:right;margin-top:-30px" title="minimize" onclick="hideFeatureScenarios('HTML-output-formatter');document.getElementById('hidden-HTML-output-formatter').style.display = 'inline';this.style.display = 'none'">  </span>
+
+<span id="hidden-HTML-output-formatter" class="fa fa-plus-square fa-fw" style="cursor:pointer;float:right;display:none;margin-top:-30px" title="maximize feature" onclick="showFeatureScenarios('HTML-output-formatter'); this.style.display = 'none'">  </span>
+++++
 ==== Scenario: an scenario outline, one undefined step, one random example, expand flag on
 ****
 When ::
@@ -3631,9 +3723,13 @@ makeRed('background_0')
 ****
 
 [[Invoke-message, Invoke message]]
-[feature]
 === *Invoke message*
 
+++++
+<span class="fa fa-minus-square fa-fw" style="cursor:pointer;float:right;margin-top:-30px" title="minimize" onclick="hideFeatureScenarios('Invoke-message');document.getElementById('hidden-Invoke-message').style.display = 'inline';this.style.display = 'none'">  </span>
+
+<span id="hidden-Invoke-message" class="fa fa-plus-square fa-fw" style="cursor:pointer;float:right;display:none;margin-top:-30px" title="maximize feature" onclick="showFeatureScenarios('Invoke-message'); this.style.display = 'none'">  </span>
+++++
 ****
 Assuming a StepMatch was returned for a given step name, when it's time to +
 invoke that step definition, Cucumber will send an invoke message. +
@@ -3858,9 +3954,13 @@ the wire server should have received the following messages: icon:thumbs-up[role
 ****
 
 [[JSON-output-formatter, JSON output formatter]]
-[feature]
 === *JSON output formatter*
 
+++++
+<span class="fa fa-minus-square fa-fw" style="cursor:pointer;float:right;margin-top:-30px" title="minimize" onclick="hideFeatureScenarios('JSON-output-formatter');document.getElementById('hidden-JSON-output-formatter').style.display = 'inline';this.style.display = 'none'">  </span>
+
+<span id="hidden-JSON-output-formatter" class="fa fa-plus-square fa-fw" style="cursor:pointer;float:right;display:none;margin-top:-30px" title="maximize feature" onclick="showFeatureScenarios('JSON-output-formatter'); this.style.display = 'none'">  </span>
+++++
 ****
 In order to simplify processing of Cucumber features and results +
 Developers should be able to consume features as JSON
@@ -4603,9 +4703,13 @@ it should pass icon:thumbs-up[role="green",title="Passed"] [small right]#(001ms)
 ****
 
 [[JUnit-output-formatter, JUnit output formatter]]
-[feature]
 === *JUnit output formatter*
 
+++++
+<span class="fa fa-minus-square fa-fw" style="cursor:pointer;float:right;margin-top:-30px" title="minimize" onclick="hideFeatureScenarios('JUnit-output-formatter');document.getElementById('hidden-JUnit-output-formatter').style.display = 'inline';this.style.display = 'none'">  </span>
+
+<span id="hidden-JUnit-output-formatter" class="fa fa-plus-square fa-fw" style="cursor:pointer;float:right;display:none;margin-top:-30px" title="maximize feature" onclick="showFeatureScenarios('JUnit-output-formatter'); this.style.display = 'none'">  </span>
+++++
 ****
 In order for developers to create test reports with ant +
 Cucumber should be able to output JUnit xml files
@@ -5011,9 +5115,13 @@ features/scenario_outline.feature:4:in `Given this step <type>']]>
 ****
 
 [[Language-help, Language help]]
-[feature]
 === *Language help*
 
+++++
+<span class="fa fa-minus-square fa-fw" style="cursor:pointer;float:right;margin-top:-30px" title="minimize" onclick="hideFeatureScenarios('Language-help');document.getElementById('hidden-Language-help').style.display = 'inline';this.style.display = 'none'">  </span>
+
+<span id="hidden-Language-help" class="fa fa-plus-square fa-fw" style="cursor:pointer;float:right;display:none;margin-top:-30px" title="maximize feature" onclick="showFeatureScenarios('Language-help'); this.style.display = 'none'">  </span>
+++++
 ****
 It's possible to ask cucumber which keywords are used for any +
 particular language by running: +
@@ -5066,9 +5174,13 @@ cucumber lists all the supported languages icon:thumbs-up[role="green",title="Pa
 ****
 
 [[List-step-defs-as-json, List step defs as json]]
-[feature]
 === *List step defs as json*
 
+++++
+<span class="fa fa-minus-square fa-fw" style="cursor:pointer;float:right;margin-top:-30px" title="minimize" onclick="hideFeatureScenarios('List-step-defs-as-json');document.getElementById('hidden-List-step-defs-as-json').style.display = 'inline';this.style.display = 'none'">  </span>
+
+<span id="hidden-List-step-defs-as-json" class="fa fa-plus-square fa-fw" style="cursor:pointer;float:right;display:none;margin-top:-30px" title="maximize feature" onclick="showFeatureScenarios('List-step-defs-as-json'); this.style.display = 'none'">  </span>
+++++
 ****
 In order to build tools on top of Cucumber +
 As a tool developer +
@@ -5143,9 +5255,13 @@ it should pass with JSON: icon:thumbs-up[role="green",title="Passed"] [small rig
 ****
 
 [[Loading-the-steps-users-expect, Loading the steps users expect]]
-[feature]
 === *Loading the steps users expect*
 
+++++
+<span class="fa fa-minus-square fa-fw" style="cursor:pointer;float:right;margin-top:-30px" title="minimize" onclick="hideFeatureScenarios('Loading-the-steps-users-expect');document.getElementById('hidden-Loading-the-steps-users-expect').style.display = 'inline';this.style.display = 'none'">  </span>
+
+<span id="hidden-Loading-the-steps-users-expect" class="fa fa-plus-square fa-fw" style="cursor:pointer;float:right;display:none;margin-top:-30px" title="maximize feature" onclick="showFeatureScenarios('Loading-the-steps-users-expect'); this.style.display = 'none'">  </span>
+++++
 ****
 As a User +
 In order to run features in subdirectories without having to pass extra options +
@@ -5187,9 +5303,13 @@ Feature: Feature in Subdirectory
 ****
 
 [[Nested-Steps, Nested Steps]]
-[feature]
 === *Nested Steps*
 
+++++
+<span class="fa fa-minus-square fa-fw" style="cursor:pointer;float:right;margin-top:-30px" title="minimize" onclick="hideFeatureScenarios('Nested-Steps');document.getElementById('hidden-Nested-Steps').style.display = 'inline';this.style.display = 'none'">  </span>
+
+<span id="hidden-Nested-Steps" class="fa fa-plus-square fa-fw" style="cursor:pointer;float:right;display:none;margin-top:-30px" title="maximize feature" onclick="showFeatureScenarios('Nested-Steps'); this.style.display = 'none'">  </span>
+++++
 ==== Scenario: Use #steps to call several steps at once
 ****
 Given ::
@@ -5419,9 +5539,13 @@ cucumber features/call_undefined_step_from_step_def.feature:6
 ****
 
 [[Nested-Steps-in-I18n, Nested Steps in I18n]]
-[feature]
 === *Nested Steps in I18n*
 
+++++
+<span class="fa fa-minus-square fa-fw" style="cursor:pointer;float:right;margin-top:-30px" title="minimize" onclick="hideFeatureScenarios('Nested-Steps-in-I18n');document.getElementById('hidden-Nested-Steps-in-I18n').style.display = 'inline';this.style.display = 'none'">  </span>
+
+<span id="hidden-Nested-Steps-in-I18n" class="fa fa-plus-square fa-fw" style="cursor:pointer;float:right;display:none;margin-top:-30px" title="maximize feature" onclick="showFeatureScenarios('Nested-Steps-in-I18n'); this.style.display = 'none'">  </span>
+++++
 ==== Scenario: Use #steps to call several steps at once
 ****
 Given ::
@@ -5452,9 +5576,13 @@ turtle!
 ****
 
 [[Nested-Steps-with-either-table-or-doc-string, Nested Steps with either table or doc string]]
-[feature]
 === *Nested Steps with either table or doc string*
 
+++++
+<span class="fa fa-minus-square fa-fw" style="cursor:pointer;float:right;margin-top:-30px" title="minimize" onclick="hideFeatureScenarios('Nested-Steps-with-either-table-or-doc-string');document.getElementById('hidden-Nested-Steps-with-either-table-or-doc-string').style.display = 'inline';this.style.display = 'none'">  </span>
+
+<span id="hidden-Nested-Steps-with-either-table-or-doc-string" class="fa fa-plus-square fa-fw" style="cursor:pointer;float:right;display:none;margin-top:-30px" title="maximize feature" onclick="showFeatureScenarios('Nested-Steps-with-either-table-or-doc-string'); this.style.display = 'none'">  </span>
+++++
 ==== Scenario: Use #step with table
 ****
 Given ::
@@ -5558,9 +5686,13 @@ math
 ****
 
 [[One-line-step-definitions, One line step definitions]]
-[feature]
 === *One line step definitions*
 
+++++
+<span class="fa fa-minus-square fa-fw" style="cursor:pointer;float:right;margin-top:-30px" title="minimize" onclick="hideFeatureScenarios('One-line-step-definitions');document.getElementById('hidden-One-line-step-definitions').style.display = 'inline';this.style.display = 'none'">  </span>
+
+<span id="hidden-One-line-step-definitions" class="fa fa-plus-square fa-fw" style="cursor:pointer;float:right;display:none;margin-top:-30px" title="maximize feature" onclick="showFeatureScenarios('One-line-step-definitions'); this.style.display = 'none'">  </span>
+++++
 ****
 Everybody knows you can do step definitions in Cucumber +
 but did you know you can do this?
@@ -5647,9 +5779,13 @@ it should pass icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)
 ****
 
 [[Post-Configuration-Hook-[#423], Post Configuration Hook [#423]]]
-[feature]
 === *Post Configuration Hook [#423]*
 
+++++
+<span class="fa fa-minus-square fa-fw" style="cursor:pointer;float:right;margin-top:-30px" title="minimize" onclick="hideFeatureScenarios('Post-Configuration-Hook-[#423]');document.getElementById('hidden-Post-Configuration-Hook-[#423]').style.display = 'inline';this.style.display = 'none'">  </span>
+
+<span id="hidden-Post-Configuration-Hook-[#423]" class="fa fa-plus-square fa-fw" style="cursor:pointer;float:right;display:none;margin-top:-30px" title="maximize feature" onclick="showFeatureScenarios('Post-Configuration-Hook-[#423]'); this.style.display = 'none'">  </span>
+++++
 ****
 In order to extend Cucumber +
 As a developer +
@@ -5729,9 +5865,13 @@ AfterConfiguration hook read feature directories: features
 ****
 
 [[Pretty-formatter---Printing-messages, Pretty formatter - Printing messages]]
-[feature]
 === *Pretty formatter - Printing messages*
 
+++++
+<span class="fa fa-minus-square fa-fw" style="cursor:pointer;float:right;margin-top:-30px" title="minimize" onclick="hideFeatureScenarios('Pretty-formatter---Printing-messages');document.getElementById('hidden-Pretty-formatter---Printing-messages').style.display = 'inline';this.style.display = 'none'">  </span>
+
+<span id="hidden-Pretty-formatter---Printing-messages" class="fa fa-plus-square fa-fw" style="cursor:pointer;float:right;display:none;margin-top:-30px" title="maximize feature" onclick="showFeatureScenarios('Pretty-formatter---Printing-messages'); this.style.display = 'none'">  </span>
+++++
 ****
 When you want to print to Cucumber's output, just call `puts` from +
 a step definition. Cucumber will grab the output and print it via +
@@ -5825,9 +5965,13 @@ Line: 2: anno2
 ****
 
 [[Pretty-output-formatter, Pretty output formatter]]
-[feature]
 === *Pretty output formatter*
 
+++++
+<span class="fa fa-minus-square fa-fw" style="cursor:pointer;float:right;margin-top:-30px" title="minimize" onclick="hideFeatureScenarios('Pretty-output-formatter');document.getElementById('hidden-Pretty-output-formatter').style.display = 'inline';this.style.display = 'none'">  </span>
+
+<span id="hidden-Pretty-output-formatter" class="fa fa-plus-square fa-fw" style="cursor:pointer;float:right;display:none;margin-top:-30px" title="maximize feature" onclick="showFeatureScenarios('Pretty-output-formatter'); this.style.display = 'none'">  </span>
+++++
 ==== Scenario: an scenario outline, one undefined step, one random example, expand flag on
 ****
 When ::
@@ -5917,9 +6061,13 @@ cucumber features/test.feature:2
 ****
 
 [[Profiles, Profiles]]
-[feature]
 === *Profiles*
 
+++++
+<span class="fa fa-minus-square fa-fw" style="cursor:pointer;float:right;margin-top:-30px" title="minimize" onclick="hideFeatureScenarios('Profiles');document.getElementById('hidden-Profiles').style.display = 'inline';this.style.display = 'none'">  </span>
+
+<span id="hidden-Profiles" class="fa fa-plus-square fa-fw" style="cursor:pointer;float:right;display:none;margin-top:-30px" title="maximize feature" onclick="showFeatureScenarios('Profiles'); this.style.display = 'none'">  </span>
+++++
 ****
 In order to save time and prevent carpal tunnel syndrome +
 Cucumber users can save and reuse commonly used cucumber flags in a 'cucumber.yml' file. +
@@ -6111,9 +6259,13 @@ cucumber -p super features/sample.feature:2
 ****
 
 [[Progress-output-formatter, Progress output formatter]]
-[feature]
 === *Progress output formatter*
 
+++++
+<span class="fa fa-minus-square fa-fw" style="cursor:pointer;float:right;margin-top:-30px" title="minimize" onclick="hideFeatureScenarios('Progress-output-formatter');document.getElementById('hidden-Progress-output-formatter').style.display = 'inline';this.style.display = 'none'">  </span>
+
+<span id="hidden-Progress-output-formatter" class="fa fa-plus-square fa-fw" style="cursor:pointer;float:right;display:none;margin-top:-30px" title="maximize feature" onclick="showFeatureScenarios('Progress-output-formatter'); this.style.display = 'none'">  </span>
+++++
 ==== Scenario: an scenario outline, one undefined step, one random example, expand flag on
 ****
 When ::
@@ -6145,9 +6297,13 @@ Using the default profile...
 ****
 
 [[Rake-task, Rake task]]
-[feature]
 === *Rake task*
 
+++++
+<span class="fa fa-minus-square fa-fw" style="cursor:pointer;float:right;margin-top:-30px" title="minimize" onclick="hideFeatureScenarios('Rake-task');document.getElementById('hidden-Rake-task').style.display = 'inline';this.style.display = 'none'">  </span>
+
+<span id="hidden-Rake-task" class="fa fa-plus-square fa-fw" style="cursor:pointer;float:right;display:none;margin-top:-30px" title="maximize feature" onclick="showFeatureScenarios('Rake-task'); this.style.display = 'none'">  </span>
+++++
 ****
 In order to ease the development process +
 As a developer and CI server administrator +
@@ -6349,9 +6505,13 @@ Feature: The futures green
 ****
 
 [[Raketask, Raketask]]
-[feature]
 === *Raketask*
 
+++++
+<span class="fa fa-minus-square fa-fw" style="cursor:pointer;float:right;margin-top:-30px" title="minimize" onclick="hideFeatureScenarios('Raketask');document.getElementById('hidden-Raketask').style.display = 'inline';this.style.display = 'none'">  </span>
+
+<span id="hidden-Raketask" class="fa fa-plus-square fa-fw" style="cursor:pointer;float:right;display:none;margin-top:-30px" title="maximize feature" onclick="showFeatureScenarios('Raketask'); this.style.display = 'none'">  </span>
+++++
 ****
 In order to use cucumber's rake task +
 As a Cuker +
@@ -6383,9 +6543,13 @@ the output should not contain "rake aborted!" icon:thumbs-up[role="green",title=
 ****
 
 [[Randomize, Randomize]]
-[feature]
 === *Randomize*
 
+++++
+<span class="fa fa-minus-square fa-fw" style="cursor:pointer;float:right;margin-top:-30px" title="minimize" onclick="hideFeatureScenarios('Randomize');document.getElementById('hidden-Randomize').style.display = 'inline';this.style.display = 'none'">  </span>
+
+<span id="hidden-Randomize" class="fa fa-plus-square fa-fw" style="cursor:pointer;float:right;display:none;margin-top:-30px" title="maximize feature" onclick="showFeatureScenarios('Randomize'); this.style.display = 'none'">  </span>
+++++
 ****
 Use the `--order random` switch to run scenarios in random order. +
  +
@@ -6423,9 +6587,13 @@ Randomized with seed 41515
 ****
 
 [[Requiring-extra-step-files, Requiring extra step files]]
-[feature]
 === *Requiring extra step files*
 
+++++
+<span class="fa fa-minus-square fa-fw" style="cursor:pointer;float:right;margin-top:-30px" title="minimize" onclick="hideFeatureScenarios('Requiring-extra-step-files');document.getElementById('hidden-Requiring-extra-step-files').style.display = 'inline';this.style.display = 'none'">  </span>
+
+<span id="hidden-Requiring-extra-step-files" class="fa fa-plus-square fa-fw" style="cursor:pointer;float:right;display:none;margin-top:-30px" title="maximize feature" onclick="showFeatureScenarios('Requiring-extra-step-files'); this.style.display = 'none'">  </span>
+++++
 ****
 Cucumber allows you to require extra files using the `-r` option.
 ****
@@ -6465,9 +6633,13 @@ Feature: Sample
 ****
 
 [[Rerun-formatter, Rerun formatter]]
-[feature]
 === *Rerun formatter*
 
+++++
+<span class="fa fa-minus-square fa-fw" style="cursor:pointer;float:right;margin-top:-30px" title="minimize" onclick="hideFeatureScenarios('Rerun-formatter');document.getElementById('hidden-Rerun-formatter').style.display = 'inline';this.style.display = 'none'">  </span>
+
+<span id="hidden-Rerun-formatter" class="fa fa-plus-square fa-fw" style="cursor:pointer;float:right;display:none;margin-top:-30px" title="maximize feature" onclick="showFeatureScenarios('Rerun-formatter'); this.style.display = 'none'">  </span>
+++++
 ****
 The rerun formatter writes an output that's perfect for +
 passing to Cucumber when you want to rerun only the  +
@@ -6712,9 +6884,13 @@ features/one_passing_one_failing.feature:9
 ****
 
 [[Run-Cli::Main-with-existing-Runtime, Run Cli::Main with existing Runtime]]
-[feature]
 === *Run Cli::Main with existing Runtime*
 
+++++
+<span class="fa fa-minus-square fa-fw" style="cursor:pointer;float:right;margin-top:-30px" title="minimize" onclick="hideFeatureScenarios('Run-Cli::Main-with-existing-Runtime');document.getElementById('hidden-Run-Cli::Main-with-existing-Runtime').style.display = 'inline';this.style.display = 'none'">  </span>
+
+<span id="hidden-Run-Cli::Main-with-existing-Runtime" class="fa fa-plus-square fa-fw" style="cursor:pointer;float:right;display:none;margin-top:-30px" title="maximize feature" onclick="showFeatureScenarios('Run-Cli::Main-with-existing-Runtime'); this.style.display = 'none'">  </span>
+++++
 ****
 This is the API that Spork uses. It creates an existing runtime then +
 calls load_programming_language('rb') on it to load the RbDsl. +
@@ -6760,9 +6936,13 @@ Given this step passes
 ****
 
 [[Run-feature-elements-matching-a-name-with---name/-n, Run feature elements matching a name with --name/-n]]
-[feature]
 === *Run feature elements matching a name with --name/-n*
 
+++++
+<span class="fa fa-minus-square fa-fw" style="cursor:pointer;float:right;margin-top:-30px" title="minimize" onclick="hideFeatureScenarios('Run-feature-elements-matching-a-name-with---name/-n');document.getElementById('hidden-Run-feature-elements-matching-a-name-with---name/-n').style.display = 'inline';this.style.display = 'none'">  </span>
+
+<span id="hidden-Run-feature-elements-matching-a-name-with---name/-n" class="fa fa-plus-square fa-fw" style="cursor:pointer;float:right;display:none;margin-top:-30px" title="maximize feature" onclick="showFeatureScenarios('Run-feature-elements-matching-a-name-with---name/-n'); this.style.display = 'none'">  </span>
+++++
 ****
 The `--name NAME` option runs only scenarios which match a certain +
 name. The NAME can be a substring of the names of Features, Scenarios, +
@@ -6864,9 +7044,13 @@ Feature: outline
 ****
 
 [[Run-specific-scenarios, Run specific scenarios]]
-[feature]
 === *Run specific scenarios*
 
+++++
+<span class="fa fa-minus-square fa-fw" style="cursor:pointer;float:right;margin-top:-30px" title="minimize" onclick="hideFeatureScenarios('Run-specific-scenarios');document.getElementById('hidden-Run-specific-scenarios').style.display = 'inline';this.style.display = 'none'">  </span>
+
+<span id="hidden-Run-specific-scenarios" class="fa fa-plus-square fa-fw" style="cursor:pointer;float:right;display:none;margin-top:-30px" title="maximize feature" onclick="showFeatureScenarios('Run-specific-scenarios'); this.style.display = 'none'">  </span>
+++++
 ****
 You can choose to run a specific scenario using the file:line format, +
 or you can pass in a file with a list of scenarios using @-notation. +
@@ -6972,9 +7156,13 @@ F.
 ****
 
 [[Running-multiple-formatters, Running multiple formatters]]
-[feature]
 === *Running multiple formatters*
 
+++++
+<span class="fa fa-minus-square fa-fw" style="cursor:pointer;float:right;margin-top:-30px" title="minimize" onclick="hideFeatureScenarios('Running-multiple-formatters');document.getElementById('hidden-Running-multiple-formatters').style.display = 'inline';this.style.display = 'none'">  </span>
+
+<span id="hidden-Running-multiple-formatters" class="fa fa-plus-square fa-fw" style="cursor:pointer;float:right;display:none;margin-top:-30px" title="maximize feature" onclick="showFeatureScenarios('Running-multiple-formatters'); this.style.display = 'none'">  </span>
+++++
 ****
 When running cucumber, you are able to using multiple different +
 formatters and redirect the output to text files. +
@@ -7058,9 +7246,13 @@ All but one formatter must use --out, only one can print to each stream (or STDO
 ****
 
 [[Scenario-outlines, Scenario outlines]]
-[feature]
 === *Scenario outlines*
 
+++++
+<span class="fa fa-minus-square fa-fw" style="cursor:pointer;float:right;margin-top:-30px" title="minimize" onclick="hideFeatureScenarios('Scenario-outlines');document.getElementById('hidden-Scenario-outlines').style.display = 'inline';this.style.display = 'none'">  </span>
+
+<span id="hidden-Scenario-outlines" class="fa fa-plus-square fa-fw" style="cursor:pointer;float:right;display:none;margin-top:-30px" title="maximize feature" onclick="showFeatureScenarios('Scenario-outlines'); this.style.display = 'none'">  </span>
+++++
 ****
 Copying and pasting scenarios to use different values quickly +
 becomes tedious and repetitive. Scenario outlines allow us to more +
@@ -7225,9 +7417,13 @@ cucumber features/outline_sample.feature:12
 ****
 
 [[Scenario-outlines---expand-option, Scenario outlines --expand option]]
-[feature]
 === *Scenario outlines --expand option*
 
+++++
+<span class="fa fa-minus-square fa-fw" style="cursor:pointer;float:right;margin-top:-30px" title="minimize" onclick="hideFeatureScenarios('Scenario-outlines---expand-option');document.getElementById('hidden-Scenario-outlines---expand-option').style.display = 'inline';this.style.display = 'none'">  </span>
+
+<span id="hidden-Scenario-outlines---expand-option" class="fa fa-plus-square fa-fw" style="cursor:pointer;float:right;display:none;margin-top:-30px" title="maximize feature" onclick="showFeatureScenarios('Scenario-outlines---expand-option'); this.style.display = 'none'">  </span>
+++++
 ****
 In order to make it easier to write certain editor plugins and also +
 for some people to understand scenarios, Cucumber will expand examples +
@@ -7285,9 +7481,13 @@ Feature:
 ****
 
 [[Set-up-a-default-load-path, Set up a default load path]]
-[feature]
 === *Set up a default load path*
 
+++++
+<span class="fa fa-minus-square fa-fw" style="cursor:pointer;float:right;margin-top:-30px" title="minimize" onclick="hideFeatureScenarios('Set-up-a-default-load-path');document.getElementById('hidden-Set-up-a-default-load-path').style.display = 'inline';this.style.display = 'none'">  </span>
+
+<span id="hidden-Set-up-a-default-load-path" class="fa fa-plus-square fa-fw" style="cursor:pointer;float:right;display:none;margin-top:-30px" title="maximize feature" onclick="showFeatureScenarios('Set-up-a-default-load-path'); this.style.display = 'none'">  </span>
+++++
 ****
 When you're developing a gem, it's convenient if your project's `lib` directory +
 is already in the load path. Cucumber does this for you.
@@ -7317,9 +7517,13 @@ it should pass icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)
 ****
 
 [[Showing-differences-to-expected-output, Showing differences to expected output]]
-[feature]
 === *Showing differences to expected output*
 
+++++
+<span class="fa fa-minus-square fa-fw" style="cursor:pointer;float:right;margin-top:-30px" title="minimize" onclick="hideFeatureScenarios('Showing-differences-to-expected-output');document.getElementById('hidden-Showing-differences-to-expected-output').style.display = 'inline';this.style.display = 'none'">  </span>
+
+<span id="hidden-Showing-differences-to-expected-output" class="fa fa-plus-square fa-fw" style="cursor:pointer;float:right;display:none;margin-top:-30px" title="maximize feature" onclick="showFeatureScenarios('Showing-differences-to-expected-output'); this.style.display = 'none'">  </span>
+++++
 ****
 Cucumber will helpfully show you the expectation error that your +
 testing library gives you, in the context of the failing scenario. +
@@ -7377,9 +7581,13 @@ cucumber features/failing_expectation.feature:3
 ****
 
 [[Skip-Scenario, Skip Scenario]]
-[feature]
 === *Skip Scenario*
 
+++++
+<span class="fa fa-minus-square fa-fw" style="cursor:pointer;float:right;margin-top:-30px" title="minimize" onclick="hideFeatureScenarios('Skip-Scenario');document.getElementById('hidden-Skip-Scenario').style.display = 'inline';this.style.display = 'none'">  </span>
+
+<span id="hidden-Skip-Scenario" class="fa fa-plus-square fa-fw" style="cursor:pointer;float:right;display:none;margin-top:-30px" title="maximize feature" onclick="showFeatureScenarios('Skip-Scenario'); this.style.display = 'none'">  </span>
+++++
 ==== Scenario: With a passing step
 ****
 Given ::
@@ -7465,9 +7673,13 @@ Feature: test
 ****
 
 [[Snippets, Snippets]]
-[feature]
 === *Snippets*
 
+++++
+<span class="fa fa-minus-square fa-fw" style="cursor:pointer;float:right;margin-top:-30px" title="minimize" onclick="hideFeatureScenarios('Snippets');document.getElementById('hidden-Snippets').style.display = 'inline';this.style.display = 'none'">  </span>
+
+<span id="hidden-Snippets" class="fa fa-plus-square fa-fw" style="cursor:pointer;float:right;display:none;margin-top:-30px" title="maximize feature" onclick="showFeatureScenarios('Snippets'); this.style.display = 'none'">  </span>
+++++
 ****
 Cucumber helpfully prints out any undefined step definitions as a code +
 snippet suggestion, which you can then paste into a step definitions +
@@ -7544,9 +7756,13 @@ end
 ****
 
 [[Snippets-message, Snippets message]]
-[feature]
 === *Snippets message*
 
+++++
+<span class="fa fa-minus-square fa-fw" style="cursor:pointer;float:right;margin-top:-30px" title="minimize" onclick="hideFeatureScenarios('Snippets-message');document.getElementById('hidden-Snippets-message').style.display = 'inline';this.style.display = 'none'">  </span>
+
+<span id="hidden-Snippets-message" class="fa fa-plus-square fa-fw" style="cursor:pointer;float:right;display:none;margin-top:-30px" title="maximize feature" onclick="showFeatureScenarios('Snippets-message'); this.style.display = 'none'">  </span>
+++++
 ****
 If a step doesn't match, Cucumber will ask the wire server to return a snippet of code for a +
 step definition.
@@ -7591,9 +7807,13 @@ baz
 ****
 
 [[State, State]]
-[feature]
 === *State*
 
+++++
+<span class="fa fa-minus-square fa-fw" style="cursor:pointer;float:right;margin-top:-30px" title="minimize" onclick="hideFeatureScenarios('State');document.getElementById('hidden-State').style.display = 'inline';this.style.display = 'none'">  </span>
+
+<span id="hidden-State" class="fa fa-plus-square fa-fw" style="cursor:pointer;float:right;display:none;margin-top:-30px" title="maximize feature" onclick="showFeatureScenarios('State'); this.style.display = 'none'">  </span>
+++++
 ****
 You can pass state between step by setting instance variables, +
 but those instance variables will be gone when the next scenario runs.
@@ -7636,9 +7856,13 @@ it should pass icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)
 ****
 
 [[Step-matches-message, Step matches message]]
-[feature]
 === *Step matches message*
 
+++++
+<span class="fa fa-minus-square fa-fw" style="cursor:pointer;float:right;margin-top:-30px" title="minimize" onclick="hideFeatureScenarios('Step-matches-message');document.getElementById('hidden-Step-matches-message').style.display = 'inline';this.style.display = 'none'">  </span>
+
+<span id="hidden-Step-matches-message" class="fa fa-plus-square fa-fw" style="cursor:pointer;float:right;display:none;margin-top:-30px" title="maximize feature" onclick="showFeatureScenarios('Step-matches-message'); this.style.display = 'none'">  </span>
+++++
 ****
 When the features have been parsed, Cucumber will send a `step_matches` +
 message to ask the wire server if it can match a step name. This happens for +
@@ -7726,9 +7950,13 @@ the stderr should not contain anything icon:thumbs-up[role="green",title="Passed
 ****
 
 [[Strict-mode, Strict mode]]
-[feature]
 === *Strict mode*
 
+++++
+<span class="fa fa-minus-square fa-fw" style="cursor:pointer;float:right;margin-top:-30px" title="minimize" onclick="hideFeatureScenarios('Strict-mode');document.getElementById('hidden-Strict-mode').style.display = 'inline';this.style.display = 'none'">  </span>
+
+<span id="hidden-Strict-mode" class="fa fa-plus-square fa-fw" style="cursor:pointer;float:right;display:none;margin-top:-30px" title="maximize feature" onclick="showFeatureScenarios('Strict-mode'); this.style.display = 'none'">  </span>
+++++
 ****
 Using the `--strict` flag will cause cucumber to fail unless all the +
 step definitions have been defined.
@@ -7801,9 +8029,13 @@ Feature: Missing
 ****
 
 [[Table-diffing, Table diffing]]
-[feature]
 === *Table diffing*
 
+++++
+<span class="fa fa-minus-square fa-fw" style="cursor:pointer;float:right;margin-top:-30px" title="minimize" onclick="hideFeatureScenarios('Table-diffing');document.getElementById('hidden-Table-diffing').style.display = 'inline';this.style.display = 'none'">  </span>
+
+<span id="hidden-Table-diffing" class="fa fa-plus-square fa-fw" style="cursor:pointer;float:right;display:none;margin-top:-30px" title="maximize feature" onclick="showFeatureScenarios('Table-diffing'); this.style.display = 'none'">  </span>
+++++
 ****
 To allow you to more easily compare data in tables, you are able +
 to easily diff a table with expected data and see the diff in your +
@@ -7868,9 +8100,13 @@ cucumber features/tables.feature:2 # Scenario: Extra row
 ****
 
 [[Tag-logic, Tag logic]]
-[feature]
 === *Tag logic*
 
+++++
+<span class="fa fa-minus-square fa-fw" style="cursor:pointer;float:right;margin-top:-30px" title="minimize" onclick="hideFeatureScenarios('Tag-logic');document.getElementById('hidden-Tag-logic').style.display = 'inline';this.style.display = 'none'">  </span>
+
+<span id="hidden-Tag-logic" class="fa fa-plus-square fa-fw" style="cursor:pointer;float:right;display:none;margin-top:-30px" title="maximize feature" onclick="showFeatureScenarios('Tag-logic'); this.style.display = 'none'">  </span>
+++++
 ****
 In order to conveniently run subsets of features +
 As a Cuker +
@@ -8008,9 +8244,13 @@ it should pass icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)
 ****
 
 [[Tagged-hooks, Tagged hooks]]
-[feature]
 === *Tagged hooks*
 
+++++
+<span class="fa fa-minus-square fa-fw" style="cursor:pointer;float:right;margin-top:-30px" title="minimize" onclick="hideFeatureScenarios('Tagged-hooks');document.getElementById('hidden-Tagged-hooks').style.display = 'inline';this.style.display = 'none'">  </span>
+
+<span id="hidden-Tagged-hooks" class="fa fa-plus-square fa-fw" style="cursor:pointer;float:right;display:none;margin-top:-30px" title="maximize feature" onclick="showFeatureScenarios('Tagged-hooks'); this.style.display = 'none'">  </span>
+++++
 ==== Scenario: omit tagged hook
 ****
 When ::
@@ -8090,9 +8330,13 @@ cucumber features/f.feature:14 # Scenario Outline: omitting hook on specified ex
 ****
 
 [[Transforms, Transforms]]
-[feature]
 === *Transforms*
 
+++++
+<span class="fa fa-minus-square fa-fw" style="cursor:pointer;float:right;margin-top:-30px" title="minimize" onclick="hideFeatureScenarios('Transforms');document.getElementById('hidden-Transforms').style.display = 'inline';this.style.display = 'none'">  </span>
+
+<span id="hidden-Transforms" class="fa fa-plus-square fa-fw" style="cursor:pointer;float:right;display:none;margin-top:-30px" title="maximize feature" onclick="showFeatureScenarios('Transforms'); this.style.display = 'none'">  </span>
+++++
 ****
 If you see certain phrases repeated over and over in your step definitions, you can +
 use transforms to factor out that duplication, and make your step definitions simpler.
@@ -8149,9 +8393,13 @@ it should pass icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)
 ****
 
 [[Unicode-in-tables, Unicode in tables]]
-[feature]
 === *Unicode in tables*
 
+++++
+<span class="fa fa-minus-square fa-fw" style="cursor:pointer;float:right;margin-top:-30px" title="minimize" onclick="hideFeatureScenarios('Unicode-in-tables');document.getElementById('hidden-Unicode-in-tables').style.display = 'inline';this.style.display = 'none'">  </span>
+
+<span id="hidden-Unicode-in-tables" class="fa fa-plus-square fa-fw" style="cursor:pointer;float:right;display:none;margin-top:-30px" title="maximize feature" onclick="showFeatureScenarios('Unicode-in-tables'); this.style.display = 'none'">  </span>
+++++
 ****
 You are free to use unicode in your tables: we've taken care to +
 ensure that the tables are properly aligned so that your output is as +
@@ -8194,9 +8442,13 @@ Feature: Featuring unicode
 ****
 
 [[Usage-formatter, Usage formatter]]
-[feature]
 === *Usage formatter*
 
+++++
+<span class="fa fa-minus-square fa-fw" style="cursor:pointer;float:right;margin-top:-30px" title="minimize" onclick="hideFeatureScenarios('Usage-formatter');document.getElementById('hidden-Usage-formatter').style.display = 'inline';this.style.display = 'none'">  </span>
+
+<span id="hidden-Usage-formatter" class="fa fa-plus-square fa-fw" style="cursor:pointer;float:right;display:none;margin-top:-30px" title="maximize feature" onclick="showFeatureScenarios('Usage-formatter'); this.style.display = 'none'">  </span>
+++++
 ****
 In order to see where step definitions are used +
 Developers should be able to see a list of step definitions and their use
@@ -8288,9 +8540,13 @@ it should pass with exactly: icon:thumbs-up[role="green",title="Passed"] [small 
 ****
 
 [[Using-descriptions-to-give-features-context, Using descriptions to give features context]]
-[feature]
 === *Using descriptions to give features context*
 
+++++
+<span class="fa fa-minus-square fa-fw" style="cursor:pointer;float:right;margin-top:-30px" title="minimize" onclick="hideFeatureScenarios('Using-descriptions-to-give-features-context');document.getElementById('hidden-Using-descriptions-to-give-features-context').style.display = 'inline';this.style.display = 'none'">  </span>
+
+<span id="hidden-Using-descriptions-to-give-features-context" class="fa fa-plus-square fa-fw" style="cursor:pointer;float:right;display:none;margin-top:-30px" title="maximize feature" onclick="showFeatureScenarios('Using-descriptions-to-give-features-context'); this.style.display = 'none'">  </span>
+++++
 ****
 When writing your feature files its very helpful to use description +
 text at the beginning of the feature file, to write a preamble to the +
@@ -8387,9 +8643,13 @@ Feature: descriptions everywhere
 ****
 
 [[Using-star-notation-instead-of-Given/When/Then, Using star notation instead of Given/When/Then]]
-[feature]
 === *Using star notation instead of Given/When/Then*
 
+++++
+<span class="fa fa-minus-square fa-fw" style="cursor:pointer;float:right;margin-top:-30px" title="minimize" onclick="hideFeatureScenarios('Using-star-notation-instead-of-Given/When/Then');document.getElementById('hidden-Using-star-notation-instead-of-Given/When/Then').style.display = 'inline';this.style.display = 'none'">  </span>
+
+<span id="hidden-Using-star-notation-instead-of-Given/When/Then" class="fa fa-plus-square fa-fw" style="cursor:pointer;float:right;display:none;margin-top:-30px" title="maximize feature" onclick="showFeatureScenarios('Using-star-notation-instead-of-Given/When/Then'); this.style.display = 'none'">  </span>
+++++
 ****
 Cucumber supports the star notation when writing features: instead of +
 using Given/When/Then, you can simply use a star rather like you would +
@@ -8442,9 +8702,13 @@ end
 ****
 
 [[Wire-protocol-table-diffing, Wire protocol table diffing]]
-[feature]
 === *Wire protocol table diffing*
 
+++++
+<span class="fa fa-minus-square fa-fw" style="cursor:pointer;float:right;margin-top:-30px" title="minimize" onclick="hideFeatureScenarios('Wire-protocol-table-diffing');document.getElementById('hidden-Wire-protocol-table-diffing').style.display = 'inline';this.style.display = 'none'">  </span>
+
+<span id="hidden-Wire-protocol-table-diffing" class="fa fa-plus-square fa-fw" style="cursor:pointer;float:right;display:none;margin-top:-30px" title="maximize feature" onclick="showFeatureScenarios('Wire-protocol-table-diffing'); this.style.display = 'none'">  </span>
+++++
 ****
 In order to use the amazing functionality in the Cucumber table object +
 As a wire server +
@@ -8568,9 +8832,13 @@ cucumber features/wired.feature:2 # Scenario: Wired
 ****
 
 [[Wire-protocol-tags, Wire protocol tags]]
-[feature]
 === *Wire protocol tags*
 
+++++
+<span class="fa fa-minus-square fa-fw" style="cursor:pointer;float:right;margin-top:-30px" title="minimize" onclick="hideFeatureScenarios('Wire-protocol-tags');document.getElementById('hidden-Wire-protocol-tags').style.display = 'inline';this.style.display = 'none'">  </span>
+
+<span id="hidden-Wire-protocol-tags" class="fa fa-plus-square fa-fw" style="cursor:pointer;float:right;display:none;margin-top:-30px" title="maximize feature" onclick="showFeatureScenarios('Wire-protocol-tags'); this.style.display = 'none'">  </span>
+++++
 ****
 In order to use Before and After hooks in a wire server, we send tags with the  +
 scenario in the begin_scenario and end_scenario messages
@@ -8667,9 +8935,13 @@ Feature: Wired
 ****
 
 [[Wire-protocol-timeouts, Wire protocol timeouts]]
-[feature]
 === *Wire protocol timeouts*
 
+++++
+<span class="fa fa-minus-square fa-fw" style="cursor:pointer;float:right;margin-top:-30px" title="minimize" onclick="hideFeatureScenarios('Wire-protocol-timeouts');document.getElementById('hidden-Wire-protocol-timeouts').style.display = 'inline';this.style.display = 'none'">  </span>
+
+<span id="hidden-Wire-protocol-timeouts" class="fa fa-plus-square fa-fw" style="cursor:pointer;float:right;display:none;margin-top:-30px" title="maximize feature" onclick="showFeatureScenarios('Wire-protocol-timeouts'); this.style.display = 'none'">  </span>
+++++
 ****
 We don't want Cucumber to hang forever on a wire server that's not even there, +
 but equally we need to give the user the flexibility to allow step definitions +
@@ -8744,3 +9016,33 @@ cucumber features/wired.feature:2 # Scenario: Wired
 ----
 ****
 
+
+++++
+<script type="text/javascript">
+	function showFeatureScenarios(featureId){
+		var element = document.getElementById(featureId).parentNode;
+		for (var i = 0; i < element.childNodes.length; i++) {
+    		if (element.childNodes[i].className == "sect3" || element.childNodes[i].className == "fa fa-minus-square fa-fw") {
+      		     element.childNodes[i].style.display = 'inline';
+    			}
+    		if (element.childNodes[i].className == "sidebarblock") {
+      		     element.childNodes[i].style.display = 'block';
+    			}			        
+		}
+		 
+ 		document.getElementById(featureId).childNodes[0].click();
+	}
+
+	function hideFeatureScenarios(featureId){
+		var element = document.getElementById(featureId).parentNode;
+		for (var i = 0; i < element.childNodes.length; i++) {
+    		if (element.childNodes[i].className == "sect3" || element.childNodes[i].className == "sidebarblock") { 
+      		     element.childNodes[i].style.display = 'none';	   		    
+                 	}
+		      
+		}
+	   document.getElementById(featureId).childNodes[0].click();
+ 	}
+
+</script>
+++++

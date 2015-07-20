@@ -1,5 +1,5 @@
 :toc: right
-:backend: pdf
+:backend: html5
 :doctitle: Living Documentation
 :doctype: book
 :icons: font
@@ -7,7 +7,7 @@
 :!linkcss:
 :sectanchors:
 :sectlink:
-:!docinfo:
+:docinfo:
 :toclevels: 3
 
 = *Living Documentation*
@@ -344,9 +344,13 @@
 == *Features*
 
 [[Asynchronous-failing-steps, Asynchronous failing steps]]
-[feature]
 === *Asynchronous failing steps*
 
+++++
+<span class="fa fa-minus-square fa-fw" style="cursor:pointer;float:right;margin-top:-30px" title="minimize" onclick="hideFeatureScenarios('Asynchronous-failing-steps');document.getElementById('hidden-Asynchronous-failing-steps').style.display = 'inline';this.style.display = 'none'">  </span>
+
+<span id="hidden-Asynchronous-failing-steps" class="fa fa-plus-square fa-fw" style="cursor:pointer;float:right;display:none;margin-top:-30px" title="maximize feature" onclick="showFeatureScenarios('Asynchronous-failing-steps'); this.style.display = 'none'">  </span>
+++++
 ==== Scenario: see asynchronously failing scenarios
 ****
 Given ::
@@ -390,9 +394,13 @@ the scenario called "a failing scenario" is reported as failing icon:thumbs-down
 ****
 
 [[Asynchronous-pending-steps, Asynchronous pending steps]]
-[feature]
 === *Asynchronous pending steps*
 
+++++
+<span class="fa fa-minus-square fa-fw" style="cursor:pointer;float:right;margin-top:-30px" title="minimize" onclick="hideFeatureScenarios('Asynchronous-pending-steps');document.getElementById('hidden-Asynchronous-pending-steps').style.display = 'inline';this.style.display = 'none'">  </span>
+
+<span id="hidden-Asynchronous-pending-steps" class="fa fa-plus-square fa-fw" style="cursor:pointer;float:right;display:none;margin-top:-30px" title="maximize feature" onclick="showFeatureScenarios('Asynchronous-pending-steps'); this.style.display = 'none'">  </span>
+++++
 ==== Scenario: Pending step means the scenario is pending
 ****
 Given ::
@@ -416,9 +424,13 @@ the step "the result is 9" is skipped icon:thumbs-up[role="green",title="Passed"
 ****
 
 [[Asynchronous-step-definition-callbacks, Asynchronous step definition callbacks]]
-[feature]
 === *Asynchronous step definition callbacks*
 
+++++
+<span class="fa fa-minus-square fa-fw" style="cursor:pointer;float:right;margin-top:-30px" title="minimize" onclick="hideFeatureScenarios('Asynchronous-step-definition-callbacks');document.getElementById('hidden-Asynchronous-step-definition-callbacks').style.display = 'inline';this.style.display = 'none'">  </span>
+
+<span id="hidden-Asynchronous-step-definition-callbacks" class="fa fa-plus-square fa-fw" style="cursor:pointer;float:right;display:none;margin-top:-30px" title="maximize feature" onclick="showFeatureScenarios('Asynchronous-step-definition-callbacks'); this.style.display = 'none'">  </span>
+++++
 ****
 In order to test asynchronous code +
 As a dev +
@@ -446,9 +458,13 @@ the feature should have run successfully icon:thumbs-up[role="green",title="Pass
 ****
 
 [[Attachments, Attachments]]
-[feature]
 === *Attachments*
 
+++++
+<span class="fa fa-minus-square fa-fw" style="cursor:pointer;float:right;margin-top:-30px" title="minimize" onclick="hideFeatureScenarios('Attachments');document.getElementById('hidden-Attachments').style.display = 'inline';this.style.display = 'none'">  </span>
+
+<span id="hidden-Attachments" class="fa fa-plus-square fa-fw" style="cursor:pointer;float:right;display:none;margin-top:-30px" title="maximize feature" onclick="showFeatureScenarios('Attachments'); this.style.display = 'none'">  </span>
+++++
 ==== Scenario: Attach a buffer
 ****
 Given ::
@@ -1146,9 +1162,13 @@ it outputs this json: icon:thumbs-up[role="green",title="Passed"] [small right]#
 ****
 
 [[Background, Background]]
-[feature]
 === *Background*
 
+++++
+<span class="fa fa-minus-square fa-fw" style="cursor:pointer;float:right;margin-top:-30px" title="minimize" onclick="hideFeatureScenarios('Background');document.getElementById('hidden-Background').style.display = 'inline';this.style.display = 'none'">  </span>
+
+<span id="hidden-Background" class="fa fa-plus-square fa-fw" style="cursor:pointer;float:right;display:none;margin-top:-30px" title="maximize feature" onclick="showFeatureScenarios('Background'); this.style.display = 'none'">  </span>
+++++
 ****
 Background allows you to add some context to the scenarios in a +
 single feature. A Background is much like a scenario containing a +
@@ -1221,9 +1241,13 @@ the step "a second scenario step" passes icon:thumbs-up[role="green",title="Pass
 ****
 
 [[CoffeeScript-support, CoffeeScript support]]
-[feature]
 === *CoffeeScript support*
 
+++++
+<span class="fa fa-minus-square fa-fw" style="cursor:pointer;float:right;margin-top:-30px" title="minimize" onclick="hideFeatureScenarios('CoffeeScript-support');document.getElementById('hidden-CoffeeScript-support').style.display = 'inline';this.style.display = 'none'">  </span>
+
+<span id="hidden-CoffeeScript-support" class="fa fa-plus-square fa-fw" style="cursor:pointer;float:right;display:none;margin-top:-30px" title="maximize feature" onclick="showFeatureScenarios('CoffeeScript-support'); this.style.display = 'none'">  </span>
+++++
 ****
 In order to use the JS dialect I'm most comfortable with +
 As a step definition implementor +
@@ -1243,9 +1267,13 @@ the mapping is run icon:thumbs-down[role="purple",title="Skipped"] [small right]
 ****
 
 [[Command-line-interface, Command line interface]]
-[feature]
 === *Command line interface*
 
+++++
+<span class="fa fa-minus-square fa-fw" style="cursor:pointer;float:right;margin-top:-30px" title="minimize" onclick="hideFeatureScenarios('Command-line-interface');document.getElementById('hidden-Command-line-interface').style.display = 'inline';this.style.display = 'none'">  </span>
+
+<span id="hidden-Command-line-interface" class="fa fa-plus-square fa-fw" style="cursor:pointer;float:right;display:none;margin-top:-30px" title="maximize feature" onclick="showFeatureScenarios('Command-line-interface'); this.style.display = 'none'">  </span>
+++++
 ****
 In order to run cucumber in different contexts +
 As a person who wants to run features +
@@ -1618,9 +1646,13 @@ the exit status should be 1 icon:thumbs-up[role="green",title="Passed"] [small r
 ****
 
 [[Core-feature-elements-execution, Core feature elements execution]]
-[feature]
 === *Core feature elements execution*
 
+++++
+<span class="fa fa-minus-square fa-fw" style="cursor:pointer;float:right;margin-top:-30px" title="minimize" onclick="hideFeatureScenarios('Core-feature-elements-execution');document.getElementById('hidden-Core-feature-elements-execution').style.display = 'inline';this.style.display = 'none'">  </span>
+
+<span id="hidden-Core-feature-elements-execution" class="fa fa-plus-square fa-fw" style="cursor:pointer;float:right;display:none;margin-top:-30px" title="maximize feature" onclick="showFeatureScenarios('Core-feature-elements-execution'); this.style.display = 'none'">  </span>
+++++
 ****
 In order to have automated acceptance tests +
 As a developer +
@@ -1791,9 +1823,13 @@ the feature should have run successfully icon:thumbs-up[role="green",title="Pass
 ****
 
 [[Data-Tables, Data Tables]]
-[feature]
 === *Data Tables*
 
+++++
+<span class="fa fa-minus-square fa-fw" style="cursor:pointer;float:right;margin-top:-30px" title="minimize" onclick="hideFeatureScenarios('Data-Tables');document.getElementById('hidden-Data-Tables').style.display = 'inline';this.style.display = 'none'">  </span>
+
+<span id="hidden-Data-Tables" class="fa fa-plus-square fa-fw" style="cursor:pointer;float:right;display:none;margin-top:-30px" title="maximize feature" onclick="showFeatureScenarios('Data-Tables'); this.style.display = 'none'">  </span>
+++++
 ==== Scenario: a data table can be read as a hash
 ****
 Given ::
@@ -1816,9 +1852,13 @@ the data table is converted to the following: icon:thumbs-up[role="green",title=
 ****
 
 [[Environment-Hooks, Environment Hooks]]
-[feature]
 === *Environment Hooks*
 
+++++
+<span class="fa fa-minus-square fa-fw" style="cursor:pointer;float:right;margin-top:-30px" title="minimize" onclick="hideFeatureScenarios('Environment-Hooks');document.getElementById('hidden-Environment-Hooks').style.display = 'inline';this.style.display = 'none'">  </span>
+
+<span id="hidden-Environment-Hooks" class="fa fa-plus-square fa-fw" style="cursor:pointer;float:right;display:none;margin-top:-30px" title="maximize feature" onclick="showFeatureScenarios('Environment-Hooks'); this.style.display = 'none'">  </span>
+++++
 ==== Scenario: Tagged around hook with untagged scenario
 ****
 Given ::
@@ -3002,9 +3042,13 @@ it outputs this json: icon:thumbs-up[role="green",title="Passed"] [small right]#
 ****
 
 [[JSON-Formatter, JSON Formatter]]
-[feature]
 === *JSON Formatter*
 
+++++
+<span class="fa fa-minus-square fa-fw" style="cursor:pointer;float:right;margin-top:-30px" title="minimize" onclick="hideFeatureScenarios('JSON-Formatter');document.getElementById('hidden-JSON-Formatter').style.display = 'inline';this.style.display = 'none'">  </span>
+
+<span id="hidden-JSON-Formatter" class="fa fa-plus-square fa-fw" style="cursor:pointer;float:right;display:none;margin-top:-30px" title="maximize feature" onclick="showFeatureScenarios('JSON-Formatter'); this.style.display = 'none'">  </span>
+++++
 ****
 In order to simplify processing of Cucumber features and results +
 Developers should be able to consume features as JSON
@@ -5192,9 +5236,13 @@ it outputs this json: icon:thumbs-up[role="green",title="Passed"] [small right]#
 ****
 
 [[PogoScript-support, PogoScript support]]
-[feature]
 === *PogoScript support*
 
+++++
+<span class="fa fa-minus-square fa-fw" style="cursor:pointer;float:right;margin-top:-30px" title="minimize" onclick="hideFeatureScenarios('PogoScript-support');document.getElementById('hidden-PogoScript-support').style.display = 'inline';this.style.display = 'none'">  </span>
+
+<span id="hidden-PogoScript-support" class="fa fa-plus-square fa-fw" style="cursor:pointer;float:right;display:none;margin-top:-30px" title="maximize feature" onclick="showFeatureScenarios('PogoScript-support'); this.style.display = 'none'">  </span>
+++++
 ****
 In order to use the JS dialect that totally rocks +
 As a step definition implementor +
@@ -5214,9 +5262,13 @@ the mapping is run icon:thumbs-down[role="purple",title="Skipped"] [small right]
 ****
 
 [[Pretty-Formatter, Pretty Formatter]]
-[feature]
 === *Pretty Formatter*
 
+++++
+<span class="fa fa-minus-square fa-fw" style="cursor:pointer;float:right;margin-top:-30px" title="minimize" onclick="hideFeatureScenarios('Pretty-Formatter');document.getElementById('hidden-Pretty-Formatter').style.display = 'inline';this.style.display = 'none'">  </span>
+
+<span id="hidden-Pretty-Formatter" class="fa fa-plus-square fa-fw" style="cursor:pointer;float:right;display:none;margin-top:-30px" title="maximize feature" onclick="showFeatureScenarios('Pretty-Formatter'); this.style.display = 'none'">  </span>
+++++
 ****
 In order to visualize the tests in an a set of Cucumber features +
 Developers should be able to see prettified view of the scenarios that are being executed
@@ -5377,9 +5429,13 @@ Failing scenarios:
 ****
 
 [[Scenario-Outlines-and-Examples, Scenario Outlines and Examples]]
-[feature]
 === *Scenario Outlines and Examples*
 
+++++
+<span class="fa fa-minus-square fa-fw" style="cursor:pointer;float:right;margin-top:-30px" title="minimize" onclick="hideFeatureScenarios('Scenario-Outlines-and-Examples');document.getElementById('hidden-Scenario-Outlines-and-Examples').style.display = 'inline';this.style.display = 'none'">  </span>
+
+<span id="hidden-Scenario-Outlines-and-Examples" class="fa fa-plus-square fa-fw" style="cursor:pointer;float:right;display:none;margin-top:-30px" title="maximize feature" onclick="showFeatureScenarios('Scenario-Outlines-and-Examples'); this.style.display = 'none'">  </span>
+++++
 ==== Scenario: Basic outline
 ****
 Given ::
@@ -5531,9 +5587,13 @@ the step "step d" passes icon:thumbs-up[role="green",title="Passed"] [small righ
 ****
 
 [[Scenario-Statuses, Scenario Statuses]]
-[feature]
 === *Scenario Statuses*
 
+++++
+<span class="fa fa-minus-square fa-fw" style="cursor:pointer;float:right;margin-top:-30px" title="minimize" onclick="hideFeatureScenarios('Scenario-Statuses');document.getElementById('hidden-Scenario-Statuses').style.display = 'inline';this.style.display = 'none'">  </span>
+
+<span id="hidden-Scenario-Statuses" class="fa fa-plus-square fa-fw" style="cursor:pointer;float:right;display:none;margin-top:-30px" title="maximize feature" onclick="showFeatureScenarios('Scenario-Statuses'); this.style.display = 'none'">  </span>
+++++
 ==== Scenario: Check scenario statuses
 ****
 Given ::
@@ -6199,9 +6259,13 @@ it outputs this json: icon:thumbs-up[role="green",title="Passed"] [small right]#
 ****
 
 [[Step-definition-callbacks, Step definition callbacks]]
-[feature]
 === *Step definition callbacks*
 
+++++
+<span class="fa fa-minus-square fa-fw" style="cursor:pointer;float:right;margin-top:-30px" title="minimize" onclick="hideFeatureScenarios('Step-definition-callbacks');document.getElementById('hidden-Step-definition-callbacks').style.display = 'inline';this.style.display = 'none'">  </span>
+
+<span id="hidden-Step-definition-callbacks" class="fa fa-plus-square fa-fw" style="cursor:pointer;float:right;display:none;margin-top:-30px" title="maximize feature" onclick="showFeatureScenarios('Step-definition-callbacks'); this.style.display = 'none'">  </span>
+++++
 ==== Scenario: fail with single-parameter error (Node.js style)
 ****
 Given ::
@@ -6256,9 +6320,13 @@ the scenario passes icon:thumbs-down[role="purple",title="Skipped"] [small right
 ****
 
 [[step-definition-snippets, step definition snippets]]
-[feature]
 === *step definition snippets*
 
+++++
+<span class="fa fa-minus-square fa-fw" style="cursor:pointer;float:right;margin-top:-30px" title="minimize" onclick="hideFeatureScenarios('step-definition-snippets');document.getElementById('hidden-step-definition-snippets').style.display = 'inline';this.style.display = 'none'">  </span>
+
+<span id="hidden-step-definition-snippets" class="fa fa-plus-square fa-fw" style="cursor:pointer;float:right;display:none;margin-top:-30px" title="maximize feature" onclick="showFeatureScenarios('step-definition-snippets'); this.style.display = 'none'">  </span>
+++++
 ==== Scenario: escape regexp special characters
 ****
 Given ::
@@ -6323,9 +6391,13 @@ a "Given" example step definition snippet for /^I have "(.*)" cucumbers$/ with 1
 ****
 
 [[step-definitions-with-string-pattern, step definitions with string pattern]]
-[feature]
 === *step definitions with string pattern*
 
+++++
+<span class="fa fa-minus-square fa-fw" style="cursor:pointer;float:right;margin-top:-30px" title="minimize" onclick="hideFeatureScenarios('step-definitions-with-string-pattern');document.getElementById('hidden-step-definitions-with-string-pattern').style.display = 'inline';this.style.display = 'none'">  </span>
+
+<span id="hidden-step-definitions-with-string-pattern" class="fa fa-plus-square fa-fw" style="cursor:pointer;float:right;display:none;margin-top:-30px" title="maximize feature" onclick="showFeatureScenarios('step-definitions-with-string-pattern'); this.style.display = 'none'">  </span>
+++++
 ****
 Some people don't like Regexps as step definition patterns. +
 Cucumber also supports string-based patterns.
@@ -6372,9 +6444,13 @@ the mapping receives the multipple arguments icon:thumbs-down[role="yellow",titl
 ****
 
 [[Strict-mode, Strict mode]]
-[feature]
 === *Strict mode*
 
+++++
+<span class="fa fa-minus-square fa-fw" style="cursor:pointer;float:right;margin-top:-30px" title="minimize" onclick="hideFeatureScenarios('Strict-mode');document.getElementById('hidden-Strict-mode').style.display = 'inline';this.style.display = 'none'">  </span>
+
+<span id="hidden-Strict-mode" class="fa fa-plus-square fa-fw" style="cursor:pointer;float:right;display:none;margin-top:-30px" title="maximize feature" onclick="showFeatureScenarios('Strict-mode'); this.style.display = 'none'">  </span>
+++++
 ****
 Using the `--strict` flag will cause cucumber to fail unless all the +
 step definitions have been defined.
@@ -6561,9 +6637,13 @@ the exit status should be 1 icon:thumbs-up[role="green",title="Passed"] [small r
 ****
 
 [[Summary-Formatter, Summary Formatter]]
-[feature]
 === *Summary Formatter*
 
+++++
+<span class="fa fa-minus-square fa-fw" style="cursor:pointer;float:right;margin-top:-30px" title="minimize" onclick="hideFeatureScenarios('Summary-Formatter');document.getElementById('hidden-Summary-Formatter').style.display = 'inline';this.style.display = 'none'">  </span>
+
+<span id="hidden-Summary-Formatter" class="fa fa-plus-square fa-fw" style="cursor:pointer;float:right;display:none;margin-top:-30px" title="maximize feature" onclick="showFeatureScenarios('Summary-Formatter'); this.style.display = 'none'">  </span>
+++++
 ****
 In order to get a quick overview of Cucumber test run +
 Developers should be able to see a high level summary of the scenarios that were executed
@@ -6648,9 +6728,13 @@ it outputs this text: icon:thumbs-up[role="green",title="Passed"] [small right]#
 ****
 
 [[User-logs-into-the-system, User logs into the system]]
-[feature]
 === *User logs into the system*
 
+++++
+<span class="fa fa-minus-square fa-fw" style="cursor:pointer;float:right;margin-top:-30px" title="minimize" onclick="hideFeatureScenarios('User-logs-into-the-system');document.getElementById('hidden-User-logs-into-the-system').style.display = 'inline';this.style.display = 'none'">  </span>
+
+<span id="hidden-User-logs-into-the-system" class="fa fa-plus-square fa-fw" style="cursor:pointer;float:right;display:none;margin-top:-30px" title="maximize feature" onclick="showFeatureScenarios('User-logs-into-the-system'); this.style.display = 'none'">  </span>
+++++
 ****
 In order to be able to use eraNET components +
 As a user +
@@ -6740,9 +6824,13 @@ I should not see any username icon:thumbs-down[role="yellow",title="Undefined"] 
 ****
 
 [[World-constructor-callback-with-object, World constructor callback with object]]
-[feature]
 === *World constructor callback with object*
 
+++++
+<span class="fa fa-minus-square fa-fw" style="cursor:pointer;float:right;margin-top:-30px" title="minimize" onclick="hideFeatureScenarios('World-constructor-callback-with-object');document.getElementById('hidden-World-constructor-callback-with-object').style.display = 'inline';this.style.display = 'none'">  </span>
+
+<span id="hidden-World-constructor-callback-with-object" class="fa fa-plus-square fa-fw" style="cursor:pointer;float:right;display:none;margin-top:-30px" title="maximize feature" onclick="showFeatureScenarios('World-constructor-callback-with-object'); this.style.display = 'none'">  </span>
+++++
 ****
 It is possible for the World constructor function to tell Cucumber +
 to use another object than itself as the World instance: +
@@ -6774,3 +6862,33 @@ And ::
 the explicit World object function should have been called icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ****
 
+
+++++
+<script type="text/javascript">
+	function showFeatureScenarios(featureId){
+		var element = document.getElementById(featureId).parentNode;
+		for (var i = 0; i < element.childNodes.length; i++) {
+    		if (element.childNodes[i].className == "sect3" || element.childNodes[i].className == "fa fa-minus-square fa-fw") {
+      		     element.childNodes[i].style.display = 'inline';
+    			}
+    		if (element.childNodes[i].className == "sidebarblock") {
+      		     element.childNodes[i].style.display = 'block';
+    			}			        
+		}
+		 
+ 		document.getElementById(featureId).childNodes[0].click();
+	}
+
+	function hideFeatureScenarios(featureId){
+		var element = document.getElementById(featureId).parentNode;
+		for (var i = 0; i < element.childNodes.length; i++) {
+    		if (element.childNodes[i].className == "sect3" || element.childNodes[i].className == "sidebarblock") { 
+      		     element.childNodes[i].style.display = 'none';	   		    
+                 	}
+		      
+		}
+	   document.getElementById(featureId).childNodes[0].click();
+ 	}
+
+</script>
+++++
