@@ -8,7 +8,7 @@ Feature: Cukedoctor Main
     When I execute CukedoctorMain with args "-o target/test-classes/outputFile.adoc" "-p target/test-classes/json-output/one_passing_one_failing.json" and "-t Documentation"
     Then A file named outputFile.adoc should be generated with the following content:
     """
-   :toc: right
+    :toc: right
 :backend: html5
 :doctitle: Documentation
 :doctype: book
@@ -24,7 +24,7 @@ Feature: Cukedoctor Main
 
 ++++
 <span style="float:right">
-	<input value="Filter by feature title..." onclick="this.value=''" onblur="searchFeature(this.value);"/>
+	<input value="Filter..." onclick="this.value=''" title="Filter features by title" onblur="searchFeature(this.value);"/>
 </span>
 ++++
 == *Summary*
@@ -123,39 +123,108 @@ features/one_passing_one_failing.feature:10:in Given this step fails'
 </script>
 ++++
 ++++
-<script type="text/javascript">
-function searchFeature(criteria){
- 		if(criteria != null && criteria.length >=3){
- 			var sect2List = document.getElementsByClassName("sect2");
- 			if(sect2List != null){
- 				for (var i = 0; i < sect2List.length; i++) {
- 					var h3 = null;
- 					for (var j = 0; j < sect2List[i].childNodes.length; j++) {
- 							if(sect2List[i].childNodes[j].tagName == "H3"){
- 								h3 = sect2List[i].childNodes[j];
- 								break;
- 							}
- 					}
- 					if(h3 != null && h3.id != null){
- 						if(!h3.id.match(criteria)){
- 							sect2List[i].style.display = 'none';
- 						} else{
- 							sect2List[i].style.display = 'inline';
- 						}
- 					  }
- 					}//end for
+<script type = "text/javascript" >
 
- 				}//sect2List != null
- 		}//end criteria.length >=3
- 		else {//clear search
-			var sect2List = document.getElementsByClassName("sect2");
- 			if(sect2List != null){
- 				for (var i = 0; i < sect2List.length; i++) {
- 					 sect2List[i].style.display = 'inline';
- 				}//end for
- 			}//end elements != null
- 		}
- 	}
+var allLevel2ListItens = null;
+
+function searchFeature(criteria) {
+    if (criteria != null && criteria.length >= 3) {
+        var sect2List = document.getElementsByClassName("sect2");
+        var firstMatch = null;
+        if (sect2List != null) {
+            for (var i = 0; i < sect2List.length; i++) {
+                var h3 = null;
+                for (var j = 0; j < sect2List[i].childNodes.length; j++) {
+                    if (sect2List[i].childNodes[j].tagName && sect2List[i].childNodes[j].tagName.toUpperCase() == "H3") {
+                        h3 = sect2List[i].childNodes[j];
+                        break;
+                    }
+                }
+                if (h3 != null && h3.id != null) {
+                    if (!h3.id.toLowerCase().match(criteria.toLowerCase())) {
+                        sect2List[i].style.display = 'none';
+                    } else {//match
+                        sect2List[i].style.display = 'inline';
+                        if (firstMatch == null) {
+                            //used to scroll to after search
+                            firstMatch = h3;
+                        }
+                        //remove toc
+                        if (allLevel2ListItens == null) {
+                            collectallLevel2IListItens();
+                        }
+                        for (var z = 0; z < allLevel2ListItens.length; z++) {
+                            if (allLevel2ListItens[z].childNodes[0].tagName && allLevel2ListItens[z].childNodes[0].tagName.toLowerCase() == "a") {
+                                if (allLevel2ListItens[z].childNodes[0].getAttribute("href").toUpperCase().substring(1).match(criteria.toUpperCase())) {
+                                    allLevel2ListItens[z].style.display = 'inline';
+                                } else {
+                                    allLevel2ListItens[z].style.display = 'none';
+                                }
+                            }
+                        }//end for allListItens
+                    }
+                }
+            }//end for
+
+        }//sect2List != null
+        if (firstMatch != null) {
+            animate(document.body, "scrollTop", "", 0, firstMatch.offsetTop, 200, true);
+        }
+
+
+    }//end criteria.length >=3
+    else {//clear search
+        var sect2List = document.getElementsByClassName("sect2");
+        if (sect2List != null) {
+            for (var i = 0; i < sect2List.length; i++) {
+                sect2List[i].style.display = 'inline';
+            }//end for
+        }//end elements != null
+
+        if (allLevel2ListItens == null) {
+            collectallLevel2IListItens();
+        }
+        for (var z = 0; z < allLevel2ListItens.length; z++) {
+            allLevel2ListItens[z].style.display = 'inline';
+        }
+
+    }
+}
+
+function animate(elem, style, unit, from, to, time, prop) {
+    if (!elem) return;
+    var start = new Date().getTime(),
+        timer = setInterval(function () {
+            var step = Math.min(1, (new Date().getTime() - start) / time);
+            if (prop) {
+                elem[style] = (from + step * (to - from)) + unit;
+            } else {
+                elem.style[style] = (from + step * (to - from)) + unit;
+            }
+            if (step == 1) clearInterval(timer);
+        }, 25);
+    elem.style[style] = from + unit;
+}
+
+function collectallLevel2IListItens() {
+    allLevel2ListItens = new Array();
+    var uls = document.getElementsByClassName('sectlevel2');
+    for (var i = 0; i < uls.length; i++) {
+        for (var j = 0; j < uls[i].childNodes.length; j++) {
+            if (uls[i].childNodes[j].tagName) {
+                if (uls[i].childNodes[j].tagName.toLowerCase() == 'li') {
+                    allLevel2ListItens.push(uls[i].childNodes[j]);
+                }
+
+            }
+
+
+        } //end for uls child
+    }//end for uls
+
+}
+
+
 </script>
 ++++
     """
@@ -168,7 +237,7 @@ function searchFeature(criteria){
     When I execute CukedoctorMain with args "-o target/test-classes/outputFile.adoc" "-p target/test-classes/json-output/" and "-t Documentation"
     Then A file named outputFile.adoc should be generated with the following content:
       """
-      :toc: right
+       :toc: right
 :backend: html5
 :doctitle: Documentation
 :doctype: book
@@ -184,7 +253,7 @@ function searchFeature(criteria){
 
 ++++
 <span style="float:right">
-	<input value="Filter by feature title..." onclick="this.value=''" onblur="searchFeature(this.value);"/>
+	<input value="Filter..." onclick="this.value=''" title="Filter features by title" onblur="searchFeature(this.value);"/>
 </span>
 ++++
 == *Summary*
@@ -420,39 +489,108 @@ features/test_outline.feature:15:in `Then I see the text 'Hacienda''
 </script>
 ++++
 ++++
-<script type="text/javascript">
-function searchFeature(criteria){
- 		if(criteria != null && criteria.length >=3){
- 			var sect2List = document.getElementsByClassName("sect2");
- 			if(sect2List != null){
- 				for (var i = 0; i < sect2List.length; i++) {
- 					var h3 = null;
- 					for (var j = 0; j < sect2List[i].childNodes.length; j++) {
- 							if(sect2List[i].childNodes[j].tagName == "H3"){
- 								h3 = sect2List[i].childNodes[j];
- 								break;
- 							}
- 					}
- 					if(h3 != null && h3.id != null){
- 						if(!h3.id.match(criteria)){
- 							sect2List[i].style.display = 'none';
- 						} else{
- 							sect2List[i].style.display = 'inline';
- 						}
- 					  }
- 					}//end for
+<script type = "text/javascript" >
 
- 				}//sect2List != null
- 		}//end criteria.length >=3
- 		else {//clear search
-			var sect2List = document.getElementsByClassName("sect2");
- 			if(sect2List != null){
- 				for (var i = 0; i < sect2List.length; i++) {
- 					 sect2List[i].style.display = 'inline';
- 				}//end for
- 			}//end elements != null
- 		}
- 	}
+var allLevel2ListItens = null;
+
+function searchFeature(criteria) {
+    if (criteria != null && criteria.length >= 3) {
+        var sect2List = document.getElementsByClassName("sect2");
+        var firstMatch = null;
+        if (sect2List != null) {
+            for (var i = 0; i < sect2List.length; i++) {
+                var h3 = null;
+                for (var j = 0; j < sect2List[i].childNodes.length; j++) {
+                    if (sect2List[i].childNodes[j].tagName && sect2List[i].childNodes[j].tagName.toUpperCase() == "H3") {
+                        h3 = sect2List[i].childNodes[j];
+                        break;
+                    }
+                }
+                if (h3 != null && h3.id != null) {
+                    if (!h3.id.toLowerCase().match(criteria.toLowerCase())) {
+                        sect2List[i].style.display = 'none';
+                    } else {//match
+                        sect2List[i].style.display = 'inline';
+                        if (firstMatch == null) {
+                            //used to scroll to after search
+                            firstMatch = h3;
+                        }
+                        //remove toc
+                        if (allLevel2ListItens == null) {
+                            collectallLevel2IListItens();
+                        }
+                        for (var z = 0; z < allLevel2ListItens.length; z++) {
+                            if (allLevel2ListItens[z].childNodes[0].tagName && allLevel2ListItens[z].childNodes[0].tagName.toLowerCase() == "a") {
+                                if (allLevel2ListItens[z].childNodes[0].getAttribute("href").toUpperCase().substring(1).match(criteria.toUpperCase())) {
+                                    allLevel2ListItens[z].style.display = 'inline';
+                                } else {
+                                    allLevel2ListItens[z].style.display = 'none';
+                                }
+                            }
+                        }//end for allListItens
+                    }
+                }
+            }//end for
+
+        }//sect2List != null
+        if (firstMatch != null) {
+            animate(document.body, "scrollTop", "", 0, firstMatch.offsetTop, 200, true);
+        }
+
+
+    }//end criteria.length >=3
+    else {//clear search
+        var sect2List = document.getElementsByClassName("sect2");
+        if (sect2List != null) {
+            for (var i = 0; i < sect2List.length; i++) {
+                sect2List[i].style.display = 'inline';
+            }//end for
+        }//end elements != null
+
+        if (allLevel2ListItens == null) {
+            collectallLevel2IListItens();
+        }
+        for (var z = 0; z < allLevel2ListItens.length; z++) {
+            allLevel2ListItens[z].style.display = 'inline';
+        }
+
+    }
+}
+
+function animate(elem, style, unit, from, to, time, prop) {
+    if (!elem) return;
+    var start = new Date().getTime(),
+        timer = setInterval(function () {
+            var step = Math.min(1, (new Date().getTime() - start) / time);
+            if (prop) {
+                elem[style] = (from + step * (to - from)) + unit;
+            } else {
+                elem.style[style] = (from + step * (to - from)) + unit;
+            }
+            if (step == 1) clearInterval(timer);
+        }, 25);
+    elem.style[style] = from + unit;
+}
+
+function collectallLevel2IListItens() {
+    allLevel2ListItens = new Array();
+    var uls = document.getElementsByClassName('sectlevel2');
+    for (var i = 0; i < uls.length; i++) {
+        for (var j = 0; j < uls[i].childNodes.length; j++) {
+            if (uls[i].childNodes[j].tagName) {
+                if (uls[i].childNodes[j].tagName.toLowerCase() == 'li') {
+                    allLevel2ListItens.push(uls[i].childNodes[j]);
+                }
+
+            }
+
+
+        } //end for uls child
+    }//end for uls
+
+}
+
+
 </script>
 ++++
       """

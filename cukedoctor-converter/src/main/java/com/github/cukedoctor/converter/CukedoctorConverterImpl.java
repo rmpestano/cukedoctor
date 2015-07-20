@@ -70,7 +70,7 @@ public class CukedoctorConverterImpl implements CukedoctorConverter {
 	private void addSearchInput() {
 		writer.write("++++",newLine());
 		writer.write("<span style=\"float:right\">\n" +
-        "\t<input value=\"Filter by feature title...\" onclick=\"this.value=''\" onblur=\"searchFeature(this.value);\"/>\n" +
+        "\t<input value=\"Filter...\" onclick=\"this.value=''\" title=\"Filter features by title\" onblur=\"searchFeature(this.value);\"/>\n" +
         "</span>\t",newLine());
 		writer.write("++++",newLine());
 	}
@@ -457,39 +457,108 @@ public class CukedoctorConverterImpl implements CukedoctorConverter {
 
 		if(documentAttributes != null && documentAttributes.isSearchable()) {
 			writer.write(newLine(), "++++", newLine()).
-					write("<script type=\"text/javascript\">" + newLine()).
-								write("function searchFeature(criteria){\n" +
-										" \t\tif(criteria != null && criteria.length >=3){\n" +
-										" \t\t\tvar sect2List = document.getElementsByClassName(\"sect2\");\n" +
-										" \t\t\tif(sect2List != null){\n" +
-										" \t\t\t\tfor (var i = 0; i < sect2List.length; i++) {\n" +
-										" \t\t\t\t\tvar h3 = null;\n" +
-										" \t\t\t\t\tfor (var j = 0; j < sect2List[i].childNodes.length; j++) {\n" +
-										" \t\t\t\t\t\t\tif(sect2List[i].childNodes[j].tagName == \"H3\"){\n" +
-										" \t\t\t\t\t\t\t\th3 = sect2List[i].childNodes[j];\n" +
-										" \t\t\t\t\t\t\t\tbreak;\n" +
-										" \t\t\t\t\t\t\t}\n" +
-										" \t\t\t\t\t}\n" +
-										" \t\t\t\t\tif(h3 != null && h3.id != null){\n" +
-										" \t\t\t\t\t\tif(!h3.id.match(criteria)){\n" +
-										" \t\t\t\t\t\t\tsect2List[i].style.display = 'none';\t\n" +
-										" \t\t\t\t\t\t} else{\n" +
-										" \t\t\t\t\t\t\tsect2List[i].style.display = 'inline';\t\n" +
-										" \t\t\t\t\t\t} \t\t\t\t\t\t\n" +
-										" \t\t\t\t\t  }\n" +
-										" \t\t\t\t\t}//end for\n" +
-										" \t\t\t\t\t\n" +
-										" \t\t\t\t}//sect2List != null\n" +
-										" \t\t}//end criteria.length >=3\n" +
-										" \t\telse {//clear search\n" +
-										"\t\t\tvar sect2List = document.getElementsByClassName(\"sect2\");\n" +
-										" \t\t\tif(sect2List != null){\n" +
-										" \t\t\t\tfor (var i = 0; i < sect2List.length; i++) {\n" +
-										" \t\t\t\t\t sect2List[i].style.display = 'inline';\t\n" +
-										" \t\t\t\t}//end for\n" +
-										" \t\t\t}//end elements != null \n" +
-										" \t\t}\t\n" +
-										" \t}", newLine(), "</script>",newLine(), "++++");
+					write("<script type = \"text/javascript\" >"+newLine() +
+							""+newLine() +
+							"var allLevel2ListItens = null;"+newLine() +
+							""+newLine() +
+							"function searchFeature(criteria) {"+newLine() +
+							"    if (criteria != null && criteria.length >= 3) {"+newLine() +
+							"        var sect2List = document.getElementsByClassName(\"sect2\");"+newLine() +
+							"        var firstMatch = null;"+newLine() +
+							"        if (sect2List != null) {"+newLine() +
+							"            for (var i = 0; i < sect2List.length; i++) {"+newLine() +
+							"                var h3 = null;"+newLine() +
+							"                for (var j = 0; j < sect2List[i].childNodes.length; j++) {"+newLine() +
+							"                    if (sect2List[i].childNodes[j].tagName && sect2List[i].childNodes[j].tagName.toUpperCase() == \"H3\") {"+newLine() +
+							"                        h3 = sect2List[i].childNodes[j];"+newLine() +
+							"                        break;"+newLine() +
+							"                    }"+newLine() +
+							"                }"+newLine() +
+							"                if (h3 != null && h3.id != null) {"+newLine() +
+							"                    if (!h3.id.toLowerCase().match(criteria.toLowerCase())) {"+newLine() +
+							"                        sect2List[i].style.display = 'none';"+newLine() +
+							"                    } else {//match"+newLine() +
+							"                        sect2List[i].style.display = 'inline';"+newLine() +
+							"                        if (firstMatch == null) {"+newLine() +
+							"                            //used to scroll to after search"+newLine() +
+							"                            firstMatch = h3;"+newLine() +
+							"                        }"+newLine() +
+							"                        //remove toc"+newLine() +
+							"                        if (allLevel2ListItens == null) {"+newLine() +
+							"                            collectallLevel2IListItens();"+newLine() +
+							"                        }"+newLine() +
+							"                        for (var z = 0; z < allLevel2ListItens.length; z++) {"+newLine() +
+							"                            if (allLevel2ListItens[z].childNodes[0].tagName && allLevel2ListItens[z].childNodes[0].tagName.toLowerCase() == \"a\") {"+newLine() +
+							"                                if (allLevel2ListItens[z].childNodes[0].getAttribute(\"href\").toUpperCase().substring(1).match(criteria.toUpperCase())) {"+newLine() +
+							"                                    allLevel2ListItens[z].style.display = 'inline';"+newLine() +
+							"                                } else {"+newLine() +
+							"                                    allLevel2ListItens[z].style.display = 'none';"+newLine() +
+							"                                }"+newLine() +
+							"                            }"+newLine() +
+							"                        }//end for allListItens"+newLine() +
+							"                    }"+newLine() +
+							"                }"+newLine() +
+							"            }//end for"+newLine() +
+							""+newLine() +
+							"        }//sect2List != null"+newLine() +
+							"        if (firstMatch != null) {"+newLine() +
+							"            animate(document.body, \"scrollTop\", \"\", 0, firstMatch.offsetTop, 200, true);"+newLine() +
+							"        }"+newLine() +
+							""+newLine() +
+							""+newLine() +
+							"    }//end criteria.length >=3"+newLine() +
+							"    else {//clear search"+newLine() +
+							"        var sect2List = document.getElementsByClassName(\"sect2\");"+newLine() +
+							"        if (sect2List != null) {"+newLine() +
+							"            for (var i = 0; i < sect2List.length; i++) {"+newLine() +
+							"                sect2List[i].style.display = 'inline';"+newLine() +
+							"            }//end for"+newLine() +
+							"        }//end elements != null"+newLine() +
+							""+newLine() +
+							"        if (allLevel2ListItens == null) {"+newLine() +
+							"            collectallLevel2IListItens();"+newLine() +
+							"        }"+newLine() +
+							"        for (var z = 0; z < allLevel2ListItens.length; z++) {"+newLine() +
+							"            allLevel2ListItens[z].style.display = 'inline';"+newLine() +
+							"        }"+newLine() +
+							""+newLine() +
+							"    }"+newLine() +
+							"}"+newLine() +
+							""+newLine() +
+							"function animate(elem, style, unit, from, to, time, prop) {"+newLine() +
+							"    if (!elem) return;"+newLine() +
+							"    var start = new Date().getTime(),"+newLine() +
+							"        timer = setInterval(function () {"+newLine() +
+							"            var step = Math.min(1, (new Date().getTime() - start) / time);"+newLine() +
+							"            if (prop) {"+newLine() +
+							"                elem[style] = (from + step * (to - from)) + unit;"+newLine() +
+							"            } else {"+newLine() +
+							"                elem.style[style] = (from + step * (to - from)) + unit;"+newLine() +
+							"            }"+newLine() +
+							"            if (step == 1) clearInterval(timer);"+newLine() +
+							"        }, 25);"+newLine() +
+							"    elem.style[style] = from + unit;"+newLine() +
+							"}"+newLine() +
+							""+newLine() +
+							"function collectallLevel2IListItens() {"+newLine() +
+							"    allLevel2ListItens = new Array();"+newLine() +
+							"    var uls = document.getElementsByClassName('sectlevel2');"+newLine() +
+							"    for (var i = 0; i < uls.length; i++) {"+newLine() +
+							"        for (var j = 0; j < uls[i].childNodes.length; j++) {"+newLine() +
+							"            if (uls[i].childNodes[j].tagName) {"+newLine() +
+							"                if (uls[i].childNodes[j].tagName.toLowerCase() == 'li') {"+newLine() +
+							"                    allLevel2ListItens.push(uls[i].childNodes[j]);"+newLine() +
+							"                }"+newLine() +
+							""+newLine() +
+							"            }"+newLine() +
+							""+newLine() +
+							""+newLine() +
+							"        } //end for uls child"+newLine() +
+							"    }//end for uls"+newLine() +
+							""+newLine() +
+							"}"+newLine() +
+							""+newLine() +
+							"", newLine(), "</script>", newLine(), "++++");
 		}
 
 	}

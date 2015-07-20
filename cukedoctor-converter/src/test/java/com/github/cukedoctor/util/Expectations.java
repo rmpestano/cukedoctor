@@ -159,7 +159,8 @@ public interface Expectations {
 			"== *Features*"+newLine() +
 			""+newLine() +
 			"[[One-passing-scenario-one-failing-scenario, One passing scenario, one failing scenario]]"+newLine() +
-			"=== *One passing scenario, one failing scenario*"+newLine() + newLine() +
+			"=== *One passing scenario, one failing scenario*"+newLine() +
+			""+newLine() +
 			"++++"+newLine() +
 			"<span class=\"fa fa-minus-square fa-fw\" style=\"cursor:pointer;float:right;margin-top:-30px\" title=\"minimize\" onclick=\"hideFeatureScenarios('One-passing-scenario-one-failing-scenario');document.getElementById('hidden-One-passing-scenario-one-failing-scenario').style.display = 'inline';this.style.display = 'none'\">  </span>"+newLine() +
 			""+newLine() +
@@ -296,7 +297,8 @@ public interface Expectations {
 			"== *Features*"+newLine() +
 			""+newLine() +
 			"[[An-embed-data-directly-feature, An embed data directly feature]]"+newLine() +
-			"=== *An embed data directly feature*"+newLine() + newLine() +
+			"=== *An embed data directly feature*"+newLine() +
+			""+newLine() +
 			"++++"+newLine() +
 			"<span class=\"fa fa-minus-square fa-fw\" style=\"cursor:pointer;float:right;margin-top:-30px\" title=\"minimize\" onclick=\"hideFeatureScenarios('An-embed-data-directly-feature');document.getElementById('hidden-An-embed-data-directly-feature').style.display = 'inline';this.style.display = 'none'\">  </span>"+newLine() +
 			""+newLine() +
@@ -320,7 +322,8 @@ public interface Expectations {
 			"****"+newLine() +
 			""+newLine() +
 			"[[An-outline-feature, An outline feature]]"+newLine() +
-			"=== *An outline feature*"+newLine() + newLine() +
+			"=== *An outline feature*"+newLine() +
+			""+newLine() +
 			"++++"+newLine() +
 			"<span class=\"fa fa-minus-square fa-fw\" style=\"cursor:pointer;float:right;margin-top:-30px\" title=\"minimize\" onclick=\"hideFeatureScenarios('An-outline-feature');document.getElementById('hidden-An-outline-feature').style.display = 'inline';this.style.display = 'none'\">  </span>"+newLine() +
 			""+newLine() +
@@ -344,7 +347,8 @@ public interface Expectations {
 			"|==="+newLine() +
 			""+newLine() +
 			"[[One-passing-scenario-one-failing-scenario, One passing scenario, one failing scenario]]"+newLine() +
-			"=== *One passing scenario, one failing scenario*"+newLine() + newLine() +
+			"=== *One passing scenario, one failing scenario*"+newLine() +
+			""+newLine() +
 			"++++"+newLine() +
 			"<span class=\"fa fa-minus-square fa-fw\" style=\"cursor:pointer;float:right;margin-top:-30px\" title=\"minimize\" onclick=\"hideFeatureScenarios('One-passing-scenario-one-failing-scenario');document.getElementById('hidden-One-passing-scenario-one-failing-scenario').style.display = 'inline';this.style.display = 'none'\">  </span>"+newLine() +
 			""+newLine() +
