@@ -87,7 +87,7 @@ public class CukedoctorMojo extends AbstractMojo {
 				toc(toc.name().toLowerCase()).
 				numbered(numbered).minimizableFeature(minimizable);
 		if (format.equals(Format.pdf)) {
-			documentAttributes.pdfTheme(true).docInfo(false);
+			documentAttributes.pdfTheme(true).minimizableFeature(false).docInfo(false);
 		} else {
 			documentAttributes.docInfo(true).pdfTheme(false);
 		}

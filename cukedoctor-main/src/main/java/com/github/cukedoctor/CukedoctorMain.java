@@ -22,7 +22,7 @@ import static com.github.cukedoctor.util.Assert.hasText;
  */
 public class CukedoctorMain {
 
-	@Parameter(names = "-f", description = "Document format - supported html5, html and pdf. Default is 'html5'", required = false, echoInput = true)
+	@Parameter(names = "-f", description = "Document format - supported html, pdf and all. Default is 'html'", required = false, echoInput = true)
 	private String format;
 
 	@Parameter(names = "-p", description = "Path to cucumber json output files (can be a directory or a file). Default is current directory", required = false)
@@ -39,6 +39,9 @@ public class CukedoctorMain {
 
 	@Parameter(names = "-numbered", description = "Section numbering. Default is false ", required = false)
 	private Boolean numbered;
+
+	@Parameter(names = "-minimizable", description = "Turn features div minimizable", required = false)
+	private Boolean minimizable;
 
 
 	public String execute(String args[]) {
@@ -59,7 +62,7 @@ public class CukedoctorMain {
 			outputName = title.replaceAll(" ", "-");
 		}
 
-		if (format == null || (!format.equals("html") && !format.equals("html5") && !format.equals("pdf"))) {
+		if (format == null || (format.equals("html") && !format.equals("html5") && !format.equals("pdf")  && !format.equals("all"))) {
 			format = "html5";
 		}
 
@@ -78,6 +81,10 @@ public class CukedoctorMain {
 
 		if(numbered == null){
 			numbered = false;
+		}
+
+		if(minimizable == null){
+			minimizable = Boolean.TRUE;
 		}
 
 		System.out.println("Generating living documentation with args:");
@@ -104,10 +111,11 @@ public class CukedoctorMain {
 		DocumentAttributes documentAttributes = new DocumentAttributes().
 				backend(format).
 				toc(toc).
+				minimizableFeature(minimizable).
 				numbered(numbered);
 
 		if(format.equalsIgnoreCase("pdf")){
-			documentAttributes.pdfTheme(true).docInfo(false);
+			documentAttributes.pdfTheme(true).minimizableFeature(false).docInfo(false);
 		}else {
 			documentAttributes.docInfo(true).pdfTheme(false);
 		}
@@ -118,7 +126,16 @@ public class CukedoctorMain {
 		}
 		documentAttributes.docTitle(title);
 
-		return this.execute(features,documentAttributes,outputName);
+		String resultDoc = null;
+		if("all".equals(format)){
+			documentAttributes.backend("html5");
+			resultDoc = this.execute(features, documentAttributes, outputName);
+			documentAttributes.backend("pdf");
+			this.execute(features, documentAttributes, outputName);
+		}else{
+			resultDoc = this.execute(features,documentAttributes,outputName);
+		}
+		return resultDoc;
 	}
 
 	public static void main(String args[]) {
@@ -143,9 +160,6 @@ public class CukedoctorMain {
 		String doc = converter.renderDocumentation();
 		File adocFile = FileUtil.saveFile(outputName, doc);
 		Asciidoctor asciidoctor = Asciidoctor.Factory.create();
-		/*JavaExtensionRegistry extensionRegistry = asciidoctor.javaExtensionRegistry();
-
-		extensionRegistry.block("feature", FeatureMinimizerExtension.class);*/
 		asciidoctor.convertFile(adocFile, OptionsBuilder.options().backend(attrs.getBackend()).safe(SafeMode.UNSAFE).asMap());
 		asciidoctor.shutdown();
 		return doc;

@@ -751,7 +751,7 @@ public class CukedoctorConverterTest {
 				containsOnlyOnce("|1|1|2|1|1|0|0|0|0|2 2+|010ms");
 
 		FileUtil.saveFile("target/test-docs/doc_one_feature.adoc", resultDoc); //save to target/test-docs folder
-		assertThat(resultDoc).isEqualTo(Expectations.DOCUMENTATION_FOR_ONE_FEATURE);
+		assertThat(resultDoc.replaceAll("\r","")).isEqualTo(Expectations.DOCUMENTATION_FOR_ONE_FEATURE.replaceAll("\r", ""));
 	}
 
 	@Test
@@ -781,7 +781,7 @@ public class CukedoctorConverterTest {
 				containsOnlyOnce("|4|2|6|4|1|0|0|0|1|6 2+|010ms");
 
 		FileUtil.saveFile("target/test-docs/doc_multiple_feature.adoc", resultDoc); //save to target/test-docs folder
-		assertThat(resultDoc).isEqualTo(Expectations.DOCUMENTATION_FOR_MULTIPLE_FEATURES);
+		assertThat(resultDoc.replaceAll("\r","")).isEqualTo(Expectations.DOCUMENTATION_FOR_MULTIPLE_FEATURES.replaceAll("\r",""));
 	}
 
 	@Test

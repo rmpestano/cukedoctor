@@ -413,35 +413,37 @@ public class CukedoctorConverterImpl implements CukedoctorConverter {
 	}
 
 	private void generateScripts() {
-		writer.write(newLine(),"++++",newLine()).
-				write("<script type=\"text/javascript\">"+newLine() +
-						"\tfunction showFeatureScenarios(featureId){"+newLine() +
-						"\t\tvar element = document.getElementById(featureId).parentNode;"+newLine() +
-						"\t\tfor (var i = 0; i < element.childNodes.length; i++) {"+newLine() +
-						"    \t\tif (element.childNodes[i].className == \"sect3\" || element.childNodes[i].className == \"fa fa-minus-square fa-fw\") {"+newLine() +
-						"      \t\t     element.childNodes[i].style.display = 'inline';"+newLine() +
-						"    \t\t\t}"+newLine() +
-						"    \t\tif (element.childNodes[i].className == \"sidebarblock\") {"+newLine() +
-						"      \t\t     element.childNodes[i].style.display = 'block';"+newLine() +
-						"    \t\t\t}\t\t\t        "+newLine() +
-						"\t\t}"+newLine() +
-						"\t\t "+newLine() +
-						" \t\tdocument.getElementById(featureId).childNodes[0].click();"+newLine() +
-						"\t}"+newLine() +
-						""+newLine() +
-						"\tfunction hideFeatureScenarios(featureId){"+newLine() +
-						"\t\tvar element = document.getElementById(featureId).parentNode;"+newLine() +
-						"\t\tfor (var i = 0; i < element.childNodes.length; i++) {"+newLine() +
-						"    \t\tif (element.childNodes[i].className == \"sect3\" || element.childNodes[i].className == \"sidebarblock\") { "+newLine() +
-						"      \t\t     element.childNodes[i].style.display = 'none';\t   \t\t    "+newLine() +
-						"                 \t}"+newLine() +
-						"\t\t      "+newLine() +
-						"\t\t}"+newLine() +
-						"\t   document.getElementById(featureId).childNodes[0].click();"+newLine() +
-						" \t}"+newLine() +
-						""+newLine() +
-						"</script>").
-				write(newLine(), "++++");
+		if(documentAttributes != null && documentAttributes.isMinimizableFeature()) {
+			writer.write(newLine(), "++++", newLine()).
+					write("<script type=\"text/javascript\">" + newLine() +
+							"\tfunction showFeatureScenarios(featureId){" + newLine() +
+							"\t\tvar element = document.getElementById(featureId).parentNode;" + newLine() +
+							"\t\tfor (var i = 0; i < element.childNodes.length; i++) {" + newLine() +
+							"    \t\tif (element.childNodes[i].className == \"sect3\" || element.childNodes[i].className == \"fa fa-minus-square fa-fw\") {" + newLine() +
+							"      \t\t     element.childNodes[i].style.display = 'inline';" + newLine() +
+							"    \t\t\t}" + newLine() +
+							"    \t\tif (element.childNodes[i].className == \"sidebarblock\") {" + newLine() +
+							"      \t\t     element.childNodes[i].style.display = 'block';" + newLine() +
+							"    \t\t\t}\t\t\t        " + newLine() +
+							"\t\t}" + newLine() +
+							"\t\t " + newLine() +
+							" \t\tdocument.getElementById(featureId).childNodes[0].click();" + newLine() +
+							"\t}" + newLine() +
+							"" + newLine() +
+							"\tfunction hideFeatureScenarios(featureId){" + newLine() +
+							"\t\tvar element = document.getElementById(featureId).parentNode;" + newLine() +
+							"\t\tfor (var i = 0; i < element.childNodes.length; i++) {" + newLine() +
+							"    \t\tif (element.childNodes[i].className == \"sect3\" || element.childNodes[i].className == \"sidebarblock\") { " + newLine() +
+							"      \t\t     element.childNodes[i].style.display = 'none';\t   \t\t    " + newLine() +
+							"                 \t}" + newLine() +
+							"\t\t      " + newLine() +
+							"\t\t}" + newLine() +
+							"\t   document.getElementById(featureId).childNodes[0].click();" + newLine() +
+							" \t}" + newLine() +
+							"" + newLine() +
+							"</script>").
+					write(newLine(), "++++");
+		}
 	}
 
 }

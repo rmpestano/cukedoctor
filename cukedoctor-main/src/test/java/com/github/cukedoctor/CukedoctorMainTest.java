@@ -150,5 +150,24 @@ public class CukedoctorMainTest {
 
 	}
 
+	@Test
+	public void shouldRenderPdfAndHtml(){
+		CukedoctorMain main = new CukedoctorMain();
+		main.execute(new String[]{
+				"-o", "\"target/document-one\"",
+				"-p", "\"target/test-classes/json-output/one_passing_one_failing.json\"",
+				"-t", "Living Documentation",
+				"-f", "all"
+
+		});
+
+		File generatedFile = FileUtil.loadFile("target/document-one.pdf");
+		assertThat(generatedFile).exists();
+
+		generatedFile = FileUtil.loadFile("target/document-one.html");
+		assertThat(generatedFile).exists();
+
+	}
+
 
 }
