@@ -299,7 +299,6 @@ public class CukedoctorConverterTest {
 		doReturn(cukedoctorConverter).when(cukedoctorConverter).renderFeatureScenarios(feature);
 		String resultDoc = cukedoctorConverter.renderFeature(feature).getDocumentation().toString();
 		assertThat(resultDoc).isEqualTo("[[Feature-name, Feature name]]" + newLine() +
-				"[feature]"+newLine()+
 				"=== *Feature name*" + newLine() +
 				"" + newLine() +
 				"****" + newLine() +
@@ -539,9 +538,12 @@ public class CukedoctorConverterTest {
 		assertThat(resultDoc).
 				doesNotContain("feature to skip").
 				isEqualTo("[[Feature-name, Feature name]]" + newLine() +
-						"[feature]"+newLine()+
-						"=== *Feature name*" + newLine() +
-						"" + newLine() +
+						"=== *Feature name*" + newLine() + newLine() +
+						"++++"+newLine() +
+						"<span class=\"fa fa-minus-square fa-fw\" style=\"cursor:pointer;float:right;margin-top:-30px\" title=\"minimize\" onclick=\"hideFeatureScenarios('Feature-name');document.getElementById('hidden-Feature-name').style.display = 'inline';this.style.display = 'none'\">  </span>"+newLine() +
+						""+newLine() +
+						"<span id=\"hidden-Feature-name\" class=\"fa fa-plus-square fa-fw\" style=\"cursor:pointer;float:right;display:none;margin-top:-30px\" title=\"maximize feature\" onclick=\"showFeatureScenarios('Feature-name'); this.style.display = 'none'\">  </span>"+newLine() +
+						"++++" +newLine() +
 						"****" + newLine() +
 						"Feature description" + newLine() +
 						"****" + newLine() +
@@ -641,86 +643,7 @@ public class CukedoctorConverterTest {
 		CukedoctorConverter converter = Cukedoctor.instance(features, new DocumentAttributes().docTitle("Doc Title"));
 
 		String resultDoc = converter.renderStepTable(features.get(0).getScenarios().get(0).getSteps().get(0)).renderDocumentation();
-		assertThat(resultDoc).isEqualTo(":toc: right"+newLine() +
-				":backend: html5"+newLine() +
-				":doctitle: Doc Title"+newLine() +
-				":doctype: book"+newLine() +
-				":icons: font"+newLine() +
-				":!numbered:"+newLine() +
-				":!linkcss:"+newLine() +
-				":sectanchors:"+newLine() +
-				":sectlink:"+newLine() +
-				":docinfo:"+newLine() +
-				":toclevels: 3"+newLine() +
-				""+newLine() +
-				"= *Doc Title*"+newLine() +
-				""+newLine() +
-				"== *Summary*"+newLine() +
-				"[cols=\"12*^m\", options=\"header,footer\"]"+newLine() +
-				"|==="+newLine() +
-				"3+|Scenarios 7+|Steps 2+|Features: 1"+newLine() +
-				""+newLine() +
-				"|[green]#*Passed*#"+newLine() +
-				"|[red]#*Failed*#"+newLine() +
-				"|Total"+newLine() +
-				"|[green]#*Passed*#"+newLine() +
-				"|[red]#*Failed*#"+newLine() +
-				"|[purple]#*Skipped*#"+newLine() +
-				"|[maroon]#*Pending*#"+newLine() +
-				"|[yellow]#*Undefined*#"+newLine() +
-				"|[blue]#*Missing*#"+newLine() +
-				"|Total"+newLine() +
-				"|Duration"+newLine() +
-				"|Status"+newLine() +
-				""+newLine() +
-				"12+^|*<<Search>>*"+newLine() +
-				"|1"+newLine() +
-				"|0"+newLine() +
-				"|1"+newLine() +
-				"|1"+newLine() +
-				"|0"+newLine() +
-				"|0"+newLine() +
-				"|0"+newLine() +
-				"|0"+newLine() +
-				"|0"+newLine() +
-				"|1"+newLine() +
-				"|111ms"+newLine() +
-				"|[green]#*passed*#"+newLine() +
-				"12+^|*Totals*"+newLine() +
-				"|1|0|1|1|0|0|0|0|0|1 2+|111ms"+newLine() +
-				"|==="+newLine() +
-				""+newLine() +
-				"== *Features*"+newLine() +
-				""+newLine() +
-				"[[Search, Search]]"+newLine() +
-				"[feature]"+newLine() +
-				"=== *Search*"+newLine() +
-				""+newLine() +
-				"==== Cenario: Find messages by content"+newLine() +
-				"[small]#tags: @txn#"+newLine() +
-				""+newLine() +
-				"****"+newLine() +
-				"Dado ::"+newLine() +
-				"a User has posted the following messages: icon:thumbs-up[role=\"green\",title=\"Passed\"] [small right]#(111ms)#"+newLine() +
-				""+newLine() +
-				""+newLine() +
-				"[cols=\"1*\", options=\"header\"]"+newLine() +
-				"|==="+newLine() +
-				"|content"+newLine() +
-				"|I am making dinner"+newLine() +
-				"|I just woke up"+newLine() +
-				"|I am going to work"+newLine() +
-				"|==="+newLine() +
-				""+newLine() +
-				"----"+newLine() +
-				""+newLine() +
-				"--"+newLine() +
-				"A paragraph in an open block."+newLine() +
-				"--"+newLine() +
-				""+newLine() +
-				"----"+newLine() +
-				"****"+newLine() +
-				""+newLine());
+		assertThat(resultDoc).isEqualTo(Expectations.FEATURE_WITH_STEP_TABLE);
 	}
 
 

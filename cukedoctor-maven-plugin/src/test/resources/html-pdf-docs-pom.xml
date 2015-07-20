@@ -18,6 +18,7 @@
                     <format>all</format>
                     <toc>left</toc>
                     <numbered>true</numbered>
+                    <minimizable>false</minimizable>
                 </configuration>
             </plugin>
         </plugins>

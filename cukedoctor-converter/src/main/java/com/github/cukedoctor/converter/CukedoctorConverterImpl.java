@@ -59,8 +59,11 @@ public class CukedoctorConverterImpl implements CukedoctorConverter {
 		renderFeatures(features);
 		//generateDocInfo();
 		//generatePdfTheme();
+		generateScripts();
+
 		return writer.getCurrentDoc().toString();
 	}
+
 
 	public String getDocumentationTitle() {
 		if(documentAttributes != null && hasText(documentAttributes.getDocTitle())){
@@ -210,8 +213,11 @@ public class CukedoctorConverterImpl implements CukedoctorConverter {
 			return this;
 		}
 		writer.write(renderFeatureSectionId(feature), newLine());
-		writer.write("[feature]",newLine());
-		writer.write(H3(bold(feature.getName())), newLine(), newLine());
+		writer.write(H3(bold(feature.getName())), newLine(),newLine());
+		if(notNull(documentAttributes) && documentAttributes.isMinimizableFeature()){
+			renderMinimizable(feature);
+		}
+
 		if (hasText(feature.getDescription())) {
 			writer.write("****", newLine()).
 					//feature description has \n to delimit new lines
@@ -222,6 +228,24 @@ public class CukedoctorConverterImpl implements CukedoctorConverter {
 
 		renderFeatureScenarios(feature);
 		return this;
+	}
+
+	private void renderMinimizable(Feature feature) {
+		String featureId = feature.getName().replaceAll(",", "").replaceAll(" ", "-");
+		writer.write("++++",newLine()).
+                write("<span class=\"fa fa-minus-square fa-fw\" style=\"cursor:pointer;float:right;margin-top:-30px\" ").
+                write("title=\"minimize\" onclick=\"hideFeatureScenarios('" +
+						featureId +
+						"');document.getElementById('hidden-" +
+						featureId +
+						"').style.display = 'inline';this.style.display = 'none'\">  </span>", newLine(), newLine());
+
+		writer.write("<span id=\"hidden-" +
+                featureId +
+                "\" class=\"fa fa-plus-square fa-fw\" style=\"cursor:pointer;float:right;display:none;margin-top:-30px\" ");
+		writer.write("title=\"maximize feature\" onclick=\"showFeatureScenarios('" +
+                featureId +
+                "'); this.style.display = 'none'\">  </span>",newLine(),"++++",newLine());
 	}
 
 	public String renderFeatureSectionId(Feature feature) {
@@ -386,6 +410,38 @@ public class CukedoctorConverterImpl implements CukedoctorConverter {
 			}
 		}
 		return this;
+	}
+
+	private void generateScripts() {
+		writer.write(newLine(),"++++",newLine()).
+				write("<script type=\"text/javascript\">"+newLine() +
+						"\tfunction showFeatureScenarios(featureId){"+newLine() +
+						"\t\tvar element = document.getElementById(featureId).parentNode;"+newLine() +
+						"\t\tfor (var i = 0; i < element.childNodes.length; i++) {"+newLine() +
+						"    \t\tif (element.childNodes[i].className == \"sect3\" || element.childNodes[i].className == \"fa fa-minus-square fa-fw\") {"+newLine() +
+						"      \t\t     element.childNodes[i].style.display = 'inline';"+newLine() +
+						"    \t\t\t}"+newLine() +
+						"    \t\tif (element.childNodes[i].className == \"sidebarblock\") {"+newLine() +
+						"      \t\t     element.childNodes[i].style.display = 'block';"+newLine() +
+						"    \t\t\t}\t\t\t        "+newLine() +
+						"\t\t}"+newLine() +
+						"\t\t "+newLine() +
+						" \t\tdocument.getElementById(featureId).childNodes[0].click();"+newLine() +
+						"\t}"+newLine() +
+						""+newLine() +
+						"\tfunction hideFeatureScenarios(featureId){"+newLine() +
+						"\t\tvar element = document.getElementById(featureId).parentNode;"+newLine() +
+						"\t\tfor (var i = 0; i < element.childNodes.length; i++) {"+newLine() +
+						"    \t\tif (element.childNodes[i].className == \"sect3\" || element.childNodes[i].className == \"sidebarblock\") { "+newLine() +
+						"      \t\t     element.childNodes[i].style.display = 'none';\t   \t\t    "+newLine() +
+						"                 \t}"+newLine() +
+						"\t\t      "+newLine() +
+						"\t\t}"+newLine() +
+						"\t   document.getElementById(featureId).childNodes[0].click();"+newLine() +
+						" \t}"+newLine() +
+						""+newLine() +
+						"</script>").
+				write(newLine(), "++++");
 	}
 
 }

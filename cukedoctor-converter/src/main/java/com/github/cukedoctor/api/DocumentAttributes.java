@@ -19,6 +19,7 @@ public class DocumentAttributes {
 	private boolean numbered = false;
 	private boolean docInfo = true;
 	private boolean pdfTheme = true;
+	private boolean minimizableFeature = true;
 
 
 	public DocumentAttributes docTitle(String docTitle) {
@@ -82,6 +83,11 @@ public class DocumentAttributes {
 		return this;
 	}
 
+	public DocumentAttributes minimizableFeature(boolean minimizableFeature) {
+		this.minimizableFeature = minimizableFeature;
+		return this;
+	}
+
 	public String getBackend() {
 		return backend;
 	}
@@ -128,6 +134,10 @@ public class DocumentAttributes {
 
 	public boolean isPdfTheme() {
 		return pdfTheme;
+	}
+
+	public boolean isMinimizableFeature() {
+		return minimizableFeature;
 	}
 
 	/*	public Attributes toAsciidoctorJAttributes() {

@@ -16,6 +16,7 @@
                     <outputFileName>documentation</outputFileName>
                     <format>pdf</format>
                     <toc>right</toc>
+                    <minimizable>false</minimizable>
                 </configuration>
             </plugin>
         </plugins>

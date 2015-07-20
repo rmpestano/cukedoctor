@@ -8,7 +8,7 @@ Feature: Cukedoctor Main
     When I execute CukedoctorMain with args "-o target/test-classes/outputFile.adoc" "-p target/test-classes/json-output/one_passing_one_failing.json" and "-t Documentation"
     Then A file named outputFile.adoc should be generated with the following content:
     """
-    :toc: right
+   :toc: right
 :backend: html5
 :doctitle: Documentation
 :doctype: book
@@ -60,9 +60,13 @@ Feature: Cukedoctor Main
 == *Features*
 
 [[One-passing-scenario-one-failing-scenario, One passing scenario, one failing scenario]]
-[feature]
 === *One passing scenario, one failing scenario*
 
+++++
+<span class="fa fa-minus-square fa-fw" style="cursor:pointer;float:right;margin-top:-30px" title="minimize" onclick="hideFeatureScenarios('One-passing-scenario-one-failing-scenario');document.getElementById('hidden-One-passing-scenario-one-failing-scenario').style.display = 'inline';this.style.display = 'none'">  </span>
+
+<span id="hidden-One-passing-scenario-one-failing-scenario" class="fa fa-plus-square fa-fw" style="cursor:pointer;float:right;display:none;margin-top:-30px" title="maximize feature" onclick="showFeatureScenarios('One-passing-scenario-one-failing-scenario'); this.style.display = 'none'">  </span>
+++++
 ==== Scenario: Passing
 [small]#tags: @a,@b#
 
@@ -84,6 +88,35 @@ features/one_passing_one_failing.feature:10:in Given this step fails'
 ****
 
 
+++++
+<script type="text/javascript">
+	function showFeatureScenarios(featureId){
+		var element = document.getElementById(featureId).parentNode;
+		for (var i = 0; i < element.childNodes.length; i++) {
+    		if (element.childNodes[i].className == "sect3" || element.childNodes[i].className == "fa fa-minus-square fa-fw") {
+      		     element.childNodes[i].style.display = 'inline';
+    			}
+    		if (element.childNodes[i].className == "sidebarblock") {
+      		     element.childNodes[i].style.display = 'block';
+    			}
+		}
+
+ 		document.getElementById(featureId).childNodes[0].click();
+	}
+
+	function hideFeatureScenarios(featureId){
+		var element = document.getElementById(featureId).parentNode;
+		for (var i = 0; i < element.childNodes.length; i++) {
+    		if (element.childNodes[i].className == "sect3" || element.childNodes[i].className == "sidebarblock") {
+      		     element.childNodes[i].style.display = 'none';
+                 	}
+
+		}
+	   document.getElementById(featureId).childNodes[0].click();
+ 	}
+
+</script>
+++++
     """
 
 
@@ -188,9 +221,13 @@ features/one_passing_one_failing.feature:10:in Given this step fails'
 == *Features*
 
 [[An-embed-data-directly-feature, An embed data directly feature]]
-[feature]
 === *An embed data directly feature*
 
+++++
+<span class="fa fa-minus-square fa-fw" style="cursor:pointer;float:right;margin-top:-30px" title="minimize" onclick="hideFeatureScenarios('An-embed-data-directly-feature');document.getElementById('hidden-An-embed-data-directly-feature').style.display = 'inline';this.style.display = 'none'">  </span>
+
+<span id="hidden-An-embed-data-directly-feature" class="fa fa-plus-square fa-fw" style="cursor:pointer;float:right;display:none;margin-top:-30px" title="maximize feature" onclick="showFeatureScenarios('An-embed-data-directly-feature'); this.style.display = 'none'">  </span>
+++++
 ==== Scenario: scenario 1
 ****
 Given ::
@@ -209,9 +246,13 @@ I embed data directly icon:thumbs-up[role="green",title="Passed"] [small right]#
 ****
 
 [[An-outline-feature, An outline feature]]
-[feature]
 === *An outline feature*
 
+++++
+<span class="fa fa-minus-square fa-fw" style="cursor:pointer;float:right;margin-top:-30px" title="minimize" onclick="hideFeatureScenarios('An-outline-feature');document.getElementById('hidden-An-outline-feature').style.display = 'inline';this.style.display = 'none'">  </span>
+
+<span id="hidden-An-outline-feature" class="fa fa-plus-square fa-fw" style="cursor:pointer;float:right;display:none;margin-top:-30px" title="maximize feature" onclick="showFeatureScenarios('An-outline-feature'); this.style.display = 'none'">  </span>
+++++
 ==== Scenario Outline: outline
 
 .examples1
@@ -230,9 +271,13 @@ I embed data directly icon:thumbs-up[role="green",title="Passed"] [small right]#
 |===
 
 [[One-passing-scenario-one-failing-scenario, One passing scenario, one failing scenario]]
-[feature]
 === *One passing scenario, one failing scenario*
 
+++++
+<span class="fa fa-minus-square fa-fw" style="cursor:pointer;float:right;margin-top:-30px" title="minimize" onclick="hideFeatureScenarios('One-passing-scenario-one-failing-scenario');document.getElementById('hidden-One-passing-scenario-one-failing-scenario').style.display = 'inline';this.style.display = 'none'">  </span>
+
+<span id="hidden-One-passing-scenario-one-failing-scenario" class="fa fa-plus-square fa-fw" style="cursor:pointer;float:right;display:none;margin-top:-30px" title="maximize feature" onclick="showFeatureScenarios('One-passing-scenario-one-failing-scenario'); this.style.display = 'none'">  </span>
+++++
 ==== Scenario: Passing
 [small]#tags: @a,@b#
 
@@ -254,9 +299,13 @@ features/one_passing_one_failing.feature:10:in Given this step fails'
 ****
 
 [[Sample-test, Sample test]]
-[feature]
 === *Sample test*
 
+++++
+<span class="fa fa-minus-square fa-fw" style="cursor:pointer;float:right;margin-top:-30px" title="minimize" onclick="hideFeatureScenarios('Sample-test');document.getElementById('hidden-Sample-test').style.display = 'inline';this.style.display = 'none'">  </span>
+
+<span id="hidden-Sample-test" class="fa fa-plus-square fa-fw" style="cursor:pointer;float:right;display:none;margin-top:-30px" title="maximize feature" onclick="showFeatureScenarios('Sample-test'); this.style.display = 'none'">  </span>
+++++
 ****
 As a user  +
 I want to do something  +
@@ -295,4 +344,33 @@ features/test_outline.feature:15:in `Then I see the text 'Hacienda''
 ****
 
 
+++++
+<script type="text/javascript">
+	function showFeatureScenarios(featureId){
+		var element = document.getElementById(featureId).parentNode;
+		for (var i = 0; i < element.childNodes.length; i++) {
+    		if (element.childNodes[i].className == "sect3" || element.childNodes[i].className == "fa fa-minus-square fa-fw") {
+      		     element.childNodes[i].style.display = 'inline';
+    			}
+    		if (element.childNodes[i].className == "sidebarblock") {
+      		     element.childNodes[i].style.display = 'block';
+    			}
+		}
+
+ 		document.getElementById(featureId).childNodes[0].click();
+	}
+
+	function hideFeatureScenarios(featureId){
+		var element = document.getElementById(featureId).parentNode;
+		for (var i = 0; i < element.childNodes.length; i++) {
+    		if (element.childNodes[i].className == "sect3" || element.childNodes[i].className == "sidebarblock") {
+      		     element.childNodes[i].style.display = 'none';
+                 	}
+
+		}
+	   document.getElementById(featureId).childNodes[0].click();
+ 	}
+
+</script>
+++++
       """

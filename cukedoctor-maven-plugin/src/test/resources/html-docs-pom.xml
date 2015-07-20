@@ -18,6 +18,7 @@
                     <format>html5</format>
                     <toc>left</toc>
                     <numbered>true</numbered>
+                    <minimizable>true</minimizable>
                 </configuration>
             </plugin>
         </plugins>
