@@ -1,5 +1,5 @@
 :toc: right
-:backend: html5
+:backend: pdf
 :doctitle: Living Documentation
 :doctype: book
 :icons: font
@@ -290,11 +290,6 @@
 [[Collections, Collections]]
 === *Collections*
 
-++++
-<span class="fa fa-minus-square fa-fw" style="cursor:pointer;float:right;margin-top:-30px" title="minimize" onclick="hideFeatureScenarios('Collections');document.getElementById('hidden-Collections').style.display = 'inline';this.style.display = 'none'">  </span>
-
-<span id="hidden-Collections" class="fa fa-plus-square fa-fw" style="cursor:pointer;float:right;display:none;margin-top:-30px" title="maximize feature" onclick="showFeatureScenarios('Collections'); this.style.display = 'none'">  </span>
-++++
 ****
 As a hacker who likes to structure content +
 I want to be able to create collections of similar information +
@@ -564,11 +559,6 @@ I should see "Collections: Jekyll.configuration, Jekyll.escape, Jekyll.sanitized
 [[Configuring-and-using-plugins, Configuring and using plugins]]
 === *Configuring and using plugins*
 
-++++
-<span class="fa fa-minus-square fa-fw" style="cursor:pointer;float:right;margin-top:-30px" title="minimize" onclick="hideFeatureScenarios('Configuring-and-using-plugins');document.getElementById('hidden-Configuring-and-using-plugins').style.display = 'inline';this.style.display = 'none'">  </span>
-
-<span id="hidden-Configuring-and-using-plugins" class="fa fa-plus-square fa-fw" style="cursor:pointer;float:right;display:none;margin-top:-30px" title="maximize feature" onclick="showFeatureScenarios('Configuring-and-using-plugins'); this.style.display = 'none'">  </span>
-++++
 ****
 As a hacker +
 I want to specify my own plugins that can modify Jekyll's behaviour
@@ -651,11 +641,6 @@ I should see "this is a test" in "_site/test.txt" icon:thumbs-up[role="green",ti
 [[Create-sites, Create sites]]
 === *Create sites*
 
-++++
-<span class="fa fa-minus-square fa-fw" style="cursor:pointer;float:right;margin-top:-30px" title="minimize" onclick="hideFeatureScenarios('Create-sites');document.getElementById('hidden-Create-sites').style.display = 'inline';this.style.display = 'none'">  </span>
-
-<span id="hidden-Create-sites" class="fa fa-plus-square fa-fw" style="cursor:pointer;float:right;display:none;margin-top:-30px" title="maximize feature" onclick="showFeatureScenarios('Create-sites'); this.style.display = 'none'">  </span>
-++++
 ****
 As a hacker who likes to blog +
 I want to be able to make a static site +
@@ -1033,11 +1018,6 @@ the "_site/secret.html" file should exist icon:thumbs-up[role="green",title="Pas
 [[Data, Data]]
 === *Data*
 
-++++
-<span class="fa fa-minus-square fa-fw" style="cursor:pointer;float:right;margin-top:-30px" title="minimize" onclick="hideFeatureScenarios('Data');document.getElementById('hidden-Data').style.display = 'inline';this.style.display = 'none'">  </span>
-
-<span id="hidden-Data" class="fa fa-plus-square fa-fw" style="cursor:pointer;float:right;display:none;margin-top:-30px" title="maximize feature" onclick="showFeatureScenarios('Data'); this.style.display = 'none'">  </span>
-++++
 ****
 In order to use well-formatted data in my blog +
 As a blog's user +
@@ -1252,11 +1232,6 @@ I should see "Leon" in "_site/index.html" icon:thumbs-up[role="green",title="Pas
 [[Draft-Posts, Draft Posts]]
 === *Draft Posts*
 
-++++
-<span class="fa fa-minus-square fa-fw" style="cursor:pointer;float:right;margin-top:-30px" title="minimize" onclick="hideFeatureScenarios('Draft-Posts');document.getElementById('hidden-Draft-Posts').style.display = 'inline';this.style.display = 'none'">  </span>
-
-<span id="hidden-Draft-Posts" class="fa fa-plus-square fa-fw" style="cursor:pointer;float:right;display:none;margin-top:-30px" title="maximize feature" onclick="showFeatureScenarios('Draft-Posts'); this.style.display = 'none'">  </span>
-++++
 ****
 As a hacker who likes to blog +
 I want to be able to preview drafts locally +
@@ -1392,11 +1367,6 @@ I should see "Post path: _drafts/recipe.markdown" in "_site/recipe.html" icon:th
 [[Embed-filters, Embed filters]]
 === *Embed filters*
 
-++++
-<span class="fa fa-minus-square fa-fw" style="cursor:pointer;float:right;margin-top:-30px" title="minimize" onclick="hideFeatureScenarios('Embed-filters');document.getElementById('hidden-Embed-filters').style.display = 'inline';this.style.display = 'none'">  </span>
-
-<span id="hidden-Embed-filters" class="fa fa-plus-square fa-fw" style="cursor:pointer;float:right;display:none;margin-top:-30px" title="maximize feature" onclick="showFeatureScenarios('Embed-filters'); this.style.display = 'none'">  </span>
-++++
 ****
 As a hacker who likes to blog +
 I want to be able to transform text inside a post or page +
@@ -1724,11 +1694,6 @@ I should see exactly "The rule of 3: Fly, Run, Jump," in "_site/bird.html" icon:
 [[Fancy-permalinks, Fancy permalinks]]
 === *Fancy permalinks*
 
-++++
-<span class="fa fa-minus-square fa-fw" style="cursor:pointer;float:right;margin-top:-30px" title="minimize" onclick="hideFeatureScenarios('Fancy-permalinks');document.getElementById('hidden-Fancy-permalinks').style.display = 'inline';this.style.display = 'none'">  </span>
-
-<span id="hidden-Fancy-permalinks" class="fa fa-plus-square fa-fw" style="cursor:pointer;float:right;display:none;margin-top:-30px" title="maximize feature" onclick="showFeatureScenarios('Fancy-permalinks'); this.style.display = 'none'">  </span>
-++++
 ****
 As a hacker who likes to blog +
 I want to be able to set permalinks +
@@ -1966,11 +1931,6 @@ I should see "bla bla" in "_site/custom/posts/some.html" icon:thumbs-up[role="gr
 [[frontmatter-defaults, frontmatter defaults]]
 === *frontmatter defaults*
 
-++++
-<span class="fa fa-minus-square fa-fw" style="cursor:pointer;float:right;margin-top:-30px" title="minimize" onclick="hideFeatureScenarios('frontmatter-defaults');document.getElementById('hidden-frontmatter-defaults').style.display = 'inline';this.style.display = 'none'">  </span>
-
-<span id="hidden-frontmatter-defaults" class="fa fa-plus-square fa-fw" style="cursor:pointer;float:right;display:none;margin-top:-30px" title="maximize feature" onclick="showFeatureScenarios('frontmatter-defaults'); this.style.display = 'none'">  </span>
-++++
 ==== Scenario: Use default for frontmatter variables internally
 ****
 Given ::
@@ -2349,11 +2309,6 @@ I should see "Fruits: 3" in "_site/index.html" icon:thumbs-up[role="green",title
 [[Hooks, Hooks]]
 === *Hooks*
 
-++++
-<span class="fa fa-minus-square fa-fw" style="cursor:pointer;float:right;margin-top:-30px" title="minimize" onclick="hideFeatureScenarios('Hooks');document.getElementById('hidden-Hooks').style.display = 'inline';this.style.display = 'none'">  </span>
-
-<span id="hidden-Hooks" class="fa fa-plus-square fa-fw" style="cursor:pointer;float:right;display:none;margin-top:-30px" title="maximize feature" onclick="showFeatureScenarios('Hooks'); this.style.display = 'none'">  </span>
-++++
 ****
 As a plugin author +
 I want to be able to run code during various stages of the build process
@@ -2949,11 +2904,6 @@ I should see "Wrote document 0" in "_site/document-build.log" icon:thumbs-up[rol
 [[Include-tags, Include tags]]
 === *Include tags*
 
-++++
-<span class="fa fa-minus-square fa-fw" style="cursor:pointer;float:right;margin-top:-30px" title="minimize" onclick="hideFeatureScenarios('Include-tags');document.getElementById('hidden-Include-tags').style.display = 'inline';this.style.display = 'none'">  </span>
-
-<span id="hidden-Include-tags" class="fa fa-plus-square fa-fw" style="cursor:pointer;float:right;display:none;margin-top:-30px" title="maximize feature" onclick="showFeatureScenarios('Include-tags'); this.style.display = 'none'">  </span>
-++++
 ****
 In order to share their content across several pages +
 As a hacker who likes to blog +
@@ -3154,11 +3104,6 @@ I should see "one included" in "_site/index.html" icon:thumbs-up[role="green",ti
 [[Incremental-rebuild, Incremental rebuild]]
 === *Incremental rebuild*
 
-++++
-<span class="fa fa-minus-square fa-fw" style="cursor:pointer;float:right;margin-top:-30px" title="minimize" onclick="hideFeatureScenarios('Incremental-rebuild');document.getElementById('hidden-Incremental-rebuild').style.display = 'inline';this.style.display = 'none'">  </span>
-
-<span id="hidden-Incremental-rebuild" class="fa fa-plus-square fa-fw" style="cursor:pointer;float:right;display:none;margin-top:-30px" title="maximize feature" onclick="showFeatureScenarios('Incremental-rebuild'); this.style.display = 'none'">  </span>
-++++
 ****
 As an impatient hacker who likes to blog +
 I want to be able to make a static site +
@@ -3290,11 +3235,6 @@ I should see "Basic Site with include tag: Regenerated by Jekyll" in "_site/inde
 [[Markdown, Markdown]]
 === *Markdown*
 
-++++
-<span class="fa fa-minus-square fa-fw" style="cursor:pointer;float:right;margin-top:-30px" title="minimize" onclick="hideFeatureScenarios('Markdown');document.getElementById('hidden-Markdown').style.display = 'inline';this.style.display = 'none'">  </span>
-
-<span id="hidden-Markdown" class="fa fa-plus-square fa-fw" style="cursor:pointer;float:right;display:none;margin-top:-30px" title="maximize feature" onclick="showFeatureScenarios('Markdown'); this.style.display = 'none'">  </span>
-++++
 ****
 As a hacker who likes to blog +
 I want to be able to make a static site +
@@ -3386,11 +3326,6 @@ I should see "<h1 id=\"my-title\">My Title</h1>" in "_site/index.html" icon:thum
 [[Post-data, Post data]]
 === *Post data*
 
-++++
-<span class="fa fa-minus-square fa-fw" style="cursor:pointer;float:right;margin-top:-30px" title="minimize" onclick="hideFeatureScenarios('Post-data');document.getElementById('hidden-Post-data').style.display = 'inline';this.style.display = 'none'">  </span>
-
-<span id="hidden-Post-data" class="fa fa-plus-square fa-fw" style="cursor:pointer;float:right;display:none;margin-top:-30px" title="maximize feature" onclick="showFeatureScenarios('Post-data'); this.style.display = 'none'">  </span>
-++++
 ****
 As a hacker who likes to blog +
 I want to be able to embed data into my posts +
@@ -4141,11 +4076,6 @@ I should see "Previous post: Some like it hot" in "_site/2009/05/27/terminator.h
 [[Post-excerpts, Post excerpts]]
 === *Post excerpts*
 
-++++
-<span class="fa fa-minus-square fa-fw" style="cursor:pointer;float:right;margin-top:-30px" title="minimize" onclick="hideFeatureScenarios('Post-excerpts');document.getElementById('hidden-Post-excerpts').style.display = 'inline';this.style.display = 'none'">  </span>
-
-<span id="hidden-Post-excerpts" class="fa fa-plus-square fa-fw" style="cursor:pointer;float:right;display:none;margin-top:-30px" title="maximize feature" onclick="showFeatureScenarios('Post-excerpts'); this.style.display = 'none'">  </span>
-++++
 ****
 As a hacker who likes to blog +
 I want to be able to make a static site +
@@ -4275,11 +4205,6 @@ I should see "<html><head></head><body><p>content for entry1.</p>\n\n</body></ht
 [[Rendering, Rendering]]
 === *Rendering*
 
-++++
-<span class="fa fa-minus-square fa-fw" style="cursor:pointer;float:right;margin-top:-30px" title="minimize" onclick="hideFeatureScenarios('Rendering');document.getElementById('hidden-Rendering').style.display = 'inline';this.style.display = 'none'">  </span>
-
-<span id="hidden-Rendering" class="fa fa-plus-square fa-fw" style="cursor:pointer;float:right;display:none;margin-top:-30px" title="maximize feature" onclick="showFeatureScenarios('Rendering'); this.style.display = 'none'">  </span>
-++++
 ****
 As a hacker who likes to blog +
 I want to be able to make a static site +
@@ -4365,11 +4290,6 @@ I should see "hey = 'for cicada';" in "_site/index.js" icon:thumbs-up[role="gree
 [[Site-configuration, Site configuration]]
 === *Site configuration*
 
-++++
-<span class="fa fa-minus-square fa-fw" style="cursor:pointer;float:right;margin-top:-30px" title="minimize" onclick="hideFeatureScenarios('Site-configuration');document.getElementById('hidden-Site-configuration').style.display = 'inline';this.style.display = 'none'">  </span>
-
-<span id="hidden-Site-configuration" class="fa fa-plus-square fa-fw" style="cursor:pointer;float:right;display:none;margin-top:-30px" title="maximize feature" onclick="showFeatureScenarios('Site-configuration'); this.style.display = 'none'">  </span>
-++++
 ****
 As a hacker who likes to blog +
 I want to be able to configure jekyll +
@@ -4966,11 +4886,6 @@ I should not see " " in "_site/index.html" icon:thumbs-up[role="green",title="Pa
 [[Site-data, Site data]]
 === *Site data*
 
-++++
-<span class="fa fa-minus-square fa-fw" style="cursor:pointer;float:right;margin-top:-30px" title="minimize" onclick="hideFeatureScenarios('Site-data');document.getElementById('hidden-Site-data').style.display = 'inline';this.style.display = 'none'">  </span>
-
-<span id="hidden-Site-data" class="fa fa-plus-square fa-fw" style="cursor:pointer;float:right;display:none;margin-top:-30px" title="maximize feature" onclick="showFeatureScenarios('Site-data'); this.style.display = 'none'">  </span>
-++++
 ****
 As a hacker who likes to blog +
 I want to be able to embed data into my site +
@@ -5229,11 +5144,6 @@ I should see "\d+\.\d+\.\d+" in "_site/index.html" icon:thumbs-up[role="green",t
 [[Site-pagination, Site pagination]]
 === *Site pagination*
 
-++++
-<span class="fa fa-minus-square fa-fw" style="cursor:pointer;float:right;margin-top:-30px" title="minimize" onclick="hideFeatureScenarios('Site-pagination');document.getElementById('hidden-Site-pagination').style.display = 'inline';this.style.display = 'none'">  </span>
-
-<span id="hidden-Site-pagination" class="fa fa-plus-square fa-fw" style="cursor:pointer;float:right;display:none;margin-top:-30px" title="maximize feature" onclick="showFeatureScenarios('Site-pagination'); this.style.display = 'none'">  </span>
-++++
 ****
 In order to paginate my blog +
 As a blog's user +
@@ -5301,33 +5211,3 @@ I want divide the posts in several pages
 |7
 |===
 
-
-++++
-<script type="text/javascript">
-	function showFeatureScenarios(featureId){
-		var element = document.getElementById(featureId).parentNode;
-		for (var i = 0; i < element.childNodes.length; i++) {
-    		if (element.childNodes[i].className == "sect3" || element.childNodes[i].className == "fa fa-minus-square fa-fw") {
-      		     element.childNodes[i].style.display = 'inline';
-    			}
-    		if (element.childNodes[i].className == "sidebarblock") {
-      		     element.childNodes[i].style.display = 'block';
-    			}			        
-		}
-		 
- 		document.getElementById(featureId).childNodes[0].click();
-	}
-
-	function hideFeatureScenarios(featureId){
-		var element = document.getElementById(featureId).parentNode;
-		for (var i = 0; i < element.childNodes.length; i++) {
-    		if (element.childNodes[i].className == "sect3" || element.childNodes[i].className == "sidebarblock") { 
-      		     element.childNodes[i].style.display = 'none';	   		    
-                 	}
-		      
-		}
-	   document.getElementById(featureId).childNodes[0].click();
- 	}
-
-</script>
-++++
