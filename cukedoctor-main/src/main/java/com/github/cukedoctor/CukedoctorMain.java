@@ -122,7 +122,7 @@ public class CukedoctorMain {
 				numbered(numbered);
 
 		if(format.equalsIgnoreCase("pdf")){
-			documentAttributes.pdfTheme(true).minimizable(false).docInfo(false);
+			documentAttributes.pdfTheme(true).minimizable(false).searchable(false).docInfo(false);
 		}else {
 			documentAttributes.docInfo(true).pdfTheme(false);
 		}
