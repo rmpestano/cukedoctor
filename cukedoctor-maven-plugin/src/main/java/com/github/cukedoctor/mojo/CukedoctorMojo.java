@@ -119,7 +119,7 @@ public class CukedoctorMojo extends AbstractMojo {
 		if (format.equals(Format.all)) {
 			documentAttributes.backend(Format.html5.name().toLowerCase());
 			generateDocumentation(documentAttributes, adocFile, asciidoctor);
-			documentAttributes.backend(Format.pdf.name().toLowerCase());
+			documentAttributes.backend(Format.pdf.name().toLowerCase()).minimizable(false).searchable(false).docInfo(false);
 			generateDocumentation(documentAttributes, adocFile, asciidoctor);
 		} else {
 			generateDocumentation(documentAttributes, adocFile, asciidoctor);

@@ -137,7 +137,7 @@ public class CukedoctorMain {
 		if("all".equals(format)){
 			documentAttributes.backend("html5");
 			resultDoc = this.execute(features, documentAttributes, outputName);
-			documentAttributes.backend("pdf");
+			documentAttributes.backend("pdf").minimizable(false).searchable(false);
 			this.execute(features, documentAttributes, outputName);
 		}else{
 			resultDoc = this.execute(features,documentAttributes,outputName);

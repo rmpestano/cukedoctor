@@ -458,8 +458,7 @@ public class CukedoctorConverterImpl implements CukedoctorConverter {
 		if(documentAttributes != null && documentAttributes.isSearchable()) {
 			writer.write(newLine(), "++++", newLine()).
 					write("<script type = \"text/javascript\" >"+newLine() +
-							""+newLine() +
-							"var allLevel2ListItens = null;"+newLine() +
+					"var allLevel2ListItens = null;"+newLine() +
 							""+newLine() +
 							"function searchFeature(criteria) {"+newLine() +
 							"    if (criteria != null && criteria.length >= 3) {"+newLine() +
@@ -483,19 +482,8 @@ public class CukedoctorConverterImpl implements CukedoctorConverter {
 							"                            //used to scroll to after search"+newLine() +
 							"                            firstMatch = h3;"+newLine() +
 							"                        }"+newLine() +
-							"                        //remove toc"+newLine() +
-							"                        if (allLevel2ListItens == null) {"+newLine() +
-							"                            collectallLevel2IListItens();"+newLine() +
-							"                        }"+newLine() +
-							"                        for (var z = 0; z < allLevel2ListItens.length; z++) {"+newLine() +
-							"                            if (allLevel2ListItens[z].childNodes[0].tagName && allLevel2ListItens[z].childNodes[0].tagName.toLowerCase() == \"a\") {"+newLine() +
-							"                                if (allLevel2ListItens[z].childNodes[0].getAttribute(\"href\").toUpperCase().substring(1).match(criteria.toUpperCase())) {"+newLine() +
-							"                                    allLevel2ListItens[z].style.display = 'inline';"+newLine() +
-							"                                } else {"+newLine() +
-							"                                    allLevel2ListItens[z].style.display = 'none';"+newLine() +
-							"                                }"+newLine() +
-							"                            }"+newLine() +
-							"                        }//end for allListItens"+newLine() +
+							"                        //filter toc"+newLine() +
+							"                        filterToc(criteria);"+newLine() +
 							"                    }"+newLine() +
 							"                }"+newLine() +
 							"            }//end for"+newLine() +
@@ -508,21 +496,42 @@ public class CukedoctorConverterImpl implements CukedoctorConverter {
 							""+newLine() +
 							"    }//end criteria.length >=3"+newLine() +
 							"    else {//clear search"+newLine() +
-							"        var sect2List = document.getElementsByClassName(\"sect2\");"+newLine() +
-							"        if (sect2List != null) {"+newLine() +
-							"            for (var i = 0; i < sect2List.length; i++) {"+newLine() +
-							"                sect2List[i].style.display = 'inline';"+newLine() +
-							"            }//end for"+newLine() +
-							"        }//end elements != null"+newLine() +
-							""+newLine() +
-							"        if (allLevel2ListItens == null) {"+newLine() +
-							"            collectallLevel2IListItens();"+newLine() +
-							"        }"+newLine() +
-							"        for (var z = 0; z < allLevel2ListItens.length; z++) {"+newLine() +
-							"            allLevel2ListItens[z].style.display = 'inline';"+newLine() +
-							"        }"+newLine() +
-							""+newLine() +
+							"        clearSearch();"+newLine() +
 							"    }"+newLine() +
+							"}"+newLine() +
+							""+newLine() +
+							"function clearSearch() {"+newLine() +
+							"    var sect2List = document.getElementsByClassName(\"sect2\");"+newLine() +
+							"    if (sect2List != null) {"+newLine() +
+							"        for (var i = 0; i < sect2List.length; i++) {"+newLine() +
+							"            sect2List[i].style.display = 'inline';"+newLine() +
+							"        }//end for"+newLine() +
+							"    }//end elements != null"+newLine() +
+							""+newLine() +
+							"    if (allLevel2ListItens == null) {"+newLine() +
+							"        collectallLevel2IListItens();"+newLine() +
+							"    }"+newLine() +
+							"    for (var z = 0; z < allLevel2ListItens.length; z++) {"+newLine() +
+							"        allLevel2ListItens[z].style.display = 'inline';"+newLine() +
+							"    }"+newLine() +
+							"    if (document.getElementById('input-search')) {"+newLine() +
+							"        document.getElementById('input-search').value = 'Filter...';"+newLine() +
+							"    }"+newLine() +
+							"}"+newLine() +
+							""+newLine() +
+							"function filterToc(criteria) {"+newLine() +
+							"    if (allLevel2ListItens == null) {"+newLine() +
+							"        collectallLevel2IListItens();"+newLine() +
+							"    }"+newLine() +
+							"    for (var z = 0; z < allLevel2ListItens.length; z++) {"+newLine() +
+							"        if (allLevel2ListItens[z].childNodes[0].tagName && allLevel2ListItens[z].childNodes[0].tagName.toLowerCase() == \"a\") {"+newLine() +
+							"            if (allLevel2ListItens[z].childNodes[0].getAttribute(\"href\").toUpperCase().substring(1).match(criteria.toUpperCase())) {"+newLine() +
+							"                allLevel2ListItens[z].style.display = 'inline';"+newLine() +
+							"            } else {"+newLine() +
+							"                allLevel2ListItens[z].style.display = 'none';"+newLine() +
+							"            }"+newLine() +
+							"        }"+newLine() +
+							"    }//end for allListItens"+newLine() +
 							"}"+newLine() +
 							""+newLine() +
 							"function animate(elem, style, unit, from, to, time, prop) {"+newLine() +
@@ -556,9 +565,8 @@ public class CukedoctorConverterImpl implements CukedoctorConverter {
 							"        } //end for uls child"+newLine() +
 							"    }//end for uls"+newLine() +
 							""+newLine() +
-							"}"+newLine() +
-							""+newLine() +
-							"", newLine(), "</script>", newLine(), "++++");
+							"}" +
+					"", newLine(), "</script>", newLine(), "++++");
 		}
 
 	}

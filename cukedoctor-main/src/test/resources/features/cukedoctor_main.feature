@@ -8,7 +8,7 @@ Feature: Cukedoctor Main
     When I execute CukedoctorMain with args "-o target/test-classes/outputFile.adoc" "-p target/test-classes/json-output/one_passing_one_failing.json" and "-t Documentation"
     Then A file named outputFile.adoc should be generated with the following content:
     """
-    :toc: right
+     :toc: right
 :backend: html5
 :doctitle: Documentation
 :doctype: book
@@ -124,7 +124,6 @@ features/one_passing_one_failing.feature:10:in Given this step fails'
 ++++
 ++++
 <script type = "text/javascript" >
-
 var allLevel2ListItens = null;
 
 function searchFeature(criteria) {
@@ -149,19 +148,8 @@ function searchFeature(criteria) {
                             //used to scroll to after search
                             firstMatch = h3;
                         }
-                        //remove toc
-                        if (allLevel2ListItens == null) {
-                            collectallLevel2IListItens();
-                        }
-                        for (var z = 0; z < allLevel2ListItens.length; z++) {
-                            if (allLevel2ListItens[z].childNodes[0].tagName && allLevel2ListItens[z].childNodes[0].tagName.toLowerCase() == "a") {
-                                if (allLevel2ListItens[z].childNodes[0].getAttribute("href").toUpperCase().substring(1).match(criteria.toUpperCase())) {
-                                    allLevel2ListItens[z].style.display = 'inline';
-                                } else {
-                                    allLevel2ListItens[z].style.display = 'none';
-                                }
-                            }
-                        }//end for allListItens
+                        //filter toc
+                        filterToc(criteria);
                     }
                 }
             }//end for
@@ -174,21 +162,42 @@ function searchFeature(criteria) {
 
     }//end criteria.length >=3
     else {//clear search
-        var sect2List = document.getElementsByClassName("sect2");
-        if (sect2List != null) {
-            for (var i = 0; i < sect2List.length; i++) {
-                sect2List[i].style.display = 'inline';
-            }//end for
-        }//end elements != null
-
-        if (allLevel2ListItens == null) {
-            collectallLevel2IListItens();
-        }
-        for (var z = 0; z < allLevel2ListItens.length; z++) {
-            allLevel2ListItens[z].style.display = 'inline';
-        }
-
+        clearSearch();
     }
+}
+
+function clearSearch() {
+    var sect2List = document.getElementsByClassName("sect2");
+    if (sect2List != null) {
+        for (var i = 0; i < sect2List.length; i++) {
+            sect2List[i].style.display = 'inline';
+        }//end for
+    }//end elements != null
+
+    if (allLevel2ListItens == null) {
+        collectallLevel2IListItens();
+    }
+    for (var z = 0; z < allLevel2ListItens.length; z++) {
+        allLevel2ListItens[z].style.display = 'inline';
+    }
+    if (document.getElementById('input-search')) {
+        document.getElementById('input-search').value = 'Filter...';
+    }
+}
+
+function filterToc(criteria) {
+    if (allLevel2ListItens == null) {
+        collectallLevel2IListItens();
+    }
+    for (var z = 0; z < allLevel2ListItens.length; z++) {
+        if (allLevel2ListItens[z].childNodes[0].tagName && allLevel2ListItens[z].childNodes[0].tagName.toLowerCase() == "a") {
+            if (allLevel2ListItens[z].childNodes[0].getAttribute("href").toUpperCase().substring(1).match(criteria.toUpperCase())) {
+                allLevel2ListItens[z].style.display = 'inline';
+            } else {
+                allLevel2ListItens[z].style.display = 'none';
+            }
+        }
+    }//end for allListItens
 }
 
 function animate(elem, style, unit, from, to, time, prop) {
@@ -223,8 +232,6 @@ function collectallLevel2IListItens() {
     }//end for uls
 
 }
-
-
 </script>
 ++++
     """
@@ -490,7 +497,6 @@ features/test_outline.feature:15:in `Then I see the text 'Hacienda''
 ++++
 ++++
 <script type = "text/javascript" >
-
 var allLevel2ListItens = null;
 
 function searchFeature(criteria) {
@@ -515,19 +521,8 @@ function searchFeature(criteria) {
                             //used to scroll to after search
                             firstMatch = h3;
                         }
-                        //remove toc
-                        if (allLevel2ListItens == null) {
-                            collectallLevel2IListItens();
-                        }
-                        for (var z = 0; z < allLevel2ListItens.length; z++) {
-                            if (allLevel2ListItens[z].childNodes[0].tagName && allLevel2ListItens[z].childNodes[0].tagName.toLowerCase() == "a") {
-                                if (allLevel2ListItens[z].childNodes[0].getAttribute("href").toUpperCase().substring(1).match(criteria.toUpperCase())) {
-                                    allLevel2ListItens[z].style.display = 'inline';
-                                } else {
-                                    allLevel2ListItens[z].style.display = 'none';
-                                }
-                            }
-                        }//end for allListItens
+                        //filter toc
+                        filterToc(criteria);
                     }
                 }
             }//end for
@@ -540,21 +535,42 @@ function searchFeature(criteria) {
 
     }//end criteria.length >=3
     else {//clear search
-        var sect2List = document.getElementsByClassName("sect2");
-        if (sect2List != null) {
-            for (var i = 0; i < sect2List.length; i++) {
-                sect2List[i].style.display = 'inline';
-            }//end for
-        }//end elements != null
-
-        if (allLevel2ListItens == null) {
-            collectallLevel2IListItens();
-        }
-        for (var z = 0; z < allLevel2ListItens.length; z++) {
-            allLevel2ListItens[z].style.display = 'inline';
-        }
-
+        clearSearch();
     }
+}
+
+function clearSearch() {
+    var sect2List = document.getElementsByClassName("sect2");
+    if (sect2List != null) {
+        for (var i = 0; i < sect2List.length; i++) {
+            sect2List[i].style.display = 'inline';
+        }//end for
+    }//end elements != null
+
+    if (allLevel2ListItens == null) {
+        collectallLevel2IListItens();
+    }
+    for (var z = 0; z < allLevel2ListItens.length; z++) {
+        allLevel2ListItens[z].style.display = 'inline';
+    }
+    if (document.getElementById('input-search')) {
+        document.getElementById('input-search').value = 'Filter...';
+    }
+}
+
+function filterToc(criteria) {
+    if (allLevel2ListItens == null) {
+        collectallLevel2IListItens();
+    }
+    for (var z = 0; z < allLevel2ListItens.length; z++) {
+        if (allLevel2ListItens[z].childNodes[0].tagName && allLevel2ListItens[z].childNodes[0].tagName.toLowerCase() == "a") {
+            if (allLevel2ListItens[z].childNodes[0].getAttribute("href").toUpperCase().substring(1).match(criteria.toUpperCase())) {
+                allLevel2ListItens[z].style.display = 'inline';
+            } else {
+                allLevel2ListItens[z].style.display = 'none';
+            }
+        }
+    }//end for allListItens
 }
 
 function animate(elem, style, unit, from, to, time, prop) {
@@ -589,8 +605,6 @@ function collectallLevel2IListItens() {
     }//end for uls
 
 }
-
-
 </script>
 ++++
       """
