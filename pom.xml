@@ -11,7 +11,7 @@
 
     <groupId>com.github.cukedoctor</groupId>
     <artifactId>cukedoctor</artifactId>
-    <version>0.5.1</version>
+    <version>0.5.2-SNAPSHOT</version>
     <packaging>pom</packaging>
 
     <name>cukedoctor</name>
@@ -58,7 +58,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <jackson-core.version>2.5.3</jackson-core.version>
         <asciidoctorj.version>1.5.2</asciidoctorj.version>
-        <asciidoctorj-pdf.version>1.5.0-alpha.8</asciidoctorj-pdf.version>
+        <asciidoctorj-pdf.version>1.5.0-alpha.9</asciidoctorj-pdf.version>
         <joda-time.version>2.8</joda-time.version>
         <cucumber.version>1.2.2</cucumber.version>
         <jacoco.version>0.7.4.201502262128</jacoco.version>
