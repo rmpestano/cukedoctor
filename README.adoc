@@ -2,7 +2,7 @@
 
 
 image:https://travis-ci.org/rmpestano/cukedoctor.svg[Build Status (Travis CI), link=https://travis-ci.org/rmpestano/cukedoctor]
-image:https://coveralls.io/repos/rmpestano/cukedoctor/badge.png[Coverage, link=https://coveralls.io/r/rmpestano/cukedoctor]
+image:https://coveralls.io/repos/rmpestano/cukedoctor/badge.svg?branch=master&service=github[Coverage, link=https://coveralls.io/r/rmpestano/cukedoctor]
 image:https://api.bintray.com/packages/rmpestano/cukedoctor/cukedoctor/images/download.svg[link="https://bintray.com/rmpestano/cukedoctor/cukedoctor/_latestVersion"]
 image:https://badges.gitter.im/Join%20Chat.svg[link="https://gitter.im/rmpestano/cukedoctor?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge"]
 
