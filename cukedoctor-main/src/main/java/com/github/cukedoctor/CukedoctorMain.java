@@ -6,12 +6,11 @@ import com.beust.jcommander.ParameterException;
 import com.github.cukedoctor.api.CukedoctorConverter;
 import com.github.cukedoctor.api.DocumentAttributes;
 import com.github.cukedoctor.api.model.Feature;
-import com.github.cukedoctor.extension.CukedoctorFilterExtension;
-import com.github.cukedoctor.extension.CukedoctorMinMaxExtension;
-import com.github.cukedoctor.extension.CukedoctorScriptExtension;
 import com.github.cukedoctor.parser.FeatureParser;
 import com.github.cukedoctor.util.FileUtil;
-import org.asciidoctor.*;
+import org.asciidoctor.Asciidoctor;
+import org.asciidoctor.OptionsBuilder;
+import org.asciidoctor.SafeMode;
 
 import java.io.File;
 import java.util.List;
