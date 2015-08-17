@@ -42,13 +42,6 @@ public class CukedoctorMain {
 	@Parameter(names = "-numbered", description = "Section numbering. Default is false ", required = false)
 	private Boolean numbered;
 
-	@Parameter(names = "-minimizable", description = "Turn features div minimizable", required = false)
-	private Boolean minimizable;
-
-	@Parameter(names = "-searchable", description = "Add input to search features by title", required = false)
-	private Boolean searchable;
-
-
 	public String execute(String args[]) {
 		JCommander commandLine = null;
 		try {
@@ -88,13 +81,6 @@ public class CukedoctorMain {
 			numbered = false;
 		}
 
-		if(minimizable == null){
-			minimizable = Boolean.TRUE;
-		}
-
-		if(searchable == null){
-			searchable = Boolean.TRUE;
-		}
 
 		System.out.println("Generating living documentation with args:");
 
@@ -169,17 +155,9 @@ public class CukedoctorMain {
 		String doc = converter.renderDocumentation();
 		File adocFile = FileUtil.saveFile(outputName, doc);
 		Asciidoctor asciidoctor = Asciidoctor.Factory.create();
-		if(attrs.getBackend().contains("html") && (searchable || minimizable)){
-			asciidoctor.javaExtensionRegistry().postprocessor(CukedoctorScriptExtension.class);
-			if(searchable){
-				asciidoctor.javaExtensionRegistry().postprocessor(CukedoctorFilterExtension.class);
-			}
-
-			if(minimizable){
-				asciidoctor.javaExtensionRegistry().blockMacro("minmax", CukedoctorMinMaxExtension.class);
-			}
+		if(attrs.getBackend().equalsIgnoreCase("pdf")){
+			asciidoctor.unregisterAllExtensions();
 		}
-
 		asciidoctor.convertFile(adocFile, OptionsBuilder.options().backend(attrs.getBackend()).safe(SafeMode.UNSAFE).asMap());
 		asciidoctor.shutdown();
 		return doc;

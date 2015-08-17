@@ -67,12 +67,6 @@ public class CukedoctorMojo extends AbstractMojo {
 	@Parameter(defaultValue = "false", required = false)
 	boolean numbered;
 
-	@Parameter(defaultValue = "true", required = false)
-	boolean minimizable;
-
-	@Parameter(defaultValue = "true", required = false)
-	boolean searchable;
-
 	@Component
 	MavenProject project;
 
@@ -118,22 +112,10 @@ public class CukedoctorMojo extends AbstractMojo {
 		File adocFile = FileUtil.saveFile(pathToSave, generatedFile);
 
 		Asciidoctor asciidoctor = Asciidoctor.Factory.create();
-		if(searchable || minimizable){
-			asciidoctor.javaExtensionRegistry().postprocessor(CukedoctorScriptExtension.class);
-			if(searchable){
-				asciidoctor.javaExtensionRegistry().postprocessor(CukedoctorFilterExtension.class);
-			}
-
-			if(minimizable){
-				asciidoctor.javaExtensionRegistry().blockMacro("minmax", CukedoctorMinMaxExtension.class);
-			}
-		}
 
 		if (format.equals(Format.all)) {
 			documentAttributes.backend(Format.html5.name().toLowerCase());
 			generateDocumentation(documentAttributes, adocFile, asciidoctor);
-			asciidoctor.shutdown();//needed because extension conflict with pdf backend
-			asciidoctor = Asciidoctor.Factory.create();
 			documentAttributes.backend(Format.pdf.name().toLowerCase()).docInfo(false);
 			generateDocumentation(documentAttributes, adocFile, asciidoctor);
 		} else {
@@ -144,10 +126,14 @@ public class CukedoctorMojo extends AbstractMojo {
 	}
 
 	private void generateDocumentation(DocumentAttributes documentAttributes, File adocFile, Asciidoctor asciidoctor) {
+		if ("pdf".equals(documentAttributes.getBackend())) {
+	 		asciidoctor.unregisterAllExtensions();
+		}
 		asciidoctor.convertFile(adocFile, OptionsBuilder.options().backend(documentAttributes.getBackend()).safe(SafeMode.UNSAFE).asMap());
 		//remove auxiliary files
 		if ("pdf".equals(documentAttributes.getBackend())) {
 			FileUtil.removeFile(adocFile.getParent() + "/" + outputFileName + "-theme.yml");
+
 		}
 
 		getLog().info("Generated documentation at: " + adocFile.getParent());

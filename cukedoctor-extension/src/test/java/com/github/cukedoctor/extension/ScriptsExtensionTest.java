@@ -26,7 +26,6 @@ public class ScriptsExtensionTest {
     @BeforeClass
     public static void init(){
         asciidoctor = Asciidoctor.Factory.create();
-        asciidoctor.javaExtensionRegistry().postprocessor(CukedoctorScriptExtension.class);
     }
 
     @AfterClass

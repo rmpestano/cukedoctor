@@ -26,7 +26,6 @@ public class FilterExtensionTest {
     @BeforeClass
     public static void init(){
         asciidoctor = Asciidoctor.Factory.create();
-        asciidoctor.javaExtensionRegistry().postprocessor(CukedoctorFilterExtension.class);
     }
 
     @AfterClass

@@ -29,4 +29,10 @@ public class FileUtil {
     public static File loadTestFile(String fileName) {
         return new File(Paths.get("").toAbsolutePath().toString() + "/target/test-classes/" + fileName);
     }
+
+    public static String removeSpecialChars(String content) {
+
+        return content.replaceAll(" ","").replaceAll("\n","").replaceAll("\t","");
+
+    }
 }
