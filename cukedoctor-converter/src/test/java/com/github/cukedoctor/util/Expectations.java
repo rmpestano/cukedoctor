@@ -161,11 +161,7 @@ public interface Expectations {
 			"[[One-passing-scenario-one-failing-scenario, One passing scenario, one failing scenario]]"+newLine() +
 			"=== *One passing scenario, one failing scenario*"+newLine() +
 			""+newLine() +
-			"++++"+newLine() +
-			"<span class=\"fa fa-minus-square fa-fw\" style=\"cursor:pointer;float:right;margin-top:-30px\" title=\"minimize\" onclick=\"hideFeatureScenarios('One-passing-scenario-one-failing-scenario');document.getElementById('hidden-One-passing-scenario-one-failing-scenario').style.display = 'inline';this.style.display = 'none'\">  </span>"+newLine() +
-			""+newLine() +
-			"<span id=\"hidden-One-passing-scenario-one-failing-scenario\" class=\"fa fa-plus-square fa-fw\" style=\"cursor:pointer;float:right;display:none;margin-top:-30px\" title=\"maximize feature\" onclick=\"showFeatureScenarios('One-passing-scenario-one-failing-scenario'); this.style.display = 'none'\">  </span>"+newLine() +
-			"++++"+newLine() +
+			"minmax::One-passing-scenario-one-failing-scenario[]"+newLine() +
 			"==== Scenario: Passing"+newLine() +
 			"[small]#tags: @a,@b#"+newLine() +
 			""+newLine() +
@@ -185,37 +181,7 @@ public interface Expectations {
 			"./features/step_definitions/steps.rb:4:in /^this step fails$/'"+newLine() +
 			"features/one_passing_one_failing.feature:10:in Given this step fails'"+newLine() +
 			"****"+newLine() +
-			""+newLine() +
-			""+newLine() +
-			"++++"+newLine() +
-			"<script type=\"text/javascript\">"+newLine() +
-			"\tfunction showFeatureScenarios(featureId){"+newLine() +
-			"\t\tvar element = document.getElementById(featureId).parentNode;"+newLine() +
-			"\t\tfor (var i = 0; i < element.childNodes.length; i++) {"+newLine() +
-			"    \t\tif (element.childNodes[i].className == \"sect3\" || element.childNodes[i].className == \"fa fa-minus-square fa-fw\") {"+newLine() +
-			"      \t\t     element.childNodes[i].style.display = 'inline';"+newLine() +
-			"    \t\t\t}"+newLine() +
-			"    \t\tif (element.childNodes[i].className == \"sidebarblock\") {"+newLine() +
-			"      \t\t     element.childNodes[i].style.display = 'block';"+newLine() +
-			"    \t\t\t}\t\t\t        "+newLine() +
-			"\t\t}"+newLine() +
-			"\t\t "+newLine() +
-			" \t\tdocument.getElementById(featureId).childNodes[0].click();"+newLine() +
-			"\t}"+newLine() +
-			""+newLine() +
-			"\tfunction hideFeatureScenarios(featureId){"+newLine() +
-			"\t\tvar element = document.getElementById(featureId).parentNode;"+newLine() +
-			"\t\tfor (var i = 0; i < element.childNodes.length; i++) {"+newLine() +
-			"    \t\tif (element.childNodes[i].className == \"sect3\" || element.childNodes[i].className == \"sidebarblock\") { "+newLine() +
-			"      \t\t     element.childNodes[i].style.display = 'none';\t   \t\t    "+newLine() +
-			"                 \t}"+newLine() +
-			"\t\t      "+newLine() +
-			"\t\t}"+newLine() +
-			"\t   document.getElementById(featureId).childNodes[0].click();"+newLine() +
-			" \t}"+newLine() +
-			""+newLine() +
-			"</script>"+newLine() +
-			"++++";
+			""+newLine();
 
 	String DOCUMENTATION_FOR_MULTIPLE_FEATURES = ":toc: left"+newLine() +
 			":backend: html5"+newLine() +
@@ -299,11 +265,7 @@ public interface Expectations {
 			"[[An-embed-data-directly-feature, An embed data directly feature]]"+newLine() +
 			"=== *An embed data directly feature*"+newLine() +
 			""+newLine() +
-			"++++"+newLine() +
-			"<span class=\"fa fa-minus-square fa-fw\" style=\"cursor:pointer;float:right;margin-top:-30px\" title=\"minimize\" onclick=\"hideFeatureScenarios('An-embed-data-directly-feature');document.getElementById('hidden-An-embed-data-directly-feature').style.display = 'inline';this.style.display = 'none'\">  </span>"+newLine() +
-			""+newLine() +
-			"<span id=\"hidden-An-embed-data-directly-feature\" class=\"fa fa-plus-square fa-fw\" style=\"cursor:pointer;float:right;display:none;margin-top:-30px\" title=\"maximize feature\" onclick=\"showFeatureScenarios('An-embed-data-directly-feature'); this.style.display = 'none'\">  </span>"+newLine() +
-			"++++"+newLine() +
+			"minmax::An-embed-data-directly-feature[]"+newLine() +
 			"==== Scenario: scenario 1"+newLine() +
 			"****"+newLine() +
 			"Given ::"+newLine() +
@@ -324,11 +286,7 @@ public interface Expectations {
 			"[[An-outline-feature, An outline feature]]"+newLine() +
 			"=== *An outline feature*"+newLine() +
 			""+newLine() +
-			"++++"+newLine() +
-			"<span class=\"fa fa-minus-square fa-fw\" style=\"cursor:pointer;float:right;margin-top:-30px\" title=\"minimize\" onclick=\"hideFeatureScenarios('An-outline-feature');document.getElementById('hidden-An-outline-feature').style.display = 'inline';this.style.display = 'none'\">  </span>"+newLine() +
-			""+newLine() +
-			"<span id=\"hidden-An-outline-feature\" class=\"fa fa-plus-square fa-fw\" style=\"cursor:pointer;float:right;display:none;margin-top:-30px\" title=\"maximize feature\" onclick=\"showFeatureScenarios('An-outline-feature'); this.style.display = 'none'\">  </span>"+newLine() +
-			"++++"+newLine() +
+			"minmax::An-outline-feature[]"+newLine() +
 			"==== Scenario Outline: outline"+newLine() +
 			""+newLine() +
 			".examples1"+newLine() +
@@ -349,11 +307,7 @@ public interface Expectations {
 			"[[One-passing-scenario-one-failing-scenario, One passing scenario, one failing scenario]]"+newLine() +
 			"=== *One passing scenario, one failing scenario*"+newLine() +
 			""+newLine() +
-			"++++"+newLine() +
-			"<span class=\"fa fa-minus-square fa-fw\" style=\"cursor:pointer;float:right;margin-top:-30px\" title=\"minimize\" onclick=\"hideFeatureScenarios('One-passing-scenario-one-failing-scenario');document.getElementById('hidden-One-passing-scenario-one-failing-scenario').style.display = 'inline';this.style.display = 'none'\">  </span>"+newLine() +
-			""+newLine() +
-			"<span id=\"hidden-One-passing-scenario-one-failing-scenario\" class=\"fa fa-plus-square fa-fw\" style=\"cursor:pointer;float:right;display:none;margin-top:-30px\" title=\"maximize feature\" onclick=\"showFeatureScenarios('One-passing-scenario-one-failing-scenario'); this.style.display = 'none'\">  </span>"+newLine() +
-			"++++"+newLine() +
+			"minmax::One-passing-scenario-one-failing-scenario[]"+newLine() +
 			"==== Scenario: Passing"+newLine() +
 			"[small]#tags: @a,@b#"+newLine() +
 			""+newLine() +
@@ -373,37 +327,7 @@ public interface Expectations {
 			"./features/step_definitions/steps.rb:4:in /^this step fails$/'"+newLine() +
 			"features/one_passing_one_failing.feature:10:in Given this step fails'"+newLine() +
 			"****"+newLine() +
-			""+newLine() +
-			""+newLine() +
-			"++++"+newLine() +
-			"<script type=\"text/javascript\">"+newLine() +
-			"\tfunction showFeatureScenarios(featureId){"+newLine() +
-			"\t\tvar element = document.getElementById(featureId).parentNode;"+newLine() +
-			"\t\tfor (var i = 0; i < element.childNodes.length; i++) {"+newLine() +
-			"    \t\tif (element.childNodes[i].className == \"sect3\" || element.childNodes[i].className == \"fa fa-minus-square fa-fw\") {"+newLine() +
-			"      \t\t     element.childNodes[i].style.display = 'inline';"+newLine() +
-			"    \t\t\t}"+newLine() +
-			"    \t\tif (element.childNodes[i].className == \"sidebarblock\") {"+newLine() +
-			"      \t\t     element.childNodes[i].style.display = 'block';"+newLine() +
-			"    \t\t\t}\t\t\t        "+newLine() +
-			"\t\t}"+newLine() +
-			"\t\t "+newLine() +
-			" \t\tdocument.getElementById(featureId).childNodes[0].click();"+newLine() +
-			"\t}"+newLine() +
-			""+newLine() +
-			"\tfunction hideFeatureScenarios(featureId){"+newLine() +
-			"\t\tvar element = document.getElementById(featureId).parentNode;"+newLine() +
-			"\t\tfor (var i = 0; i < element.childNodes.length; i++) {"+newLine() +
-			"    \t\tif (element.childNodes[i].className == \"sect3\" || element.childNodes[i].className == \"sidebarblock\") { "+newLine() +
-			"      \t\t     element.childNodes[i].style.display = 'none';\t   \t\t    "+newLine() +
-			"                 \t}"+newLine() +
-			"\t\t      "+newLine() +
-			"\t\t}"+newLine() +
-			"\t   document.getElementById(featureId).childNodes[0].click();"+newLine() +
-			" \t}"+newLine() +
-			""+newLine() +
-			"</script>"+newLine() +
-			"++++";
+			""+newLine();
 
 	String FEATURE_WITH_STEP_TABLE = ":toc: right"+newLine() +
 			":backend: html5"+newLine() +
@@ -457,12 +381,9 @@ public interface Expectations {
 			"== *Features*"+newLine() +
 			""+newLine() +
 			"[[Search, Search]]"+newLine() +
-			"=== *Search*"+newLine() + newLine() +
-			"++++"+newLine() +
-			"<span class=\"fa fa-minus-square fa-fw\" style=\"cursor:pointer;float:right;margin-top:-30px\" title=\"minimize\" onclick=\"hideFeatureScenarios('Search');document.getElementById('hidden-Search').style.display = 'inline';this.style.display = 'none'\">  </span>"+newLine() +
+			"=== *Search*"+newLine() +
 			""+newLine() +
-			"<span id=\"hidden-Search\" class=\"fa fa-plus-square fa-fw\" style=\"cursor:pointer;float:right;display:none;margin-top:-30px\" title=\"maximize feature\" onclick=\"showFeatureScenarios('Search'); this.style.display = 'none'\">  </span>"+newLine() +
-			"++++"+newLine() +
+			"minmax::Search[]"+newLine() +
 			"==== Cenario: Find messages by content"+newLine() +
 			"[small]#tags: @txn#"+newLine() +
 			""+newLine() +
@@ -487,36 +408,6 @@ public interface Expectations {
 			""+newLine() +
 			"----"+newLine() +
 			"****"+newLine() +
-			""+newLine() +
-			""+newLine() +
-			"++++"+newLine() +
-			"<script type=\"text/javascript\">"+newLine() +
-			"\tfunction showFeatureScenarios(featureId){"+newLine() +
-			"\t\tvar element = document.getElementById(featureId).parentNode;"+newLine() +
-			"\t\tfor (var i = 0; i < element.childNodes.length; i++) {"+newLine() +
-			"    \t\tif (element.childNodes[i].className == \"sect3\" || element.childNodes[i].className == \"fa fa-minus-square fa-fw\") {"+newLine() +
-			"      \t\t     element.childNodes[i].style.display = 'inline';"+newLine() +
-			"    \t\t\t}"+newLine() +
-			"    \t\tif (element.childNodes[i].className == \"sidebarblock\") {"+newLine() +
-			"      \t\t     element.childNodes[i].style.display = 'block';"+newLine() +
-			"    \t\t\t}\t\t\t        "+newLine() +
-			"\t\t}"+newLine() +
-			"\t\t "+newLine() +
-			" \t\tdocument.getElementById(featureId).childNodes[0].click();"+newLine() +
-			"\t}"+newLine() +
-			""+newLine() +
-			"\tfunction hideFeatureScenarios(featureId){"+newLine() +
-			"\t\tvar element = document.getElementById(featureId).parentNode;"+newLine() +
-			"\t\tfor (var i = 0; i < element.childNodes.length; i++) {"+newLine() +
-			"    \t\tif (element.childNodes[i].className == \"sect3\" || element.childNodes[i].className == \"sidebarblock\") { "+newLine() +
-			"      \t\t     element.childNodes[i].style.display = 'none';\t   \t\t    "+newLine() +
-			"                 \t}"+newLine() +
-			"\t\t      "+newLine() +
-			"\t\t}"+newLine() +
-			"\t   document.getElementById(featureId).childNodes[0].click();"+newLine() +
-			" \t}"+newLine() +
-			""+newLine() +
-			"</script>"+newLine() +
-			"++++";
+			""+newLine();
 	 
 }

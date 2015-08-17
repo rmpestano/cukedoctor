@@ -19,8 +19,6 @@ public class DocumentAttributes {
 	private boolean numbered = false;
 	private boolean docInfo = true;
 	private boolean pdfTheme = true;
-	private boolean minimizable = true;
-	private boolean searchable = true;
 
 	public DocumentAttributes docTitle(String docTitle) {
 		this.docTitle = docTitle;
@@ -83,15 +81,6 @@ public class DocumentAttributes {
 		return this;
 	}
 
-	public DocumentAttributes minimizable(boolean minimizableFeature) {
-		this.minimizable = minimizableFeature;
-		return this;
-	}
-
-	public DocumentAttributes searchable(boolean searchable) {
-		this.searchable = searchable;
-		return this;
-	}
 
 	public String getBackend() {
 		return backend;
@@ -141,22 +130,4 @@ public class DocumentAttributes {
 		return pdfTheme;
 	}
 
-	public boolean isMinimizable() {
-		return minimizable;
-	}
-
-	public boolean isSearchable() {
-		return searchable;
-	}
-
-
-
-	/*	public Attributes toAsciidoctorJAttributes() {
-		return attributes().backend(getBackend()).docType(getDocType()).icons(icons).
-				sectionNumbers(isNumbered()).linkCss(isLinkCss()).setAnchors(isSectAnchors()).
-				setAnchors(isSectAnchors()).title(docTitle).attribute("docinfo",":docinfo:").
-				tableOfContents(toc.equalsIgnoreCase("left") ? Placement.LEFT : toc.equalsIgnoreCase("right") ? Placement.RIGHT :
-				toc.equalsIgnoreCase("top") ? Placement.TOP : null).get();
-
-	}*/
 }

@@ -12,6 +12,11 @@
 
     <dependencies>
         <dependency>
+            <groupId>com.github.cukedoctor</groupId>
+            <artifactId>cukedoctor-extension</artifactId>
+            <version>${project.parent.version}</version>
+        </dependency>
+        <dependency>
             <groupId>org.apache.maven.shared</groupId>
             <artifactId>maven-shared-utils</artifactId>
             <version>0.7</version>

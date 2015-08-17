@@ -39,11 +39,6 @@ public class CukedoctorMain {
 	@Parameter(names = "-numbered", description = "Section numbering. Default is false ", required = false)
 	private Boolean numbered;
 
-	@Parameter(names = "-minimizable", description = "Turn features div minimizable", required = false)
-	private Boolean minimizable;
-
-	@Parameter(names = "-searchable", description = "Add input to search features by title", required = false)
-	private Boolean searchable;
 
 
 	public String execute(String args[]) {
@@ -85,13 +80,6 @@ public class CukedoctorMain {
 			numbered = false;
 		}
 
-		if(minimizable == null){
-			minimizable = Boolean.TRUE;
-		}
-
-		if(searchable == null){
-			searchable = Boolean.TRUE;
-		}
 
 		System.out.println("Generating living documentation with args:");
 
@@ -117,12 +105,10 @@ public class CukedoctorMain {
 		DocumentAttributes documentAttributes = new DocumentAttributes().
 				backend(format).
 				toc(toc).
-				minimizable(minimizable).
-				searchable(searchable).
 				numbered(numbered);
 
 		if(format.equalsIgnoreCase("pdf")){
-			documentAttributes.pdfTheme(true).minimizable(false).searchable(false).docInfo(false);
+			documentAttributes.pdfTheme(true).docInfo(false);
 		}else {
 			documentAttributes.docInfo(true).pdfTheme(false);
 		}
@@ -137,7 +123,7 @@ public class CukedoctorMain {
 		if("all".equals(format)){
 			documentAttributes.backend("html5");
 			resultDoc = this.execute(features, documentAttributes, outputName);
-			documentAttributes.backend("pdf").minimizable(false).searchable(false);
+			documentAttributes.backend("pdf");
 			this.execute(features, documentAttributes, outputName);
 		}else{
 			resultDoc = this.execute(features,documentAttributes,outputName);

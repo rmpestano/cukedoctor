@@ -298,13 +298,14 @@ public class CukedoctorConverterTest {
 		cukedoctorConverter = spy(cukedoctorConverter);
 		doReturn(cukedoctorConverter).when(cukedoctorConverter).renderFeatureScenarios(feature);
 		String resultDoc = cukedoctorConverter.renderFeature(feature).getDocumentation().toString();
-		assertThat(resultDoc).isEqualTo("[[Feature-name, Feature name]]" + newLine() +
-				"=== *Feature name*" + newLine() +
-				"" + newLine() +
-				"****" + newLine() +
-				"Feature description" + newLine() +
-				"****" + newLine() +
-				"" + newLine());
+		assertThat(resultDoc).isEqualTo("[[Feature-name, Feature name]]"+newLine() +
+				"=== *Feature name*"+newLine() +
+				""+newLine() +
+				"minmax::Feature-name[]"+newLine() +
+				"****"+newLine() +
+				"Feature description"+newLine() +
+				"****"+newLine() +
+				""+newLine());
 	}
 
 	@Test
@@ -537,23 +538,20 @@ public class CukedoctorConverterTest {
 
 		assertThat(resultDoc).
 				doesNotContain("feature to skip").
-				isEqualTo("[[Feature-name, Feature name]]" + newLine() +
-						"=== *Feature name*" + newLine() + newLine() +
-						"++++"+newLine() +
-						"<span class=\"fa fa-minus-square fa-fw\" style=\"cursor:pointer;float:right;margin-top:-30px\" title=\"minimize\" onclick=\"hideFeatureScenarios('Feature-name');document.getElementById('hidden-Feature-name').style.display = 'inline';this.style.display = 'none'\">  </span>"+newLine() +
+				isEqualTo("[[Feature-name, Feature name]]"+newLine() +
+						"=== *Feature name*"+newLine() +
 						""+newLine() +
-						"<span id=\"hidden-Feature-name\" class=\"fa fa-plus-square fa-fw\" style=\"cursor:pointer;float:right;display:none;margin-top:-30px\" title=\"maximize feature\" onclick=\"showFeatureScenarios('Feature-name'); this.style.display = 'none'\">  </span>"+newLine() +
-						"++++" +newLine() +
-						"****" + newLine() +
-						"Feature description" + newLine() +
-						"****" + newLine() +
-						"" + newLine() +
-						"==== Scenario: scenario 1" + newLine() +
-						"description" + newLine() +
-						"" + newLine() +
-						"==== Scenario: scenario 2" + newLine() +
-						"description 2" + newLine() +
-						"" + newLine());
+						"minmax::Feature-name[]"+newLine() +
+						"****"+newLine() +
+						"Feature description"+newLine() +
+						"****"+newLine() +
+						""+newLine() +
+						"==== Scenario: scenario 1"+newLine() +
+						"description"+newLine() +
+						""+newLine() +
+						"==== Scenario: scenario 2"+newLine() +
+						"description 2"+newLine() +
+						""+newLine());
 	}
 
 	@Test
@@ -640,7 +638,7 @@ public class CukedoctorConverterTest {
 	@Test
 	public void shouldRenderFeatureWithTableInSteps(){
 		List<Feature> features = FeatureParser.parse(featureWithTableInStep);
-		CukedoctorConverter converter = Cukedoctor.instance(features, new DocumentAttributes().docTitle("Doc Title").searchable(false));
+		CukedoctorConverter converter = Cukedoctor.instance(features, new DocumentAttributes().docTitle("Doc Title"));
 
 		String resultDoc = converter.renderStepTable(features.get(0).getScenarios().get(0).getSteps().get(0)).renderDocumentation();
 		assertThat(resultDoc).isEqualTo(Expectations.FEATURE_WITH_STEP_TABLE);
@@ -734,7 +732,7 @@ public class CukedoctorConverterTest {
 		DocumentAttributes attrs = new DocumentAttributes();
 		attrs.toc("left").backend("html5")
 				.docType("book").docTitle("Living Documentation")
-				.icons("font").numbered(false).searchable(false)
+				.icons("font").numbered(false)
 				.sectAnchors(true).sectLink(true);
 
 		CukedoctorConverter converter = Cukedoctor.instance(features, attrs);
@@ -751,7 +749,7 @@ public class CukedoctorConverterTest {
 				containsOnlyOnce("|1|1|2|1|1|0|0|0|0|2 2+|010ms");
 
 		FileUtil.saveFile("target/test-docs/doc_one_feature.adoc", resultDoc); //save to target/test-docs folder
-		assertThat(resultDoc.replaceAll("\r","")).isEqualTo(Expectations.DOCUMENTATION_FOR_ONE_FEATURE.replaceAll("\r", ""));
+		assertThat(resultDoc).isEqualTo(Expectations.DOCUMENTATION_FOR_ONE_FEATURE);
 	}
 
 	@Test
@@ -761,7 +759,7 @@ public class CukedoctorConverterTest {
 		DocumentAttributes attrs = new DocumentAttributes();
 		attrs.toc("left").backend("html5")
 				.docType("book").docTitle("Living Documentation")
-				.icons("font").numbered(false).searchable(false)
+				.icons("font").numbered(false)
 				.sectAnchors(true).sectLink(true);
 
 		CukedoctorConverter converter = Cukedoctor.instance(features, attrs);
@@ -781,7 +779,7 @@ public class CukedoctorConverterTest {
 				containsOnlyOnce("|4|2|6|4|1|0|0|0|1|6 2+|010ms");
 
 		FileUtil.saveFile("target/test-docs/doc_multiple_feature.adoc", resultDoc); //save to target/test-docs folder
-		assertThat(resultDoc.replaceAll("\r","")).isEqualTo(Expectations.DOCUMENTATION_FOR_MULTIPLE_FEATURES.replaceAll("\r",""));
+		assertThat(resultDoc).isEqualTo(Expectations.DOCUMENTATION_FOR_MULTIPLE_FEATURES.replaceAll("\r",""));
 	}
 
 	@Test

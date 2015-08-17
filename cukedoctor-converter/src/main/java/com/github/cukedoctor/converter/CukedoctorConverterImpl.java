@@ -53,27 +53,17 @@ public class CukedoctorConverterImpl implements CukedoctorConverter {
 		renderAttributes();
 		writer.write(newLine());
 		writer.write(H1(bold(getDocumentationTitle())), newLine(), newLine());
-		if(documentAttributes.isSearchable()){
-			addSearchInput();
-		}
 		renderSummary();
 		writer.write(newLine(), newLine());
 		writer.write(H2(bold("Features")), newLine(), newLine());
 		renderFeatures(features);
 		//generateDocInfo();
 		//generatePdfTheme();
-		generateScripts();
 
 		return writer.getCurrentDoc().toString();
 	}
 
-	private void addSearchInput() {
-		writer.write("++++",newLine());
-		writer.write("<span style=\"float:right\">\n" +
-        "\t<input value=\"Filter...\" onclick=\"this.value=''\" title=\"Filter features by title\" onblur=\"searchFeature(this.value);\"/>\n" +
-        "</span>\t",newLine());
-		writer.write("++++",newLine());
-	}
+
 
 	public String getDocumentationTitle() {
 		if(documentAttributes != null && hasText(documentAttributes.getDocTitle())){
@@ -224,10 +214,7 @@ public class CukedoctorConverterImpl implements CukedoctorConverter {
 		}
 		writer.write(renderFeatureSectionId(feature), newLine());
 		writer.write(H3(bold(feature.getName())), newLine(),newLine());
-		if(notNull(documentAttributes) && documentAttributes.isMinimizable()){
-			renderMinimizable(feature);
-		}
-
+		writer.write("minmax::",feature.getName().replaceAll(",", "").replaceAll(" ", "-"),"[]",newLine());
 		if (hasText(feature.getDescription())) {
 			writer.write("****", newLine()).
 					//feature description has \n to delimit new lines
@@ -240,23 +227,6 @@ public class CukedoctorConverterImpl implements CukedoctorConverter {
 		return this;
 	}
 
-	private void renderMinimizable(Feature feature) {
-		String featureId = feature.getName().replaceAll(",", "").replaceAll(" ", "-");
-		writer.write("++++",newLine()).
-                write("<span class=\"fa fa-minus-square fa-fw\" style=\"cursor:pointer;float:right;margin-top:-30px\" ").
-                write("title=\"minimize\" onclick=\"hideFeatureScenarios('" +
-						featureId +
-						"');document.getElementById('hidden-" +
-						featureId +
-						"').style.display = 'inline';this.style.display = 'none'\">  </span>", newLine(), newLine());
-
-		writer.write("<span id=\"hidden-" +
-                featureId +
-                "\" class=\"fa fa-plus-square fa-fw\" style=\"cursor:pointer;float:right;display:none;margin-top:-30px\" ");
-		writer.write("title=\"maximize feature\" onclick=\"showFeatureScenarios('" +
-                featureId +
-                "'); this.style.display = 'none'\">  </span>",newLine(),"++++",newLine());
-	}
 
 	public String renderFeatureSectionId(Feature feature) {
 		if (isNull(feature) || not(hasText(feature.getName()))) {
@@ -423,7 +393,7 @@ public class CukedoctorConverterImpl implements CukedoctorConverter {
 	}
 
 	private void generateScripts() {
-		if(documentAttributes != null && documentAttributes.isMinimizable()) {
+		if(documentAttributes != null ) {
 			writer.write(newLine(), "++++", newLine()).
 					write("<script type=\"text/javascript\">" + newLine() +
 							"\tfunction showFeatureScenarios(featureId){" + newLine() +
@@ -455,7 +425,7 @@ public class CukedoctorConverterImpl implements CukedoctorConverter {
 					write(newLine(), "++++");
 		}
 
-		if(documentAttributes != null && documentAttributes.isSearchable()) {
+		if(documentAttributes != null) {
 			writer.write(newLine(), "++++", newLine()).
 					write("<script type = \"text/javascript\" >"+newLine() +
 					"var allLevel2ListItens = null;"+newLine() +
