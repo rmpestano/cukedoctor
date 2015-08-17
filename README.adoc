@@ -73,6 +73,10 @@ To use Cukedoctor as a standalone jar you can https://bintray.com/artifact/downl
 
 Cukedoctor converter is the basis for the above projects, it generates asciidoc files based on Cucumber json execution files. For more details see https://github.com/rmpestano/cukedoctor/tree/master/cukedoctor-converter[cukedoctor-converter].
 
+=== Extension
+
+Cukedoctor extension adds new features to generated documentation in order to let original document cleaner and make it easier to enable/disable those features. For more details see https://github.com/rmpestano/cukedoctor/tree/master/cukedoctor-extension[cukedoctor-extension].
+
 == Distribution
 
 Cukedoctor is available at https://bintray.com/rmpestano/cukedoctor[Bintray] and at http://search.maven.org/#search%7Cga%7C1%7Ccukedoctor[Maven central^].
