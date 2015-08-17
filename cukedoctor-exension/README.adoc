@@ -1,4 +1,5 @@
 = Cukedoctor Extension module
+
 image:https://www.versioneye.com/java/com.github.cukedoctor:cukedoctor-extension/badge.svg[Dependency Status, link=https://www.versioneye.com/java/com.github.cukedoctor:cukedoctor-extension/]
 
 This module extend cukedoctor generated documentation via http://asciidoctor.org/docs/asciidoctorj/#extension-api[Asciidoctor extensions mechanism^].
