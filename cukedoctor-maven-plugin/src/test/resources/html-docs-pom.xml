@@ -18,6 +18,8 @@
                     <format>html5</format>
                     <toc>left</toc>
                     <numbered>true</numbered>
+                    <minimizable>true</minimizable>
+                    <searchable>false</searchable>
                 </configuration>
             </plugin>
         </plugins>

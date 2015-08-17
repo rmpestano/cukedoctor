@@ -22,8 +22,8 @@ public class CukedoctorFilterExtension extends Postprocessor{
         if(document.basebackend("html")){
             org.jsoup.nodes.Document doc = Jsoup.parse(output, "UTF-8");
 
-            Element contentElement = doc.getElementsByClass("sectionbody").get(0);
-            contentElement.append("<span style=\"float:right\">\n" +
+            Element contentElement = doc.getElementsByClass("sect1").get(0);
+            contentElement.before("<span style=\"float:right\">\n" +
                     "\t<input value=\"Filter...\" onclick=\"this.value=''\" title=\"Filter features by title\" onblur=\"searchFeature(this.value);\"/>\n" +
                     "</span>");
             return doc.html();

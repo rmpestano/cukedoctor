@@ -1,10 +1,7 @@
 package com.github.cukedoctor;
 
-import com.beust.jcommander.ParameterException;
-import com.github.cukedoctor.CukedoctorMain;
 import com.github.cukedoctor.util.FileUtil;
 import org.junit.After;
-import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -17,7 +14,6 @@ import java.io.PrintStream;
 
 import static com.github.cukedoctor.util.Constants.newLine;
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 /**

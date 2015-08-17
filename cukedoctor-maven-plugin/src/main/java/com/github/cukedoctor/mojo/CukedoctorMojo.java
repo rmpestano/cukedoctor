@@ -20,6 +20,9 @@ import com.github.cukedoctor.Cukedoctor;
 import com.github.cukedoctor.api.CukedoctorConverter;
 import com.github.cukedoctor.api.DocumentAttributes;
 import com.github.cukedoctor.api.model.Feature;
+import com.github.cukedoctor.extension.CukedoctorFilterExtension;
+import com.github.cukedoctor.extension.CukedoctorMinMaxExtension;
+import com.github.cukedoctor.extension.CukedoctorScriptExtension;
 import com.github.cukedoctor.mojo.model.Format;
 import com.github.cukedoctor.mojo.model.Toc;
 import com.github.cukedoctor.parser.FeatureParser;
@@ -64,6 +67,11 @@ public class CukedoctorMojo extends AbstractMojo {
 	@Parameter(defaultValue = "false", required = false)
 	boolean numbered;
 
+	@Parameter(defaultValue = "true", required = false)
+	boolean minimizable;
+
+	@Parameter(defaultValue = "true", required = false)
+	boolean searchable;
 
 	@Component
 	MavenProject project;
@@ -110,10 +118,22 @@ public class CukedoctorMojo extends AbstractMojo {
 		File adocFile = FileUtil.saveFile(pathToSave, generatedFile);
 
 		Asciidoctor asciidoctor = Asciidoctor.Factory.create();
+		if(searchable || minimizable){
+			asciidoctor.javaExtensionRegistry().postprocessor(CukedoctorScriptExtension.class);
+			if(searchable){
+				asciidoctor.javaExtensionRegistry().postprocessor(CukedoctorFilterExtension.class);
+			}
+
+			if(minimizable){
+				asciidoctor.javaExtensionRegistry().blockMacro("minmax", CukedoctorMinMaxExtension.class);
+			}
+		}
 
 		if (format.equals(Format.all)) {
 			documentAttributes.backend(Format.html5.name().toLowerCase());
 			generateDocumentation(documentAttributes, adocFile, asciidoctor);
+			asciidoctor.shutdown();//needed because extension conflict with pdf backend
+			asciidoctor = Asciidoctor.Factory.create();
 			documentAttributes.backend(Format.pdf.name().toLowerCase()).docInfo(false);
 			generateDocumentation(documentAttributes, adocFile, asciidoctor);
 		} else {
