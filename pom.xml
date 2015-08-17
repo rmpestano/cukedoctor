@@ -33,7 +33,7 @@
         <module>cukedoctor-converter</module>
         <module>cukedoctor-maven-plugin</module>
         <module>cukedoctor-main</module>
-        <module>cukedoctor-exension</module>
+        <module>cukedoctor-extension</module>
     </modules>
 
     <licenses>
