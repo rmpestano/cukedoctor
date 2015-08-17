@@ -231,8 +231,8 @@
                                 </goals>
                                 <configuration>
                                     <excludes>
-                                        <exclude>**/target/*.class</exclude>
-                                        <exclude>**/HelpMojo.class</exclude>
+                                        <exclude>*target*/*.class</exclude>
+                                        <exclude>**/*HelpMojo.class</exclude>
                                     </excludes>
                                 </configuration>
                             </execution>
