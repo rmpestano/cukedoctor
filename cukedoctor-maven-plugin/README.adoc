@@ -14,7 +14,7 @@ Just declare the plugin in your _pom.xml_:
 <plugin>
     <groupId>com.github.cukedoctor</groupId>
     <artifactId>cukedoctor-maven-plugin</artifactId>
-    <version>0.5.1</version>
+    <version>0.6.0</version>
     <executions>
         <execution>
             <goals>
@@ -47,7 +47,7 @@ NOTE: *plugins* option replaced *format* option which was deprecated in newer cu
 <plugin>
     <groupId>com.github.cukedoctor</groupId>
     <artifactId>cukedoctor-maven-plugin</artifactId>
-    <version>0.5.1</version>
+    <version>0.6.0</version>
          <configuration>
             <outputFileName>documentation</outputFileName> <1>
             <outputDir>docs</outputDir> <2>
