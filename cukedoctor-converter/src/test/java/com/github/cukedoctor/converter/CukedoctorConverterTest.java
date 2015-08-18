@@ -294,7 +294,7 @@ public class CukedoctorConverterTest {
 
 		CukedoctorConverter cukedoctorConverter = Cukedoctor.instance(new ArrayList<Feature>() {{
 			add(feature);
-		}}, null);
+		}}, new DocumentAttributes());
 		cukedoctorConverter = spy(cukedoctorConverter);
 		doReturn(cukedoctorConverter).when(cukedoctorConverter).renderFeatureScenarios(feature);
 		String resultDoc = cukedoctorConverter.renderFeature(feature).getDocumentation().toString();

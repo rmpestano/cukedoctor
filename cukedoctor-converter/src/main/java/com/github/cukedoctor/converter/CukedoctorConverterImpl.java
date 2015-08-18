@@ -214,7 +214,10 @@ public class CukedoctorConverterImpl implements CukedoctorConverter {
 		}
 		writer.write(renderFeatureSectionId(feature), newLine());
 		writer.write(H3(bold(feature.getName())), newLine(),newLine());
-		writer.write("minmax::",feature.getName().replaceAll(",", "").replaceAll(" ", "-"),"[]",newLine());
+		if(notNull(documentAttributes) && hasText(documentAttributes.getBackend()) && documentAttributes.getBackend().toLowerCase().contains("html")) {
+			//used by minimax extension @see com.github.cukedoctor.extension.CukedoctorMinMaxExtension
+			writer.write("minmax::", feature.getName().replaceAll(",", "").replaceAll(" ", "-"), "[]", newLine());
+		}
 		if (hasText(feature.getDescription())) {
 			writer.write("****", newLine()).
 					//feature description has \n to delimit new lines
