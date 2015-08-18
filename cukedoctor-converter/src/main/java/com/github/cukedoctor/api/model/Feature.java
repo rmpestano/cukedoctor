@@ -116,7 +116,7 @@ public class Feature {
 		if (elements != null) {
 			List<Scenario> elementList = new ArrayList<Scenario>();
 			for (Scenario element : elements) {
-				if (!element.isBackground()) {
+				if (!element.isBackground() && !element.hasExamples()) {
 					elementList.add(element);
 				}
 			}
@@ -195,6 +195,9 @@ public class Feature {
 
 		if (scenarios != null) {
 			for (Scenario scenario : scenarios) {
+				if(scenario.hasExamples()){
+					continue;
+				}
 				calculateScenarioStats(passedScenarios, failedScenarios, scenario);
 				if (scenario.hasSteps()) {
 					for (Step step : scenario.getSteps()) {

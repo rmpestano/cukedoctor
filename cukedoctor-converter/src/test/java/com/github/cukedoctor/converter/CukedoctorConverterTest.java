@@ -260,11 +260,9 @@ public class CukedoctorConverterTest {
 				containsOnlyOnce("<<An-embed-data-directly-feature>>").
 				containsOnlyOnce("<<An-outline-feature>>").
 				doesNotContain("<<invalid feature result>>").
-				containsOnlyOnce("|[green]#*passed*#").
-				contains("|[red]#*Failed*#").
+				contains("|[green]#*passed*#").
+				contains("|[red]#*failed*#").
 				containsOnlyOnce("2+|010ms");
-
-
 		assertThat(resultDoc).isEqualTo(Expectations.SUMMARY_FOR_MULTIPLE_FEATURES);
 	}
 
@@ -285,7 +283,9 @@ public class CukedoctorConverterTest {
 		String resultDoc = Cukedoctor.instance(features, new DocumentAttributes().docTitle("Title")).renderTotalsRow().getDocumentation().toString();
 		assertThat(resultDoc).isNotNull().
 				containsOnlyOnce("12+^|*Totals*").
-				contains("|4|2|6|4|1|0|0|0|1|6 2+|010ms");
+				contains("|4|1|5|4|1|0|0|0|0|5 2+|010ms");
+
+
 	}
 
 	@Test
@@ -773,10 +773,10 @@ public class CukedoctorConverterTest {
 				containsOnlyOnce("<<An-embed-data-directly-feature>>").
 				containsOnlyOnce("<<An-outline-feature>>").
 				doesNotContain("<<invalid-feature-result*>>").
-				containsOnlyOnce("|[green]#*passed*#").
-				contains("|[red]#*Failed*#").
+				contains("|[green]#*passed*#").
+				containsOnlyOnce("|[red]#*failed*#").
 				contains("|010ms").
-				containsOnlyOnce("|4|2|6|4|1|0|0|0|1|6 2+|010ms");
+				containsOnlyOnce("|4|1|5|4|1|0|0|0|0|5 2+|010ms");
 
 		FileUtil.saveFile("target/test-docs/doc_multiple_feature.adoc", resultDoc); //save to target/test-docs folder
 		assertThat(resultDoc.replaceAll("\r","")).isEqualTo(Expectations.DOCUMENTATION_FOR_MULTIPLE_FEATURES.replaceAll("\r",""));

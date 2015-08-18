@@ -231,9 +231,7 @@
                                 </goals>
                                 <configuration>
                                     <excludes>
-                                        <exclude>${project.build.outputDirectory}/*</exclude>
-                                        <exclude>**/*HelpMojo.class</exclude>
-                                        <exclude>**/*HelpMojo.java</exclude>
+                                        <exclude>**/*HelpMojo*</exclude>
                                     </excludes>
                                 </configuration>
                             </execution>

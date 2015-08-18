@@ -8,24 +8,24 @@ Feature: Cukedoctor Main
     When I execute CukedoctorMain with args "-o target/test-classes/outputFile.adoc" "-p target/test-classes/json-output/one_passing_one_failing.json" and "-t Documentation"
     Then A file named outputFile.adoc should be generated with the following content:
     """
-     :toc:right
-:backend:html5
-:doctitle:Documentation
-:doctype:book
-:icons:font
+     :toc: right
+:backend: html5
+:doctitle: Documentation
+:doctype: book
+:icons: font
 :!numbered:
 :!linkcss:
 :sectanchors:
 :sectlink:
 :docinfo:
-:toclevels:3
+:toclevels: 3
 
-=*Documentation*
+= *Documentation*
 
-==*Summary*
-[cols="12*^m",options="header,footer"]
+== *Summary*
+[cols="12*^m", options="header,footer"]
 |===
-3+|Scenarios7+|Steps2+|Features:1
+3+|Scenarios 7+|Steps 2+|Features: 1
 
 |[green]#*Passed*#
 |[red]#*Failed*#
@@ -54,35 +54,34 @@ Feature: Cukedoctor Main
 |010ms
 |[red]#*failed*#
 12+^|*Totals*
-|1|1|2|1|1|0|0|0|0|22+|010ms
+|1|1|2|1|1|0|0|0|0|2 2+|010ms
 |===
 
-==*Features*
+== *Features*
 
-[[One-passing-scenario-one-failing-scenario,Onepassingscenario,onefailingscenario]]
-===*Onepassingscenario,onefailingscenario*
+[[One-passing-scenario-one-failing-scenario, One passing scenario, one failing scenario]]
+=== *One passing scenario, one failing scenario*
 
 minmax::One-passing-scenario-one-failing-scenario[]
-====Scenario:Passing
-[small]#tags:@a,@b#
+==== Scenario: Passing
+[small]#tags: @a,@b#
 
 ****
-Given::
-thissteppassesicon:thumbs-up[role="green",title="Passed"][smallright]#(001ms)#
+Given ::
+this step passes icon:thumbs-up[role="green",title="Passed"] [small right]#(001ms)#
 ****
 
-====Scenario:Failing
-[small]#tags:@a,@c#
+==== Scenario: Failing
+[small]#tags: @a,@c#
 
 ****
-Given::
-thisstepfailsicon:thumbs-down[role="red",title="Failed"][smallright]#(008ms)#
+Given ::
+this step fails icon:thumbs-down[role="red",title="Failed"] [small right]#(008ms)#
 
-IMPORTANT:(RuntimeError)
-./features/step_definitions/steps.rb:4:in/^thisstepfails$/'
-features/one_passing_one_failing.feature:10:inGiventhisstepfails'
+IMPORTANT:  (RuntimeError)
+./features/step_definitions/steps.rb:4:in /^this step fails$/'
+features/one_passing_one_failing.feature:10:in Given this step fails'
 ****
-
     """
 
 
@@ -93,24 +92,24 @@ features/one_passing_one_failing.feature:10:inGiventhisstepfails'
     When I execute CukedoctorMain with args "-o target/test-classes/outputFile.adoc" "-p target/test-classes/json-output/" and "-t Documentation"
     Then A file named outputFile.adoc should be generated with the following content:
       """
-       :toc:right
-:backend:html5
-:doctitle:Documentation
-:doctype:book
-:icons:font
+       :toc: right
+:backend: html5
+:doctitle: Documentation
+:doctype: book
+:icons: font
 :!numbered:
 :!linkcss:
 :sectanchors:
 :sectlink:
 :docinfo:
-:toclevels:3
+:toclevels: 3
 
-=*Documentation*
+= *Documentation*
 
-==*Summary*
-[cols="12*^m",options="header,footer"]
+== *Summary*
+[cols="12*^m", options="header,footer"]
 |===
-3+|Scenarios7+|Steps2+|Features:4
+3+|Scenarios 7+|Steps 2+|Features: 4
 
 |[green]#*Passed*#
 |[red]#*Failed*#
@@ -141,17 +140,17 @@ features/one_passing_one_failing.feature:10:inGiventhisstepfails'
 
 12+^|*<<An-outline-feature>>*
 |0
-|1
-|1
 |0
 |0
 |0
 |0
 |0
-|1
-|1
+|0
+|0
+|0
+|0
 |000ms
-|[red]#*failed*#
+|[green]#*passed*#
 
 12+^|*<<One-passing-scenario-one-failing-scenario>>*
 |1
@@ -169,52 +168,52 @@ features/one_passing_one_failing.feature:10:inGiventhisstepfails'
 
 12+^|*<<Sample-test>>*
 |1
+|1
 |2
-|3
 |3
 |1
 |0
 |0
 |0
-|2
-|6
-|10s104ms
+|0
+|4
+|10s 104ms
 |[red]#*failed*#
 12+^|*Totals*
-|5|4|9|7|2|0|0|0|3|122+|10s114ms
+|5|2|7|7|2|0|0|0|0|9 2+|10s 114ms
 |===
 
-==*Features*
+== *Features*
 
-[[An-embed-data-directly-feature,Anembeddatadirectlyfeature]]
-===*Anembeddatadirectlyfeature*
+[[An-embed-data-directly-feature, An embed data directly feature]]
+=== *An embed data directly feature*
 
 minmax::An-embed-data-directly-feature[]
-====Scenario:scenario1
+==== Scenario: scenario 1
 ****
-Given::
-Iembeddatadirectlyicon:thumbs-up[role="green",title="Passed"][smallright]#(000ms)#
-****
-
-====ScenarioOutline:scenario2
-****
-Given::
-Iembeddatadirectlyicon:thumbs-up[role="green",title="Passed"][smallright]#(000ms)#
+Given ::
+I embed data directly icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ****
 
+==== Scenario Outline: scenario 2
 ****
-Given::
-Iembeddatadirectlyicon:thumbs-up[role="green",title="Passed"][smallright]#(000ms)#
+Given ::
+I embed data directly icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ****
 
-[[An-outline-feature,Anoutlinefeature]]
-===*Anoutlinefeature*
+****
+Given ::
+I embed data directly icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+****
+
+[[An-outline-feature, An outline feature]]
+=== *An outline feature*
 
 minmax::An-outline-feature[]
-====ScenarioOutline:outline
+==== Scenario Outline: outline
 
 .examples1
-[cols="1*",options="header"]
+[cols="1*", options="header"]
 |===
 |status
 |passes
@@ -222,50 +221,50 @@ minmax::An-outline-feature[]
 |===
 
 .examples2
-[cols="1*",options="header"]
+[cols="1*", options="header"]
 |===
 |status
 |passes
 |===
 
-[[One-passing-scenario-one-failing-scenario,Onepassingscenario,onefailingscenario]]
-===*Onepassingscenario,onefailingscenario*
+[[One-passing-scenario-one-failing-scenario, One passing scenario, one failing scenario]]
+=== *One passing scenario, one failing scenario*
 
 minmax::One-passing-scenario-one-failing-scenario[]
-====Scenario:Passing
-[small]#tags:@a,@b#
+==== Scenario: Passing
+[small]#tags: @a,@b#
 
 ****
-Given::
-thissteppassesicon:thumbs-up[role="green",title="Passed"][smallright]#(001ms)#
+Given ::
+this step passes icon:thumbs-up[role="green",title="Passed"] [small right]#(001ms)#
 ****
 
-====Scenario:Failing
-[small]#tags:@a,@c#
+==== Scenario: Failing
+[small]#tags: @a,@c#
 
 ****
-Given::
-thisstepfailsicon:thumbs-down[role="red",title="Failed"][smallright]#(008ms)#
+Given ::
+this step fails icon:thumbs-down[role="red",title="Failed"] [small right]#(008ms)#
 
-IMPORTANT:(RuntimeError)
-./features/step_definitions/steps.rb:4:in/^thisstepfails$/'
-features/one_passing_one_failing.feature:10:inGiventhisstepfails'
+IMPORTANT:  (RuntimeError)
+./features/step_definitions/steps.rb:4:in /^this step fails$/'
+features/one_passing_one_failing.feature:10:in Given this step fails'
 ****
 
-[[Sample-test,Sampletest]]
-===*Sampletest*
+[[Sample-test, Sample test]]
+=== *Sample test*
 
 minmax::Sample-test[]
 ****
-Asauser+
-Iwanttodosomething+
-Inordertoachieveanotherthing
+As a user  +
+I want to do something  +
+In order to achieve another thing
 ****
 
-====ScenarioOutline:Parsingscenarioswithmultipleexamples
+==== Scenario Outline: Parsing scenarios with multiple examples
 
 .Example
-[cols="2*",options="header"]
+[cols="2*", options="header"]
 |===
 |a
 |b
@@ -273,23 +272,23 @@ Inordertoachieveanotherthing
 |2
 |===
 
-====Scenario:Basic
+==== Scenario: Basic
 ****
-Given::
-Inavigatetothehomepageicon:thumbs-up[role="green",title="Passed"][smallright]#(044ms)#
-Then::
-Iseethetext'Home'icon:thumbs-up[role="green",title="Passed"][smallright]#(001ms)#
+Given ::
+I navigate to the home page icon:thumbs-up[role="green",title="Passed"] [small right]#(044ms)#
+Then ::
+I see the text 'Home' icon:thumbs-up[role="green",title="Passed"] [small right]#(001ms)#
 ****
 
-====Scenario:Basicfailure
+==== Scenario: Basic failure
 ****
-Given::
-Inavigatetothehomepageicon:thumbs-up[role="green",title="Passed"][smallright]#(040ms)#
-Then::
-Iseethetext'Hacienda'icon:thumbs-down[role="red",title="Failed"][smallright]#(10s017ms)#
+Given ::
+I navigate to the home page icon:thumbs-up[role="green",title="Passed"] [small right]#(040ms)#
+Then ::
+I see the text 'Hacienda' icon:thumbs-down[role="red",title="Failed"] [small right]#(10s 017ms)#
 
-IMPORTANT:expectedtofindtext"Hacienda"in"Home|LoginClinicalStudiessomeengagingcopyViewAvailableStudies"(RSpec::Expectations::ExpectationNotMetError)
-./features/step_definitions/study_admin_steps.rb:14:in`/^Iseethetext'(.+)'$/'
-features/test_outline.feature:15:in`ThenIseethetext'Hacienda''
+IMPORTANT: expected to find text "Hacienda" in "Home | Login Clinical Studies some engaging copy View Available Studies" (RSpec::Expectations::ExpectationNotMetError)
+./features/step_definitions/study_admin_steps.rb:14:in `/^I see the text '(.+)'$/'
+features/test_outline.feature:15:in `Then I see the text 'Hacienda''
 ****
       """
