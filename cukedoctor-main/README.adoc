@@ -1,6 +1,6 @@
 = Cukedoctor Main module
 
-image:https://www.versioneye.com/java/com.github.cukedoctor:cukedoctor-main/badge.svg[Dependency Status, link=https://www.versioneye.com/java/com.github.cukedoctor:cukedoctor-main/]
+image:https://www.versioneye.com/user/projects/55d33261265ff60022000290/badge.svg?style=flat[Dependency Status, link=https://www.versioneye.com/user/projects/55d33261265ff60022000290/]
 
 This module brings the ability to execute cukedoctor converter as a Java main application (using command line: *java -jar*).
 

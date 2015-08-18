@@ -1,8 +1,9 @@
 = Cukedoctor Extension module
 
-image:https://www.versioneye.com/java/com.github.cukedoctor:cukedoctor-extension/badge.svg[Dependency Status, link=https://www.versioneye.com/java/com.github.cukedoctor:cukedoctor-extension/]
+image:https://www.versioneye.com/user/projects/55d3325f265ff6001c000425/badge.svg?style=flat[Dependency Status, link=https://www.versioneye.com/user/projects/55d3325f265ff6001c000425/]
 
 This module extend cukedoctor generated documentation via http://asciidoctor.org/docs/asciidoctorj/#extension-api[Asciidoctor extensions mechanism^].
 
 The extensions (e.g: search or minimize features) are activated automatically if the extension module is on the classpath.
+
 

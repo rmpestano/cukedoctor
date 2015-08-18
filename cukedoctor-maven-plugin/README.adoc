@@ -1,6 +1,7 @@
 = Cukedoctor maven plugin
 
-image:https://www.versioneye.com/java/com.github.cukedoctor:cukedoctor-maven-plugin/badge.svg[Dependency Status, link=https://www.versioneye.com/java/com.github.cukedoctor:cukedoctor-maven-plugin/]
+image:https://www.versioneye.com/user/projects/55d33262265ff6001a000210/badge.svg?style=flat[Dependency Status, link=https://www.versioneye.com/user/projects/55d33262265ff6001a000210/]
+
 
 
 This module brings the ability to execute cukedoctor converter through a maven plugin.

@@ -1,6 +1,6 @@
 = Cukedoctor Converter module
 
-image:https://www.versioneye.com/java/com.github.cukedoctor:cukedoctor-converter/badge.svg[Dependency Status, link=https://www.versioneye.com/java/com.github.cukedoctor:cukedoctor-converter/]
+image:https://www.versioneye.com/user/projects/55d3325e265ff6001a000204/badge.svg?style=flat[Dependency Status, link=https://www.versioneye.com/user/projects/55d3325e265ff6001a000204/]
 
 
 This module is responsible for generating adoc files from .json cucumber execution files.
