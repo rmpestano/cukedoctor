@@ -1,5 +1,8 @@
 = Cukedoctor maven plugin
 
+image:https://www.versioneye.com/java/com.github.cukedoctor:cukedoctor-maven-plugin/badge.svg[Dependency Status, link=https://www.versioneye.com/java/com.github.cukedoctor:cukedoctor-maven-plugin/]
+
+
 This module brings the ability to execute cukedoctor converter through a maven plugin.
 
 The plugin just scans *.json* cucumber execution files in _target_ dir and generates asciidoc documentation on _target/cukedoctor_ folder.
