@@ -1,13 +1,13 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-<meta charset="UTF-8">
-<!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="generator" content="Asciidoctor 1.5.2">
-<title>Living Documentation</title>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400">
-<style>
+ <head> 
+  <meta charset="UTF-8"> 
+  <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]--> 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+  <meta name="generator" content="Asciidoctor 1.5.2"> 
+  <title>Living Documentation</title> 
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400"> 
+  <style>
 /* Asciidoctor default stylesheet | MIT License | http://asciidoctor.org */
 /* Remove the comments around the @import statement below when using this as a custom stylesheet */
 /*@import "https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400";*/
@@ -407,247 +407,241 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 .print-only{display:block!important}
 .hide-for-print{display:none!important}
 .show-for-print{display:inherit!important}}
-</style>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.2.0/css/font-awesome.min.css">
-</head>
-<body class="book toc2 toc-right">
-<div id="header">
-<h1>Living Documentation</h1>
-<div id="toc" class="toc2">
-<div id="toctitle">Table of Contents</div>
-<ul class="sectlevel1">
-<li><a href="#__strong_summary_strong"><strong>Summary</strong></a></li>
-<li><a href="#__strong_features_strong"><strong>Features</strong></a>
-<ul class="sectlevel2">
-<li><a href="#Cross-References"><strong>Cross References</strong></a>
-<ul class="sectlevel3">
-<li><a href="#_scenario_create_a_cross_reference_from_an_asciidoc_cell_to_a_section">Scenario: Create a cross reference from an AsciiDoc cell to a section</a></li>
-<li><a href="#_scenario_create_a_cross_reference_using_the_target_section_title">Scenario: Create a cross reference using the target section title</a></li>
-<li><a href="#_scenario_create_a_cross_reference_using_the_target_reftext">Scenario: Create a cross reference using the target reftext</a></li>
-<li><a href="#_scenario_create_a_cross_reference_using_the_formatted_target_title">Scenario: Create a cross reference using the formatted target title</a></li>
-</ul>
-</li>
-<li><a href="#Open-Blocks"><strong>Open Blocks</strong></a>
-<ul class="sectlevel3">
-<li><a href="#_scenario_render_an_open_block_that_contains_a_paragraph_to_html">Scenario: Render an open block that contains a paragraph to HTML</a></li>
-<li><a href="#_scenario_render_an_open_block_that_contains_a_paragraph_to_docbook">Scenario: Render an open block that contains a paragraph to DocBook</a></li>
-<li><a href="#_scenario_render_an_open_block_that_contains_a_paragraph_to_html_alt">Scenario: Render an open block that contains a paragraph to HTML (alt)</a></li>
-<li><a href="#_scenario_render_an_open_block_that_contains_a_paragraph_to_docbook_alt">Scenario: Render an open block that contains a paragraph to DocBook (alt)</a></li>
-<li><a href="#_scenario_render_an_open_block_that_contains_a_list_to_html">Scenario: Render an open block that contains a list to HTML</a></li>
-</ul>
-</li>
-<li><a href="#Open-Blocks"><strong>Open Blocks</strong></a>
-<ul class="sectlevel3">
-<li><a href="#_scenario_render_a_pass_block_without_performing_substitutions_by_default_to_html">Scenario: Render a pass block without performing substitutions by default to HTML</a></li>
-<li><a href="#_scenario_render_a_pass_block_without_performing_substitutions_by_default_to_docbook">Scenario: Render a pass block without performing substitutions by default to DocBook</a></li>
-<li><a href="#_scenario_render_a_pass_block_performing_explicit_substitutions_to_html">Scenario: Render a pass block performing explicit substitutions to HTML</a></li>
-</ul>
-</li>
-<li><a href="#Text-Formatting"><strong>Text Formatting</strong></a>
-<ul class="sectlevel3">
-<li><a href="#_scenario_convert_text_that_contains_superscript_and_subscript_characters">Scenario: Convert text that contains superscript and subscript characters</a></li>
-<li><a href="#_scenario_convert_text_that_has_ex_inline_literal_formatting">Scenario: Convert text that has ex-inline literal formatting</a></li>
-<li><a href="#_scenario_convert_text_that_has_ex_inline_monospaced_formatting">Scenario: Convert text that has ex-inline monospaced formatting</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</div>
-</div>
-<div id="content">
-<div id="preamble">
-<div class="sectionbody">
-<span style="float:right">
-	<input value="Filter..." onclick="this.value=''" title="Filter features by title" onblur="searchFeature(this.value);"/>
-</span>
-</div>
-</div>
-<div class="sect1">
-<h2 id="__strong_summary_strong"><a class="anchor" href="#__strong_summary_strong"></a><strong>Summary</strong></h2>
-<div class="sectionbody">
-<table class="tableblock frame-all grid-all spread">
-<colgroup>
-<col style="width: 8%;">
-<col style="width: 8%;">
-<col style="width: 8%;">
-<col style="width: 8%;">
-<col style="width: 8%;">
-<col style="width: 8%;">
-<col style="width: 8%;">
-<col style="width: 8%;">
-<col style="width: 8%;">
-<col style="width: 8%;">
-<col style="width: 8%;">
-<col style="width: 8%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-center valign-top" colspan="3">Scenarios</th>
-<th class="tableblock halign-center valign-top" colspan="7">Steps</th>
-<th class="tableblock halign-center valign-top" colspan="2">Features: 4</th>
-</tr>
-</thead>
-<tfoot>
-<tr>
-<td class="tableblock halign-center valign-top"><p class="tableblock"><code>15</code></p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock"><code>0</code></p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock"><code>15</code></p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock"><code>45</code></p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock"><code>0</code></p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock"><code>0</code></p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock"><code>0</code></p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock"><code>0</code></p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock"><code>0</code></p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock"><code>45</code></p></td>
-<td class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><code>079ms</code></p></td>
-</tr>
-</tfoot>
-<tbody>
-<tr>
-<td class="tableblock halign-center valign-top"><p class="tableblock"><code><span class="green"><strong>Passed</strong></span></code></p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock"><code><span class="red"><strong>Failed</strong></span></code></p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock"><code>Total</code></p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock"><code><span class="green"><strong>Passed</strong></span></code></p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock"><code><span class="red"><strong>Failed</strong></span></code></p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock"><code><span class="purple"><strong>Skipped</strong></span></code></p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock"><code><span class="maroon"><strong>Pending</strong></span></code></p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock"><code><span class="yellow"><strong>Undefined</strong></span></code></p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock"><code><span class="blue"><strong>Missing</strong></span></code></p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock"><code>Total</code></p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock"><code>Duration</code></p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock"><code>Status</code></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-center valign-top" colspan="12"><p class="tableblock"><code><strong><a href="#Cross-References">Cross References</a></strong></code></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-center valign-top"><p class="tableblock"><code>4</code></p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock"><code>0</code></p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock"><code>4</code></p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock"><code>12</code></p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock"><code>0</code></p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock"><code>0</code></p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock"><code>0</code></p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock"><code>0</code></p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock"><code>0</code></p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock"><code>12</code></p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock"><code>028ms</code></p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock"><code><span class="green"><strong>passed</strong></span></code></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-center valign-top" colspan="12"><p class="tableblock"><code><strong><a href="#Open-Blocks">Open Blocks</a></strong></code></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-center valign-top"><p class="tableblock"><code>5</code></p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock"><code>0</code></p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock"><code>5</code></p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock"><code>15</code></p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock"><code>0</code></p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock"><code>0</code></p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock"><code>0</code></p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock"><code>0</code></p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock"><code>0</code></p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock"><code>15</code></p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock"><code>043ms</code></p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock"><code><span class="green"><strong>passed</strong></span></code></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-center valign-top" colspan="12"><p class="tableblock"><code><strong><a href="#Open-Blocks">Open Blocks</a></strong></code></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-center valign-top"><p class="tableblock"><code>3</code></p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock"><code>0</code></p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock"><code>3</code></p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock"><code>9</code></p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock"><code>0</code></p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock"><code>0</code></p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock"><code>0</code></p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock"><code>0</code></p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock"><code>0</code></p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock"><code>9</code></p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock"><code>003ms</code></p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock"><code><span class="green"><strong>passed</strong></span></code></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-center valign-top" colspan="12"><p class="tableblock"><code><strong><a href="#Text-Formatting">Text Formatting</a></strong></code></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-center valign-top"><p class="tableblock"><code>3</code></p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock"><code>0</code></p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock"><code>3</code></p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock"><code>9</code></p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock"><code>0</code></p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock"><code>0</code></p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock"><code>0</code></p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock"><code>0</code></p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock"><code>0</code></p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock"><code>9</code></p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock"><code>003ms</code></p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock"><code><span class="green"><strong>passed</strong></span></code></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-center valign-top" colspan="12"><p class="tableblock"><code><strong>Totals</strong></code></p></td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-<div class="sect1">
-<h2 id="__strong_features_strong"><a class="anchor" href="#__strong_features_strong"></a><strong>Features</strong></h2>
-<div class="sectionbody">
-<div class="sect2">
-<h3 id="Cross-References"><a class="anchor" href="#Cross-References"></a><strong>Cross References</strong></h3>
-<span class="fa fa-minus-square fa-fw" style="cursor:pointer;float:right;margin-top:-30px" title="minimize" onclick="hideFeatureScenarios('Cross-References');document.getElementById('hidden-Cross-References').style.display = 'inline';this.style.display = 'none'">  </span>
-
-<span id="hidden-Cross-References" class="fa fa-plus-square fa-fw" style="cursor:pointer;float:right;display:none;margin-top:-30px" title="maximize feature" onclick="showFeatureScenarios('Cross-References'); this.style.display = 'none'">  </span>
-<div class="sidebarblock">
-<div class="content">
-<div class="paragraph">
-<p>In order to create links to other sections<br>
-As a writer<br>
-I want to be able to use a cross reference macro</p>
-</div>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_scenario_create_a_cross_reference_from_an_asciidoc_cell_to_a_section"><a class="anchor" href="#_scenario_create_a_cross_reference_from_an_asciidoc_cell_to_a_section"></a>Scenario: Create a cross reference from an AsciiDoc cell to a section</h4>
-<div class="sidebarblock">
-<div class="content">
-<div class="dlist">
-<dl>
-<dt class="hdlist1">Given </dt>
-<dd>
-<p>the AsciiDoc source <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p>
-</dd>
-</dl>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre>|===
+</style> 
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.2.0/css/font-awesome.min.css"> 
+ </head> 
+ <body class="book toc2 toc-right"> 
+  <div id="header"> 
+   <h1>Living Documentation</h1> 
+   <div id="toc" class="toc2"> 
+    <div id="toctitle">
+      Table of Contents 
+    </div> 
+    <ul class="sectlevel1"> 
+     <li><a href="#__strong_summary_strong"><strong>Summary</strong></a></li> 
+     <li><a href="#__strong_features_strong"><strong>Features</strong></a> 
+      <ul class="sectlevel2"> 
+       <li><a href="#Cross-References"><strong>Cross References</strong></a> 
+        <ul class="sectlevel3"> 
+         <li><a href="#_scenario_create_a_cross_reference_from_an_asciidoc_cell_to_a_section">Scenario: Create a cross reference from an AsciiDoc cell to a section</a></li> 
+         <li><a href="#_scenario_create_a_cross_reference_using_the_target_section_title">Scenario: Create a cross reference using the target section title</a></li> 
+         <li><a href="#_scenario_create_a_cross_reference_using_the_target_reftext">Scenario: Create a cross reference using the target reftext</a></li> 
+         <li><a href="#_scenario_create_a_cross_reference_using_the_formatted_target_title">Scenario: Create a cross reference using the formatted target title</a></li> 
+        </ul> </li> 
+       <li><a href="#Open-Blocks"><strong>Open Blocks</strong></a> 
+        <ul class="sectlevel3"> 
+         <li><a href="#_scenario_render_an_open_block_that_contains_a_paragraph_to_html">Scenario: Render an open block that contains a paragraph to HTML</a></li> 
+         <li><a href="#_scenario_render_an_open_block_that_contains_a_paragraph_to_docbook">Scenario: Render an open block that contains a paragraph to DocBook</a></li> 
+         <li><a href="#_scenario_render_an_open_block_that_contains_a_paragraph_to_html_alt">Scenario: Render an open block that contains a paragraph to HTML (alt)</a></li> 
+         <li><a href="#_scenario_render_an_open_block_that_contains_a_paragraph_to_docbook_alt">Scenario: Render an open block that contains a paragraph to DocBook (alt)</a></li> 
+         <li><a href="#_scenario_render_an_open_block_that_contains_a_list_to_html">Scenario: Render an open block that contains a list to HTML</a></li> 
+        </ul> </li> 
+       <li><a href="#Open-Blocks"><strong>Open Blocks</strong></a> 
+        <ul class="sectlevel3"> 
+         <li><a href="#_scenario_render_a_pass_block_without_performing_substitutions_by_default_to_html">Scenario: Render a pass block without performing substitutions by default to HTML</a></li> 
+         <li><a href="#_scenario_render_a_pass_block_without_performing_substitutions_by_default_to_docbook">Scenario: Render a pass block without performing substitutions by default to DocBook</a></li> 
+         <li><a href="#_scenario_render_a_pass_block_performing_explicit_substitutions_to_html">Scenario: Render a pass block performing explicit substitutions to HTML</a></li> 
+        </ul> </li> 
+       <li><a href="#Text-Formatting"><strong>Text Formatting</strong></a> 
+        <ul class="sectlevel3"> 
+         <li><a href="#_scenario_convert_text_that_contains_superscript_and_subscript_characters">Scenario: Convert text that contains superscript and subscript characters</a></li> 
+         <li><a href="#_scenario_convert_text_that_has_ex_inline_literal_formatting">Scenario: Convert text that has ex-inline literal formatting</a></li> 
+         <li><a href="#_scenario_convert_text_that_has_ex_inline_monospaced_formatting">Scenario: Convert text that has ex-inline monospaced formatting</a></li> 
+        </ul> </li> 
+      </ul> </li> 
+    </ul> 
+   </div> 
+  </div> 
+  <div id="content"> 
+   <span style="float:right"> <input value="Filter..." onclick="this.value=''" title="Filter features by title" onblur="searchFeature(this.value);"> </span>
+   <div class="sect1"> 
+    <h2 id="__strong_summary_strong"><a class="anchor" href="#__strong_summary_strong"></a><strong>Summary</strong></h2> 
+    <div class="sectionbody"> 
+     <table class="tableblock frame-all grid-all spread"> 
+      <colgroup> 
+       <col style="width: 8%;"> 
+       <col style="width: 8%;"> 
+       <col style="width: 8%;"> 
+       <col style="width: 8%;"> 
+       <col style="width: 8%;"> 
+       <col style="width: 8%;"> 
+       <col style="width: 8%;"> 
+       <col style="width: 8%;"> 
+       <col style="width: 8%;"> 
+       <col style="width: 8%;"> 
+       <col style="width: 8%;"> 
+       <col style="width: 8%;"> 
+      </colgroup> 
+      <thead> 
+       <tr> 
+        <th class="tableblock halign-center valign-top" colspan="3">Scenarios</th> 
+        <th class="tableblock halign-center valign-top" colspan="7">Steps</th> 
+        <th class="tableblock halign-center valign-top" colspan="2">Features: 4</th> 
+       </tr> 
+      </thead> 
+      <tfoot> 
+       <tr> 
+        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>15</code></p></td> 
+        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>0</code></p></td> 
+        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>15</code></p></td> 
+        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>45</code></p></td> 
+        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>0</code></p></td> 
+        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>0</code></p></td> 
+        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>0</code></p></td> 
+        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>0</code></p></td> 
+        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>0</code></p></td> 
+        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>45</code></p></td> 
+        <td class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><code>079ms</code></p></td> 
+       </tr> 
+      </tfoot> 
+      <tbody> 
+       <tr> 
+        <td class="tableblock halign-center valign-top"><p class="tableblock"><code><span class="green"><strong>Passed</strong></span></code></p></td> 
+        <td class="tableblock halign-center valign-top"><p class="tableblock"><code><span class="red"><strong>Failed</strong></span></code></p></td> 
+        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>Total</code></p></td> 
+        <td class="tableblock halign-center valign-top"><p class="tableblock"><code><span class="green"><strong>Passed</strong></span></code></p></td> 
+        <td class="tableblock halign-center valign-top"><p class="tableblock"><code><span class="red"><strong>Failed</strong></span></code></p></td> 
+        <td class="tableblock halign-center valign-top"><p class="tableblock"><code><span class="purple"><strong>Skipped</strong></span></code></p></td> 
+        <td class="tableblock halign-center valign-top"><p class="tableblock"><code><span class="maroon"><strong>Pending</strong></span></code></p></td> 
+        <td class="tableblock halign-center valign-top"><p class="tableblock"><code><span class="yellow"><strong>Undefined</strong></span></code></p></td> 
+        <td class="tableblock halign-center valign-top"><p class="tableblock"><code><span class="blue"><strong>Missing</strong></span></code></p></td> 
+        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>Total</code></p></td> 
+        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>Duration</code></p></td> 
+        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>Status</code></p></td> 
+       </tr> 
+       <tr> 
+        <td class="tableblock halign-center valign-top" colspan="12"><p class="tableblock"><code><strong><a href="#Cross-References">Cross References</a></strong></code></p></td> 
+       </tr> 
+       <tr> 
+        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>4</code></p></td> 
+        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>0</code></p></td> 
+        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>4</code></p></td> 
+        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>12</code></p></td> 
+        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>0</code></p></td> 
+        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>0</code></p></td> 
+        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>0</code></p></td> 
+        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>0</code></p></td> 
+        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>0</code></p></td> 
+        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>12</code></p></td> 
+        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>028ms</code></p></td> 
+        <td class="tableblock halign-center valign-top"><p class="tableblock"><code><span class="green"><strong>passed</strong></span></code></p></td> 
+       </tr> 
+       <tr> 
+        <td class="tableblock halign-center valign-top" colspan="12"><p class="tableblock"><code><strong><a href="#Open-Blocks">Open Blocks</a></strong></code></p></td> 
+       </tr> 
+       <tr> 
+        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>5</code></p></td> 
+        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>0</code></p></td> 
+        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>5</code></p></td> 
+        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>15</code></p></td> 
+        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>0</code></p></td> 
+        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>0</code></p></td> 
+        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>0</code></p></td> 
+        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>0</code></p></td> 
+        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>0</code></p></td> 
+        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>15</code></p></td> 
+        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>043ms</code></p></td> 
+        <td class="tableblock halign-center valign-top"><p class="tableblock"><code><span class="green"><strong>passed</strong></span></code></p></td> 
+       </tr> 
+       <tr> 
+        <td class="tableblock halign-center valign-top" colspan="12"><p class="tableblock"><code><strong><a href="#Open-Blocks">Open Blocks</a></strong></code></p></td> 
+       </tr> 
+       <tr> 
+        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>3</code></p></td> 
+        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>0</code></p></td> 
+        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>3</code></p></td> 
+        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>9</code></p></td> 
+        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>0</code></p></td> 
+        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>0</code></p></td> 
+        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>0</code></p></td> 
+        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>0</code></p></td> 
+        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>0</code></p></td> 
+        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>9</code></p></td> 
+        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>003ms</code></p></td> 
+        <td class="tableblock halign-center valign-top"><p class="tableblock"><code><span class="green"><strong>passed</strong></span></code></p></td> 
+       </tr> 
+       <tr> 
+        <td class="tableblock halign-center valign-top" colspan="12"><p class="tableblock"><code><strong><a href="#Text-Formatting">Text Formatting</a></strong></code></p></td> 
+       </tr> 
+       <tr> 
+        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>3</code></p></td> 
+        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>0</code></p></td> 
+        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>3</code></p></td> 
+        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>9</code></p></td> 
+        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>0</code></p></td> 
+        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>0</code></p></td> 
+        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>0</code></p></td> 
+        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>0</code></p></td> 
+        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>0</code></p></td> 
+        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>9</code></p></td> 
+        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>003ms</code></p></td> 
+        <td class="tableblock halign-center valign-top"><p class="tableblock"><code><span class="green"><strong>passed</strong></span></code></p></td> 
+       </tr> 
+       <tr> 
+        <td class="tableblock halign-center valign-top" colspan="12"><p class="tableblock"><code><strong>Totals</strong></code></p></td> 
+       </tr> 
+      </tbody> 
+     </table> 
+    </div> 
+   </div> 
+   <div class="sect1"> 
+    <h2 id="__strong_features_strong"><a class="anchor" href="#__strong_features_strong"></a><strong>Features</strong></h2> 
+    <div class="sectionbody"> 
+     <div class="sect2"> 
+      <h3 id="Cross-References"><a class="anchor" href="#Cross-References"></a><strong>Cross References</strong></h3> 
+      <span class="fa fa-minus-square fa-fw" style="cursor:pointer;float:right;margin-top:-30px" title="Minimize" onclick="hideFeatureScenarios('Cross-References');document.getElementById('hidden-Cross-References').style.display = 'inline';this.style.display = 'none'"> </span> 
+      <span id="hidden-Cross-References" class="fa fa-plus-square fa-fw" style="cursor:pointer;float:right;display:none;margin-top:-30px" title="Maximize feature" onclick="showFeatureScenarios('Cross-References');this.style.display = 'none'"> </span> 
+      <div class="sidebarblock"> 
+       <div class="content"> 
+        <div class="paragraph"> 
+         <p>In order to create links to other sections<br> As a writer<br> I want to be able to use a cross reference macro</p> 
+        </div> 
+       </div> 
+      </div> 
+      <div class="sect3"> 
+       <h4 id="_scenario_create_a_cross_reference_from_an_asciidoc_cell_to_a_section"><a class="anchor" href="#_scenario_create_a_cross_reference_from_an_asciidoc_cell_to_a_section"></a>Scenario: Create a cross reference from an AsciiDoc cell to a section</h4> 
+       <div class="sidebarblock"> 
+        <div class="content"> 
+         <div class="dlist"> 
+          <dl> 
+           <dt class="hdlist1">
+             Given 
+           </dt> 
+           <dd> 
+            <p>the AsciiDoc source <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
+           </dd> 
+          </dl> 
+         </div> 
+         <div class="listingblock"> 
+          <div class="content"> 
+           <pre>|===
 a|See &lt;&lt;_install&gt;&gt;
 |===
 
 == Install
 
-Instructions go here.</pre>
-</div>
-</div>
-<div class="dlist">
-<dl>
-<dt class="hdlist1">When </dt>
-<dd>
-<p>it is converted to html <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(002ms)</span></p>
-</dd>
-<dt class="hdlist1">Then </dt>
-<dd>
-<p>the result should match the HTML structure <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(005ms)</span></p>
-</dd>
-</dl>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre>table.tableblock.frame-all.grid-all.spread
+Instructions go here.</pre> 
+          </div> 
+         </div> 
+         <div class="dlist"> 
+          <dl> 
+           <dt class="hdlist1">
+             When 
+           </dt> 
+           <dd> 
+            <p>it is converted to html <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(002ms)</span></p> 
+           </dd> 
+           <dt class="hdlist1">
+             Then 
+           </dt> 
+           <dd> 
+            <p>the result should match the HTML structure <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(005ms)</span></p> 
+           </dd> 
+          </dl> 
+         </div> 
+         <div class="listingblock"> 
+          <div class="content"> 
+           <pre>table.tableblock.frame-all.grid-all.spread
   colgroup
     col style='width: 100%;'
   tbody
@@ -660,151 +654,169 @@ Instructions go here.</pre>
 .sect1
   h2#_install Install
   .sectionbody
-    .paragraph: p Instructions go here.</pre>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_scenario_create_a_cross_reference_using_the_target_section_title"><a class="anchor" href="#_scenario_create_a_cross_reference_using_the_target_section_title"></a>Scenario: Create a cross reference using the target section title</h4>
-<div class="sidebarblock">
-<div class="content">
-<div class="dlist">
-<dl>
-<dt class="hdlist1">Given </dt>
-<dd>
-<p>the AsciiDoc source <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p>
-</dd>
-</dl>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre>== Section One
+    .paragraph: p Instructions go here.</pre> 
+          </div> 
+         </div> 
+        </div> 
+       </div> 
+      </div> 
+      <div class="sect3"> 
+       <h4 id="_scenario_create_a_cross_reference_using_the_target_section_title"><a class="anchor" href="#_scenario_create_a_cross_reference_using_the_target_section_title"></a>Scenario: Create a cross reference using the target section title</h4> 
+       <div class="sidebarblock"> 
+        <div class="content"> 
+         <div class="dlist"> 
+          <dl> 
+           <dt class="hdlist1">
+             Given 
+           </dt> 
+           <dd> 
+            <p>the AsciiDoc source <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
+           </dd> 
+          </dl> 
+         </div> 
+         <div class="listingblock"> 
+          <div class="content"> 
+           <pre>== Section One
 
 content
 
 == Section Two
 
-refer to &lt;&lt;Section One&gt;&gt;</pre>
-</div>
-</div>
-<div class="dlist">
-<dl>
-<dt class="hdlist1">When </dt>
-<dd>
-<p>it is converted to html <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p>
-</dd>
-<dt class="hdlist1">Then </dt>
-<dd>
-<p>the result should match the HTML structure <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(004ms)</span></p>
-</dd>
-</dl>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre>.sect1
+refer to &lt;&lt;Section One&gt;&gt;</pre> 
+          </div> 
+         </div> 
+         <div class="dlist"> 
+          <dl> 
+           <dt class="hdlist1">
+             When 
+           </dt> 
+           <dd> 
+            <p>it is converted to html <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
+           </dd> 
+           <dt class="hdlist1">
+             Then 
+           </dt> 
+           <dd> 
+            <p>the result should match the HTML structure <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(004ms)</span></p> 
+           </dd> 
+          </dl> 
+         </div> 
+         <div class="listingblock"> 
+          <div class="content"> 
+           <pre>.sect1
   h2#_section_one Section One
   .sectionbody: .paragraph: p content
 .sect1
   h2#_section_two Section Two
   .sectionbody: .paragraph: p
     'refer to
-    a href='#_section_one' Section One</pre>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_scenario_create_a_cross_reference_using_the_target_reftext"><a class="anchor" href="#_scenario_create_a_cross_reference_using_the_target_reftext"></a>Scenario: Create a cross reference using the target reftext</h4>
-<div class="sidebarblock">
-<div class="content">
-<div class="dlist">
-<dl>
-<dt class="hdlist1">Given </dt>
-<dd>
-<p>the AsciiDoc source <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p>
-</dd>
-</dl>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre>[reftext="the first section"]
+    a href='#_section_one' Section One</pre> 
+          </div> 
+         </div> 
+        </div> 
+       </div> 
+      </div> 
+      <div class="sect3"> 
+       <h4 id="_scenario_create_a_cross_reference_using_the_target_reftext"><a class="anchor" href="#_scenario_create_a_cross_reference_using_the_target_reftext"></a>Scenario: Create a cross reference using the target reftext</h4> 
+       <div class="sidebarblock"> 
+        <div class="content"> 
+         <div class="dlist"> 
+          <dl> 
+           <dt class="hdlist1">
+             Given 
+           </dt> 
+           <dd> 
+            <p>the AsciiDoc source <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
+           </dd> 
+          </dl> 
+         </div> 
+         <div class="listingblock"> 
+          <div class="content"> 
+           <pre>[reftext="the first section"]
 == Section One
 
 content
 
 == Section Two
 
-refer to &lt;&lt;the first section&gt;&gt;</pre>
-</div>
-</div>
-<div class="dlist">
-<dl>
-<dt class="hdlist1">When </dt>
-<dd>
-<p>it is converted to html <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p>
-</dd>
-<dt class="hdlist1">Then </dt>
-<dd>
-<p>the result should match the HTML structure <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(005ms)</span></p>
-</dd>
-</dl>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre>.sect1
+refer to &lt;&lt;the first section&gt;&gt;</pre> 
+          </div> 
+         </div> 
+         <div class="dlist"> 
+          <dl> 
+           <dt class="hdlist1">
+             When 
+           </dt> 
+           <dd> 
+            <p>it is converted to html <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
+           </dd> 
+           <dt class="hdlist1">
+             Then 
+           </dt> 
+           <dd> 
+            <p>the result should match the HTML structure <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(005ms)</span></p> 
+           </dd> 
+          </dl> 
+         </div> 
+         <div class="listingblock"> 
+          <div class="content"> 
+           <pre>.sect1
   h2#_section_one Section One
   .sectionbody: .paragraph: p content
 .sect1
   h2#_section_two Section Two
   .sectionbody: .paragraph: p
     'refer to
-    a href='#_section_one' the first section</pre>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_scenario_create_a_cross_reference_using_the_formatted_target_title"><a class="anchor" href="#_scenario_create_a_cross_reference_using_the_formatted_target_title"></a>Scenario: Create a cross reference using the formatted target title</h4>
-<div class="sidebarblock">
-<div class="content">
-<div class="dlist">
-<dl>
-<dt class="hdlist1">Given </dt>
-<dd>
-<p>the AsciiDoc source <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p>
-</dd>
-</dl>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre>== Section *One*
+    a href='#_section_one' the first section</pre> 
+          </div> 
+         </div> 
+        </div> 
+       </div> 
+      </div> 
+      <div class="sect3"> 
+       <h4 id="_scenario_create_a_cross_reference_using_the_formatted_target_title"><a class="anchor" href="#_scenario_create_a_cross_reference_using_the_formatted_target_title"></a>Scenario: Create a cross reference using the formatted target title</h4> 
+       <div class="sidebarblock"> 
+        <div class="content"> 
+         <div class="dlist"> 
+          <dl> 
+           <dt class="hdlist1">
+             Given 
+           </dt> 
+           <dd> 
+            <p>the AsciiDoc source <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
+           </dd> 
+          </dl> 
+         </div> 
+         <div class="listingblock"> 
+          <div class="content"> 
+           <pre>== Section *One*
 
 content
 
 == Section Two
 
-refer to &lt;&lt;Section *One*&gt;&gt;</pre>
-</div>
-</div>
-<div class="dlist">
-<dl>
-<dt class="hdlist1">When </dt>
-<dd>
-<p>it is converted to html <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(001ms)</span></p>
-</dd>
-<dt class="hdlist1">Then </dt>
-<dd>
-<p>the result should match the HTML structure <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(005ms)</span></p>
-</dd>
-</dl>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre>.sect1
+refer to &lt;&lt;Section *One*&gt;&gt;</pre> 
+          </div> 
+         </div> 
+         <div class="dlist"> 
+          <dl> 
+           <dt class="hdlist1">
+             When 
+           </dt> 
+           <dd> 
+            <p>it is converted to html <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(001ms)</span></p> 
+           </dd> 
+           <dt class="hdlist1">
+             Then 
+           </dt> 
+           <dd> 
+            <p>the result should match the HTML structure <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(005ms)</span></p> 
+           </dd> 
+          </dl> 
+         </div> 
+         <div class="listingblock"> 
+          <div class="content"> 
+           <pre>.sect1
   h2#_section_strong_one_strong
     'Section
     strong One
@@ -815,530 +827,597 @@ refer to &lt;&lt;Section *One*&gt;&gt;</pre>
     'refer to
     a href='#_section_strong_one_strong'
       'Section
-      strong One</pre>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="Open-Blocks"><a class="anchor" href="#Open-Blocks"></a><strong>Open Blocks</strong></h3>
-<span class="fa fa-minus-square fa-fw" style="cursor:pointer;float:right;margin-top:-30px" title="minimize" onclick="hideFeatureScenarios('Open-Blocks');document.getElementById('hidden-Open-Blocks').style.display = 'inline';this.style.display = 'none'">  </span>
-
-<span id="hidden-Open-Blocks" class="fa fa-plus-square fa-fw" style="cursor:pointer;float:right;display:none;margin-top:-30px" title="maximize feature" onclick="showFeatureScenarios('Open-Blocks'); this.style.display = 'none'">  </span>
-<div class="sidebarblock">
-<div class="content">
-<div class="paragraph">
-<p>In order to group content in a generic container<br>
-As a writer<br>
-I want to be able to wrap content in an open block</p>
-</div>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_scenario_render_an_open_block_that_contains_a_paragraph_to_html"><a class="anchor" href="#_scenario_render_an_open_block_that_contains_a_paragraph_to_html"></a>Scenario: Render an open block that contains a paragraph to HTML</h4>
-<div class="sidebarblock">
-<div class="content">
-<div class="dlist">
-<dl>
-<dt class="hdlist1">Given </dt>
-<dd>
-<p>the AsciiDoc source <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p>
-</dd>
-</dl>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre>--
+      strong One</pre> 
+          </div> 
+         </div> 
+        </div> 
+       </div> 
+      </div> 
+     </div> 
+     <div class="sect2"> 
+      <h3 id="Open-Blocks"><a class="anchor" href="#Open-Blocks"></a><strong>Open Blocks</strong></h3> 
+      <span class="fa fa-minus-square fa-fw" style="cursor:pointer;float:right;margin-top:-30px" title="Minimize" onclick="hideFeatureScenarios('Open-Blocks');document.getElementById('hidden-Open-Blocks').style.display = 'inline';this.style.display = 'none'"> </span> 
+      <span id="hidden-Open-Blocks" class="fa fa-plus-square fa-fw" style="cursor:pointer;float:right;display:none;margin-top:-30px" title="Maximize feature" onclick="showFeatureScenarios('Open-Blocks');this.style.display = 'none'"> </span> 
+      <div class="sidebarblock"> 
+       <div class="content"> 
+        <div class="paragraph"> 
+         <p>In order to group content in a generic container<br> As a writer<br> I want to be able to wrap content in an open block</p> 
+        </div> 
+       </div> 
+      </div> 
+      <div class="sect3"> 
+       <h4 id="_scenario_render_an_open_block_that_contains_a_paragraph_to_html"><a class="anchor" href="#_scenario_render_an_open_block_that_contains_a_paragraph_to_html"></a>Scenario: Render an open block that contains a paragraph to HTML</h4> 
+       <div class="sidebarblock"> 
+        <div class="content"> 
+         <div class="dlist"> 
+          <dl> 
+           <dt class="hdlist1">
+             Given 
+           </dt> 
+           <dd> 
+            <p>the AsciiDoc source <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
+           </dd> 
+          </dl> 
+         </div> 
+         <div class="listingblock"> 
+          <div class="content"> 
+           <pre>--
 A paragraph in an open block.
---</pre>
-</div>
-</div>
-<div class="dlist">
-<dl>
-<dt class="hdlist1">When </dt>
-<dd>
-<p>it is converted to html <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(008ms)</span></p>
-</dd>
-<dt class="hdlist1">Then </dt>
-<dd>
-<p>the result should match the HTML source <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p>
-</dd>
-</dl>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre>&lt;div class="openblock"&gt;
+--</pre> 
+          </div> 
+         </div> 
+         <div class="dlist"> 
+          <dl> 
+           <dt class="hdlist1">
+             When 
+           </dt> 
+           <dd> 
+            <p>it is converted to html <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(008ms)</span></p> 
+           </dd> 
+           <dt class="hdlist1">
+             Then 
+           </dt> 
+           <dd> 
+            <p>the result should match the HTML source <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
+           </dd> 
+          </dl> 
+         </div> 
+         <div class="listingblock"> 
+          <div class="content"> 
+           <pre>&lt;div class="openblock"&gt;
 &lt;div class="content"&gt;
 &lt;div class="paragraph"&gt;
 &lt;p&gt;A paragraph in an open block.&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-&lt;/div&gt;</pre>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_scenario_render_an_open_block_that_contains_a_paragraph_to_docbook"><a class="anchor" href="#_scenario_render_an_open_block_that_contains_a_paragraph_to_docbook"></a>Scenario: Render an open block that contains a paragraph to DocBook</h4>
-<div class="sidebarblock">
-<div class="content">
-<div class="dlist">
-<dl>
-<dt class="hdlist1">Given </dt>
-<dd>
-<p>the AsciiDoc source <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p>
-</dd>
-</dl>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre>--
+&lt;/div&gt;</pre> 
+          </div> 
+         </div> 
+        </div> 
+       </div> 
+      </div> 
+      <div class="sect3"> 
+       <h4 id="_scenario_render_an_open_block_that_contains_a_paragraph_to_docbook"><a class="anchor" href="#_scenario_render_an_open_block_that_contains_a_paragraph_to_docbook"></a>Scenario: Render an open block that contains a paragraph to DocBook</h4> 
+       <div class="sidebarblock"> 
+        <div class="content"> 
+         <div class="dlist"> 
+          <dl> 
+           <dt class="hdlist1">
+             Given 
+           </dt> 
+           <dd> 
+            <p>the AsciiDoc source <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
+           </dd> 
+          </dl> 
+         </div> 
+         <div class="listingblock"> 
+          <div class="content"> 
+           <pre>--
 A paragraph in an open block.
---</pre>
-</div>
-</div>
-<div class="dlist">
-<dl>
-<dt class="hdlist1">When </dt>
-<dd>
-<p>it is converted to docbook <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(003ms)</span></p>
-</dd>
-<dt class="hdlist1">Then </dt>
-<dd>
-<p>the result should match the XML source <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p>
-</dd>
-</dl>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre>&lt;simpara&gt;A paragraph in an open block.&lt;/simpara&gt;</pre>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_scenario_render_an_open_block_that_contains_a_paragraph_to_html_alt"><a class="anchor" href="#_scenario_render_an_open_block_that_contains_a_paragraph_to_html_alt"></a>Scenario: Render an open block that contains a paragraph to HTML (alt)</h4>
-<div class="sidebarblock">
-<div class="content">
-<div class="dlist">
-<dl>
-<dt class="hdlist1">Given </dt>
-<dd>
-<p>the AsciiDoc source <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p>
-</dd>
-</dl>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre>--
+--</pre> 
+          </div> 
+         </div> 
+         <div class="dlist"> 
+          <dl> 
+           <dt class="hdlist1">
+             When 
+           </dt> 
+           <dd> 
+            <p>it is converted to docbook <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(003ms)</span></p> 
+           </dd> 
+           <dt class="hdlist1">
+             Then 
+           </dt> 
+           <dd> 
+            <p>the result should match the XML source <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
+           </dd> 
+          </dl> 
+         </div> 
+         <div class="listingblock"> 
+          <div class="content"> 
+           <pre>&lt;simpara&gt;A paragraph in an open block.&lt;/simpara&gt;</pre> 
+          </div> 
+         </div> 
+        </div> 
+       </div> 
+      </div> 
+      <div class="sect3"> 
+       <h4 id="_scenario_render_an_open_block_that_contains_a_paragraph_to_html_alt"><a class="anchor" href="#_scenario_render_an_open_block_that_contains_a_paragraph_to_html_alt"></a>Scenario: Render an open block that contains a paragraph to HTML (alt)</h4> 
+       <div class="sidebarblock"> 
+        <div class="content"> 
+         <div class="dlist"> 
+          <dl> 
+           <dt class="hdlist1">
+             Given 
+           </dt> 
+           <dd> 
+            <p>the AsciiDoc source <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
+           </dd> 
+          </dl> 
+         </div> 
+         <div class="listingblock"> 
+          <div class="content"> 
+           <pre>--
 A paragraph in an open block.
---</pre>
-</div>
-</div>
-<div class="dlist">
-<dl>
-<dt class="hdlist1">When </dt>
-<dd>
-<p>it is converted to html <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p>
-</dd>
-<dt class="hdlist1">Then </dt>
-<dd>
-<p>the result should match the HTML structure <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(019ms)</span></p>
-</dd>
-</dl>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre>.openblock
+--</pre> 
+          </div> 
+         </div> 
+         <div class="dlist"> 
+          <dl> 
+           <dt class="hdlist1">
+             When 
+           </dt> 
+           <dd> 
+            <p>it is converted to html <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
+           </dd> 
+           <dt class="hdlist1">
+             Then 
+           </dt> 
+           <dd> 
+            <p>the result should match the HTML structure <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(019ms)</span></p> 
+           </dd> 
+          </dl> 
+         </div> 
+         <div class="listingblock"> 
+          <div class="content"> 
+           <pre>.openblock
   .content
     .paragraph
-      p A paragraph in an open block.</pre>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_scenario_render_an_open_block_that_contains_a_paragraph_to_docbook_alt"><a class="anchor" href="#_scenario_render_an_open_block_that_contains_a_paragraph_to_docbook_alt"></a>Scenario: Render an open block that contains a paragraph to DocBook (alt)</h4>
-<div class="sidebarblock">
-<div class="content">
-<div class="dlist">
-<dl>
-<dt class="hdlist1">Given </dt>
-<dd>
-<p>the AsciiDoc source <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p>
-</dd>
-</dl>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre>--
+      p A paragraph in an open block.</pre> 
+          </div> 
+         </div> 
+        </div> 
+       </div> 
+      </div> 
+      <div class="sect3"> 
+       <h4 id="_scenario_render_an_open_block_that_contains_a_paragraph_to_docbook_alt"><a class="anchor" href="#_scenario_render_an_open_block_that_contains_a_paragraph_to_docbook_alt"></a>Scenario: Render an open block that contains a paragraph to DocBook (alt)</h4> 
+       <div class="sidebarblock"> 
+        <div class="content"> 
+         <div class="dlist"> 
+          <dl> 
+           <dt class="hdlist1">
+             Given 
+           </dt> 
+           <dd> 
+            <p>the AsciiDoc source <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
+           </dd> 
+          </dl> 
+         </div> 
+         <div class="listingblock"> 
+          <div class="content"> 
+           <pre>--
 A paragraph in an open block.
---</pre>
-</div>
-</div>
-<div class="dlist">
-<dl>
-<dt class="hdlist1">When </dt>
-<dd>
-<p>it is converted to docbook <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p>
-</dd>
-<dt class="hdlist1">Then </dt>
-<dd>
-<p>the result should match the XML structure <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(003ms)</span></p>
-</dd>
-</dl>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre>simpara A paragraph in an open block.</pre>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_scenario_render_an_open_block_that_contains_a_list_to_html"><a class="anchor" href="#_scenario_render_an_open_block_that_contains_a_list_to_html"></a>Scenario: Render an open block that contains a list to HTML</h4>
-<div class="sidebarblock">
-<div class="content">
-<div class="dlist">
-<dl>
-<dt class="hdlist1">Given </dt>
-<dd>
-<p>the AsciiDoc source <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p>
-</dd>
-</dl>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre>--
+--</pre> 
+          </div> 
+         </div> 
+         <div class="dlist"> 
+          <dl> 
+           <dt class="hdlist1">
+             When 
+           </dt> 
+           <dd> 
+            <p>it is converted to docbook <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
+           </dd> 
+           <dt class="hdlist1">
+             Then 
+           </dt> 
+           <dd> 
+            <p>the result should match the XML structure <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(003ms)</span></p> 
+           </dd> 
+          </dl> 
+         </div> 
+         <div class="listingblock"> 
+          <div class="content"> 
+           <pre>simpara A paragraph in an open block.</pre> 
+          </div> 
+         </div> 
+        </div> 
+       </div> 
+      </div> 
+      <div class="sect3"> 
+       <h4 id="_scenario_render_an_open_block_that_contains_a_list_to_html"><a class="anchor" href="#_scenario_render_an_open_block_that_contains_a_list_to_html"></a>Scenario: Render an open block that contains a list to HTML</h4> 
+       <div class="sidebarblock"> 
+        <div class="content"> 
+         <div class="dlist"> 
+          <dl> 
+           <dt class="hdlist1">
+             Given 
+           </dt> 
+           <dd> 
+            <p>the AsciiDoc source <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
+           </dd> 
+          </dl> 
+         </div> 
+         <div class="listingblock"> 
+          <div class="content"> 
+           <pre>--
 * one
 * two
 * three
---</pre>
-</div>
-</div>
-<div class="dlist">
-<dl>
-<dt class="hdlist1">When </dt>
-<dd>
-<p>it is converted to html <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p>
-</dd>
-<dt class="hdlist1">Then </dt>
-<dd>
-<p>the result should match the HTML structure <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(004ms)</span></p>
-</dd>
-</dl>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre>.openblock
+--</pre> 
+          </div> 
+         </div> 
+         <div class="dlist"> 
+          <dl> 
+           <dt class="hdlist1">
+             When 
+           </dt> 
+           <dd> 
+            <p>it is converted to html <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
+           </dd> 
+           <dt class="hdlist1">
+             Then 
+           </dt> 
+           <dd> 
+            <p>the result should match the HTML structure <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(004ms)</span></p> 
+           </dd> 
+          </dl> 
+         </div> 
+         <div class="listingblock"> 
+          <div class="content"> 
+           <pre>.openblock
   .content
     .ulist
       ul
         li: p one
         li: p two
-        li: p three</pre>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="Open-Blocks"><a class="anchor" href="#Open-Blocks"></a><strong>Open Blocks</strong></h3>
-<span class="fa fa-minus-square fa-fw" style="cursor:pointer;float:right;margin-top:-30px" title="minimize" onclick="hideFeatureScenarios('Open-Blocks');document.getElementById('hidden-Open-Blocks').style.display = 'inline';this.style.display = 'none'">  </span>
-
-<span id="hidden-Open-Blocks" class="fa fa-plus-square fa-fw" style="cursor:pointer;float:right;display:none;margin-top:-30px" title="maximize feature" onclick="showFeatureScenarios('Open-Blocks'); this.style.display = 'none'">  </span>
-<div class="sidebarblock">
-<div class="content">
-<div class="paragraph">
-<p>In order to pass content through unprocessed<br>
-As a writer<br>
-I want to be able to mark passthrough content using a pass block</p>
-</div>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_scenario_render_a_pass_block_without_performing_substitutions_by_default_to_html"><a class="anchor" href="#_scenario_render_a_pass_block_without_performing_substitutions_by_default_to_html"></a>Scenario: Render a pass block without performing substitutions by default to HTML</h4>
-<div class="sidebarblock">
-<div class="content">
-<div class="dlist">
-<dl>
-<dt class="hdlist1">Given </dt>
-<dd>
-<p>the AsciiDoc source <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p>
-</dd>
-</dl>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre>:name: value
+        li: p three</pre> 
+          </div> 
+         </div> 
+        </div> 
+       </div> 
+      </div> 
+     </div> 
+     <div class="sect2"> 
+      <h3 id="Open-Blocks"><a class="anchor" href="#Open-Blocks"></a><strong>Open Blocks</strong></h3> 
+      <span class="fa fa-minus-square fa-fw" style="cursor:pointer;float:right;margin-top:-30px" title="Minimize" onclick="hideFeatureScenarios('Open-Blocks');document.getElementById('hidden-Open-Blocks').style.display = 'inline';this.style.display = 'none'"> </span> 
+      <span id="hidden-Open-Blocks" class="fa fa-plus-square fa-fw" style="cursor:pointer;float:right;display:none;margin-top:-30px" title="Maximize feature" onclick="showFeatureScenarios('Open-Blocks');this.style.display = 'none'"> </span> 
+      <div class="sidebarblock"> 
+       <div class="content"> 
+        <div class="paragraph"> 
+         <p>In order to pass content through unprocessed<br> As a writer<br> I want to be able to mark passthrough content using a pass block</p> 
+        </div> 
+       </div> 
+      </div> 
+      <div class="sect3"> 
+       <h4 id="_scenario_render_a_pass_block_without_performing_substitutions_by_default_to_html"><a class="anchor" href="#_scenario_render_a_pass_block_without_performing_substitutions_by_default_to_html"></a>Scenario: Render a pass block without performing substitutions by default to HTML</h4> 
+       <div class="sidebarblock"> 
+        <div class="content"> 
+         <div class="dlist"> 
+          <dl> 
+           <dt class="hdlist1">
+             Given 
+           </dt> 
+           <dd> 
+            <p>the AsciiDoc source <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
+           </dd> 
+          </dl> 
+         </div> 
+         <div class="listingblock"> 
+          <div class="content"> 
+           <pre>:name: value
 
 ++++
 &lt;p&gt;{name}&lt;/p&gt;
 
 image:tiger.png[]
-++++</pre>
-</div>
-</div>
-<div class="dlist">
-<dl>
-<dt class="hdlist1">When </dt>
-<dd>
-<p>it is converted to html <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p>
-</dd>
-<dt class="hdlist1">Then </dt>
-<dd>
-<p>the result should match the HTML source <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p>
-</dd>
-</dl>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre>&lt;p&gt;{name}&lt;/p&gt;
+++++</pre> 
+          </div> 
+         </div> 
+         <div class="dlist"> 
+          <dl> 
+           <dt class="hdlist1">
+             When 
+           </dt> 
+           <dd> 
+            <p>it is converted to html <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
+           </dd> 
+           <dt class="hdlist1">
+             Then 
+           </dt> 
+           <dd> 
+            <p>the result should match the HTML source <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
+           </dd> 
+          </dl> 
+         </div> 
+         <div class="listingblock"> 
+          <div class="content"> 
+           <pre>&lt;p&gt;{name}&lt;/p&gt;
 
-image:tiger.png[]</pre>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_scenario_render_a_pass_block_without_performing_substitutions_by_default_to_docbook"><a class="anchor" href="#_scenario_render_a_pass_block_without_performing_substitutions_by_default_to_docbook"></a>Scenario: Render a pass block without performing substitutions by default to DocBook</h4>
-<div class="sidebarblock">
-<div class="content">
-<div class="dlist">
-<dl>
-<dt class="hdlist1">Given </dt>
-<dd>
-<p>the AsciiDoc source <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p>
-</dd>
-</dl>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre>:name: value
+image:tiger.png[]</pre> 
+          </div> 
+         </div> 
+        </div> 
+       </div> 
+      </div> 
+      <div class="sect3"> 
+       <h4 id="_scenario_render_a_pass_block_without_performing_substitutions_by_default_to_docbook"><a class="anchor" href="#_scenario_render_a_pass_block_without_performing_substitutions_by_default_to_docbook"></a>Scenario: Render a pass block without performing substitutions by default to DocBook</h4> 
+       <div class="sidebarblock"> 
+        <div class="content"> 
+         <div class="dlist"> 
+          <dl> 
+           <dt class="hdlist1">
+             Given 
+           </dt> 
+           <dd> 
+            <p>the AsciiDoc source <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
+           </dd> 
+          </dl> 
+         </div> 
+         <div class="listingblock"> 
+          <div class="content"> 
+           <pre>:name: value
 
 ++++
 &lt;simpara&gt;{name}&lt;/simpara&gt;
 
 image:tiger.png[]
-++++</pre>
-</div>
-</div>
-<div class="dlist">
-<dl>
-<dt class="hdlist1">When </dt>
-<dd>
-<p>it is converted to docbook <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p>
-</dd>
-<dt class="hdlist1">Then </dt>
-<dd>
-<p>the result should match the XML source <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p>
-</dd>
-</dl>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre>&lt;simpara&gt;{name}&lt;/simpara&gt;
+++++</pre> 
+          </div> 
+         </div> 
+         <div class="dlist"> 
+          <dl> 
+           <dt class="hdlist1">
+             When 
+           </dt> 
+           <dd> 
+            <p>it is converted to docbook <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
+           </dd> 
+           <dt class="hdlist1">
+             Then 
+           </dt> 
+           <dd> 
+            <p>the result should match the XML source <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
+           </dd> 
+          </dl> 
+         </div> 
+         <div class="listingblock"> 
+          <div class="content"> 
+           <pre>&lt;simpara&gt;{name}&lt;/simpara&gt;
 
-image:tiger.png[]</pre>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_scenario_render_a_pass_block_performing_explicit_substitutions_to_html"><a class="anchor" href="#_scenario_render_a_pass_block_performing_explicit_substitutions_to_html"></a>Scenario: Render a pass block performing explicit substitutions to HTML</h4>
-<div class="sidebarblock">
-<div class="content">
-<div class="dlist">
-<dl>
-<dt class="hdlist1">Given </dt>
-<dd>
-<p>the AsciiDoc source <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p>
-</dd>
-</dl>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre>:name: value
+image:tiger.png[]</pre> 
+          </div> 
+         </div> 
+        </div> 
+       </div> 
+      </div> 
+      <div class="sect3"> 
+       <h4 id="_scenario_render_a_pass_block_performing_explicit_substitutions_to_html"><a class="anchor" href="#_scenario_render_a_pass_block_performing_explicit_substitutions_to_html"></a>Scenario: Render a pass block performing explicit substitutions to HTML</h4> 
+       <div class="sidebarblock"> 
+        <div class="content"> 
+         <div class="dlist"> 
+          <dl> 
+           <dt class="hdlist1">
+             Given 
+           </dt> 
+           <dd> 
+            <p>the AsciiDoc source <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
+           </dd> 
+          </dl> 
+         </div> 
+         <div class="listingblock"> 
+          <div class="content"> 
+           <pre>:name: value
 
 [subs="attributes,macros"]
 ++++
 &lt;p&gt;{name}&lt;/p&gt;
 
 image:tiger.png[]
-++++</pre>
-</div>
-</div>
-<div class="dlist">
-<dl>
-<dt class="hdlist1">When </dt>
-<dd>
-<p>it is converted to html <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p>
-</dd>
-<dt class="hdlist1">Then </dt>
-<dd>
-<p>the result should match the HTML source <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p>
-</dd>
-</dl>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre>&lt;p&gt;value&lt;/p&gt;
+++++</pre> 
+          </div> 
+         </div> 
+         <div class="dlist"> 
+          <dl> 
+           <dt class="hdlist1">
+             When 
+           </dt> 
+           <dd> 
+            <p>it is converted to html <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
+           </dd> 
+           <dt class="hdlist1">
+             Then 
+           </dt> 
+           <dd> 
+            <p>the result should match the HTML source <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
+           </dd> 
+          </dl> 
+         </div> 
+         <div class="listingblock"> 
+          <div class="content"> 
+           <pre>&lt;p&gt;value&lt;/p&gt;
 
-&lt;span class="image"&gt;&lt;img src="tiger.png" alt="tiger"&gt;&lt;/span&gt;</pre>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="Text-Formatting"><a class="anchor" href="#Text-Formatting"></a><strong>Text Formatting</strong></h3>
-<span class="fa fa-minus-square fa-fw" style="cursor:pointer;float:right;margin-top:-30px" title="minimize" onclick="hideFeatureScenarios('Text-Formatting');document.getElementById('hidden-Text-Formatting').style.display = 'inline';this.style.display = 'none'">  </span>
-
-<span id="hidden-Text-Formatting" class="fa fa-plus-square fa-fw" style="cursor:pointer;float:right;display:none;margin-top:-30px" title="maximize feature" onclick="showFeatureScenarios('Text-Formatting'); this.style.display = 'none'">  </span>
-<div class="sidebarblock">
-<div class="content">
-<div class="paragraph">
-<p>In order to apply formatting to the text<br>
-As a writer<br>
-I want to be able to markup inline text with formatting characters</p>
-</div>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_scenario_convert_text_that_contains_superscript_and_subscript_characters"><a class="anchor" href="#_scenario_convert_text_that_contains_superscript_and_subscript_characters"></a>Scenario: Convert text that contains superscript and subscript characters</h4>
-<div class="sidebarblock">
-<div class="content">
-<div class="dlist">
-<dl>
-<dt class="hdlist1">Given </dt>
-<dd>
-<p>the AsciiDoc source <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p>
-</dd>
-</dl>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre>_v_~rocket~ is the value
+&lt;span class="image"&gt;&lt;img src="tiger.png" alt="tiger"&gt;&lt;/span&gt;</pre> 
+          </div> 
+         </div> 
+        </div> 
+       </div> 
+      </div> 
+     </div> 
+     <div class="sect2"> 
+      <h3 id="Text-Formatting"><a class="anchor" href="#Text-Formatting"></a><strong>Text Formatting</strong></h3> 
+      <span class="fa fa-minus-square fa-fw" style="cursor:pointer;float:right;margin-top:-30px" title="Minimize" onclick="hideFeatureScenarios('Text-Formatting');document.getElementById('hidden-Text-Formatting').style.display = 'inline';this.style.display = 'none'"> </span> 
+      <span id="hidden-Text-Formatting" class="fa fa-plus-square fa-fw" style="cursor:pointer;float:right;display:none;margin-top:-30px" title="Maximize feature" onclick="showFeatureScenarios('Text-Formatting');this.style.display = 'none'"> </span> 
+      <div class="sidebarblock"> 
+       <div class="content"> 
+        <div class="paragraph"> 
+         <p>In order to apply formatting to the text<br> As a writer<br> I want to be able to markup inline text with formatting characters</p> 
+        </div> 
+       </div> 
+      </div> 
+      <div class="sect3"> 
+       <h4 id="_scenario_convert_text_that_contains_superscript_and_subscript_characters"><a class="anchor" href="#_scenario_convert_text_that_contains_superscript_and_subscript_characters"></a>Scenario: Convert text that contains superscript and subscript characters</h4> 
+       <div class="sidebarblock"> 
+        <div class="content"> 
+         <div class="dlist"> 
+          <dl> 
+           <dt class="hdlist1">
+             Given 
+           </dt> 
+           <dd> 
+            <p>the AsciiDoc source <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
+           </dd> 
+          </dl> 
+         </div> 
+         <div class="listingblock"> 
+          <div class="content"> 
+           <pre>_v_~rocket~ is the value
 ^3^He is the isotope
 log~4~x^n^ is the expression
 M^me^ White is the address
-the 10^th^ point has coordinate (x~10~, y~10~)</pre>
-</div>
-</div>
-<div class="dlist">
-<dl>
-<dt class="hdlist1">When </dt>
-<dd>
-<p>it is converted to html <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p>
-</dd>
-<dt class="hdlist1">Then </dt>
-<dd>
-<p>the result should match the HTML source <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p>
-</dd>
-</dl>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre>&lt;div class="paragraph"&gt;
+the 10^th^ point has coordinate (x~10~, y~10~)</pre> 
+          </div> 
+         </div> 
+         <div class="dlist"> 
+          <dl> 
+           <dt class="hdlist1">
+             When 
+           </dt> 
+           <dd> 
+            <p>it is converted to html <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
+           </dd> 
+           <dt class="hdlist1">
+             Then 
+           </dt> 
+           <dd> 
+            <p>the result should match the HTML source <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
+           </dd> 
+          </dl> 
+         </div> 
+         <div class="listingblock"> 
+          <div class="content"> 
+           <pre>&lt;div class="paragraph"&gt;
 &lt;p&gt;&lt;em&gt;v&lt;/em&gt;&lt;sub&gt;rocket&lt;/sub&gt; is the value
 &lt;sup&gt;3&lt;/sup&gt;He is the isotope
 log&lt;sub&gt;4&lt;/sub&gt;x&lt;sup&gt;n&lt;/sup&gt; is the expression
 M&lt;sup&gt;me&lt;/sup&gt; White is the address
 the 10&lt;sup&gt;th&lt;/sup&gt; point has coordinate (x&lt;sub&gt;10&lt;/sub&gt;, y&lt;sub&gt;10&lt;/sub&gt;)&lt;/p&gt;
-&lt;/div&gt;</pre>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_scenario_convert_text_that_has_ex_inline_literal_formatting"><a class="anchor" href="#_scenario_convert_text_that_has_ex_inline_literal_formatting"></a>Scenario: Convert text that has ex-inline literal formatting</h4>
-<div class="sidebarblock">
-<div class="content">
-<div class="dlist">
-<dl>
-<dt class="hdlist1">Given </dt>
-<dd>
-<p>the AsciiDoc source <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p>
-</dd>
-</dl>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre>Use [x-]`{asciidoctor-version}` to print the version of Asciidoctor.</pre>
-</div>
-</div>
-<div class="dlist">
-<dl>
-<dt class="hdlist1">When </dt>
-<dd>
-<p>it is converted to html <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p>
-</dd>
-<dt class="hdlist1">Then </dt>
-<dd>
-<p>the result should match the HTML source <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p>
-</dd>
-</dl>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre>&lt;div class="paragraph"&gt;
+&lt;/div&gt;</pre> 
+          </div> 
+         </div> 
+        </div> 
+       </div> 
+      </div> 
+      <div class="sect3"> 
+       <h4 id="_scenario_convert_text_that_has_ex_inline_literal_formatting"><a class="anchor" href="#_scenario_convert_text_that_has_ex_inline_literal_formatting"></a>Scenario: Convert text that has ex-inline literal formatting</h4> 
+       <div class="sidebarblock"> 
+        <div class="content"> 
+         <div class="dlist"> 
+          <dl> 
+           <dt class="hdlist1">
+             Given 
+           </dt> 
+           <dd> 
+            <p>the AsciiDoc source <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
+           </dd> 
+          </dl> 
+         </div> 
+         <div class="listingblock"> 
+          <div class="content"> 
+           <pre>Use [x-]`{asciidoctor-version}` to print the version of Asciidoctor.</pre> 
+          </div> 
+         </div> 
+         <div class="dlist"> 
+          <dl> 
+           <dt class="hdlist1">
+             When 
+           </dt> 
+           <dd> 
+            <p>it is converted to html <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
+           </dd> 
+           <dt class="hdlist1">
+             Then 
+           </dt> 
+           <dd> 
+            <p>the result should match the HTML source <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
+           </dd> 
+          </dl> 
+         </div> 
+         <div class="listingblock"> 
+          <div class="content"> 
+           <pre>&lt;div class="paragraph"&gt;
 &lt;p&gt;Use &lt;code&gt;{asciidoctor-version}&lt;/code&gt; to print the version of Asciidoctor.&lt;/p&gt;
-&lt;/div&gt;</pre>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_scenario_convert_text_that_has_ex_inline_monospaced_formatting"><a class="anchor" href="#_scenario_convert_text_that_has_ex_inline_monospaced_formatting"></a>Scenario: Convert text that has ex-inline monospaced formatting</h4>
-<div class="sidebarblock">
-<div class="content">
-<div class="dlist">
-<dl>
-<dt class="hdlist1">Given </dt>
-<dd>
-<p>the AsciiDoc source <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p>
-</dd>
-</dl>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre>The document is assumed to be encoded as [x-]+{encoding}+.</pre>
-</div>
-</div>
-<div class="dlist">
-<dl>
-<dt class="hdlist1">When </dt>
-<dd>
-<p>it is converted to html <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p>
-</dd>
-<dt class="hdlist1">Then </dt>
-<dd>
-<p>the result should match the HTML source <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p>
-</dd>
-</dl>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre>&lt;div class="paragraph"&gt;
+&lt;/div&gt;</pre> 
+          </div> 
+         </div> 
+        </div> 
+       </div> 
+      </div> 
+      <div class="sect3"> 
+       <h4 id="_scenario_convert_text_that_has_ex_inline_monospaced_formatting"><a class="anchor" href="#_scenario_convert_text_that_has_ex_inline_monospaced_formatting"></a>Scenario: Convert text that has ex-inline monospaced formatting</h4> 
+       <div class="sidebarblock"> 
+        <div class="content"> 
+         <div class="dlist"> 
+          <dl> 
+           <dt class="hdlist1">
+             Given 
+           </dt> 
+           <dd> 
+            <p>the AsciiDoc source <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
+           </dd> 
+          </dl> 
+         </div> 
+         <div class="listingblock"> 
+          <div class="content"> 
+           <pre>The document is assumed to be encoded as [x-]+{encoding}+.</pre> 
+          </div> 
+         </div> 
+         <div class="dlist"> 
+          <dl> 
+           <dt class="hdlist1">
+             When 
+           </dt> 
+           <dd> 
+            <p>it is converted to html <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
+           </dd> 
+           <dt class="hdlist1">
+             Then 
+           </dt> 
+           <dd> 
+            <p>the result should match the HTML source <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
+           </dd> 
+          </dl> 
+         </div> 
+         <div class="listingblock"> 
+          <div class="content"> 
+           <pre>&lt;div class="paragraph"&gt;
 &lt;p&gt;The document is assumed to be encoded as &lt;code&gt;UTF-8&lt;/code&gt;.&lt;/p&gt;
-&lt;/div&gt;</pre>
-</div>
-</div>
-</div>
-</div>
-<script type="text/javascript">
+&lt;/div&gt;</pre> 
+          </div> 
+         </div> 
+        </div> 
+       </div> 
+      </div> 
+     </div> 
+    </div> 
+   </div> 
+  </div> 
+  <div id="footer"> 
+   <div id="footer-text">
+     Last updated 2015-08-17 23:25:01 BRT 
+   </div> 
+  </div> 
+  <script type="text/javascript">
 	function showFeatureScenarios(featureId){
 		var element = document.getElementById(featureId).parentNode;
 		for (var i = 0; i < element.childNodes.length; i++) {
@@ -1347,25 +1426,25 @@ the 10&lt;sup&gt;th&lt;/sup&gt; point has coordinate (x&lt;sub&gt;10&lt;/sub&gt;
     			}
     		if (element.childNodes[i].className == "sidebarblock") {
       		     element.childNodes[i].style.display = 'block';
-    			}
+    			}			        
 		}
-
+		 
  		document.getElementById(featureId).childNodes[0].click();
 	}
 
 	function hideFeatureScenarios(featureId){
 		var element = document.getElementById(featureId).parentNode;
 		for (var i = 0; i < element.childNodes.length; i++) {
-    		if (element.childNodes[i].className == "sect3" || element.childNodes[i].className == "sidebarblock") {
-      		     element.childNodes[i].style.display = 'none';
+    		if (element.childNodes[i].className == "sect3" || element.childNodes[i].className == "sidebarblock") { 
+      		     element.childNodes[i].style.display = 'none';	   		    
                  	}
-
+		      
 		}
 	   document.getElementById(featureId).childNodes[0].click();
  	}
 
-</script>
-<script type = "text/javascript" >
+</script> 
+  <script type="text/javascript">
 var allLevel2ListItens = null;
 
 function searchFeature(criteria) {
@@ -1474,16 +1553,6 @@ function collectallLevel2IListItens() {
     }//end for uls
 
 }
-</script>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div id="footer">
-<div id="footer-text">
-Last updated 2015-07-20 22:16:25 BRT
-</div>
-</div>
-</body>
+</script>  
+ </body>
 </html>
