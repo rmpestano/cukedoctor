@@ -45,7 +45,7 @@ public class FeatureParser {
 		} catch (FileNotFoundException e) {
 			log.warning("Could not find json file:" + json);
 		} catch (JsonMappingException e) {
-			log.warning("Could map json file:" + json);
+			log.warning("Could not map json file:" + json);
 		} catch (JsonParseException e) {
 			log.warning("Could not parse json file:" + json);
 		} catch (IOException e) {
