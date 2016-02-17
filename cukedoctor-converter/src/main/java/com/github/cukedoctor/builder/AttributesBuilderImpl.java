@@ -1,0 +1,83 @@
+package com.github.cukedoctor.builder;
+
+import com.github.cukedoctor.api.builder.AttributesBuilder;
+import com.github.cukedoctor.util.Constants;
+import io.github.robwin.markup.builder.asciidoc.AsciiDocBuilder;
+
+/**
+ * Created by pestano on 17/02/16.
+ */
+public class AttributesBuilderImpl implements AttributesBuilder {
+
+    private AsciiDocBuilder docBuilder;
+
+    public AttributesBuilderImpl(AsciiDocBuilder docBuilder){
+        this.docBuilder = docBuilder;
+    }
+
+    @Override
+    public AttributesBuilder toc(String value) {
+        docBuilder.textLine(Constants.Atributes.toc(value));
+        return this;
+    }
+
+    @Override
+    public AttributesBuilder backend(String value) {
+        docBuilder.textLine(Constants.Atributes.backend(value));
+        return this;
+    }
+
+    @Override
+    public AttributesBuilder docTitle(String value) {
+        docBuilder.textLine(Constants.Atributes.docTitle(value));
+        return this;
+    }
+
+    @Override
+    public AttributesBuilder docType(String value) {
+        docBuilder.textLine(Constants.Atributes.docType(value));
+        return this;
+    }
+
+    @Override
+    public AttributesBuilder icons(String value) {
+        docBuilder.textLine(Constants.Atributes.icons(value));
+        return this;
+    }
+
+    @Override
+    public AttributesBuilder numbered(boolean value) {
+        docBuilder.textLine(Constants.Atributes.numbered(value));
+        return this;
+    }
+
+    @Override
+    public AttributesBuilder linkcss(boolean value) {
+        docBuilder.textLine(Constants.Atributes.linkcss(value));
+        return this;
+    }
+
+    @Override
+    public AttributesBuilder sectAnchors(boolean value) {
+        docBuilder.textLine(Constants.Atributes.sectAnchors(value));
+        return this;
+    }
+
+    @Override
+    public AttributesBuilder sectLink(boolean value) {
+        docBuilder.textLine(Constants.Atributes.sectLink(value));
+        return this;
+    }
+
+    @Override
+    public AttributesBuilder docInfo(boolean value) {
+        docBuilder.textLine(Constants.Atributes.docInfo(value));
+        return this;
+    }
+
+    @Override
+    public AttributesBuilder tocLevels(String value) {
+        docBuilder.textLine(Constants.Atributes.tocLevels(value));
+        return this;
+    }
+}

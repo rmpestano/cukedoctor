@@ -391,7 +391,6 @@ public interface Expectations {
 			"Dado ::"+newLine() +
 			"a User has posted the following messages: icon:thumbs-up[role=\"green\",title=\"Passed\"] [small right]#(111ms)#"+newLine() +
 			""+newLine() +
-			""+newLine() +
 			"[cols=\"1*\", options=\"header\"]"+newLine() +
 			"|==="+newLine() +
 			"|content"+newLine() +

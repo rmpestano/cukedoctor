@@ -16,7 +16,7 @@ public interface CukedoctorConverter {
 
 	List<Feature> getFeatures();
 
-	StringBuilder getDocumentation();
+	String getDocumentation();
 
 	/**
 	 * creates a string representation of the current document in Asciidoctor format

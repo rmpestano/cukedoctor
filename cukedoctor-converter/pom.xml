@@ -38,6 +38,11 @@
             <artifactId>cukedoctor-extension</artifactId>
             <version>${project.parent.version}</version>
         </dependency>
+
+        <dependency>
+            <groupId>io.github.robwin</groupId>
+            <artifactId>markup-document-builder</artifactId>
+        </dependency>
     </dependencies>
 
 </project>

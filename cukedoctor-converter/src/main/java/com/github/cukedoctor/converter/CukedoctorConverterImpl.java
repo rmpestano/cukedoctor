@@ -3,6 +3,7 @@ package com.github.cukedoctor.converter;
 import com.github.cukedoctor.api.*;
 import com.github.cukedoctor.api.model.*;
 import com.github.cukedoctor.config.CukedoctorConfig;
+import com.github.cukedoctor.util.DocWriterImpl;
 import com.github.cukedoctor.util.FileUtil;
 import com.github.cukedoctor.util.Formatter;
 
@@ -10,7 +11,6 @@ import java.io.File;
 import java.util.List;
 
 import static com.github.cukedoctor.util.Assert.*;
-import static com.github.cukedoctor.util.Constants.Atributes.*;
 import static com.github.cukedoctor.util.Constants.Markup.*;
 import static com.github.cukedoctor.util.Constants.newLine;
 
@@ -23,13 +23,13 @@ public class CukedoctorConverterImpl implements CukedoctorConverter {
 
 	private List<Feature> features;
 	private DocumentAttributes documentAttributes;
-	private DocWriter<StringBuilder> writer;
 	private String filename;
+	private CukedoctorDocumentBuilder docBuilder;
 
-	public CukedoctorConverterImpl(List<Feature> features, DocumentAttributes attrs, DocWriter<StringBuilder> writer) {
+	public CukedoctorConverterImpl(List<Feature> features, DocumentAttributes attrs) {
 		this.features = features;
 		this.documentAttributes = attrs;
-		this.writer = writer;
+		docBuilder = CukedoctorDocumentBuilder.Factory.newInstance();
 	}
 
 
@@ -41,26 +41,26 @@ public class CukedoctorConverterImpl implements CukedoctorConverter {
 		return features;
 	}
 
-	public StringBuilder getDocumentation() {
-		return writer.getCurrentDoc();
+	public String getDocumentation() {
+		return docBuilder.toString();
 	}
 
 	/**
 	 * @return a String representation of generated documentation
 	 */
 	public String renderDocumentation() {
-		writer.clear();
+		docBuilder = CukedoctorDocumentBuilder.Factory.newInstance();
 		renderAttributes();
-		writer.write(newLine());
-		writer.write(H1(bold(getDocumentationTitle())), newLine(), newLine());
+		docBuilder.newLine();
+		docBuilder.documentTitle(bold(getDocumentationTitle()));
 		renderSummary();
-		writer.write(newLine(), newLine());
-		writer.write(H2(bold("Features")), newLine(), newLine());
+		docBuilder.newLine().newLine();
+		docBuilder.sectionTitleLevel1(bold("Features")).newLine();
 		renderFeatures(features);
 		//generateDocInfo();
 		//generatePdfTheme();
 
-		return writer.getCurrentDoc().toString();
+		return docBuilder.toString();
 	}
 
 
@@ -76,17 +76,17 @@ public class CukedoctorConverterImpl implements CukedoctorConverter {
 
 	public CukedoctorConverter renderAttributes() {
 		if(documentAttributes != null){
-			writer.write(toc(documentAttributes.getToc()), newLine()).
-					write(backend(documentAttributes.getBackend()), newLine()).
-					write(docTitle(documentAttributes.getDocTitle()), newLine()).
-					write(docType(documentAttributes.getDocType()), newLine()).
-					write(icons(documentAttributes.getIcons()), newLine()).
-					write(numbered(documentAttributes.isNumbered()), newLine()).
-					write(linkcss(documentAttributes.isLinkCss()), newLine()).
-					write(sectAnchors(documentAttributes.isSectAnchors()), newLine()).
-					write(sectLink(documentAttributes.isSectLink()), newLine()).
-					write(docInfo(documentAttributes.isDocInfo()), newLine()).
-					write(tocLevels(documentAttributes.getTocLevels()), newLine());
+			docBuilder.attributes().toc(documentAttributes.getToc())
+					.backend(documentAttributes.getBackend())
+					.docTitle(documentAttributes.getDocTitle())
+					.docType(documentAttributes.getDocType())
+					.icons(documentAttributes.getIcons())
+					.numbered(documentAttributes.isNumbered())
+					.linkcss(documentAttributes.isLinkCss())
+					.sectAnchors(documentAttributes.isSectAnchors())
+					.sectLink(documentAttributes.isSectLink())
+					.docInfo(documentAttributes.isDocInfo())
+					.tocLevels(documentAttributes.getTocLevels());
 		}
 		return this;
 	}
@@ -120,8 +120,10 @@ public class CukedoctorConverterImpl implements CukedoctorConverter {
 	}
 
 	public CukedoctorConverterImpl renderSummary() {
-		writer.write(H2(bold("Summary"))).write(newLine());
-		writer.write("[cols=\"12*^m\", options=\"header,footer\"]" + newLine() +
+		docBuilder.textLine(H2(bold("Summary")));
+
+		//TODO convert to AsciidocMarkupBuilder
+		String summary = DocWriterImpl.getInstance(new StringBuilder()).write("[cols=\"12*^m\", options=\"header,footer\"]" + newLine() +
 				"|===" + newLine() +
 				"3+|Scenarios 7+|Steps 2+|Features: " + features.size() +
 				"" + newLine() + newLine() +
@@ -136,29 +138,35 @@ public class CukedoctorConverterImpl implements CukedoctorConverter {
 				"|[blue]#*Missing*#" + newLine() +
 				"|Total" + newLine() +
 				"|Duration" + newLine() +
-				"|Status" + newLine());
+				"|Status" ).getCurrentDoc().toString();
+
+		docBuilder.textLine(summary);
+
+		DocWriter featureResultsTableWriter = DocWriterImpl.getInstance(new StringBuilder());
 
 		for (Feature feature : features) {
-			writer.write(newLine());
-			writer.write("12+^" + tableCol(), "*<<", feature.getName().replaceAll(",", "").replaceAll(" ", "-"), ">>*", newLine());
+			//TODO convert to AsciidocMarkupBuilder
+			featureResultsTableWriter.write(newLine(),"12+^" + tableCol(), "*<<", feature.getName().replaceAll(",", "").replaceAll(" ", "-"), ">>*", newLine());
 			StepResults stepResults = feature.getStepResults();
 			ScenarioResults scenarioResults = feature.getScenarioResults();
 
-			writer.write(tableCol(), scenarioResults.getNumberOfScenariosPassed(), newLine());
-			writer.write(tableCol(), scenarioResults.getNumberOfScenariosFailed(), newLine());
-			writer.write(tableCol(), scenarioResults.getNumberOfScenarios(), newLine());
-			writer.write(tableCol(), stepResults.getNumberOfPasses(), newLine());
-			writer.write(tableCol(), stepResults.getNumberOfFailures(), newLine());
-			writer.write(tableCol(), stepResults.getNumberOfSkipped(), newLine());
-			writer.write(tableCol(), stepResults.getNumberOfPending(), newLine());
-			writer.write(tableCol(), stepResults.getNumberOfUndefined(), newLine());
-			writer.write(tableCol(), stepResults.getNumberOfMissing(), newLine());
-			writer.write(tableCol(), stepResults.getNumberOfSteps(), newLine());
-			writer.write(tableCol(), stepResults.getTotalDurationAsString(), newLine());
-			writer.write(tableCol(), Status.getStatusColor(feature.getStatus()), newLine());
+			featureResultsTableWriter.write(tableCol(), scenarioResults.getNumberOfScenariosPassed(), newLine());
+			featureResultsTableWriter.write(tableCol(), scenarioResults.getNumberOfScenariosFailed(), newLine());
+			featureResultsTableWriter.write(tableCol(), scenarioResults.getNumberOfScenarios(), newLine());
+			featureResultsTableWriter.write(tableCol(), stepResults.getNumberOfPasses(), newLine());
+			featureResultsTableWriter.write(tableCol(), stepResults.getNumberOfFailures(), newLine());
+			featureResultsTableWriter.write(tableCol(), stepResults.getNumberOfSkipped(), newLine());
+			featureResultsTableWriter.write(tableCol(), stepResults.getNumberOfPending(), newLine());
+			featureResultsTableWriter.write(tableCol(), stepResults.getNumberOfUndefined(), newLine());
+			featureResultsTableWriter.write(tableCol(), stepResults.getNumberOfMissing(), newLine());
+			featureResultsTableWriter.write(tableCol(), stepResults.getNumberOfSteps(), newLine());
+			featureResultsTableWriter.write(tableCol(), stepResults.getTotalDurationAsString(), newLine());
+			featureResultsTableWriter.write(tableCol(), Status.getStatusColor(feature.getStatus()), newLine());
 		}
+		//TODO render totals inside above for loop to avoid additional iteration over all features
+		docBuilder.append(featureResultsTableWriter.getCurrentDoc().toString());
 		renderTotalsRow();
-		writer.write(table());
+		docBuilder.append(table());
 		return this;
 	}
 
@@ -188,15 +196,19 @@ public class CukedoctorConverterImpl implements CukedoctorConverter {
 			totalSteps += feature.getNumberOfSteps();
 			totalDuration += feature.getStepResults().getTotalDuration();
 		}
-		writer.write("12+^|*Totals*", newLine()).
+
+		DocWriter totalsTableWriter = DocWriterImpl.getInstance(new StringBuilder());
+
+		totalsTableWriter.write("12+^|*Totals*", newLine()).
 				write(tableCol(), totalPassedScenarios, tableCol(), totalFailedScenarios).
 				write(tableCol(), totalScenarios).
 				write(tableCol(), totalPassedSteps, tableCol(), totalFailedSteps).
 				write(tableCol(), totalSkippedSteps, tableCol(), totalPendingSteps).
 				write(tableCol(), totalUndefinedSteps, tableCol(), totalMissingSteps).
 				write(tableCol(), totalSteps, " 2+", tableCol(), Formatter.formatTime(totalDuration));
-		writer.write(newLine());
+		totalsTableWriter.write(newLine());
 
+		docBuilder.append(totalsTableWriter.getCurrentDoc().toString());
 		return this;
 	}
 
@@ -212,17 +224,14 @@ public class CukedoctorConverterImpl implements CukedoctorConverter {
 		if(feature.hasIgnoreDocsTag()){
 			return this;
 		}
-		writer.write(renderFeatureSectionId(feature), newLine());
-		writer.write(H3(bold(feature.getName())), newLine(),newLine());
+		docBuilder.textLine(renderFeatureSectionId(feature));
+		docBuilder.sectionTitleLevel2((bold(feature.getName()))).newLine();
 		if(notNull(documentAttributes) && hasText(documentAttributes.getBackend()) && documentAttributes.getBackend().toLowerCase().contains("html")) {
 			//used by minimax extension @see com.github.cukedoctor.extension.CukedoctorMinMaxExtension
-			writer.write("minmax::", feature.getName().replaceAll(",", "").replaceAll(" ", "-"), "[]", newLine());
+			docBuilder.append(new StringBuilder("minmax::").append(feature.getName().replaceAll(",", "").replaceAll(" ", "-")).append("[]").toString()).newLine();
 		}
 		if (hasText(feature.getDescription())) {
-			writer.write("****", newLine()).
-					//feature description has \n to delimit new lines
-							write(feature.getDescription().trim().replaceAll("\\n", " +" + newLine())).
-					write(newLine(), "****", newLine(), newLine());
+			docBuilder.sideBarBlock(feature.getDescription().trim().replaceAll("\\n", " +" + newLine()));
 		}
 
 
@@ -240,36 +249,40 @@ public class CukedoctorConverterImpl implements CukedoctorConverter {
 				", " + feature.getName() + "]]";
 	}
 
-	public CukedoctorConverterImpl renderFeatureScenarios(Feature feature) {
-		for (Scenario scenario : feature.getScenarios()) {
-			if(scenario.hasIgnoreDocsTag()){
-				continue;
-			}
-			writer.write(H4(scenario.getKeyword()), ": ", scenario.getName(), newLine());
-			if (feature.hasTags() || scenario.hasTags()) {
-				renderScenarioTags(feature, scenario);
-				writer.write(newLine(), newLine());
-			}
+    public CukedoctorConverterImpl renderFeatureScenarios(Feature feature) {
+        for (Scenario scenario : feature.getScenarios()) {
+            if (scenario.hasIgnoreDocsTag()) {
+                continue;
+            }
 
-			writer.write(scenario.getDescription(), newLine());
+            if (hasText(scenario.getName())) {
+                docBuilder.sectionTitleLevel3(new StringBuilder(scenario.getKeyword()).
+                        append(": ").append(scenario.getName()).toString());
+            }
+            if (feature.hasTags() || scenario.hasTags()) {
+                renderScenarioTags(feature, scenario);
+                docBuilder.newLine();
+            }
 
-			if (scenario.hasExamples()) {
-				renderScenarioExamples(scenario);
-				continue;
-			}
+            docBuilder.textLine(scenario.getDescription());
 
-			if (scenario.hasSteps()) {
-				renderScenarioSteps(scenario.getSteps());
-			}
+            if (scenario.hasExamples()) {
+                renderScenarioExamples(scenario);
+                //it has examples OR steps
+                continue;
+            }
 
-			writer.write(newLine());
-		}
-		return this;
-	}
+            if (scenario.hasSteps()) {
+                renderScenarioSteps(scenario.getSteps());
+            }
+
+            docBuilder.newLine();
+        }
+        return this;
+    }
 
 	public CukedoctorConverter renderScenarioTags(Feature feature, Scenario scenario) {
-		writer.write("[small]#tags: ");
-		StringBuilder tags = new StringBuilder();
+		StringBuilder tags = new StringBuilder("[small]#tags: ");
 		if (feature.hasTags()) {
 			for (Tag featureTag : feature.getTags()) {
 				tags.append(featureTag.getName()).append(",");
@@ -283,52 +296,55 @@ public class CukedoctorConverterImpl implements CukedoctorConverter {
 		if (tags.indexOf(",") != -1) {//delete last comma
 			tags.deleteCharAt(tags.lastIndexOf(","));
 		}
-		writer.write(tags.toString());
-		writer.write("#");
-
+		tags.append("#");
+		docBuilder.textLine(tags.toString());
 		return this;
 	}
 
 	public CukedoctorConverterImpl renderScenarioSteps(List<Step> steps) {
-		writer.write("****", newLine());
+        docBuilder.textLine("****");
 		for (Step step : steps) {
-			writer.write(step.getKeyword(), "::", newLine());
-			writer.write(step.getName() + " ", Status.getStatusIcon(step.getStatus()));
-			writer.write(renderStepTime(step.getResult())).write(newLine());
+            docBuilder.append(step.getKeyword(), "::", newLine());
+            docBuilder.append(step.getName() + " ", Status.getStatusIcon(step.getStatus()));
+            docBuilder.append(renderStepTime(step.getResult()));
 
 			renderStepTable(step);
 
 			if(notNull(step.getDocString()) && hasText(step.getDocString().getValue())){
-				writer.write(listing(),newLine(),newLine());
-				writer.write(step.getDocString().getValue().replaceAll("\\n",newLine()));
-				writer.write(newLine(),newLine(),listing(),newLine());
+                docBuilder.append(listing(), newLine(), newLine());
+                docBuilder.append(step.getDocString().getValue().replaceAll("\\n", newLine()));
+                docBuilder.append(newLine(), newLine(), listing(), newLine());
 			}
 
 			if (step.getResult() != null && !Status.passed.equals(step.getStatus())) {
 				if (step.getResult().getErrorMessage() != null) {
-					writer.write(newLine(), "IMPORTANT: ", step.getResult().getErrorMessage(), newLine());
+                    docBuilder.append(newLine(), "IMPORTANT: ", step.getResult().getErrorMessage(), newLine());
 				}
 			}
 		}
-		writer.write("****", newLine());
+        docBuilder.textLine("****");
 		return this;
 	}
 
 	public CukedoctorConverter renderStepTable(Step step) {
-		if (notEmpty(step.getRows())) {
-			writer.write(newLine(),newLine(),"[cols=\"" + step.getRows()[0].getCells().length + "*\", options=\"header\"]", newLine());
-			writer.write(table(), newLine());
+        //TODO convert to AsciidocBuilder
+        docBuilder.newLine();
+        if (notEmpty(step.getRows())) {
+            docBuilder.newLine();
+            docBuilder.append("[cols=\"" + step.getRows()[0].getCells().length + "*\", options=\"header\"]").newLine();
+            docBuilder.textLine(table());
 			Row header = step.getRows()[0];
 			for (String col : header.getCells()) {
-				writer.write(tableCol(), col, newLine());
+                docBuilder.append(tableCol(), col).newLine();
 			}
 
 			for (int i = 1; i < step.getRows().length; i++) {
 				for (String cell : step.getRows()[i].getCells()) {
-					writer.write(tableCol(), cell, newLine());
+                    docBuilder.append(tableCol(), cell).newLine();
 				}
-			}
-			writer.write(table(),newLine(),newLine());
+            }
+            docBuilder.textLine(table());
+            docBuilder.newLine();
 		}
 
 		return this;
@@ -373,7 +389,9 @@ public class CukedoctorConverterImpl implements CukedoctorConverter {
 
 	@Override
 	public CukedoctorConverter renderScenarioExamples(Scenario scenario) {
+		//TODO convert to AsciidocBuilder
 		if (scenario.hasExamples()) {
+			DocWriter<StringBuilder> writer = DocWriterImpl.getInstance(new StringBuilder());
 			writer.write(newLine());
 			for (Example example : scenario.getExamples()) {
 				writer.write("." + (example.getName() == null || "".equals(example.getName()) ? "Example" : example.getName()), newLine());
@@ -389,7 +407,9 @@ public class CukedoctorConverterImpl implements CukedoctorConverter {
 						writer.write(tableCol(), cell, newLine());
 					}
 				}
-				writer.write(table(), newLine(), newLine());
+				writer.write(table(), newLine());
+				docBuilder.textLine(writer.getCurrentDoc().toString());
+                writer.clear();
 			}
 		}
 		return this;

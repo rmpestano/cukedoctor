@@ -30,10 +30,8 @@ public class Cukedoctor {
 			throw new RuntimeException("No features found");
 		}
 
-		StringBuilder documentation = new StringBuilder();
-		DocWriter<StringBuilder> writer = DocWriterImpl.getInstance(documentation);
 
-		CukedoctorConverter instance = new CukedoctorConverterImpl(features,attrs,writer);
+		CukedoctorConverter instance = new CukedoctorConverterImpl(features,attrs);
 		instance.setFilename(instance.getDocumentationTitle().replaceAll(" ", "_") + ".adoc");//by default use documentTitle as filename
 
 		return instance;

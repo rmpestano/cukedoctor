@@ -7,7 +7,9 @@ import static com.github.cukedoctor.util.Constants.*;
 
 /**
  * Created by pestano on 06/06/15.
+ * @deprecated user {link CukedoctorDocumentBuilderImpl}
  */
+@Deprecated
 public class DocWriterImpl implements DocWriter<StringBuilder> {
 
 	private static DocWriterImpl instance;
