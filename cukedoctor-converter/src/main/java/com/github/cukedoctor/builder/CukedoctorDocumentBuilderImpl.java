@@ -34,11 +34,11 @@ public class CukedoctorDocumentBuilderImpl extends AsciiDocBuilder implements Cu
     }
 
     @Override
-    public CukedoctorDocumentBuilder append(String... text) {
+    public CukedoctorDocumentBuilder append(Object... text) {
         if(notEmpty(text)){
-            for (String s : text) {
-                if(s == Constants.newLine() || hasText(s)){
-                    documentBuilder.append(s);
+            for (Object o : text) {
+                if(o.equals(Constants.newLine()) || hasText(o.toString())){
+                    documentBuilder.append(o.toString());
                 }
             }
         }

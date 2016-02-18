@@ -16,7 +16,7 @@ public interface CukedoctorDocumentBuilder extends MarkupDocBuilder {
     CukedoctorDocumentBuilder sideBarBlock(String text);
 
 
-    CukedoctorDocumentBuilder append(String... text);
+    CukedoctorDocumentBuilder append(Object... text);
 
 
 

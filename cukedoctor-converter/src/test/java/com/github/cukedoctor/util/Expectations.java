@@ -41,7 +41,7 @@ public interface Expectations {
 			"|[red]#*failed*#" + newLine() +
 			"12+^|*Totals*" + newLine() +
 			"|1|1|2|1|1|0|0|0|0|2 2+|010ms" + newLine() +
-			"|===";
+			"|==="+newLine();
 
 	String SUMMARY_FOR_MULTIPLE_FEATURES =
 			"== *Summary*"+newLine() +
@@ -105,7 +105,7 @@ public interface Expectations {
 					"|[red]#*failed*#"+newLine() +
 					"12+^|*Totals*"+newLine() +
 					"|4|1|5|4|1|0|0|0|0|5 2+|010ms"+newLine() +
-					"|===";
+					"|==="+newLine();
 
 	String DOCUMENTATION_FOR_ONE_FEATURE = ":toc: left"+newLine() +
 			":backend: html5"+newLine() +
@@ -165,6 +165,7 @@ public interface Expectations {
 			"==== Scenario: Passing"+newLine() +
 			"[small]#tags: @a,@b#"+newLine() +
 			""+newLine() +
+			""+newLine() +
 			"****"+newLine() +
 			"Given ::"+newLine() +
 			"this step passes icon:thumbs-up[role=\"green\",title=\"Passed\"] [small right]#(001ms)#"+newLine() +
@@ -172,6 +173,7 @@ public interface Expectations {
 			""+newLine() +
 			"==== Scenario: Failing"+newLine() +
 			"[small]#tags: @a,@c#"+newLine() +
+			""+newLine() +
 			""+newLine() +
 			"****"+newLine() +
 			"Given ::"+newLine() +
@@ -267,16 +269,19 @@ public interface Expectations {
 			""+newLine() +
 			"minmax::An-embed-data-directly-feature[]"+newLine() +
 			"==== Scenario: scenario 1"+newLine() +
+			""+newLine() +
 			"****"+newLine() +
 			"Given ::"+newLine() +
 			"I embed data directly icon:thumbs-up[role=\"green\",title=\"Passed\"] [small right]#(000ms)#"+newLine() +
 			"****"+newLine() +
 			""+newLine() +
 			"==== Scenario Outline: scenario 2"+newLine() +
+			""+newLine() +
 			"****"+newLine() +
 			"Given ::"+newLine() +
 			"I embed data directly icon:thumbs-up[role=\"green\",title=\"Passed\"] [small right]#(000ms)#"+newLine() +
 			"****"+newLine() +
+			""+newLine() +
 			""+newLine() +
 			"****"+newLine() +
 			"Given ::"+newLine() +
@@ -288,6 +293,7 @@ public interface Expectations {
 			""+newLine() +
 			"minmax::An-outline-feature[]"+newLine() +
 			"==== Scenario Outline: outline"+newLine() +
+			""+newLine() +
 			""+newLine() +
 			".examples1"+newLine() +
 			"[cols=\"1*\", options=\"header\"]"+newLine() +
@@ -311,6 +317,7 @@ public interface Expectations {
 			"==== Scenario: Passing"+newLine() +
 			"[small]#tags: @a,@b#"+newLine() +
 			""+newLine() +
+			""+newLine() +
 			"****"+newLine() +
 			"Given ::"+newLine() +
 			"this step passes icon:thumbs-up[role=\"green\",title=\"Passed\"] [small right]#(001ms)#"+newLine() +
@@ -318,6 +325,7 @@ public interface Expectations {
 			""+newLine() +
 			"==== Scenario: Failing"+newLine() +
 			"[small]#tags: @a,@c#"+newLine() +
+			""+newLine() +
 			""+newLine() +
 			"****"+newLine() +
 			"Given ::"+newLine() +
@@ -386,8 +394,8 @@ public interface Expectations {
 			"minmax::Search[]"+newLine() +
 			"==== Cenario: Find messages by content"+newLine() +
 			"[small]#tags: @txn#"+newLine() +
-			""+newLine() +
-			"****"+newLine() +
+			""+newLine() + newLine() +
+			"****"+newLine()  +
 			"Dado ::"+newLine() +
 			"a User has posted the following messages: icon:thumbs-up[role=\"green\",title=\"Passed\"] [small right]#(111ms)#"+newLine() +
 			""+newLine() +

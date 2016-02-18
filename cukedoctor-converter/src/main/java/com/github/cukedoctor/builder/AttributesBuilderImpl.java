@@ -80,4 +80,9 @@ public class AttributesBuilderImpl implements AttributesBuilder {
         docBuilder.textLine(Constants.Atributes.tocLevels(value));
         return this;
     }
+
+    @Override
+    public AsciiDocBuilder asciiDocBuilder(){
+        return docBuilder;
+    }
 }

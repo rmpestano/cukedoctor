@@ -504,7 +504,7 @@ public class CukedoctorConverterTest {
 		assertThat(resultDoc).isEqualTo("****" + newLine() +
 				"Given::" + newLine() +
 				"passing step icon:thumbs-up[role=\"green\",title=\"Passed\"] [small right]#(000ms)#" + newLine() +
-				"****" + newLine());
+				"****" + newLine() + newLine());
 	}
 
 	@Test
@@ -520,7 +520,7 @@ public class CukedoctorConverterTest {
 				"passing step icon:thumbs-up[role=\"green\",title=\"Passed\"] [small right]#(000ms)#" + newLine() +
 				"When::" + newLine() +
 				"failing step icon:thumbs-down[role=\"red\",title=\"Failed\"] [small right]#(000ms)#" + newLine() +
-				"****" + newLine());
+				"****" + newLine()+newLine());
 	}
 
 	@Test
@@ -569,7 +569,7 @@ public class CukedoctorConverterTest {
 		assertThat(resultDoc).
 				doesNotContain("scenario to skip").
 				isEqualTo("==== Scenario: scenario"+newLine() +
-				"description"+newLine() +
+				"description"+newLine() +newLine()+
 				"****"+newLine() +
 				"Given::"+newLine() +
 				"passing step icon:thumbs-up[role=\"green\",title=\"Passed\"] [small right]#(000ms)#"+newLine() +
@@ -599,7 +599,7 @@ public class CukedoctorConverterTest {
 				"undefined step icon:thumbs-down[role=\"yellow\",title=\"Undefined\"] [small right]#(000ms)#" + newLine() +
 				"Then::" + newLine() +
 				"skipped step icon:thumbs-down[role=\"purple\",title=\"Skipped\"] [small right]#(000ms)#" + newLine() +
-				"****" + newLine());
+				"****" + newLine()+newLine());
 	}
 
 	@Test
@@ -611,7 +611,7 @@ public class CukedoctorConverterTest {
 
 		String resultDoc = converter.renderFeatureScenarios(feature).getDocumentation().toString();
 		assertThat(resultDoc).isEqualTo("==== Scenario: scenario"+newLine() +
-				"description" + newLine() +
+				"description" + newLine() + newLine() +
 				"****"+newLine() +
 				"Given::"+newLine() +
 				"passing step icon:thumbs-up[role=\"green\",title=\"Passed\"] [small right]#(000ms)#"+newLine() +
@@ -620,14 +620,14 @@ public class CukedoctorConverterTest {
 				"****"+newLine() +
 				""+newLine() +
 				"==== Scenario: scenario"+newLine() +
-				"description" +newLine() +
+				"description" +newLine() + newLine() +
 				"****" + newLine() +
 				"Then::"+newLine() +
 				"skipped step icon:thumbs-down[role=\"purple\",title=\"Skipped\"] [small right]#(000ms)#"+newLine() +
 				"****"+newLine() +
 				""+newLine() +
 				"==== Scenario: scenario"+newLine() +
-				"description" + newLine()+
+				"description" + newLine()+ newLine() +
 				"****"+newLine() +
 				"Given::"+newLine() +
 				"undefined step icon:thumbs-down[role=\"yellow\",title=\"Undefined\"] [small right]#(000ms)#"+newLine() +

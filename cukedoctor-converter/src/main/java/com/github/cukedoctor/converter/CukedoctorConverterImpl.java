@@ -3,7 +3,6 @@ package com.github.cukedoctor.converter;
 import com.github.cukedoctor.api.*;
 import com.github.cukedoctor.api.model.*;
 import com.github.cukedoctor.config.CukedoctorConfig;
-import com.github.cukedoctor.util.DocWriterImpl;
 import com.github.cukedoctor.util.FileUtil;
 import com.github.cukedoctor.util.Formatter;
 
@@ -25,6 +24,17 @@ public class CukedoctorConverterImpl implements CukedoctorConverter {
 	private DocumentAttributes documentAttributes;
 	private String filename;
 	private CukedoctorDocumentBuilder docBuilder;
+	int totalPassedScenarios = 0;
+	int totalFailedScenarios = 0;
+	int totalScenarios = 0;
+	int totalPassedSteps = 0;
+	int totalFailedSteps = 0;
+	int totalSkippedSteps = 0;
+	int totalPendingSteps = 0;
+	int totalMissingSteps = 0;
+	int totalUndefinedSteps = 0;
+	int totalSteps = 0;
+	long totalDuration = 0;
 
 	public CukedoctorConverterImpl(List<Feature> features, DocumentAttributes attrs) {
 		this.features = features;
@@ -54,7 +64,7 @@ public class CukedoctorConverterImpl implements CukedoctorConverter {
 		docBuilder.newLine();
 		docBuilder.documentTitle(bold(getDocumentationTitle()));
 		renderSummary();
-		docBuilder.newLine().newLine();
+		docBuilder.newLine();
 		docBuilder.sectionTitleLevel1(bold("Features")).newLine();
 		renderFeatures(features);
 		//generateDocInfo();
@@ -123,92 +133,79 @@ public class CukedoctorConverterImpl implements CukedoctorConverter {
 		docBuilder.textLine(H2(bold("Summary")));
 
 		//TODO convert to AsciidocMarkupBuilder
-		String summary = DocWriterImpl.getInstance(new StringBuilder()).write("[cols=\"12*^m\", options=\"header,footer\"]" + newLine() +
-				"|===" + newLine() +
-				"3+|Scenarios 7+|Steps 2+|Features: " + features.size() +
-				"" + newLine() + newLine() +
-				"|[green]#*Passed*#" + newLine() +
-				"|[red]#*Failed*#" + newLine() +
-				"|Total" + newLine() +
-				"|[green]#*Passed*#" + newLine() +
-				"|[red]#*Failed*#" + newLine() +
-				"|[purple]#*Skipped*#" + newLine() +
-				"|[maroon]#*Pending*#" + newLine() +
-				"|[yellow]#*Undefined*#" + newLine() +
-				"|[blue]#*Missing*#" + newLine() +
-				"|Total" + newLine() +
-				"|Duration" + newLine() +
-				"|Status" ).getCurrentDoc().toString();
+		docBuilder.append("[cols=\"12*^m\", options=\"header,footer\"]",newLine(),
+				"|===", newLine() +
+				"3+|Scenarios 7+|Steps 2+|Features: ", features.size() +
+				"", newLine() , newLine() +
+				"|[green]#*Passed*#" , newLine() ,
+				"|[red]#*Failed*#" , newLine() ,
+				"|Total" , newLine() ,
+				"|[green]#*Passed*#" , newLine() ,
+				"|[red]#*Failed*#" , newLine() ,
+				"|[purple]#*Skipped*#" , newLine() ,
+				"|[maroon]#*Pending*#" , newLine() ,
+				"|[yellow]#*Undefined*#" , newLine() ,
+				"|[blue]#*Missing*#" , newLine() ,
+				"|Total" , newLine() ,
+				"|Duration" , newLine() ,
+				"|Status" ).newLine();
 
-		docBuilder.textLine(summary);
-
-		DocWriter featureResultsTableWriter = DocWriterImpl.getInstance(new StringBuilder());
 
 		for (Feature feature : features) {
+			calculateTotals(feature);
 			//TODO convert to AsciidocMarkupBuilder
-			featureResultsTableWriter.write(newLine(),"12+^" + tableCol(), "*<<", feature.getName().replaceAll(",", "").replaceAll(" ", "-"), ">>*", newLine());
+			docBuilder.append(newLine(), "12+^", tableCol(), "*<<", feature.getName().replaceAll(",", "").replaceAll(" ", "-"), ">>*", newLine());
 			StepResults stepResults = feature.getStepResults();
 			ScenarioResults scenarioResults = feature.getScenarioResults();
 
-			featureResultsTableWriter.write(tableCol(), scenarioResults.getNumberOfScenariosPassed(), newLine());
-			featureResultsTableWriter.write(tableCol(), scenarioResults.getNumberOfScenariosFailed(), newLine());
-			featureResultsTableWriter.write(tableCol(), scenarioResults.getNumberOfScenarios(), newLine());
-			featureResultsTableWriter.write(tableCol(), stepResults.getNumberOfPasses(), newLine());
-			featureResultsTableWriter.write(tableCol(), stepResults.getNumberOfFailures(), newLine());
-			featureResultsTableWriter.write(tableCol(), stepResults.getNumberOfSkipped(), newLine());
-			featureResultsTableWriter.write(tableCol(), stepResults.getNumberOfPending(), newLine());
-			featureResultsTableWriter.write(tableCol(), stepResults.getNumberOfUndefined(), newLine());
-			featureResultsTableWriter.write(tableCol(), stepResults.getNumberOfMissing(), newLine());
-			featureResultsTableWriter.write(tableCol(), stepResults.getNumberOfSteps(), newLine());
-			featureResultsTableWriter.write(tableCol(), stepResults.getTotalDurationAsString(), newLine());
-			featureResultsTableWriter.write(tableCol(), Status.getStatusColor(feature.getStatus()), newLine());
+			docBuilder.append(tableCol(), scenarioResults.getNumberOfScenariosPassed(), newLine());
+			docBuilder.append(tableCol(), scenarioResults.getNumberOfScenariosFailed(), newLine());
+			docBuilder.append(tableCol(), scenarioResults.getNumberOfScenarios(), newLine());
+			docBuilder.append(tableCol(), stepResults.getNumberOfPasses(), newLine());
+			docBuilder.append(tableCol(), stepResults.getNumberOfFailures(), newLine());
+			docBuilder.append(tableCol(), stepResults.getNumberOfSkipped(), newLine());
+			docBuilder.append(tableCol(), stepResults.getNumberOfPending(), newLine());
+			docBuilder.append(tableCol(), stepResults.getNumberOfUndefined(), newLine());
+			docBuilder.append(tableCol(), stepResults.getNumberOfMissing(), newLine());
+			docBuilder.append(tableCol(), stepResults.getNumberOfSteps(), newLine());
+			docBuilder.append(tableCol(), stepResults.getTotalDurationAsString(), newLine());
+			docBuilder.append(tableCol(), Status.getStatusColor(feature.getStatus()), newLine());
 		}
 		//TODO render totals inside above for loop to avoid additional iteration over all features
-		docBuilder.append(featureResultsTableWriter.getCurrentDoc().toString());
 		renderTotalsRow();
-		docBuilder.append(table());
+		docBuilder.textLine(table());
 		return this;
+	}
+
+	private void calculateTotals(Feature feature) {
+		totalPassedScenarios += feature.getScenarioResults().getNumberOfScenariosPassed();
+		totalFailedScenarios += feature.getScenarioResults().getNumberOfScenariosFailed();
+		totalScenarios += feature.getNumberOfScenarios();
+		totalPassedSteps += feature.getStepResults().getNumberOfPasses();
+		totalFailedSteps += feature.getStepResults().getNumberOfFailures();
+		totalSkippedSteps += feature.getStepResults().getNumberOfSkipped();
+		totalPendingSteps += feature.getStepResults().getNumberOfPending();
+		totalMissingSteps += feature.getStepResults().getNumberOfMissing();
+		totalUndefinedSteps += feature.getStepResults().getNumberOfUndefined();
+		totalSteps += feature.getNumberOfSteps();
+		totalDuration += feature.getStepResults().getTotalDuration();
 	}
 
 	//should be only called inside renderSummary()
 	public CukedoctorConverterImpl renderTotalsRow() {
-		int totalPassedScenarios = 0;
-		int totalFailedScenarios = 0;
-		int totalScenarios = 0;
-		int totalPassedSteps = 0;
-		int totalFailedSteps = 0;
-		int totalSkippedSteps = 0;
-		int totalPendingSteps = 0;
-		int totalMissingSteps = 0;
-		int totalUndefinedSteps = 0;
-		int totalSteps = 0;
-		long totalDuration = 0;
-		for (Feature feature : features) {
-			totalPassedScenarios += feature.getScenarioResults().getNumberOfScenariosPassed();
-			totalFailedScenarios += feature.getScenarioResults().getNumberOfScenariosFailed();
-			totalScenarios += feature.getNumberOfScenarios();
-			totalPassedSteps += feature.getStepResults().getNumberOfPasses();
-			totalFailedSteps += feature.getStepResults().getNumberOfFailures();
-			totalSkippedSteps += feature.getStepResults().getNumberOfSkipped();
-			totalPendingSteps += feature.getStepResults().getNumberOfPending();
-			totalMissingSteps += feature.getStepResults().getNumberOfMissing();
-			totalUndefinedSteps += feature.getStepResults().getNumberOfUndefined();
-			totalSteps += feature.getNumberOfSteps();
-			totalDuration += feature.getStepResults().getTotalDuration();
+		if(totalScenarios == 0){//when calling this method directly it will be zero but when redering documentation it will be already calculated
+			for (Feature feature : features) {
+				calculateTotals(feature);
+			}
 		}
-
-		DocWriter totalsTableWriter = DocWriterImpl.getInstance(new StringBuilder());
-
-		totalsTableWriter.write("12+^|*Totals*", newLine()).
-				write(tableCol(), totalPassedScenarios, tableCol(), totalFailedScenarios).
-				write(tableCol(), totalScenarios).
-				write(tableCol(), totalPassedSteps, tableCol(), totalFailedSteps).
-				write(tableCol(), totalSkippedSteps, tableCol(), totalPendingSteps).
-				write(tableCol(), totalUndefinedSteps, tableCol(), totalMissingSteps).
-				write(tableCol(), totalSteps, " 2+", tableCol(), Formatter.formatTime(totalDuration));
-		totalsTableWriter.write(newLine());
-
-		docBuilder.append(totalsTableWriter.getCurrentDoc().toString());
+		docBuilder.append("12+^|*Totals*", newLine()).
+				append(tableCol(), totalPassedScenarios, tableCol(), totalFailedScenarios).
+				append(tableCol(), totalScenarios).
+				append(tableCol(), totalPassedSteps, tableCol(), totalFailedSteps).
+				append(tableCol(), totalSkippedSteps, tableCol(), totalPendingSteps).
+				append(tableCol(), totalUndefinedSteps, tableCol(), totalMissingSteps).
+				append(tableCol(), totalSteps, " 2+", tableCol(), Formatter.formatTime(totalDuration));
+		docBuilder.newLine();
 		return this;
 	}
 
@@ -228,12 +225,11 @@ public class CukedoctorConverterImpl implements CukedoctorConverter {
 		docBuilder.sectionTitleLevel2((bold(feature.getName()))).newLine();
 		if(notNull(documentAttributes) && hasText(documentAttributes.getBackend()) && documentAttributes.getBackend().toLowerCase().contains("html")) {
 			//used by minimax extension @see com.github.cukedoctor.extension.CukedoctorMinMaxExtension
-			docBuilder.append(new StringBuilder("minmax::").append(feature.getName().replaceAll(",", "").replaceAll(" ", "-")).append("[]").toString()).newLine();
+			docBuilder.append("minmax::",feature.getName().replaceAll(",", "").replaceAll(" ", "-")).append("[]").newLine();
 		}
 		if (hasText(feature.getDescription())) {
 			docBuilder.sideBarBlock(feature.getDescription().trim().replaceAll("\\n", " +" + newLine()));
 		}
-
 
 		renderFeatureScenarios(feature);
 		return this;
@@ -264,7 +260,7 @@ public class CukedoctorConverterImpl implements CukedoctorConverter {
                 docBuilder.newLine();
             }
 
-            docBuilder.textLine(scenario.getDescription());
+            docBuilder.textLine(scenario.getDescription()).newLine();
 
             if (scenario.hasExamples()) {
                 renderScenarioExamples(scenario);
@@ -274,9 +270,8 @@ public class CukedoctorConverterImpl implements CukedoctorConverter {
 
             if (scenario.hasSteps()) {
                 renderScenarioSteps(scenario.getSteps());
-            }
+			}
 
-            docBuilder.newLine();
         }
         return this;
     }
@@ -322,7 +317,7 @@ public class CukedoctorConverterImpl implements CukedoctorConverter {
 				}
 			}
 		}
-        docBuilder.textLine("****");
+        docBuilder.textLine("****").newLine();
 		return this;
 	}
 
@@ -391,25 +386,22 @@ public class CukedoctorConverterImpl implements CukedoctorConverter {
 	public CukedoctorConverter renderScenarioExamples(Scenario scenario) {
 		//TODO convert to AsciidocBuilder
 		if (scenario.hasExamples()) {
-			DocWriter<StringBuilder> writer = DocWriterImpl.getInstance(new StringBuilder());
-			writer.write(newLine());
+			docBuilder.newLine();
 			for (Example example : scenario.getExamples()) {
-				writer.write("." + (example.getName() == null || "".equals(example.getName()) ? "Example" : example.getName()), newLine());
-				writer.write("[cols=\"" + example.getRows()[0].getCells().length + "*\", options=\"header\"]", newLine());
-				writer.write(table(), newLine());
+				docBuilder.append("." + (example.getName() == null || "".equals(example.getName()) ? "Example" : example.getName()), newLine());
+				docBuilder.append("[cols=\"" + example.getRows()[0].getCells().length + "*\", options=\"header\"]", newLine());
+				docBuilder.append(table(), newLine());
 				Row header = example.getRows()[0];
 				for (String col : header.getCells()) {
-					writer.write(tableCol(), col, newLine());
+					docBuilder.append(tableCol(), col, newLine());
 				}
 
 				for (int i = 1; i < example.getRows().length; i++) {
 					for (String cell : example.getRows()[i].getCells()) {
-						writer.write(tableCol(), cell, newLine());
+						docBuilder.append(tableCol(), cell, newLine());
 					}
 				}
-				writer.write(table(), newLine());
-				docBuilder.textLine(writer.getCurrentDoc().toString());
-                writer.clear();
+				docBuilder.append(table(), newLine(),newLine());
 			}
 		}
 		return this;

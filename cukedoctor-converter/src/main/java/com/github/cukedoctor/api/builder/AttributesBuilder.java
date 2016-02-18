@@ -1,5 +1,7 @@
 package com.github.cukedoctor.api.builder;
 
+import io.github.robwin.markup.builder.asciidoc.AsciiDocBuilder;
+
 /**
  * Created by pestano on 17/02/16.
  */
@@ -28,4 +30,5 @@ public interface AttributesBuilder {
     AttributesBuilder tocLevels(String value);
 
 
+    AsciiDocBuilder asciiDocBuilder();
 }
