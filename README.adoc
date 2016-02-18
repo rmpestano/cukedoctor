@@ -98,6 +98,3 @@ You can use snapshots by adding the following snippets in pom.xml:
 </repositories>
 ----
 
-TIP: You can download snapshots directly from Sonatype https://oss.sonatype.org/content/repositories/snapshots/com/github/cukedoctor/[here^].
-
-
