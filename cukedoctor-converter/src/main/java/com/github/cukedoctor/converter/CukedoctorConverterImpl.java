@@ -24,17 +24,8 @@ public class CukedoctorConverterImpl implements CukedoctorConverter {
 	private DocumentAttributes documentAttributes;
 	private String filename;
 	private CukedoctorDocumentBuilder docBuilder;
-	int totalPassedScenarios = 0;
-	int totalFailedScenarios = 0;
-	int totalScenarios = 0;
-	int totalPassedSteps = 0;
-	int totalFailedSteps = 0;
-	int totalSkippedSteps = 0;
-	int totalPendingSteps = 0;
-	int totalMissingSteps = 0;
-	int totalUndefinedSteps = 0;
-	int totalSteps = 0;
-	long totalDuration = 0;
+
+	private ScenarioTotalizations scenarioTotalizations;
 
 	public CukedoctorConverterImpl(List<Feature> features, DocumentAttributes attrs) {
 		this.features = features;
@@ -151,8 +142,9 @@ public class CukedoctorConverterImpl implements CukedoctorConverter {
 				"|Status" ).newLine();
 
 
+		scenarioTotalizations = new ScenarioTotalizations();
 		for (Feature feature : features) {
-			calculateTotals(feature);
+			scenarioTotalizations.addFeatureTotals(feature);
 			//TODO convert to AsciidocMarkupBuilder
 			docBuilder.append(newLine(), "12+^", tableCol(), "*<<", feature.getName().replaceAll(",", "").replaceAll(" ", "-"), ">>*", newLine());
 			StepResults stepResults = feature.getStepResults();
@@ -177,34 +169,20 @@ public class CukedoctorConverterImpl implements CukedoctorConverter {
 		return this;
 	}
 
-	private void calculateTotals(Feature feature) {
-		totalPassedScenarios += feature.getScenarioResults().getNumberOfScenariosPassed();
-		totalFailedScenarios += feature.getScenarioResults().getNumberOfScenariosFailed();
-		totalScenarios += feature.getNumberOfScenarios();
-		totalPassedSteps += feature.getStepResults().getNumberOfPasses();
-		totalFailedSteps += feature.getStepResults().getNumberOfFailures();
-		totalSkippedSteps += feature.getStepResults().getNumberOfSkipped();
-		totalPendingSteps += feature.getStepResults().getNumberOfPending();
-		totalMissingSteps += feature.getStepResults().getNumberOfMissing();
-		totalUndefinedSteps += feature.getStepResults().getNumberOfUndefined();
-		totalSteps += feature.getNumberOfSteps();
-		totalDuration += feature.getStepResults().getTotalDuration();
-	}
 
 	//should be only called inside renderSummary()
 	public CukedoctorConverterImpl renderTotalsRow() {
-		if(totalScenarios == 0){//when calling this method directly it will be zero but when redering documentation it will be already calculated
-			for (Feature feature : features) {
-				calculateTotals(feature);
-			}
+		if(scenarioTotalizations == null){//when calling this method directly it will be zero but when redering documentation it will be already calculated
+			scenarioTotalizations = new ScenarioTotalizations(features);
+
 		}
 		docBuilder.append("12+^|*Totals*", newLine()).
-				append(tableCol(), totalPassedScenarios, tableCol(), totalFailedScenarios).
-				append(tableCol(), totalScenarios).
-				append(tableCol(), totalPassedSteps, tableCol(), totalFailedSteps).
-				append(tableCol(), totalSkippedSteps, tableCol(), totalPendingSteps).
-				append(tableCol(), totalUndefinedSteps, tableCol(), totalMissingSteps).
-				append(tableCol(), totalSteps, " 2+", tableCol(), Formatter.formatTime(totalDuration));
+				append(tableCol(), scenarioTotalizations.getTotalPassedScenarios(), tableCol(), scenarioTotalizations.getTotalFailedScenarios()).
+				append(tableCol(), scenarioTotalizations.getTotalScenarios()).
+				append(tableCol(), scenarioTotalizations.getTotalPassedSteps(), tableCol(), scenarioTotalizations.getTotalFailedSteps()).
+				append(tableCol(), scenarioTotalizations.getTotalSkippedSteps(), tableCol(), scenarioTotalizations.getTotalPendingSteps()).
+				append(tableCol(), scenarioTotalizations.getTotalUndefinedSteps(), tableCol(), scenarioTotalizations.getTotalMissingSteps()).
+				append(tableCol(), scenarioTotalizations.getTotalSteps(), " 2+", tableCol(), Formatter.formatTime(scenarioTotalizations.getTotalDuration()));
 		docBuilder.newLine();
 		return this;
 	}
