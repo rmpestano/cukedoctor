@@ -8,6 +8,7 @@ import com.github.cukedoctor.util.FileUtil;
 import com.github.cukedoctor.util.Formatter;
 
 import java.io.File;
+import java.nio.file.Paths;
 import java.util.List;
 
 import static com.github.cukedoctor.util.Assert.*;
@@ -57,6 +58,7 @@ public class CukedoctorConverterImpl implements CukedoctorConverter {
 		renderAttributes();
 		docBuilder.newLine();
 		docBuilder.documentTitle(bold(getDocumentationTitle()));
+		renderIntro();
 		renderSummary();
 		docBuilder.newLine();
 		docBuilder.sectionTitleLevel1(bold(i18n.getMessage("title.features"))).newLine();
@@ -67,6 +69,14 @@ public class CukedoctorConverterImpl implements CukedoctorConverter {
 		return docBuilder.toString();
 	}
 
+	public void renderIntro() {
+		String baseDir = Paths.get("").toAbsolutePath().toString();
+		List<String> files = FileUtil.findFiles(baseDir, new String[]{"**/*cukedoctor-intro.adoc","**/*cukedoctor-intro.asciidoc"});
+		if(files != null && !files.isEmpty()){
+			String introPath = files.get(0);
+			docBuilder.append("include::",introPath,"[leveloffset=+1]",newLine(),newLine());
+		}
+	}
 
 
 	public String getDocumentationTitle() {

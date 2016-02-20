@@ -1,4 +1,4 @@
-package com.github.cukedoctor.converter;
+package com.github.cukedoctor.api.model;
 
 import com.github.cukedoctor.api.model.Feature;
 

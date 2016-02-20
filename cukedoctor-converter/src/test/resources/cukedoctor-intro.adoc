@@ -1,0 +1,7 @@
+= This is a sample introduction chapter
+
+Introduction chapter is the place where you can insert custom content for yor living documentation.
+
+== Sub section
+Introduction chapter can have subsections
+
