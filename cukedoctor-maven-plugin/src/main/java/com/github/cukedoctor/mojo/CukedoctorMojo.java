@@ -73,14 +73,14 @@ public class CukedoctorMojo extends AbstractMojo {
 
 
 	public void execute() throws MojoExecutionException, MojoFailureException {
-		String startDir = new File(project.getBuild().getOutputDirectory()).getAbsolutePath();
-		 if(!new File(startDir).exists()){
+		String startDir = project.getBuild().getDirectory() != null ?  new File(project.getBuild().getDirectory()).getAbsolutePath():null;
+		 if(startDir == null || !new File(startDir).exists()){
 			 startDir = project.getBasedir().getAbsolutePath();
 	 	 }
 		getLog().info("Searching cucumber features in path: "+startDir);
 		Set<Feature> featuresFound = new HashSet<>(FeatureParser.findAndParse(startDir));
 		if (featuresFound == null || featuresFound.isEmpty()) {
-			getLog().warn("No cucumber json files found in " + project.getBuild().getDirectory());
+			getLog().warn("No cucumber json files found in " + startDir);
 			return;
 		} else {
 			getLog().info("Generating living documentation for " + featuresFound.size() + " feature(s)...");
