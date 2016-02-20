@@ -37,6 +37,8 @@ import org.asciidoctor.OptionsBuilder;
 import org.asciidoctor.SafeMode;
 
 import java.io.File;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
@@ -71,7 +73,12 @@ public class CukedoctorMojo extends AbstractMojo {
 
 
 	public void execute() throws MojoExecutionException, MojoFailureException {
-		Set<Feature> featuresFound = new HashSet<>(FeatureParser.findAndParse(project.getBuild().getDirectory()));
+		String startDir = new File(project.getBuild().getOutputDirectory()).getAbsolutePath();
+		 if(!new File(startDir).exists()){
+			 startDir = project.getBasedir().getAbsolutePath();
+	 	 }
+		getLog().info("Searching cucumber features in path: "+startDir);
+		Set<Feature> featuresFound = new HashSet<>(FeatureParser.findAndParse(startDir));
 		if (featuresFound == null || featuresFound.isEmpty()) {
 			getLog().warn("No cucumber json files found in " + project.getBuild().getDirectory());
 			return;
