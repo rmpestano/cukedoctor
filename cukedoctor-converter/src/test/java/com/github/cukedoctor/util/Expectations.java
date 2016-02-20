@@ -1,5 +1,6 @@
 package com.github.cukedoctor.util;
 
+import static com.github.cukedoctor.util.Constants.home;
 import static com.github.cukedoctor.util.Constants.newLine;
 
 /**
@@ -121,7 +122,7 @@ public interface Expectations {
 			""+newLine() +
 			"= *Living Documentation*"+newLine() +
 			""+newLine() +
-			"include::/home/pestano/projects/cukedoctor/cukedoctor-converter/target/test-classes/cukedoctor-intro.adoc[leveloffset=+1]"+newLine() + newLine() +
+			"include::"+home()+"target/test-classes/cukedoctor-intro.adoc[leveloffset=+1]"+newLine() + newLine() +
 			"== *Summary*"+newLine() +
 			"[cols=\"12*^m\", options=\"header,footer\"]"+newLine() +
 			"|==="+newLine() +
@@ -200,7 +201,7 @@ public interface Expectations {
 			""+newLine() +
 			"= *Living Documentation*"+newLine() +
 			""+newLine() +
-			"include::/home/pestano/projects/cukedoctor/cukedoctor-converter/target/test-classes/cukedoctor-intro.adoc[leveloffset=+1]"+newLine() + newLine() +
+			"include::"+home()+"target/test-classes/cukedoctor-intro.adoc[leveloffset=+1]"+newLine() + newLine() +
 			"== *Summary*"+newLine() +
 			"[cols=\"12*^m\", options=\"header,footer\"]"+newLine() +
 			"|==="+newLine() +
@@ -433,7 +434,7 @@ public interface Expectations {
 			""+newLine() +
 			"= *Doc Title*"+newLine() +
 			""+newLine() +
-			"include::/home/pestano/projects/cukedoctor/cukedoctor-converter/target/test-classes/cukedoctor-intro.adoc[leveloffset=+1]"+newLine() + newLine() +
+			"include::"+home()+"target/test-classes/cukedoctor-intro.adoc[leveloffset=+1]"+newLine() + newLine() +
 			"== *Resumo*"+newLine() +
 			"[cols=\"12*^m\", options=\"header,footer\"]"+newLine() +
 			"|==="+newLine() +

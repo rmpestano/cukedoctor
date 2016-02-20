@@ -1,5 +1,7 @@
 package com.github.cukedoctor.util;
 
+import java.nio.file.Paths;
+
 /**
  * Created by pestano on 04/06/15.
  */
@@ -10,6 +12,15 @@ public abstract class Constants {
 
 	public static String newLine() {
 		return System.getProperty("line.separator");
+	}
+
+	public static String home() {
+		String homeDir = Paths.get("").toAbsolutePath().toString();
+		if(!homeDir.endsWith("/")){
+			homeDir += "/";
+		}
+
+		return homeDir;
 	}
 
 	public abstract static class Markup {
