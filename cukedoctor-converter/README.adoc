@@ -66,7 +66,7 @@ Cukedoctor can use internationalization in two flavours:
 
 === Reading features
 
-Cucumber feature languages are provided via comments in feature file, https://github.com/cucumber/cucumber/wiki/Spoken-languages[see here^] for examples.
+Cucumber feature languages are provided via comments in a feature file, https://github.com/cucumber/cucumber/wiki/Spoken-languages[see here^] for examples.
 
 If your feature language is *not* supported by Cukedoctor you can https://github.com/rmpestano/cukedoctor/tree/master/cukedoctor-converter/src/main/resources/i18n[contribute it here^] or use a custom bundle.
 
