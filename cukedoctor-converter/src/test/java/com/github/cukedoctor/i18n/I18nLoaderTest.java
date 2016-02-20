@@ -44,28 +44,28 @@ public class I18nLoaderTest {
     @Test
     public void shouldLoadEnglishBundle(){
         I18nLoader i18nLoader = I18nLoader.newInstance(englishFeatures);
-        assertThat(i18nLoader.getMessage("title.features")).isEqualTo("Feature");
+        assertThat(i18nLoader.getMessage("title.features")).isEqualTo("Features");
         assertThat(i18nLoader.getMessage("title.summary")).isEqualTo("Summary");
     }
 
     @Test
     public void shouldLoadPortugueseBundle(){
         I18nLoader i18nLoader = I18nLoader.newInstance(portugueseFeatures);
-        assertThat(i18nLoader.getMessage("title.features")).isEqualTo("Funcionalidade");
+        assertThat(i18nLoader.getMessage("title.features")).isEqualTo("Funcionalidades");
         assertThat(i18nLoader.getMessage("title.summary")).isEqualTo("Resumo");
     }
 
     @Test
     public void shouldLoadSpanishBundle(){
         I18nLoader i18nLoader = I18nLoader.newInstance(spanishFeatures);
-        assertThat(i18nLoader.getMessage("title.features")).isEqualTo("Funcionalidade");
+        assertThat(i18nLoader.getMessage("title.features")).isEqualTo("Funcionalidades");
         assertThat(i18nLoader.getMessage("title.summary")).isEqualTo("Resumo");
     }
 
     @Test
     public void shouldLoadEnglishBundleForFeaturesWithNoLanguage(){
         I18nLoader i18nLoader = I18nLoader.newInstance(noLanguageFeatures);
-        assertThat(i18nLoader.getMessage("title.features")).isEqualTo("Feature");
+        assertThat(i18nLoader.getMessage("title.features")).isEqualTo("Features");
         assertThat(i18nLoader.getMessage("title.summary")).isEqualTo("Summary");
     }
 }
