@@ -19,7 +19,7 @@ import static com.github.cukedoctor.util.Assert.hasText;
  * </p>
  * Created by pestano on 19/02/16.
  */
-public class I18nLoader {
+public class I18nLoader extends ResourceBundle.Control{
 
     private static I18nLoader instance;
     private static Logger log = Logger.getLogger(I18nLoader.class.getName());
@@ -61,11 +61,22 @@ public class I18nLoader {
         if (!hasText(lang)) {
             lang = "en";
         }
-        if (lang != null) {
+        if (lang != null && bundle == null) {
+            InputStream stream = getBundleFromTargetTestFolder();
+            if(stream == null){
+                String bundleName = toBundleName("cukedoctor", Locale.forLanguageTag(lang));
+                String resourceName = toResourceName(bundleName, "properties");
+                stream = Thread.currentThread().getContextClassLoader().getResourceAsStream(resourceName);
+            }
             try {
-                bundle = ResourceBundle.getBundle("cukedoctor", Locale.forLanguageTag(lang), new UTF8Control());
-            } catch (MissingResourceException e) {
+                bundle = new PropertyResourceBundle(new InputStreamReader(stream, "UTF-8"));
+            } catch (Exception e) {
                 log.warning(String.format("No resource bundle found for language %s. Using 'cukedoctor_en.properties' as default bundle.", lang));
+                try {
+                    bundle = new PropertyResourceBundle(new InputStreamReader(Thread.currentThread().getContextClassLoader().getResourceAsStream("cukedoctor_en.properties"), "UTF-8"));
+                } catch (Exception e1) {
+                    throw new RuntimeException("Could not find cukedoctor resource bundle",e1);
+                }
             }
         }
     }
@@ -81,52 +92,26 @@ public class I18nLoader {
         return null;
     }
 
-    public static class UTF8Control extends ResourceBundle.Control {
-        public java.util.ResourceBundle newBundle
-                (String baseName, Locale locale, String format, ClassLoader loader, boolean reload)
-                throws IllegalAccessException, InstantiationException, IOException {
-            // The below code is copied from default Control#newBundle() implementation.
-            // Only the PropertyResourceBundle line is changed to read the file as UTF-8.
-
-            String bundleName = toBundleName(baseName, locale);
-            String resourceName = toResourceName(bundleName, "properties");
-            java.util.ResourceBundle bundle = null;
-            //client applications may provide a custom bundle
-            InputStream stream = getBundleFromTargetTestFolder();
-            if (stream == null) {
-                stream = loader.getResourceAsStream(resourceName);
+    /**
+     * looks for a file named cukedoctor.properties in target/test-classes
+     *
+     * client applications just need to have src/test/resources/cukedoctor.properties
+     *
+     * @return
+     */
+    private InputStream getBundleFromTargetTestFolder() {
+        List<String> files = FileUtil.findFiles("/target", new String[]{"**/*cukedoctor.properties"});
+        if(files != null && !files.isEmpty()){
+            String path = files.get(0);
+            log.fine("Loading cukedoctor resource bundle from: " + path);
+            File file = new File(path);
+            try {
+                return new FileInputStream(file);
+            } catch (Exception e) {
+                log.log(Level.WARNING, "Could not load resource bundle from target folder", e);
             }
-            if (stream != null) {
-                try {
-                    bundle = new PropertyResourceBundle(new InputStreamReader(stream, "UTF-8"));
-                } finally {
-                    stream.close();
-                }
-            }
-            return bundle;
         }
-
-        /**
-         * looks for a file named cukedoctor.properties in target/test-classes
-         *
-         * client applications just need to have src/test/resources/cukedoctor.properties
-         *
-         * @return
-         */
-        private InputStream getBundleFromTargetTestFolder() {
-            List<String> files = FileUtil.findFiles("/target", new String[]{"**/*cukedoctor.properties"});
-            if(files != null && !files.isEmpty()){
-                String path = files.get(0);
-                log.fine("Loading cukedoctor resource bundle from: " + path);
-                File file = new File(path);
-                try {
-                    return new FileInputStream(file);
-                } catch (Exception e) {
-                    log.log(Level.WARNING, "Could not load resource bundle from target folder", e);
-                }
-            }
-            return null;
-        }
-
+        return null;
     }
+
 }
