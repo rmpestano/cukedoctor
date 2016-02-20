@@ -1,6 +1,7 @@
 package com.github.cukedoctor.i18n;
 
 import com.github.cukedoctor.api.model.Feature;
+import com.github.cukedoctor.util.FileUtil;
 
 import java.io.*;
 import java.nio.file.Paths;
@@ -113,10 +114,11 @@ public class I18nLoader {
          * @return
          */
         private InputStream getBundleFromTargetTestFolder() {
-            String resourcePath = (Paths.get("").toAbsolutePath() + "/target/test-classes/cukedoctor.properties").replaceAll("//", "/");
-            File file = new File(resourcePath);
-            if (file.exists()) {
-                log.fine("Loading cukedoctor resource bundle from: " + resourcePath);
+            List<String> files = FileUtil.findFiles("/target", new String[]{"**/*cukedoctor.properties"});
+            if(files != null && !files.isEmpty()){
+                String path = files.get(0);
+                log.fine("Loading cukedoctor resource bundle from: " + path);
+                File file = new File(path);
                 try {
                     return new FileInputStream(file);
                 } catch (Exception e) {
