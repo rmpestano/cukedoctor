@@ -122,7 +122,7 @@ public interface Expectations {
 			""+newLine() +
 			"= *Living Documentation*"+newLine() +
 			""+newLine() +
-			"include::"+home()+"target/test-classes/cukedoctor-intro.adoc[leveloffset=+1]"+newLine() + newLine() +
+			"include::"+home()+"cukedoctor-intro.adoc[leveloffset=+1]"+newLine() + newLine() +
 			"== *Summary*"+newLine() +
 			"[cols=\"12*^m\", options=\"header,footer\"]"+newLine() +
 			"|==="+newLine() +
@@ -201,7 +201,7 @@ public interface Expectations {
 			""+newLine() +
 			"= *Living Documentation*"+newLine() +
 			""+newLine() +
-			"include::"+home()+"target/test-classes/cukedoctor-intro.adoc[leveloffset=+1]"+newLine() + newLine() +
+			"include::"+home()+"cukedoctor-intro.adoc[leveloffset=+1]"+newLine() + newLine() +
 			"== *Summary*"+newLine() +
 			"[cols=\"12*^m\", options=\"header,footer\"]"+newLine() +
 			"|==="+newLine() +
@@ -434,7 +434,7 @@ public interface Expectations {
 			""+newLine() +
 			"= *Doc Title*"+newLine() +
 			""+newLine() +
-			"include::"+home()+"target/test-classes/cukedoctor-intro.adoc[leveloffset=+1]"+newLine() + newLine() +
+			"include::"+home()+"cukedoctor-intro.adoc[leveloffset=+1]"+newLine() + newLine() +
 			"== *Resumo*"+newLine() +
 			"[cols=\"12*^m\", options=\"header,footer\"]"+newLine() +
 			"|==="+newLine() +

@@ -1,5 +1,7 @@
 package com.github.cukedoctor.util;
 
+import com.github.cukedoctor.converter.CukedoctorConverterImpl;
+
 import java.nio.file.Paths;
 
 /**
@@ -15,7 +17,7 @@ public abstract class Constants {
 	}
 
 	public static String home() {
-		String homeDir = Paths.get("").toAbsolutePath().toString();
+		String homeDir = Thread.currentThread().getContextClassLoader().getResource("").getPath();
 		if(!homeDir.endsWith("/")){
 			homeDir += "/";
 		}
