@@ -40,6 +40,67 @@ NOTE: *plugins* option replaced *format* option which was deprecated in newer cu
 
 ====
 
+== Introduction Chapter
+
+You can add a custom introduction chapter to your living documentations by placing a file named *cukedoctor-intro.adoc* anywhere on your classpath.
+
+The content of the file will be placed between Documentation title and summary section. Here's an example of cukedoctor-intro.adoc:
+
+----
+= *This is a sample introduction chapter*
+
+Introduction chapter is the place where you can insert custom content for yor living documentation.
+
+== Sub section
+Introduction chapter can have subsections
+----
+
+Here is rendered documentation:
+
+image::cukedoctor-intro.png[]
+
+
+== Internationalization
+
+Cukedoctor can use internationalization in two flavours:
+
+=== Reading features
+
+Cucumber feature languages are provided via comments in feature file, https://github.com/cucumber/cucumber/wiki/Spoken-languages[see here^] for examples.
+
+If your feature language is *not* supported by Cukedoctor you can https://github.com/rmpestano/cukedoctor/tree/master/cukedoctor-converter/src/main/resources/i18n[contribute it here^] or use a custom bundle.
+
+=== Custom resource bundle
+
+Another way of internationalization is to provide a custom bundle.
+
+If you do so Cukedoctor will ignore feature language and will use provided resource bundle.
+
+The name of the file must be *cukedoctor.properties* and can be anywhere in your classpath.
+
+Here are the key values you must provide to customize your documentation:
+
+----
+title.features = Features
+title.summary = Summary
+title.scenario = Scenario
+
+#result
+result.passed = Passed
+result.failed = Failed
+result.skipped = Skipped
+result.pending = Pending
+result.undefined= Undefined
+result.missing = Missing
+----
+
+=== Supported locales
+Cukdoctor currently supports the following locales *en*, *es* and *pt*.
+
+Here are the https://github.com/rmpestano/cukedoctor/tree/master/cukedoctor-converter/src/main/resources[supported locales^]
+
+
+
 == Maven coordinates
 
 [source,xml]
@@ -47,6 +108,6 @@ NOTE: *plugins* option replaced *format* option which was deprecated in newer cu
  <dependency>
       <groupId>com.github.cukedoctor</groupId>
       <artifactId>cukedoctor-converter</artifactId>
-      <version>0.6.1</version>
+      <version>0.7.0</version>
   </dependency>
 ----

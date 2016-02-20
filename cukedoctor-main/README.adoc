@@ -41,4 +41,4 @@ java -jar cukedoctor-main.jar -o "target/document-one" -p "target/test-classes/j
 							   -t "Living Documentation" -f html
 ****
 
-You can download Cukedoctor main https://bintray.com/artifact/download/rmpestano/cukedoctor/com/github/cukedoctor/cukedoctor-main/0.6.1/cukedoctor-main-0.6.1.jar[jar here^]
+You can download Cukedoctor main https://bintray.com/artifact/download/rmpestano/cukedoctor/com/github/cukedoctor/cukedoctor-main/0.7.0/cukedoctor-main-0.7.0.jar[jar here^]

@@ -1,4 +1,4 @@
-= This is a sample introduction chapter
+= *This is a sample introduction chapter*
 
 Introduction chapter is the place where you can insert custom content for yor living documentation.
 
