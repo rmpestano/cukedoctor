@@ -71,6 +71,11 @@ public class CukedoctorConverterImpl implements CukedoctorConverter {
 
 	public void renderIntro() {
 		String baseDir = Paths.get("").toAbsolutePath().toString();
+		String baseTargetDir = (baseDir +"/target").replaceAll("//","/");
+		if(new File(baseTargetDir).exists()){
+			//try to limit search to target dir
+			baseDir = baseTargetDir;
+		}
 		List<String> files = FileUtil.findFiles(baseDir, new String[]{"**/*cukedoctor-intro.adoc","**/*cukedoctor-intro.asciidoc"});
 		if(files != null && !files.isEmpty()){
 			String introPath = files.get(0);
