@@ -641,7 +641,7 @@ public class CukedoctorConverterTest {
 		CukedoctorConverter converter = Cukedoctor.instance(features, new DocumentAttributes().docTitle("Doc Title"));
 
 		String resultDoc = converter.renderStepTable(features.get(0).getScenarios().get(0).getSteps().get(0)).renderDocumentation();
-		assertThat(resultDoc).isEqualTo(Expectations.FEATURE_WITH_STEP_TABLE);
+		assertThat(resultDoc).isEqualTo(Expectations.FEATURE_WITH_STEP_TABLE_IN_PT_BR);
 	}
 
 
