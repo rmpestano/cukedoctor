@@ -149,7 +149,10 @@ public class CukedoctorMojo extends AbstractMojo {
 	String getDocumentationDir() {
 		String baseDir = project.getBuild().getDirectory();
 		if (baseDir == null) {
-			baseDir = "target/";
+			baseDir = project.getBasedir().getAbsolutePath();
+			if(baseDir == null){
+				baseDir = "/";
+			}
 		}
 		if (!baseDir.endsWith("/")) {
 			baseDir = baseDir + "/";
