@@ -58,8 +58,8 @@ public class I18nLoaderTest {
     @Test
     public void shouldLoadSpanishBundle(){
         I18nLoader i18nLoader = I18nLoader.newInstance(spanishFeatures);
-        assertThat(i18nLoader.getMessage("title.features")).isEqualTo("Funcionalidades");
-        assertThat(i18nLoader.getMessage("title.summary")).isEqualTo("Resumo");
+        assertThat(i18nLoader.getMessage("title.features")).isEqualTo("Características");
+        assertThat(i18nLoader.getMessage("title.summary")).isEqualTo("Resumen");
     }
 
     @Test
