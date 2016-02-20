@@ -1,6 +1,7 @@
 package com.github.cukedoctor.api.model;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.github.cukedoctor.api.ScenarioResults;
 import com.github.cukedoctor.api.StepResults;
@@ -13,6 +14,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicInteger;
 
+import static com.github.cukedoctor.util.Assert.hasText;
 import static com.github.cukedoctor.util.Assert.notEmpty;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
@@ -28,6 +30,9 @@ public class Feature {
 	private List<Tag> tags = new ArrayList<>();
 	private StepResults stepResults;
 	private ScenarioResults scenarioResults;
+	private List<Comment> comments;
+	@JsonIgnore
+	private String language;
 
 	public Feature() {
 
@@ -110,6 +115,13 @@ public class Feature {
 		return scenarioResults;
 	}
 
+	public List<Comment> getComments() {
+		return comments;
+	}
+
+	public void setComments(List<Comment> comments) {
+		this.comments = comments;
+	}
 
 	public Integer getNumberOfScenarios() {
 		Integer result = 0;
@@ -225,6 +237,21 @@ public class Feature {
 
 	public boolean isCucumberFeature() {
 		return this.getName() != null && this.getKeyword() != null && (this.elements != null && !this.elements.isEmpty());
+	}
+
+	public String getLanguage(){
+		if(language == null && comments != null){
+			for (Comment comment : comments) {
+				if(hasText(comment.getLanguage())){
+					this.language = comment.getLanguage();
+				}
+			}
+		}
+		if(language == null){
+			this.language = "";
+		}
+
+		return language;
 	}
 
 	@Override

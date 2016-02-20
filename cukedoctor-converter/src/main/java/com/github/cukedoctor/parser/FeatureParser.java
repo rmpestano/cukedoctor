@@ -43,13 +43,13 @@ public class FeatureParser {
 			}
 
 		} catch (FileNotFoundException e) {
-			log.warning("Could not find json file:" + json);
+			log.log(Level.WARNING, "Could not find json file:" + json,e);
 		} catch (JsonMappingException e) {
-			log.warning("Could not map json file:" + json);
+			log.log(Level.WARNING, "Could not map json file:" + json, e);
 		} catch (JsonParseException e) {
-			log.warning("Could not parse json file:" + json);
+			log.log(Level.WARNING, "Could not parse json file:" + json,e);
 		} catch (IOException e) {
-			log.warning("Could not read json file:" + json);
+			log.log(Level.WARNING, "Could not read json file:" + json,e);
 		}
 		if(features != null){
 			sortFeatures(features);

@@ -7,7 +7,6 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;
 
-import java.io.File;
 import java.io.IOException;
 import java.nio.file.Paths;
 import java.util.List;
@@ -16,7 +15,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.Assert.assertNull;
 
 /**
- * Created by rafael-pestano on 03/06/2015.
+ * Created by rafael-pestano on 03/09/2015.
  */
 @RunWith(JUnit4.class)
 public class FeatureParserTest {
@@ -40,27 +39,27 @@ public class FeatureParserTest {
 	@Test
 	public void shouldParseFeaturesInDir() throws IOException {
 		List<String> paths = FileUtil.findJsonFiles("target/test-classes/json-output");
-		assertThat(paths).hasSize(8);
+		assertThat(paths).hasSize(11);
 		List<Feature> features = FeatureParser.parse(paths);
-		assertThat(features).hasSize(6).contains(FeatureBuilder.instance().name("An embed data directly feature").id("an-embed-data-directly-feature").build());
+		assertThat(features).hasSize(9).contains(FeatureBuilder.instance().name("An embed data directly feature").id("an-embed-data-directly-feature").build());
 	}
 
 	@Test
 	public void shouldParseAndFindFeaturesInDir() throws IOException {
 		List<Feature> features = FeatureParser.findAndParse("target/test-classes/json-output");
-		assertThat(features).hasSize(6).contains(FeatureBuilder.instance().name("An embed data directly feature").id("an-embed-data-directly-feature").build());
+		assertThat(features).hasSize(9).contains(FeatureBuilder.instance().name("An embed data directly feature").id("an-embed-data-directly-feature").build());
 	}
 
 	@Test
 	public void shouldParseAndFindFeaturesInDirUsingLeadingSlash() throws IOException {
 		List<Feature> features = FeatureParser.findAndParse("/target/test-classes/json-output");
-		assertThat(features).hasSize(6).contains(FeatureBuilder.instance().name("An embed data directly feature").id("an-embed-data-directly-feature").build());
+		assertThat(features).hasSize(9).contains(FeatureBuilder.instance().name("An embed data directly feature").id("an-embed-data-directly-feature").build());
 	}
 
 	@Test
 	public void shouldParseAndFindFeaturesInDirUsingAbsoluteath() throws IOException {
 		List<Feature> features = FeatureParser.findAndParse(Paths.get("").toAbsolutePath().toString() +"/target/test-classes/json-output");
-		assertThat(features).hasSize(6).contains(FeatureBuilder.instance().name("An embed data directly feature").id("an-embed-data-directly-feature").build());
+		assertThat(features).hasSize(9).contains(FeatureBuilder.instance().name("An embed data directly feature").id("an-embed-data-directly-feature").build());
 	}
 
 	@Test

@@ -3,6 +3,7 @@ package com.github.cukedoctor.converter;
 import com.github.cukedoctor.api.*;
 import com.github.cukedoctor.api.model.*;
 import com.github.cukedoctor.config.CukedoctorConfig;
+import com.github.cukedoctor.i18n.I18nLoader;
 import com.github.cukedoctor.util.FileUtil;
 import com.github.cukedoctor.util.Formatter;
 
@@ -24,6 +25,7 @@ public class CukedoctorConverterImpl implements CukedoctorConverter {
 	private DocumentAttributes documentAttributes;
 	private String filename;
 	private CukedoctorDocumentBuilder docBuilder;
+	private I18nLoader i18n;
 
 	private ScenarioTotalizations scenarioTotalizations;
 
@@ -31,6 +33,7 @@ public class CukedoctorConverterImpl implements CukedoctorConverter {
 		this.features = features;
 		this.documentAttributes = attrs;
 		docBuilder = CukedoctorDocumentBuilder.Factory.newInstance();
+		i18n = I18nLoader.instance(features);
 	}
 
 
@@ -56,7 +59,7 @@ public class CukedoctorConverterImpl implements CukedoctorConverter {
 		docBuilder.documentTitle(bold(getDocumentationTitle()));
 		renderSummary();
 		docBuilder.newLine();
-		docBuilder.sectionTitleLevel1(bold("Features")).newLine();
+		docBuilder.sectionTitleLevel1(bold(i18n.getMessage("title.features"))).newLine();
 		renderFeatures(features);
 		//generateDocInfo();
 		//generatePdfTheme();
@@ -121,24 +124,24 @@ public class CukedoctorConverterImpl implements CukedoctorConverter {
 	}
 
 	public CukedoctorConverterImpl renderSummary() {
-		docBuilder.textLine(H2(bold("Summary")));
+		docBuilder.textLine(H2(bold(i18n.getMessage("title.summary"))));
 
 		//TODO convert to AsciidocMarkupBuilder
 		docBuilder.append("[cols=\"12*^m\", options=\"header,footer\"]",newLine(),
 				"|===", newLine() +
-				"3+|Scenarios 7+|Steps 2+|Features: ", features.size() +
+				"3+|Scenarios 7+|Steps 2+|", i18n.getMessage("title.features"),": ", features.size() +
 				"", newLine() , newLine() +
-				"|[green]#*Passed*#" , newLine() ,
-				"|[red]#*Failed*#" , newLine() ,
+				"|[green]#*",i18n.getMessage("result.passed"),"*#" , newLine() ,
+				"|[red]#*",i18n.getMessage("result.failed"),"*#" , newLine() ,
 				"|Total" , newLine() ,
-				"|[green]#*Passed*#" , newLine() ,
-				"|[red]#*Failed*#" , newLine() ,
-				"|[purple]#*Skipped*#" , newLine() ,
-				"|[maroon]#*Pending*#" , newLine() ,
-				"|[yellow]#*Undefined*#" , newLine() ,
-				"|[blue]#*Missing*#" , newLine() ,
+				"|[green]#*", i18n.getMessage("result.passed"),"*#" , newLine() ,
+				"|[red]#*",i18n.getMessage("result.failed"),"*#" , newLine() ,
+				"|[purple]#*",i18n.getMessage("result.skipped"),"*#" , newLine() ,
+				"|[maroon]#*",i18n.getMessage("result.pending"),"*#" , newLine() ,
+				"|[yellow]#*",i18n.getMessage("result.undefined"),"*#" , newLine() ,
+				"|[blue]#*",i18n.getMessage("result.missing"),"*#" , newLine() ,
 				"|Total" , newLine() ,
-				"|Duration" , newLine() ,
+				"|Duration" , newLine(),
 				"|Status" ).newLine();
 
 

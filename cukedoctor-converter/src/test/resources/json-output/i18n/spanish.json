@@ -1,0 +1,148 @@
+[
+  {
+    "comments": [
+      {
+        "line": 1,
+        "value": "# language: es"
+      }
+    ],
+    "line": 3,
+    "elements": [
+      {
+        "line": 8,
+        "name": "Generate documentation of a single file",
+        "description": "",
+        "id": "cukedoctor-main;generate-documentation-of-a-single-file",
+        "type": "scenario",
+        "keyword": "Escenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 139108176,
+              "status": "passed"
+            },
+            "line": 9,
+            "name": "A Cucumber json execution file is are already generated",
+            "match": {
+              "location": "CukedoctorMainSteps.A_Cucumber_json_execution_file_is_are_already_generated()"
+            },
+            "keyword": "Dado "
+          },
+          {
+            "result": {
+              "duration": 4658484718,
+              "status": "passed"
+            },
+            "line": 10,
+            "name": "I execute CukedoctorMain with args \"-o target/test-classes/outputFile.adoc\" \"-p target/test-classes/json-output/one_passing_one_failing.json\" and \"-t Documentation\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "-o target/test-classes/outputFile.adoc",
+                  "offset": 36
+                },
+                {
+                  "val": "-p target/test-classes/json-output/one_passing_one_failing.json",
+                  "offset": 77
+                },
+                {
+                  "val": "-t Documentation",
+                  "offset": 147
+                }
+              ],
+              "location": "CukedoctorMainSteps.I_execute_CukedoctorMain_with_args_and(String,String,String)"
+            },
+            "keyword": "Cuando "
+          },
+          {
+            "result": {
+              "duration": 2054294,
+              "status": "passed"
+            },
+            "line": 11,
+            "name": "A file named outputFile.adoc should be generated with the following content:",
+            "match": {
+              "location": "CukedoctorMainSteps.A_file_named_outputFile_adoc_should_be_generated_with_the_following_content(String)"
+            },
+            "keyword": "Entonces ",
+            "doc_string": {
+              "content_type": "",
+              "line": 12,
+              "value": " :toc: right\n:backend: html5\n:doctitle: Documentation\n:doctype: book\n:icons: font\n:!numbered:\n:!linkcss:\n:sectanchors:\n:sectlink:\n:docinfo:\n:toclevels: 3\n\n\u003d *Documentation*\n\n\u003d\u003d *Summary*\n[cols\u003d\"12*^m\", options\u003d\"header,footer\"]\n|\u003d\u003d\u003d\n3+|Scenarios 7+|Steps 2+|Features: 1\n\n|[green]#*Passed*#\n|[red]#*Failed*#\n|Total\n|[green]#*Passed*#\n|[red]#*Failed*#\n|[purple]#*Skipped*#\n|[maroon]#*Pending*#\n|[yellow]#*Undefined*#\n|[blue]#*Missing*#\n|Total\n|Duration\n|Status\n\n12+^|*\u003c\u003cOne-passing-scenario-one-failing-scenario\u003e\u003e*\n|1\n|1\n|2\n|1\n|1\n|0\n|0\n|0\n|0\n|2\n|010ms\n|[red]#*failed*#\n12+^|*Totals*\n|1|1|2|1|1|0|0|0|0|2 2+|010ms\n|\u003d\u003d\u003d\n\n\u003d\u003d *Features*\n\n[[One-passing-scenario-one-failing-scenario, One passing scenario, one failing scenario]]\n\u003d\u003d\u003d *One passing scenario, one failing scenario*\n\nminmax::One-passing-scenario-one-failing-scenario[]\n\u003d\u003d\u003d\u003d Scenario: Passing\n[small]#tags: @a,@b#\n\n****\nGiven ::\nthis step passes icon:thumbs-up[role\u003d\"green\",title\u003d\"Passed\"] [small right]#(001ms)#\n****\n\n\u003d\u003d\u003d\u003d Scenario: Failing\n[small]#tags: @a,@c#\n\n****\nGiven ::\nthis step fails icon:thumbs-down[role\u003d\"red\",title\u003d\"Failed\"] [small right]#(008ms)#\n\nIMPORTANT:  (RuntimeError)\n./features/step_definitions/steps.rb:4:in /^this step fails$/\u0027\nfeatures/one_passing_one_failing.feature:10:in Given this step fails\u0027\n****"
+            }
+          }
+        ]
+      },
+      {
+        "line": 92,
+        "name": "Generate documentation using multiple files",
+        "description": "",
+        "id": "cukedoctor-main;generate-documentation-using-multiple-files",
+        "type": "scenario",
+        "keyword": "Escenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 34895,
+              "status": "passed"
+            },
+            "line": 93,
+            "name": "Cucumber multiple json execution files are already generate",
+            "match": {
+              "location": "CukedoctorMainSteps.Cucumber_multiple_json_execution_files_are_already_generate()"
+            },
+            "keyword": "Dado "
+          },
+          {
+            "result": {
+              "duration": 953666274,
+              "status": "passed"
+            },
+            "line": 94,
+            "name": "I execute CukedoctorMain with args \"-o target/test-classes/outputFile.adoc\" \"-p target/test-classes/json-output/\" and \"-t Documentation\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "-o target/test-classes/outputFile.adoc",
+                  "offset": 36
+                },
+                {
+                  "val": "-p target/test-classes/json-output/",
+                  "offset": 77
+                },
+                {
+                  "val": "-t Documentation",
+                  "offset": 119
+                }
+              ],
+              "location": "CukedoctorMainSteps.I_execute_CukedoctorMain_with_args_and(String,String,String)"
+            },
+            "keyword": "Cuando "
+          },
+          {
+            "result": {
+              "duration": 1723911,
+              "status": "passed"
+            },
+            "line": 95,
+            "name": "A file named outputFile.adoc should be generated with the following content:",
+            "match": {
+              "location": "CukedoctorMainSteps.A_file_named_outputFile_adoc_should_be_generated_with_the_following_content(String)"
+            },
+            "keyword": "Entonces ",
+            "doc_string": {
+              "content_type": "",
+              "line": 96,
+              "value": " :toc: right\n:backend: html5\n:doctitle: Documentation\n:doctype: book\n:icons: font\n:!numbered:\n:!linkcss:\n:sectanchors:\n:sectlink:\n:docinfo:\n:toclevels: 3\n\n\u003d *Documentation*\n\n\u003d\u003d *Summary*\n[cols\u003d\"12*^m\", options\u003d\"header,footer\"]\n|\u003d\u003d\u003d\n3+|Scenarios 7+|Steps 2+|Features: 4\n\n|[green]#*Passed*#\n|[red]#*Failed*#\n|Total\n|[green]#*Passed*#\n|[red]#*Failed*#\n|[purple]#*Skipped*#\n|[maroon]#*Pending*#\n|[yellow]#*Undefined*#\n|[blue]#*Missing*#\n|Total\n|Duration\n|Status\n\n12+^|*\u003c\u003cAn-embed-data-directly-feature\u003e\u003e*\n|3\n|0\n|3\n|3\n|0\n|0\n|0\n|0\n|0\n|3\n|000ms\n|[green]#*passed*#\n\n12+^|*\u003c\u003cAn-outline-feature\u003e\u003e*\n|0\n|0\n|0\n|0\n|0\n|0\n|0\n|0\n|0\n|0\n|000ms\n|[green]#*passed*#\n\n12+^|*\u003c\u003cOne-passing-scenario-one-failing-scenario\u003e\u003e*\n|1\n|1\n|2\n|1\n|1\n|0\n|0\n|0\n|0\n|2\n|010ms\n|[red]#*failed*#\n\n12+^|*\u003c\u003cSample-test\u003e\u003e*\n|1\n|1\n|2\n|3\n|1\n|0\n|0\n|0\n|0\n|4\n|10s 104ms\n|[red]#*failed*#\n12+^|*Totals*\n|5|2|7|7|2|0|0|0|0|9 2+|10s 114ms\n|\u003d\u003d\u003d\n\n\u003d\u003d *Features*\n\n[[An-embed-data-directly-feature, An embed data directly feature]]\n\u003d\u003d\u003d *An embed data directly feature*\n\nminmax::An-embed-data-directly-feature[]\n\u003d\u003d\u003d\u003d Scenario: scenario 1\n****\nGiven ::\nI embed data directly icon:thumbs-up[role\u003d\"green\",title\u003d\"Passed\"] [small right]#(000ms)#\n****\n\n\u003d\u003d\u003d\u003d Scenario Outline: scenario 2\n****\nGiven ::\nI embed data directly icon:thumbs-up[role\u003d\"green\",title\u003d\"Passed\"] [small right]#(000ms)#\n****\n\n****\nGiven ::\nI embed data directly icon:thumbs-up[role\u003d\"green\",title\u003d\"Passed\"] [small right]#(000ms)#\n****\n\n[[An-outline-feature, An outline feature]]\n\u003d\u003d\u003d *An outline feature*\n\nminmax::An-outline-feature[]\n\u003d\u003d\u003d\u003d Scenario Outline: outline\n\n.examples1\n[cols\u003d\"1*\", options\u003d\"header\"]\n|\u003d\u003d\u003d\n|status\n|passes\n|fails\n|\u003d\u003d\u003d\n\n.examples2\n[cols\u003d\"1*\", options\u003d\"header\"]\n|\u003d\u003d\u003d\n|status\n|passes\n|\u003d\u003d\u003d\n\n[[One-passing-scenario-one-failing-scenario, One passing scenario, one failing scenario]]\n\u003d\u003d\u003d *One passing scenario, one failing scenario*\n\nminmax::One-passing-scenario-one-failing-scenario[]\n\u003d\u003d\u003d\u003d Scenario: Passing\n[small]#tags: @a,@b#\n\n****\nGiven ::\nthis step passes icon:thumbs-up[role\u003d\"green\",title\u003d\"Passed\"] [small right]#(001ms)#\n****\n\n\u003d\u003d\u003d\u003d Scenario: Failing\n[small]#tags: @a,@c#\n\n****\nGiven ::\nthis step fails icon:thumbs-down[role\u003d\"red\",title\u003d\"Failed\"] [small right]#(008ms)#\n\nIMPORTANT:  (RuntimeError)\n./features/step_definitions/steps.rb:4:in /^this step fails$/\u0027\nfeatures/one_passing_one_failing.feature:10:in Given this step fails\u0027\n****\n\n[[Sample-test, Sample test]]\n\u003d\u003d\u003d *Sample test*\n\nminmax::Sample-test[]\n****\nAs a user  +\nI want to do something  +\nIn order to achieve another thing\n****\n\n\u003d\u003d\u003d\u003d Scenario Outline: Parsing scenarios with multiple examples\n\n.Example\n[cols\u003d\"2*\", options\u003d\"header\"]\n|\u003d\u003d\u003d\n|a\n|b\n|1\n|2\n|\u003d\u003d\u003d\n\n\u003d\u003d\u003d\u003d Scenario: Basic\n****\nGiven ::\nI navigate to the home page icon:thumbs-up[role\u003d\"green\",title\u003d\"Passed\"] [small right]#(044ms)#\nThen ::\nI see the text \u0027Home\u0027 icon:thumbs-up[role\u003d\"green\",title\u003d\"Passed\"] [small right]#(001ms)#\n****\n\n\u003d\u003d\u003d\u003d Scenario: Basic failure\n****\nGiven ::\nI navigate to the home page icon:thumbs-up[role\u003d\"green\",title\u003d\"Passed\"] [small right]#(040ms)#\nThen ::\nI see the text \u0027Hacienda\u0027 icon:thumbs-down[role\u003d\"red\",title\u003d\"Failed\"] [small right]#(10s 017ms)#\n\nIMPORTANT: expected to find text \"Hacienda\" in \"Home | Login Clinical Studies some engaging copy View Available Studies\" (RSpec::Expectations::ExpectationNotMetError)\n./features/step_definitions/study_admin_steps.rb:14:in `/^I see the text \u0027(.+)\u0027$/\u0027\nfeatures/test_outline.feature:15:in `Then I see the text \u0027Hacienda\u0027\u0027\n****"
+            }
+          }
+        ]
+      }
+    ],
+    "name": "Cukedoctor Main",
+    "description": "As a user of CukedoctorMain\nI want to generate asciidoc files based on my cucumber test output\nSo that I can generate wonderful living documentation",
+    "id": "cukedoctor-main",
+    "keyword": "Característica",
+    "uri": "src/test/resources/features/cukedoctor_main.feature"
+  }
+]
