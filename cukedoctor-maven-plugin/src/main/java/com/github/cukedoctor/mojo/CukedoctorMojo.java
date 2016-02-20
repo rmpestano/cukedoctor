@@ -148,10 +148,12 @@ public class CukedoctorMojo extends AbstractMojo {
 	 */
 	String getDocumentationDir() {
 		String baseDir = project.getBuild().getDirectory();
-		if (baseDir == null) {
+		if (baseDir == null || new File(baseDir).exists()) {
 			baseDir = project.getBasedir().getAbsolutePath();
-			if(baseDir == null){
-				baseDir = "/";
+		    baseDir = baseDir + "/target";
+			if(!new File(baseDir).exists()){
+				//maven plugin declared in child module
+				baseDir = project.getBasedir().getAbsolutePath();
 			}
 		}
 		if (!baseDir.endsWith("/")) {
