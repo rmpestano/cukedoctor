@@ -101,7 +101,7 @@ public class I18nLoader extends ResourceBundle.Control{
      */
     private InputStream getBundleFromTargetTestFolder(String baseDir) {
         if(!new File(baseDir).exists()){
-            baseDir = "/";
+            baseDir = Paths.get("").toAbsolutePath().toString();
         }
         List<String> files = FileUtil.findFiles(baseDir, new String[]{"**/*cukedoctor.properties"});
         if(files != null && !files.isEmpty()){
