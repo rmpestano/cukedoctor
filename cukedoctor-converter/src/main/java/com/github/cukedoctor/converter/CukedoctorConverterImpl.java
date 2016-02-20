@@ -33,7 +33,7 @@ public class CukedoctorConverterImpl implements CukedoctorConverter {
 		this.features = features;
 		this.documentAttributes = attrs;
 		docBuilder = CukedoctorDocumentBuilder.Factory.newInstance();
-		i18n = I18nLoader.instance(features);
+		i18n = I18nLoader.newInstance(features);
 	}
 
 
