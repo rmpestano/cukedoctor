@@ -62,7 +62,7 @@
         <asciidoctorj-pdf.version>1.5.0-alpha.11</asciidoctorj-pdf.version>
         <joda-time.version>2.8.2</joda-time.version>
         <cucumber.version>1.2.4</cucumber.version>
-        <jacoco.version>0.7.5.201505241946</jacoco.version>
+        <jacoco.version>0.7.6.201602180812</jacoco.version>
     </properties>
 
 

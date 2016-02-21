@@ -83,3 +83,33 @@ You can also execute the plugin without building the project but make sure you a
 mvn cukedoctor:execute
 ----
 ====
+
+== Disable extensions
+
+Cukedoctor comes with 3 extensions to enhance documentation content:
+
+* Filter extension which add filter input at top right of the page;
+
+* Minimizable extension which lets you minimize maximize features (minus/plus icon next to feature name);
+
+* Theme extension to add theme support.
+
+NOTE: All extensions target html documentation.
+
+To disable extension you can use the following option in maven plugin:
+
+[source,xml]
+----
+  <configuration>
+            <outputFileName>documentation</outputFileName> <1>
+            <outputDir>docs</outputDir>
+            <format>all</format>
+            <toc>left</toc> <4>
+            <disableTheme>true</disableTheme>
+            <disableFilter>true</disableFilter>
+            <disableMinimizable>true</disableMinimizable>
+         </configuration>
+
+----
+
+NOTE: The value doesn't matter, if there is something in the attribute the extension will be disabled

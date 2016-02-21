@@ -99,6 +99,43 @@ Cukdoctor currently supports the following locales *en*, *es* and *pt*.
 
 Here are the https://github.com/rmpestano/cukedoctor/tree/master/cukedoctor-converter/src/main/resources[supported locales^]
 
+== Disable extensions
+
+Cukedoctor comes with 3 extensions to enhance documentation content:
+
+* Filter extension which lets features to be filtered using an input at top right of the page;
+
+* Minimizable extension which lets you minimize maximize features (minus/plus icon next to feature name);
+
+* Theme extension to add theme support.
+
+NOTE: All extensions target html documentation.
+
+To disable extension you can just clear system properties:
+
+[source,java]
+----
+   System.setProperty("cukedoctor.disable.theme","anyValue");
+
+   System.setProperty("cukedoctor.disable.filter","anyValue");
+
+   System.setProperty("cukedoctor.disable.minmax","anyValue");
+
+----
+
+NOTE: The value doesn't matter, if there is something in the system property the extension will be disabled.
+
+[TIP]
+====
+You can re-enable the extension by calling
+
+[source,java]
+----
+    System.clearProperty("cukedoctor.disable.theme");
+    System.clearProperty("cukedoctor.disable.filter");
+    System.clearProperty("cukedoctor.disable.minmax");
+----
+====
 
 
 == Maven coordinates
