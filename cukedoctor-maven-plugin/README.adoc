@@ -88,11 +88,11 @@ mvn cukedoctor:execute
 
 Cukedoctor comes with 3 extensions to enhance documentation content:
 
-* Filter extension which add filter input at top right of the page;
+* *Filter extension* which add filter input at top right of the page;
 
-* Minimizable extension which lets you minimize maximize features (minus/plus icon next to feature name);
+* *Minimizable extension* which lets you minimize maximize features (minus/plus icon next to feature name);
 
-* Theme extension to add theme support.
+* *Theme extension* to add theme support.
 
 NOTE: All extensions target html documentation.
 
