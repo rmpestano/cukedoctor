@@ -1,6 +1,6 @@
 :toc: right
 :backend: pdf
-:doctitle: Living Documentation
+:doctitle: jekyll-documentation
 :doctype: book
 :icons: font
 :!numbered:
@@ -10,7 +10,7 @@
 :docinfo:
 :toclevels: 3
 
-= *Living Documentation*
+= *jekyll-documentation*
 
 == *Summary*
 [cols="12*^m", options="header,footer"]
@@ -200,17 +200,17 @@
 
 12+^|*<<Post-data>>*
 |21
-|1
-|22
+|0
+|21
 |155
 |0
 |0
 |0
 |0
-|5
-|160
+|0
+|155
 |12s 729ms
-|[red]#*failed*#
+|[green]#*passed*#
 
 12+^|*<<Post-excerpts>>*
 |3
@@ -242,47 +242,47 @@
 
 12+^|*<<Site-configuration>>*
 |18
-|1
-|19
+|0
+|18
 |141
 |0
 |0
 |0
 |0
-|7
-|148
+|0
+|141
 |10s 312ms
-|[red]#*failed*#
+|[green]#*passed*#
 
 12+^|*<<Site-data>>*
 |10
-|1
-|11
+|0
+|10
 |51
 |0
 |0
 |0
 |0
-|5
-|56
+|0
+|51
 |05s 689ms
-|[red]#*failed*#
+|[green]#*passed*#
 
 12+^|*<<Site-pagination>>*
 |0
-|3
-|3
 |0
 |0
 |0
 |0
 |0
-|31
-|31
+|0
+|0
+|0
+|0
 |000ms
-|[red]#*failed*#
+|[green]#*passed*#
 12+^|*Totals*
-|152|6|158|1111|0|0|0|0|48|1159 2+|01m 35s 384ms
+|152|0|152|1111|0|0|0|0|0|1111 2+|01m 35s 384ms
 |===
 
 == *Features*
@@ -297,6 +297,7 @@ And render them
 ****
 
 ==== Scenario: Unrendered collection
+
 ****
 Given ::
 I have an "index.html" page that contains "Collections: {{ site.methods }}" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
@@ -315,6 +316,7 @@ the "_site/methods/configuration.html" file should not exist icon:thumbs-up[role
 ****
 
 ==== Scenario: Rendered collection
+
 ****
 Given ::
 I have an "index.html" page that contains "Collections: {{ site.collections }}" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
@@ -347,6 +349,7 @@ I should see "<p>Whatever: foo.bar</p>" in "_site/methods/configuration.html" ic
 ****
 
 ==== Scenario: Rendered collection at a custom URL
+
 ****
 Given ::
 I have an "index.html" page that contains "Collections: {{ site.collections }}" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
@@ -371,6 +374,7 @@ I should see "<p>Whatever: foo.bar</p>" in "_site/methods/configuration/index.ht
 ****
 
 ==== Scenario: Rendered document in a layout
+
 ****
 Given ::
 I have an "index.html" page that contains "Collections: {{ site.collections }}" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
@@ -403,6 +407,7 @@ I should see "<div class='title'>Tom Preston-Werner</div>" in "_site/methods/sit
 ****
 
 ==== Scenario: Collections specified as an array
+
 ****
 Given ::
 I have an "index.html" page that contains "Collections: {% for method in site.methods %}{{ method.relative_path }} {% endfor %}" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
@@ -425,6 +430,7 @@ I should see "Collections: _methods/configuration.md _methods/escape-\+ #%20\[\]
 ****
 
 ==== Scenario: Collections specified as an hash
+
 ****
 Given ::
 I have an "index.html" page that contains "Collections: {% for method in site.methods %}{{ method.relative_path }} {% endfor %}" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
@@ -447,6 +453,7 @@ I should see "Collections: _methods/configuration.md _methods/escape-\+ #%20\[\]
 ****
 
 ==== Scenario: All the documents
+
 ****
 Given ::
 I have an "index.html" page that contains "All documents: {% for doc in site.documents %}{{ doc.relative_path }} {% endfor %}" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
@@ -469,6 +476,7 @@ I should see "All documents: _methods/configuration.md _methods/escape-\+ #%20\[
 ****
 
 ==== Scenario: Documents have an output attribute, which is the converted HTML
+
 ****
 Given ::
 I have an "index.html" page that contains "First document's output: {{ site.documents.first.output }}" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
@@ -491,6 +499,7 @@ I should see "First document's output: <p>Use <code>Jekyll.configuration</code> 
 ****
 
 ==== Scenario: Filter documents by where
+
 ****
 Given ::
 I have an "index.html" page that contains "{% assign items = site.methods | where: 'whatever','foo.bar' %}Item count: {{ items.size }}" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
@@ -513,6 +522,7 @@ I should see "Item count: 2" in "_site/index.html" icon:thumbs-up[role="green",t
 ****
 
 ==== Scenario: Sort by title
+
 ****
 Given ::
 I have an "index.html" page that contains "{% assign items = site.methods | sort: 'title' %}1. of {{ items.size }}: {{ items.first.output }}" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
@@ -535,6 +545,7 @@ I should see "1. of 7: <p>Page without title.</p>" in "_site/index.html" icon:th
 ****
 
 ==== Scenario: Sort by relative_path
+
 ****
 Given ::
 I have an "index.html" page that contains "Collections: {% assign methods = site.methods | sort: 'relative_path' %}{% for method in methods %}{{ method.title }}, {% endfor %}" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
@@ -565,6 +576,7 @@ I want to specify my own plugins that can modify Jekyll's behaviour
 ****
 
 ==== Scenario: Add a gem-based plugin
+
 ****
 Given ::
 I have an "index.html" file that contains "Whatever" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
@@ -581,12 +593,12 @@ I should see "this is a test" in "_site/test.txt" icon:thumbs-up[role="green",ti
 ****
 
 ==== Scenario: Add an empty whitelist to restrict all gems
+
 ****
 Given ::
 I have an "index.html" file that contains "Whatever" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 And ::
 I have a configuration file with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
-
 
 [cols="2*", options="header"]
 |===
@@ -609,12 +621,12 @@ the "_site/test.txt" file should not exist icon:thumbs-up[role="green",title="Pa
 ****
 
 ==== Scenario: Add a whitelist to restrict some gems but allow others
+
 ****
 Given ::
 I have an "index.html" file that contains "Whatever" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 And ::
 I have a configuration file with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
-
 
 [cols="2*", options="header"]
 |===
@@ -648,6 +660,7 @@ In order to share my awesome ideas with the interwebs
 ****
 
 ==== Scenario: Blank site
+
 ****
 Given ::
 I do not have a "test_blank" directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
@@ -662,6 +675,7 @@ the "test_blank/index.html" file should exist icon:thumbs-up[role="green",title=
 ****
 
 ==== Scenario: Basic site
+
 ****
 Given ::
 I have an "index.html" file that contains "Basic Site" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
@@ -674,12 +688,12 @@ I should see "Basic Site" in "_site/index.html" icon:thumbs-up[role="green",titl
 ****
 
 ==== Scenario: Basic site with a post
+
 ****
 Given ::
 I have a _posts directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 And ::
 I have the following post: icon:thumbs-up[role="green",title="Passed"] [small right]#(002ms)#
-
 
 [cols="3*", options="header"]
 |===
@@ -700,6 +714,7 @@ I should see "My First Exploit" in "_site/2009/03/27/hackers.html" icon:thumbs-u
 ****
 
 ==== Scenario: Basic site with layout and a page
+
 ****
 Given ::
 I have a _layouts directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
@@ -716,6 +731,7 @@ I should see "Page Layout: Basic Site with Layout" in "_site/index.html" icon:th
 ****
 
 ==== Scenario: Basic site with layout and a post
+
 ****
 Given ::
 I have a _layouts directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
@@ -723,7 +739,6 @@ And ::
 I have a _posts directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 And ::
 I have the following posts: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
-
 
 [cols="4*", options="header"]
 |===
@@ -748,6 +763,7 @@ I should see "Post Layout: <p>The only winning move is not to play.</p>" in "_si
 ****
 
 ==== Scenario: Basic site with layout inside a subfolder and a post
+
 ****
 Given ::
 I have a _layouts directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
@@ -755,7 +771,6 @@ And ::
 I have a _posts directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 And ::
 I have the following posts: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
-
 
 [cols="4*", options="header"]
 |===
@@ -780,6 +795,7 @@ I should see "Post Layout: <p>The only winning move is not to play.</p>" in "_si
 ****
 
 ==== Scenario: Basic site with layouts, pages, posts and files
+
 ****
 Given ::
 I have a _layouts directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
@@ -802,7 +818,6 @@ I have a _posts directory icon:thumbs-up[role="green",title="Passed"] [small rig
 And ::
 I have the following posts: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 
-
 [cols="4*", options="header"]
 |===
 |title
@@ -823,7 +838,6 @@ And ::
 I have a category/_posts directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 And ::
 I have the following posts in "category": icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
-
 
 [cols="4*", options="header"]
 |===
@@ -864,6 +878,7 @@ I should see "Post entry4: <p>content for entry4.</p>" in "_site/category/2009/0
 ****
 
 ==== Scenario: Basic site with include tag
+
 ****
 Given ::
 I have a _includes directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
@@ -880,6 +895,7 @@ I should see "Basic Site with include tag: Generated by Jekyll" in "_site/index.
 ****
 
 ==== Scenario: Basic site with subdir include tag
+
 ****
 Given ::
 I have a _includes directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
@@ -898,6 +914,7 @@ I should see "Basic Site with subdir include tag: Generated by Jekyll" in "_site
 ****
 
 ==== Scenario: Basic site with nested include tag
+
 ****
 Given ::
 I have a _includes directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
@@ -916,6 +933,7 @@ I should see "Basic Site with include tag: Generated by Jekyll" in "_site/index.
 ****
 
 ==== Scenario: Basic site with internal post linking
+
 ****
 Given ::
 I have an "index.html" page that contains "URL: {% post_url 2020-01-31-entry2 %}" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
@@ -925,7 +943,6 @@ And ::
 I have a _posts directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 And ::
 I have the following posts: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
-
 
 [cols="4*", options="header"]
 |===
@@ -952,6 +969,7 @@ I should see "URL: /2020/01/31/entry2/" in "_site/index.html" icon:thumbs-up[rol
 ****
 
 ==== Scenario: Basic site with whitelisted dotfile
+
 ****
 Given ::
 I have an ".htaccess" file that contains "SomeDirective" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
@@ -964,6 +982,7 @@ I should see "SomeDirective" in "_site/.htaccess" icon:thumbs-up[role="green",ti
 ****
 
 ==== Scenario: File was replaced by a directory
+
 ****
 Given ::
 I have a "test" file that contains "some stuff" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
@@ -986,6 +1005,7 @@ I should see "some other stuff" in "_site/test/index.html" icon:thumbs-up[role="
 ****
 
 ==== Scenario: Basic site with unpublished page
+
 ****
 Given ::
 I have an "index.html" page with title "index" that contains "Published page" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
@@ -1025,6 +1045,7 @@ I want to use _data directory in my site
 ****
 
 ==== Scenario: autoload *.yaml files in _data directory
+
 ****
 Given ::
 I have a _data directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
@@ -1051,6 +1072,7 @@ I should see "salt" in "_site/index.html" icon:thumbs-up[role="green",title="Pas
 ****
 
 ==== Scenario: autoload *.yml files in _data directory
+
 ****
 Given ::
 I have a _data directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
@@ -1077,6 +1099,7 @@ I should see "Leon" in "_site/index.html" icon:thumbs-up[role="green",title="Pas
 ****
 
 ==== Scenario: autoload *.json files in _data directory
+
 ****
 Given ::
 I have a _data directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
@@ -1100,6 +1123,7 @@ I should see "Leon" in "_site/index.html" icon:thumbs-up[role="green",title="Pas
 ****
 
 ==== Scenario: autoload *.csv files in _data directory
+
 ****
 Given ::
 I have a _data directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
@@ -1125,6 +1149,7 @@ I should see "Leon" in "_site/index.html" icon:thumbs-up[role="green",title="Pas
 ****
 
 ==== Scenario: autoload *.yml files in _data directory with space in file name
+
 ****
 Given ::
 I have a _data directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
@@ -1151,6 +1176,7 @@ I should see "Leon" in "_site/index.html" icon:thumbs-up[role="green",title="Pas
 ****
 
 ==== Scenario: autoload *.yaml files in subdirectories in _data directory
+
 ****
 Given ::
 I have a _data directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
@@ -1174,6 +1200,7 @@ I should see "Dairy Products" in "_site/index.html" icon:thumbs-up[role="green",
 ****
 
 ==== Scenario: folders should have precedence over files with the same name
+
 ****
 Given ::
 I have a _data directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
@@ -1205,6 +1232,7 @@ I should see "Dairy Products" in "_site/index.html" icon:thumbs-up[role="green",
 ****
 
 ==== Scenario: should be backward compatible with site.data in _config.yml
+
 ****
 Given ::
 I have a "_config.yml" file with content: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
@@ -1239,6 +1267,7 @@ In order to see if they look alright before publishing
 ****
 
 ==== Scenario: Preview a draft
+
 ****
 Given ::
 I have a configuration file with "permalink" set to "none" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
@@ -1246,7 +1275,6 @@ And ::
 I have a _drafts directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 And ::
 I have the following draft: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
-
 
 [cols="4*", options="header"]
 |===
@@ -1269,6 +1297,7 @@ I should see "Not baked yet." in "_site/recipe.html" icon:thumbs-up[role="green"
 ****
 
 ==== Scenario: Don't preview a draft
+
 ****
 Given ::
 I have a configuration file with "permalink" set to "none" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
@@ -1278,7 +1307,6 @@ And ::
 I have a _drafts directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 And ::
 I have the following draft: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
-
 
 [cols="4*", options="header"]
 |===
@@ -1301,6 +1329,7 @@ the "_site/recipe.html" file should not exist icon:thumbs-up[role="green",title=
 ****
 
 ==== Scenario: Don't preview a draft that is not published
+
 ****
 Given ::
 I have a configuration file with "permalink" set to "none" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
@@ -1310,7 +1339,6 @@ And ::
 I have a _drafts directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 And ::
 I have the following draft: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
-
 
 [cols="5*", options="header"]
 |===
@@ -1335,6 +1363,7 @@ the "_site/recipe.html" file should not exist icon:thumbs-up[role="green",title=
 ****
 
 ==== Scenario: Use page.path variable
+
 ****
 Given ::
 I have a configuration file with "permalink" set to "none" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
@@ -1342,7 +1371,6 @@ And ::
 I have a _drafts directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 And ::
 I have the following draft: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
-
 
 [cols="4*", options="header"]
 |===
@@ -1374,6 +1402,7 @@ In order to perform cool stuff in my posts
 ****
 
 ==== Scenario: Convert date to XML schema
+
 ****
 Given ::
 I have a _posts directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
@@ -1381,7 +1410,6 @@ And ::
 I have a _layouts directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 And ::
 I have the following post: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
-
 
 [cols="4*", options="header"]
 |===
@@ -1406,6 +1434,7 @@ I should see today's date in "_site/2009/03/27/star-wars.html" icon:thumbs-up[ro
 ****
 
 ==== Scenario: Escape text for XML
+
 ****
 Given ::
 I have a _posts directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
@@ -1413,7 +1442,6 @@ And ::
 I have a _layouts directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 And ::
 I have the following post: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
-
 
 [cols="4*", options="header"]
 |===
@@ -1438,6 +1466,7 @@ I should see "Star &amp; Wars" in "_site/2009/03/27/star-wars.html" icon:thumbs-
 ****
 
 ==== Scenario: Calculate number of words
+
 ****
 Given ::
 I have a _posts directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
@@ -1445,7 +1474,6 @@ And ::
 I have a _layouts directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 And ::
 I have the following post: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
-
 
 [cols="4*", options="header"]
 |===
@@ -1470,6 +1498,7 @@ I should see "7" in "_site/2009/03/27/star-wars.html" icon:thumbs-up[role="green
 ****
 
 ==== Scenario: Convert an array into a sentence
+
 ****
 Given ::
 I have a _posts directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
@@ -1477,7 +1506,6 @@ And ::
 I have a _layouts directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 And ::
 I have the following post: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
-
 
 [cols="5*", options="header"]
 |===
@@ -1504,6 +1532,7 @@ I should see "scifi, movies, and force" in "_site/2009/03/27/star-wars.html" ico
 ****
 
 ==== Scenario: Markdownify a given string
+
 ****
 Given ::
 I have a _posts directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
@@ -1511,7 +1540,6 @@ And ::
 I have a _layouts directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 And ::
 I have the following post: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
-
 
 [cols="4*", options="header"]
 |===
@@ -1536,12 +1564,12 @@ I should see "By <p><em>Obi-wan</em></p>" in "_site/2009/03/27/star-wars.html" i
 ****
 
 ==== Scenario: Sort by an arbitrary variable
+
 ****
 Given ::
 I have a _layouts directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 And ::
 I have the following page: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
-
 
 [cols="4*", options="header"]
 |===
@@ -1557,7 +1585,6 @@ I have the following page: icon:thumbs-up[role="green",title="Passed"] [small ri
 
 And ::
 I have the following page: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
-
 
 [cols="4*", options="header"]
 |===
@@ -1584,12 +1611,12 @@ I should see exactly "Page-2, Page-1" in "_site/page-2.html" icon:thumbs-up[role
 ****
 
 ==== Scenario: Sort pages by the title
+
 ****
 Given ::
 I have a _layouts directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 And ::
 I have the following page: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
-
 
 [cols="3*", options="header"]
 |===
@@ -1604,7 +1631,6 @@ I have the following page: icon:thumbs-up[role="green",title="Passed"] [small ri
 And ::
 I have the following page: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 
-
 [cols="3*", options="header"]
 |===
 |title
@@ -1617,7 +1643,6 @@ I have the following page: icon:thumbs-up[role="green",title="Passed"] [small ri
 
 And ::
 I have the following page: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
-
 
 [cols="2*", options="header"]
 |===
@@ -1638,12 +1663,12 @@ I should see exactly "The rule of 3: Jump, Fly, Run," in "_site/bird.html" icon:
 ****
 
 ==== Scenario: Sort pages by the title ordering pages without title last
+
 ****
 Given ::
 I have a _layouts directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 And ::
 I have the following page: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
-
 
 [cols="3*", options="header"]
 |===
@@ -1658,7 +1683,6 @@ I have the following page: icon:thumbs-up[role="green",title="Passed"] [small ri
 And ::
 I have the following page: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 
-
 [cols="3*", options="header"]
 |===
 |title
@@ -1671,7 +1695,6 @@ I have the following page: icon:thumbs-up[role="green",title="Passed"] [small ri
 
 And ::
 I have the following page: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
-
 
 [cols="2*", options="header"]
 |===
@@ -1701,12 +1724,12 @@ In order to make my blog URLs awesome
 ****
 
 ==== Scenario: Use none permalink schema
+
 ****
 Given ::
 I have a _posts directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 And ::
 I have the following post: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
-
 
 [cols="3*", options="header"]
 |===
@@ -1729,12 +1752,12 @@ I should see "Totally nothing." in "_site/none-permalink-schema.html" icon:thumb
 ****
 
 ==== Scenario: Use pretty permalink schema
+
 ****
 Given ::
 I have a _posts directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 And ::
 I have the following post: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
-
 
 [cols="3*", options="header"]
 |===
@@ -1757,6 +1780,7 @@ I should see "Totally wordpress." in "_site/2009/03/27/pretty-permalink-schema/i
 ****
 
 ==== Scenario: Use pretty permalink schema for pages
+
 ****
 Given ::
 I have an "index.html" page that contains "Totally index" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
@@ -1779,12 +1803,12 @@ I should see "Totally uhm, sitemap" in "_site/sitemap.xml" icon:thumbs-up[role="
 ****
 
 ==== Scenario: Use custom permalink schema with prefix
+
 ****
 Given ::
 I have a _posts directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 And ::
 I have the following post: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
-
 
 [cols="4*", options="header"]
 |===
@@ -1809,12 +1833,12 @@ I should see "Totally custom." in "_site/blog/2009/03/27/custom-permalink-schema
 ****
 
 ==== Scenario: Use custom permalink schema with category
+
 ****
 Given ::
 I have a _posts directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 And ::
 I have the following post: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
-
 
 [cols="4*", options="header"]
 |===
@@ -1839,12 +1863,12 @@ I should see "Totally custom." in "_site/stuff/custom-permalink-schema.html" ico
 ****
 
 ==== Scenario: Use custom permalink schema with squished date
+
 ****
 Given ::
 I have a _posts directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 And ::
 I have the following post: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
-
 
 [cols="4*", options="header"]
 |===
@@ -1869,12 +1893,12 @@ I should see "Totally custom." in "_site/03-27-2009/custom-permalink-schema.html
 ****
 
 ==== Scenario: Use per-post permalink
+
 ****
 Given ::
 I have a _posts directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 And ::
 I have the following post: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
-
 
 [cols="4*", options="header"]
 |===
@@ -1899,12 +1923,12 @@ I should see "bla bla" in "_site/custom/posts/1/index.html" icon:thumbs-up[role=
 ****
 
 ==== Scenario: Use per-post ending in .html
+
 ****
 Given ::
 I have a _posts directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 And ::
 I have the following post: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
-
 
 [cols="4*", options="header"]
 |===
@@ -1932,6 +1956,7 @@ I should see "bla bla" in "_site/custom/posts/some.html" icon:thumbs-up[role="gr
 === *frontmatter defaults*
 
 ==== Scenario: Use default for frontmatter variables internally
+
 ****
 Given ::
 I have a _layouts directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
@@ -1941,7 +1966,6 @@ And ::
 I have a _posts directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 And ::
 I have the following post: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
-
 
 [cols="3*", options="header"]
 |===
@@ -1968,12 +1992,12 @@ I should see "THIS IS THE LAYOUT: just some page" in "_site/index.html" icon:thu
 ****
 
 ==== Scenario: Use default for frontmatter variables in Liquid
+
 ****
 Given ::
 I have a _posts directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 And ::
 I have the following post: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
-
 
 [cols="3*", options="header"]
 |===
@@ -2000,6 +2024,7 @@ I should see "just some special data by Ben" in "_site/index.html" icon:thumbs-u
 ****
 
 ==== Scenario: Override frontmatter defaults by path
+
 ****
 Given ::
 I have a _layouts directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
@@ -2011,7 +2036,6 @@ And ::
 I have a _posts directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 And ::
 I have the following post: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
-
 
 [cols="3*", options="header"]
 |===
@@ -2027,7 +2051,6 @@ And ::
 I have a special/_posts directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 And ::
 I have the following post in "special": icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
-
 
 [cols="4*", options="header"]
 |===
@@ -2062,6 +2085,7 @@ I should see "subfolder: Overview for the special section" in "_site/special/ind
 ****
 
 ==== Scenario: Use frontmatter variables by relative path
+
 ****
 Given ::
 I have a _layouts directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
@@ -2071,7 +2095,6 @@ And ::
 I have a _posts directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 And ::
 I have the following post: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
-
 
 [cols="3*", options="header"]
 |===
@@ -2087,7 +2110,6 @@ And ::
 I have a special/_posts directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 And ::
 I have the following post in "special": icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
-
 
 [cols="4*", options="header"]
 |===
@@ -2120,12 +2142,12 @@ I should see "main: <p>content of site/special/2013/10/14/about2.html</p>" in "_
 ****
 
 ==== Scenario: Override frontmatter defaults by type
+
 ****
 Given ::
 I have a _posts directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 And ::
 I have the following post: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
-
 
 [cols="3*", options="header"]
 |===
@@ -2152,12 +2174,12 @@ the "_site/perma.html" file should not exist icon:thumbs-up[role="green",title="
 ****
 
 ==== Scenario: Actual frontmatter overrides defaults
+
 ****
 Given ::
 I have a _posts directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 And ::
 I have the following post: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
-
 
 [cols="5*", options="header"]
 |===
@@ -2188,12 +2210,12 @@ the "_site/perma.html" file should not exist icon:thumbs-up[role="green",title="
 ****
 
 ==== Scenario: Define permalink default for posts
+
 ****
 Given ::
 I have a _posts directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 And ::
 I have the following post: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
-
 
 [cols="4*", options="header"]
 |===
@@ -2216,6 +2238,7 @@ I should see "blabla" in "_site/blog/testpost/index.html" icon:thumbs-up[role="g
 ****
 
 ==== Scenario: Use frontmatter defaults in collections
+
 ****
 Given ::
 I have a _slides directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
@@ -2255,6 +2278,7 @@ I should see "Value: Test" in "_site/slides/slide1.html" icon:thumbs-up[role="gr
 ****
 
 ==== Scenario: Override frontmatter defaults inside a collection
+
 ****
 Given ::
 I have a _slides directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
@@ -2295,6 +2319,7 @@ I should see "Value: Override" in "_site/slides/slide2.html" icon:thumbs-up[role
 ****
 
 ==== Scenario: Deep merge frontmatter defaults
+
 ****
 Given ::
 I have an "index.html" page with fruit "{orange: 1}" that contains "Fruits: {{ page.fruit.orange | plus: page.fruit.apple }}" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
@@ -2315,6 +2340,7 @@ I want to be able to run code during various stages of the build process
 ****
 
 ==== Scenario: Run some code after site reset
+
 ****
 Given ::
 I have a _plugins directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
@@ -2349,6 +2375,7 @@ I should see "mytinypage" in "_site/foo.html" icon:thumbs-up[role="green",title=
 ****
 
 ==== Scenario: Modify the payload before rendering the site
+
 ****
 Given ::
 I have a _plugins directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
@@ -2372,6 +2399,7 @@ I should see "myparam!" in "_site/index.html" icon:thumbs-up[role="green",title=
 ****
 
 ==== Scenario: Modify the site contents after reading
+
 ****
 Given ::
 I have a _plugins directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
@@ -2399,6 +2427,7 @@ I should see "page2" in "_site/page2.html" icon:thumbs-up[role="green",title="Pa
 ****
 
 ==== Scenario: Work with the site files after they've been written to disk
+
 ****
 Given ::
 I have a _plugins directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
@@ -2424,6 +2453,7 @@ I should see "page1" in "_site/firstpage.html" icon:thumbs-up[role="green",title
 ****
 
 ==== Scenario: Alter a page right after it is initialized
+
 ****
 Given ::
 I have a _plugins directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
@@ -2448,6 +2478,7 @@ I should see "page1" in "_site/renamed.html" icon:thumbs-up[role="green",title="
 ****
 
 ==== Scenario: Alter the payload for one page but not another
+
 ****
 Given ::
 I have a _plugins directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
@@ -2473,6 +2504,7 @@ I should not see "special" in "_site/page2.html" icon:thumbs-up[role="green",tit
 ****
 
 ==== Scenario: Modify page contents before writing to disk
+
 ****
 Given ::
 I have a _plugins directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
@@ -2494,6 +2526,7 @@ I should see "{{{{{ WRAP ME }}}}}" in "_site/index.html" icon:thumbs-up[role="gr
 ****
 
 ==== Scenario: Work with a page after writing it to disk
+
 ****
 Given ::
 I have a _plugins directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
@@ -2517,6 +2550,7 @@ I should see "HELLO FROM A PAGE" in "_site/index.html.moved" icon:thumbs-up[role
 ****
 
 ==== Scenario: Alter a post right after it is initialized
+
 ****
 Given ::
 I have a _plugins directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
@@ -2535,7 +2569,6 @@ And ::
 I have a _posts directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 And ::
 I have the following posts: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
-
 
 [cols="4*", options="header"]
 |===
@@ -2558,6 +2591,7 @@ I should see "pbagrag sbe ragel1." in "_site/2015/03/14/entry1.html" icon:thumbs
 ****
 
 ==== Scenario: Alter the payload for certain posts
+
 ****
 Given ::
 I have a _plugins directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
@@ -2580,7 +2614,6 @@ And ::
 I have a _posts directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 And ::
 I have the following posts: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
-
 
 [cols="4*", options="header"]
 |===
@@ -2607,6 +2640,7 @@ I should see "new post" in "_site/2015/03/15/entry2.html" icon:thumbs-up[role="g
 ****
 
 ==== Scenario: Modify post contents before writing to disk
+
 ****
 Given ::
 I have a _plugins directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
@@ -2624,7 +2658,6 @@ And ::
 I have a _posts directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 And ::
 I have the following posts: icon:thumbs-up[role="green",title="Passed"] [small right]#(001ms)#
-
 
 [cols="4*", options="header"]
 |===
@@ -2651,6 +2684,7 @@ I should see "48" in "_site/2015/03/15/entry2.html" icon:thumbs-up[role="green",
 ****
 
 ==== Scenario: Work with a post after writing it to disk
+
 ****
 Given ::
 I have a _plugins directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
@@ -2671,7 +2705,6 @@ And ::
 I have a _posts directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 And ::
 I have the following posts: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
-
 
 [cols="4*", options="header"]
 |===
@@ -2698,6 +2731,7 @@ I should see "_site/2015/03/15/entry2.html at" in "_site/post-build.log" icon:th
 ****
 
 ==== Scenario: Register a hook on multiple owners at the same time
+
 ****
 Given ::
 I have a _plugins directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
@@ -2716,7 +2750,6 @@ And ::
 I have a _posts directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 And ::
 I have the following posts: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
-
 
 [cols="4*", options="header"]
 |===
@@ -2739,6 +2772,7 @@ I should see "{{{{{ <p>entry one</p> }}}}}" in "_site/2015/03/14/entry1.html" ic
 ****
 
 ==== Scenario: Allow hooks to have a named priority
+
 ****
 Given ::
 I have a _plugins directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
@@ -2773,6 +2807,7 @@ I should see "2 3 1 4 WRAP ME" in "_site/index.html" icon:thumbs-up[role="green"
 ****
 
 ==== Scenario: Alter a document right after it is initialized
+
 ****
 Given ::
 I have a _plugins directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
@@ -2816,6 +2851,7 @@ I should see "all your base are belong to us" in "_site/index.html" icon:thumbs-
 ****
 
 ==== Scenario: Update a document after rendering it, but before writing it to disk
+
 ****
 Given ::
 I have a _plugins directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
@@ -2858,6 +2894,7 @@ I should see "<p class=\"meme\">all your base are belong to us" in "_site/memes/
 ****
 
 ==== Scenario: Perform an action after every document is written
+
 ****
 Given ::
 I have a _plugins directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
@@ -2911,6 +2948,7 @@ I want to be able to include files in my blog posts
 ****
 
 ==== Scenario: Include a file with parameters
+
 ****
 Given ::
 I have an _includes directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
@@ -2924,7 +2962,6 @@ And ::
 I have a _posts directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 And ::
 I have the following posts: icon:thumbs-up[role="green",title="Passed"] [small right]#(002ms)#
-
 
 [cols="4*", options="header"]
 |===
@@ -2996,6 +3033,7 @@ I should see "<li>title = Pass a variable</li>" in "_site/2013/06/22/pass-a-vari
 ****
 
 ==== Scenario: Include a file from a variable
+
 ****
 Given ::
 I have an _includes directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
@@ -3005,7 +3043,6 @@ And ::
 I have an "_includes/parametrized.html" file that contains "works with {{include.what}}" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 And ::
 I have a configuration file with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
-
 
 [cols="2*", options="header"]
 |===
@@ -3028,6 +3065,7 @@ I should see "a snippet that works with parameters" in "_site/index.html" icon:t
 ****
 
 ==== Scenario: Include a variable file in a loop
+
 ****
 Given ::
 I have an _includes directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
@@ -3046,6 +3084,7 @@ I should see "one two" in "_site/index.html" icon:thumbs-up[role="green",title="
 ****
 
 ==== Scenario: Include a file with variables and filters
+
 ****
 Given ::
 I have an _includes directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
@@ -3053,7 +3092,6 @@ And ::
 I have an "_includes/one.html" file that contains "one included" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 And ::
 I have a configuration file with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
-
 
 [cols="2*", options="header"]
 |===
@@ -3074,6 +3112,7 @@ I should see "one included" in "_site/index.html" icon:thumbs-up[role="green",ti
 ****
 
 ==== Scenario: Include a file with partial variables
+
 ****
 Given ::
 I have an _includes directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
@@ -3081,7 +3120,6 @@ And ::
 I have an "_includes/one.html" file that contains "one included" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 And ::
 I have a configuration file with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
-
 
 [cols="2*", options="header"]
 |===
@@ -3111,6 +3149,7 @@ Without waiting too long for it to build
 ****
 
 ==== Scenario: Produce correct output site
+
 ****
 Given ::
 I have a _layouts directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
@@ -3118,7 +3157,6 @@ And ::
 I have a _posts directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 And ::
 I have the following posts: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
-
 
 [cols="4*", options="header"]
 |===
@@ -3149,6 +3187,7 @@ I should see "Post Layout: <p>The only winning move is not to play.</p>" in "_si
 ****
 
 ==== Scenario: Generate a metadata file
+
 ****
 Given ::
 I have an "index.html" file that contains "Basic Site" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
@@ -3159,6 +3198,7 @@ the ".jekyll-metadata" file should exist icon:thumbs-up[role="green",title="Pass
 ****
 
 ==== Scenario: Rebuild when content is changed
+
 ****
 Given ::
 I have an "index.html" file that contains "Basic Site" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
@@ -3181,6 +3221,7 @@ I should see "Bacon Site" in "_site/index.html" icon:thumbs-up[role="green",titl
 ****
 
 ==== Scenario: Rebuild when layout is changed
+
 ****
 Given ::
 I have a _layouts directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
@@ -3207,6 +3248,7 @@ I should see "Page Layout Changed: Basic Site with Layout" in "_site/index.html"
 ****
 
 ==== Scenario: Rebuild when an include is changed
+
 ****
 Given ::
 I have a _includes directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
@@ -3242,6 +3284,7 @@ In order to share my awesome ideas with the interwebs
 ****
 
 ==== Scenario: Markdown in list on index
+
 ****
 Given ::
 I have a configuration file with "paginate" set to "5" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
@@ -3251,7 +3294,6 @@ And ::
 I have a _posts directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 And ::
 I have the following post: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
-
 
 [cols="4*", options="header"]
 |===
@@ -3278,10 +3320,10 @@ I should see "<h1 id=\"my-title\">My Title</h1>" in "_site/index.html" icon:thum
 ****
 
 ==== Scenario: Markdown in pagination on index
+
 ****
 Given ::
 I have a configuration file with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
-
 
 [cols="2*", options="header"]
 |===
@@ -3299,7 +3341,6 @@ And ::
 I have a _posts directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 And ::
 I have the following post: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
-
 
 [cols="4*", options="header"]
 |===
@@ -3333,6 +3374,7 @@ In order to make the posts slightly dynamic
 ****
 
 ==== Scenario: Use post.title variable
+
 ****
 Given ::
 I have a _posts directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
@@ -3340,7 +3382,6 @@ And ::
 I have a _layouts directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 And ::
 I have the following post: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
-
 
 [cols="4*", options="header"]
 |===
@@ -3365,6 +3406,7 @@ I should see "Post title: Star Wars" in "_site/2009/03/27/star-wars.html" icon:t
 ****
 
 ==== Scenario: Use post.url variable
+
 ****
 Given ::
 I have a _posts directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
@@ -3372,7 +3414,6 @@ And ::
 I have a _layouts directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 And ::
 I have the following post: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
-
 
 [cols="4*", options="header"]
 |===
@@ -3397,6 +3438,7 @@ I should see "Post url: /2009/03/27/star-wars.html" in "_site/2009/03/27/star-wa
 ****
 
 ==== Scenario: Use post.date variable
+
 ****
 Given ::
 I have a _posts directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
@@ -3404,7 +3446,6 @@ And ::
 I have a _layouts directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 And ::
 I have the following post: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
-
 
 [cols="4*", options="header"]
 |===
@@ -3429,6 +3470,7 @@ I should see "Post date: 27 Mar 2009" in "_site/2009/03/27/star-wars.html" icon:
 ****
 
 ==== Scenario: Use post.id variable
+
 ****
 Given ::
 I have a _posts directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
@@ -3436,7 +3478,6 @@ And ::
 I have a _layouts directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 And ::
 I have the following post: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
-
 
 [cols="4*", options="header"]
 |===
@@ -3461,6 +3502,7 @@ I should see "Post id: /2009/03/27/star-wars" in "_site/2009/03/27/star-wars.htm
 ****
 
 ==== Scenario: Use post.content variable
+
 ****
 Given ::
 I have a _posts directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
@@ -3468,7 +3510,6 @@ And ::
 I have a _layouts directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 And ::
 I have the following post: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
-
 
 [cols="4*", options="header"]
 |===
@@ -3493,6 +3534,7 @@ I should see "Post content: <p>Luke, I am your father.</p>" in "_site/2009/03/27
 ****
 
 ==== Scenario: Use post.categories variable when category is in a folder
+
 ****
 Given ::
 I have a movies directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
@@ -3502,7 +3544,6 @@ And ::
 I have a _layouts directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 And ::
 I have the following post in "movies": icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
-
 
 [cols="4*", options="header"]
 |===
@@ -3527,6 +3568,7 @@ I should see "Post category: movies" in "_site/movies/2009/03/27/star-wars.html"
 ****
 
 ==== Scenario: Use post.categories variable when category is in a folder and has category in YAML
+
 ****
 Given ::
 I have a movies directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
@@ -3536,7 +3578,6 @@ And ::
 I have a _layouts directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 And ::
 I have the following post in "movies": icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
-
 
 [cols="5*", options="header"]
 |===
@@ -3563,6 +3604,7 @@ I should see "Post category: movies" in "_site/movies/film/2009/03/27/star-wars.
 ****
 
 ==== Scenario: Use post.categories variable when category is in a folder and has categories in YAML
+
 ****
 Given ::
 I have a movies directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
@@ -3572,7 +3614,6 @@ And ::
 I have a _layouts directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 And ::
 I have the following post in "movies": icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
-
 
 [cols="5*", options="header"]
 |===
@@ -3599,6 +3640,7 @@ I should see "Post category: movies" in "_site/movies/film/scifi/2009/03/27/star
 ****
 
 ==== Scenario: Use post.categories variable when category is in a folder and duplicated category is in YAML
+
 ****
 Given ::
 I have a movies directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
@@ -3608,7 +3650,6 @@ And ::
 I have a _layouts directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 And ::
 I have the following post in "movies": icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
-
 
 [cols="5*", options="header"]
 |===
@@ -3635,6 +3676,7 @@ I should see "Post category: movies" in "_site/movies/2009/03/27/star-wars.html"
 ****
 
 ==== Scenario: Use post.tags variable
+
 ****
 Given ::
 I have a _posts directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
@@ -3642,7 +3684,6 @@ And ::
 I have a _layouts directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 And ::
 I have the following post: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
-
 
 [cols="5*", options="header"]
 |===
@@ -3669,6 +3710,7 @@ I should see "Post tags: twist" in "_site/2009/05/18/star-wars.html" icon:thumbs
 ****
 
 ==== Scenario: Use post.categories variable when categories are in folders
+
 ****
 Given ::
 I have a scifi directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
@@ -3680,7 +3722,6 @@ And ::
 I have a _layouts directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 And ::
 I have the following post in "scifi/movies": icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
-
 
 [cols="4*", options="header"]
 |===
@@ -3705,6 +3746,7 @@ I should see "Post categories: scifi and movies" in "_site/scifi/movies/2009/03/
 ****
 
 ==== Scenario: Use post.categories variable when categories are in folders with mixed case
+
 ****
 Given ::
 I have a scifi directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
@@ -3716,7 +3758,6 @@ And ::
 I have a _layouts directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 And ::
 I have the following post in "scifi/Movies": icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
-
 
 [cols="4*", options="header"]
 |===
@@ -3741,6 +3782,7 @@ I should see "Post categories: scifi and Movies" in "_site/scifi/movies/2009/03/
 ****
 
 ==== Scenario: Use post.categories variable when category is in YAML
+
 ****
 Given ::
 I have a _posts directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
@@ -3748,7 +3790,6 @@ And ::
 I have a _layouts directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 And ::
 I have the following post: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
-
 
 [cols="5*", options="header"]
 |===
@@ -3775,6 +3816,7 @@ I should see "Post category: movies" in "_site/movies/2009/03/27/star-wars.html"
 ****
 
 ==== Scenario: Use post.categories variable when category is in YAML and is mixed-case
+
 ****
 Given ::
 I have a _posts directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
@@ -3782,7 +3824,6 @@ And ::
 I have a _layouts directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 And ::
 I have the following post: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
-
 
 [cols="5*", options="header"]
 |===
@@ -3809,6 +3850,7 @@ I should see "Post category: Movies" in "_site/movies/2009/03/27/star-wars.html"
 ****
 
 ==== Scenario: Use post.categories variable when categories are in YAML
+
 ****
 Given ::
 I have a _posts directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
@@ -3816,7 +3858,6 @@ And ::
 I have a _layouts directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 And ::
 I have the following post: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
-
 
 [cols="5*", options="header"]
 |===
@@ -3843,6 +3884,7 @@ I should see "Post categories: scifi and movies" in "_site/scifi/movies/2009/03/
 ****
 
 ==== Scenario: Use post.categories variable when categories are in YAML and are duplicated
+
 ****
 Given ::
 I have a _posts directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
@@ -3850,7 +3892,6 @@ And ::
 I have a _layouts directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 And ::
 I have the following post: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
-
 
 [cols="5*", options="header"]
 |===
@@ -3877,6 +3918,7 @@ I should see "Post category: movies" in "_site/movies/2009/03/27/star-wars.html"
 ****
 
 ==== Scenario: Use post.categories variable when categories are in YAML with mixed case
+
 ****
 Given ::
 I have a _posts directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
@@ -3884,7 +3926,6 @@ And ::
 I have a _layouts directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 And ::
 I have the following posts: icon:thumbs-up[role="green",title="Passed"] [small right]#(001ms)#
-
 
 [cols="5*", options="header"]
 |===
@@ -3919,12 +3960,14 @@ I should see "Post categories: SciFi and movies" in "_site/scifi/movies/2013/03/
 
 ==== Scenario Outline: Use page.path variable
 
+
 .Example
 [cols="2*", options="header"]
 |===
 |dir
 |path_prefix
 |.
+|
 |dir
 |dir/
 |dir/nested
@@ -3932,12 +3975,12 @@ I should see "Post categories: SciFi and movies" in "_site/scifi/movies/2013/03/
 |===
 
 ==== Scenario: Override page.path variable
+
 ****
 Given ::
 I have a _posts directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 And ::
 I have the following post: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
-
 
 [cols="4*", options="header"]
 |===
@@ -3960,6 +4003,7 @@ I should see "Custom path: override-path.html" in "_site/2013/04/12/override.htm
 ****
 
 ==== Scenario: Disable a post from being published
+
 ****
 Given ::
 I have a _posts directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
@@ -3967,7 +4011,6 @@ And ::
 I have an "index.html" file that contains "Published!" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 And ::
 I have the following post: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
-
 
 [cols="5*", options="header"]
 |===
@@ -3994,6 +4037,7 @@ I should see "Published!" in "_site/index.html" icon:thumbs-up[role="green",titl
 ****
 
 ==== Scenario: Use a custom variable
+
 ****
 Given ::
 I have a _posts directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
@@ -4001,7 +4045,6 @@ And ::
 I have a _layouts directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 And ::
 I have the following post: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
-
 
 [cols="5*", options="header"]
 |===
@@ -4028,6 +4071,7 @@ I should see "Post author: Darth Vader" in "_site/2009/03/27/star-wars.html" ico
 ****
 
 ==== Scenario: Previous and next posts title
+
 ****
 Given ::
 I have a _posts directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
@@ -4035,7 +4079,6 @@ And ::
 I have a _layouts directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 And ::
 I have the following posts: icon:thumbs-up[role="green",title="Passed"] [small right]#(001ms)#
-
 
 [cols="5*", options="header"]
 |===
@@ -4085,6 +4128,7 @@ So just give them a taste
 ****
 
 ==== Scenario: An excerpt without a layout
+
 ****
 Given ::
 I have an "index.html" page that contains "{% for post in site.posts %}{{ post.excerpt }}{% endfor %}" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
@@ -4092,7 +4136,6 @@ And ::
 I have a _posts directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 And ::
 I have the following posts: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
-
 
 [cols="4*", options="header"]
 |===
@@ -4115,6 +4158,7 @@ I should see exactly "<p>content for entry1.</p>" in "_site/index.html" icon:thu
 ****
 
 ==== Scenario: An excerpt from a post with a layout
+
 ****
 Given ::
 I have an "index.html" page that contains "{% for post in site.posts %}{{ post.excerpt }}{% endfor %}" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
@@ -4126,7 +4170,6 @@ And ::
 I have a post layout that contains "{{ page.excerpt }}" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 And ::
 I have the following posts: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
-
 
 [cols="4*", options="header"]
 |===
@@ -4159,6 +4202,7 @@ I should see exactly "<p>content for entry1.</p>" in "_site/index.html" icon:thu
 ****
 
 ==== Scenario: An excerpt from a post with a layout which has context
+
 ****
 Given ::
 I have an "index.html" page that contains "{% for post in site.posts %}{{ post.excerpt }}{% endfor %}" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
@@ -4170,7 +4214,6 @@ And ::
 I have a post layout that contains "<html><head></head><body>{{ page.excerpt }}</body></html>" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 And ::
 I have the following posts: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
-
 
 [cols="4*", options="header"]
 |===
@@ -4214,6 +4257,7 @@ So render with Liquid and place in Layouts
 ****
 
 ==== Scenario: Render Liquid and place in layout
+
 ****
 Given ::
 I have a "index.html" page with layout "simple" that contains "Hi there, Jekyll {{ jekyll.environment }}!" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
@@ -4228,6 +4272,7 @@ I should see "Hi there, Jekyll development!\nAhoy, indeed" in "_site/index.html"
 ****
 
 ==== Scenario: Don't place asset files in layout
+
 ****
 Given ::
 I have an "index.scss" page with layout "simple" that contains ".foo-bar { color:black; }" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
@@ -4248,6 +4293,7 @@ I should not see "Ahoy, indeed!" in "_site/index.js" icon:thumbs-up[role="green"
 ****
 
 ==== Scenario: Render liquid in Sass
+
 ****
 Given ::
 I have an "index.scss" page that contains ".foo-bar { color:{{site.color}}; }" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
@@ -4262,6 +4308,7 @@ I should see ".foo-bar {\n  color: red; }" in "_site/index.css" icon:thumbs-up[r
 ****
 
 ==== Scenario: Not render liquid in CoffeeScript without explicitly including jekyll-coffeescript
+
 ****
 Given ::
 I have an "index.coffee" page with animal "cicada" that contains "hey='for {{page.animal}}'" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
@@ -4274,6 +4321,7 @@ the "_site/index.js" file should not exist icon:thumbs-up[role="green",title="Pa
 ****
 
 ==== Scenario: Render liquid in CoffeeScript with jekyll-coffeescript enabled
+
 ****
 Given ::
 I have an "index.coffee" page with animal "cicada" that contains "hey='for {{page.animal}}'" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
@@ -4297,6 +4345,7 @@ In order to make setting up a site easier
 ****
 
 ==== Scenario: Change source directory
+
 ****
 Given ::
 I have a blank site in "_sourcedir" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
@@ -4313,6 +4362,7 @@ I should see "Changing source directory" in "_site/index.html" icon:thumbs-up[ro
 ****
 
 ==== Scenario: Change destination directory
+
 ****
 Given ::
 I have an "index.html" file that contains "Changing destination directory" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
@@ -4328,6 +4378,7 @@ I should see "Changing destination directory" in "_mysite/index.html" icon:thumb
 
 ==== Scenario Outline: Similarly named source and destination
 
+
 .Example
 [cols="3*", options="header"]
 |===
@@ -4336,8 +4387,10 @@ I should see "Changing destination directory" in "_mysite/index.html" icon:thumb
 |file_exist
 |mysite_source
 |mysite
+|
 |mysite
 |mysite_dest
+|
 |mysite/
 |mysite
 |not
@@ -4349,9 +4402,11 @@ I should see "Changing destination directory" in "_mysite/index.html" icon:thumb
 |not
 |mysite
 |mysite/dest
+|
 |===
 
 ==== Scenario: Exclude files inline
+
 ****
 Given ::
 I have an "Rakefile" file that contains "I want to be excluded" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
@@ -4372,6 +4427,7 @@ the "_site/README" file should not exist icon:thumbs-up[role="green",title="Pass
 ****
 
 ==== Scenario: Exclude files with YAML array
+
 ****
 Given ::
 I have an "Rakefile" file that contains "I want to be excluded" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
@@ -4381,7 +4437,6 @@ And ::
 I have an "index.html" file that contains "I want to be included" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 And ::
 I have a configuration file with "exclude" set to: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
-
 
 [cols="1*", options="header"]
 |===
@@ -4401,6 +4456,7 @@ the "_site/README" file should not exist icon:thumbs-up[role="green",title="Pass
 ****
 
 ==== Scenario: Use RDiscount for markup
+
 ****
 Given ::
 I have an "index.markdown" page that contains "[Google](http://google.com)" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
@@ -4415,6 +4471,7 @@ I should see "<a href=\"http://google.com\">Google</a>" in "_site/index.html" ic
 ****
 
 ==== Scenario: Use Kramdown for markup
+
 ****
 Given ::
 I have an "index.markdown" page that contains "[Google](http://google.com)" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
@@ -4429,6 +4486,7 @@ I should see "<a href=\"http://google.com\">Google</a>" in "_site/index.html" ic
 ****
 
 ==== Scenario: Use Redcarpet for markup
+
 ****
 Given ::
 I have an "index.markdown" page that contains "[Google](http://google.com)" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
@@ -4443,6 +4501,7 @@ I should see "<a href=\"http://google.com\">Google</a>" in "_site/index.html" ic
 ****
 
 ==== Scenario: Highlight code with pygments
+
 ****
 Given ::
 I have an "index.html" page that contains "{% highlight ruby %} puts 'Hello world!' {% endhighlight %}" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
@@ -4457,6 +4516,7 @@ I should see "class=\"highlight\"" in "_site/index.html" icon:thumbs-up[role="gr
 ****
 
 ==== Scenario: Highlight code with rouge
+
 ****
 Given ::
 I have an "index.html" page that contains "{% highlight ruby %} puts 'Hello world!' {% endhighlight %}" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
@@ -4473,6 +4533,7 @@ I should see "class=\"highlight\"" in "_site/index.html" icon:thumbs-up[role="gr
 ****
 
 ==== Scenario: Rouge renders code block once
+
 ****
 Given ::
 I have a configuration file with "highlighter" set to "rouge" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
@@ -4480,7 +4541,6 @@ And ::
 I have a _posts directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 And ::
 I have the following post: icon:thumbs-up[role="green",title="Passed"] [small right]#(001ms)#
-
 
 [cols="4*", options="header"]
 |===
@@ -4501,6 +4561,7 @@ I should not see "highlight(.*)highlight" in "_site/2014/04/27/foo.html" icon:th
 ****
 
 ==== Scenario: Set time and no future dated posts
+
 ****
 Given ::
 I have a _layouts directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
@@ -4512,7 +4573,6 @@ And ::
 I have an "index.html" page with layout "page" that contains "site index page" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 And ::
 I have a configuration file with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
-
 
 [cols="2*", options="header"]
 |===
@@ -4528,7 +4588,6 @@ And ::
 I have a _posts directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 And ::
 I have the following posts: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
-
 
 [cols="4*", options="header"]
 |===
@@ -4559,6 +4618,7 @@ the "_site/2020/01/31/entry2.html" file should not exist icon:thumbs-up[role="gr
 ****
 
 ==== Scenario: Set time and future dated posts allowed
+
 ****
 Given ::
 I have a _layouts directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
@@ -4570,7 +4630,6 @@ And ::
 I have an "index.html" page with layout "page" that contains "site index page" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 And ::
 I have a configuration file with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
-
 
 [cols="2*", options="header"]
 |===
@@ -4586,7 +4645,6 @@ And ::
 I have a _posts directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 And ::
 I have the following posts: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
-
 
 [cols="4*", options="header"]
 |===
@@ -4617,6 +4675,7 @@ I should see "Post Layout: <p>content for entry2.</p>" in "_site/2020/01/31/entr
 ****
 
 ==== Scenario: Generate proper dates with explicitly set timezone (same as posts' time)
+
 ****
 Given ::
 I have a _layouts directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
@@ -4628,7 +4687,6 @@ And ::
 I have an "index.html" page with layout "page" that contains "site index page" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 And ::
 I have a configuration file with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
-
 
 [cols="2*", options="header"]
 |===
@@ -4642,7 +4700,6 @@ And ::
 I have a _posts directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 And ::
 I have the following posts: icon:thumbs-up[role="green",title="Passed"] [small right]#(001ms)#
-
 
 [cols="4*", options="header"]
 |===
@@ -4673,6 +4730,7 @@ I should see "Post Layout: <p>content for entry2.</p>\n built at 2013-04-10T03:1
 ****
 
 ==== Scenario: Generate proper dates with explicitly set timezone (different than posts' time)
+
 ****
 Given ::
 I have a _layouts directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
@@ -4684,7 +4742,6 @@ And ::
 I have an "index.html" page with layout "page" that contains "site index page" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 And ::
 I have a configuration file with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
-
 
 [cols="2*", options="header"]
 |===
@@ -4698,7 +4755,6 @@ And ::
 I have a _posts directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 And ::
 I have the following posts: icon:thumbs-up[role="green",title="Passed"] [small right]#(001ms)#
-
 
 [cols="4*", options="header"]
 |===
@@ -4733,12 +4789,12 @@ I should see "Post Layout: <p>content for entry2.</p>\n built at 2013-04-09T13:1
 ****
 
 ==== Scenario: Limit the number of posts generated by most recent date
+
 ****
 Given ::
 I have a _posts directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 And ::
 I have a configuration file with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
-
 
 [cols="2*", options="header"]
 |===
@@ -4750,7 +4806,6 @@ I have a configuration file with: icon:thumbs-up[role="green",title="Passed"] [s
 
 And ::
 I have the following posts: icon:thumbs-up[role="green",title="Passed"] [small right]#(001ms)#
-
 
 [cols="3*", options="header"]
 |===
@@ -4781,6 +4836,7 @@ the "_site/2009/03/27/apples.html" file should not exist icon:thumbs-up[role="gr
 ****
 
 ==== Scenario: Copy over normally excluded files when they are explicitly included
+
 ****
 Given ::
 I have a ".gitignore" file that contains ".DS_Store" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
@@ -4788,7 +4844,6 @@ And ::
 I have an ".htaccess" file that contains "SomeDirective" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 And ::
 I have a configuration file with "include" set to: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
-
 
 [cols="1*", options="header"]
 |===
@@ -4808,6 +4863,7 @@ the "_site/.htaccess" file should not exist icon:thumbs-up[role="green",title="P
 ****
 
 ==== Scenario: Using a different layouts directory
+
 ****
 Given ::
 I have a _theme directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
@@ -4819,7 +4875,6 @@ And ::
 I have an "index.html" page with layout "page" that contains "site index page" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 And ::
 I have a configuration file with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
-
 
 [cols="2*", options="header"]
 |===
@@ -4837,7 +4892,6 @@ And ::
 I have a _posts directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 And ::
 I have the following posts: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
-
 
 [cols="4*", options="header"]
 |===
@@ -4868,6 +4922,7 @@ I should see "Post Layout: <p>content for entry2.</p>" in "_site/2020/01/31/entr
 ****
 
 ==== Scenario: arbitrary file reads via layouts
+
 ****
 Given ::
 I have an "index.html" page with layout "page" that contains "FOO" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
@@ -4893,6 +4948,7 @@ In order to make the site slightly dynamic
 ****
 
 ==== Scenario: Use page variable in a page
+
 ****
 Given ::
 I have an "contact.html" page with title "Contact" that contains "{{ page.title }}: email@example.com" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
@@ -4905,6 +4961,7 @@ I should see "Contact: email@example.com" in "_site/contact.html" icon:thumbs-up
 ****
 
 ==== Scenario Outline: Use page.path variable in a page
+
 
 .Example
 [cols="2*", options="header"]
@@ -4920,6 +4977,7 @@ I should see "Contact: email@example.com" in "_site/contact.html" icon:thumbs-up
 |===
 
 ==== Scenario: Override page.path
+
 ****
 Given ::
 I have an "override.html" page with path "custom-override.html" that contains "Custom path: {{ page.path }}" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
@@ -4932,6 +4990,7 @@ I should see "Custom path: custom-override.html" in "_site/override.html" icon:t
 ****
 
 ==== Scenario: Use site.time variable
+
 ****
 Given ::
 I have an "index.html" page that contains "{{ site.time }}" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
@@ -4944,6 +5003,7 @@ I should see today's time in "_site/index.html" icon:thumbs-up[role="green",titl
 ****
 
 ==== Scenario: Use site.posts variable for latest post
+
 ****
 Given ::
 I have a _posts directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
@@ -4951,7 +5011,6 @@ And ::
 I have an "index.html" page that contains "{{ site.posts.first.title }}: {{ site.posts.first.url }}" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 And ::
 I have the following posts: icon:thumbs-up[role="green",title="Passed"] [small right]#(001ms)#
-
 
 [cols="3*", options="header"]
 |===
@@ -4978,6 +5037,7 @@ I should see "Third Post: /2009/03/27/third-post.html" in "_site/index.html" ico
 ****
 
 ==== Scenario: Use site.posts variable in a loop
+
 ****
 Given ::
 I have a _posts directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
@@ -4985,7 +5045,6 @@ And ::
 I have an "index.html" page that contains "{% for post in site.posts %} {{ post.title }} {% endfor %}" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 And ::
 I have the following posts: icon:thumbs-up[role="green",title="Passed"] [small right]#(001ms)#
-
 
 [cols="3*", options="header"]
 |===
@@ -5012,6 +5071,7 @@ I should see "Third Post  Second Post  First Post" in "_site/index.html" icon:th
 ****
 
 ==== Scenario: Use site.categories.code variable
+
 ****
 Given ::
 I have a _posts directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
@@ -5019,7 +5079,6 @@ And ::
 I have an "index.html" page that contains "{% for post in site.categories.code %} {{ post.title }} {% endfor %}" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 And ::
 I have the following posts: icon:thumbs-up[role="green",title="Passed"] [small right]#(001ms)#
-
 
 [cols="4*", options="header"]
 |===
@@ -5046,6 +5105,7 @@ I should see "Awesome Hack" in "_site/index.html" icon:thumbs-up[role="green",ti
 ****
 
 ==== Scenario: Use site.tags variable
+
 ****
 Given ::
 I have a _posts directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
@@ -5053,7 +5113,6 @@ And ::
 I have an "index.html" page that contains "{% for post in site.tags.beer %} {{ post.content }} {% endfor %}" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 And ::
 I have the following posts: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
-
 
 [cols="4*", options="header"]
 |===
@@ -5076,6 +5135,7 @@ I should see "Yuengling" in "_site/index.html" icon:thumbs-up[role="green",title
 ****
 
 ==== Scenario: Order Posts by name when on the same date
+
 ****
 Given ::
 I have a _posts directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
@@ -5083,7 +5143,6 @@ And ::
 I have an "index.html" page that contains "{% for post in site.posts %}{{ post.title }}:{{ post.previous.title}},{{ post.next.title}} {% endfor %}" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 And ::
 I have the following posts: icon:thumbs-up[role="green",title="Passed"] [small right]#(001ms)#
-
 
 [cols="3*", options="header"]
 |===
@@ -5116,6 +5175,7 @@ I should see "last:C, C:B,last B:A,C A:first,B first:,A" in "_site/index.html" i
 ****
 
 ==== Scenario: Use configuration date in site payload
+
 ****
 Given ::
 I have an "index.html" page that contains "{{ site.url }}" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
@@ -5130,6 +5190,7 @@ I should see "http://example.com" in "_site/index.html" icon:thumbs-up[role="gre
 ****
 
 ==== Scenario: Access Jekyll version via jekyll.version
+
 ****
 Given ::
 I have an "index.html" page that contains "{{ jekyll.version }}" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
@@ -5151,6 +5212,7 @@ I want divide the posts in several pages
 ****
 
 ==== Scenario Outline: Paginate with N posts per page
+
 
 .Example
 [cols="4*", options="header"]
@@ -5175,6 +5237,7 @@ I want divide the posts in several pages
 
 ==== Scenario Outline: Setting a custom pagination path
 
+
 .Example
 [cols="3*", options="header"]
 |===
@@ -5193,6 +5256,7 @@ I want divide the posts in several pages
 |===
 
 ==== Scenario Outline: Setting a custom pagination path without an index.html in it
+
 
 .Example
 [cols="3*", options="header"]

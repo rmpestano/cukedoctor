@@ -1,6 +1,6 @@
 :toc: right
 :backend: pdf
-:doctitle: Living Documentation
+:doctitle: cucumber-js-documentation
 :doctype: book
 :icons: font
 :!numbered:
@@ -10,7 +10,7 @@
 :docinfo:
 :toclevels: 3
 
-= *Living Documentation*
+= *cucumber-js-documentation*
 
 == *Summary*
 [cols="12*^m", options="header,footer"]
@@ -347,6 +347,7 @@
 === *Asynchronous failing steps*
 
 ==== Scenario: see asynchronously failing scenarios
+
 ****
 Given ::
 the following feature: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
@@ -368,6 +369,7 @@ the scenario called "a failing scenario" is reported as failing icon:thumbs-up[r
 
 ==== Scenario: see asynchronously failing scenarios with exception
 [small]#tags: @untestable-on-self#
+
 
 ****
 Given ::
@@ -392,6 +394,7 @@ the scenario called "a failing scenario" is reported as failing icon:thumbs-down
 === *Asynchronous pending steps*
 
 ==== Scenario: Pending step means the scenario is pending
+
 ****
 Given ::
 a scenario with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
@@ -423,6 +426,7 @@ I want step definitions to call back asynchronously
 ****
 
 ==== Scenario: Execute feature with asynchronous step definition
+
 ****
 Given ::
 a step definition matching /^an asynchronous step passes$/ calling back asynchronously after 50 milliseconds icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
@@ -446,6 +450,7 @@ the feature should have run successfully icon:thumbs-up[role="green",title="Pass
 === *Attachments*
 
 ==== Scenario: Attach a buffer
+
 ****
 Given ::
 a file named "features/a.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(004ms)#
@@ -539,6 +544,7 @@ it outputs this json: icon:thumbs-up[role="green",title="Passed"] [small right]#
 ****
 
 ==== Scenario: Attach a stream
+
 ****
 Given ::
 a file named "features/a.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(003ms)#
@@ -649,6 +655,7 @@ it outputs this json: icon:thumbs-up[role="green",title="Passed"] [small right]#
 ****
 
 ==== Scenario: Attach from an around hook (pre scenario)
+
 ****
 Given ::
 a file named "features/a.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(004ms)#
@@ -754,6 +761,7 @@ it outputs this json: icon:thumbs-up[role="green",title="Passed"] [small right]#
 ****
 
 ==== Scenario: Attach from an around hook (post scenario)
+
 ****
 Given ::
 a file named "features/a.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(004ms)#
@@ -858,6 +866,7 @@ it outputs this json: icon:thumbs-up[role="green",title="Passed"] [small right]#
 ****
 
 ==== Scenario: Attach from a before hook
+
 ****
 Given ::
 a file named "features/a.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(003ms)#
@@ -951,6 +960,7 @@ it outputs this json: icon:thumbs-up[role="green",title="Passed"] [small right]#
 ****
 
 ==== Scenario: Attach from an after hook
+
 ****
 Given ::
 a file named "features/a.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(002ms)#
@@ -1044,6 +1054,7 @@ it outputs this json: icon:thumbs-up[role="green",title="Passed"] [small right]#
 ****
 
 ==== Scenario: Attach from a step definition
+
 ****
 Given ::
 a file named "features/a.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(004ms)#
@@ -1153,6 +1164,7 @@ Hooks.
 ****
 
 ==== Scenario: One scenario and a background
+
 ****
 Given ::
 the following feature: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
@@ -1181,6 +1193,7 @@ the step "a scenario step" passes icon:thumbs-up[role="green",title="Passed"] [s
 ****
 
 ==== Scenario: Two scenarios and a background
+
 ****
 Given ::
 the following feature: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
@@ -1225,6 +1238,7 @@ I want to use CoffeeScript for writing step definitions
 ****
 
 ==== Scenario: CoffeeScript step definition
+
 ****
 Given ::
 a mapping written in CoffeeScript icon:thumbs-down[role="yellow",title="Undefined"] [small right]#(000ms)#
@@ -1246,6 +1260,7 @@ I want to run Cucumber on the command line
 ****
 
 ==== Scenario: run a single feature
+
 ****
 Given ::
 a file named "features/a.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(003ms)#
@@ -1284,6 +1299,7 @@ the exit status should be 0 icon:thumbs-up[role="green",title="Passed"] [small r
 ****
 
 ==== Scenario: run a single scenario within feature
+
 ****
 Given ::
 a file named "features/a.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(003ms)#
@@ -1325,6 +1341,7 @@ the exit status should be 0 icon:thumbs-up[role="green",title="Passed"] [small r
 ****
 
 ==== Scenario: run a single feature without step definitions
+
 ****
 Given ::
 a file named "features/a.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(001ms)#
@@ -1359,6 +1376,7 @@ the exit status should be 0 icon:thumbs-up[role="green",title="Passed"] [small r
 ****
 
 ==== Scenario: run feature with non-default step definitions file location specified (-r option)
+
 ****
 Given ::
 a file named "features/a.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(002ms)#
@@ -1397,6 +1415,7 @@ the exit status should be 0 icon:thumbs-up[role="green",title="Passed"] [small r
 ****
 
 ==== Scenario: run feature with step definitions in required directory (-r option)
+
 ****
 Given ::
 a file named "features/a.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(003ms)#
@@ -1435,6 +1454,7 @@ the exit status should be 0 icon:thumbs-up[role="green",title="Passed"] [small r
 ****
 
 ==== Scenario: display Cucumber version
+
 ****
 When ::
 I run `cucumber.js --version` icon:thumbs-up[role="green",title="Passed"] [small right]#(102ms)#
@@ -1445,6 +1465,7 @@ the exit status should be 0 icon:thumbs-up[role="green",title="Passed"] [small r
 ****
 
 ==== Scenario: display help
+
 ****
 When ::
 I run `cucumber.js --help` icon:thumbs-up[role="green",title="Passed"] [small right]#(097ms)#
@@ -1455,6 +1476,7 @@ the exit status should be 0 icon:thumbs-up[role="green",title="Passed"] [small r
 ****
 
 ==== Scenario: display help (short flag)
+
 ****
 When ::
 I run `cucumber.js -h` icon:thumbs-up[role="green",title="Passed"] [small right]#(196ms)#
@@ -1465,6 +1487,7 @@ the exit status should be 0 icon:thumbs-up[role="green",title="Passed"] [small r
 ****
 
 ==== Scenario: run a single failing feature
+
 ****
 Given ::
 a file named "features/a.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(003ms)#
@@ -1509,6 +1532,7 @@ the exit status should be 1 icon:thumbs-up[role="green",title="Passed"] [small r
 ****
 
 ==== Scenario: run a single failing feature with an empty hooks file
+
 ****
 Given ::
 a file named "features/a.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(002ms)#
@@ -1555,6 +1579,7 @@ the exit status should be 1 icon:thumbs-up[role="green",title="Passed"] [small r
 ****
 
 ==== Scenario: run a single failing feature with an AfterFeatures hook
+
 ****
 Given ::
 a file named "features/a.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(004ms)#
@@ -1620,6 +1645,7 @@ I want Cucumber to run core feature elements
 ****
 
 ==== Scenario: Simple flat steps
+
 ****
 Given ::
 a step definition matching /^a step passes$/ icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
@@ -1643,6 +1669,7 @@ the feature should have run successfully icon:thumbs-up[role="green",title="Pass
 ****
 
 ==== Scenario: Given, When, Then, And and But steps
+
 ****
 Given ::
 a "Given" step definition matching /^a "Given" step passes$/ icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
@@ -1677,6 +1704,7 @@ the feature should have run successfully icon:thumbs-up[role="green",title="Pass
 ****
 
 ==== Scenario: Step definition body is executed
+
 ****
 Given ::
 a step definition matching /^I call a watched step$/ counting its calls icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
@@ -1703,6 +1731,7 @@ the feature should have run successfully icon:thumbs-up[role="green",title="Pass
 ****
 
 ==== Scenario: Steps accepting parameters
+
 ****
 Given ::
 a step definition matching /^I call a step with "(.*)"$/ recording its parameters icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
@@ -1731,6 +1760,7 @@ the feature should have run successfully icon:thumbs-up[role="green",title="Pass
 ****
 
 ==== Scenario: Steps accepting a DocString parameter
+
 ****
 Given ::
 a step definition matching /^I call a step with the following text:$/ recording its parameters icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
@@ -1786,6 +1816,7 @@ the feature should have run successfully icon:thumbs-up[role="green",title="Pass
 === *Data Tables*
 
 ==== Scenario: a data table can be read as a hash
+
 ****
 Given ::
 the following data table in a step: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
@@ -1810,6 +1841,7 @@ the data table is converted to the following: icon:thumbs-up[role="green",title=
 === *Environment Hooks*
 
 ==== Scenario: Tagged around hook with untagged scenario
+
 ****
 Given ::
 an around hook tagged with "@foo" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
@@ -1820,6 +1852,7 @@ the hook is not fired icon:thumbs-up[role="green",title="Passed"] [small right]#
 ****
 
 ==== Scenario: Hooks are steps
+
 ****
 Given ::
 a file named "features/a.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(002ms)#
@@ -1943,6 +1976,7 @@ it outputs this json: icon:thumbs-up[role="green",title="Passed"] [small right]#
 ****
 
 ==== Scenario: Failing around hook (pre scenario) fails the scenario
+
 ****
 Given ::
 a file named "features/a.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(005ms)#
@@ -2038,6 +2072,7 @@ it outputs this json: icon:thumbs-up[role="green",title="Passed"] [small right]#
 ****
 
 ==== Scenario: Failing around hook (pre scenario) fails the scenario
+
 ****
 Given ::
 a file named "features/a.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(005ms)#
@@ -2133,6 +2168,7 @@ it outputs this json: icon:thumbs-up[role="green",title="Passed"] [small right]#
 ****
 
 ==== Scenario: Failing around hook (post scenario) fails the scenario
+
 ****
 Given ::
 a file named "features/a.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(005ms)#
@@ -2233,6 +2269,7 @@ it outputs this json: icon:thumbs-up[role="green",title="Passed"] [small right]#
 ****
 
 ==== Scenario: Failing around hook (post scenario) fails the scenario
+
 ****
 Given ::
 a file named "features/a.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(005ms)#
@@ -2333,6 +2370,7 @@ it outputs this json: icon:thumbs-up[role="green",title="Passed"] [small right]#
 ****
 
 ==== Scenario: Failing before hook fails the scenario
+
 ****
 Given ::
 a file named "features/a.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(005ms)#
@@ -2419,6 +2457,7 @@ it outputs this json: icon:thumbs-up[role="green",title="Passed"] [small right]#
 ****
 
 ==== Scenario: Failing before hook fails the scenario
+
 ****
 Given ::
 a file named "features/a.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(005ms)#
@@ -2505,6 +2544,7 @@ it outputs this json: icon:thumbs-up[role="green",title="Passed"] [small right]#
 ****
 
 ==== Scenario: Failing after hook fails the scenario
+
 ****
 Given ::
 a file named "features/a.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(005ms)#
@@ -2592,6 +2632,7 @@ it outputs this json: icon:thumbs-up[role="green",title="Passed"] [small right]#
 ****
 
 ==== Scenario: Failing after hook fails the scenario
+
 ****
 Given ::
 a file named "features/a.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(007ms)#
@@ -2679,6 +2720,7 @@ it outputs this json: icon:thumbs-up[role="green",title="Passed"] [small right]#
 ****
 
 ==== Scenario: Hooks still execute after a failure
+
 ****
 Given ::
 a file named "features/a.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(005ms)#
@@ -2826,6 +2868,7 @@ it outputs this json: icon:thumbs-up[role="green",title="Passed"] [small right]#
 ****
 
 ==== Scenario: World is this in hooks
+
 ****
 Given ::
 a file named "features/a.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(005ms)#
@@ -3000,6 +3043,7 @@ Developers should be able to consume features as JSON
 ****
 
 ==== Scenario: output JSON for a feature with no scenarios
+
 ****
 Given ::
 a file named "features/a.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(003ms)#
@@ -3029,6 +3073,7 @@ it outputs this json: icon:thumbs-up[role="green",title="Passed"] [small right]#
 ****
 
 ==== Scenario: output JSON for a feature with one undefined scenario
+
 ****
 Given ::
 a file named "features/a.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(003ms)#
@@ -3070,6 +3115,7 @@ it outputs this json: icon:thumbs-up[role="green",title="Passed"] [small right]#
 ****
 
 ==== Scenario: output JSON for a feature with one scenario with one undefined step
+
 ****
 Given ::
 a file named "features/a.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(001ms)#
@@ -3124,6 +3170,7 @@ it outputs this json: icon:thumbs-up[role="green",title="Passed"] [small right]#
 ****
 
 ==== Scenario: output JSON for a feature with one undefined step and subsequent defined steps which should be skipped
+
 ****
 Given ::
 a file named "features/a.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(001ms)#
@@ -3200,6 +3247,7 @@ it outputs this json: icon:thumbs-up[role="green",title="Passed"] [small right]#
 ****
 
 ==== Scenario: output JSON for a feature with one scenario with one pending step
+
 ****
 Given ::
 a file named "features/a.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(002ms)#
@@ -3263,6 +3311,7 @@ it outputs this json: icon:thumbs-up[role="green",title="Passed"] [small right]#
 
 ==== Scenario: output JSON for a feature with one scenario with failing step
 [small]#tags: @wip#
+
 
 ****
 Given ::
@@ -3330,6 +3379,7 @@ it outputs this json: icon:thumbs-up[role="green",title="Passed"] [small right]#
 ****
 
 ==== Scenario: output JSON for a feature with one scenario with passing step
+
 ****
 Given ::
 a file named "features/a.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(012ms)#
@@ -3395,6 +3445,7 @@ it outputs this json: icon:thumbs-up[role="green",title="Passed"] [small right]#
 ****
 
 ==== Scenario: output JSON for a scenario with a passing step followed by one that is pending and one that fails
+
 ****
 Given ::
 a file named "features/a.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(004ms)#
@@ -3481,6 +3532,7 @@ it outputs this json: icon:thumbs-up[role="green",title="Passed"] [small right]#
 ****
 
 ==== Scenario: output JSON for a scenario with a pending step followed by one that passes and one that fails
+
 ****
 Given ::
 a file named "features/a.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(004ms)#
@@ -3569,6 +3621,7 @@ it outputs this json: icon:thumbs-up[role="green",title="Passed"] [small right]#
 ****
 
 ==== Scenario: output JSON for one feature, one passing scenario, one failing scenario
+
 ****
 Given ::
 a file named "features/a.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(004ms)#
@@ -3659,6 +3712,7 @@ it outputs this json: icon:thumbs-up[role="green",title="Passed"] [small right]#
 ****
 
 ==== Scenario: output JSON for multiple features
+
 ****
 Given ::
 a file named "features/a.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(003ms)#
@@ -3804,6 +3858,7 @@ it outputs this json: icon:thumbs-up[role="green",title="Passed"] [small right]#
 ****
 
 ==== Scenario: output JSON for multiple features each with multiple scenarios
+
 ****
 Given ::
 a file named "features/a.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(004ms)#
@@ -4087,6 +4142,7 @@ it outputs this json: icon:thumbs-up[role="green",title="Passed"] [small right]#
 ****
 
 ==== Scenario: output JSON for a feature with a background
+
 ****
 Given ::
 a file named "features/a.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(005ms)#
@@ -4153,6 +4209,7 @@ output.
 If the background is being re-evaluated for each scenario then it
 would be misleading to only output the result for the first time
 it was evaluated.
+
 ****
 Given ::
 a file named "features/a.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(003ms)#
@@ -4211,6 +4268,7 @@ it outputs this json: icon:thumbs-up[role="green",title="Passed"] [small right]#
 ****
 
 ==== Scenario: output JSON for a feature with a DocString
+
 ****
 Given ::
 a file named "features/a.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(003ms)#
@@ -4284,6 +4342,7 @@ it outputs this json: icon:thumbs-up[role="green",title="Passed"] [small right]#
 ****
 
 ==== Scenario: output JSON for background step with a DocString
+
 ****
 Given ::
 a file named "features/a.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(003ms)#
@@ -4350,6 +4409,7 @@ it outputs this json: icon:thumbs-up[role="green",title="Passed"] [small right]#
 ****
 
 ==== Scenario: output JSON for a feature with tags
+
 ****
 Given ::
 a file named "features/a.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(003ms)#
@@ -4429,6 +4489,7 @@ it outputs this json: icon:thumbs-up[role="green",title="Passed"] [small right]#
 ****
 
 ==== Scenario: output JSON for scenario with tags
+
 ****
 Given ::
 a file named "features/a.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(003ms)#
@@ -4510,6 +4571,7 @@ it outputs this json: icon:thumbs-up[role="green",title="Passed"] [small right]#
 ==== Scenario: output JSON for a step with table
 
 Rows do not appear to support line attribute yet.
+
 ****
 Given ::
 a file named "features/a.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(003ms)#
@@ -4586,6 +4648,7 @@ it outputs this json: icon:thumbs-up[role="green",title="Passed"] [small right]#
 ==== Scenario: output JSON for background with table
 
 Rows do not appear to support line attribute yet.
+
 ****
 Given ::
 a file named "features/a.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(003ms)#
@@ -4654,6 +4717,7 @@ it outputs this json: icon:thumbs-up[role="green",title="Passed"] [small right]#
 ****
 
 ==== Scenario: output JSON for a feature with one scenario outline with no examples tables
+
 ****
 Given ::
 a file named "features/a.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(003ms)#
@@ -4686,6 +4750,7 @@ it outputs this json: icon:thumbs-up[role="green",title="Passed"] [small right]#
 ****
 
 ==== Scenario: output JSON for a feature with one scenario outline with an examples table with no rows
+
 ****
 Given ::
 a file named "features/a.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(003ms)#
@@ -4721,6 +4786,7 @@ it outputs this json: icon:thumbs-up[role="green",title="Passed"] [small right]#
 ****
 
 ==== Scenario: output JSON for a feature with one scenario outline with an examples table with two rows
+
 ****
 Given ::
 a file named "features/a.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(003ms)#
@@ -4810,6 +4876,7 @@ it outputs this json: icon:thumbs-up[role="green",title="Passed"] [small right]#
 ****
 
 ==== Scenario: output JSON for a feature with one scenario outline with an examples table with two rows and a background
+
 ****
 Given ::
 a file named "features/a.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(003ms)#
@@ -4905,6 +4972,7 @@ it outputs this json: icon:thumbs-up[role="green",title="Passed"] [small right]#
 ****
 
 ==== Scenario: output JSON for a feature with one scenario outline with two examples tables
+
 ****
 Given ::
 a file named "features/a.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(002ms)#
@@ -4997,6 +5065,7 @@ it outputs this json: icon:thumbs-up[role="green",title="Passed"] [small right]#
 ****
 
 ==== Scenario: output JSON for a feature with one scenario outline with an examples table with two rows and before, after and around hooks
+
 ****
 Given ::
 a file named "features/a.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(003ms)#
@@ -5190,6 +5259,7 @@ I want to use PogoScript for writing step definitions
 ****
 
 ==== Scenario: PogoScript step definition
+
 ****
 Given ::
 a mapping written in PogoScript icon:thumbs-down[role="yellow",title="Undefined"] [small right]#(000ms)#
@@ -5210,6 +5280,7 @@ Developers should be able to see prettified view of the scenarios that are being
 ****
 
 ==== Scenario: Output pretty text for a feature with no scenarios
+
 ****
 Given ::
 a file named "features/a.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(002ms)#
@@ -5235,6 +5306,7 @@ Feature: some feature
 ****
 
 ==== Scenario: Pretty formatter hides around, before and after hooks
+
 ****
 Given ::
 a file named "features/a.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(003ms)#
@@ -5300,6 +5372,7 @@ Feature: some feature
 ****
 
 ==== Scenario: Failing hook is reported as a failed step
+
 ****
 Given ::
 a file named "features/a.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(004ms)#
@@ -5367,6 +5440,7 @@ Failing scenarios:
 === *Scenario Outlines and Examples*
 
 ==== Scenario: Basic outline
+
 ****
 Given ::
 the following feature: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
@@ -5412,6 +5486,7 @@ the step "i get skipped" is skipped icon:thumbs-up[role="green",title="Passed"] 
 ****
 
 ==== Scenario: Outline with table
+
 ****
 Given ::
 the following feature: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
@@ -5441,6 +5516,7 @@ the received data table array equals the following: icon:thumbs-up[role="green",
 ****
 
 ==== Scenario: Outline with doc string
+
 ****
 Given ::
 the following feature: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
@@ -5473,6 +5549,7 @@ And there are some string
 ****
 
 ==== Scenario: Several outlines
+
 ****
 Given ::
 the following feature: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
@@ -5520,6 +5597,7 @@ the step "step d" passes icon:thumbs-up[role="green",title="Passed"] [small righ
 === *Scenario Statuses*
 
 ==== Scenario: Check scenario statuses
+
 ****
 Given ::
 a file named "features/a.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(004ms)#
@@ -5670,6 +5748,7 @@ it outputs this json: icon:thumbs-up[role="green",title="Passed"] [small right]#
 ****
 
 ==== Scenario: Success status
+
 ****
 Given ::
 a file named "features/a.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(004ms)#
@@ -5769,6 +5848,7 @@ it outputs this json: icon:thumbs-up[role="green",title="Passed"] [small right]#
 ****
 
 ==== Scenario: Failed status
+
 ****
 Given ::
 a file named "features/a.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(003ms)#
@@ -5869,6 +5949,7 @@ it outputs this json: icon:thumbs-up[role="green",title="Passed"] [small right]#
 ****
 
 ==== Scenario: Pending status
+
 ****
 Given ::
 a file named "features/a.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(004ms)#
@@ -5967,6 +6048,7 @@ it outputs this json: icon:thumbs-up[role="green",title="Passed"] [small right]#
 ****
 
 ==== Scenario: Undefined status
+
 ****
 Given ::
 a file named "features/a.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(005ms)#
@@ -6064,6 +6146,7 @@ it outputs this json: icon:thumbs-up[role="green",title="Passed"] [small right]#
 ****
 
 ==== Scenario: Simultaneous statuses
+
 ****
 Given ::
 a file named "features/a.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(004ms)#
@@ -6187,6 +6270,7 @@ it outputs this json: icon:thumbs-up[role="green",title="Passed"] [small right]#
 === *Step definition callbacks*
 
 ==== Scenario: fail with single-parameter error (Node.js style)
+
 ****
 Given ::
 a scenario with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
@@ -6204,6 +6288,7 @@ the scenario fails icon:thumbs-up[role="green",title="Passed"] [small right]#(00
 ****
 
 ==== Scenario: succeed with promise
+
 ****
 Given ::
 a promise-based mapping icon:thumbs-down[role="yellow",title="Undefined"] [small right]#(000ms)#
@@ -6216,6 +6301,7 @@ the scenario passes icon:thumbs-down[role="purple",title="Skipped"] [small right
 ****
 
 ==== Scenario: fail with promise
+
 ****
 Given ::
 a failing promise-based mapping icon:thumbs-down[role="yellow",title="Undefined"] [small right]#(000ms)#
@@ -6228,6 +6314,7 @@ the scenario fails icon:thumbs-down[role="purple",title="Skipped"] [small right]
 ****
 
 ==== Scenario: succeed synchronously
+
 ****
 Given ::
 a passing synchronous mapping icon:thumbs-down[role="yellow",title="Undefined"] [small right]#(000ms)#
@@ -6243,6 +6330,7 @@ the scenario passes icon:thumbs-down[role="purple",title="Skipped"] [small right
 === *step definition snippets*
 
 ==== Scenario: escape regexp special characters
+
 ****
 Given ::
 a scenario with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
@@ -6261,6 +6349,7 @@ a "When" step definition snippet for /^I type \-\[\]\{\}\(\)\*\+\?\.\\\^\$\|\#\/
 ****
 
 ==== Scenario: step matching groups
+
 ****
 Given ::
 a scenario with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
@@ -6276,6 +6365,7 @@ a "Given" step definition snippet for /^I have (\d+) "([^"]*)" cucumbers$/ with 
 ****
 
 ==== Scenario: multiple matching groups
+
 ****
 Given ::
 a scenario with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
@@ -6291,6 +6381,7 @@ a "Given" step definition snippet for /^I have some "([^"]*)", "([^"]*)" and "([
 ****
 
 ==== Scenario: outline steps with examples
+
 ****
 Given ::
 a scenario with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
@@ -6314,6 +6405,7 @@ Cucumber also supports string-based patterns.
 ****
 
 ==== Scenario: step definition with string-based pattern
+
 ****
 Given ::
 a mapping with a string-based pattern icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
@@ -6326,6 +6418,7 @@ the mapping is run icon:thumbs-up[role="green",title="Passed"] [small right]#(00
 ****
 
 ==== Scenario: step definition with string-based pattern and parameters
+
 ****
 Given ::
 a mapping with a string-based pattern and parameters icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
@@ -6340,6 +6433,7 @@ the mapping receives the arguments icon:thumbs-up[role="green",title="Passed"] [
 ****
 
 ==== Scenario: step definition with string-based pattern and multiple parameters
+
 ****
 Given ::
 a mapping with a string-based pattern and multiple parameters icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
@@ -6362,6 +6456,7 @@ step definitions have been defined.
 ****
 
 ==== Scenario: Succeed scenario with implemented step with --strict
+
 ****
 Given ::
 a file named "features/a.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(003ms)#
@@ -6400,6 +6495,7 @@ the exit status should be 0 icon:thumbs-up[role="green",title="Passed"] [small r
 ****
 
 ==== Scenario: Fail scenario with undefined step with --strict
+
 ****
 Given ::
 a file named "features/a.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(003ms)#
@@ -6434,6 +6530,7 @@ the exit status should be 1 icon:thumbs-up[role="green",title="Passed"] [small r
 ****
 
 ==== Scenario: Fail Scenario with pending step with --strict
+
 ****
 Given ::
 a file named "features/a.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(003ms)#
@@ -6471,6 +6568,7 @@ the exit status should be 1 icon:thumbs-up[role="green",title="Passed"] [small r
 ****
 
 ==== Scenario: Fail scenario with undefined step with -S
+
 ****
 Given ::
 a file named "features/a.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(003ms)#
@@ -6505,6 +6603,7 @@ the exit status should be 1 icon:thumbs-up[role="green",title="Passed"] [small r
 ****
 
 ==== Scenario: Fail Scenario with pending step with -S
+
 ****
 Given ::
 a file named "features/a.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(002ms)#
@@ -6550,6 +6649,7 @@ Developers should be able to see a high level summary of the scenarios that were
 ****
 
 ==== Scenario: Output summary for a feature with no scenarios
+
 ****
 Given ::
 a file named "features/a.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(003ms)#
@@ -6571,6 +6671,7 @@ it outputs this text: icon:thumbs-up[role="green",title="Passed"] [small right]#
 ****
 
 ==== Scenario: Summary formatter hides around, before and after hooks
+
 ****
 Given ::
 a file named "features/a.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(002ms)#
@@ -6637,6 +6738,7 @@ I want to log in to the system
 ****
 
 ==== Scenario: Unlogged user sees welcome page with login
+
 ****
 Given ::
 I have not logged or have logged out before icon:thumbs-down[role="yellow",title="Undefined"] [small right]#(000ms)#
@@ -6651,6 +6753,7 @@ I should not see any username icon:thumbs-down[role="yellow",title="Undefined"] 
 ****
 
 ==== Scenario: Minimal user sees welcome page with its username and logout
+
 ****
 Given ::
 I have logged as guest named "Guest" icon:thumbs-down[role="yellow",title="Undefined"] [small right]#(000ms)#
@@ -6665,6 +6768,7 @@ I should see "Guest" as username icon:thumbs-down[role="yellow",title="Undefined
 ****
 
 ==== Scenario: Unlogged user logs in
+
 ****
 Given ::
 I have not logged or have logged out before icon:thumbs-down[role="yellow",title="Undefined"] [small right]#(000ms)#
@@ -6679,6 +6783,7 @@ I should be taken to login page icon:thumbs-down[role="yellow",title="Undefined"
 ****
 
 ==== Scenario: Logged user logs out
+
 ****
 Given ::
 I have logged as guest named "Guest" icon:thumbs-down[role="yellow",title="Undefined"] [small right]#(000ms)#
@@ -6693,6 +6798,7 @@ I should be taken to logout page icon:thumbs-down[role="yellow",title="Undefined
 ****
 
 ==== Scenario: Disconnected user sees welcome page and reconnect option
+
 ****
 Given ::
 I have had a broken connection with api site icon:thumbs-down[role="yellow",title="Undefined"] [small right]#(000ms)#
@@ -6707,6 +6813,7 @@ I should not see any username icon:thumbs-down[role="yellow",title="Undefined"] 
 ****
 
 ==== Scenario: User sees 'connecting' while connecting
+
 ****
 Given ::
 I have had lagging api site icon:thumbs-down[role="yellow",title="Undefined"] [small right]#(000ms)#
@@ -6741,6 +6848,7 @@ instance will be used by Cucumber: +
 ****
 
 ==== Scenario: scenario calling function on explicit world instance
+
 ****
 Given ::
 a custom World constructor calling back with an explicit object icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#

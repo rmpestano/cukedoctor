@@ -1,6 +1,6 @@
 :toc: right
 :backend: pdf
-:doctitle: Living Documentation
+:doctitle: asciidoctor-documentation
 :doctype: book
 :icons: font
 :!numbered:
@@ -10,7 +10,7 @@
 :docinfo:
 :toclevels: 3
 
-= *Living Documentation*
+= *asciidoctor-documentation*
 
 == *Summary*
 [cols="12*^m", options="header,footer"]
@@ -101,6 +101,7 @@ I want to be able to use a cross reference macro
 ****
 
 ==== Scenario: Create a cross reference from an AsciiDoc cell to a section
+
 ****
 Given ::
 the AsciiDoc source icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
@@ -140,6 +141,7 @@ table.tableblock.frame-all.grid-all.spread
 ****
 
 ==== Scenario: Create a cross reference using the target section title
+
 ****
 Given ::
 the AsciiDoc source icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
@@ -173,6 +175,7 @@ the result should match the HTML structure icon:thumbs-up[role="green",title="Pa
 ****
 
 ==== Scenario: Create a cross reference using the target reftext
+
 ****
 Given ::
 the AsciiDoc source icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
@@ -207,6 +210,7 @@ the result should match the HTML structure icon:thumbs-up[role="green",title="Pa
 ****
 
 ==== Scenario: Create a cross reference using the formatted target title
+
 ****
 Given ::
 the AsciiDoc source icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
@@ -253,6 +257,7 @@ I want to be able to wrap content in an open block
 ****
 
 ==== Scenario: Render an open block that contains a paragraph to HTML
+
 ****
 Given ::
 the AsciiDoc source icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
@@ -281,6 +286,7 @@ the result should match the HTML source icon:thumbs-up[role="green",title="Passe
 ****
 
 ==== Scenario: Render an open block that contains a paragraph to DocBook
+
 ****
 Given ::
 the AsciiDoc source icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
@@ -303,6 +309,7 @@ the result should match the XML source icon:thumbs-up[role="green",title="Passed
 ****
 
 ==== Scenario: Render an open block that contains a paragraph to HTML (alt)
+
 ****
 Given ::
 the AsciiDoc source icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
@@ -328,6 +335,7 @@ the result should match the HTML structure icon:thumbs-up[role="green",title="Pa
 ****
 
 ==== Scenario: Render an open block that contains a paragraph to DocBook (alt)
+
 ****
 Given ::
 the AsciiDoc source icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
@@ -350,6 +358,7 @@ simpara A paragraph in an open block.
 ****
 
 ==== Scenario: Render an open block that contains a list to HTML
+
 ****
 Given ::
 the AsciiDoc source icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
@@ -389,6 +398,7 @@ I want to be able to mark passthrough content using a pass block
 ****
 
 ==== Scenario: Render a pass block without performing substitutions by default to HTML
+
 ****
 Given ::
 the AsciiDoc source icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
@@ -417,6 +427,7 @@ image:tiger.png[]
 ****
 
 ==== Scenario: Render a pass block without performing substitutions by default to DocBook
+
 ****
 Given ::
 the AsciiDoc source icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
@@ -445,6 +456,7 @@ image:tiger.png[]
 ****
 
 ==== Scenario: Render a pass block performing explicit substitutions to HTML
+
 ****
 Given ::
 the AsciiDoc source icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
@@ -483,6 +495,7 @@ I want to be able to markup inline text with formatting characters
 ****
 
 ==== Scenario: Convert text that contains superscript and subscript characters
+
 ****
 Given ::
 the AsciiDoc source icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
@@ -513,6 +526,7 @@ the 10<sup>th</sup> point has coordinate (x<sub>10</sub>, y<sub>10</sub>)</p>
 ****
 
 ==== Scenario: Convert text that has ex-inline literal formatting
+
 ****
 Given ::
 the AsciiDoc source icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
@@ -535,6 +549,7 @@ the result should match the HTML source icon:thumbs-up[role="green",title="Passe
 ****
 
 ==== Scenario: Convert text that has ex-inline monospaced formatting
+
 ****
 Given ::
 the AsciiDoc source icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
