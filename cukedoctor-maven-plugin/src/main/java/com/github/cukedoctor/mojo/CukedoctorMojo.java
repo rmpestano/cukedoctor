@@ -66,6 +66,16 @@ public class CukedoctorMojo extends AbstractMojo {
 	@Parameter(defaultValue = "false", required = false)
 	boolean numbered;
 
+	@Parameter(defaultValue = "false", required = false)
+	boolean disableTheme;
+
+	@Parameter(defaultValue = "false", required = false)
+	boolean disableFilter;
+
+	@Parameter(defaultValue = "false", required = false)
+	boolean disableMinimizable;
+
+
 	@Component
 	MavenProject project;
 
@@ -86,6 +96,7 @@ public class CukedoctorMojo extends AbstractMojo {
 			getLog().info("Generating living documentation for " + featuresFound.size() + " feature(s)...");
 		}
 
+		configExtensions();
 		DocumentAttributes documentAttributes = new DocumentAttributes().
 				backend(format.name().toLowerCase()).
 				toc(toc.name().toLowerCase()).
@@ -127,6 +138,18 @@ public class CukedoctorMojo extends AbstractMojo {
 		}
 
 		asciidoctor.shutdown();
+	}
+
+	private void configExtensions() {
+		if(disableFilter){
+			System.setProperty("cukedoctor.disable.filter","disabled");
+		}
+		if(disableMinimizable){
+			System.setProperty("cukedoctor.disable.minmax","disabled");
+		}
+		if(disableTheme){
+			System.setProperty("cukedoctor.disable.theme","disabled");
+		}
 	}
 
 	private void generateDocumentation(DocumentAttributes documentAttributes, File adocFile, Asciidoctor asciidoctor) {
