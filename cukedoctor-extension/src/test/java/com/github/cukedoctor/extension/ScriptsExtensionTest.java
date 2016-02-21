@@ -3,9 +3,7 @@ package com.github.cukedoctor.extension;
 import org.asciidoctor.Asciidoctor;
 import org.asciidoctor.OptionsBuilder;
 import org.asciidoctor.SafeMode;
-import org.junit.AfterClass;
-import org.junit.BeforeClass;
-import org.junit.Test;
+import org.junit.*;
 import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;
 
@@ -38,6 +36,15 @@ public class ScriptsExtensionTest {
             file.delete();
         }
     }
+
+    @Before
+    @After
+    public void enableAllExtensions(){
+        System.clearProperty("cukedoctor.disable.theme");
+        System.clearProperty("cukedoctor.disable.filter");
+        System.clearProperty("cukedoctor.disable.minmax");
+    }
+
     @Test
     public void shouldAddScriptsToRenderedHtml(){
         File sampleAdoc = loadTestFile("sample.adoc");
@@ -47,8 +54,54 @@ public class ScriptsExtensionTest {
         String sampleHtml = readFileContent(loadTestFile("sample.html"));
         assertThat(sampleHtml).isNotEmpty().
                 containsOnlyOnce("searchFeature(criteria)").
-                containsOnlyOnce("function showFeatureScenarios(featureId)");
+                containsOnlyOnce("function showFeatureScenarios(featureId)").
+                containsOnlyOnce("function themefy()");
 
     }
+
+
+    @Test
+    public void shouldDisableThemeExtension(){
+        System.setProperty("cukedoctor.disable.theme","anyValue");
+        File sampleAdoc = loadTestFile("sample.adoc");
+        assertThat(sampleAdoc).exists();
+        asciidoctor.convertFile(sampleAdoc, OptionsBuilder.options().safe(SafeMode.UNSAFE).asMap());
+
+        String sampleHtml = readFileContent(loadTestFile("sample.html"));
+        assertThat(sampleHtml).isNotEmpty().
+                containsOnlyOnce("searchFeature(criteria)").
+                containsOnlyOnce("function showFeatureScenarios(featureId)").
+                doesNotContain("function themefy()");
+    }
+
+    @Test
+    public void shouldDisableFilterExtension(){
+        System.setProperty("cukedoctor.disable.filter","anything");
+        File sampleAdoc = loadTestFile("sample.adoc");
+        assertThat(sampleAdoc).exists();
+        asciidoctor.convertFile(sampleAdoc, OptionsBuilder.options().safe(SafeMode.UNSAFE).asMap());
+
+        String sampleHtml = readFileContent(loadTestFile("sample.html"));
+        assertThat(sampleHtml).isNotEmpty().
+                doesNotContain("searchFeature(criteria)").
+                containsOnlyOnce("function showFeatureScenarios(featureId)").
+                containsOnlyOnce("function themefy()");
+    }
+
+    @Test
+    public void shouldDisableMinMaxExtension(){
+        System.setProperty("cukedoctor.disable.minmax","any");
+        File sampleAdoc = loadTestFile("sample.adoc");
+        assertThat(sampleAdoc).exists();
+        asciidoctor.convertFile(sampleAdoc, OptionsBuilder.options().safe(SafeMode.UNSAFE).asMap());
+
+        String sampleHtml = readFileContent(loadTestFile("sample.html"));
+        assertThat(sampleHtml).isNotEmpty().
+                containsOnlyOnce("searchFeature(criteria)").
+                doesNotContain("function showFeatureScenarios(featureId)").
+                containsOnlyOnce("function themefy()");
+    }
+
+
 
 }

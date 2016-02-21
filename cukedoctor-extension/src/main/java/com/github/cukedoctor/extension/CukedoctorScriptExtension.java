@@ -1,16 +1,10 @@
 package com.github.cukedoctor.extension;
 
-import org.asciidoctor.ast.AbstractBlock;
 import org.asciidoctor.ast.Document;
-import org.asciidoctor.extension.BlockProcessor;
 import org.asciidoctor.extension.Postprocessor;
-import org.asciidoctor.extension.Reader;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Element;
 
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 /**
@@ -29,8 +23,15 @@ public class CukedoctorScriptExtension extends Postprocessor{
             org.jsoup.nodes.Document doc = Jsoup.parse(output, "UTF-8");
 
             Element contentElement = doc.getElementById("footer");
-            addSearchScript(contentElement);
-            addMinMaxScript(contentElement);
+                if(System.getProperty("cukedoctor.disable.filter") == null) {
+                        addSearchScript(contentElement);
+                }
+                if(System.getProperty("cukedoctor.disable.minmax") == null){
+                        addMinMaxScript(contentElement);
+                }
+                if(System.getProperty("cukedoctor.disable.theme") == null){
+                        addThemeScript(contentElement);
+                }
             return doc.html();
 
         }else{
@@ -38,7 +39,52 @@ public class CukedoctorScriptExtension extends Postprocessor{
         }
     }
 
-    private void addMinMaxScript(Element contentElement) {
+        private void addThemeScript(Element contentElement) {
+             String themeScript = " <script type=\"text/javascript\">  \n" +
+                     "\n" +
+                     "document.addEventListener(\"DOMContentLoaded\", function(event) { \n" +
+                     "  themefy();\n" +
+                     "});\n"+
+                     "\tfunction themefy() {\n" +
+                     " \t\t\t\t\t\tvar theme = getThemeFromQueryParameters() || 'asciidoctor';\n" +
+                     " \t\t\t\t\t\tvar themeLink = document.createElement('link');\n" +
+                     " \t\t\t\t\t\tthemeLink.rel = 'stylesheet';\n" +
+                     " \t\t\t\t\t\tthemeLink.id = 'asciidoctor-style';\n" +
+                     " \t\t\t\t\t\tthemeLink.href = 'themes/' + theme + '.css';\n" +
+                     " \t\t\t\t\t\t document.head.appendChild(themeLink);\n" +
+                     "}\n" +
+                     "\n" +
+                     "\n" +
+                     "\tfunction getThemeFromQueryParameters() {\n" +
+                     "\t\tvar query = location.search.substr(1);\n" +
+                     "\t\tvar result = 'asciidoctor';\n" +
+                     "\tquery.split(\"&\").forEach(function (part) {\n" +
+                     "\t\t\t\t// part can be empty\n" +
+                     "\t\t\t\tif (part) {\n" +
+                     "\t\t\t\t\tvar item = part.split(\"=\");\n" +
+                     "\t\t\t\t\tvar key = item[0];\n" +
+                     "\t\t\t\tvar value = item[1];\n" +
+                     "\t\t\t\tif (typeof value !== 'undefined') {\n" +
+                     "\t\t\t\t\t\tif(key == 'theme'){\n" +
+                     "\t\t\t\t\t\t\t\tresult = value;\n" +
+                     "\t\t\t\t\t\t\t\t}\n" +
+                     "\t\t\t}\n" +
+                     "\t\t}\n" +
+                     " \t});\n" +
+                     "\tdocument.getElementById('themes').value = result;  \n" +
+                     "\tvar els = document.querySelector('select[name=\"select\"] option[value=\"' + result + '\"]');  \n" +
+                     "\tif(els){\n" +
+                     "    els.selected = true;\n" +
+                     "\t}"+
+                     "\treturn result;\n" +
+                     "}\n" +
+                     " \n" +
+                     "</script>      ";
+
+                contentElement.after(themeScript);
+        }
+
+        private void addMinMaxScript(Element contentElement) {
         String minMaxScript = "<script type=\"text/javascript\">\n" +
                 "\tfunction showFeatureScenarios(featureId){\n" +
                 "\t\tvar element = document.getElementById(featureId).parentNode;\n" +
