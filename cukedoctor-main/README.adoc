@@ -37,7 +37,8 @@ public void shouldRenderHtmlForOneFeature(){
 Using in command line, the above test should be something like:
 
 ----
-java -jar cukedoctor-main.jar -o "target/document-one"
+java -jar cukedoctor-main.jar
+         -o "target/document-one"
 		 -p "target/test-classes/json-output/one_passing_one_failing.json"
 		 -t "Living Documentation" -f html
 ----
@@ -47,8 +48,9 @@ java -jar cukedoctor-main.jar -o "target/document-one"
 You can disable https://github.com/rmpestano/cukedoctor/tree/master/cukedoctor-converter#disable-extensions[cukedoctor extensions^] by using _-D_ option when executing Cukedoctor main at command line:
 
 ----
-java -jar -Dcukedoctor.disable.filter=123  -Dcukedoctor.disable.theme=abc cukedoctor-main-0.7.0.jar
-		-p cucumber-output.json
+java -jar -Dcukedoctor.disable.filter=123  -Dcukedoctor.disable.theme=abc
+           cukedoctor-main-0.7.0.jar
+		  -p cucumber-output.json
 ----
 
 You can download Cukedoctor main https://bintray.com/artifact/download/rmpestano/cukedoctor/com/github/cukedoctor/cukedoctor-main/0.7.0/cukedoctor-main-0.7.0.jar[jar here^]
