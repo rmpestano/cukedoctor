@@ -1,16 +1,14 @@
 package com.github.cukedoctor.mojo;
 
-import com.github.cukedoctor.util.FileUtil;
-import org.apache.maven.plugin.testing.AbstractMojoTestCase;
-import org.assertj.core.api.StrictAssertions;
-import org.junit.After;
-import org.junit.Before;
-
-import java.io.File;
-
 import static com.github.cukedoctor.mojo.FileUtil.loadTestFile;
 import static com.github.cukedoctor.mojo.FileUtil.readFileContent;
 import static org.assertj.core.api.Assertions.assertThat;
+
+import java.io.File;
+
+import org.apache.maven.plugin.testing.AbstractMojoTestCase;
+
+import com.github.cukedoctor.util.FileUtil;
 
 /**
  * Created by pestano on 27/06/15.
@@ -50,7 +48,7 @@ public class CukedoctorMojoTest extends AbstractMojoTestCase {
                 contains(":toc: left").
                 contains(":numbered:");
         String docHtml = readFileContent(loadTestFile("documentation.html"));
-        StrictAssertions.assertThat(docHtml).isNotEmpty().
+        assertThat(docHtml).isNotEmpty().
                 containsOnlyOnce("searchFeature(criteria)").
                 containsOnlyOnce("function showFeatureScenarios(featureId)").
                 containsOnlyOnce("function themefy()");
@@ -72,7 +70,7 @@ public class CukedoctorMojoTest extends AbstractMojoTestCase {
                 contains(":toc: left").
                 contains(":numbered:");
         String docHtml = readFileContent(loadTestFile("documentation.html"));
-        StrictAssertions.assertThat(docHtml).isNotEmpty().
+        assertThat(docHtml).isNotEmpty().
                 doesNotContain("searchFeature(criteria)").
                 containsOnlyOnce("function showFeatureScenarios(featureId)").
                 containsOnlyOnce("function themefy()");
@@ -94,7 +92,7 @@ public class CukedoctorMojoTest extends AbstractMojoTestCase {
                 contains(":toc: left").
                 contains(":numbered:");
         String docHtml = readFileContent(loadTestFile("documentation.html"));
-        StrictAssertions.assertThat(docHtml).isNotEmpty().
+        assertThat(docHtml).isNotEmpty().
                 containsOnlyOnce("searchFeature(criteria)").
                 containsOnlyOnce("function showFeatureScenarios(featureId)").
                 doesNotContain("function themefy()").
@@ -117,7 +115,7 @@ public class CukedoctorMojoTest extends AbstractMojoTestCase {
                 contains(":toc: left").
                 contains(":numbered:");
         String docHtml = readFileContent(loadTestFile("documentation.html"));
-        StrictAssertions.assertThat(docHtml).isNotEmpty().
+        assertThat(docHtml).isNotEmpty().
                 doesNotContain("searchFeature(criteria)").
                 doesNotContain("function showFeatureScenarios(featureId)").
                 doesNotContain("function themefy()");
