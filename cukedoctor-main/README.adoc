@@ -27,7 +27,7 @@ public void shouldRenderHtmlForOneFeature(){
 	}
 ----
 <1> output file name (default is 'documentation')
-<2> path to cucumber json files (default is current dir)
+<2> path to cucumber json files or directory (default is current dir)
 <3> Document title (default is 'Living Documentation') 
 <4> document format (Default is html)
 <5> table of contents position (Default is right)
@@ -37,7 +37,8 @@ public void shouldRenderHtmlForOneFeature(){
 Using in command line, the above test should be something like:
 
 ----
-java -jar cukedoctor-main.jar -o "target/document-one" -p "target/test-classes/json-output/one_passing_one_failing.json"
+java -jar cukedoctor-main.jar -o "target/document-one"
+		 -p "target/test-classes/json-output/one_passing_one_failing.json"
 		 -t "Living Documentation" -f html
 ----
 
