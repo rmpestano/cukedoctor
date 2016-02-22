@@ -34,9 +34,9 @@ To generate cucumber .json output files just execute your _BDD_ tests with *json
 [source,java]
 ----
 @RunWith(Cucumber.class)
-@CucumberOptions(plugins = {"json:target/cucumber.json"} )
+@CucumberOptions(plugin = {"json:target/cucumber.json"} )
 ----
-NOTE: *plugins* option replaced *format* option which was deprecated in newer cucumber versions.
+NOTE: *plugin* option replaced *format* option which was deprecated in newer cucumber versions.
 
 ====
 
