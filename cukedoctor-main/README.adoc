@@ -38,7 +38,7 @@ Using in command line, the above test should be something like:
 
 ----
 java -jar cukedoctor-main.jar -o "target/document-one" -p "target/test-classes/json-output/one_passing_one_failing.json"
-							   -t "Living Documentation" -f html
+		 -t "Living Documentation" -f html
 ----
 
 == Disable extensions
@@ -47,7 +47,7 @@ You can disable https://github.com/rmpestano/cukedoctor/tree/master/cukedoctor-c
 
 ----
 java -jar -Dcukedoctor.disable.filter=123  -Dcukedoctor.disable.theme=abc cukedoctor-main-0.7.0.jar
-		  -p cucumber-output.json
+		-p cucumber-output.json
 ----
 
 You can download Cukedoctor main https://bintray.com/artifact/download/rmpestano/cukedoctor/com/github/cukedoctor/cukedoctor-main/0.7.0/cukedoctor-main-0.7.0.jar[jar here^]
