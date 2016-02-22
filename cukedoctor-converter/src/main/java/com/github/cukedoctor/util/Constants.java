@@ -22,11 +22,15 @@ public abstract class Constants {
 			homeDir += "/";
 		}
 
-		if(homeDir.startsWith("/")){
+		if(isWindows() && homeDir.startsWith("/")){
 			homeDir = homeDir.substring(1);
 		}
 
 		return homeDir;
+	}
+
+	private static boolean isWindows() {
+		return System.getProperty("os.name").toLowerCase().startsWith("windows");
 	}
 
 	public abstract static class Markup {
