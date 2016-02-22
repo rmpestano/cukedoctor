@@ -22,6 +22,10 @@ public abstract class Constants {
 			homeDir += "/";
 		}
 
+		if(homeDir.startsWith("/")){
+			homeDir = homeDir.substring(1);
+		}
+
 		return homeDir;
 	}
 

@@ -8,6 +8,7 @@ import com.github.cukedoctor.util.FileUtil;
 import com.github.cukedoctor.util.Formatter;
 
 import java.io.File;
+import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.List;
 
@@ -70,15 +71,15 @@ public class CukedoctorConverterImpl implements CukedoctorConverter {
 	}
 
 	public void renderIntro() {
-		String baseDir = Paths.get("").toAbsolutePath().toString();
-		String baseTargetDir = (baseDir +"/target").replaceAll("//","/");
-		if(new File(baseTargetDir).exists()){
+		String baseDir = Paths.get("").toAbsolutePath().toString();//current dir
+		if(Files.exists(Paths.get("target"))){
 			//try to limit search to target dir
-			baseDir = baseTargetDir;
+			baseDir = Paths.get("target").toAbsolutePath().toString();
 		}
 		List<String> files = FileUtil.findFiles(baseDir, new String[]{"**/*cukedoctor-intro.adoc","**/*cukedoctor-intro.asciidoc"});
 		if(files != null && !files.isEmpty()){
 			String introPath = files.get(0);
+			 introPath = introPath.replaceAll("\\\\","/");
 			docBuilder.append("include::",introPath,"[leveloffset=+1]",newLine(),newLine());
 		}
 	}
