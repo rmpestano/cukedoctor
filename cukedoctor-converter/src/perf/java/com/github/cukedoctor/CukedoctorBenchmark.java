@@ -14,6 +14,7 @@ import org.openjdk.jmh.runner.options.TimeValue;
 import java.io.File;
 import java.util.List;
 import java.util.UUID;
+import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
@@ -27,58 +28,58 @@ public class CukedoctorBenchmark {
     private static List<Feature> asciidoctorFeatures;
     private static Asciidoctor asciidoctor;
 
+
     @State(Scope.Thread)
     public static class BenchmarkContext {
 
         @Setup
         public void init() throws RunnerException {
-            removeAdocFIles();
+            Logger.getLogger(FileUtil.class.getName()).setLevel(Level.SEVERE);
             String asciidoctorFeaturesPath = FileUtil.findJsonFile(Thread.currentThread().getContextClassLoader().getResource("asciidoctor-features.json").getPath());
             asciidoctorFeatures = FeatureParser.parse(asciidoctorFeaturesPath);
             cukedoctorConverter = Cukedoctor.instance(asciidoctorFeatures);
         }
 
-        @TearDown
-        public void tearDown(){
-            try {
-                List<String> files = FileUtil.findFiles("target/benchmark", new String[]{"**/*.adoc"});
-                Logger.getLogger(getClass().getName()).info("Number of files converted: " + files.size());
-            }finally {
-                removeAdocFIles();
-            }
-        }
 
-        private void removeAdocFIles() {
-            List<String> files = FileUtil.findFiles("target/benchmark", new String[]{"**/*.adoc"});
-            if(files != null){
-                for (String file : files) {
-                    FileUtil.removeFile(file);
-                }
-            }
-        }
     }
 
     @Benchmark
     public void convert(BenchmarkContext ctx) {
-        synchronized (this){
-            cukedoctorConverter.renderDocumentation();
-            File adocFile = FileUtil.saveFile("target/benchmark/"+UUID.randomUUID().toString()+".adoc", cukedoctorConverter.getDocumentation());
-            //Asciidoctor.Factory.create().convertFile(adocFile, org.asciidoctor.OptionsBuilder.options().backend("html").safe(SafeMode.UNSAFE).asMap());
+        String livingDocumentation = cukedoctorConverter.renderDocumentation();
+        File adocFile = FileUtil.saveFile("target/benchmark/" + UUID.randomUUID().toString() + ".adoc", livingDocumentation);
+        //Asciidoctor.Factory.create().convertFile(adocFile, org.asciidoctor.OptionsBuilder.options().backend("html").safe(SafeMode.UNSAFE).asMap());
+    }
 
+
+    public static void main(String[] args) throws RunnerException, InterruptedException {
+        try {
+            new Runner(new OptionsBuilder().
+                    forks(3).
+                    threads(4).
+                    warmupIterations(5).
+                    warmupForks(1).
+                    measurementIterations(5).
+                    include(CukedoctorBenchmark.class.getSimpleName()).
+                    measurementTime(TimeValue.milliseconds(300)).
+                    build()
+            ).run();
+        }finally {
+            Thread.sleep(300);
+            List<String> files = FileUtil.findFiles("target/benchmark", new String[]{"**/*.adoc"});
+            Logger.getLogger(CukedoctorBenchmark.class.getName()).info("Number of files converted: " + files.size());
+            CukedoctorBenchmark.removeAdocFIles();
+        }
+
+
+    }
+
+    private static void removeAdocFIles() {
+        List<String> files = FileUtil.findFiles("target/benchmark", new String[]{"**/*.adoc"});
+        if (files != null) {
+            for (String file : files) {
+                FileUtil.removeFile(file);
+            }
         }
     }
 
-
-    public static void main(String[] args) throws RunnerException {
-        new Runner(new OptionsBuilder().
-                forks(3).
-                threads(4).
-                warmupIterations(5).
-                warmupForks(1).
-                measurementIterations(5).
-                include(CukedoctorBenchmark.class.getSimpleName()).
-                measurementTime(TimeValue.milliseconds(300)).
-                build()
-              ).run();
-    }
 }

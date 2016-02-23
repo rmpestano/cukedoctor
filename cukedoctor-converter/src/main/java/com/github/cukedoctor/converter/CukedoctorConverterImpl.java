@@ -54,7 +54,7 @@ public class CukedoctorConverterImpl implements CukedoctorConverter {
 	/**
 	 * @return a String representation of generated documentation
 	 */
-	public String renderDocumentation() {
+	public synchronized String renderDocumentation() {
 		docBuilder = CukedoctorDocumentBuilder.Factory.newInstance();
 		renderAttributes();
 		docBuilder.newLine();
