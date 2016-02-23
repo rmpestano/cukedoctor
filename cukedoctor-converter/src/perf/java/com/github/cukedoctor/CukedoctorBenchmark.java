@@ -58,7 +58,7 @@ public class CukedoctorBenchmark {
                     threads(8).
                     warmupIterations(5).
                     warmupForks(1).
-                    measurementIterations(5).
+                    measurementIterations(10).
                     include(CukedoctorBenchmark.class.getSimpleName()).
                     measurementTime(TimeValue.milliseconds(350)).
                     build()
@@ -66,10 +66,8 @@ public class CukedoctorBenchmark {
         }finally {
             List<String> files = FileUtil.findFiles("target/benchmark", new String[]{"**/*.adoc"});
             Logger.getLogger(CukedoctorBenchmark.class.getName()).info("Number of files converted: " + files.size());
-            System.out.println("Number of files converted: " + files.size());
             CukedoctorBenchmark.removeAdocFIles();
         }
-
 
     }
 
