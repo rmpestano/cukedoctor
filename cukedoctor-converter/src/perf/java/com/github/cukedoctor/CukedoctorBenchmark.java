@@ -1,0 +1,84 @@
+package com.github.cukedoctor;
+
+import com.github.cukedoctor.api.CukedoctorConverter;
+import com.github.cukedoctor.api.model.Feature;
+import com.github.cukedoctor.parser.FeatureParser;
+import com.github.cukedoctor.util.FileUtil;
+import org.asciidoctor.Asciidoctor;
+import org.openjdk.jmh.annotations.*;
+import org.openjdk.jmh.runner.Runner;
+import org.openjdk.jmh.runner.RunnerException;
+import org.openjdk.jmh.runner.options.OptionsBuilder;
+import org.openjdk.jmh.runner.options.TimeValue;
+
+import java.io.File;
+import java.util.List;
+import java.util.UUID;
+import java.util.logging.Logger;
+
+/**
+ * Created by pestano on 22/02/16.
+ */
+@State(Scope.Benchmark)
+@BenchmarkMode(Mode.Throughput)
+public class CukedoctorBenchmark {
+
+    private static CukedoctorConverter cukedoctorConverter;
+    private static List<Feature> asciidoctorFeatures;
+    private static Asciidoctor asciidoctor;
+
+    @State(Scope.Thread)
+    public static class BenchmarkContext {
+
+        @Setup
+        public void init() throws RunnerException {
+            removeAdocFIles();
+            String asciidoctorFeaturesPath = FileUtil.findJsonFile(Thread.currentThread().getContextClassLoader().getResource("asciidoctor-features.json").getPath());
+            asciidoctorFeatures = FeatureParser.parse(asciidoctorFeaturesPath);
+            cukedoctorConverter = Cukedoctor.instance(asciidoctorFeatures);
+        }
+
+        @TearDown
+        public void tearDown(){
+            try {
+                List<String> files = FileUtil.findFiles("target/benchmark", new String[]{"**/*.adoc"});
+                Logger.getLogger(getClass().getName()).info("Number of files converted: " + files.size());
+            }finally {
+                removeAdocFIles();
+            }
+        }
+
+        private void removeAdocFIles() {
+            List<String> files = FileUtil.findFiles("target/benchmark", new String[]{"**/*.adoc"});
+            if(files != null){
+                for (String file : files) {
+                    FileUtil.removeFile(file);
+                }
+            }
+        }
+    }
+
+    @Benchmark
+    public void convert(BenchmarkContext ctx) {
+        synchronized (this){
+            cukedoctorConverter.renderDocumentation();
+            File adocFile = FileUtil.saveFile("target/benchmark/"+UUID.randomUUID().toString()+".adoc", cukedoctorConverter.getDocumentation());
+            //Asciidoctor.Factory.create().convertFile(adocFile, org.asciidoctor.OptionsBuilder.options().backend("html").safe(SafeMode.UNSAFE).asMap());
+
+        }
+    }
+
+
+    public static void main(String[] args) throws RunnerException {
+        new Runner(new OptionsBuilder().
+                forks(3).
+                threads(4).
+                warmupIterations(5).
+                warmupForks(1).
+                measurementIterations(5).
+                include(CukedoctorBenchmark.class.getSimpleName()).
+                measurementTime(TimeValue.milliseconds(300)).
+                build()
+              ).run();
+    }
+}

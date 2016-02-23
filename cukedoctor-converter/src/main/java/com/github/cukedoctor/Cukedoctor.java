@@ -24,7 +24,7 @@ public class Cukedoctor {
 	 * @param attrs         document attributes
 	 * @return a Cukedoctor converter instance
 	 */
-	public static CukedoctorConverter instance(List<Feature> features, DocumentAttributes attrs) {
+	public static synchronized CukedoctorConverter instance(List<Feature> features, DocumentAttributes attrs) {
 
 		if (!hasElements(features)) {
 			throw new RuntimeException("No features found");
@@ -41,7 +41,7 @@ public class Cukedoctor {
 	 * @param features used to generate the documentation
 	 * @return a Cukedoctor converter instance
 	 */
-	public static CukedoctorConverter instance(List<Feature> features) {
+	public static synchronized CukedoctorConverter instance(List<Feature> features) {
 
 		return instance(features, null);
 	}
