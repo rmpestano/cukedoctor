@@ -55,7 +55,7 @@
             <scope>provided</scope>
         </dependency>
     </dependencies>
-	
+
 	<profiles>
 		<profile>
 		   <id>perf</id>
@@ -89,8 +89,8 @@
 							<executable>java</executable>
 							<arguments>
 								<argument>-classpath</argument>
-								<classpath/>							
-								<argument>org.openjdk.jmh.Main</argument>
+								<classpath/>
+								<argument>com.github.cukedoctor.CukedoctorBenchmark</argument>
 							</arguments>
 						</configuration>
 					</plugin>
@@ -111,8 +111,9 @@
 					</plugin>
 				</plugins>
 		   </build>
+
 		</profile>
-	
+
 	</profiles>
 
 </project>
