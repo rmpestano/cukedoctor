@@ -55,7 +55,7 @@ public class CukedoctorBenchmark {
         try {
             new Runner(new OptionsBuilder().
                     forks(3).
-                    threads(4).
+                    threads(8).
                     warmupIterations(5).
                     warmupForks(1).
                     measurementIterations(5).
@@ -66,6 +66,7 @@ public class CukedoctorBenchmark {
         }finally {
             List<String> files = FileUtil.findFiles("target/benchmark", new String[]{"**/*.adoc"});
             Logger.getLogger(CukedoctorBenchmark.class.getName()).info("Number of files converted: " + files.size());
+            System.out.println("Number of files converted: " + files.size());
             CukedoctorBenchmark.removeAdocFIles();
         }
 
