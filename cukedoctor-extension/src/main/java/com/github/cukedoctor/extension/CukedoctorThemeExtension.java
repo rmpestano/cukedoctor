@@ -31,6 +31,9 @@ public class CukedoctorThemeExtension extends Postprocessor {
                     FileUtil.copyFile("themes/colony.css", docDir + "/themes/colony.css");
                     FileUtil.copyFile("themes/foundation.css", docDir + "/themes/foundation.css");
                     FileUtil.copyFile("themes/rubygems.css", docDir + "/themes/rubygems.css");
+                    FileUtil.copyFile("themes/iconic.css", docDir + "/themes/iconic.css");
+                    FileUtil.copyFile("themes/readthedocs.css", docDir + "/themes/readthedocs.css");
+                    FileUtil.copyFile("themes/rocket-panda.css", docDir + "/themes/rocket-panda.css");
                     FileUtil.copyFile("themes/maker.css", docDir + "/themes/maker.css");
                     FileUtil.copyFile("themes/github.css", docDir + "/themes/github.css");
                 }
@@ -48,7 +51,10 @@ public class CukedoctorThemeExtension extends Postprocessor {
                     "  <option value=\"colony\">Colony</option>\n" +
                     "  <option value=\"foundation\" >Foundation</option>\n" +
                     "  <option value=\"github\">Github</option>\n" +
+                    "  <option value=\"iconic\">Iconic</option>\n" +
                     "  <option value=\"maker\">Maker</option>\n" +
+                    "  <option value=\"rocket-panda\">Rocket Panda</option>\n" +
+                    "  <option value=\"readthedocs\">Read the Docs</option>\n" +
                     "  <option value=\"rubygems\">Rubygems</option>\n" +
                     "</select>\n" +
                     "</div>");
