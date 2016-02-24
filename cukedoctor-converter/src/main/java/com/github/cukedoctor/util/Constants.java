@@ -11,7 +11,8 @@ import java.nio.file.Paths;
 public abstract class Constants {
 
 	public static final String SKIP_DOCS = "@skipDocs";
-        public static final String baseDir = Files.exists(Paths.get("target")) ? Paths.get("target").toAbsolutePath().toString() : Paths.get("").toAbsolutePath().toString();//current dir
+    public static final String baseDir = Files.exists(Paths.get("target")) ? Paths.get("target").toAbsolutePath().toString() :
+Files.exists(Paths.get("bin")) ? Paths.get("bin").toAbsolutePath().toString() : Paths.get("").toAbsolutePath().toString();
 
 
 

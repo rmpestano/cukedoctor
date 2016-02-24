@@ -4,11 +4,11 @@ import com.github.cukedoctor.api.model.Feature;
 import com.github.cukedoctor.util.FileUtil;
 
 import java.io.*;
-import java.nio.file.Paths;
 import java.text.MessageFormat;
 import java.util.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import com.github.cukedoctor.util.Constants;
 
 import static com.github.cukedoctor.util.Assert.hasText;
 
@@ -62,7 +62,7 @@ public class I18nLoader extends ResourceBundle.Control{
             lang = "en";
         }
         if (lang != null && bundle == null) {
-            InputStream stream = getBundleFromTargetTestFolder("/target");
+            InputStream stream = getBundleFromTargetTestFolder(Constants.baseDir);
             if(stream == null){
                 String bundleName = toBundleName("i18n/cukedoctor", Locale.forLanguageTag(lang));
                 String resourceName = toResourceName(bundleName, "properties");
@@ -100,9 +100,6 @@ public class I18nLoader extends ResourceBundle.Control{
      * @return
      */
     private InputStream getBundleFromTargetTestFolder(String baseDir) {
-        if(!new File(baseDir).exists()){
-            baseDir = Paths.get("").toAbsolutePath().toString();
-        }
         List<String> files = FileUtil.findFiles(baseDir, new String[]{"**/*cukedoctor.properties"});
         if(files != null && !files.isEmpty()){
             String path = files.get(0);
