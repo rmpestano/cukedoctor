@@ -48,6 +48,6 @@ public class CustomRendererTest {
                 "Number of features: "+newLine() +
                 "1"+newLine() +
                 "Passed steps: 1"+newLine() +
-                "Failed steps: 1");
+                "Failed steps: 1"+newLine());
     }
 }

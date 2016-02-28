@@ -10,5 +10,5 @@ import java.util.List;
  */
 public interface StepsRenderer extends BaseRenderer{
 
-    String renderScenarioSteps(List<Step> steps);
+    String renderSteps(List<Step> steps);
 }

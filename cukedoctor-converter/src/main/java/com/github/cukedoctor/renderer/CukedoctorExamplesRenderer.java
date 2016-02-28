@@ -17,6 +17,7 @@ public class CukedoctorExamplesRenderer extends AbstractBaseRenderer implements 
 
     @Override
     public String renderScenarioExamples(Scenario scenario) {
+        docBuilder.clear();
         if (scenario.hasExamples()) {
             docBuilder.newLine();
             for (Example example : scenario.getExamples()) {

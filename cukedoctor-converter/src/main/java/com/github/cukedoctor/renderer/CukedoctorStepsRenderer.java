@@ -19,7 +19,8 @@ import static com.github.cukedoctor.util.Constants.newLine;
 public class CukedoctorStepsRenderer extends AbstractBaseRenderer implements StepsRenderer {
 
     @Override
-    public String renderScenarioSteps(List<Step> steps) {
+    public String renderSteps(List<Step> steps) {
+        docBuilder.clear();
         docBuilder.textLine("****");
         for (Step step : steps) {
             docBuilder.append(step.getKeyword(), "::", newLine());
@@ -45,14 +46,14 @@ public class CukedoctorStepsRenderer extends AbstractBaseRenderer implements Ste
         return docBuilder.toString();
     }
 
-    public String renderStepTime(Result result) {
+    String renderStepTime(Result result) {
         if (result == null || result.getDuration() == null) {
             return "";
         }
         return " [small right]#(" + Formatter.formatTime(result.getDuration()) + ")#";
     }
 
-    public String renderStepTable(Step step) {
+    String renderStepTable(Step step) {
         //TODO convert to AsciidocBuilder
         docBuilder.newLine();
         if (notEmpty(step.getRows())) {

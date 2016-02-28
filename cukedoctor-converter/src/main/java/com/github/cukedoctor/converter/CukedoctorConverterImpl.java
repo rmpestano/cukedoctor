@@ -1,6 +1,8 @@
 package com.github.cukedoctor.converter;
 
-import com.github.cukedoctor.api.*;
+import com.github.cukedoctor.api.CukedoctorConverter;
+import com.github.cukedoctor.api.CukedoctorDocumentBuilder;
+import com.github.cukedoctor.api.DocumentAttributes;
 import com.github.cukedoctor.api.model.*;
 import com.github.cukedoctor.config.CukedoctorConfig;
 import com.github.cukedoctor.i18n.I18nLoader;
@@ -9,8 +11,8 @@ import com.github.cukedoctor.renderer.CukedoctorScenarioRenderer;
 import com.github.cukedoctor.renderer.CukedoctorSummaryRenderer;
 import com.github.cukedoctor.spi.FeatureRenderer;
 import com.github.cukedoctor.spi.ScenarioRenderer;
-import com.github.cukedoctor.spi.StepsRenderer;
 import com.github.cukedoctor.spi.SummaryRenderer;
+import com.github.cukedoctor.util.Constants;
 import com.github.cukedoctor.util.FileUtil;
 import com.github.cukedoctor.util.Formatter;
 
@@ -19,7 +21,6 @@ import java.util.List;
 import java.util.ServiceLoader;
 
 import static com.github.cukedoctor.util.Assert.*;
-import com.github.cukedoctor.util.Constants;
 import static com.github.cukedoctor.util.Constants.Markup.*;
 import static com.github.cukedoctor.util.Constants.newLine;
 
@@ -38,7 +39,6 @@ public class CukedoctorConverterImpl implements CukedoctorConverter {
 	private SummaryRenderer summaryRenderer;
 	private FeatureRenderer featureRenderer;
 	private ScenarioRenderer scenarioRenderer;
-	private StepsRenderer stepsRenderer;
 
 
 	public CukedoctorConverterImpl(List<Feature> features, DocumentAttributes attrs) {
@@ -70,14 +70,8 @@ public class CukedoctorConverterImpl implements CukedoctorConverter {
 
 		featureRenderer.setDocumentBuilder(CukedoctorDocumentBuilder.Factory.newInstance());
 		featureRenderer.setI18n(i18n);
+		featureRenderer.setDocumentAttributes(documentAttributes);
 
-		if(scenarioRenderers.iterator().hasNext()){
-			scenarioRenderer = scenarioRenderers.iterator().next();
-		}else{
-			scenarioRenderer = new CukedoctorScenarioRenderer();
-		}
-		scenarioRenderer.setDocumentBuilder(CukedoctorDocumentBuilder.Factory.newInstance());
-		scenarioRenderer.setI18n(i18n);
 	}
 
 
@@ -192,121 +186,9 @@ public class CukedoctorConverterImpl implements CukedoctorConverter {
 
 	public CukedoctorConverter renderFeatures(List<Feature> features) {
 		for (Feature feature : features) {
-			renderFeature(feature);
+			docBuilder.append(featureRenderer.renderFeature(feature));
 		}
 		return this;
-	}
-
-
-	public CukedoctorConverter renderFeature(Feature feature) {
-		if(feature.hasIgnoreDocsTag()){
-			return this;
-		}
-		docBuilder.textLine(renderFeatureSectionId(feature));
-		docBuilder.sectionTitleLevel2((bold(feature.getName()))).newLine();
-		if(notNull(documentAttributes) && hasText(documentAttributes.getBackend()) && documentAttributes.getBackend().toLowerCase().contains("html")) {
-			//used by minimax extension @see com.github.cukedoctor.extension.CukedoctorMinMaxExtension
-			docBuilder.append("minmax::",feature.getName().replaceAll(",", "").replaceAll(" ", "-")).append("[]").newLine();
-		}
-		if (hasText(feature.getDescription())) {
-			docBuilder.sideBarBlock(feature.getDescription().trim().replaceAll("\\n", " +" + newLine()));
-		}
-
-		renderFeatureScenarios(feature);
-		return this;
-	}
-
-
-	public String renderFeatureSectionId(Feature feature) {
-		if (isNull(feature) || not(hasText(feature.getName()))) {
-			return "";
-		}
-		//Anchor must not have blanks neither commas to work
-		return "[[" + feature.getName().replaceAll(",", "").replaceAll(" ", "-") +
-				", " + feature.getName() + "]]";
-	}
-
-    public CukedoctorConverter renderFeatureScenarios(Feature feature) {
-        for (Scenario scenario : feature.getScenarios()) {
-          scenarioRenderer.renderScenario(scenario,feature);
-        }
-        return this;
-    }
-
-	public CukedoctorConverter renderScenarioTags(Feature feature, Scenario scenario) {
-		StringBuilder tags = new StringBuilder("[small]#tags: ");
-		if (feature.hasTags()) {
-			for (Tag featureTag : feature.getTags()) {
-				tags.append(featureTag.getName()).append(",");
-			}
-		}
-		if (scenario.hasTags()) {
-			for (Tag scenarioTag : scenario.getTags()) {
-				tags.append(scenarioTag.getName()).append(",");
-			}
-		}
-		if (tags.indexOf(",") != -1) {//delete last comma
-			tags.deleteCharAt(tags.lastIndexOf(","));
-		}
-		tags.append("#");
-		docBuilder.textLine(tags.toString());
-		return this;
-	}
-
-	public CukedoctorConverter renderScenarioSteps(List<Step> steps) {
-        docBuilder.textLine("****");
-		for (Step step : steps) {
-            docBuilder.append(step.getKeyword(), "::", newLine());
-            docBuilder.append(step.getName() + " ", Status.getStatusIcon(step.getStatus()));
-            docBuilder.append(renderStepTime(step.getResult()));
-
-			renderStepTable(step);
-
-			if(notNull(step.getDocString()) && hasText(step.getDocString().getValue())){
-                docBuilder.append(listing(), newLine(), newLine());
-                docBuilder.append(step.getDocString().getValue().replaceAll("\\n", newLine()));
-                docBuilder.append(newLine(), newLine(), listing(), newLine());
-			}
-
-			if (step.getResult() != null && !Status.passed.equals(step.getStatus())) {
-				if (step.getResult().getErrorMessage() != null) {
-                    docBuilder.append(newLine(), "IMPORTANT: ", step.getResult().getErrorMessage(), newLine());
-				}
-			}
-		}
-        docBuilder.textLine("****").newLine();
-		return this;
-	}
-
-	public CukedoctorConverter renderStepTable(Step step) {
-        //TODO convert to AsciidocBuilder
-        docBuilder.newLine();
-        if (notEmpty(step.getRows())) {
-            docBuilder.newLine();
-            docBuilder.append("[cols=\"" + step.getRows()[0].getCells().length + "*\", options=\"header\"]").newLine();
-            docBuilder.textLine(table());
-			Row header = step.getRows()[0];
-			for (String col : header.getCells()) {
-                docBuilder.append(tableCol(), col).newLine();
-			}
-
-			for (int i = 1; i < step.getRows().length; i++) {
-				for (String cell : step.getRows()[i].getCells()) {
-                    docBuilder.append(tableCol(), cell).newLine();
-				}
-            }
-            docBuilder.textLine(table());
-            docBuilder.newLine();
-		}
-
-		return this;
-	}
-
-	public String renderStepTime(Result result) {
-		if (result == null || result.getDuration() == null) {
-			return "";
-		}
-		return " [small right]#(" + Formatter.formatTime(result.getDuration()) + ")#";
 	}
 
 
@@ -336,31 +218,6 @@ public class CukedoctorConverterImpl implements CukedoctorConverter {
 
 	public CukedoctorConverter saveDocumentation() {
 		FileUtil.saveFile(filename, renderDocumentation());
-		return this;
-	}
-
-	@Override
-	public CukedoctorConverter renderScenarioExamples(Scenario scenario) {
-		//TODO convert to AsciidocBuilder
-		if (scenario.hasExamples()) {
-			docBuilder.newLine();
-			for (Example example : scenario.getExamples()) {
-				docBuilder.append("." + (example.getName() == null || "".equals(example.getName()) ? "Example" : example.getName()), newLine());
-				docBuilder.append("[cols=\"" + example.getRows()[0].getCells().length + "*\", options=\"header\"]", newLine());
-				docBuilder.append(table(), newLine());
-				Row header = example.getRows()[0];
-				for (String col : header.getCells()) {
-					docBuilder.append(tableCol(), col, newLine());
-				}
-
-				for (int i = 1; i < example.getRows().length; i++) {
-					for (String cell : example.getRows()[i].getCells()) {
-						docBuilder.append(tableCol(), cell, newLine());
-					}
-				}
-				docBuilder.append(table(), newLine(),newLine());
-			}
-		}
 		return this;
 	}
 

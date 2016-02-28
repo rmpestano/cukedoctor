@@ -52,4 +52,8 @@ public class CukedoctorDocumentBuilderImpl extends AsciiDocBuilder implements Cu
         }
         return this;
     }
+
+    public void clear(){
+        documentBuilder = new StringBuilder();
+    }
 }

@@ -12,6 +12,7 @@ public class CukedoctorTagsRenderer extends AbstractBaseRenderer implements Tags
 
     @Override
     public String renderScenarioTags(Feature feature, Scenario scenario) {
+        docBuilder.clear();
         StringBuilder tags = new StringBuilder("[small]#tags: ");
         if (feature.hasTags()) {
             for (Tag featureTag : feature.getTags()) {

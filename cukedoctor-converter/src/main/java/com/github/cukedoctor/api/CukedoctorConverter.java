@@ -1,8 +1,6 @@
 package com.github.cukedoctor.api;
 
-import com.github.cukedoctor.api.model.Scenario;
 import com.github.cukedoctor.api.model.Feature;
-import com.github.cukedoctor.api.model.Step;
 
 import java.util.List;
 
@@ -26,16 +24,6 @@ public interface CukedoctorConverter {
 	String getDocumentationTitle();
 
 	CukedoctorConverter renderFeatures(List<Feature> features);
-
-	CukedoctorConverter renderFeature(Feature feature);
-
-	CukedoctorConverter renderFeatureScenarios(Feature feature);
-
-	CukedoctorConverter renderScenarioTags(Feature feature, Scenario scenario);
-
-	CukedoctorConverter renderScenarioSteps(List<Step> steps);
-
-	CukedoctorConverter renderStepTable(Step step);
 
 	CukedoctorConverter renderAttributes();
 
@@ -68,9 +56,5 @@ public interface CukedoctorConverter {
 	 * {@link CukedoctorConverter#renderDocumentation()} will be called and used as content to save the file.
 	 */
 	CukedoctorConverter saveDocumentation();
-
-	CukedoctorConverter renderScenarioExamples(Scenario scenario);
-
-	String renderFeatureSectionId(Feature feature);
 
 }

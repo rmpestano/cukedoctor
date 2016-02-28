@@ -21,6 +21,8 @@ public interface CukedoctorDocumentBuilder extends MarkupDocBuilder {
 
     CukedoctorDocumentBuilder textLine(String text);
 
+    void clear();
+
     public static class Factory {
 
         private static CukedoctorDocumentBuilder instance;
