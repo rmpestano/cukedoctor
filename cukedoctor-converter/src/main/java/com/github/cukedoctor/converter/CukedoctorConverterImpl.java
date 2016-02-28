@@ -4,13 +4,19 @@ import com.github.cukedoctor.api.*;
 import com.github.cukedoctor.api.model.*;
 import com.github.cukedoctor.config.CukedoctorConfig;
 import com.github.cukedoctor.i18n.I18nLoader;
+import com.github.cukedoctor.renderer.CukedoctorFeatureRenderer;
+import com.github.cukedoctor.renderer.CukedoctorScenarioRenderer;
+import com.github.cukedoctor.renderer.CukedoctorSummaryRenderer;
+import com.github.cukedoctor.spi.FeatureRenderer;
+import com.github.cukedoctor.spi.ScenarioRenderer;
+import com.github.cukedoctor.spi.StepsRenderer;
+import com.github.cukedoctor.spi.SummaryRenderer;
 import com.github.cukedoctor.util.FileUtil;
 import com.github.cukedoctor.util.Formatter;
 
 import java.io.File;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 import java.util.List;
+import java.util.ServiceLoader;
 
 import static com.github.cukedoctor.util.Assert.*;
 import com.github.cukedoctor.util.Constants;
@@ -29,14 +35,49 @@ public class CukedoctorConverterImpl implements CukedoctorConverter {
 	private String filename;
 	private CukedoctorDocumentBuilder docBuilder;
 	private I18nLoader i18n;
+	private SummaryRenderer summaryRenderer;
+	private FeatureRenderer featureRenderer;
+	private ScenarioRenderer scenarioRenderer;
+	private StepsRenderer stepsRenderer;
 
-	private ScenarioTotalizations scenarioTotalizations;
 
 	public CukedoctorConverterImpl(List<Feature> features, DocumentAttributes attrs) {
 		this.features = features;
 		this.documentAttributes = attrs;
 		docBuilder = CukedoctorDocumentBuilder.Factory.newInstance();
 		i18n = I18nLoader.newInstance(features);
+		loadRenderers();
+	}
+
+	private void loadRenderers() {
+		ServiceLoader<SummaryRenderer> summaryRenderers = ServiceLoader.load(SummaryRenderer.class);
+		ServiceLoader<FeatureRenderer> featureRenderers = ServiceLoader.load(FeatureRenderer.class);
+		ServiceLoader<ScenarioRenderer> scenarioRenderers = ServiceLoader.load(ScenarioRenderer.class);
+
+		if(summaryRenderers.iterator().hasNext()){
+			summaryRenderer = summaryRenderers.iterator().next();
+		}else{
+			summaryRenderer = new CukedoctorSummaryRenderer();
+		}
+		summaryRenderer.setDocumentBuilder(CukedoctorDocumentBuilder.Factory.newInstance());
+		summaryRenderer.setI18n(i18n);
+
+		if(featureRenderers.iterator().hasNext()){
+			featureRenderer = featureRenderers.iterator().next();
+		}else{
+			featureRenderer = new CukedoctorFeatureRenderer();
+		}
+
+		featureRenderer.setDocumentBuilder(CukedoctorDocumentBuilder.Factory.newInstance());
+		featureRenderer.setI18n(i18n);
+
+		if(scenarioRenderers.iterator().hasNext()){
+			scenarioRenderer = scenarioRenderers.iterator().next();
+		}else{
+			scenarioRenderer = new CukedoctorScenarioRenderer();
+		}
+		scenarioRenderer.setDocumentBuilder(CukedoctorDocumentBuilder.Factory.newInstance());
+		scenarioRenderer.setI18n(i18n);
 	}
 
 
@@ -76,7 +117,7 @@ public class CukedoctorConverterImpl implements CukedoctorConverter {
 		if(files != null && !files.isEmpty()){
 			String introPath = files.get(0);
 			 introPath = introPath.replaceAll("\\\\","/");
-			docBuilder.append("include::",introPath,"[leveloffset=+1]",newLine(),newLine());
+			docBuilder.append("include::", introPath, "[leveloffset=+1]", newLine(), newLine());
 		}
 	}
 
@@ -135,72 +176,19 @@ public class CukedoctorConverterImpl implements CukedoctorConverter {
 		return this;
 	}
 
-	public CukedoctorConverterImpl renderSummary() {
-		docBuilder.textLine(H2(bold(i18n.getMessage("title.summary"))));
-
-		//TODO convert to AsciidocMarkupBuilder
-		docBuilder.append("[cols=\"12*^m\", options=\"header,footer\"]",newLine(),
-				"|===", newLine() +
-				"3+|Scenarios 7+|Steps 2+|", i18n.getMessage("title.features"),": ", features.size() +
-				"", newLine() , newLine() +
-				"|[green]#*",i18n.getMessage("result.passed"),"*#" , newLine() ,
-				"|[red]#*",i18n.getMessage("result.failed"),"*#" , newLine() ,
-				"|Total" , newLine() ,
-				"|[green]#*", i18n.getMessage("result.passed"),"*#" , newLine() ,
-				"|[red]#*",i18n.getMessage("result.failed"),"*#" , newLine() ,
-				"|[purple]#*",i18n.getMessage("result.skipped"),"*#" , newLine() ,
-				"|[maroon]#*",i18n.getMessage("result.pending"),"*#" , newLine() ,
-				"|[yellow]#*",i18n.getMessage("result.undefined"),"*#" , newLine() ,
-				"|[blue]#*",i18n.getMessage("result.missing"),"*#" , newLine() ,
-				"|Total" , newLine() ,
-				"|Duration" , newLine(),
-				"|Status" ).newLine();
-
-
-		scenarioTotalizations = new ScenarioTotalizations();
-		for (Feature feature : features) {
-			scenarioTotalizations.addFeatureTotals(feature);
-			//TODO convert to AsciidocMarkupBuilder
-			docBuilder.append(newLine(), "12+^", tableCol(), "*<<", feature.getName().replaceAll(",", "").replaceAll(" ", "-"), ">>*", newLine());
-			StepResults stepResults = feature.getStepResults();
-			ScenarioResults scenarioResults = feature.getScenarioResults();
-
-			docBuilder.append(tableCol(), scenarioResults.getNumberOfScenariosPassed(), newLine());
-			docBuilder.append(tableCol(), scenarioResults.getNumberOfScenariosFailed(), newLine());
-			docBuilder.append(tableCol(), scenarioResults.getNumberOfScenarios(), newLine());
-			docBuilder.append(tableCol(), stepResults.getNumberOfPasses(), newLine());
-			docBuilder.append(tableCol(), stepResults.getNumberOfFailures(), newLine());
-			docBuilder.append(tableCol(), stepResults.getNumberOfSkipped(), newLine());
-			docBuilder.append(tableCol(), stepResults.getNumberOfPending(), newLine());
-			docBuilder.append(tableCol(), stepResults.getNumberOfUndefined(), newLine());
-			docBuilder.append(tableCol(), stepResults.getNumberOfMissing(), newLine());
-			docBuilder.append(tableCol(), stepResults.getNumberOfSteps(), newLine());
-			docBuilder.append(tableCol(), stepResults.getTotalDurationAsString(), newLine());
-			docBuilder.append(tableCol(), Status.getStatusColor(feature.getStatus()), newLine());
+	public CukedoctorConverter renderSummary() {
+		if(summaryRenderer != null){
+			//renderer provided through spi
+			docBuilder.textLine(summaryRenderer.renderSummary(features));
+		} else{
+			summaryRenderer = new CukedoctorSummaryRenderer();
+			docBuilder.textLine(summaryRenderer.renderSummary(features));
 		}
-		//TODO render totals inside above for loop to avoid additional iteration over all features
-		renderTotalsRow();
-		docBuilder.textLine(table());
+
 		return this;
 	}
 
 
-	//should be only called inside renderSummary()
-	public CukedoctorConverterImpl renderTotalsRow() {
-		if(scenarioTotalizations == null){//when calling this method directly it will be zero but when redering documentation it will be already calculated
-			scenarioTotalizations = new ScenarioTotalizations(features);
-
-		}
-		docBuilder.append("12+^|*Totals*", newLine()).
-				append(tableCol(), scenarioTotalizations.getTotalPassedScenarios(), tableCol(), scenarioTotalizations.getTotalFailedScenarios()).
-				append(tableCol(), scenarioTotalizations.getTotalScenarios()).
-				append(tableCol(), scenarioTotalizations.getTotalPassedSteps(), tableCol(), scenarioTotalizations.getTotalFailedSteps()).
-				append(tableCol(), scenarioTotalizations.getTotalSkippedSteps(), tableCol(), scenarioTotalizations.getTotalPendingSteps()).
-				append(tableCol(), scenarioTotalizations.getTotalUndefinedSteps(), tableCol(), scenarioTotalizations.getTotalMissingSteps()).
-				append(tableCol(), scenarioTotalizations.getTotalSteps(), " 2+", tableCol(), Formatter.formatTime(scenarioTotalizations.getTotalDuration()));
-		docBuilder.newLine();
-		return this;
-	}
 
 	public CukedoctorConverter renderFeatures(List<Feature> features) {
 		for (Feature feature : features) {
@@ -210,7 +198,7 @@ public class CukedoctorConverterImpl implements CukedoctorConverter {
 	}
 
 
-	public CukedoctorConverterImpl renderFeature(Feature feature) {
+	public CukedoctorConverter renderFeature(Feature feature) {
 		if(feature.hasIgnoreDocsTag()){
 			return this;
 		}
@@ -238,33 +226,9 @@ public class CukedoctorConverterImpl implements CukedoctorConverter {
 				", " + feature.getName() + "]]";
 	}
 
-    public CukedoctorConverterImpl renderFeatureScenarios(Feature feature) {
+    public CukedoctorConverter renderFeatureScenarios(Feature feature) {
         for (Scenario scenario : feature.getScenarios()) {
-            if (scenario.hasIgnoreDocsTag()) {
-                continue;
-            }
-
-            if (hasText(scenario.getName())) {
-                docBuilder.sectionTitleLevel3(new StringBuilder(scenario.getKeyword()).
-                        append(": ").append(scenario.getName()).toString());
-            }
-            if (feature.hasTags() || scenario.hasTags()) {
-                renderScenarioTags(feature, scenario);
-                docBuilder.newLine();
-            }
-
-            docBuilder.textLine(scenario.getDescription()).newLine();
-
-            if (scenario.hasExamples()) {
-                renderScenarioExamples(scenario);
-                //it has examples OR steps
-                continue;
-            }
-
-            if (scenario.hasSteps()) {
-                renderScenarioSteps(scenario.getSteps());
-			}
-
+          scenarioRenderer.renderScenario(scenario,feature);
         }
         return this;
     }
@@ -289,7 +253,7 @@ public class CukedoctorConverterImpl implements CukedoctorConverter {
 		return this;
 	}
 
-	public CukedoctorConverterImpl renderScenarioSteps(List<Step> steps) {
+	public CukedoctorConverter renderScenarioSteps(List<Step> steps) {
         docBuilder.textLine("****");
 		for (Step step : steps) {
             docBuilder.append(step.getKeyword(), "::", newLine());

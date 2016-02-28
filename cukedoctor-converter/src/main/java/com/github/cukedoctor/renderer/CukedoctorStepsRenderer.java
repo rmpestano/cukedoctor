@@ -1,0 +1,78 @@
+package com.github.cukedoctor.renderer;
+
+import com.github.cukedoctor.api.model.Result;
+import com.github.cukedoctor.api.model.Row;
+import com.github.cukedoctor.api.model.Status;
+import com.github.cukedoctor.api.model.Step;
+import com.github.cukedoctor.spi.StepsRenderer;
+import com.github.cukedoctor.util.Formatter;
+
+import java.util.List;
+
+import static com.github.cukedoctor.util.Assert.*;
+import static com.github.cukedoctor.util.Constants.Markup.*;
+import static com.github.cukedoctor.util.Constants.newLine;
+
+/**
+ * Created by pestano on 28/02/16.
+ */
+public class CukedoctorStepsRenderer extends AbstractBaseRenderer implements StepsRenderer {
+
+    @Override
+    public String renderScenarioSteps(List<Step> steps) {
+        docBuilder.textLine("****");
+        for (Step step : steps) {
+            docBuilder.append(step.getKeyword(), "::", newLine());
+            docBuilder.append(step.getName() + " ", Status.getStatusIcon(step.getStatus()));
+            docBuilder.append(renderStepTime(step.getResult()));
+
+            docBuilder.append(renderStepTable(step));
+
+            if (notNull(step.getDocString()) && hasText(step.getDocString().getValue())) {
+                docBuilder.append(listing(), newLine(), newLine());
+                docBuilder.append(step.getDocString().getValue().replaceAll("\\n", newLine()));
+                docBuilder.append(newLine(), newLine(), listing(), newLine());
+            }
+
+            if (step.getResult() != null && !Status.passed.equals(step.getStatus())) {
+                if (step.getResult().getErrorMessage() != null) {
+                    docBuilder.append(newLine(), "IMPORTANT: ", step.getResult().getErrorMessage(), newLine());
+                }
+            }
+        }
+        docBuilder.textLine("****").newLine();
+
+        return docBuilder.toString();
+    }
+
+    public String renderStepTime(Result result) {
+        if (result == null || result.getDuration() == null) {
+            return "";
+        }
+        return " [small right]#(" + Formatter.formatTime(result.getDuration()) + ")#";
+    }
+
+    public String renderStepTable(Step step) {
+        //TODO convert to AsciidocBuilder
+        docBuilder.newLine();
+        if (notEmpty(step.getRows())) {
+            docBuilder.newLine();
+            docBuilder.append("[cols=\"" + step.getRows()[0].getCells().length + "*\", options=\"header\"]").newLine();
+            docBuilder.textLine(table());
+            Row header = step.getRows()[0];
+            for (String col : header.getCells()) {
+                docBuilder.append(tableCol(), col).newLine();
+            }
+
+            for (int i = 1; i < step.getRows().length; i++) {
+                for (String cell : step.getRows()[i].getCells()) {
+                    docBuilder.append(tableCol(), cell).newLine();
+                }
+            }
+            docBuilder.textLine(table());
+            docBuilder.newLine();
+        }
+
+        return docBuilder.toString();
+    }
+}

@@ -1,8 +1,6 @@
 package com.github.cukedoctor.util;
 
-import com.github.cukedoctor.converter.CukedoctorConverterImpl;
 import java.nio.file.Files;
-
 import java.nio.file.Paths;
 
 /**

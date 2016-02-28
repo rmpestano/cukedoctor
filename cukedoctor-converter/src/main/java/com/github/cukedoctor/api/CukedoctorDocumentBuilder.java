@@ -19,6 +19,7 @@ public interface CukedoctorDocumentBuilder extends MarkupDocBuilder {
     CukedoctorDocumentBuilder append(Object... text);
 
 
+    CukedoctorDocumentBuilder textLine(String text);
 
     public static class Factory {
 

@@ -1,12 +1,12 @@
 package com.github.cukedoctor;
 
-import com.github.cukedoctor.api.DocWriter;
 import com.github.cukedoctor.api.DocumentAttributes;
 import com.github.cukedoctor.api.model.Feature;
 import com.github.cukedoctor.api.CukedoctorConverter;
 import com.github.cukedoctor.converter.CukedoctorConverterImpl;
-import com.github.cukedoctor.util.DocWriterImpl;
+import com.github.cukedoctor.spi.SummaryRenderer;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import static com.github.cukedoctor.util.Assert.*;
@@ -32,10 +32,12 @@ public class Cukedoctor {
 
 
 		CukedoctorConverter instance = new CukedoctorConverterImpl(features,attrs);
+
 		instance.setFilename(instance.getDocumentationTitle().replaceAll(" ", "_") + ".adoc");//by default use documentTitle as filename
 
 		return instance;
 	}
+
 
 	/**
 	 * @param features used to generate the documentation
@@ -45,5 +47,6 @@ public class Cukedoctor {
 
 		return instance(features, null);
 	}
+
 
 }

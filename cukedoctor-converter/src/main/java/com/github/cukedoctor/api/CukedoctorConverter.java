@@ -46,11 +46,6 @@ public interface CukedoctorConverter {
 	CukedoctorConverter renderSummary();
 
 
-	/**
-	 * Row gathering all features and steps sum
-	 * @return
-	 */
-	CukedoctorConverter renderTotalsRow();
 
 	/**
 	 * set output file name without extension (should always be .adoc or other asciidoc compatible extensions)
@@ -77,4 +72,5 @@ public interface CukedoctorConverter {
 	CukedoctorConverter renderScenarioExamples(Scenario scenario);
 
 	String renderFeatureSectionId(Feature feature);
+
 }

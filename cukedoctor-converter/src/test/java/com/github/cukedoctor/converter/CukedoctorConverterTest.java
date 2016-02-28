@@ -5,6 +5,8 @@ import com.github.cukedoctor.api.CukedoctorConverter;
 import com.github.cukedoctor.api.DocumentAttributes;
 import com.github.cukedoctor.api.model.*;
 import com.github.cukedoctor.parser.FeatureParser;
+import com.github.cukedoctor.renderer.CukedoctorSummaryRenderer;
+import com.github.cukedoctor.spi.SummaryRenderer;
 import com.github.cukedoctor.util.Expectations;
 import com.github.cukedoctor.util.FileUtil;
 import com.github.cukedoctor.util.builder.FeatureBuilder;
@@ -271,8 +273,8 @@ public class CukedoctorConverterTest {
 	@Test
 	public void shouldRenderTotalRowForOneFeature() {
 		List<Feature> features = FeatureParser.parse(onePassingOneFailing);
-		String resultDoc = Cukedoctor.instance(features, new DocumentAttributes().docTitle("Title")).renderTotalsRow().getDocumentation().toString();
-		assertThat(resultDoc).isNotNull().
+		SummaryRenderer summaryRenderer = new CukedoctorSummaryRenderer();
+		assertThat(summaryRenderer.renderSummary(features)).isNotNull().
 				containsOnlyOnce("12+^|*Totals*").
 				contains("|1|1|2|1|1|0|0|0|0|2 2+|010ms");
 	}
@@ -280,12 +282,10 @@ public class CukedoctorConverterTest {
 	@Test
 	public void shouldRenderTotalRowForMultipleFeature() {
 		List<Feature> features = FeatureParser.parse(onePassingOneFailing, embedDataDirectly, outline, invalidFeatureResult);
-		String resultDoc = Cukedoctor.instance(features, new DocumentAttributes().docTitle("Title")).renderTotalsRow().getDocumentation().toString();
-		assertThat(resultDoc).isNotNull().
+		SummaryRenderer summaryRenderer = new CukedoctorSummaryRenderer();
+		assertThat(summaryRenderer.renderSummary(features)).isNotNull().
 				containsOnlyOnce("12+^|*Totals*").
 				contains("|4|1|5|4|1|0|0|0|0|5 2+|010ms");
-
-
 	}
 
 	@Test
