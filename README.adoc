@@ -1,5 +1,5 @@
 = Cukedoctor
-
+:toc: preamble
 
 image:https://travis-ci.org/rmpestano/cukedoctor.svg[Build Status (Travis CI), link=https://travis-ci.org/rmpestano/cukedoctor]
 image:https://coveralls.io/repos/rmpestano/cukedoctor/badge.svg?branch=master&service=github[Coverage, link=https://coveralls.io/r/rmpestano/cukedoctor]
