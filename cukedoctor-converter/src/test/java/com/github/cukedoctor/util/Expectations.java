@@ -438,7 +438,7 @@ public interface Expectations {
 			"== *Resumo*"+newLine() +
 			"[cols=\"12*^m\", options=\"header,footer\"]"+newLine() +
 			"|==="+newLine() +
-			"3+|Scenarios 7+|Steps 2+|Funcionalidades: 1"+newLine() +
+			"3+|Cenários 7+|Passos 2+|Funcionalidades: 1"+newLine() +
 			""+newLine() +
 			"|[green]#*Sucesso*#"+newLine() +
 			"|[red]#*Falha*#"+newLine() +
@@ -449,8 +449,8 @@ public interface Expectations {
 			"|[maroon]#*Pendente*#"+newLine() +
 			"|[yellow]#*Indefinido*#"+newLine() +
 			"|[blue]#*Ausente*#"+newLine() +
-			"|Total"+newLine() +
-			"|Duration"+newLine() +
+			"|Totais"+newLine() +
+			"|Tempo"+newLine() +
 			"|Status"+newLine() +
 			""+newLine() +
 			"12+^|*<<Search>>*"+newLine() +
