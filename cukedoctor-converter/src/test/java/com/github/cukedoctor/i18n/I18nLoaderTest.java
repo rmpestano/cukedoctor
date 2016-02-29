@@ -46,6 +46,7 @@ public class I18nLoaderTest {
         I18nLoader i18nLoader = I18nLoader.newInstance(englishFeatures);
         assertThat(i18nLoader.getMessage("title.features")).isEqualTo("Features");
         assertThat(i18nLoader.getMessage("title.summary")).isEqualTo("Summary");
+        assertThat(i18nLoader.getMessage("summary.steps")).isEqualTo("Steps");
     }
 
     @Test
@@ -53,6 +54,7 @@ public class I18nLoaderTest {
         I18nLoader i18nLoader = I18nLoader.newInstance(portugueseFeatures);
         assertThat(i18nLoader.getMessage("title.features")).isEqualTo("Funcionalidades");
         assertThat(i18nLoader.getMessage("title.summary")).isEqualTo("Resumo");
+        assertThat(i18nLoader.getMessage("summary.steps")).isEqualTo("Passos");
     }
 
     @Test
@@ -60,6 +62,7 @@ public class I18nLoaderTest {
         I18nLoader i18nLoader = I18nLoader.newInstance(spanishFeatures);
         assertThat(i18nLoader.getMessage("title.features")).isEqualTo("Características");
         assertThat(i18nLoader.getMessage("title.summary")).isEqualTo("Resumen");
+        assertThat(i18nLoader.getMessage("summary.steps")).isEqualTo("Pasos");
     }
 
     @Test
@@ -67,5 +70,6 @@ public class I18nLoaderTest {
         I18nLoader i18nLoader = I18nLoader.newInstance(noLanguageFeatures);
         assertThat(i18nLoader.getMessage("title.features")).isEqualTo("Features");
         assertThat(i18nLoader.getMessage("title.summary")).isEqualTo("Summary");
+        assertThat(i18nLoader.getMessage("summary.steps")).isEqualTo("Steps");
     }
 }

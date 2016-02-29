@@ -29,21 +29,21 @@ public class CukedoctorSummaryRenderer extends AbstractBaseRenderer implements S
         docBuilder.textLine(H2(bold(i18n.getMessage("title.summary"))));
 
         //TODO convert to AsciidocMarkupBuilder
-        docBuilder.append("[cols=\"12*^m\", options=\"header,footer\"]",newLine(),
-                "|===", newLine() +
-                        "3+|Scenarios 7+|Steps 2+|", i18n.getMessage("title.features"),": ", features.size() +
-                        "", newLine() , newLine() +
-                        "|[green]#*",i18n.getMessage("result.passed"),"*#" , newLine() ,
-                "|[red]#*",i18n.getMessage("result.failed"),"*#" , newLine() ,
-                "|Total" , newLine() ,
-                "|[green]#*", i18n.getMessage("result.passed"),"*#" , newLine() ,
-                "|[red]#*",i18n.getMessage("result.failed"),"*#" , newLine() ,
-                "|[purple]#*",i18n.getMessage("result.skipped"),"*#" , newLine() ,
-                "|[maroon]#*",i18n.getMessage("result.pending"),"*#" , newLine() ,
-                "|[yellow]#*",i18n.getMessage("result.undefined"),"*#" , newLine() ,
-                "|[blue]#*",i18n.getMessage("result.missing"),"*#" , newLine() ,
-                "|Total" , newLine() ,
-                "|Duration" , newLine(),
+        docBuilder.append("[cols=\"12*^m\", options=\"header,footer\"]", newLine(),
+            "|===", newLine() +
+                "3+|" + i18n.getMessage("title.scenario") + "s 7+|" + i18n.getMessage("summary.steps") + " 2+|", i18n.getMessage("title.features"), ": ", features.size() +
+                "", newLine(), newLine() +
+                "|[green]#*", i18n.getMessage("result.passed"), "*#", newLine(),
+            "|[red]#*", i18n.getMessage("result.failed"), "*#", newLine(),
+            "|Total", newLine(),
+            "|[green]#*", i18n.getMessage("result.passed"), "*#", newLine(),
+            "|[red]#*", i18n.getMessage("result.failed"), "*#", newLine(),
+            "|[purple]#*", i18n.getMessage("result.skipped"), "*#", newLine(),
+            "|[maroon]#*", i18n.getMessage("result.pending"), "*#", newLine(),
+            "|[yellow]#*", i18n.getMessage("result.undefined"), "*#", newLine(),
+            "|[blue]#*", i18n.getMessage("result.missing"), "*#", newLine(),
+            "|" + i18n.getMessage("summary.total"), newLine(),
+                "|"+ i18n.getMessage("summary.duration"), newLine(),
                 "|Status" ).newLine();
 
 
