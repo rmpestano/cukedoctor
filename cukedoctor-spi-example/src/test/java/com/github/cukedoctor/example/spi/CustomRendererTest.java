@@ -1,4 +1,4 @@
-package com.github.cukedoctor.spi;
+package com.github.cukedoctor.example.spi;
 
 import com.github.cukedoctor.Cukedoctor;
 import com.github.cukedoctor.api.CukedoctorConverter;
@@ -11,11 +11,10 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;
 
+import java.util.List;
+
 import static com.github.cukedoctor.util.Constants.newLine;
 import static org.assertj.core.api.Assertions.assertThat;
-
-
-import java.util.List;
 
 /**
  * Created by pestano on 27/02/16.

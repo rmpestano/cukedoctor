@@ -6,7 +6,6 @@ import com.github.cukedoctor.api.DocumentAttributes;
 import com.github.cukedoctor.api.model.*;
 import com.github.cukedoctor.parser.FeatureParser;
 import com.github.cukedoctor.spi.FeatureRenderer;
-import com.github.cukedoctor.spi.ScenarioRenderer;
 import com.github.cukedoctor.spi.StepsRenderer;
 import com.github.cukedoctor.util.Expectations;
 import com.github.cukedoctor.util.FileUtil;
@@ -24,6 +23,7 @@ import static com.github.cukedoctor.util.Constants.newLine;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Matchers.any;
 import static org.mockito.Matchers.anyListOf;
+import static org.mockito.Matchers.eq;
 import static org.mockito.Mockito.doReturn;
 import static org.mockito.Mockito.spy;
 
@@ -57,7 +57,7 @@ public class RendererTest {
         scenarioRenderer = spy(scenarioRenderer);
         doReturn("").when(scenarioRenderer).renderScenarioSteps(anyListOf(Step.class));
         doReturn("").when(scenarioRenderer).renderScenarioExamples(any(Scenario.class));
-        doReturn("").when(scenarioRenderer).renderScenarioTags(any(Scenario.class),feature);
+        doReturn("").when(scenarioRenderer).renderScenarioTags(any(Scenario.class),eq(feature));
 
         CukedoctorFeatureRenderer featureRenderer = new CukedoctorFeatureRenderer();
         featureRenderer = spy(featureRenderer);
@@ -240,8 +240,8 @@ public class RendererTest {
     @Test
     public void shouldRenderFeatureWithTableInSteps(){
         List<Feature> features = FeatureParser.parse(featureWithTableInStep);
-        CukedoctorStepsRenderer stepsRenderer = new CukedoctorStepsRenderer();
-        String resultDoc = stepsRenderer.renderStepTable(features.get(0).getScenarios().get(0).getSteps().get(0));
+        CukedoctorConverter converter = Cukedoctor.instance(features,new DocumentAttributes().docTitle("Doc Title"));
+        String resultDoc = converter.renderDocumentation();
         assertThat(resultDoc).isEqualTo(Expectations.FEATURE_WITH_STEP_TABLE_IN_PT_BR);
     }
 
@@ -306,7 +306,7 @@ public class RendererTest {
 
         CukedoctorFeatureRenderer featureRenderer = new CukedoctorFeatureRenderer();
         featureRenderer = spy(featureRenderer);
-        doReturn("").when(featureRenderer).renderFeatureScenario(any(Scenario.class),feature);
+        doReturn("").when(featureRenderer).renderFeatureScenario(any(Scenario.class),eq(feature));
         String resultDoc = featureRenderer.renderFeature(feature);
         assertThat(resultDoc).isEqualTo("[[Feature-name, Feature name]]"+newLine() +
                 "=== *Feature name*"+newLine() +
@@ -323,7 +323,6 @@ public class RendererTest {
     @Test
     public void shouldRenderScenarioExamples(){
         List<Feature> features = FeatureParser.parse(outline);
-        CukedoctorConverter converter = Cukedoctor.instance(features, new DocumentAttributes());
         assertThat(features).hasSize(1);
         CukedoctorScenarioRenderer scenarioRenderer = new CukedoctorScenarioRenderer();
         String resultDoc = scenarioRenderer.renderScenarioExamples(features.get(0).getElements().get(0));

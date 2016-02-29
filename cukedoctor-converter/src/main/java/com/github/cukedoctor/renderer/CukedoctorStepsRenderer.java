@@ -1,5 +1,6 @@
 package com.github.cukedoctor.renderer;
 
+import com.github.cukedoctor.api.CukedoctorDocumentBuilder;
 import com.github.cukedoctor.api.model.Result;
 import com.github.cukedoctor.api.model.Row;
 import com.github.cukedoctor.api.model.Status;
@@ -9,6 +10,7 @@ import com.github.cukedoctor.util.Formatter;
 
 import java.util.List;
 
+import static com.github.cukedoctor.api.CukedoctorDocumentBuilder.Factory.newInstance;
 import static com.github.cukedoctor.util.Assert.*;
 import static com.github.cukedoctor.util.Constants.Markup.*;
 import static com.github.cukedoctor.util.Constants.newLine;
@@ -55,25 +57,26 @@ public class CukedoctorStepsRenderer extends AbstractBaseRenderer implements Ste
 
     String renderStepTable(Step step) {
         //TODO convert to AsciidocBuilder
-        docBuilder.newLine();
+        CukedoctorDocumentBuilder builder = newInstance();
+        builder.newLine();
         if (notEmpty(step.getRows())) {
-            docBuilder.newLine();
-            docBuilder.append("[cols=\"" + step.getRows()[0].getCells().length + "*\", options=\"header\"]").newLine();
-            docBuilder.textLine(table());
+            builder.newLine();
+            builder.append("[cols=\"" + step.getRows()[0].getCells().length + "*\", options=\"header\"]").newLine();
+            builder.textLine(table());
             Row header = step.getRows()[0];
             for (String col : header.getCells()) {
-                docBuilder.append(tableCol(), col).newLine();
+                builder.append(tableCol(), col).newLine();
             }
 
             for (int i = 1; i < step.getRows().length; i++) {
                 for (String cell : step.getRows()[i].getCells()) {
-                    docBuilder.append(tableCol(), cell).newLine();
+                    builder.append(tableCol(), cell).newLine();
                 }
             }
-            docBuilder.textLine(table());
-            docBuilder.newLine();
+            builder.textLine(table());
+            builder.newLine();
         }
 
-        return docBuilder.toString();
+        return builder.toString();
     }
 }

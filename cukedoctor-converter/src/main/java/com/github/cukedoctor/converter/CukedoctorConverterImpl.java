@@ -38,7 +38,6 @@ public class CukedoctorConverterImpl implements CukedoctorConverter {
 	private I18nLoader i18n;
 	private SummaryRenderer summaryRenderer;
 	private FeatureRenderer featureRenderer;
-	private ScenarioRenderer scenarioRenderer;
 
 
 	public CukedoctorConverterImpl(List<Feature> features, DocumentAttributes attrs) {
@@ -97,7 +96,6 @@ public class CukedoctorConverterImpl implements CukedoctorConverter {
 		docBuilder.documentTitle(bold(getDocumentationTitle()));
 		renderIntro();
 		renderSummary();
-		docBuilder.newLine();
 		docBuilder.sectionTitleLevel1(bold(i18n.getMessage("title.features"))).newLine();
 		renderFeatures(features);
 		//generateDocInfo();

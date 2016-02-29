@@ -24,6 +24,13 @@
             <artifactId>maven-shared-utils</artifactId>
             <version>0.9</version>
         </dependency>
+
+        <dependency>
+            <groupId>com.github.cukedoctor</groupId>
+            <artifactId>cukedoctor-converter</artifactId>
+            <version>${project.parent.version}</version>
+            <scope>runtime</scope>
+        </dependency>
     </dependencies>
 
 

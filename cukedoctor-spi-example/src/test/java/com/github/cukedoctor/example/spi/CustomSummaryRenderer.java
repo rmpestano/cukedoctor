@@ -1,8 +1,9 @@
-package com.github.cukedoctor.spi;
+package com.github.cukedoctor.example.spi;
 
 import com.github.cukedoctor.api.model.Feature;
 import com.github.cukedoctor.api.model.ScenarioTotalizations;
 import com.github.cukedoctor.renderer.AbstractBaseRenderer;
+import com.github.cukedoctor.spi.SummaryRenderer;
 
 import java.util.List;
 
