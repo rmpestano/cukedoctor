@@ -23,7 +23,7 @@ public interface Expectations {
 			"|[maroon]#*Pending*#" + newLine() +
 			"|[yellow]#*Undefined*#" + newLine() +
 			"|[blue]#*Missing*#" + newLine() +
-			"|Totals" + newLine() +
+			"|Total" + newLine() +
 			"|Duration" + newLine() +
 			"|Status" + newLine() +
 			"" + newLine() +
@@ -59,7 +59,7 @@ public interface Expectations {
 					"|[maroon]#*Pending*#"+newLine() +
 					"|[yellow]#*Undefined*#"+newLine() +
 					"|[blue]#*Missing*#"+newLine() +
-					"|Totals"+newLine() +
+					"|Total"+newLine() +
 					"|Duration"+newLine() +
 					"|Status"+newLine() +
 					""+newLine() +
@@ -137,7 +137,7 @@ public interface Expectations {
 			"|[maroon]#*Pending*#"+newLine() +
 			"|[yellow]#*Undefined*#"+newLine() +
 			"|[blue]#*Missing*#"+newLine() +
-			"|Totals"+newLine() +
+			"|Total"+newLine() +
 			"|Duration"+newLine() +
 			"|Status"+newLine() +
 			""+newLine() +
@@ -216,7 +216,7 @@ public interface Expectations {
 			"|[maroon]#*Pending*#"+newLine() +
 			"|[yellow]#*Undefined*#"+newLine() +
 			"|[blue]#*Missing*#"+newLine() +
-			"|Totals"+newLine() +
+			"|Total"+newLine() +
 			"|Duration"+newLine() +
 			"|Status"+newLine() +
 			""+newLine() +
@@ -449,7 +449,7 @@ public interface Expectations {
 			"|[maroon]#*Pendente*#"+newLine() +
 			"|[yellow]#*Indefinido*#"+newLine() +
 			"|[blue]#*Ausente*#"+newLine() +
-			"|Totais"+newLine() +
+			"|Total"+newLine() +
 			"|Tempo"+newLine() +
 			"|Status"+newLine() +
 			""+newLine() +
@@ -466,7 +466,7 @@ public interface Expectations {
 			"|1"+newLine() +
 			"|111ms"+newLine() +
 			"|[green]#*passed*#"+newLine() +
-			"12+^|*Totals*"+newLine() +
+			"12+^|*Totais*"+newLine() +
 			"|1|0|1|1|0|0|0|0|0|1 2+|111ms"+newLine() +
 			"|==="+newLine() +
 			""+newLine() +

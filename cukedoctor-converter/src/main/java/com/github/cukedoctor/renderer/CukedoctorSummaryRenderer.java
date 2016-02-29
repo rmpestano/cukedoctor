@@ -42,9 +42,9 @@ public class CukedoctorSummaryRenderer extends AbstractBaseRenderer implements S
             "|[maroon]#*", i18n.getMessage("result.pending"), "*#", newLine(),
             "|[yellow]#*", i18n.getMessage("result.undefined"), "*#", newLine(),
             "|[blue]#*", i18n.getMessage("result.missing"), "*#", newLine(),
-            "|" + i18n.getMessage("summary.total"), newLine(),
-                "|"+ i18n.getMessage("summary.duration"), newLine(),
-                "|Status" ).newLine();
+            "|Total", newLine(),
+            "|"+ i18n.getMessage("summary.duration"), newLine(),
+            "|Status" ).newLine();
 
 
         for (Feature feature : features) {
@@ -79,13 +79,13 @@ public class CukedoctorSummaryRenderer extends AbstractBaseRenderer implements S
 
     //should be only called inside renderSummary()
     private void renderTotalsRow() {
-        docBuilder.append("12+^|*Totals*", newLine()).
-                append(tableCol(), scenarioTotalizationsCache.getTotalPassedScenarios(), tableCol(), scenarioTotalizationsCache.getTotalFailedScenarios()).
+        docBuilder.append("12+^|*"+ i18n.getMessage("summary.total")+"*", newLine()).
+            append(tableCol(), scenarioTotalizationsCache.getTotalPassedScenarios(), tableCol(), scenarioTotalizationsCache.getTotalFailedScenarios()).
                 append(tableCol(), scenarioTotalizationsCache.getTotalScenarios()).
                 append(tableCol(), scenarioTotalizationsCache.getTotalPassedSteps(), tableCol(), scenarioTotalizationsCache.getTotalFailedSteps()).
                 append(tableCol(), scenarioTotalizationsCache.getTotalSkippedSteps(), tableCol(), scenarioTotalizationsCache.getTotalPendingSteps()).
                 append(tableCol(), scenarioTotalizationsCache.getTotalUndefinedSteps(), tableCol(), scenarioTotalizationsCache.getTotalMissingSteps()).
-                append(tableCol(), scenarioTotalizationsCache.getTotalSteps(), " 2+", tableCol(), Formatter.formatTime(scenarioTotalizationsCache.getTotalDuration()));
+            append(tableCol(), scenarioTotalizationsCache.getTotalSteps(), " 2+", tableCol(), Formatter.formatTime(scenarioTotalizationsCache.getTotalDuration()));
         docBuilder.newLine();
     }
 }
