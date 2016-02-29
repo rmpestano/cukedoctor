@@ -101,13 +101,15 @@ Here are the https://github.com/rmpestano/cukedoctor/tree/master/cukedoctor-conv
 
 == Disable extensions
 
-Cukedoctor comes with 3 extensions to enhance documentation content:
+Cukedoctor comes with 4 extensions to enhance documentation content:
 
 * *Filter extension* which lets features to be filtered using an input at top right of the page;
 
 * *Minimizable extension* which lets you minimize/maximize features sections (minus/plus icon next to feature name);
 
 * *Theme extension* to add theme support.
+
+* *Footer* add cukedoctor footer.
 
 NOTE: All extensions target html documentation.
 
@@ -120,6 +122,8 @@ To disable extension you can just clear system properties:
    System.setProperty("cukedoctor.disable.filter","anyValue");
 
    System.setProperty("cukedoctor.disable.minmax","anyValue");
+
+   System.setProperty("cukedoctor.disable.footer","anyValue");
 
 ----
 
@@ -134,6 +138,7 @@ You can re-enable the extension by calling
     System.clearProperty("cukedoctor.disable.theme");
     System.clearProperty("cukedoctor.disable.filter");
     System.clearProperty("cukedoctor.disable.minmax");
+     System.clearProperty("cukedoctor.disable.footer");
 ----
 ====
 

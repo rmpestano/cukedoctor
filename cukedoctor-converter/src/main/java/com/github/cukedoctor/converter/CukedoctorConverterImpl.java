@@ -90,6 +90,7 @@ public class CukedoctorConverterImpl implements CukedoctorConverter {
 	 * @return a String representation of generated documentation
 	 */
 	public synchronized String renderDocumentation() {
+		System.setProperty(Constants.STOP_WATCH,String.valueOf(System.currentTimeMillis()));
 		docBuilder = CukedoctorDocumentBuilder.Factory.newInstance();
 		renderAttributes();
 		docBuilder.newLine();

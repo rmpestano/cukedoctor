@@ -19,7 +19,7 @@ public class CukedoctorFilterExtension extends Postprocessor{
 
     @Override
     public String process(Document document, String output) {
-        if(document.basebackend("html")){
+        if(document.basebackend("html") && System.getProperty("cukedoctor.disable.filter") == null){
             org.jsoup.nodes.Document doc = Jsoup.parse(output, "UTF-8");
 
             Element contentElement = doc.getElementsByClass("sect1").get(0);

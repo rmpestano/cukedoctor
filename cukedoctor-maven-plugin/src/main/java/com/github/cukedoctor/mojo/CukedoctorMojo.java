@@ -75,6 +75,9 @@ public class CukedoctorMojo extends AbstractMojo {
 	@Parameter(defaultValue = "false", required = false)
 	boolean disableMinimizable;
 
+	@Parameter(defaultValue = "false", required = false)
+	boolean disableFooter;
+
 
 	@Component
 	MavenProject project;
@@ -149,6 +152,10 @@ public class CukedoctorMojo extends AbstractMojo {
 		}
 		if(disableTheme){
 			System.setProperty("cukedoctor.disable.theme","disabled");
+		}
+
+		if(disableFooter){
+			System.setProperty("cukedoctor.disable.footer","disabled");
 		}
 	}
 

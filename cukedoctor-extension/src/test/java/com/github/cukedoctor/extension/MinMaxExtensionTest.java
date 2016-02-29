@@ -3,9 +3,7 @@ package com.github.cukedoctor.extension;
 import org.asciidoctor.Asciidoctor;
 import org.asciidoctor.OptionsBuilder;
 import org.asciidoctor.SafeMode;
-import org.junit.AfterClass;
-import org.junit.BeforeClass;
-import org.junit.Test;
+import org.junit.*;
 import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;
 
@@ -39,8 +37,14 @@ public class MinMaxExtensionTest {
         if(file.exists()){
             file.delete();
         }
-
     }
+
+    @Before
+    @After
+    public void enableExtension(){
+        System.clearProperty("cukedoctor.disable.minmax");
+    }
+
     @Test
     public void shouldAddSearchInputToRenderedHtml(){
         File sampleAdoc = loadTestFile("sample.adoc");
@@ -52,6 +56,21 @@ public class MinMaxExtensionTest {
         assertThat(sampleHtml.replaceAll(" ","").replaceAll("\n", "").replaceAll("\t","")).
                 containsOnlyOnce(removeSpecialChars("<span class=\"fa fa-minus-square fa-fw\" style=\"cursor:pointer;float:right;margin-top:-30px\"  title=\"Minimize\" onclick=\"hideFeatureScenarios('Sample-test');document.getElementById('hidden-Sample-test').style.display = 'inline';this.style.display = 'none'\">  </span>") +
                         removeSpecialChars("<span id=\"hidden-Sample-test\" class=\"fa fa-plus-square fa-fw\" style=\"cursor:pointer;float:right;display:none;margin-top:-30px\" title=\"Maximize feature\" onclick=\"showFeatureScenarios('Sample-test');this.style.display = 'none'\">  </span>"));
+
+    }
+
+
+    @Test
+    public void shouldNotAddMinMaxMacroToRenderedHtmlWhenExtensionDisabled(){
+        System.setProperty("cukedoctor.disable.minmax","anyValue");
+        File sampleAdoc = loadTestFile("sample.adoc");
+        assertThat(sampleAdoc).exists();
+        asciidoctor.convertFile(sampleAdoc, OptionsBuilder.options().safe(SafeMode.UNSAFE).asMap());
+
+        String sampleHtml = readFileContent(loadTestFile("sample.html"));
+        assertNotNull(sampleHtml);
+        assertThat(sampleHtml).
+            doesNotContain(removeSpecialChars("title=\"Maximize feature\""));
 
     }
 

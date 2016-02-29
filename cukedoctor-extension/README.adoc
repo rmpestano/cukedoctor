@@ -4,4 +4,30 @@ image:https://www.versioneye.com/user/projects/55d3325f265ff6001c000425/badge.sv
 
 This module extend cukedoctor generated documentation via http://asciidoctor.org/docs/asciidoctorj/#extension-api[Asciidoctor extensions mechanism^].
 
-The extensions (e.g: search or minimize features) are activated automatically if the extension module is on the classpath.
+Cukedoctor comes with 4 extensions to enhance documentation content:
+
+* *Filter extension* which lets features to be filtered using an input at top right of the page;
+
+* *Minimizable extension* which lets you minimize/maximize features sections (minus/plus icon next to feature name);
+
+* *Theme extension* to add theme support.
+
+* *Footer* add cukedoctor footer.
+
+NOTE: All extensions target html documentation.
+
+To disable extensions you can just clear the following system properties:
+
+[source,java]
+----
+   System.setProperty("cukedoctor.disable.theme","anyValue");
+
+   System.setProperty("cukedoctor.disable.filter","anyValue");
+
+   System.setProperty("cukedoctor.disable.minmax","anyValue");
+
+   System.setProperty("cukedoctor.disable.footer","anyValue");
+
+----
+
+NOTE: The value doesn't matter, if there is something in the system property the extension will be disabled.
