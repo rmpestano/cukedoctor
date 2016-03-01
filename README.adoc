@@ -1,5 +1,4 @@
 = Cukedoctor
-
 :toc: preamble
 
 [quote]
