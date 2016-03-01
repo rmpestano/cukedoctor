@@ -4,7 +4,7 @@
     <parent>
         <groupId>com.github.cukedoctor</groupId>
         <artifactId>cukedoctor</artifactId>
-        <version>0.7.1-SNAPSHOT</version>
+        <version>0.8.0</version>
     </parent>
 
     <artifactId>cukedoctor-converter</artifactId>
@@ -89,7 +89,7 @@
 							<executable>java</executable>
 							<arguments>
 								<argument>-classpath</argument>
-								<classpath/>
+								<classpath />
 								<argument>com.github.cukedoctor.CukedoctorBenchmark</argument>
 							</arguments>
 						</configuration>
