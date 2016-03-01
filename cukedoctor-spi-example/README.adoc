@@ -4,7 +4,7 @@ This module shows an example of how to customize Cukedoctor documentation throug
 
 == How it works
 
-Cukedoctor documentation customization is done through https://docs.oracle.com/javase/tutorial/ext/basics/spi.html[Java service loader] mechanism.
+Cukedoctor documentation customization is done through https://docs.oracle.com/javase/tutorial/ext/basics/spi.html[Java service provider] mechanism.
 
 You just need to implement one of the interfaces in https://github.com/rmpestano/cukedoctor/tree/master/cukedoctor-converter/src/main/java/com/github/cukedoctor/spi[Cukedoctor SPI] and declare it in META-INF/services.
 

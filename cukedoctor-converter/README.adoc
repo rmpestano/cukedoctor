@@ -144,7 +144,7 @@ You can re-enable the extension by calling
 
 == Customizing your Living Documentation
 
-Cukedoctor let you customize its generated documentation through Java service loader mechanism.
+Cukedoctor let you customize its generated documentation through Java service provider mechanism.
 
 For more details see https://github.com/rmpestano/cukedoctor/tree/master/cukedoctor-spi-example[spi-example module].
 
