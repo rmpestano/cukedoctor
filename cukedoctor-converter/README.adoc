@@ -81,9 +81,15 @@ The name of the file must be *cukedoctor.properties* and can be anywhere in your
 Here are the key values you must provide to customize your documentation:
 
 ----
+#sections
 title.features = Features
 title.summary = Summary
 title.scenario = Scenario
+
+#summary
+summary.steps = Steps
+summary.total = Totals
+summary.duration = Duration
 
 #result
 result.passed = Passed
@@ -92,6 +98,7 @@ result.skipped = Skipped
 result.pending = Pending
 result.undefined= Undefined
 result.missing = Missing
+
 ----
 
 === Supported locales
@@ -138,7 +145,7 @@ You can re-enable the extension by calling
     System.clearProperty("cukedoctor.disable.theme");
     System.clearProperty("cukedoctor.disable.filter");
     System.clearProperty("cukedoctor.disable.minmax");
-     System.clearProperty("cukedoctor.disable.footer");
+    System.clearProperty("cukedoctor.disable.footer");
 ----
 ====
 
