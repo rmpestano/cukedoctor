@@ -93,9 +93,9 @@ public class CustomFeatureRenderer extends CukedoctorFeatureRenderer {<1>
 ----
 
 <1> You can also extend default renderers as above.
-<2> Here we provide use a ScenarioRenderer but you could embed all markup in FeatureRenderer if you want but depending on complexity things can get messy.
+<2> Here we provide a custom ScenarioRenderer but you could embed all markup in FeatureRenderer if you want but depending on complexity things can get messy.
 
-And finally here is the ScenarioRenderer we provide:
+And finally here is the custom ScenarioRenderer:
 
 [source,java]
 ----
