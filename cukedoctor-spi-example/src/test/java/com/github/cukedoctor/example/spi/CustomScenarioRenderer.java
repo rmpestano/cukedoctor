@@ -6,6 +6,7 @@ import com.github.cukedoctor.renderer.CukedoctorScenarioRenderer;
 import com.github.cukedoctor.renderer.CukedoctorStepsRenderer;
 import com.github.cukedoctor.spi.StepsRenderer;
 
+import static com.github.cukedoctor.util.Assert.hasText;
 import static com.github.cukedoctor.util.Constants.newLine;
 
 /**
@@ -19,6 +20,9 @@ public class CustomScenarioRenderer extends CukedoctorScenarioRenderer{
         //and contents will be appended
         docBuilder.clear();
         docBuilder.append("  "+scenario.getName()+":::",newLine());
+        if(hasText(scenario.getDescription())){
+            docBuilder.textLine(scenario.getDescription());
+        }
         if(scenario.hasSteps()) {
             //here we will reuse builtin step renderer
             docBuilder.textLine("+");
