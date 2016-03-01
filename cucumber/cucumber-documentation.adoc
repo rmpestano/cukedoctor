@@ -1,6 +1,6 @@
 :toc: right
 :backend: pdf
-:doctitle: Living Documentation
+:doctitle: cucumber-documentation
 :doctype: book
 :icons: font
 :!numbered:
@@ -10,7 +10,7 @@
 :docinfo:
 :toclevels: 3
 
-= *Living Documentation*
+= *cucumber-documentation*
 
 == *Summary*
 [cols="12*^m", options="header,footer"]
