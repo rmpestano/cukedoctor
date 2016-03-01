@@ -1,5 +1,11 @@
 = Cukedoctor
 :toc: preamble
+:source-language: java
+:icons: font
+:linkattrs:
+:sectanchors:
+:sectlink:
+:numbered:
 
 [quote]
 ____
