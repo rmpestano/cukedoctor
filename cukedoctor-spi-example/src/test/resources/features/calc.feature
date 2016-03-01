@@ -11,4 +11,4 @@ Feature: Calculator
 
     Given I have numbers 2 and 1
     When I subtract the numbers
-    Then I should have 0 as result
+    Then I should have 1 as result
