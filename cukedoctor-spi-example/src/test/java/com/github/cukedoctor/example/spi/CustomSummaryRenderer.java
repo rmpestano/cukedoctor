@@ -19,12 +19,12 @@ public class CustomSummaryRenderer extends AbstractBaseRenderer implements Summa
     @Override
     public String renderSummary(List<Feature> features) {
         docBuilder.textLine(H2(bold(i18n.getMessage("title.summary"))));
-        docBuilder.textLine("This is a custom summary renderer");
-        docBuilder.textLine("Number of features: ").append(features.size());
+        docBuilder.textLine("This is a custom summary renderer").newLine();
+        docBuilder.textLine("Number of features: "+features.size());
         docBuilder.newLine();
         ScenarioTotalizations totalization = new ScenarioTotalizations(features);
-        docBuilder.append("Passed steps: ",totalization.getTotalPassedSteps())
-                .append(newLine()).append("Failed steps: ",totalization.getTotalFailedSteps());
+        docBuilder.append("Passed steps: ",totalization.getTotalPassedSteps(),newLine())
+                .append(newLine()).append("Failed steps: ", totalization.getTotalFailedSteps(),newLine());
         return docBuilder.toString();
     }
 }

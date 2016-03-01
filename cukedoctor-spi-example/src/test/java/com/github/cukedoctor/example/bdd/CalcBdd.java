@@ -1,4 +1,4 @@
-package com.github.cukedoctor.example;
+package com.github.cukedoctor.example.bdd;
 
 import cucumber.api.CucumberOptions;
 import cucumber.api.junit.Cucumber;

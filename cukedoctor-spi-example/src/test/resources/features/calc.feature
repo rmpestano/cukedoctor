@@ -1,14 +1,14 @@
 Feature: Calculator
 
-  Scenario Outline: Adding numbers
+  Scenario: Adding numbers
 
-    Given I have number <x> and <y>
-    When I sum the number
-    Then I should have <result>
+    Given I have numbers 1 and 2
+    When I sum the numbers
+    Then I should have 3 as result
 
-  Examples:
-  | x  | y  | result  |
-  | 1  | 2  |  3      |
-  | 2  | 2  |  4      |
-  | 0  | 0  |  0      |
+  Scenario: Subtracting numbers
+    A feature with a failing step
 
+    Given I have numbers 2 and 1
+    When I subtract the numbers
+    Then I should have 0 as result

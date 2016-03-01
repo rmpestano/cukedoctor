@@ -21,7 +21,7 @@ public class CukedoctorThemeExtension extends Postprocessor {
 
     @Override
     public String process(Document document, String output) {
-        if (document.basebackend("html")  && System.getProperty("cukedoctor.disable.theme") == null) {
+        if (document.basebackend("html") && System.getProperty("cukedoctor.disable.theme") == null) {
             Object docDir = document.getAttributes().get("docdir");
             if (docDir != null && new File(docDir.toString()).exists()) {
                 File themeDir = new File(docDir.toString() + "/themes/");

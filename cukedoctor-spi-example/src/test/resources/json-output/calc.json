@@ -1,0 +1,137 @@
+[
+  {
+    "line": 1,
+    "elements": [
+      {
+        "line": 3,
+        "name": "Adding numbers",
+        "description": "",
+        "id": "calculator;adding-numbers",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 155792192,
+              "status": "passed"
+            },
+            "line": 5,
+            "name": "I have numbers 1 and 2",
+            "match": {
+              "arguments": [
+                {
+                  "val": "1",
+                  "offset": 15
+                },
+                {
+                  "val": "2",
+                  "offset": 21
+                }
+              ],
+              "location": "CalcStepDef.I_have_number_x_and_y(int,int)"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 31439,
+              "status": "passed"
+            },
+            "line": 6,
+            "name": "I sum the numbers",
+            "match": {
+              "location": "CalcStepDef.I_sum_the_number()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 1698919,
+              "status": "passed"
+            },
+            "line": 7,
+            "name": "I should have 3 as result",
+            "match": {
+              "arguments": [
+                {
+                  "val": "3",
+                  "offset": 14
+                }
+              ],
+              "location": "CalcStepDef.I_should_have_result(int)"
+            },
+            "keyword": "Then "
+          }
+        ]
+      },
+      {
+        "line": 9,
+        "name": "Subtracting numbers",
+        "description": "A feature with a failing step",
+        "id": "calculator;subtracting-numbers",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 197675,
+              "status": "passed"
+            },
+            "line": 12,
+            "name": "I have numbers 2 and 1",
+            "match": {
+              "arguments": [
+                {
+                  "val": "2",
+                  "offset": 15
+                },
+                {
+                  "val": "1",
+                  "offset": 21
+                }
+              ],
+              "location": "CalcStepDef.I_have_number_x_and_y(int,int)"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 38340,
+              "status": "passed"
+            },
+            "line": 13,
+            "name": "I subtract the numbers",
+            "match": {
+              "location": "CalcStepDef.I_subtract_the_number()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 911502,
+              "error_message": "java.lang.AssertionError: expected:\u003c0\u003e but was:\u003c1\u003e\n\tat org.junit.Assert.fail(Assert.java:88)\n\tat org.junit.Assert.failNotEquals(Assert.java:743)\n\tat org.junit.Assert.assertEquals(Assert.java:118)\n\tat org.junit.Assert.assertEquals(Assert.java:555)\n\tat org.junit.Assert.assertEquals(Assert.java:542)\n\tat com.github.cukedoctor.example.bdd.CalcStepDef.I_should_have_result(CalcStepDef.java:37)\n\tat ✽.Then I should have 0 as result(src/test/resources/features/calc.feature:14)\n",
+              "status": "failed"
+            },
+            "line": 14,
+            "name": "I should have 0 as result",
+            "match": {
+              "arguments": [
+                {
+                  "val": "0",
+                  "offset": 14
+                }
+              ],
+              "location": "CalcStepDef.I_should_have_result(int)"
+            },
+            "keyword": "Then "
+          }
+        ]
+      }
+    ],
+    "name": "Calculator",
+    "description": "",
+    "id": "calculator",
+    "keyword": "Feature",
+    "uri": "src/test/resources/features/calc.feature"
+  }
+]
