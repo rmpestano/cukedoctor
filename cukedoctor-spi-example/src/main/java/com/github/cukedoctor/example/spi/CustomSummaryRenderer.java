@@ -1,15 +1,15 @@
 package com.github.cukedoctor.example.spi;
 
+import static com.github.cukedoctor.util.Constants.Markup.H2;
+import static com.github.cukedoctor.util.Constants.Markup.bold;
+import static com.github.cukedoctor.util.Constants.newLine;
+
+import java.util.List;
+
 import com.github.cukedoctor.api.model.Feature;
 import com.github.cukedoctor.api.model.ScenarioTotalizations;
 import com.github.cukedoctor.renderer.AbstractBaseRenderer;
 import com.github.cukedoctor.spi.SummaryRenderer;
-
-import java.util.List;
-
-import static com.github.cukedoctor.util.Constants.Markup.H2;
-import static com.github.cukedoctor.util.Constants.Markup.bold;
-import static com.github.cukedoctor.util.Constants.newLine;
 
 /**
  * Created by pestano on 27/02/16.

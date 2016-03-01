@@ -84,6 +84,10 @@ Cukedoctor converter is the basis for the above projects, it generates asciidoc 
 
 Cukedoctor extension adds new features to generated documentation in order to let original document cleaner and make it easier to enable/disable those features. For more details see https://github.com/rmpestano/cukedoctor/tree/master/cukedoctor-extension[cukedoctor-extension].
 
+=== SPI example
+
+This module provides an example project to show how cukedoctor documentation can be extended and customized. For more details see https://github.com/rmpestano/cukedoctor/tree/master/cukedoctor-spi-example[cukedoctor-spi-example].
+
 == Distribution
 
 Cukedoctor is available at https://bintray.com/rmpestano/cukedoctor[Bintray] and at http://search.maven.org/#search%7Cga%7C1%7Ccukedoctor[Maven central^].

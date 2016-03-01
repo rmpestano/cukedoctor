@@ -1,13 +1,13 @@
 package com.github.cukedoctor.example.spi;
 
+import static com.github.cukedoctor.util.Assert.hasText;
+import static com.github.cukedoctor.util.Constants.Markup.bold;
+import static com.github.cukedoctor.util.Constants.newLine;
+
 import com.github.cukedoctor.api.model.Feature;
 import com.github.cukedoctor.api.model.Scenario;
 import com.github.cukedoctor.renderer.CukedoctorFeatureRenderer;
 import com.github.cukedoctor.spi.ScenarioRenderer;
-
-import static com.github.cukedoctor.util.Assert.hasText;
-import static com.github.cukedoctor.util.Constants.Markup.bold;
-import static com.github.cukedoctor.util.Constants.newLine;
 
 /**
  * Created by pestano on 29/02/16.
