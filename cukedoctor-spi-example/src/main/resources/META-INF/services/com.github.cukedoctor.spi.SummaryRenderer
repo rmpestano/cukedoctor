@@ -1,0 +1,3 @@
+com.github.cukedoctor.example.spi.CustomSummaryRenderer
+com.github.cukedoctor.example.spi.CustomFeatureRenderer
+com.github.cukedoctor.example.spi.CustomScenarioRenderer
