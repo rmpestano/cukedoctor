@@ -1,7 +1,7 @@
 Feature: Calculator
 
   Scenario: Adding numbers
-   You can *asciidoc markup* in _feature_ #description#.
+   You can use *asciidoc markup* in _feature_ #description#.
 
    NOTE: This is a very important feature!
 
