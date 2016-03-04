@@ -149,11 +149,62 @@ You can re-enable the extension by calling
 ----
 ====
 
+
+== Enriching documentation
+
+To enrich the documentation one can use asciidoc markup inside Cucumber feature files, consider the following feature:
+
+.feature without enrichment
+----
+Feature: Calculator
+
+  Scenario: Adding numbers
+   You can asciidoc markup in feature description.
+
+    Given I have numbers 1 and 2
+    When I sum the numbers
+    Then I should have 3 as result
+----
+
+It will be rendered by Cukedoctor as follows:
+
+image::no-enrich.png[]
+
+Now if you want to enrich your _living_ documentation you can use asciidoc syntax in your feature:
+
+.enriched feature
+----
+Feature: Calculator
+
+  Scenario: Adding numbers
+   You can *asciidoc markup* in _feature_ #description#.
+
+   NOTE: This is a very important feature!
+
+    #{IMPORTANT: Asciidoc markup inside *steps* must be surrounded by *curly brackets*.}
+    Given I have numbers 1 and 2
+
+    # {NOTE: Steps comments are placed *before* each steps so this comment is for the *WHEN* step.}
+
+    When I sum the numbers
+
+    # {* this is a list of itens inside a feature step}
+    # {* there is no multiline comment in gherkin}
+    # {** second level list item}
+    Then I should have 3 as result
+----
+
+And it will be rendered as follows:
+
+image::enrich.png[]
+
 == Customizing your Living Documentation
 
 Cukedoctor let you customize its generated documentation through Java service provider mechanism.
 
 For more details see https://github.com/rmpestano/cukedoctor/tree/master/cukedoctor-spi-example[spi-example module].
+
+
 
 == Maven coordinates
 

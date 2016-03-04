@@ -1,34 +1,30 @@
 package com.github.cukedoctor.converter;
 
-import com.github.cukedoctor.Cukedoctor;
-import com.github.cukedoctor.api.CukedoctorConverter;
-import com.github.cukedoctor.api.DocumentAttributes;
-import com.github.cukedoctor.api.model.Feature;
-import com.github.cukedoctor.api.model.Scenario;
-import com.github.cukedoctor.api.model.Tag;
-import com.github.cukedoctor.parser.FeatureParser;
-import com.github.cukedoctor.renderer.CukedoctorFeatureRenderer;
-import com.github.cukedoctor.renderer.CukedoctorSummaryRenderer;
-import com.github.cukedoctor.spi.SummaryRenderer;
-import com.github.cukedoctor.util.Expectations;
-import com.github.cukedoctor.util.FileUtil;
-import com.github.cukedoctor.util.builder.FeatureBuilder;
-import org.junit.BeforeClass;
-import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.junit.runners.JUnit4;
+import static com.github.cukedoctor.util.Constants.newLine;
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.github.cukedoctor.util.Constants.newLine;
-import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
-import static org.mockito.Matchers.any;
-import static org.mockito.Mockito.doReturn;
-import static org.mockito.Mockito.spy;
+import org.junit.BeforeClass;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.junit.runners.JUnit4;
+
+import com.github.cukedoctor.Cukedoctor;
+import com.github.cukedoctor.api.CukedoctorConverter;
+import com.github.cukedoctor.api.DocumentAttributes;
+import com.github.cukedoctor.api.model.Feature;
+import com.github.cukedoctor.api.model.Tag;
+import com.github.cukedoctor.parser.FeatureParser;
+import com.github.cukedoctor.renderer.CukedoctorSummaryRenderer;
+import com.github.cukedoctor.spi.SummaryRenderer;
+import com.github.cukedoctor.util.Expectations;
+import com.github.cukedoctor.util.FileUtil;
+import com.github.cukedoctor.util.builder.FeatureBuilder;
 
 
 /**
@@ -506,6 +502,43 @@ public class CukedoctorConverterTest {
 
 		converter.saveDocumentation();
 		assertThat(FileUtil.loadFile("target/generated-test-sources/living_documentation.adoc")).exists();
+	}
+
+
+	@Test
+	public void shouldEnrichFeature(){
+		List<Feature> features = FeatureParser.findAndParse("target/test-classes/json-output/enrichment");
+		assertThat(features).isNotNull().hasSize(1);
+		String output = Cukedoctor.instance(features).renderFeatures(features).getDocumentation();
+		assertThat(output.replaceAll("\n", "").replaceAll("\r", "").replaceAll("\t", "")).isEqualTo(("[[Calculator, Calculator]]" + newLine()+
+				"=== *Calculator*" + newLine()+
+				newLine()+
+				"==== Scenario: Adding numbers" + newLine()+
+				"You can *asciidoc markup* in _feature_ #description#." + newLine()+
+				newLine()+
+				"NOTE: This is a very important feature!" + newLine()+
+				newLine()+
+				"****" + newLine()+
+				"Given ::" + newLine()+
+				"I have numbers 1 and 2 icon:thumbs-up[role=\"green\",title=\"Passed\"] [small right]#(114ms)#" + newLine()+
+				newLine()+
+				"IMPORTANT: Asciidoc markup inside *steps* must be surrounded by *curly brackets*." + newLine()+
+				newLine()+
+				"When ::" + newLine()+
+				"I sum the numbers icon:thumbs-up[role=\"green\",title=\"Passed\"] [small right]#(000ms)#" + newLine()+
+				" "+newLine() +
+				"NOTE: Steps comments are placed *before* each steps so this comment is for the *WHEN* step." + newLine()+
+				newLine() +
+				"Then ::" +newLine()+
+				"I should have 3 as result icon:thumbs-up[role=\"green\",title=\"Passed\"] [small right]#(001ms)#" + newLine()+
+				" "+newLine() +
+				"* this is a list of itens inside a feature step" + newLine()+
+				" "+newLine() +
+				"* there is no multiline comment in gherkin" +newLine() +
+				" "+newLine() +
+				"** second level list item" + newLine()+
+				newLine() +
+				"****"+newLine()+newLine()).replaceAll("\n", "").replaceAll("\r", "").replaceAll("\t", ""));
 	}
 
 }

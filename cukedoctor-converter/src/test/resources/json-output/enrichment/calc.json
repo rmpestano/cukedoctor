@@ -1,0 +1,100 @@
+[
+  {
+    "id": "calculator",
+    "description": "",
+    "name": "Calculator",
+    "keyword": "Feature",
+    "line": 1,
+    "elements": [
+      {
+        "id": "calculator;adding-numbers",
+        "description": "You can *asciidoc markup* in _feature_ #description#.\r\n\r\nNOTE: This is a very important feature!",
+        "name": "Adding numbers",
+        "keyword": "Scenario",
+        "line": 3,
+        "steps": [
+          {
+            "result": {
+              "duration": 114654615,
+              "status": "passed"
+            },
+            "name": "I have numbers 1 and 2",
+            "keyword": "Given ",
+            "line": 9,
+            "match": {
+              "arguments": [
+                {
+                  "val": "1",
+                  "offset": 15
+                },
+                {
+                  "val": "2",
+                  "offset": 21
+                }
+              ],
+              "location": "CalcStepDef.I_have_number_x_and_y(int,int)"
+            },
+            "comments": [
+              {
+                "value": "#{IMPORTANT: Asciidoc markup inside *steps* must be surrounded by *curly brackets*.}",
+                "line": 8
+              }
+            ]
+          },
+          {
+            "result": {
+              "duration": 17640,
+              "status": "passed"
+            },
+            "name": "I sum the numbers",
+            "keyword": "When ",
+            "line": 13,
+            "match": {
+              "location": "CalcStepDef.I_sum_the_number()"
+            },
+            "comments": [
+              {
+                "value": "# {NOTE: Steps comments are placed *before* each steps so this comment is for the *WHEN* step.}",
+                "line": 11
+              }
+            ]
+          },
+          {
+            "result": {
+              "duration": 1369185,
+              "status": "passed"
+            },
+            "name": "I should have 3 as result",
+            "keyword": "Then ",
+            "line": 18,
+            "match": {
+              "arguments": [
+                {
+                  "val": "3",
+                  "offset": 14
+                }
+              ],
+              "location": "CalcStepDef.I_should_have_result(int)"
+            },
+            "comments": [
+              {
+                "value": "# {* this is a list of itens inside a feature step}",
+                "line": 15
+              },
+              {
+                "value": "# {* there is no multiline comment in gherkin}",
+                "line": 16
+              },
+              {
+                "value": "# {** second level list item}",
+                "line": 17
+              }
+            ]
+          }
+        ],
+        "type": "scenario"
+      }
+    ],
+    "uri": "src/test/resources/features/calc.feature"
+  }
+]

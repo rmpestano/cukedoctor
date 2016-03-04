@@ -9,6 +9,6 @@ import org.junit.runner.RunWith;
  */
 @RunWith(Cucumber.class)
 @CucumberOptions(features = "src/test/resources/features/calc.feature",
-        format = {"json:target/calc.json"} )
+        plugin = {"json:target/calc.json"} )
 public class CalcBdd {
 }

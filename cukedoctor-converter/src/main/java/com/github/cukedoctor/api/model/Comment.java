@@ -11,6 +11,7 @@ import static com.github.cukedoctor.util.Assert.hasText;
 public class Comment {
 
     private String value;
+    private Integer line;
 
     public String getValue() {
         return value;
@@ -19,6 +20,15 @@ public class Comment {
     public void setValue(String value) {
         this.value = value;
     }
+    
+
+    public Integer getLine() {
+        return line;
+    }
+
+    public void setLine(Integer line) {
+        this.line = line;
+    }
 
     public String getLanguage(){
         int indexOfLanguage = value.indexOf("language:");
@@ -26,5 +36,11 @@ public class Comment {
             return value.substring(indexOfLanguage+10).trim();
         }
         return null;
+    }
+    
+    @Override
+    public String toString() {
+        // TODO Auto-generated method stub
+        return value;
     }
 }
