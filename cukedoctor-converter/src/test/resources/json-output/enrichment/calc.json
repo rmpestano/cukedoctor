@@ -8,7 +8,7 @@
     "elements": [
       {
         "id": "calculator;adding-numbers",
-        "description": "You can *asciidoc markup* in _feature_ #description#.\r\n\r\nNOTE: This is a very important feature!",
+        "description": "You can use *asciidoc markup* in _feature_ #description#.\r\n\r\nNOTE: This is a very important feature!",
         "name": "Adding numbers",
         "keyword": "Scenario",
         "line": 3,
