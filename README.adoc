@@ -24,9 +24,9 @@ BDD living documentation using http://cukes.info/[Cucumber] and http://asciidoct
 
 [quote]
 ____
-  In order to have awesome *living documentation* +
-  As a bdd developer +
-  I want to convert my test results into http://asciidoctor.org/docs/what-is-asciidoc/[Asciidoc format^].
+In order to have awesome *living documentation* +
+As a bdd developer +
+I want to convert my test results into http://asciidoctor.org/docs/what-is-asciidoc/[Asciidoc format^].
 ____
 
 == Story
