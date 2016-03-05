@@ -514,7 +514,7 @@ public class CukedoctorConverterTest {
 				"=== *Calculator*" + newLine()+
 				newLine()+
 				"==== Scenario: Adding numbers" + newLine()+
-				"You can *asciidoc markup* in _feature_ #description#." + newLine()+
+				"You can use *asciidoc markup* in _feature_ #description#." + newLine()+
 				newLine()+
 				"NOTE: This is a very important feature!" + newLine()+
 				newLine()+
