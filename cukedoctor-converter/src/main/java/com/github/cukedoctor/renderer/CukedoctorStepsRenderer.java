@@ -1,13 +1,10 @@
 package com.github.cukedoctor.renderer;
 
 import com.github.cukedoctor.api.CukedoctorDocumentBuilder;
-import com.github.cukedoctor.api.model.Comment;
-import com.github.cukedoctor.api.model.Result;
-import com.github.cukedoctor.api.model.Row;
-import com.github.cukedoctor.api.model.Status;
-import com.github.cukedoctor.api.model.Step;
+import com.github.cukedoctor.api.model.*;
 import com.github.cukedoctor.spi.StepsRenderer;
 import com.github.cukedoctor.util.Assert;
+import com.github.cukedoctor.util.Constants;
 import com.github.cukedoctor.util.Formatter;
 
 import java.util.List;
@@ -25,6 +22,7 @@ public class CukedoctorStepsRenderer extends AbstractBaseRenderer implements Ste
     @Override
     public String renderSteps(List<Step> steps) {
         docBuilder.clear();
+
         docBuilder.textLine("****");
         for (Step step : steps) {
             docBuilder.append(step.getKeyword(), "::", newLine());
@@ -34,9 +32,14 @@ public class CukedoctorStepsRenderer extends AbstractBaseRenderer implements Ste
             docBuilder.append(renderStepTable(step));
 
             if (notNull(step.getDocString()) && hasText(step.getDocString().getValue())) {
-                docBuilder.append(listing(), newLine(), newLine());
-                docBuilder.append(step.getDocString().getValue().replaceAll("\\n", newLine()));
-                docBuilder.append(newLine(), newLine(), listing(), newLine());
+                if(step.hasDiscreteComment()){
+                    //discrete step renders inside a sidebar block and has [discrete] class on every line
+                    renderDiscreteSidebarBlock(step.getDocString());
+
+                } else{
+                    renderListingBlock(step.getDocString());
+                }
+               
             }
 
             if (step.getResult() != null && !Status.passed.equals(step.getStatus())) {
@@ -49,6 +52,21 @@ public class CukedoctorStepsRenderer extends AbstractBaseRenderer implements Ste
         docBuilder.textLine("****").newLine();
 
         return docBuilder.toString();
+    }
+
+
+    private void renderListingBlock(DocString docString) {
+        docBuilder.append(listing(), newLine(), newLine());
+        docBuilder.append(docString.getValue().replaceAll("\\n", newLine()));
+        docBuilder.append(newLine(), newLine(), listing(), newLine());
+    }
+
+    private void renderDiscreteSidebarBlock(DocString docString) {
+        docBuilder.append("******", newLine(), newLine(), Constants.DISCRETE);
+        docBuilder.append(docString.getValue().
+                replaceAll("\\*\\*\\*\\*","*****").//replace any existing side block
+                replaceAll("\\n", newLine() + Constants.DISCRETE + newLine()));
+        docBuilder.append(newLine(), newLine(), "******", newLine());
     }
 
     private void enrichStep(Step step) {

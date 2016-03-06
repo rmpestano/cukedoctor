@@ -8,6 +8,7 @@ import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;
 
 import java.io.IOException;
+import java.net.URL;
 import java.nio.file.Paths;
 import java.util.List;
 
@@ -25,6 +26,14 @@ public class FeatureParserTest {
 	@Test
 	public void shouldParseFeature() throws IOException {
 		String path = FileUtil.findJsonFile("target/test-classes/json-output/" + onePassingOneFailing);
+		List<Feature> features = FeatureParser.parse(path);
+		assertThat(features).isNotNull().hasSize(1).contains(FeatureBuilder.instance().name("One passing scenario, one failing scenario").id("one-passing-scenario,-one-failing-scenario").build());
+	}
+
+	@Test
+	public void shouldParseFeatureUsingResourcePath() throws IOException {
+		URL featureFile = getClass().getResource("/json-output/" + onePassingOneFailing);
+		String path = FileUtil.findJsonFile(featureFile.getPath());
 		List<Feature> features = FeatureParser.parse(path);
 		assertThat(features).isNotNull().hasSize(1).contains(FeatureBuilder.instance().name("One passing scenario, one failing scenario").id("one-passing-scenario,-one-failing-scenario").build());
 	}

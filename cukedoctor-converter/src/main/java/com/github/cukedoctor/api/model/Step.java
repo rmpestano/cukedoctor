@@ -149,4 +149,20 @@ public class Step {
     public boolean hasComments() {
         return hasElements(comments);
     }
+
+	public boolean hasDiscreteComment() {
+		if(hasComments()){
+			for (Comment comment : comments) {
+				if(comment.getValue().contains("cukedoctor-discrete")){
+					return true;
+				}
+			}
+		}
+		return false;
+	}
+
+	@Override
+	public String toString() {
+		return name;
+	}
 }

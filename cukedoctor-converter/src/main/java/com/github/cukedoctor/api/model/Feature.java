@@ -13,12 +13,13 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicInteger;
+import java.util.logging.Logger;
 
 import static com.github.cukedoctor.util.Assert.hasText;
 import static com.github.cukedoctor.util.Assert.notEmpty;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class Feature {
+public class Feature implements Comparable<Feature>{
 
 	private String id;
 	private String name;
@@ -33,6 +34,10 @@ public class Feature {
 	private List<Comment> comments;
 	@JsonIgnore
 	private String language;
+
+	@JsonIgnore
+	private Integer order;
+
 
 	public Feature() {
 
@@ -254,6 +259,25 @@ public class Feature {
 		return language;
 	}
 
+	public Integer getOrder(){
+		if(order == null && comments != null){
+			for (Comment comment : comments) {
+				if(hasText(comment.getOrder())){
+					try {
+						this.order = Integer.parseInt(comment.getOrder());
+					}catch (Exception e){
+						Logger.getLogger(getClass().getName()).warning(String.format("Could not get order of feature %s cause: %s",name,e.getMessage()));
+					}
+				}
+			}
+		}
+		if(order == null){
+			this.order = -1;
+		}
+
+		return order;
+	}
+
 	@Override
 	public boolean equals(Object o) {
 		if (this == o) return true;
@@ -284,5 +308,21 @@ public class Feature {
 	@Override
 	public String toString() {
 	    return name;
+	}
+
+	@Override
+	public int compareTo(Feature other) {
+		int result = 0;
+		if(this.getOrder() != null && other.getOrder() != null){
+			result = getOrder().compareTo(other.getOrder());
+		}
+
+		//same order or no-order use name
+		if(result == 0){
+			result = name.compareTo(other.getName());
+		}
+
+		return result;
+
 	}
 }

@@ -60,12 +60,7 @@ public class FeatureParser {
 
 	private static void sortFeatures(List<Feature> features) {
 		if(features != null) {
-			Collections.sort(features, new Comparator<Feature>() {
-				@Override
-				public int compare(Feature f1, Feature f2) {
-					return f1.getName().toLowerCase().compareTo(f2.getName().toLowerCase());
-				}
-			});
+			Collections.sort(features);
 		}
 	}
 

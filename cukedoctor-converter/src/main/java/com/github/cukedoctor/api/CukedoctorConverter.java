@@ -25,6 +25,8 @@ public interface CukedoctorConverter {
 
 	CukedoctorConverter renderFeatures(List<Feature> features);
 
+	CukedoctorConverter renderFeatures();
+
 	CukedoctorConverter renderAttributes();
 
 	/**

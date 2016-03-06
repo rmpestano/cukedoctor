@@ -37,6 +37,14 @@ public class Comment {
         }
         return null;
     }
+
+    public String getOrder(){
+        int indexOfOrder = value.indexOf("order:");
+        if(hasText(value) && indexOfOrder != -1){
+            return value.substring(indexOfOrder+7).trim();
+        }
+        return null;
+    }
     
     @Override
     public String toString() {

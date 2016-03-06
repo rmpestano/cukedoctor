@@ -14,6 +14,9 @@ public abstract class Constants {
 
 	public static final String STOP_WATCH = "cukedoctor.stopwatch";
 
+	public static final String STEPS_BLOCK_DELIMITER = System.getProperty("cukedoctor.stopwatch");
+	public static final String DISCRETE = "[discrete]";
+
 	public static String newLine() {
 		return System.getProperty("line.separator");
 	}

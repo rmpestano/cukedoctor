@@ -190,6 +190,10 @@ public class CukedoctorConverterImpl implements CukedoctorConverter {
 		return this;
 	}
 
+	@Override
+	public CukedoctorConverter renderFeatures() {
+		return this.renderFeatures(features);
+	}
 
 	@Override
 	public CukedoctorConverter setFilename(String filename) {
