@@ -508,7 +508,7 @@ public class CukedoctorConverterTest {
 	@Test
 	public void shouldEnrichFeature(){
 		List<Feature> features = FeatureParser.parse(getClass().getResource("/json-output/enrichment/calc.json").getPath());
-		//assertThat(features).isNotNull().hasSize(1);
+		assertThat(features).isNotNull().hasSize(1);
 		String output = Cukedoctor.instance(features).renderFeatures(features).getDocumentation();
 		assertThat(output.replaceAll("\n", "").replaceAll("\r", "").replaceAll("\t", "")).isEqualTo(("[[Calculator, Calculator]]" + newLine()+
 				"=== *Calculator*" + newLine()+
@@ -539,6 +539,63 @@ public class CukedoctorConverterTest {
 				"** second level list item" + newLine()+
 				newLine() +
 				"****"+newLine()+newLine()).replaceAll("\n", "").replaceAll("\r", "").replaceAll("\t", ""));
+	}
+
+
+	@Test
+	public void shouldRenderStepsWithDiscreteClass(){
+		List<Feature> features = FeatureParser.parse(getClass().getResource("/json-output/discrete/table-and-source.json").getPath());
+		assertThat(features).isNotNull().hasSize(1);
+		String output = Cukedoctor.instance(features).renderFeatures(features).getDocumentation();
+		assertThat(output.replaceAll("\r","").replaceAll("\n","")).isEqualTo(("[[Discrete-class-feature, Discrete class feature]]" + newLine() +
+				"=== *Discrete class feature*" + newLine() +
+				"" + newLine() +
+				"==== Scenario: Render source code" + newLine() +
+				"" + newLine() +
+				"****" + newLine() +
+				"Given ::" + newLine() +
+				"the following source code icon:thumbs-up[role=\"green\",title=\"Passed\"] [small right]#(267ms)#" + newLine() +
+				"******" + newLine() +
+				"" + newLine() +
+				"[discrete]" + newLine() +
+				"[source, java]" + newLine() +
+				"-----" + newLine() +
+				"public int sum(int x, int y){" + newLine() +
+				"" + newLine() +
+				"    int result = x + y;" + newLine() +
+				"" + newLine() +
+				"    return result; <1>" + newLine() +
+				"" + newLine() +
+				"}" + newLine() +
+				"" + newLine() +
+				"-----" + newLine() +
+				"" + newLine() +
+				"<1> We can have callouts in living documentation>" + newLine() +
+				"" + newLine() +
+				"" + newLine() +
+				"******" + newLine() +
+				"" + newLine() +
+				"****" + newLine() +
+				"" + newLine() +
+				"==== Scenario: Render table" + newLine() +
+				"" + newLine() +
+				"****" + newLine() +
+				"Given ::" + newLine() +
+				"the following table icon:thumbs-up[role=\"green\",title=\"Passed\"] [small right]#(000ms)#" + newLine() +
+				"******" + newLine() +
+				"" + newLine() +
+				"[discrete]" + newLine() +
+				"|===" + newLine() +
+				"| Cell in column 1, row 1 | Cell in column 2, row 1" + newLine() +
+				"| Cell in column 1, row 2 | Cell in column 2, row 2" + newLine() +
+				"| Cell in column 1, row 3 | Cell in column 2, row 3" + newLine() +
+				"|===" + newLine() +
+				"" + newLine() +
+				"" + newLine() +
+				"******" + newLine() +
+				"" + newLine() +
+				"****" + newLine() +
+				"" + newLine()).replaceAll("\r","").replaceAll("\n",""));
 	}
 
 }

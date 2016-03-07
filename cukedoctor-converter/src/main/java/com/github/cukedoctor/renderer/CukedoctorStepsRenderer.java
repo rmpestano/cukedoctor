@@ -71,18 +71,54 @@ public class CukedoctorStepsRenderer extends AbstractBaseRenderer implements Ste
         // pipe is skipped because it denotes table cells in asciidoc and putting
         // a discrete class will break tables
         //also includes are skiped
-        //regex try:("^(?=.*^\\n)(?!^\\n\\|).*")
+        //regex try:("^(?=.*^\\n)(?!\\n\\|).*$")
+        boolean isListing = false; //control if line is inside a listing
+        boolean isTable = false;//control if line is inside a table
 
         for (String line : lines) {
-            if(line.isEmpty() || line.contains("include::")){
+
+            if(line.trim().isEmpty() || line.contains("include::")){
                 continue;
             }
-            if(line.contains("|")){
-               docBuilder.textLine(line);
-            }else{
-                //does not contains pipe then use [discrete] class
-                docBuilder.textLine(Constants.DISCRETE).textLine(line);
+            if(!isListing){
+                line = line.replaceAll("\r", "");
             }
+            if(isListing){
+                if(line.contains("----")){
+                    //end listing
+                    isListing = false;
+                }
+                docBuilder.textLine(line);
+                continue;
+            }
+
+            if(!isListing && line.contains("----")){
+                isListing = true;
+                docBuilder.textLine(line);
+                continue;
+            }
+
+            //do not add discrete to callouts
+            if(line.startsWith("<") && line.endsWith(">")){
+                docBuilder.textLine(line);
+                continue;
+            }
+
+            if(isTable){
+                //skip discrete class when within a table
+                docBuilder.textLine(line);
+                if(line.contains(table())){
+                    isTable = false;//end table
+                }
+                continue;
+            }
+
+            //skips discrete class for table col (it must add discrete to table itself)
+            if(line.contains(table())) {
+                isTable = true;
+            }
+            //not inside a table neither listing then add discrete class to line
+            docBuilder.textLine(Constants.DISCRETE).textLine(line);
         }
         docBuilder.append(newLine(), newLine(), "******", newLine());
     }

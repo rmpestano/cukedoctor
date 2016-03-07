@@ -1,0 +1,78 @@
+[
+  {
+    "id": "discrete-class-feature",
+    "description": "",
+    "name": "Discrete class feature",
+    "keyword": "Feature",
+    "line": 1,
+    "elements": [
+      {
+        "id": "discrete-class-feature;render-source-code",
+        "description": "",
+        "name": "Render source code",
+        "keyword": "Scenario",
+        "line": 3,
+        "steps": [
+          {
+            "result": {
+              "duration": 267743605,
+              "status": "passed"
+            },
+            "name": "the following source code",
+            "keyword": "Given ",
+            "line": 6,
+            "doc_string": {
+              "value": "[source, java]\r\n-----\r\npublic int sum(int x, int y){\r\n    int result \u003d x + y;\r\n    return result; \u003c1\u003e\r\n}\r\n-----\r\n\u003c1\u003e We can have callouts in living documentation\u003e",
+              "line": 7,
+              "content_type": ""
+            },
+            "match": {
+              "location": "DiscreteSteps.the_following_source_code(String)"
+            },
+            "comments": [
+              {
+                "value": "# cukedoctor-discrete",
+                "line": 5
+              }
+            ]
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "id": "discrete-class-feature;render-table",
+        "description": "",
+        "name": "Render table",
+        "keyword": "Scenario",
+        "line": 18,
+        "steps": [
+          {
+            "result": {
+              "duration": 57731,
+              "status": "passed"
+            },
+            "name": "the following table",
+            "keyword": "Given ",
+            "line": 21,
+            "doc_string": {
+              "value": "|\u003d\u003d\u003d\r\n\r\n| Cell in column 1, row 1 | Cell in column 2, row 1\r\n| Cell in column 1, row 2 | Cell in column 2, row 2\r\n| Cell in column 1, row 3 | Cell in column 2, row 3\r\n\r\n|\u003d\u003d\u003d",
+              "line": 22,
+              "content_type": ""
+            },
+            "match": {
+              "location": "DiscreteSteps.the_following_table(String)"
+            },
+            "comments": [
+              {
+                "value": "# cukedoctor-discrete",
+                "line": 20
+              }
+            ]
+          }
+        ],
+        "type": "scenario"
+      }
+    ],
+    "uri": "com/github/cukedoctor/bdd/sample/discrete.feature"
+  }
+]

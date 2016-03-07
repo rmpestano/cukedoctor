@@ -11,7 +11,8 @@ public class SimpleSteps {
 
     @Given("^scenario step$")
     public void scenario_step() throws Throwable {
-        // Express the Regexp above with the code you wish you had
+        //it is just a sample, we are interested in json output report
         assertTrue(true);
     }
+
 }
