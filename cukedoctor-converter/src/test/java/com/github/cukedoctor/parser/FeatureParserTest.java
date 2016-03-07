@@ -48,7 +48,7 @@ public class FeatureParserTest {
 	@Test
 	public void shouldParseFeaturesInDir() throws IOException {
 		List<String> paths = FileUtil.findJsonFiles("target/test-classes/json-output");
-		assertThat(paths).hasSize(12);
+		assertThat(paths).hasSize(13);
 		List<Feature> features = FeatureParser.parse(paths);
 		assertThat(features).hasSize(11).contains(FeatureBuilder.instance().name("An embed data directly feature").id("an-embed-data-directly-feature").build());
 	}
