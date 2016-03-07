@@ -8,6 +8,7 @@ import com.github.cukedoctor.util.Constants;
 import com.github.cukedoctor.util.Formatter;
 
 import java.util.List;
+import java.util.regex.Pattern;
 
 import static com.github.cukedoctor.api.CukedoctorDocumentBuilder.Factory.newInstance;
 import static com.github.cukedoctor.util.Assert.*;
@@ -62,10 +63,27 @@ public class CukedoctorStepsRenderer extends AbstractBaseRenderer implements Ste
     }
 
     private void renderDiscreteSidebarBlock(DocString docString) {
-        docBuilder.append("******", newLine(), newLine(), Constants.DISCRETE);
-        docBuilder.append(docString.getValue().
-                replaceAll("\\*\\*\\*\\*","*****").//replace any existing side block
-                replaceAll("\\n", newLine() + Constants.DISCRETE + newLine()));
+        docBuilder.append("******", newLine(), newLine());
+
+        String[] lines = docString.getValue().replaceAll("\\*\\*\\*\\*","*****").split("\\n");
+
+        //every line that starts with \n and not contains pipe(|) will have discrete class
+        // pipe is skipped because it denotes table cells in asciidoc and putting
+        // a discrete class will break tables
+        //also includes are skiped
+        //regex try:("^(?=.*^\\n)(?!^\\n\\|).*")
+
+        for (String line : lines) {
+            if(line.isEmpty() || line.contains("include::")){
+                continue;
+            }
+            if(line.contains("|")){
+               docBuilder.textLine(line);
+            }else{
+                //does not contains pipe then use [discrete] class
+                docBuilder.textLine(Constants.DISCRETE).textLine(line);
+            }
+        }
         docBuilder.append(newLine(), newLine(), "******", newLine());
     }
 

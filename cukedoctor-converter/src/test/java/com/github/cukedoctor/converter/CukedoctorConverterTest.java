@@ -507,8 +507,8 @@ public class CukedoctorConverterTest {
 
 	@Test
 	public void shouldEnrichFeature(){
-		List<Feature> features = FeatureParser.findAndParse("target/test-classes/json-output/enrichment");
-		assertThat(features).isNotNull().hasSize(1);
+		List<Feature> features = FeatureParser.parse(getClass().getResource("/json-output/enrichment/calc.json").getPath());
+		//assertThat(features).isNotNull().hasSize(1);
 		String output = Cukedoctor.instance(features).renderFeatures(features).getDocumentation();
 		assertThat(output.replaceAll("\n", "").replaceAll("\r", "").replaceAll("\t", "")).isEqualTo(("[[Calculator, Calculator]]" + newLine()+
 				"=== *Calculator*" + newLine()+

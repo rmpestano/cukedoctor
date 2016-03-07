@@ -11,7 +11,6 @@ import cucumber.api.java.en.When;
 import java.net.URL;
 import java.util.List;
 
-import static com.github.cukedoctor.util.Constants.newLine;
 import static org.assertj.core.api.Assertions.assertThat;
 
 /**
@@ -54,6 +53,5 @@ public class OrderingSteps {
     public void Features_should_be_ordered_respecting_order_comment(String expected) throws Throwable {
         assertThat(documentation.replaceAll("\r","")).isNotNull().isEqualTo(expected.replaceAll("\r",""));
     }
-
 
 }

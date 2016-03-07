@@ -1,0 +1,66 @@
+[
+  {
+    "line": 1,
+    "elements": [
+      {
+        "line": 3,
+        "name": "Scenario feature 1",
+        "description": "",
+        "id": "feature1;scenario-feature-1",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 647746576,
+              "status": "passed"
+            },
+            "line": 5,
+            "name": "scenario step",
+            "match": {
+              "location": "SimpleSteps.scenario_step()"
+            },
+            "keyword": "Given "
+          }
+        ]
+      }
+    ],
+    "name": "Feature1",
+    "description": "",
+    "id": "feature1",
+    "keyword": "Feature",
+    "uri": "com/github/cukedoctor/bdd/sample/simple1.feature"
+  },
+  {
+    "line": 1,
+    "elements": [
+      {
+        "line": 3,
+        "name": "Scenario feature 2",
+        "description": "",
+        "id": "feature2;scenario-feature-2",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 58615,
+              "status": "passed"
+            },
+            "line": 5,
+            "name": "scenario step",
+            "match": {
+              "location": "SimpleSteps.scenario_step()"
+            },
+            "keyword": "Given "
+          }
+        ]
+      }
+    ],
+    "name": "Feature2",
+    "description": "",
+    "id": "feature2",
+    "keyword": "Feature",
+    "uri": "com/github/cukedoctor/bdd/sample/simple2.feature"
+  }
+]

@@ -8,6 +8,6 @@ import org.junit.runner.RunWith;
  * Created by pestano on 05/03/16.
  */
 @RunWith(Cucumber.class)
-@CucumberOptions(plugin = "json:target/ordering.json" )
-public class OrderingBdd {
+@CucumberOptions(plugin = "json:target/cukedoctor.json")
+public class CukedoctorBdd {
 }

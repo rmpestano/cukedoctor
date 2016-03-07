@@ -1,0 +1,107 @@
+# order: 0
+Feature: Cukedoctor Converter
+
+  In order to have awesome _living documentation_
+  As a bdd developer
+  I want to use *Cukedoctor* to handle my cucumber reports
+
+  Scenario: Default ordering
+
+    Given The following two features:
+"""
+Feature: Feature1
+
+  Scenario: Scenario feature 1
+
+    Given scenario step
+
+Feature: Feature2
+
+  Scenario: Scenario feature 2
+
+    Given scenario step
+"""
+
+    When I convert their json output report using cukedoctor converter
+
+    # cukedoctor-discrete
+    Then I should have awesome living documentation
+"""
+
+= *Documentation*
+
+include::/home/pestano/projects/cukedoctor/cukedoctor-converter/target/test-classes/cukedoctor-intro.adoc[leveloffset=+1]
+
+== *Summary*
+[cols="12*^m", options="header,footer"]
+|===
+3+|Scenarios 7+|Steps 2+|Features: 2
+
+|[green]#*Passed*#
+|[red]#*Failed*#
+|Total
+|[green]#*Passed*#
+|[red]#*Failed*#
+|[purple]#*Skipped*#
+|[maroon]#*Pending*#
+|[yellow]#*Undefined*#
+|[blue]#*Missing*#
+|Total
+|Duration
+|Status
+
+12+^|*<<Feature1>>*
+|1
+|0
+|1
+|1
+|0
+|0
+|0
+|0
+|0
+|1
+|647ms
+|[green]#*passed*#
+
+12+^|*<<Feature2>>*
+|1
+|0
+|1
+|1
+|0
+|0
+|0
+|0
+|0
+|1
+|000ms
+|[green]#*passed*#
+12+^|*Totals*
+|2|0|2|2|0|0|0|0|0|2 2+|647ms
+|===
+
+== *Features*
+
+[[Feature1, Feature1]]
+=== *Feature1*
+
+==== Scenario: Scenario feature 1
+
+****
+Given ::
+scenario step icon:thumbs-up[role="green",title="Passed"] [small right]#(647ms)#
+****
+
+[[Feature2, Feature2]]
+=== *Feature2*
+
+==== Scenario: Scenario feature 2
+
+****
+Given ::
+scenario step icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+****
+
+
+"""
