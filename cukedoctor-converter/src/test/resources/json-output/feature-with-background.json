@@ -1,0 +1,98 @@
+[
+  {
+    "line": 1,
+    "elements": [
+      {
+        "line": 3,
+        "name": "",
+        "description": "",
+        "type": "background",
+        "keyword": "Background",
+        "steps": [
+          {
+            "result": {
+              "duration": 48750,
+              "status": "passed"
+            },
+            "line": 4,
+            "name": "this is a background step",
+            "match": {
+              "location": "BackgroundSteps.this_is_a_background_step()"
+            },
+            "keyword": "Given "
+          }
+        ]
+      },
+      {
+        "line": 7,
+        "name": "Scenario 1",
+        "description": "",
+        "id": "a-feature-with-background;scenario-1",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 13471,
+              "status": "passed"
+            },
+            "line": 9,
+            "name": "this is scenario one step",
+            "match": {
+              "location": "BackgroundSteps.this_is_scenario_one_step()"
+            },
+            "keyword": "Given "
+          }
+        ]
+      },
+      {
+        "line": 3,
+        "name": "",
+        "description": "",
+        "type": "background",
+        "keyword": "Background",
+        "steps": [
+          {
+            "result": {
+              "duration": 22130,
+              "status": "passed"
+            },
+            "line": 4,
+            "name": "this is a background step",
+            "match": {
+              "location": "BackgroundSteps.this_is_a_background_step()"
+            },
+            "keyword": "Given "
+          }
+        ]
+      },
+      {
+        "line": 12,
+        "name": "Scenario 2",
+        "description": "",
+        "id": "a-feature-with-background;scenario-2",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 16999,
+              "status": "passed"
+            },
+            "line": 14,
+            "name": "this is scenario two step",
+            "match": {
+              "location": "BackgroundSteps.this_is_scenario_two_step()"
+            },
+            "keyword": "Given "
+          }
+        ]
+      }
+    ],
+    "name": "A feature with background",
+    "description": "",
+    "id": "a-feature-with-background",
+    "keyword": "Feature",
+    "uri": "com/github/cukedoctor/bdd/sample/feature-with-background.feature"
+  }
+]

@@ -598,4 +598,36 @@ public class CukedoctorConverterTest {
 				"" + newLine()).replaceAll("\r","").replaceAll("\n",""));
 	}
 
+
+	@Test
+	public void shouldRenderFeatureWithBackground(){
+		List<Feature> features = FeatureParser.parse(getClass().getResource("/json-output/feature-with-background.json").getPath());
+		assertThat(features).isNotNull().hasSize(1);
+		String output = Cukedoctor.instance(features).renderFeatures(features).getDocumentation();
+		assertThat(output.replaceAll("\r","").replaceAll("\n","")).isEqualTo(("[[A-feature-with-background, A feature with background]]"+newLine() +
+				"=== *A feature with background*"+newLine() +
+				""+newLine() +
+				"==== Background"+newLine() +
+				""+newLine() +
+				"****"+newLine() +
+				"Given ::"+newLine() +
+				"this is a background step icon:thumbs-up[role=\"green\",title=\"Passed\"] [small right]#(000ms)#"+newLine() +
+				"****"+newLine() +
+				""+newLine() +
+				"==== Scenario: Scenario 1"+newLine() +
+				""+newLine() +
+				"****"+newLine() +
+				"Given ::"+newLine() +
+				"this is scenario one step icon:thumbs-up[role=\"green\",title=\"Passed\"] [small right]#(000ms)#"+newLine() +
+				"****"+newLine() +
+				""+newLine() +
+				"==== Scenario: Scenario 2"+newLine() +
+				""+newLine() +
+				"****"+newLine() +
+				"Given ::"+newLine() +
+				"this is scenario two step icon:thumbs-up[role=\"green\",title=\"Passed\"] [small right]#(000ms)#"+newLine() +
+				"****"+newLine() +
+				""+newLine()).replaceAll("\r","").replaceAll("\n",""));
+	}
+	
 }
