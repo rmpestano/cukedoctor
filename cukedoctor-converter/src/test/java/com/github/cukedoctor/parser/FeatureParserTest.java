@@ -54,13 +54,13 @@ public class FeatureParserTest {
 		List<String> paths = FileUtil.findJsonFiles("target/test-classes/json-output/parser");
 		assertThat(paths).hasSize(6);
 		List<Feature> features = FeatureParser.parse(paths);
-		assertThat(features).hasSize(2).contains(FeatureBuilder.instance().name("An embed data directly feature").id("an-embed-data-directly-feature").build());
+		assertThat(features).hasSize(4).contains(FeatureBuilder.instance().name("An embed data directly feature").id("an-embed-data-directly-feature").build());
 	}
 
 	@Test
 	public void shouldParseAndFindFeaturesInDir() throws IOException {
 		List<Feature> features = FeatureParser.findAndParse("target/test-classes/json-output/parser");
-		assertThat(features).hasSize(3).contains(FeatureBuilder.instance().name("An embed data directly feature").id("an-embed-data-directly-feature").build());
+		assertThat(features).hasSize(4).contains(FeatureBuilder.instance().name("An embed data directly feature").id("an-embed-data-directly-feature").build());
 	}
 
 	@Test
@@ -96,13 +96,13 @@ public class FeatureParserTest {
 	@Test
 	public void shouldParseAndFindFeaturesInDirUsingLeadingSlash() throws IOException {
 		List<Feature> features = FeatureParser.findAndParse("/target/test-classes/json-output/parser");
-		assertThat(features).hasSize(3).contains(FeatureBuilder.instance().name("An embed data directly feature").id("an-embed-data-directly-feature").build());
+		assertThat(features).hasSize(4).contains(FeatureBuilder.instance().name("An embed data directly feature").id("an-embed-data-directly-feature").build());
 	}
 
 	@Test
 	public void shouldParseAndFindFeaturesInDirUsingAbsoluteath() throws IOException {
 		List<Feature> features = FeatureParser.findAndParse(Paths.get("").toAbsolutePath().toString() +"/target/test-classes/json-output/parser");
-		assertThat(features).hasSize(3).contains(FeatureBuilder.instance().name("An embed data directly feature").id("an-embed-data-directly-feature").build());
+		assertThat(features).hasSize(4).contains(FeatureBuilder.instance().name("An embed data directly feature").id("an-embed-data-directly-feature").build());
 	}
 
 	@Test
