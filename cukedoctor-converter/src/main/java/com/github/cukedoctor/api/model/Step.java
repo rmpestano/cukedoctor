@@ -3,6 +3,8 @@ package com.github.cukedoctor.api.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonRawValue;
+
 import static com.github.cukedoctor.util.Assert.hasElements;
 
 import java.util.List;
@@ -18,7 +20,9 @@ public class Step {
 	private Row[] rows;
 	private Match match;
 	private List<Comment> comments;
+	@JsonProperty("doc_string")
 	private DocString docString;
+	private List<Output> output;
 
 
 	public String getName() {
@@ -68,7 +72,15 @@ public class Step {
 	public void setMatch(Match match) {
 		this.match = match;
 	}
-	
+
+	@JsonRawValue
+	public List<Output> getOutput() {
+		return output;
+	}
+
+	public void setOutput(List<Output> output) {
+		this.output = output;
+	}
 
 	public List<Comment> getComments() {
         return comments;
@@ -78,12 +90,10 @@ public class Step {
         this.comments = comments;
     }
 
-    @JsonProperty("doc_string")
 	public DocString getDocString() {
 		return docString;
 	}
 
-	@JsonProperty("doc_string")
 	public void setDocString(DocString docString) {
 		this.docString = docString;
 	}
@@ -164,5 +174,9 @@ public class Step {
 	@Override
 	public String toString() {
 		return name;
+	}
+
+	public boolean hasOutput(){
+		 return output != null && !output.isEmpty();
 	}
 }

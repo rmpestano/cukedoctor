@@ -601,7 +601,7 @@ public class CukedoctorConverterTest {
 
 	@Test
 	public void shouldRenderFeatureWithBackground(){
-		List<Feature> features = FeatureParser.parse(getClass().getResource("/json-output/feature-with-background.json").getPath());
+		List<Feature> features = FeatureParser.parse(getClass().getResource("/json-output/feature_with_background.json").getPath());
 		assertThat(features).isNotNull().hasSize(1);
 		String output = Cukedoctor.instance(features).renderFeatures(features).getDocumentation();
 		assertThat(output.replaceAll("\r","").replaceAll("\n","")).isEqualTo(("[[A-feature-with-background, A feature with background]]"+newLine() +
@@ -626,6 +626,35 @@ public class CukedoctorConverterTest {
 				"****"+newLine() +
 				"Given ::"+newLine() +
 				"this is scenario two step icon:thumbs-up[role=\"green\",title=\"Passed\"] [small right]#(000ms)#"+newLine() +
+				"****"+newLine() +
+				""+newLine()).replaceAll("\r","").replaceAll("\n",""));
+	}
+
+	@Test
+	public void shouldRenderFeatureWithOutput(){
+		List<Feature> features = FeatureParser.parse(getClass().getResource("/json-output/parser/feature_with_output.json").getPath());
+		assertThat(features).isNotNull().hasSize(1);
+		String output = Cukedoctor.instance(features).renderFeatures(features).getDocumentation();
+		assertThat(output.replaceAll("\r","").replaceAll("\n","")).isEqualTo(("[[A-feature-with-output, A feature with output]]"+newLine() +
+				"=== *A feature with output*"+newLine() +
+				""+newLine() +
+				"==== Scenario: Show the current version of sdkman"+newLine() +
+				""+newLine() +
+				"****"+newLine() +
+				"When ::"+newLine() +
+				"I enter \"sdk version\" icon:thumbs-up[role=\"green\",title=\"Passed\"] [small right]#(100ms)#"+newLine() +
+				"Then ::"+newLine() +
+				"I see \"SDKMAN x.y.z\" icon:thumbs-up[role=\"green\",title=\"Passed\"] [small right]#(000ms)#"+newLine() +
+				"----"+newLine() +
+				""+newLine() +
+				"Output: "+newLine() +
+				""+newLine() +
+				"broadcast message"+newLine() +
+				"SDKMAN x.y.z"+newLine() +
+				""+newLine() +
+				""+newLine() +
+				""+newLine() +
+				"----"+newLine() +
 				"****"+newLine() +
 				""+newLine()).replaceAll("\r","").replaceAll("\n",""));
 	}

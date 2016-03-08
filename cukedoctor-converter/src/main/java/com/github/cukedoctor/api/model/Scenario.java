@@ -5,6 +5,8 @@ import com.github.cukedoctor.util.Constants;
 
 import java.util.List;
 
+import static com.github.cukedoctor.util.Assert.hasText;
+
 /**
  * represents a scenario is most of the cases but can be also a background
  */
@@ -130,5 +132,16 @@ public class Scenario {
 			}
 		}
 		return false;
+	}
+
+	public Step getStepByName(String stepName) {
+		if(hasText(stepName) && hasSteps()) {
+			for (Step step : steps) {
+				if (step.getName().trim().equals(stepName.trim())) {
+					return step;
+				}
+			}
+		}
+		return null;
 	}
 }

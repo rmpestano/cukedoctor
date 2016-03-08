@@ -336,4 +336,16 @@ public class Feature implements Comparable<Feature>{
 		return result;
 
 	}
+
+	public Scenario getScenarioByName(String name) {
+
+		if(hasText(name) && hasScenarios()){
+			for (Scenario scenario : scenarios) {
+				if(hasText(scenario.getName()) && scenario.getName().trim().equals(name)){
+					return scenario;
+				}
+			}
+		}
+		return null;
+	}
 }

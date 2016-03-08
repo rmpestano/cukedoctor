@@ -1,0 +1,61 @@
+[
+  {
+    "uri": "features/feature-with-output.feature",
+    "id": "feature-with-output",
+    "keyword": "Feature",
+    "name": "A feature with output",
+    "line": 1,
+    "description": "",
+    "elements": [
+      {
+        "line": 8,
+        "name": "Show the current version of sdkman",
+        "description": "",
+        "id": "version;show-the-current-version-of-sdkman",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 100447393,
+              "status": "passed"
+            },
+            "line": 9,
+            "name": "I enter \"sdk version\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "sdk version",
+                  "offset": 9
+                }
+              ],
+              "location": "command_line_interop_steps.groovy:5"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 60940,
+              "status": "passed"
+            },
+            "output": [
+              "\nOutput: \n\nbroadcast message\nSDKMAN x.y.z\n\n\n"
+            ],
+            "line": 10,
+            "name": "I see \"SDKMAN x.y.z\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "SDKMAN x.y.z",
+                  "offset": 7
+                }
+              ],
+              "location": "command_line_interop_steps.groovy:15"
+            },
+            "keyword": "Then "
+          }
+        ]
+      }
+    ]
+  }
+]

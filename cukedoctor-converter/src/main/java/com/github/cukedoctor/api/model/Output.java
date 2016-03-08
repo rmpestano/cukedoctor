@@ -1,15 +1,15 @@
 package com.github.cukedoctor.api.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-
 /**
- * Created by rafael-pestano on 01/07/2015.
+ * Created by rafael-pestano on 08/03/2016.
  */
-
-@JsonIgnoreProperties(ignoreUnknown = true)
-public class DocString {
+public class Output {
 
   private String value;
+
+  public Output(String value) {
+    this.value = value;
+  }
 
   public String getValue() {
     return value;

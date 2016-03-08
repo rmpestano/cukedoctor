@@ -48,6 +48,7 @@ public class CukedoctorStepsRenderer extends AbstractBaseRenderer implements Ste
                     docBuilder.append(newLine(), "IMPORTANT: ", step.getResult().getErrorMessage(), newLine());
                 }
             }
+            renderOutput(step);
             enrichStep(step);
         }
         docBuilder.textLine("****").newLine();
@@ -55,6 +56,15 @@ public class CukedoctorStepsRenderer extends AbstractBaseRenderer implements Ste
         return docBuilder.toString();
     }
 
+    void renderOutput(Step step) {
+        if(step.hasOutput()){
+            docBuilder.textLine(listing());
+            for (Output output : step.getOutput()) {
+                docBuilder.textLine(output.getValue());
+            }
+            docBuilder.textLine(listing());
+        }
+    }
 
     private void renderListingBlock(DocString docString) {
         docBuilder.append(listing(), newLine(), newLine());
