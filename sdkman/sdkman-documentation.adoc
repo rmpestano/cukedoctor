@@ -1,0 +1,4805 @@
+:toc: right
+:backend: pdf
+:doctitle: Sdkman Documentation
+:doctype: book
+:icons: font
+:!numbered:
+:!linkcss:
+:sectanchors:
+:sectlink:
+:docinfo:
+:toclevels: 3
+
+= *Sdkman Documentation*
+
+== *Summary*
+[cols="12*^m", options="header,footer"]
+|===
+3+|Scenarios 7+|Steps 2+|Features: 19
+
+|[green]#*Passed*#
+|[red]#*Failed*#
+|Total
+|[green]#*Passed*#
+|[red]#*Failed*#
+|[purple]#*Skipped*#
+|[maroon]#*Pending*#
+|[yellow]#*Undefined*#
+|[blue]#*Missing*#
+|Total
+|Duration
+|Status
+
+12+^|*<<Broadcast>>*
+|10
+|0
+|10
+|35
+|0
+|0
+|0
+|0
+|0
+|35
+|01s 450ms
+|[green]#*passed*#
+
+12+^|*<<Command-Line-Interop>>*
+|8
+|0
+|8
+|22
+|0
+|0
+|0
+|0
+|0
+|22
+|943ms
+|[green]#*passed*#
+
+12+^|*<<Current-Candidate>>*
+|10
+|0
+|10
+|34
+|0
+|0
+|0
+|0
+|0
+|34
+|01s 200ms
+|[green]#*passed*#
+
+12+^|*<<Default-Version>>*
+|8
+|0
+|8
+|28
+|0
+|0
+|0
+|0
+|0
+|28
+|951ms
+|[green]#*passed*#
+
+12+^|*<<Flush>>*
+|18
+|0
+|18
+|58
+|0
+|0
+|0
+|0
+|0
+|58
+|02s 154ms
+|[green]#*passed*#
+
+12+^|*<<Idempotent-Self-Update>>*
+|4
+|0
+|4
+|12
+|0
+|0
+|0
+|0
+|0
+|12
+|462ms
+|[green]#*passed*#
+
+12+^|*<<Install-Candidate>>*
+|16
+|0
+|16
+|66
+|0
+|0
+|0
+|0
+|0
+|66
+|02s 002ms
+|[green]#*passed*#
+
+12+^|*<<List-Candidate-Versions>>*
+|12
+|0
+|12
+|51
+|0
+|0
+|0
+|0
+|0
+|51
+|01s 463ms
+|[green]#*passed*#
+
+12+^|*<<List-Candidates>>*
+|2
+|0
+|2
+|6
+|0
+|0
+|0
+|0
+|0
+|6
+|229ms
+|[green]#*passed*#
+
+12+^|*<<Local-Development-Versions>>*
+|12
+|0
+|12
+|47
+|0
+|0
+|0
+|0
+|0
+|47
+|01s 476ms
+|[green]#*passed*#
+
+12+^|*<<Mnemonics>>*
+|26
+|0
+|26
+|99
+|0
+|0
+|0
+|0
+|0
+|99
+|03s 089ms
+|[green]#*passed*#
+
+12+^|*<<Offline-Mode>>*
+|15
+|0
+|15
+|93
+|0
+|0
+|0
+|0
+|0
+|93
+|03s 618ms
+|[green]#*passed*#
+
+12+^|*<<Outdated-Candidate>>*
+|14
+|0
+|14
+|55
+|0
+|0
+|0
+|0
+|0
+|55
+|01s 659ms
+|[green]#*passed*#
+
+12+^|*<<Path-Initialisation>>*
+|10
+|0
+|10
+|34
+|0
+|0
+|0
+|0
+|0
+|34
+|01s 549ms
+|[green]#*passed*#
+
+12+^|*<<Self-Update>>*
+|16
+|0
+|16
+|69
+|0
+|0
+|0
+|0
+|0
+|69
+|01s 876ms
+|[green]#*passed*#
+
+12+^|*<<Service-Unavailable>>*
+|42
+|0
+|42
+|136
+|0
+|0
+|0
+|0
+|0
+|136
+|04s 330ms
+|[green]#*passed*#
+
+12+^|*<<Uninstall-Candidate>>*
+|12
+|0
+|12
+|38
+|0
+|0
+|0
+|0
+|0
+|38
+|01s 368ms
+|[green]#*passed*#
+
+12+^|*<<Use-Version>>*
+|22
+|0
+|22
+|90
+|0
+|0
+|0
+|0
+|0
+|90
+|03s 522ms
+|[green]#*passed*#
+
+12+^|*<<Version>>*
+|2
+|0
+|2
+|5
+|0
+|0
+|0
+|0
+|0
+|5
+|219ms
+|[green]#*passed*#
+12+^|*Totals*
+|259|0|259|978|0|0|0|0|0|978 2+|33s 570ms
+|===
+
+== *Features*
+
+[[Broadcast, Broadcast]]
+=== *Broadcast*
+
+==== Background
+
+****
+Given ::
+the internet is reachable icon:thumbs-up[role="green",title="Passed"] [small right]#(163ms)#
+And ::
+an initialised environment icon:thumbs-up[role="green",title="Passed"] [small right]#(009ms)#
+And ::
+the system is bootstrapped icon:thumbs-up[role="green",title="Passed"] [small right]#(102ms)#
+****
+
+==== Scenario: A command is issued with no prior Broadcast received
+
+****
+Given ::
+no prior Broadcast was received icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+And ::
+a new Broadcast "This is a LIVE Broadcast!" with id "12345" is available icon:thumbs-up[role="green",title="Passed"] [small right]#(029ms)#
+When ::
+I enter "sdk version" icon:thumbs-up[role="green",title="Passed"] [small right]#(101ms)#
+Then ::
+I see "This is a LIVE Broadcast!" icon:thumbs-up[role="green",title="Passed"] [small right]#(001ms)#
+----
+
+Output: 
+
+This is a LIVE Broadcast!
+SDKMAN x.y.z
+
+
+
+----
+****
+
+==== Scenario: A command is issued where the prior Broadcast was different to the Live one
+
+****
+Given ::
+a prior Broadcast "This is an OLD Broadcast!" with id "12344" was issued icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+And ::
+a new Broadcast "This is a LIVE Broadcast!" with id "12345" is available icon:thumbs-up[role="green",title="Passed"] [small right]#(017ms)#
+When ::
+I enter "sdk version" icon:thumbs-up[role="green",title="Passed"] [small right]#(100ms)#
+Then ::
+I see "This is a LIVE Broadcast!" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+----
+
+Output: 
+
+This is a LIVE Broadcast!
+SDKMAN x.y.z
+
+
+
+----
+****
+
+==== Scenario: A command is issued where the prior Broadcast was the same as the Live one
+
+****
+Given ::
+a prior Broadcast "This is a LIVE Broadcast!" with id "12345" was issued icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+And ::
+a new Broadcast "This is a LIVE Broadcast!" with id "12345" is available icon:thumbs-up[role="green",title="Passed"] [small right]#(016ms)#
+When ::
+I enter "sdk version" icon:thumbs-up[role="green",title="Passed"] [small right]#(100ms)#
+Then ::
+I do not see "This is a LIVE Broadcast!" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+----
+
+Output: 
+
+SDKMAN x.y.z
+
+
+
+----
+****
+
+==== Scenario: A Broadcast command recalls a prior Broadcast
+
+****
+Given ::
+a prior Broadcast "This is an OLD Broadcast!" with id "12344" was issued icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+And ::
+a new Broadcast "This is an OLD Broadcast!" with id "12344" is available icon:thumbs-up[role="green",title="Passed"] [small right]#(014ms)#
+When ::
+I enter "sdk broadcast" icon:thumbs-up[role="green",title="Passed"] [small right]#(100ms)#
+Then ::
+I see "This is an OLD Broadcast!" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+----
+
+Output: 
+
+This is an OLD Broadcast!
+
+
+
+----
+****
+
+==== Scenario: A Broadcast command is issued with no prior Broadcast received
+
+****
+Given ::
+no prior Broadcast was received icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+And ::
+a new Broadcast "This is a LIVE Broadcast!" with id "12345" is available icon:thumbs-up[role="green",title="Passed"] [small right]#(012ms)#
+When ::
+I enter "sdk broadcast" icon:thumbs-up[role="green",title="Passed"] [small right]#(100ms)#
+Then ::
+I see "This is a LIVE Broadcast!" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+----
+
+Output: 
+
+This is a LIVE Broadcast!
+
+
+
+----
+****
+
+[[Command-Line-Interop, Command Line Interop]]
+=== *Command Line Interop*
+
+==== Background
+
+****
+Given ::
+the internet is reachable icon:thumbs-up[role="green",title="Passed"] [small right]#(027ms)#
+And ::
+an initialised environment icon:thumbs-up[role="green",title="Passed"] [small right]#(003ms)#
+And ::
+the system is bootstrapped icon:thumbs-up[role="green",title="Passed"] [small right]#(101ms)#
+****
+
+==== Scenario: Enter sdk
+
+****
+When ::
+I enter "sdk" icon:thumbs-up[role="green",title="Passed"] [small right]#(100ms)#
+Then ::
+I see "Usage: sdk <command> [candidate] [version]" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+And ::
+I see "sdk offline <enable|disable>" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+----
+
+Output: 
+
+broadcast message
+
+Usage: sdk <command> [candidate] [version]
+       sdk offline <enable|disable>
+
+   commands:
+       install   or i    <candidate> [version]
+       uninstall or rm   <candidate> <version>
+       list      or ls   [candidate]
+       use       or u    <candidate> [version]
+       default   or d    <candidate> [version]
+       current   or c    [candidate]
+       outdated  or o    [candidate]
+       version   or v
+       broadcast or b
+       help      or h
+       offline           [enable|disable]
+       selfupdate        [force]
+       flush             <candidates|broadcast|archives|temp>
+
+   candidate  :  the SDK to install: groovy, scala, grails, akka, etc.
+                 use list command for comprehensive list of candidates
+                 eg: $ sdk list
+
+   version    :  where optional, defaults to latest stable if not provided
+                 eg: $ sdk install groovy
+
+
+
+
+----
+****
+
+==== Scenario: Ask for help
+
+****
+When ::
+I enter "sdk help" icon:thumbs-up[role="green",title="Passed"] [small right]#(100ms)#
+Then ::
+I see "Usage: sdk <command> [candidate] [version]" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+----
+
+Output: 
+
+broadcast message
+
+Usage: sdk <command> [candidate] [version]
+       sdk offline <enable|disable>
+
+   commands:
+       install   or i    <candidate> [version]
+       uninstall or rm   <candidate> <version>
+       list      or ls   [candidate]
+       use       or u    <candidate> [version]
+       default   or d    <candidate> [version]
+       current   or c    [candidate]
+       outdated  or o    [candidate]
+       version   or v
+       broadcast or b
+       help      or h
+       offline           [enable|disable]
+       selfupdate        [force]
+       flush             <candidates|broadcast|archives|temp>
+
+   candidate  :  the SDK to install: groovy, scala, grails, akka, etc.
+                 use list command for comprehensive list of candidates
+                 eg: $ sdk list
+
+   version    :  where optional, defaults to latest stable if not provided
+                 eg: $ sdk install groovy
+
+
+
+
+----
+****
+
+==== Scenario: Enter an invalid Command
+
+****
+When ::
+I enter "sdk goopoo grails" icon:thumbs-up[role="green",title="Passed"] [small right]#(100ms)#
+Then ::
+I see "Invalid command: goopoo" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+And ::
+I see "Usage: sdk <command> [candidate] [version]" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+----
+
+Output: 
+
+broadcast message
+Invalid command: goopoo
+
+Usage: sdk <command> [candidate] [version]
+       sdk offline <enable|disable>
+
+   commands:
+       install   or i    <candidate> [version]
+       uninstall or rm   <candidate> <version>
+       list      or ls   [candidate]
+       use       or u    <candidate> [version]
+       default   or d    <candidate> [version]
+       current   or c    [candidate]
+       outdated  or o    [candidate]
+       version   or v
+       broadcast or b
+       help      or h
+       offline           [enable|disable]
+       selfupdate        [force]
+       flush             <candidates|broadcast|archives|temp>
+
+   candidate  :  the SDK to install: groovy, scala, grails, akka, etc.
+                 use list command for comprehensive list of candidates
+                 eg: $ sdk list
+
+   version    :  where optional, defaults to latest stable if not provided
+                 eg: $ sdk install groovy
+
+
+
+
+----
+****
+
+==== Scenario: Enter an invalid Candidate
+
+****
+When ::
+I enter "sdk install groffle" icon:thumbs-up[role="green",title="Passed"] [small right]#(100ms)#
+Then ::
+I see "Stop! groffle is not a valid candidate." icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+----
+
+Output: 
+
+broadcast message
+
+Stop! groffle is not a valid candidate.
+
+
+
+----
+****
+
+[[Current-Candidate, Current Candidate]]
+=== *Current Candidate*
+
+==== Background
+
+****
+Given ::
+the internet is reachable icon:thumbs-up[role="green",title="Passed"] [small right]#(025ms)#
+And ::
+an initialised environment icon:thumbs-up[role="green",title="Passed"] [small right]#(003ms)#
+****
+
+==== Scenario: Display current candidate version in use
+
+****
+Given ::
+the candidate "grails" version "1.3.9" is already installed and default icon:thumbs-up[role="green",title="Passed"] [small right]#(007ms)#
+And ::
+the system is bootstrapped icon:thumbs-up[role="green",title="Passed"] [small right]#(101ms)#
+When ::
+I enter "sdk current grails" icon:thumbs-up[role="green",title="Passed"] [small right]#(100ms)#
+Then ::
+I see "Using grails version 1.3.9" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+----
+
+Output: 
+
+broadcast message
+Using grails version 1.3.9
+
+
+
+----
+****
+
+==== Scenario: Display current candidate version when none is in use
+
+****
+Given ::
+the candidate "grails" version "1.3.9" is already installed but not default icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+And ::
+the system is bootstrapped icon:thumbs-up[role="green",title="Passed"] [small right]#(101ms)#
+When ::
+I enter "sdk current grails" icon:thumbs-up[role="green",title="Passed"] [small right]#(100ms)#
+Then ::
+I see "Not using any version of grails" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+----
+
+Output: 
+
+broadcast message
+Not using any version of grails
+
+
+
+----
+****
+
+==== Scenario: Display current candidate versions when none is specified and none is in use
+
+****
+Given ::
+the candidate "grails" version "1.3.9" is already installed but not default icon:thumbs-up[role="green",title="Passed"] [small right]#(001ms)#
+And ::
+the system is bootstrapped icon:thumbs-up[role="green",title="Passed"] [small right]#(101ms)#
+When ::
+I enter "sdk current" icon:thumbs-up[role="green",title="Passed"] [small right]#(100ms)#
+Then ::
+I see "No candidates are in use" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+----
+
+Output: 
+
+broadcast message
+No candidates are in use
+
+
+
+----
+****
+
+==== Scenario: Display current candidate versions when none is specified and one is in use
+
+****
+Given ::
+the candidate "grails" version "2.1.0" is already installed and default icon:thumbs-up[role="green",title="Passed"] [small right]#(001ms)#
+And ::
+the system is bootstrapped icon:thumbs-up[role="green",title="Passed"] [small right]#(103ms)#
+When ::
+I enter "sdk current" icon:thumbs-up[role="green",title="Passed"] [small right]#(100ms)#
+Then ::
+I see "Using:" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+And ::
+I see "grails: 2.1.0" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+----
+
+Output: 
+
+broadcast message
+Using:
+grails: 2.1.0
+
+
+
+----
+****
+
+==== Scenario: Display current candidate versions when none is specified and multiple are in use
+
+****
+Given ::
+the candidate "groovy" version "2.0.5" is already installed and default icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+And ::
+the candidate "grails" version "2.1.0" is already installed and default icon:thumbs-up[role="green",title="Passed"] [small right]#(001ms)#
+And ::
+the system is bootstrapped icon:thumbs-up[role="green",title="Passed"] [small right]#(117ms)#
+When ::
+I enter "sdk current" icon:thumbs-up[role="green",title="Passed"] [small right]#(102ms)#
+Then ::
+I see "Using:" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+And ::
+I see "grails: 2.1.0" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+And ::
+I see "groovy: 2.0.5" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+----
+
+Output: 
+
+broadcast message
+Using:
+groovy: 2.0.5
+grails: 2.1.0
+
+
+
+----
+****
+
+[[Default-Version, Default Version]]
+=== *Default Version*
+
+==== Background
+
+****
+Given ::
+the internet is reachable icon:thumbs-up[role="green",title="Passed"] [small right]#(023ms)#
+And ::
+an initialised environment icon:thumbs-up[role="green",title="Passed"] [small right]#(003ms)#
+****
+
+==== Scenario: Default a candidate version that is not installed
+
+****
+Given ::
+the candidate "groovy" version "2.0.5" is a valid candidate version icon:thumbs-up[role="green",title="Passed"] [small right]#(006ms)#
+And ::
+the system is bootstrapped icon:thumbs-up[role="green",title="Passed"] [small right]#(101ms)#
+When ::
+I enter "sdk default groovy 2.0.5" icon:thumbs-up[role="green",title="Passed"] [small right]#(100ms)#
+Then ::
+I see "Stop! groovy 2.0.5 is not installed." icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+----
+
+Output: 
+
+broadcast message
+
+Stop! groovy 2.0.5 is not installed.
+
+
+
+----
+****
+
+==== Scenario: Default a candidate version that is installed and not default
+
+****
+Given ::
+the candidate "groovy" version "2.0.5" is a valid candidate version icon:thumbs-up[role="green",title="Passed"] [small right]#(006ms)#
+And ::
+the candidate "groovy" version "2.0.5" is already installed but not default icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+And ::
+the system is bootstrapped icon:thumbs-up[role="green",title="Passed"] [small right]#(101ms)#
+When ::
+I enter "sdk default groovy 2.0.5" icon:thumbs-up[role="green",title="Passed"] [small right]#(100ms)#
+Then ::
+I see "Default groovy version set to 2.0.5" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+And ::
+the candidate "groovy" version "2.0.5" should be the default icon:thumbs-up[role="green",title="Passed"] [small right]#(001ms)#
+----
+
+Output: 
+
+broadcast message
+
+Default groovy version set to 2.0.5
+
+
+
+----
+****
+
+==== Scenario: Default a candidate version that is installed and already default
+
+****
+Given ::
+the candidate "groovy" version "2.0.5" is a valid candidate version icon:thumbs-up[role="green",title="Passed"] [small right]#(005ms)#
+And ::
+the candidate "groovy" version "2.0.5" is already installed and default icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+And ::
+the system is bootstrapped icon:thumbs-up[role="green",title="Passed"] [small right]#(101ms)#
+When ::
+I enter "sdk default groovy 2.0.5" icon:thumbs-up[role="green",title="Passed"] [small right]#(100ms)#
+Then ::
+I see "Default groovy version set to 2.0.5" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+And ::
+the candidate "groovy" version "2.0.5" should be the default icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+----
+
+Output: 
+
+broadcast message
+
+Default groovy version set to 2.0.5
+
+
+
+----
+****
+
+==== Scenario: Default a candidate version that does not exist
+
+****
+Given ::
+the candidate "groovy" version "2.9.9" is not available for download icon:thumbs-up[role="green",title="Passed"] [small right]#(005ms)#
+And ::
+the system is bootstrapped icon:thumbs-up[role="green",title="Passed"] [small right]#(101ms)#
+When ::
+I enter "sdk default groovy 2.9.9" icon:thumbs-up[role="green",title="Passed"] [small right]#(100ms)#
+Then ::
+I see "Stop! 2.9.9 is not a valid groovy version." icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+----
+
+Output: 
+
+broadcast message
+
+Stop! 2.9.9 is not a valid groovy version.
+
+
+
+----
+****
+
+[[Flush, Flush]]
+=== *Flush*
+
+==== Background
+
+****
+Given ::
+the internet is reachable icon:thumbs-up[role="green",title="Passed"] [small right]#(020ms)#
+And ::
+an initialised environment icon:thumbs-up[role="green",title="Passed"] [small right]#(004ms)#
+And ::
+the system is bootstrapped icon:thumbs-up[role="green",title="Passed"] [small right]#(101ms)#
+****
+
+==== Scenario: Flush omitting the Qualifier
+
+****
+When ::
+I enter "sdk flush" icon:thumbs-up[role="green",title="Passed"] [small right]#(100ms)#
+Then ::
+I see "Stop! Please specify what you want to flush." icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+----
+
+Output: 
+
+Stop! Please specify what you want to flush.
+
+
+
+----
+****
+
+==== Scenario: Clear out the Candidate List
+
+****
+Given ::
+the candidate "grails" is known locally icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+When ::
+I enter "sdk flush candidates" icon:thumbs-up[role="green",title="Passed"] [small right]#(100ms)#
+Then ::
+no candidates are know locally icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+And ::
+I see "Candidates have been flushed." icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+----
+
+Output: 
+
+Candidates have been flushed.
+
+
+
+----
+****
+
+==== Scenario: Clear out an uninitialised Candidate List
+
+****
+Given ::
+I enter "sdk flush candidates" icon:thumbs-up[role="green",title="Passed"] [small right]#(100ms)#
+When ::
+I enter "sdk flush candidates" icon:thumbs-up[role="green",title="Passed"] [small right]#(100ms)#
+Then ::
+I see "No candidate list found so not flushed." icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+----
+
+Output: 
+
+No candidate list found so not flushed.
+
+
+
+----
+****
+
+==== Scenario: Clean up the current Broadcast
+
+****
+Given ::
+a prior Broadcast "This is an old broadcast" with id "12344" was issued icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+When ::
+I enter "sdk flush broadcast" icon:thumbs-up[role="green",title="Passed"] [small right]#(100ms)#
+Then ::
+no broadcast message can be found icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+And ::
+I see "Broadcast has been flushed." icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+----
+
+Output: 
+
+Broadcast has been flushed.
+
+
+
+----
+****
+
+==== Scenario: Clean up an uninitialised Broadcast
+
+****
+Given ::
+the broadcast has been flushed icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+When ::
+I enter "sdk flush broadcast" icon:thumbs-up[role="green",title="Passed"] [small right]#(100ms)#
+Then ::
+I see "No prior broadcast found so not flushed." icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+----
+
+Output: 
+
+No prior broadcast found so not flushed.
+
+
+
+----
+****
+
+==== Scenario: Clean up the last known Remote Version
+
+****
+Given ::
+a prior version "x.y.z" was detected icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+When ::
+I enter "sdk flush version" icon:thumbs-up[role="green",title="Passed"] [small right]#(100ms)#
+Then ::
+no version token can be found icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+And ::
+I see "Version Token has been flushed." icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+----
+
+Output: 
+
+Version Token has been flushed.
+
+
+
+----
+****
+
+==== Scenario: Clean up an uninitialised last known Remote Version
+
+****
+Given ::
+the Remote Version has been flushed icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+When ::
+I enter "sdk flush version" icon:thumbs-up[role="green",title="Passed"] [small right]#(100ms)#
+Then ::
+I see "No prior Remote Version found so not flushed." icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+----
+
+Output: 
+
+No prior Remote Version found so not flushed.
+
+
+
+----
+****
+
+==== Scenario: Clear out the cached Archives
+
+****
+Given ::
+the archive "grails-1.3.9.zip" has been cached icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+When ::
+I enter "sdk flush archives" icon:thumbs-up[role="green",title="Passed"] [small right]#(100ms)#
+Then ::
+no archives are cached icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+And ::
+I see "1 archive(s) flushed" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+----
+
+Output: 
+
+1 archive(s) flushed, freeing 4.0K	/tmp/sdkman-test/112ef11b-e2db-4558-a405-3bfcdf1411e4/.sdkman/archives.
+
+
+
+----
+****
+
+==== Scenario: Clear out the temporary space
+
+****
+Given ::
+the file "res-1.2.0.zip" in temporary storage icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+When ::
+I enter "sdk flush temp" icon:thumbs-up[role="green",title="Passed"] [small right]#(100ms)#
+Then ::
+no "res-1.2.0.zip" file is present in temporary storage icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+And ::
+I see "1 archive(s) flushed" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+----
+
+Output: 
+
+1 archive(s) flushed, freeing 4.0K	/tmp/sdkman-test/112ef11b-e2db-4558-a405-3bfcdf1411e4/.sdkman/tmp.
+
+
+
+----
+****
+
+[[Idempotent-Self-Update, Idempotent Self Update]]
+=== *Idempotent Self Update*
+
+==== Background
+
+****
+Given ::
+the internet is reachable icon:thumbs-up[role="green",title="Passed"] [small right]#(020ms)#
+And ::
+an initialised environment icon:thumbs-up[role="green",title="Passed"] [small right]#(003ms)#
+And ::
+the system is bootstrapped icon:thumbs-up[role="green",title="Passed"] [small right]#(101ms)#
+And ::
+an available selfupdate icon:thumbs-up[role="green",title="Passed"] [small right]#(005ms)#
+****
+
+==== Scenario: Attempt Self Update on an up to date system
+
+****
+When ::
+I enter "sdk selfupdate" icon:thumbs-up[role="green",title="Passed"] [small right]#(100ms)#
+Then ::
+I see "No update available at this time." icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+----
+
+Output: 
+
+No update available at this time.
+
+
+
+----
+****
+
+==== Scenario: Force Self Update on an up to date system
+
+****
+When ::
+I enter "sdk selfupdate force" icon:thumbs-up[role="green",title="Passed"] [small right]#(100ms)#
+Then ::
+I see "Successfully upgraded SDKMAN." icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+----
+
+Output: 
+
+Successfully upgraded SDKMAN.
+
+
+
+----
+****
+
+[[Install-Candidate, Install Candidate]]
+=== *Install Candidate*
+
+==== Background
+
+****
+Given ::
+the internet is reachable icon:thumbs-up[role="green",title="Passed"] [small right]#(020ms)#
+And ::
+an initialised environment icon:thumbs-up[role="green",title="Passed"] [small right]#(003ms)#
+And ::
+the system is bootstrapped icon:thumbs-up[role="green",title="Passed"] [small right]#(101ms)#
+****
+
+==== Scenario: Install a default Candidate
+
+****
+Given ::
+the default "grails" candidate is "2.1.0" icon:thumbs-up[role="green",title="Passed"] [small right]#(018ms)#
+When ::
+I enter "sdk install grails" and answer "Y" icon:thumbs-up[role="green",title="Passed"] [small right]#(101ms)#
+Then ::
+I see "Done installing!" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+Then ::
+the candidate "grails" version "2.1.0" is installed icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+----
+
+Output: 
+
+broadcast message
+
+Downloading: grails 2.1.0
+
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+100   541  100   541    0     0  53421      0 --:--:-- --:--:-- --:--:-- 53421
+
+Installing: grails 2.1.0
+Done installing!
+
+Do you want grails 2.1.0 to be set as default? (Y/n): 
+Setting grails 2.1.0 as default.
+
+
+
+----
+****
+
+==== Scenario: Install a specific Candidate
+
+****
+And ::
+the candidate "grails" version "1.3.9" is available for download icon:thumbs-up[role="green",title="Passed"] [small right]#(017ms)#
+When ::
+I enter "sdk install grails 1.3.9" and answer "Y" icon:thumbs-up[role="green",title="Passed"] [small right]#(101ms)#
+Then ::
+I see "Done installing!" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+Then ::
+the candidate "grails" version "1.3.9" is installed icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+----
+
+Output: 
+
+broadcast message
+
+Downloading: grails 1.3.9
+
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+100   541  100   541    0     0  89986      0 --:--:-- --:--:-- --:--:-- 89986
+
+Installing: grails 1.3.9
+Done installing!
+
+Do you want grails 1.3.9 to be set as default? (Y/n): 
+Setting grails 1.3.9 as default.
+
+
+
+----
+****
+
+==== Scenario: Install a Candidate version that does not exist
+
+****
+Given ::
+the candidate "grails" version "1.4.4" is not available for download icon:thumbs-up[role="green",title="Passed"] [small right]#(005ms)#
+When ::
+I enter "sdk install grails 1.4.4" icon:thumbs-up[role="green",title="Passed"] [small right]#(100ms)#
+Then ::
+I see "Stop! 1.4.4 is not a valid grails version." icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+----
+
+Output: 
+
+broadcast message
+
+Stop! 1.4.4 is not a valid grails version.
+
+
+
+----
+****
+
+==== Scenario: Install a Candidate version that is already installed
+
+****
+Given ::
+the candidate "grails" version "1.3.9" is available for download icon:thumbs-up[role="green",title="Passed"] [small right]#(017ms)#
+And ::
+the candidate "grails" version "1.3.9" is already installed and default icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+When ::
+I enter "sdk install grails 1.3.9" icon:thumbs-up[role="green",title="Passed"] [small right]#(100ms)#
+Then ::
+I see "Stop! grails 1.3.9 is already installed." icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+----
+
+Output: 
+
+broadcast message
+
+Stop! grails 1.3.9 is already installed.
+
+
+
+----
+****
+
+==== Scenario: Install a candidate and select to use it
+
+****
+Given ::
+the candidate "grails" version "2.1.0" is available for download icon:thumbs-up[role="green",title="Passed"] [small right]#(016ms)#
+When ::
+I enter "sdk install grails 2.1.0" and answer "Y" icon:thumbs-up[role="green",title="Passed"] [small right]#(100ms)#
+Then ::
+the candidate "grails" version "2.1.0" is installed icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+And ::
+I see "Done installing!" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+And ::
+I see "Do you want grails 2.1.0 to be set as default? (Y/n)" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+And ::
+I see "Setting grails 2.1.0 as default." icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+Then ::
+the candidate "grails" version "2.1.0" should be the default icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+----
+
+Output: 
+
+broadcast message
+
+Downloading: grails 2.1.0
+
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+100   541  100   541    0     0  86187      0 --:--:-- --:--:-- --:--:-- 86187
+
+Installing: grails 2.1.0
+Done installing!
+
+Do you want grails 2.1.0 to be set as default? (Y/n): 
+Setting grails 2.1.0 as default.
+
+
+
+----
+****
+
+==== Scenario: Install a candidate and select to use it automatically
+
+****
+Given ::
+the candidate "grails" version "2.1.0" is available for download icon:thumbs-up[role="green",title="Passed"] [small right]#(023ms)#
+And ::
+I have configured "sdkman_auto_answer" to "true" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+When ::
+I enter "sdk install grails 2.1.0" icon:thumbs-up[role="green",title="Passed"] [small right]#(100ms)#
+Then ::
+the candidate "grails" version "2.1.0" is installed icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+And ::
+I see "Done installing!" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+And ::
+I see "Setting grails 2.1.0 as default." icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+Then ::
+the candidate "grails" version "2.1.0" should be the default icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+----
+
+Output: 
+
+broadcast message
+
+Downloading: grails 2.1.0
+
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+100   541  100   541    0     0  88601      0 --:--:-- --:--:-- --:--:-- 88601
+
+Installing: grails 2.1.0
+Done installing!
+
+
+Setting grails 2.1.0 as default.
+
+
+
+----
+****
+
+==== Scenario: Install a candidate and do not select to use it
+
+****
+Given ::
+the candidate "grails" version "2.1.0" is available for download icon:thumbs-up[role="green",title="Passed"] [small right]#(022ms)#
+When ::
+I enter "sdk install grails 2.1.0" and answer "n" icon:thumbs-up[role="green",title="Passed"] [small right]#(100ms)#
+Then ::
+the candidate "grails" version "2.1.0" is installed icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+And ::
+I see "Done installing!" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+And ::
+I see "Do you want grails 2.1.0 to be set as default? (Y/n)" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+And ::
+I do not see "Setting grails 2.1.0 as default." icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+Then ::
+the candidate "grails" version "2.1.0" should not be the default icon:thumbs-up[role="green",title="Passed"] [small right]#(001ms)#
+----
+
+Output: 
+
+broadcast message
+
+Downloading: grails 2.1.0
+
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+100   541  100   541    0     0  89229      0 --:--:-- --:--:-- --:--:-- 89229
+
+Installing: grails 2.1.0
+Done installing!
+
+Do you want grails 2.1.0 to be set as default? (Y/n): 
+
+
+----
+****
+
+==== Scenario: Abort installation on download of a corrupt Candidate archive
+
+****
+Given ::
+the candidate "grails" version "1.3.6" is available for download icon:thumbs-up[role="green",title="Passed"] [small right]#(019ms)#
+And ::
+the archive for candidate "grails" version "1.3.6" is corrupt icon:thumbs-up[role="green",title="Passed"] [small right]#(004ms)#
+When ::
+I enter "sdk install grails 1.3.6" icon:thumbs-up[role="green",title="Passed"] [small right]#(100ms)#
+Then ::
+I see "Stop! The archive was corrupt and has been removed! Please try installing again." icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+And ::
+the candidate "grails" version "1.3.6" is not installed icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+And ::
+the archive for candidate "grails" version "1.3.6" is removed icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+----
+
+Output: 
+
+broadcast message
+
+Downloading: grails 1.3.6
+
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+100    31  100    31    0     0   5123      0 --:--:-- --:--:-- --:--:--  5123
+
+Stop! The archive was corrupt and has been removed! Please try installing again.
+
+
+
+----
+****
+
+[[List-Candidate-Versions, List Candidate Versions]]
+=== *List Candidate Versions*
+
+****
+A dummy template to be served back that has the following information: +
+* Candidate: grails +
+* Current: 2.1.0 +
+* Versions: 2.1.0,2.1.1,2.1.2 (CSV)
+****
+
+==== Background
+
+****
+Given ::
+the internet is reachable icon:thumbs-up[role="green",title="Passed"] [small right]#(023ms)#
+And ::
+an initialised environment icon:thumbs-up[role="green",title="Passed"] [small right]#(005ms)#
+****
+
+==== Scenario: List an uninstalled available Version
+
+****
+Given ::
+I do not have a "grails" candidate installed icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+And ::
+the candidate "grails" has a version list available icon:thumbs-up[role="green",title="Passed"] [small right]#(011ms)#
+And ::
+the system is bootstrapped icon:thumbs-up[role="green",title="Passed"] [small right]#(107ms)#
+When ::
+I enter "sdk list grails" icon:thumbs-up[role="green",title="Passed"] [small right]#(100ms)#
+Then ::
+I see "Candidate: grails" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+----
+
+Output: 
+
+broadcast message
+Candidate: grails; Versions: ; Current: 
+
+
+
+----
+****
+
+==== Scenario: List an installed available Version not in use
+
+****
+Given ::
+the candidate "grails" version "2.1.0" is already installed but not default icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+And ::
+the candidate "grails" has a version list available icon:thumbs-up[role="green",title="Passed"] [small right]#(005ms)#
+And ::
+the system is bootstrapped icon:thumbs-up[role="green",title="Passed"] [small right]#(101ms)#
+When ::
+I enter "sdk list grails" icon:thumbs-up[role="green",title="Passed"] [small right]#(100ms)#
+Then ::
+I see "Versions: 2.1.0" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+And ::
+I do not see "Current: 2.1.0" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+----
+
+Output: 
+
+broadcast message
+Candidate: grails; Versions: 2.1.0; Current: 
+
+
+
+----
+****
+
+==== Scenario: List an installed available Version in use
+
+****
+Given ::
+the candidate "grails" version "2.1.0" is already installed and default icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+And ::
+the candidate "grails" has a version list available icon:thumbs-up[role="green",title="Passed"] [small right]#(007ms)#
+And ::
+the system is bootstrapped icon:thumbs-up[role="green",title="Passed"] [small right]#(101ms)#
+When ::
+I enter "sdk list grails" icon:thumbs-up[role="green",title="Passed"] [small right]#(100ms)#
+Then ::
+I see "Current: 2.1.0" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+And ::
+I see "Versions: 2.1.0" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+----
+
+Output: 
+
+broadcast message
+Candidate: grails; Versions: 2.1.0; Current: 2.1.0
+
+
+
+----
+****
+
+==== Scenario: List installed multiple Versions
+
+****
+Given ::
+the candidate "grails" version "2.1.0" is already installed and default icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+And ::
+the candidate "grails" version "2.0.9" is already installed but not default icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+And ::
+the candidate "grails" has a version list available icon:thumbs-up[role="green",title="Passed"] [small right]#(007ms)#
+And ::
+the system is bootstrapped icon:thumbs-up[role="green",title="Passed"] [small right]#(101ms)#
+When ::
+I enter "sdk list grails" icon:thumbs-up[role="green",title="Passed"] [small right]#(100ms)#
+Then ::
+I see "Current: 2.1.0" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+And ::
+I see "Versions: 2.0.9,2.1.0" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+----
+
+Output: 
+
+broadcast message
+Candidate: grails; Versions: 2.0.9,2.1.0; Current: 2.1.0
+
+
+
+----
+****
+
+==== Scenario: List an installed local version not in use
+
+****
+Given ::
+I have a local candidate "grails" version "2.3-SNAPSHOT" at "/tmp/groovy-core" icon:thumbs-up[role="green",title="Passed"] [small right]#(001ms)#
+And ::
+the candidate "groovy" version "2.3-SNAPSHOT" is already linked to "/tmp/groovy-core" icon:thumbs-up[role="green",title="Passed"] [small right]#(001ms)#
+And ::
+the candidate "groovy" has a version list available icon:thumbs-up[role="green",title="Passed"] [small right]#(005ms)#
+And ::
+the system is bootstrapped icon:thumbs-up[role="green",title="Passed"] [small right]#(102ms)#
+When ::
+I enter "sdk list groovy" icon:thumbs-up[role="green",title="Passed"] [small right]#(100ms)#
+Then ::
+I see "Versions: 2.3-SNAPSHOT" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+And ::
+I do not see "Current: 2.3-SNAPSHOT" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+----
+
+Output: 
+
+broadcast message
+Candidate: groovy; Versions: 2.3-SNAPSHOT; Current: 
+
+
+
+----
+****
+
+==== Scenario: List an installed local Version in use
+
+****
+Given ::
+I have a local candidate "groovy" version "2.2-SNAPSHOT" at "/tmp/groovy-core" icon:thumbs-up[role="green",title="Passed"] [small right]#(001ms)#
+And ::
+the candidate "groovy" version "2.2-SNAPSHOT" is already linked to "/tmp/groovy-core" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+And ::
+the candidate "groovy" version "2.2-SNAPSHOT" is the default icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+And ::
+the candidate "groovy" has a version list available icon:thumbs-up[role="green",title="Passed"] [small right]#(005ms)#
+And ::
+the system is bootstrapped icon:thumbs-up[role="green",title="Passed"] [small right]#(126ms)#
+When ::
+I enter "sdk list groovy" icon:thumbs-up[role="green",title="Passed"] [small right]#(100ms)#
+Then ::
+I see "Current: 2.2-SNAPSHOT" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+And ::
+I see "Versions: 2.2-SNAPSHOT" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+----
+
+Output: 
+
+broadcast message
+Candidate: groovy; Versions: 2.2-SNAPSHOT; Current: 2.2-SNAPSHOT
+
+
+
+----
+****
+
+[[List-Candidates, List Candidates]]
+=== *List Candidates*
+
+==== Background
+
+****
+Given ::
+the internet is reachable icon:thumbs-up[role="green",title="Passed"] [small right]#(018ms)#
+And ::
+an initialised environment icon:thumbs-up[role="green",title="Passed"] [small right]#(004ms)#
+****
+
+==== Scenario: A List of Available Candidates can be viewed
+
+****
+Given ::
+the system is bootstrapped icon:thumbs-up[role="green",title="Passed"] [small right]#(101ms)#
+And ::
+The candidate list is available icon:thumbs-up[role="green",title="Passed"] [small right]#(004ms)#
+When ::
+I enter "sdk list" icon:thumbs-up[role="green",title="Passed"] [small right]#(100ms)#
+Then ::
+I see "Candidate List" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+----
+
+Output: 
+
+broadcast message
+Candidate List
+
+
+
+----
+****
+
+[[Local-Development-Versions, Local Development Versions]]
+=== *Local Development Versions*
+
+==== Background
+
+****
+Given ::
+the internet is reachable icon:thumbs-up[role="green",title="Passed"] [small right]#(016ms)#
+And ::
+an initialised environment icon:thumbs-up[role="green",title="Passed"] [small right]#(003ms)#
+****
+
+==== Scenario: Install a new local development version
+
+****
+Given ::
+the candidate "groovy" version "2.1-SNAPSHOT" is not available for download icon:thumbs-up[role="green",title="Passed"] [small right]#(005ms)#
+And ::
+I have a local candidate "groovy" version "2.1-SNAPSHOT" at "/tmp/groovy-core" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+And ::
+the system is bootstrapped icon:thumbs-up[role="green",title="Passed"] [small right]#(101ms)#
+When ::
+I enter "sdk install groovy 2.1-SNAPSHOT /tmp/groovy-core" icon:thumbs-up[role="green",title="Passed"] [small right]#(100ms)#
+Then ::
+I see "Linking groovy 2.1-SNAPSHOT to /tmp/groovy-core" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+And ::
+the candidate "groovy" version "2.1-SNAPSHOT" is linked to "/tmp/groovy-core" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+----
+
+Output: 
+
+broadcast message
+Linking groovy 2.1-SNAPSHOT to /tmp/groovy-core
+Done installing!
+
+
+
+
+----
+****
+
+==== Scenario: Attempt installing a local development version that already exists
+
+****
+Given ::
+the candidate "groovy" version "2.1-SNAPSHOT" is not available for download icon:thumbs-up[role="green",title="Passed"] [small right]#(004ms)#
+And ::
+the candidate "groovy" version "2.1-SNAPSHOT" is already linked to "/tmp/groovy-core" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+And ::
+the system is bootstrapped icon:thumbs-up[role="green",title="Passed"] [small right]#(101ms)#
+When ::
+I enter "sdk install groovy 2.1-SNAPSHOT /tmp/groovy-core" icon:thumbs-up[role="green",title="Passed"] [small right]#(100ms)#
+Then ::
+I see "Stop! groovy 2.1-SNAPSHOT is already installed." icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+And ::
+the candidate "groovy" version "2.1-SNAPSHOT" is linked to "/tmp/groovy-core" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+----
+
+Output: 
+
+broadcast message
+
+Stop! groovy 2.1-SNAPSHOT is already installed.
+
+
+
+----
+****
+
+==== Scenario: Uninstall a local development version
+
+****
+Given ::
+the candidate "groovy" version "2.1-SNAPSHOT" is already linked to "/tmp/groovy-core" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+And ::
+the system is bootstrapped icon:thumbs-up[role="green",title="Passed"] [small right]#(101ms)#
+When ::
+I enter "sdk uninstall groovy 2.1-SNAPSHOT" icon:thumbs-up[role="green",title="Passed"] [small right]#(100ms)#
+Then ::
+I see "Uninstalling groovy 2.1-SNAPSHOT" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+And ::
+the candidate "groovy" version "2.1-SNAPSHOT" is not installed icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+----
+
+Output: 
+
+broadcast message
+
+Uninstalling groovy 2.1-SNAPSHOT...
+
+
+
+----
+****
+
+==== Scenario: Attempt uninstalling a local development version that is not installed
+
+****
+Given ::
+the candidate "groovy" version "2.1-SNAPSHOT" is not installed icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+And ::
+the system is bootstrapped icon:thumbs-up[role="green",title="Passed"] [small right]#(101ms)#
+When ::
+I enter "sdk uninstall groovy 2.1-SNAPSHOT" icon:thumbs-up[role="green",title="Passed"] [small right]#(100ms)#
+Then ::
+I see "groovy 2.1-SNAPSHOT is not installed." icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+----
+
+Output: 
+
+broadcast message
+
+groovy 2.1-SNAPSHOT is not installed.
+
+
+
+----
+****
+
+==== Scenario: Make the local development version the default for the candidate
+
+****
+Given ::
+the candidate "groovy" version "2.0.6" is already installed and default icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+And ::
+the candidate "groovy" version "2.1-SNAPSHOT" is not available for download icon:thumbs-up[role="green",title="Passed"] [small right]#(006ms)#
+And ::
+the candidate "groovy" version "2.1-SNAPSHOT" is already linked to "/tmp/groovy-core" icon:thumbs-up[role="green",title="Passed"] [small right]#(001ms)#
+And ::
+the system is bootstrapped icon:thumbs-up[role="green",title="Passed"] [small right]#(101ms)#
+When ::
+I enter "sdk default groovy 2.1-SNAPSHOT" icon:thumbs-up[role="green",title="Passed"] [small right]#(100ms)#
+Then ::
+I see "Default groovy version set to 2.1-SNAPSHOT" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+And ::
+the candidate "groovy" version "2.1-SNAPSHOT" should be the default icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+----
+
+Output: 
+
+broadcast message
+
+Default groovy version set to 2.1-SNAPSHOT
+
+
+
+----
+****
+
+==== Scenario: Use a local development version
+
+****
+Given ::
+the candidate "groovy" version "2.0.6" is already installed and default icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+And ::
+the candidate "groovy" version "2.1-SNAPSHOT" is not available for download icon:thumbs-up[role="green",title="Passed"] [small right]#(005ms)#
+And ::
+the candidate "groovy" version "2.1-SNAPSHOT" is already linked to "/tmp/groovy-core" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+And ::
+the system is bootstrapped icon:thumbs-up[role="green",title="Passed"] [small right]#(101ms)#
+When ::
+I enter "sdk use groovy 2.1-SNAPSHOT" icon:thumbs-up[role="green",title="Passed"] [small right]#(100ms)#
+Then ::
+I see "Using groovy version 2.1-SNAPSHOT in this shell" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+And ::
+the candidate "groovy" version "2.1-SNAPSHOT" should be in use icon:thumbs-up[role="green",title="Passed"] [small right]#(100ms)#
+----
+
+Output: 
+
+Groovy Version: 2.1-SNAPSHOT
+
+
+
+----
+****
+
+[[Mnemonics, Mnemonics]]
+=== *Mnemonics*
+
+==== Background
+
+****
+Given ::
+the internet is reachable icon:thumbs-up[role="green",title="Passed"] [small right]#(016ms)#
+And ::
+an initialised environment icon:thumbs-up[role="green",title="Passed"] [small right]#(003ms)#
+****
+
+==== Scenario: Shortcut for listing an uninstalled available Version
+
+****
+Given ::
+I do not have a "grails" candidate installed icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+And ::
+a "grails" list view is available for consumption icon:thumbs-up[role="green",title="Passed"] [small right]#(005ms)#
+And ::
+the system is bootstrapped icon:thumbs-up[role="green",title="Passed"] [small right]#(101ms)#
+When ::
+I enter "sdk l grails" icon:thumbs-up[role="green",title="Passed"] [small right]#(100ms)#
+Then ::
+I see "Available Grails Versions" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+----
+
+Output: 
+
+broadcast message
+Available Grails Versions
+
+
+
+----
+****
+
+==== Scenario: Alternate shortcut for listing uninstalled available Version
+
+****
+Given ::
+I do not have a "grails" candidate installed icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+And ::
+a "grails" list view is available for consumption icon:thumbs-up[role="green",title="Passed"] [small right]#(005ms)#
+And ::
+the system is bootstrapped icon:thumbs-up[role="green",title="Passed"] [small right]#(101ms)#
+When ::
+I enter "sdk ls grails" icon:thumbs-up[role="green",title="Passed"] [small right]#(100ms)#
+Then ::
+I see "Available Grails Versions" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+----
+
+Output: 
+
+broadcast message
+Available Grails Versions
+
+
+
+----
+****
+
+==== Scenario: Shortcut for asking help
+
+****
+Given ::
+the system is bootstrapped icon:thumbs-up[role="green",title="Passed"] [small right]#(101ms)#
+When ::
+I enter "sdk h" icon:thumbs-up[role="green",title="Passed"] [small right]#(100ms)#
+Then ::
+I see "Usage: sdk <command> [candidate] [version]" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+----
+
+Output: 
+
+broadcast message
+
+Usage: sdk <command> [candidate] [version]
+       sdk offline <enable|disable>
+
+   commands:
+       install   or i    <candidate> [version]
+       uninstall or rm   <candidate> <version>
+       list      or ls   [candidate]
+       use       or u    <candidate> [version]
+       default   or d    <candidate> [version]
+       current   or c    [candidate]
+       outdated  or o    [candidate]
+       version   or v
+       broadcast or b
+       help      or h
+       offline           [enable|disable]
+       selfupdate        [force]
+       flush             <candidates|broadcast|archives|temp>
+
+   candidate  :  the SDK to install: groovy, scala, grails, akka, etc.
+                 use list command for comprehensive list of candidates
+                 eg: $ sdk list
+
+   version    :  where optional, defaults to latest stable if not provided
+                 eg: $ sdk install groovy
+
+
+
+
+----
+****
+
+==== Scenario: Shortcut for displaying current Candidate Version in use
+
+****
+Given ::
+the candidate "grails" version "1.3.9" is already installed and default icon:thumbs-up[role="green",title="Passed"] [small right]#(001ms)#
+And ::
+the system is bootstrapped icon:thumbs-up[role="green",title="Passed"] [small right]#(101ms)#
+When ::
+I enter "sdk c grails" icon:thumbs-up[role="green",title="Passed"] [small right]#(100ms)#
+Then ::
+I see "Using grails version 1.3.9" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+----
+
+Output: 
+
+broadcast message
+Using grails version 1.3.9
+
+
+
+----
+****
+
+==== Scenario: Shortcut for displaying current Candidate Versions
+
+****
+Given ::
+the candidate "groovy" version "2.0.5" is already installed and default icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+And ::
+the candidate "grails" version "2.1.0" is already installed and default icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+And ::
+the system is bootstrapped icon:thumbs-up[role="green",title="Passed"] [small right]#(101ms)#
+When ::
+I enter "sdk c" icon:thumbs-up[role="green",title="Passed"] [small right]#(100ms)#
+Then ::
+I see "Using:" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+And ::
+I see "grails: 2.1.0" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+And ::
+I see "groovy: 2.0.5" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+----
+
+Output: 
+
+broadcast message
+Using:
+groovy: 2.0.5
+grails: 2.1.0
+
+
+
+----
+****
+
+==== Scenario: Shortcut for displaying outdated Candidate Version in use
+
+****
+Given ::
+the candidate "grails" version "1.3.9" is already installed and default icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+And ::
+the default "grails" candidate is "2.4.4" icon:thumbs-up[role="green",title="Passed"] [small right]#(013ms)#
+And ::
+the system is bootstrapped icon:thumbs-up[role="green",title="Passed"] [small right]#(101ms)#
+When ::
+I enter "sdk o grails" icon:thumbs-up[role="green",title="Passed"] [small right]#(100ms)#
+Then ::
+I see "Outdated:" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+And ::
+I see "grails (1.3.9 < 2.4.4)" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+----
+
+Output: 
+
+broadcast message
+Outdated:
+grails (1.3.9 < 2.4.4)
+
+
+
+----
+****
+
+==== Scenario: Shortcut for displaying outdated Candidate Versions
+
+****
+Given ::
+the candidate "grails" version "1.3.9" is already installed and default icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+And ::
+the default "grails" candidate is "2.4.4" icon:thumbs-up[role="green",title="Passed"] [small right]#(013ms)#
+And ::
+the candidate "groovy" version "2.0.5" is already installed and default icon:thumbs-up[role="green",title="Passed"] [small right]#(001ms)#
+And ::
+the default "groovy" candidate is "2.4.1" icon:thumbs-up[role="green",title="Passed"] [small right]#(013ms)#
+And ::
+the system is bootstrapped icon:thumbs-up[role="green",title="Passed"] [small right]#(101ms)#
+When ::
+I enter "sdk o" icon:thumbs-up[role="green",title="Passed"] [small right]#(100ms)#
+Then ::
+I see "Outdated:" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+And ::
+I see "grails (1.3.9 < 2.4.4)" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+And ::
+I see "groovy (2.0.5 < 2.4.1)" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+----
+
+Output: 
+
+broadcast message
+Outdated:
+groovy (2.0.5 < 2.4.1)
+grails (1.3.9 < 2.4.4)
+
+
+
+----
+****
+
+==== Scenario: Shortcut for installing a Candidate Version
+
+****
+Given ::
+the candidate "grails" version "2.1.0" is not installed icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+And ::
+the candidate "grails" version "2.1.0" is available for download icon:thumbs-up[role="green",title="Passed"] [small right]#(012ms)#
+And ::
+the system is bootstrapped icon:thumbs-up[role="green",title="Passed"] [small right]#(101ms)#
+When ::
+I enter "sdk i grails 2.1.0" and answer "Y" icon:thumbs-up[role="green",title="Passed"] [small right]#(100ms)#
+Then ::
+I see "Installing: grails 2.1.0" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+And ::
+the candidate "grails" version "2.1.0" is installed icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+----
+
+Output: 
+
+broadcast message
+
+Downloading: grails 2.1.0
+
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+100   541  100   541    0     0  91570      0 --:--:-- --:--:-- --:--:-- 91570
+
+Installing: grails 2.1.0
+Done installing!
+
+Do you want grails 2.1.0 to be set as default? (Y/n): 
+Setting grails 2.1.0 as default.
+
+
+
+----
+****
+
+==== Scenario: Shortcut for uninstalling a Candidate Version
+
+****
+Given ::
+the candidate "groovy" version "2.0.5" is already installed and default icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+And ::
+the system is bootstrapped icon:thumbs-up[role="green",title="Passed"] [small right]#(101ms)#
+When ::
+I enter "sdk rm groovy 2.0.5" icon:thumbs-up[role="green",title="Passed"] [small right]#(100ms)#
+Then ::
+I see "Uninstalling groovy 2.0.5" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+And ::
+the candidate "groovy" version "2.0.5" is not installed icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+----
+
+Output: 
+
+broadcast message
+
+Unselecting groovy 2.0.5...
+
+Uninstalling groovy 2.0.5...
+
+
+
+----
+****
+
+==== Scenario: Shortcut for showing the current Version of sdkman
+
+****
+Given ::
+the system is bootstrapped icon:thumbs-up[role="green",title="Passed"] [small right]#(101ms)#
+When ::
+I enter "sdk v" icon:thumbs-up[role="green",title="Passed"] [small right]#(100ms)#
+Then ::
+I see "SDKMAN x.y.z" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+----
+
+Output: 
+
+broadcast message
+SDKMAN x.y.z
+
+
+
+----
+****
+
+==== Scenario: Shortcut for using a candidate version that is installed
+
+****
+Given ::
+the candidate "grails" version "2.1.0" is already installed and default icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+And ::
+the candidate "grails" version "2.1.0" is a valid candidate version icon:thumbs-up[role="green",title="Passed"] [small right]#(004ms)#
+And ::
+the candidate "grails" version "1.3.9" is already installed but not default icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+And ::
+the candidate "grails" version "1.3.9" is a valid candidate version icon:thumbs-up[role="green",title="Passed"] [small right]#(004ms)#
+And ::
+the system is bootstrapped icon:thumbs-up[role="green",title="Passed"] [small right]#(101ms)#
+When ::
+I enter "sdk u grails 1.3.9" icon:thumbs-up[role="green",title="Passed"] [small right]#(100ms)#
+Then ::
+I see "Using grails version 1.3.9 in this shell." icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+Then ::
+the candidate "grails" version "1.3.9" should be in use icon:thumbs-up[role="green",title="Passed"] [small right]#(100ms)#
+And ::
+the candidate "grails" version "2.1.0" should be the default icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+----
+
+Output: 
+
+Grails Version: 1.3.9
+
+
+
+----
+****
+
+==== Scenario: Shortcut for defaulting a Candidate Version that is installed and not default
+
+****
+Given ::
+the candidate "groovy" version "2.0.5" is already installed but not default icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+And ::
+the candidate "groovy" version "2.0.5" is a valid candidate version icon:thumbs-up[role="green",title="Passed"] [small right]#(004ms)#
+And ::
+the system is bootstrapped icon:thumbs-up[role="green",title="Passed"] [small right]#(101ms)#
+When ::
+I enter "sdk d groovy 2.0.5" icon:thumbs-up[role="green",title="Passed"] [small right]#(100ms)#
+Then ::
+I see "Default groovy version set to 2.0.5" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+And ::
+the candidate "groovy" version "2.0.5" should be the default icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+----
+
+Output: 
+
+broadcast message
+
+Default groovy version set to 2.0.5
+
+
+
+----
+****
+
+==== Scenario: Shortcut for a Broadcast command issued
+
+****
+Given ::
+no prior Broadcast was received icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+And ::
+a new Broadcast "This is a LIVE Broadcast!" with id "12345" is available icon:thumbs-up[role="green",title="Passed"] [small right]#(008ms)#
+And ::
+the system is bootstrapped icon:thumbs-up[role="green",title="Passed"] [small right]#(101ms)#
+When ::
+I enter "sdk b" icon:thumbs-up[role="green",title="Passed"] [small right]#(100ms)#
+Then ::
+I see "This is a LIVE Broadcast!" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+----
+
+Output: 
+
+This is a LIVE Broadcast!
+
+
+
+----
+****
+
+[[Offline-Mode, Offline Mode]]
+=== *Offline Mode*
+
+==== Scenario: Enter an invalid offline mode
+
+****
+Given ::
+offline mode is disabled with reachable internet icon:thumbs-up[role="green",title="Passed"] [small right]#(012ms)#
+And ::
+an initialised environment icon:thumbs-up[role="green",title="Passed"] [small right]#(003ms)#
+And ::
+the system is bootstrapped icon:thumbs-up[role="green",title="Passed"] [small right]#(101ms)#
+When ::
+I enter "sdk offline grails" icon:thumbs-up[role="green",title="Passed"] [small right]#(100ms)#
+Then ::
+I see "Stop! grails is not a valid offline mode." icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+----
+
+Output: 
+
+broadcast message
+
+Stop! grails is not a valid offline mode.
+
+
+
+----
+****
+
+==== Scenario: Issue Offline command without qualification
+
+****
+Given ::
+offline mode is disabled with reachable internet icon:thumbs-up[role="green",title="Passed"] [small right]#(012ms)#
+And ::
+an initialised environment icon:thumbs-up[role="green",title="Passed"] [small right]#(003ms)#
+And ::
+the system is bootstrapped icon:thumbs-up[role="green",title="Passed"] [small right]#(101ms)#
+When ::
+I enter "sdk offline" icon:thumbs-up[role="green",title="Passed"] [small right]#(100ms)#
+Then ::
+I see "Offline mode enabled." icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+----
+
+Output: 
+
+broadcast message
+Offline mode enabled.
+
+
+
+----
+****
+
+==== Scenario: Enable Offline Mode with internet reachable
+
+****
+Given ::
+offline mode is disabled with reachable internet icon:thumbs-up[role="green",title="Passed"] [small right]#(012ms)#
+And ::
+an initialised environment icon:thumbs-up[role="green",title="Passed"] [small right]#(004ms)#
+And ::
+the system is bootstrapped icon:thumbs-up[role="green",title="Passed"] [small right]#(101ms)#
+When ::
+I enter "sdk offline enable" icon:thumbs-up[role="green",title="Passed"] [small right]#(100ms)#
+Then ::
+I see "Offline mode enabled." icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+And ::
+I do not see "INTERNET NOT REACHABLE!" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+When ::
+I enter "sdk install grails 2.1.0" icon:thumbs-up[role="green",title="Passed"] [small right]#(100ms)#
+Then ::
+I do not see "INTERNET NOT REACHABLE!" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+And ::
+I see "Stop! grails 2.1.0 is not available while offline." icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+----
+
+Output: 
+
+Stop! grails 2.1.0 is not available while offline.
+
+
+
+----
+****
+
+==== Scenario: Disable Offline Mode with internet reachable
+
+****
+Given ::
+offline mode is enabled with reachable internet icon:thumbs-up[role="green",title="Passed"] [small right]#(013ms)#
+And ::
+the candidate "grails" version "2.1.0" is available for download icon:thumbs-up[role="green",title="Passed"] [small right]#(012ms)#
+And ::
+an initialised environment icon:thumbs-up[role="green",title="Passed"] [small right]#(003ms)#
+And ::
+the system is bootstrapped icon:thumbs-up[role="green",title="Passed"] [small right]#(102ms)#
+When ::
+I enter "sdk offline disable" icon:thumbs-up[role="green",title="Passed"] [small right]#(100ms)#
+Then ::
+I see "Online mode re-enabled!" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+When ::
+I enter "sdk install grails 2.1.0" and answer "Y" icon:thumbs-up[role="green",title="Passed"] [small right]#(100ms)#
+Then ::
+I see "Done installing!" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+And ::
+the candidate "grails" version "2.1.0" is installed icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+----
+
+Output: 
+
+broadcast message
+
+Downloading: grails 2.1.0
+
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+100   541  100   541    0     0  91679      0 --:--:-- --:--:-- --:--:-- 91679
+
+Installing: grails 2.1.0
+Done installing!
+
+Do you want grails 2.1.0 to be set as default? (Y/n): 
+Setting grails 2.1.0 as default.
+
+
+
+----
+****
+
+==== Scenario: Disable Offline Mode with internet unreachable
+
+****
+Given ::
+offline mode is enabled with unreachable internet icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+And ::
+an initialised environment icon:thumbs-up[role="green",title="Passed"] [small right]#(007ms)#
+And ::
+the system is bootstrapped icon:thumbs-up[role="green",title="Passed"] [small right]#(101ms)#
+When ::
+I enter "sdk offline disable" icon:thumbs-up[role="green",title="Passed"] [small right]#(100ms)#
+Then ::
+I see "Online mode re-enabled!" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+When ::
+I enter "sdk install grails 2.1.0" icon:thumbs-up[role="green",title="Passed"] [small right]#(100ms)#
+Then ::
+I see "INTERNET NOT REACHABLE!" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+And ::
+I see "Stop! grails 2.1.0 is not available while offline." icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+----
+
+Output: 
+
+==== INTERNET NOT REACHABLE! ===============================
+
+ Some functionality is disabled or only partially available.
+ If this persists, please enable the offline mode:
+
+   $ sdk offline
+
+============================================================
+
+Stop! grails 2.1.0 is not available while offline.
+
+
+
+----
+****
+
+==== Scenario: Recall a broadcast while in Offline Mode
+
+****
+Given ::
+offline mode is enabled with reachable internet icon:thumbs-up[role="green",title="Passed"] [small right]#(012ms)#
+And ::
+an initialised environment icon:thumbs-up[role="green",title="Passed"] [small right]#(003ms)#
+And ::
+the system is bootstrapped icon:thumbs-up[role="green",title="Passed"] [small right]#(101ms)#
+When ::
+a prior Broadcast "This is an OLD Broadcast!" with id "12344" was issued icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+And ::
+I enter "sdk broadcast" icon:thumbs-up[role="green",title="Passed"] [small right]#(100ms)#
+Then ::
+I see "This is an OLD Broadcast!" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+----
+
+Output: 
+
+This is an OLD Broadcast!
+
+
+
+----
+****
+
+==== Scenario: Determine the sdkman version while in Offline Mode
+
+****
+Given ::
+offline mode is enabled with reachable internet icon:thumbs-up[role="green",title="Passed"] [small right]#(012ms)#
+And ::
+an initialised environment icon:thumbs-up[role="green",title="Passed"] [small right]#(003ms)#
+And ::
+the system is bootstrapped icon:thumbs-up[role="green",title="Passed"] [small right]#(101ms)#
+When ::
+I enter "sdk version" icon:thumbs-up[role="green",title="Passed"] [small right]#(100ms)#
+Then ::
+I see the current sdkman version icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+----
+
+Output: 
+
+SDKMAN x.y.z
+
+
+
+----
+****
+
+==== Scenario: List candidate versions found while in Offline Mode
+
+****
+Given ::
+offline mode is enabled with reachable internet icon:thumbs-up[role="green",title="Passed"] [small right]#(012ms)#
+And ::
+an initialised environment icon:thumbs-up[role="green",title="Passed"] [small right]#(003ms)#
+And ::
+the system is bootstrapped icon:thumbs-up[role="green",title="Passed"] [small right]#(101ms)#
+When ::
+I enter "sdk list grails" icon:thumbs-up[role="green",title="Passed"] [small right]#(102ms)#
+Then ::
+I see "Offline: only showing installed grails versions" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+----
+
+Output: 
+
+------------------------------------------------------------
+Offline: only showing installed grails versions
+------------------------------------------------------------
+                                                            
+   None installed!
+------------------------------------------------------------
+* - installed                                               
+> - currently in use                                        
+------------------------------------------------------------
+
+
+
+----
+****
+
+==== Scenario: Use an uninstalled candidate version while in Offline Mode
+
+****
+Given ::
+offline mode is enabled with reachable internet icon:thumbs-up[role="green",title="Passed"] [small right]#(012ms)#
+And ::
+the candidate "grails" version "1.3.9" is already installed and default icon:thumbs-up[role="green",title="Passed"] [small right]#(001ms)#
+And ::
+the candidate "grails" version "2.1.0" is not installed icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+And ::
+an initialised environment icon:thumbs-up[role="green",title="Passed"] [small right]#(005ms)#
+And ::
+the system is bootstrapped icon:thumbs-up[role="green",title="Passed"] [small right]#(101ms)#
+When ::
+I enter "sdk use grails 2.1.0" icon:thumbs-up[role="green",title="Passed"] [small right]#(100ms)#
+Then ::
+I see "Stop! grails 2.1.0 is not available while offline." icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+----
+
+Output: 
+
+Stop! grails 2.1.0 is not available while offline.
+
+
+
+----
+****
+
+==== Scenario: Set the default to an uninstalled candidate version while in Offline Mode
+
+****
+Given ::
+offline mode is enabled with reachable internet icon:thumbs-up[role="green",title="Passed"] [small right]#(012ms)#
+And ::
+the candidate "grails" version "1.3.9" is already installed and default icon:thumbs-up[role="green",title="Passed"] [small right]#(001ms)#
+And ::
+an initialised environment icon:thumbs-up[role="green",title="Passed"] [small right]#(003ms)#
+And ::
+the system is bootstrapped icon:thumbs-up[role="green",title="Passed"] [small right]#(101ms)#
+When ::
+I enter "sdk default grails 2.1.0" icon:thumbs-up[role="green",title="Passed"] [small right]#(100ms)#
+Then ::
+I see "Stop! grails 2.1.0 is not available while offline." icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+----
+
+Output: 
+
+Stop! grails 2.1.0 is not available while offline.
+
+
+
+----
+****
+
+==== Scenario: Install a candidate version that is not installed while in Offline Mode
+
+****
+Given ::
+offline mode is enabled with reachable internet icon:thumbs-up[role="green",title="Passed"] [small right]#(012ms)#
+And ::
+the candidate "grails" version "2.1.0" is not installed icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+And ::
+an initialised environment icon:thumbs-up[role="green",title="Passed"] [small right]#(003ms)#
+And ::
+the system is bootstrapped icon:thumbs-up[role="green",title="Passed"] [small right]#(101ms)#
+When ::
+I enter "sdk install grails 2.1.0" icon:thumbs-up[role="green",title="Passed"] [small right]#(100ms)#
+Then ::
+I see "Stop! grails 2.1.0 is not available while offline." icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+----
+
+Output: 
+
+Stop! grails 2.1.0 is not available while offline.
+
+
+
+----
+****
+
+==== Scenario: Uninstall a candidate version while in Offline Mode
+
+****
+Given ::
+offline mode is enabled with reachable internet icon:thumbs-up[role="green",title="Passed"] [small right]#(012ms)#
+And ::
+the candidate "grails" version "2.1.0" is already installed and default icon:thumbs-up[role="green",title="Passed"] [small right]#(001ms)#
+And ::
+an initialised environment icon:thumbs-up[role="green",title="Passed"] [small right]#(003ms)#
+And ::
+the system is bootstrapped icon:thumbs-up[role="green",title="Passed"] [small right]#(101ms)#
+When ::
+I enter "sdk uninstall grails 2.1.0" icon:thumbs-up[role="green",title="Passed"] [small right]#(100ms)#
+And ::
+the candidate "grails" version "2.1.0" is not installed icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+----
+
+Output: 
+
+
+Unselecting grails 2.1.0...
+
+Uninstalling grails 2.1.0...
+
+
+
+----
+****
+
+==== Scenario: Display the current version of a candidate while in Offline Mode
+
+****
+Given ::
+offline mode is enabled with reachable internet icon:thumbs-up[role="green",title="Passed"] [small right]#(013ms)#
+And ::
+the candidate "grails" version "2.1.0" is already installed and default icon:thumbs-up[role="green",title="Passed"] [small right]#(001ms)#
+And ::
+an initialised environment icon:thumbs-up[role="green",title="Passed"] [small right]#(003ms)#
+And ::
+the system is bootstrapped icon:thumbs-up[role="green",title="Passed"] [small right]#(101ms)#
+When ::
+I enter "sdk current grails" icon:thumbs-up[role="green",title="Passed"] [small right]#(100ms)#
+Then ::
+I see "Using grails version 2.1.0" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+----
+
+Output: 
+
+Using grails version 2.1.0
+
+
+
+----
+****
+
+==== Scenario: Request help while in Offline Mode
+
+****
+Given ::
+offline mode is enabled with reachable internet icon:thumbs-up[role="green",title="Passed"] [small right]#(018ms)#
+And ::
+an initialised environment icon:thumbs-up[role="green",title="Passed"] [small right]#(003ms)#
+And ::
+the system is bootstrapped icon:thumbs-up[role="green",title="Passed"] [small right]#(124ms)#
+When ::
+I enter "sdk help" icon:thumbs-up[role="green",title="Passed"] [small right]#(100ms)#
+Then ::
+I see "Usage: sdk <command> [candidate] [version]" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+----
+
+Output: 
+
+
+Usage: sdk <command> [candidate] [version]
+       sdk offline <enable|disable>
+
+   commands:
+       install   or i    <candidate> [version]
+       uninstall or rm   <candidate> <version>
+       list      or ls   [candidate]
+       use       or u    <candidate> [version]
+       default   or d    <candidate> [version]
+       current   or c    [candidate]
+       outdated  or o    [candidate]
+       version   or v
+       broadcast or b
+       help      or h
+       offline           [enable|disable]
+       selfupdate        [force]
+       flush             <candidates|broadcast|archives|temp>
+
+   candidate  :  the SDK to install: groovy, scala, grails, akka, etc.
+                 use list command for comprehensive list of candidates
+                 eg: $ sdk list
+
+   version    :  where optional, defaults to latest stable if not provided
+                 eg: $ sdk install groovy
+
+
+
+
+----
+****
+
+==== Scenario: Attempt self-update while in Offline Mode
+
+****
+Given ::
+offline mode is enabled with reachable internet icon:thumbs-up[role="green",title="Passed"] [small right]#(012ms)#
+And ::
+an initialised environment icon:thumbs-up[role="green",title="Passed"] [small right]#(003ms)#
+And ::
+the system is bootstrapped icon:thumbs-up[role="green",title="Passed"] [small right]#(101ms)#
+When ::
+I enter "sdk selfupdate" icon:thumbs-up[role="green",title="Passed"] [small right]#(100ms)#
+Then ::
+I see "This command is not available while offline." icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+----
+
+Output: 
+
+This command is not available while offline.
+
+
+
+----
+****
+
+[[Outdated-Candidate, Outdated Candidate]]
+=== *Outdated Candidate*
+
+==== Background
+
+****
+Given ::
+the internet is reachable icon:thumbs-up[role="green",title="Passed"] [small right]#(016ms)#
+And ::
+an initialised environment icon:thumbs-up[role="green",title="Passed"] [small right]#(003ms)#
+****
+
+==== Scenario: Display outdated candidate version in use when it is outdated
+
+****
+Given ::
+the candidate "grails" version "1.3.9" is already installed and default icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+And ::
+the default "grails" candidate is "2.4.4" icon:thumbs-up[role="green",title="Passed"] [small right]#(013ms)#
+And ::
+the system is bootstrapped icon:thumbs-up[role="green",title="Passed"] [small right]#(101ms)#
+When ::
+I enter "sdk outdated grails" icon:thumbs-up[role="green",title="Passed"] [small right]#(100ms)#
+Then ::
+I see "Outdated:" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+And ::
+I see "grails (1.3.9 < 2.4.4)" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+----
+
+Output: 
+
+broadcast message
+Outdated:
+grails (1.3.9 < 2.4.4)
+
+
+
+----
+****
+
+==== Scenario: Display outdated candidate version in use when it is not outdated
+
+****
+Given ::
+the candidate "grails" version "1.3.9" is already installed and default icon:thumbs-up[role="green",title="Passed"] [small right]#(001ms)#
+And ::
+the default "grails" candidate is "1.3.9" icon:thumbs-up[role="green",title="Passed"] [small right]#(014ms)#
+And ::
+the system is bootstrapped icon:thumbs-up[role="green",title="Passed"] [small right]#(101ms)#
+When ::
+I enter "sdk outdated grails" icon:thumbs-up[role="green",title="Passed"] [small right]#(100ms)#
+Then ::
+I see "grails is up-to-date" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+----
+
+Output: 
+
+broadcast message
+grails is up-to-date
+
+
+
+----
+****
+
+==== Scenario: Display outdated candidate version when none is in use
+
+****
+Given ::
+the candidate "grails" does not exist locally icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+And ::
+the system is bootstrapped icon:thumbs-up[role="green",title="Passed"] [small right]#(101ms)#
+When ::
+I enter "sdk outdated grails" icon:thumbs-up[role="green",title="Passed"] [small right]#(100ms)#
+Then ::
+I see "Not using any version of grails" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+----
+
+Output: 
+
+broadcast message
+Not using any version of grails
+grails is up-to-date
+
+
+
+----
+****
+
+==== Scenario: Display outdated candidate versions when none is specified and none is in use
+
+****
+Given ::
+the candidate "grails" does not exist locally icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+And ::
+the system is bootstrapped icon:thumbs-up[role="green",title="Passed"] [small right]#(102ms)#
+When ::
+I enter "sdk outdated" icon:thumbs-up[role="green",title="Passed"] [small right]#(100ms)#
+Then ::
+I see "No candidates are in use" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+----
+
+Output: 
+
+broadcast message
+No candidates are in use
+
+
+
+----
+****
+
+==== Scenario: Display outdated candidate versions when none is specified and one is in use
+
+****
+Given ::
+the candidate "grails" version "1.3.9" is already installed and default icon:thumbs-up[role="green",title="Passed"] [small right]#(001ms)#
+And ::
+the default "grails" candidate is "2.4.4" icon:thumbs-up[role="green",title="Passed"] [small right]#(015ms)#
+And ::
+the system is bootstrapped icon:thumbs-up[role="green",title="Passed"] [small right]#(101ms)#
+When ::
+I enter "sdk outdated" icon:thumbs-up[role="green",title="Passed"] [small right]#(100ms)#
+Then ::
+I see "Outdated:" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+And ::
+I see "grails (1.3.9 < 2.4.4)" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+----
+
+Output: 
+
+broadcast message
+Outdated:
+grails (1.3.9 < 2.4.4)
+
+
+
+----
+****
+
+==== Scenario: Display outdated candidate versions when none is specified and multiple are in use
+
+****
+Given ::
+the candidate "grails" version "1.3.9" is already installed and default icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+And ::
+the default "grails" candidate is "2.4.4" icon:thumbs-up[role="green",title="Passed"] [small right]#(016ms)#
+And ::
+the candidate "groovy" version "2.0.5" is already installed and default icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+And ::
+the default "groovy" candidate is "2.4.1" icon:thumbs-up[role="green",title="Passed"] [small right]#(012ms)#
+And ::
+the system is bootstrapped icon:thumbs-up[role="green",title="Passed"] [small right]#(101ms)#
+When ::
+I enter "sdk outdated" icon:thumbs-up[role="green",title="Passed"] [small right]#(100ms)#
+Then ::
+I see "Outdated:" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+And ::
+I see "grails (1.3.9 < 2.4.4)" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+And ::
+I see "groovy (2.0.5 < 2.4.1)" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+----
+
+Output: 
+
+broadcast message
+Outdated:
+groovy (2.0.5 < 2.4.1)
+grails (1.3.9 < 2.4.4)
+
+
+
+----
+****
+
+==== Scenario: Display outdated candidate versions when none specified and multiple in use but not outdated
+
+****
+Given ::
+the candidate "grails" version "1.3.9" is already installed and default icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+And ::
+the default "grails" candidate is "1.3.9" icon:thumbs-up[role="green",title="Passed"] [small right]#(012ms)#
+And ::
+the candidate "groovy" version "2.0.5" is already installed and default icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+And ::
+the default "groovy" candidate is "2.0.5" icon:thumbs-up[role="green",title="Passed"] [small right]#(012ms)#
+And ::
+the system is bootstrapped icon:thumbs-up[role="green",title="Passed"] [small right]#(101ms)#
+When ::
+I enter "sdk outdated" icon:thumbs-up[role="green",title="Passed"] [small right]#(100ms)#
+Then ::
+I see "All candidates are up-to-date" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+----
+
+Output: 
+
+broadcast message
+All candidates are up-to-date
+
+
+
+----
+****
+
+[[Path-Initialisation, Path Initialisation]]
+=== *Path Initialisation*
+
+==== Background
+
+****
+Given ::
+the internet is reachable icon:thumbs-up[role="green",title="Passed"] [small right]#(016ms)#
+And ::
+an initialised environment icon:thumbs-up[role="green",title="Passed"] [small right]#(003ms)#
+****
+
+==== Scenario: sdkman is initialised for the first time
+
+****
+Given ::
+the candidate "grails" version "2.1.0" is already installed and default icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+And ::
+the system is bootstrapped icon:thumbs-up[role="green",title="Passed"] [small right]#(101ms)#
+When ::
+I enter "echo $PATH" icon:thumbs-up[role="green",title="Passed"] [small right]#(100ms)#
+Then ::
+I see a single occurrence of "grails" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+----
+
+Output: 
+
+/tmp/sdkman-test/112ef11b-e2db-4558-a405-3bfcdf1411e4/.sdkman/candidates/grails/current/bin:/tmp/sdkman-test/112ef11b-e2db-4558-a405-3bfcdf1411e4/bin:/usr/sbin:/usr/bin:/sbin:/bin
+
+
+
+----
+****
+
+==== Scenario: sdkman is initialised a subsequent time
+
+****
+Given ::
+the candidate "grails" version "2.1.0" is already installed and default icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+And ::
+the system is bootstrapped icon:thumbs-up[role="green",title="Passed"] [small right]#(101ms)#
+And ::
+the system is bootstrapped again icon:thumbs-up[role="green",title="Passed"] [small right]#(100ms)#
+And ::
+I enter "echo $PATH" icon:thumbs-up[role="green",title="Passed"] [small right]#(100ms)#
+Then ::
+I see a single occurrence of "grails" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+----
+
+Output: 
+
+/tmp/sdkman-test/112ef11b-e2db-4558-a405-3bfcdf1411e4/.sdkman/candidates/grails/current/bin:/tmp/sdkman-test/112ef11b-e2db-4558-a405-3bfcdf1411e4/bin:/usr/sbin:/usr/bin:/sbin:/bin
+
+
+
+----
+****
+
+==== Scenario: Install a candidate and see it on the PATH
+
+****
+Given ::
+the system is bootstrapped icon:thumbs-up[role="green",title="Passed"] [small right]#(101ms)#
+When ::
+I enter "echo $PATH" icon:thumbs-up[role="green",title="Passed"] [small right]#(100ms)#
+Then ::
+I see no occurrences of "grails" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+----
+
+Output: 
+
+/tmp/sdkman-test/112ef11b-e2db-4558-a405-3bfcdf1411e4/bin:/usr/sbin:/usr/bin:/sbin:/bin
+
+
+
+----
+****
+
+==== Scenario: Install a candidate and see it on the PATH
+
+****
+And ::
+the candidate "grails" version "2.1.0" is available for download icon:thumbs-up[role="green",title="Passed"] [small right]#(013ms)#
+And ::
+the system is bootstrapped icon:thumbs-up[role="green",title="Passed"] [small right]#(101ms)#
+And ::
+I enter "sdk install grails 2.1.0" and answer "Y" icon:thumbs-up[role="green",title="Passed"] [small right]#(100ms)#
+When ::
+I enter "echo $PATH" icon:thumbs-up[role="green",title="Passed"] [small right]#(100ms)#
+Then ::
+I see a single occurrence of "grails" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+----
+
+Output: 
+/tmp/sdkman-test/112ef11b-e2db-4558-a405-3bfcdf1411e4/.sdkman/candidates/grails/current/bin:/tmp/sdkman-test/112ef11b-e2db-4558-a405-3bfcdf1411e4/bin:/usr/sbin:/usr/bin:/sbin:/bin
+
+
+
+
+----
+****
+
+==== Scenario: Install multiple candidate versions and see it once on the PATH
+
+****
+Given ::
+the candidate "grails" version "1.3.9" is available for download icon:thumbs-up[role="green",title="Passed"] [small right]#(013ms)#
+And ::
+the candidate "grails" version "2.1.0" is available for download icon:thumbs-up[role="green",title="Passed"] [small right]#(011ms)#
+And ::
+the system is bootstrapped icon:thumbs-up[role="green",title="Passed"] [small right]#(101ms)#
+And ::
+I enter "sdk install grails 1.3.9" and answer "Y" icon:thumbs-up[role="green",title="Passed"] [small right]#(100ms)#
+And ::
+I enter "sdk install grails 2.1.0" and answer "Y" icon:thumbs-up[role="green",title="Passed"] [small right]#(100ms)#
+When ::
+I enter "echo $PATH" icon:thumbs-up[role="green",title="Passed"] [small right]#(100ms)#
+Then ::
+I see a single occurrence of "grails" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+----
+
+Output: 
+
+/tmp/sdkman-test/112ef11b-e2db-4558-a405-3bfcdf1411e4/.sdkman/candidates/grails/current/bin:/tmp/sdkman-test/112ef11b-e2db-4558-a405-3bfcdf1411e4/bin:/usr/sbin:/usr/bin:/sbin:/bin
+
+
+
+----
+****
+
+[[Self-Update, Self Update]]
+=== *Self Update*
+
+==== Background
+
+****
+Given ::
+the internet is reachable icon:thumbs-up[role="green",title="Passed"] [small right]#(015ms)#
+****
+
+==== Scenario: Force a Selfupdate
+
+****
+Given ::
+an initialised environment icon:thumbs-up[role="green",title="Passed"] [small right]#(003ms)#
+And ::
+the system is bootstrapped icon:thumbs-up[role="green",title="Passed"] [small right]#(101ms)#
+When ::
+I enter "sdk selfupdate force" icon:thumbs-up[role="green",title="Passed"] [small right]#(100ms)#
+Then ::
+I do not see "A new version of SDKMAN is available..." icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+And ::
+I do not see "Would you like to upgrade now? (Y/n)" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+And ::
+I do not see "Not upgrading today..." icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+And ::
+I see "Updating SDKMAN..." icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+And ::
+I see "Successfully upgraded SDKMAN." icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+----
+
+Output: 
+
+
+Updating SDKMAN...
+Purge existing scripts...
+Refresh directory structure...
+Prime the config file...
+Extract script archive...
+Unziping scripts to: /tmp/sdkman-test/112ef11b-e2db-4558-a405-3bfcdf1411e4/.sdkman/tmp/stage
+Moving sdkman-init file to bin folder...
+Move remaining module scripts to src folder: /tmp/sdkman-test/112ef11b-e2db-4558-a405-3bfcdf1411e4/.sdkman/src
+Clean up staging folder...
+
+
+Successfully upgraded SDKMAN.
+
+Please open a new terminal, or run the following in the existing one:
+
+    source "/tmp/sdkman-test/112ef11b-e2db-4558-a405-3bfcdf1411e4/.sdkman/bin/sdkman-init.sh"
+
+
+
+
+
+----
+****
+
+==== Scenario: Selfupdate when out of date
+
+****
+Given ::
+an outdated initialised environment icon:thumbs-up[role="green",title="Passed"] [small right]#(004ms)#
+And ::
+the system is bootstrapped icon:thumbs-up[role="green",title="Passed"] [small right]#(103ms)#
+When ::
+I enter "sdk selfupdate" icon:thumbs-up[role="green",title="Passed"] [small right]#(100ms)#
+Then ::
+I do not see "A new version of SDKMAN is available..." icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+And ::
+I do not see "Would you like to upgrade now? (Y/n)" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+And ::
+I do not see "Not upgrading today..." icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+And ::
+I see "Updating SDKMAN..." icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+And ::
+I see "Successfully upgraded SDKMAN." icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+----
+
+Output: 
+
+
+Updating SDKMAN...
+Purge existing scripts...
+Refresh directory structure...
+Prime the config file...
+Extract script archive...
+Unziping scripts to: /tmp/sdkman-test/112ef11b-e2db-4558-a405-3bfcdf1411e4/.sdkman/tmp/stage
+Moving sdkman-init file to bin folder...
+Move remaining module scripts to src folder: /tmp/sdkman-test/112ef11b-e2db-4558-a405-3bfcdf1411e4/.sdkman/src
+Clean up staging folder...
+
+
+Successfully upgraded SDKMAN.
+
+Please open a new terminal, or run the following in the existing one:
+
+    source "/tmp/sdkman-test/112ef11b-e2db-4558-a405-3bfcdf1411e4/.sdkman/bin/sdkman-init.sh"
+
+
+
+
+
+----
+****
+
+==== Scenario: Agree to a suggested Selfupdate
+
+****
+Given ::
+an outdated initialised environment icon:thumbs-up[role="green",title="Passed"] [small right]#(003ms)#
+And ::
+the system is bootstrapped icon:thumbs-up[role="green",title="Passed"] [small right]#(101ms)#
+When ::
+I enter "sdk help" and answer "Y" icon:thumbs-up[role="green",title="Passed"] [small right]#(100ms)#
+Then ::
+I see "A new version of SDKMAN is available..." icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+And ::
+I see "Would you like to upgrade now? (Y/n)" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+And ::
+I see "Successfully upgraded SDKMAN." icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+And ::
+I do not see "Not upgrading today..." icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+----
+
+Output: 
+
+broadcast message
+
+Usage: sdk <command> [candidate] [version]
+       sdk offline <enable|disable>
+
+   commands:
+       install   or i    <candidate> [version]
+       uninstall or rm   <candidate> <version>
+       list      or ls   [candidate]
+       use       or u    <candidate> [version]
+       default   or d    <candidate> [version]
+       current   or c    [candidate]
+       outdated  or o    [candidate]
+       version   or v
+       broadcast or b
+       help      or h
+       offline           [enable|disable]
+       selfupdate        [force]
+       flush             <candidates|broadcast|archives|temp>
+
+   candidate  :  the SDK to install: groovy, scala, grails, akka, etc.
+                 use list command for comprehensive list of candidates
+                 eg: $ sdk list
+
+   version    :  where optional, defaults to latest stable if not provided
+                 eg: $ sdk install groovy
+
+
+
+ATTENTION: A new version of SDKMAN is available...
+
+The current version is x.y.z, but you have x.y.y.
+
+Would you like to upgrade now? (Y/n)
+Updating SDKMAN...
+Purge existing scripts...
+Refresh directory structure...
+Prime the config file...
+Extract script archive...
+Unziping scripts to: /tmp/sdkman-test/112ef11b-e2db-4558-a405-3bfcdf1411e4/.sdkman/tmp/stage
+Moving sdkman-init file to bin folder...
+Move remaining module scripts to src folder: /tmp/sdkman-test/112ef11b-e2db-4558-a405-3bfcdf1411e4/.sdkman/src
+Clean up staging folder...
+
+
+Successfully upgraded SDKMAN.
+
+Please open a new terminal, or run the following in the existing one:
+
+    source "/tmp/sdkman-test/112ef11b-e2db-4558-a405-3bfcdf1411e4/.sdkman/bin/sdkman-init.sh"
+
+
+
+
+
+----
+****
+
+==== Scenario: Do not agree to a suggested Selfupdate
+
+****
+Given ::
+an outdated initialised environment icon:thumbs-up[role="green",title="Passed"] [small right]#(003ms)#
+And ::
+the system is bootstrapped icon:thumbs-up[role="green",title="Passed"] [small right]#(101ms)#
+When ::
+I enter "sdk help" and answer "N" icon:thumbs-up[role="green",title="Passed"] [small right]#(100ms)#
+Then ::
+I see "A new version of SDKMAN is available..." icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+And ::
+I see "Would you like to upgrade now? (Y/n)" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+And ::
+I see "Not upgrading today..." icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+And ::
+I do not see "Successfully upgraded SDKMAN." icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+----
+
+Output: 
+
+broadcast message
+
+Usage: sdk <command> [candidate] [version]
+       sdk offline <enable|disable>
+
+   commands:
+       install   or i    <candidate> [version]
+       uninstall or rm   <candidate> <version>
+       list      or ls   [candidate]
+       use       or u    <candidate> [version]
+       default   or d    <candidate> [version]
+       current   or c    [candidate]
+       outdated  or o    [candidate]
+       version   or v
+       broadcast or b
+       help      or h
+       offline           [enable|disable]
+       selfupdate        [force]
+       flush             <candidates|broadcast|archives|temp>
+
+   candidate  :  the SDK to install: groovy, scala, grails, akka, etc.
+                 use list command for comprehensive list of candidates
+                 eg: $ sdk list
+
+   version    :  where optional, defaults to latest stable if not provided
+                 eg: $ sdk install groovy
+
+
+
+ATTENTION: A new version of SDKMAN is available...
+
+The current version is x.y.z, but you have x.y.y.
+
+Would you like to upgrade now? (Y/n)Not upgrading today...
+
+
+
+----
+****
+
+==== Scenario: Automatically Selfupdate
+
+****
+Given ::
+an outdated initialised environment icon:thumbs-up[role="green",title="Passed"] [small right]#(003ms)#
+And ::
+the configuration file has been primed with "sdkman_auto_selfupdate=true" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+And ::
+the system is bootstrapped icon:thumbs-up[role="green",title="Passed"] [small right]#(101ms)#
+When ::
+I enter "sdk help" icon:thumbs-up[role="green",title="Passed"] [small right]#(100ms)#
+Then ::
+I see "A new version of SDKMAN is available..." icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+And ::
+I do not see "Would you like to upgrade now? (Y/n)" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+And ::
+I do not see "Not upgrading today..." icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+And ::
+I see "Successfully upgraded SDKMAN." icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+----
+
+Output: 
+
+broadcast message
+
+Usage: sdk <command> [candidate] [version]
+       sdk offline <enable|disable>
+
+   commands:
+       install   or i    <candidate> [version]
+       uninstall or rm   <candidate> <version>
+       list      or ls   [candidate]
+       use       or u    <candidate> [version]
+       default   or d    <candidate> [version]
+       current   or c    [candidate]
+       outdated  or o    [candidate]
+       version   or v
+       broadcast or b
+       help      or h
+       offline           [enable|disable]
+       selfupdate        [force]
+       flush             <candidates|broadcast|archives|temp>
+
+   candidate  :  the SDK to install: groovy, scala, grails, akka, etc.
+                 use list command for comprehensive list of candidates
+                 eg: $ sdk list
+
+   version    :  where optional, defaults to latest stable if not provided
+                 eg: $ sdk install groovy
+
+
+
+ATTENTION: A new version of SDKMAN is available...
+
+The current version is x.y.z, but you have x.y.y.
+
+
+Updating SDKMAN...
+Purge existing scripts...
+Refresh directory structure...
+Prime the config file...
+Extract script archive...
+Unziping scripts to: /tmp/sdkman-test/112ef11b-e2db-4558-a405-3bfcdf1411e4/.sdkman/tmp/stage
+Moving sdkman-init file to bin folder...
+Move remaining module scripts to src folder: /tmp/sdkman-test/112ef11b-e2db-4558-a405-3bfcdf1411e4/.sdkman/src
+Clean up staging folder...
+
+
+Successfully upgraded SDKMAN.
+
+Please open a new terminal, or run the following in the existing one:
+
+    source "/tmp/sdkman-test/112ef11b-e2db-4558-a405-3bfcdf1411e4/.sdkman/bin/sdkman-init.sh"
+
+
+
+
+
+----
+****
+
+==== Scenario: Do not automatically Selfupdate
+
+****
+Given ::
+an outdated initialised environment icon:thumbs-up[role="green",title="Passed"] [small right]#(003ms)#
+And ::
+the configuration file has been primed with "sdkman_auto_selfupdate=false" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+And ::
+the system is bootstrapped icon:thumbs-up[role="green",title="Passed"] [small right]#(101ms)#
+When ::
+I enter "sdk help" and answer "n" icon:thumbs-up[role="green",title="Passed"] [small right]#(100ms)#
+Then ::
+I see "A new version of SDKMAN is available..." icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+And ::
+I see "Would you like to upgrade now? (Y/n)" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+And ::
+I see "Not upgrading today..." icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+And ::
+I do not see "Successfully upgraded SDKMAN." icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+----
+
+Output: 
+
+broadcast message
+
+Usage: sdk <command> [candidate] [version]
+       sdk offline <enable|disable>
+
+   commands:
+       install   or i    <candidate> [version]
+       uninstall or rm   <candidate> <version>
+       list      or ls   [candidate]
+       use       or u    <candidate> [version]
+       default   or d    <candidate> [version]
+       current   or c    [candidate]
+       outdated  or o    [candidate]
+       version   or v
+       broadcast or b
+       help      or h
+       offline           [enable|disable]
+       selfupdate        [force]
+       flush             <candidates|broadcast|archives|temp>
+
+   candidate  :  the SDK to install: groovy, scala, grails, akka, etc.
+                 use list command for comprehensive list of candidates
+                 eg: $ sdk list
+
+   version    :  where optional, defaults to latest stable if not provided
+                 eg: $ sdk install groovy
+
+
+
+ATTENTION: A new version of SDKMAN is available...
+
+The current version is x.y.z, but you have x.y.y.
+
+Would you like to upgrade now? (Y/n)Not upgrading today...
+
+
+
+----
+****
+
+==== Scenario: Bother the user with Upgrade message once a day
+
+****
+Given ::
+an outdated initialised environment icon:thumbs-up[role="green",title="Passed"] [small right]#(003ms)#
+And ::
+the system is bootstrapped icon:thumbs-up[role="green",title="Passed"] [small right]#(101ms)#
+When ::
+I enter "sdk help" and answer "N" icon:thumbs-up[role="green",title="Passed"] [small right]#(100ms)#
+Then ::
+I see "A new version of SDKMAN is available..." icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+And ::
+I see "Would you like to upgrade now? (Y/n)" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+And ::
+I see "Not upgrading today..." icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+And ::
+I enter "sdk help" icon:thumbs-up[role="green",title="Passed"] [small right]#(100ms)#
+Then ::
+I do not see "A new version of SDKMAN is available..." icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+And ::
+I do not see "Would you like to upgrade now? (Y/n)" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+And ::
+I do not see "Not upgrading now..." icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+And ::
+I do not see "Successfully upgraded SDKMAN." icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+----
+
+Output: 
+
+
+Usage: sdk <command> [candidate] [version]
+       sdk offline <enable|disable>
+
+   commands:
+       install   or i    <candidate> [version]
+       uninstall or rm   <candidate> <version>
+       list      or ls   [candidate]
+       use       or u    <candidate> [version]
+       default   or d    <candidate> [version]
+       current   or c    [candidate]
+       outdated  or o    [candidate]
+       version   or v
+       broadcast or b
+       help      or h
+       offline           [enable|disable]
+       selfupdate        [force]
+       flush             <candidates|broadcast|archives|temp>
+
+   candidate  :  the SDK to install: groovy, scala, grails, akka, etc.
+                 use list command for comprehensive list of candidates
+                 eg: $ sdk list
+
+   version    :  where optional, defaults to latest stable if not provided
+                 eg: $ sdk install groovy
+
+
+
+
+----
+****
+
+==== Scenario: Selfupdate when not out of date
+
+****
+Given ::
+an initialised environment icon:thumbs-up[role="green",title="Passed"] [small right]#(003ms)#
+And ::
+the system is bootstrapped icon:thumbs-up[role="green",title="Passed"] [small right]#(101ms)#
+When ::
+I enter "sdk selfupdate" icon:thumbs-up[role="green",title="Passed"] [small right]#(100ms)#
+Then ::
+I see "No update available at this time." icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+----
+
+Output: 
+
+No update available at this time.
+
+
+
+----
+****
+
+[[Service-Unavailable, Service Unavailable]]
+=== *Service Unavailable*
+
+==== Background
+
+****
+Given ::
+the internet is not reachable icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+And ::
+an initialised environment icon:thumbs-up[role="green",title="Passed"] [small right]#(003ms)#
+****
+
+==== Scenario: List candidate versions found while Offline
+
+****
+Given ::
+the candidate "grails" version "2.1.0" is already installed and default icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+And ::
+the candidate "grails" version "1.3.9" is already installed but not default icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+And ::
+the system is bootstrapped icon:thumbs-up[role="green",title="Passed"] [small right]#(101ms)#
+When ::
+I enter "sdk list grails" icon:thumbs-up[role="green",title="Passed"] [small right]#(100ms)#
+Then ::
+I see "Offline: only showing installed grails versions" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+And ::
+I see "> 2.1.0" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+And ::
+I see "* 1.3.9" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+----
+
+Output: 
+
+==== INTERNET NOT REACHABLE! ===============================
+
+ Some functionality is disabled or only partially available.
+ If this persists, please enable the offline mode:
+
+   $ sdk offline
+
+============================================================
+
+------------------------------------------------------------
+Offline: only showing installed grails versions
+------------------------------------------------------------
+                                                            
+ * 1.3.9
+ > 2.1.0
+------------------------------------------------------------
+* - installed                                               
+> - currently in use                                        
+------------------------------------------------------------
+
+
+
+----
+****
+
+==== Scenario: List candidate versions not found while Offline
+
+****
+Given ::
+the system is bootstrapped icon:thumbs-up[role="green",title="Passed"] [small right]#(101ms)#
+When ::
+I enter "sdk list grails" icon:thumbs-up[role="green",title="Passed"] [small right]#(100ms)#
+Then ::
+I see "Offline: only showing installed grails versions" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+And ::
+I see "None installed!" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+----
+
+Output: 
+
+==== INTERNET NOT REACHABLE! ===============================
+
+ Some functionality is disabled or only partially available.
+ If this persists, please enable the offline mode:
+
+   $ sdk offline
+
+============================================================
+
+------------------------------------------------------------
+Offline: only showing installed grails versions
+------------------------------------------------------------
+                                                            
+   None installed!
+------------------------------------------------------------
+* - installed                                               
+> - currently in use                                        
+------------------------------------------------------------
+
+
+
+----
+****
+
+==== Scenario: List Available Candidates while Offline
+
+****
+Given ::
+the system is bootstrapped icon:thumbs-up[role="green",title="Passed"] [small right]#(101ms)#
+When ::
+I enter "sdk list" icon:thumbs-up[role="green",title="Passed"] [small right]#(100ms)#
+Then ::
+I see "This command is not available while offline." icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+----
+
+Output: 
+
+==== INTERNET NOT REACHABLE! ===============================
+
+ Some functionality is disabled or only partially available.
+ If this persists, please enable the offline mode:
+
+   $ sdk offline
+
+============================================================
+
+This command is not available while offline.
+
+
+
+----
+****
+
+==== Scenario: Use the default candidate version while Offline
+
+****
+Given ::
+the candidate "grails" version "2.1.0" is already installed and default icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+And ::
+the candidate "grails" version "1.3.9" is already installed but not default icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+And ::
+the system is bootstrapped icon:thumbs-up[role="green",title="Passed"] [small right]#(101ms)#
+When ::
+I enter "sdk use grails" icon:thumbs-up[role="green",title="Passed"] [small right]#(100ms)#
+Then ::
+I see "Using grails version 2.1.0 in this shell." icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+----
+
+Output: 
+
+==== INTERNET NOT REACHABLE! ===============================
+
+ Some functionality is disabled or only partially available.
+ If this persists, please enable the offline mode:
+
+   $ sdk offline
+
+============================================================
+
+
+Using grails version 2.1.0 in this shell.
+
+
+
+----
+****
+
+==== Scenario: Use the default candidate version when non selected while Offline
+
+****
+Given ::
+the candidate "grails" version "1.3.9" is already installed but not default icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+And ::
+the candidate "grails" version "2.1.0" is already installed but not default icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+And ::
+the system is bootstrapped icon:thumbs-up[role="green",title="Passed"] [small right]#(101ms)#
+When ::
+I enter "sdk use grails" icon:thumbs-up[role="green",title="Passed"] [small right]#(100ms)#
+Then ::
+I see "This command is not available while offline." icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+----
+
+Output: 
+
+==== INTERNET NOT REACHABLE! ===============================
+
+ Some functionality is disabled or only partially available.
+ If this persists, please enable the offline mode:
+
+   $ sdk offline
+
+============================================================
+
+This command is not available while offline.
+
+
+
+----
+****
+
+==== Scenario: Use an uninstalled candidate version while Offline
+
+****
+Given ::
+the candidate "grails" version "1.3.9" is already installed and default icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+And ::
+the candidate "grails" version "2.1.0" is not installed icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+And ::
+the system is bootstrapped icon:thumbs-up[role="green",title="Passed"] [small right]#(101ms)#
+When ::
+I enter "sdk use grails 2.1.0" icon:thumbs-up[role="green",title="Passed"] [small right]#(100ms)#
+Then ::
+I see "Stop! grails 2.1.0 is not available while offline." icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+----
+
+Output: 
+
+==== INTERNET NOT REACHABLE! ===============================
+
+ Some functionality is disabled or only partially available.
+ If this persists, please enable the offline mode:
+
+   $ sdk offline
+
+============================================================
+
+Stop! grails 2.1.0 is not available while offline.
+
+
+
+----
+****
+
+==== Scenario: Use an invalid candidate version while Offline
+
+****
+Given ::
+the candidate "grails" version "1.3.9" is already installed and default icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+And ::
+the system is bootstrapped icon:thumbs-up[role="green",title="Passed"] [small right]#(101ms)#
+When ::
+I enter "sdk use grails 9.9.9" icon:thumbs-up[role="green",title="Passed"] [small right]#(100ms)#
+Then ::
+I see "Stop! grails 9.9.9 is not available while offline." icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+----
+
+Output: 
+
+==== INTERNET NOT REACHABLE! ===============================
+
+ Some functionality is disabled or only partially available.
+ If this persists, please enable the offline mode:
+
+   $ sdk offline
+
+============================================================
+
+Stop! grails 9.9.9 is not available while offline.
+
+
+
+----
+****
+
+==== Scenario: Use an installed candidate version while Offline
+
+****
+Given ::
+the candidate "grails" version "2.1.0" is already installed and default icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+And ::
+the candidate "grails" version "1.3.9" is already installed but not default icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+And ::
+the system is bootstrapped icon:thumbs-up[role="green",title="Passed"] [small right]#(101ms)#
+When ::
+I enter "sdk use grails 1.3.9" icon:thumbs-up[role="green",title="Passed"] [small right]#(100ms)#
+Then ::
+I see "Using grails version 1.3.9 in this shell." icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+----
+
+Output: 
+
+==== INTERNET NOT REACHABLE! ===============================
+
+ Some functionality is disabled or only partially available.
+ If this persists, please enable the offline mode:
+
+   $ sdk offline
+
+============================================================
+
+
+Using grails version 1.3.9 in this shell.
+
+
+
+----
+****
+
+==== Scenario: Set the default to an uninstalled candidate version while Offline
+
+****
+Given ::
+the candidate "grails" version "1.3.9" is already installed and default icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+And ::
+the system is bootstrapped icon:thumbs-up[role="green",title="Passed"] [small right]#(101ms)#
+When ::
+I enter "sdk default grails 2.1.0" icon:thumbs-up[role="green",title="Passed"] [small right]#(100ms)#
+Then ::
+I see "Stop! grails 2.1.0 is not available while offline." icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+----
+
+Output: 
+
+==== INTERNET NOT REACHABLE! ===============================
+
+ Some functionality is disabled or only partially available.
+ If this persists, please enable the offline mode:
+
+   $ sdk offline
+
+============================================================
+
+Stop! grails 2.1.0 is not available while offline.
+
+
+
+----
+****
+
+==== Scenario: Set the default to an invalid candidate version while Offline
+
+****
+Given ::
+the candidate "grails" version "1.3.9" is already installed and default icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+And ::
+the system is bootstrapped icon:thumbs-up[role="green",title="Passed"] [small right]#(102ms)#
+When ::
+I enter "sdk default grails 999" icon:thumbs-up[role="green",title="Passed"] [small right]#(100ms)#
+Then ::
+I see "Stop! grails 999 is not available while offline." icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+----
+
+Output: 
+
+==== INTERNET NOT REACHABLE! ===============================
+
+ Some functionality is disabled or only partially available.
+ If this persists, please enable the offline mode:
+
+   $ sdk offline
+
+============================================================
+
+Stop! grails 999 is not available while offline.
+
+
+
+----
+****
+
+==== Scenario: Set the default to an installed candidate version while Offline
+
+****
+Given ::
+the candidate "grails" version "2.1.0" is already installed and default icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+And ::
+the candidate "grails" version "1.3.9" is already installed but not default icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+And ::
+the system is bootstrapped icon:thumbs-up[role="green",title="Passed"] [small right]#(101ms)#
+When ::
+I enter "sdk default grails 1.3.9" icon:thumbs-up[role="green",title="Passed"] [small right]#(100ms)#
+Then ::
+I see "Default grails version set to 1.3.9" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+----
+
+Output: 
+
+==== INTERNET NOT REACHABLE! ===============================
+
+ Some functionality is disabled or only partially available.
+ If this persists, please enable the offline mode:
+
+   $ sdk offline
+
+============================================================
+
+
+Default grails version set to 1.3.9
+
+
+
+----
+****
+
+==== Scenario: Install a candidate version that is not installed while Offline
+
+****
+Given ::
+the candidate "grails" version "2.1.0" is not installed icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+And ::
+the system is bootstrapped icon:thumbs-up[role="green",title="Passed"] [small right]#(101ms)#
+When ::
+I enter "sdk install grails 2.1.0" icon:thumbs-up[role="green",title="Passed"] [small right]#(100ms)#
+Then ::
+I see "Stop! grails 2.1.0 is not available while offline." icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+----
+
+Output: 
+
+==== INTERNET NOT REACHABLE! ===============================
+
+ Some functionality is disabled or only partially available.
+ If this persists, please enable the offline mode:
+
+   $ sdk offline
+
+============================================================
+
+Stop! grails 2.1.0 is not available while offline.
+
+
+
+----
+****
+
+==== Scenario: Install a candidate version that is already installed while Offline
+
+****
+Given ::
+the candidate "grails" version "2.1.0" is already installed and default icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+And ::
+the system is bootstrapped icon:thumbs-up[role="green",title="Passed"] [small right]#(101ms)#
+When ::
+I enter "sdk install grails 2.1.0" icon:thumbs-up[role="green",title="Passed"] [small right]#(100ms)#
+Then ::
+I see "Stop! grails 2.1.0 is already installed." icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+----
+
+Output: 
+
+==== INTERNET NOT REACHABLE! ===============================
+
+ Some functionality is disabled or only partially available.
+ If this persists, please enable the offline mode:
+
+   $ sdk offline
+
+============================================================
+
+
+Stop! grails 2.1.0 is already installed.
+
+
+
+----
+****
+
+==== Scenario: Uninstall a candidate version while Offline
+
+****
+Given ::
+the candidate "grails" version "2.1.0" is already installed and default icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+And ::
+the system is bootstrapped icon:thumbs-up[role="green",title="Passed"] [small right]#(101ms)#
+When ::
+I enter "sdk uninstall grails 2.1.0" icon:thumbs-up[role="green",title="Passed"] [small right]#(100ms)#
+Then ::
+I see "Unselecting grails 2.1.0..." icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+And ::
+I see "Uninstalling grails 2.1.0..." icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+And ::
+the candidate "grails" version "2.1.0" is not in use icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+And ::
+the candidate "grails" version "2.1.0" is not installed icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+----
+
+Output: 
+
+==== INTERNET NOT REACHABLE! ===============================
+
+ Some functionality is disabled or only partially available.
+ If this persists, please enable the offline mode:
+
+   $ sdk offline
+
+============================================================
+
+
+Unselecting grails 2.1.0...
+
+Uninstalling grails 2.1.0...
+
+
+
+----
+****
+
+==== Scenario: Uninstall a candidate version that is not installed while Offline
+
+****
+Given ::
+the candidate "grails" version "2.1.0" is not installed icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+And ::
+the system is bootstrapped icon:thumbs-up[role="green",title="Passed"] [small right]#(101ms)#
+When ::
+I enter "sdk uninstall grails 2.1.0" icon:thumbs-up[role="green",title="Passed"] [small right]#(100ms)#
+Then ::
+I see "grails 2.1.0 is not installed." icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+----
+
+Output: 
+
+==== INTERNET NOT REACHABLE! ===============================
+
+ Some functionality is disabled or only partially available.
+ If this persists, please enable the offline mode:
+
+   $ sdk offline
+
+============================================================
+
+
+grails 2.1.0 is not installed.
+
+
+
+----
+****
+
+==== Scenario: Display the current version of a candidate while Offline
+
+****
+Given ::
+the candidate "grails" version "2.1.0" is already installed and default icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+And ::
+the system is bootstrapped icon:thumbs-up[role="green",title="Passed"] [small right]#(101ms)#
+When ::
+I enter "sdk current grails" icon:thumbs-up[role="green",title="Passed"] [small right]#(100ms)#
+Then ::
+I see "Using grails version 2.1.0" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+----
+
+Output: 
+
+==== INTERNET NOT REACHABLE! ===============================
+
+ Some functionality is disabled or only partially available.
+ If this persists, please enable the offline mode:
+
+   $ sdk offline
+
+============================================================
+
+Using grails version 2.1.0
+
+
+
+----
+****
+
+==== Scenario: Display the current version of all candidates while Offline
+
+****
+Given ::
+the candidate "grails" version "2.1.0" is already installed and default icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+And ::
+the candidate "groovy" version "2.0.5" is already installed and default icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+And ::
+the system is bootstrapped icon:thumbs-up[role="green",title="Passed"] [small right]#(101ms)#
+When ::
+I enter "sdk current" icon:thumbs-up[role="green",title="Passed"] [small right]#(100ms)#
+Then ::
+I see "Using:" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+And ::
+I see "grails: 2.1.0" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+And ::
+I see "groovy: 2.0.5" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+----
+
+Output: 
+
+==== INTERNET NOT REACHABLE! ===============================
+
+ Some functionality is disabled or only partially available.
+ If this persists, please enable the offline mode:
+
+   $ sdk offline
+
+============================================================
+
+Using:
+groovy: 2.0.5
+grails: 2.1.0
+
+
+
+----
+****
+
+==== Scenario: Determine the sdkman version when Offline
+
+****
+Given ::
+the system is bootstrapped icon:thumbs-up[role="green",title="Passed"] [small right]#(102ms)#
+When ::
+I enter "sdk version" icon:thumbs-up[role="green",title="Passed"] [small right]#(100ms)#
+Then ::
+I see the current sdkman version icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+----
+
+Output: 
+
+==== INTERNET NOT REACHABLE! ===============================
+
+ Some functionality is disabled or only partially available.
+ If this persists, please enable the offline mode:
+
+   $ sdk offline
+
+============================================================
+
+SDKMAN x.y.z
+
+
+
+----
+****
+
+==== Scenario: Recall a broadcast while Offline
+
+****
+Given ::
+a prior Broadcast "This is an OLD Broadcast!" with id "12344" was issued icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+And ::
+the system is bootstrapped icon:thumbs-up[role="green",title="Passed"] [small right]#(101ms)#
+When ::
+I enter "sdk broadcast" icon:thumbs-up[role="green",title="Passed"] [small right]#(100ms)#
+Then ::
+I see "This is an OLD Broadcast!" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+----
+
+Output: 
+
+==== INTERNET NOT REACHABLE! ===============================
+
+ Some functionality is disabled or only partially available.
+ If this persists, please enable the offline mode:
+
+   $ sdk offline
+
+============================================================
+
+This is an OLD Broadcast!
+
+
+
+----
+****
+
+==== Scenario: Request help while Offline
+
+****
+Given ::
+the system is bootstrapped icon:thumbs-up[role="green",title="Passed"] [small right]#(101ms)#
+When ::
+I enter "sdk help" icon:thumbs-up[role="green",title="Passed"] [small right]#(100ms)#
+Then ::
+I see "Usage: sdk <command> [candidate] [version]" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+----
+
+Output: 
+
+==== INTERNET NOT REACHABLE! ===============================
+
+ Some functionality is disabled or only partially available.
+ If this persists, please enable the offline mode:
+
+   $ sdk offline
+
+============================================================
+
+
+Usage: sdk <command> [candidate] [version]
+       sdk offline <enable|disable>
+
+   commands:
+       install   or i    <candidate> [version]
+       uninstall or rm   <candidate> <version>
+       list      or ls   [candidate]
+       use       or u    <candidate> [version]
+       default   or d    <candidate> [version]
+       current   or c    [candidate]
+       outdated  or o    [candidate]
+       version   or v
+       broadcast or b
+       help      or h
+       offline           [enable|disable]
+       selfupdate        [force]
+       flush             <candidates|broadcast|archives|temp>
+
+   candidate  :  the SDK to install: groovy, scala, grails, akka, etc.
+                 use list command for comprehensive list of candidates
+                 eg: $ sdk list
+
+   version    :  where optional, defaults to latest stable if not provided
+                 eg: $ sdk install groovy
+
+
+
+
+----
+****
+
+==== Scenario: Attempt self-update while Offline
+
+****
+Given ::
+the system is bootstrapped icon:thumbs-up[role="green",title="Passed"] [small right]#(101ms)#
+When ::
+I enter "sdk selfupdate" icon:thumbs-up[role="green",title="Passed"] [small right]#(100ms)#
+Then ::
+I see "This command is not available while offline." icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+----
+
+Output: 
+
+==== INTERNET NOT REACHABLE! ===============================
+
+ Some functionality is disabled or only partially available.
+ If this persists, please enable the offline mode:
+
+   $ sdk offline
+
+============================================================
+
+This command is not available while offline.
+
+
+
+----
+****
+
+[[Uninstall-Candidate, Uninstall Candidate]]
+=== *Uninstall Candidate*
+
+==== Background
+
+****
+Given ::
+the internet is reachable icon:thumbs-up[role="green",title="Passed"] [small right]#(016ms)#
+And ::
+an initialised environment icon:thumbs-up[role="green",title="Passed"] [small right]#(003ms)#
+****
+
+==== Scenario: Uninstall an installed Candidate Version not in use
+
+****
+Given ::
+the candidate "grails" version "2.1.0" is already installed but not default icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+And ::
+the system is bootstrapped icon:thumbs-up[role="green",title="Passed"] [small right]#(102ms)#
+When ::
+I enter "sdk uninstall grails 2.1.0" icon:thumbs-up[role="green",title="Passed"] [small right]#(100ms)#
+Then ::
+I do not see "Unselecting grails 2.1.0" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+Then ::
+I see "Uninstalling grails 2.1.0" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+And ::
+the candidate "grails" version "2.1.0" is not installed icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+----
+
+Output: 
+
+broadcast message
+
+Uninstalling grails 2.1.0...
+
+
+
+----
+****
+
+==== Scenario: Uninstall a Candidate Version in use
+
+****
+Given ::
+the candidate "grails" version "2.1.0" is already installed and default icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+And ::
+the system is bootstrapped icon:thumbs-up[role="green",title="Passed"] [small right]#(103ms)#
+When ::
+I enter "sdk uninstall grails 2.1.0" icon:thumbs-up[role="green",title="Passed"] [small right]#(100ms)#
+Then ::
+I see "Unselecting grails 2.1.0" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+And ::
+I see "Uninstalling grails 2.1.0" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+And ::
+the candidate "grails" version "2.1.0" is not installed icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+And ::
+the candidate "grails" is no longer selected icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+----
+
+Output: 
+
+broadcast message
+
+Unselecting grails 2.1.0...
+
+Uninstalling grails 2.1.0...
+
+
+
+----
+****
+
+==== Scenario: Attempt uninstalling a Candidate Version that is not installed
+
+****
+Given ::
+the candidate "grails" version "1.3.9" is not installed icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+And ::
+the system is bootstrapped icon:thumbs-up[role="green",title="Passed"] [small right]#(102ms)#
+When ::
+I enter "sdk uninstall grails 1.3.9" icon:thumbs-up[role="green",title="Passed"] [small right]#(100ms)#
+Then ::
+I see "grails 1.3.9 is not installed." icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+----
+
+Output: 
+
+broadcast message
+
+grails 1.3.9 is not installed.
+
+
+
+----
+****
+
+==== Scenario: Attempt uninstalling with no Candidate specified
+
+****
+Given ::
+the system is bootstrapped icon:thumbs-up[role="green",title="Passed"] [small right]#(103ms)#
+When ::
+I enter "sdk uninstall" icon:thumbs-up[role="green",title="Passed"] [small right]#(100ms)#
+Then ::
+I see "No candidate provided." icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+----
+
+Output: 
+
+broadcast message
+
+No candidate provided.
+
+Usage: sdk <command> [candidate] [version]
+       sdk offline <enable|disable>
+
+   commands:
+       install   or i    <candidate> [version]
+       uninstall or rm   <candidate> <version>
+       list      or ls   [candidate]
+       use       or u    <candidate> [version]
+       default   or d    <candidate> [version]
+       current   or c    [candidate]
+       outdated  or o    [candidate]
+       version   or v
+       broadcast or b
+       help      or h
+       offline           [enable|disable]
+       selfupdate        [force]
+       flush             <candidates|broadcast|archives|temp>
+
+   candidate  :  the SDK to install: groovy, scala, grails, akka, etc.
+                 use list command for comprehensive list of candidates
+                 eg: $ sdk list
+
+   version    :  where optional, defaults to latest stable if not provided
+                 eg: $ sdk install groovy
+
+
+
+
+----
+****
+
+==== Scenario: Attempt uninstalling with an invalid Candidate specified
+
+****
+Given ::
+the system is bootstrapped icon:thumbs-up[role="green",title="Passed"] [small right]#(101ms)#
+When ::
+I enter "sdk uninstall groffle" icon:thumbs-up[role="green",title="Passed"] [small right]#(100ms)#
+Then ::
+I see "Stop! groffle is not a valid candidate." icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+----
+
+Output: 
+
+broadcast message
+
+Stop! groffle is not a valid candidate.
+
+
+
+----
+****
+
+==== Scenario: Attempt uninstalling without a version provided
+
+****
+Given ::
+the system is bootstrapped icon:thumbs-up[role="green",title="Passed"] [small right]#(101ms)#
+When ::
+I enter "sdk uninstall grails" icon:thumbs-up[role="green",title="Passed"] [small right]#(100ms)#
+Then ::
+I see "No candidate version provided." icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+----
+
+Output: 
+
+broadcast message
+
+No candidate version provided.
+
+Usage: sdk <command> [candidate] [version]
+       sdk offline <enable|disable>
+
+   commands:
+       install   or i    <candidate> [version]
+       uninstall or rm   <candidate> <version>
+       list      or ls   [candidate]
+       use       or u    <candidate> [version]
+       default   or d    <candidate> [version]
+       current   or c    [candidate]
+       outdated  or o    [candidate]
+       version   or v
+       broadcast or b
+       help      or h
+       offline           [enable|disable]
+       selfupdate        [force]
+       flush             <candidates|broadcast|archives|temp>
+
+   candidate  :  the SDK to install: groovy, scala, grails, akka, etc.
+                 use list command for comprehensive list of candidates
+                 eg: $ sdk list
+
+   version    :  where optional, defaults to latest stable if not provided
+                 eg: $ sdk install groovy
+
+
+
+
+----
+****
+
+[[Use-Version, Use Version]]
+=== *Use Version*
+
+==== Background
+
+****
+Given ::
+the internet is reachable icon:thumbs-up[role="green",title="Passed"] [small right]#(021ms)#
+And ::
+an initialised environment icon:thumbs-up[role="green",title="Passed"] [small right]#(005ms)#
+****
+
+==== Scenario: Use without providing a Candidate
+
+****
+Given ::
+the system is bootstrapped icon:thumbs-up[role="green",title="Passed"] [small right]#(101ms)#
+When ::
+I enter "sdk use" icon:thumbs-up[role="green",title="Passed"] [small right]#(100ms)#
+Then ::
+I see "Usage: sdk <command> [candidate] [version]" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+----
+
+Output: 
+
+broadcast message
+
+No candidate provided.
+
+Usage: sdk <command> [candidate] [version]
+       sdk offline <enable|disable>
+
+   commands:
+       install   or i    <candidate> [version]
+       uninstall or rm   <candidate> <version>
+       list      or ls   [candidate]
+       use       or u    <candidate> [version]
+       default   or d    <candidate> [version]
+       current   or c    [candidate]
+       outdated  or o    [candidate]
+       version   or v
+       broadcast or b
+       help      or h
+       offline           [enable|disable]
+       selfupdate        [force]
+       flush             <candidates|broadcast|archives|temp>
+
+   candidate  :  the SDK to install: groovy, scala, grails, akka, etc.
+                 use list command for comprehensive list of candidates
+                 eg: $ sdk list
+
+   version    :  where optional, defaults to latest stable if not provided
+                 eg: $ sdk install groovy
+
+
+
+
+----
+****
+
+==== Scenario: Use a candidate version that is installed
+
+****
+Given ::
+the candidate "grails" version "2.1.0" is already installed and default icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+And ::
+the candidate "grails" version "1.3.9" is a valid candidate version icon:thumbs-up[role="green",title="Passed"] [small right]#(004ms)#
+And ::
+the candidate "grails" version "1.3.9" is already installed but not default icon:thumbs-up[role="green",title="Passed"] [small right]#(002ms)#
+And ::
+the system is bootstrapped icon:thumbs-up[role="green",title="Passed"] [small right]#(101ms)#
+When ::
+I enter "sdk use grails 1.3.9" icon:thumbs-up[role="green",title="Passed"] [small right]#(100ms)#
+Then ::
+I see "Using grails version 1.3.9 in this shell." icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+Then ::
+the candidate "grails" version "1.3.9" should be in use icon:thumbs-up[role="green",title="Passed"] [small right]#(100ms)#
+And ::
+the candidate "grails" version "2.1.0" should be the default icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+----
+
+Output: 
+
+Grails Version: 1.3.9
+
+
+
+----
+****
+
+==== Scenario: Use a candidate version that is not installed
+
+****
+Given ::
+the candidate "grails" version "1.3.9" is available for download icon:thumbs-up[role="green",title="Passed"] [small right]#(015ms)#
+And ::
+the system is bootstrapped icon:thumbs-up[role="green",title="Passed"] [small right]#(101ms)#
+When ::
+I enter "sdk use grails 1.3.9" and answer "Y" icon:thumbs-up[role="green",title="Passed"] [small right]#(100ms)#
+Then ::
+I see "Using grails version 1.3.9 in this shell." icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+And ::
+the candidate "grails" version "1.3.9" should be in use icon:thumbs-up[role="green",title="Passed"] [small right]#(100ms)#
+----
+
+Output: 
+
+Grails version: 1.3.9
+
+
+
+----
+****
+
+==== Scenario: Use a candidate version that is automatically installed
+
+****
+Given ::
+I have configured "sdkman_auto_answer" to "true" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+And ::
+the candidate "grails" version "1.3.9" is available for download icon:thumbs-up[role="green",title="Passed"] [small right]#(017ms)#
+And ::
+the system is bootstrapped icon:thumbs-up[role="green",title="Passed"] [small right]#(101ms)#
+When ::
+I enter "sdk use grails 1.3.9" icon:thumbs-up[role="green",title="Passed"] [small right]#(100ms)#
+Then ::
+I see "Stop! grails 1.3.9 is not installed." icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+Then ::
+I see "Using grails version 1.3.9 in this shell." icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+And ::
+the candidate "grails" version "1.3.9" should be in use icon:thumbs-up[role="green",title="Passed"] [small right]#(100ms)#
+----
+
+Output: 
+
+Grails version: 1.3.9
+
+
+
+----
+****
+
+==== Scenario: Use a candidate version that does not exist
+
+****
+Given ::
+the candidate "groovy" version "1.9.9" is not available for download icon:thumbs-up[role="green",title="Passed"] [small right]#(005ms)#
+And ::
+the system is bootstrapped icon:thumbs-up[role="green",title="Passed"] [small right]#(104ms)#
+When ::
+I enter "sdk use groovy 1.9.9" icon:thumbs-up[role="green",title="Passed"] [small right]#(100ms)#
+Then ::
+I see "Stop! 1.9.9 is not a valid groovy version." icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+----
+
+Output: 
+
+broadcast message
+
+Stop! 1.9.9 is not a valid groovy version.
+
+
+
+----
+****
+
+==== Scenario: Use a candidate version that only exists locally
+
+****
+Given ::
+the candidate "grails" version "2.0.0.M1" is not available for download icon:thumbs-up[role="green",title="Passed"] [small right]#(004ms)#
+And ::
+the candidate "grails" version "2.0.0.M1" is already installed but not default icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+And ::
+the system is bootstrapped icon:thumbs-up[role="green",title="Passed"] [small right]#(101ms)#
+When ::
+I enter "sdk use grails 2.0.0.M1" icon:thumbs-up[role="green",title="Passed"] [small right]#(100ms)#
+Then ::
+I see "Using grails version 2.0.0.M1 in this shell." icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+----
+
+Output: 
+
+broadcast message
+Setting grails version 2.0.0.M1 as default.
+
+Using grails version 2.0.0.M1 in this shell.
+
+
+
+----
+****
+
+==== Scenario: Use an uninstalled candidate version of an uninstalled candidate and it becomes default
+
+****
+Given ::
+the candidate "grails" version "1.3.9" is available for download icon:thumbs-up[role="green",title="Passed"] [small right]#(011ms)#
+And ::
+the candidate "grails" does not exist locally icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+And ::
+the system is bootstrapped icon:thumbs-up[role="green",title="Passed"] [small right]#(101ms)#
+When ::
+I enter "sdk use grails 1.3.9" and answer "Y" icon:thumbs-up[role="green",title="Passed"] [small right]#(100ms)#
+Then ::
+I see "Setting grails version 1.3.9 as default." icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+And ::
+I see "Using grails version 1.3.9 in this shell." icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+And ::
+the candidate "grails" version "1.3.9" is installed icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+And ::
+the candidate "grails" version "1.3.9" should be the default icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+----
+
+Output: 
+
+broadcast message
+
+Stop! grails 1.3.9 is not installed.
+Do you want to install it now? (Y/n): 
+Downloading: grails 1.3.9
+
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+100   541  100   541    0     0  93517      0 --:--:-- --:--:-- --:--:-- 93517
+
+Installing: grails 1.3.9
+Done installing!
+
+Setting grails version 1.3.9 as default.
+
+Using grails version 1.3.9 in this shell.
+
+
+
+----
+****
+
+==== Scenario: Use an uninstalled candidate version of an installed candidate and it does not become default
+
+****
+Given ::
+the candidate "grails" version "1.3.9" is already installed and default icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+And ::
+the candidate "grails" version "2.1.0" is available for download icon:thumbs-up[role="green",title="Passed"] [small right]#(013ms)#
+And ::
+the system is bootstrapped icon:thumbs-up[role="green",title="Passed"] [small right]#(101ms)#
+When ::
+I enter "sdk use grails 2.1.0" and answer "Y" icon:thumbs-up[role="green",title="Passed"] [small right]#(100ms)#
+Then ::
+I do not see "Setting grails version 1.3.9 as default." icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+And ::
+I see "Using grails version 2.1.0 in this shell." icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+And ::
+the candidate "grails" version "2.1.0" is installed icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+And ::
+the candidate "grails" version "1.3.9" should be the default icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+----
+
+Output: 
+
+broadcast message
+
+Stop! grails 2.1.0 is not installed.
+Do you want to install it now? (Y/n): 
+Downloading: grails 2.1.0
+
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+100   541  100   541    0     0  92478      0 --:--:-- --:--:-- --:--:-- 92478
+
+Installing: grails 2.1.0
+Done installing!
+
+
+Using grails version 2.1.0 in this shell.
+
+
+
+----
+****
+
+==== Scenario: Use an installed version of an installed candidate updates the candidate _HOME variable
+
+****
+Given ::
+the candidate "grails" version "1.3.9" is already installed and default icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+And ::
+the candidate "grails" version "2.1.0" is already installed but not default icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+And ::
+the candidate "grails" version "2.1.0" is available for download icon:thumbs-up[role="green",title="Passed"] [small right]#(014ms)#
+And ::
+the system is bootstrapped icon:thumbs-up[role="green",title="Passed"] [small right]#(102ms)#
+And ::
+the "GRAILS_HOME" variable contains "grails/current" icon:thumbs-up[role="green",title="Passed"] [small right]#(100ms)#
+When ::
+I enter "sdk use grails 2.1.0" icon:thumbs-up[role="green",title="Passed"] [small right]#(100ms)#
+And ::
+I see "Using grails version 2.1.0 in this shell." icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+Then ::
+the "GRAILS_HOME" variable contains "grails/2.1.0" icon:thumbs-up[role="green",title="Passed"] [small right]#(100ms)#
+----
+
+Output: 
+
+/tmp/sdkman-test/112ef11b-e2db-4558-a405-3bfcdf1411e4/.sdkman/candidates/grails/2.1.0
+
+
+
+----
+****
+
+==== Scenario: Use an uninstalled version of an uninstalled candidate updates the candidate _HOME variable
+
+****
+Given ::
+the candidate "grails" does not exist locally icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+And ::
+the candidate "grails" version "2.1.0" is available for download icon:thumbs-up[role="green",title="Passed"] [small right]#(012ms)#
+And ::
+the system is bootstrapped icon:thumbs-up[role="green",title="Passed"] [small right]#(101ms)#
+And ::
+the "GRAILS_HOME" variable is not set icon:thumbs-up[role="green",title="Passed"] [small right]#(100ms)#
+When ::
+I enter "sdk use grails 2.1.0" and answer "Y" icon:thumbs-up[role="green",title="Passed"] [small right]#(100ms)#
+Then ::
+the "GRAILS_HOME" variable contains "grails/2.1.0" icon:thumbs-up[role="green",title="Passed"] [small right]#(100ms)#
+----
+
+Output: 
+
+/tmp/sdkman-test/112ef11b-e2db-4558-a405-3bfcdf1411e4/.sdkman/candidates/grails/2.1.0
+
+
+
+----
+****
+
+==== Scenario: Use an uninstalled version of an installed candidate updates the candidate _HOME variable
+
+****
+Given ::
+the candidate "grails" version "1.3.9" is already installed and default icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+And ::
+the candidate "grails" version "2.1.0" is available for download icon:thumbs-up[role="green",title="Passed"] [small right]#(011ms)#
+And ::
+the system is bootstrapped icon:thumbs-up[role="green",title="Passed"] [small right]#(101ms)#
+And ::
+the "GRAILS_HOME" variable contains "grails/current" icon:thumbs-up[role="green",title="Passed"] [small right]#(100ms)#
+When ::
+I enter "sdk use grails 2.1.0" and answer "Y" icon:thumbs-up[role="green",title="Passed"] [small right]#(100ms)#
+Then ::
+the "GRAILS_HOME" variable contains "grails/2.1.0" icon:thumbs-up[role="green",title="Passed"] [small right]#(100ms)#
+----
+
+Output: 
+
+/tmp/sdkman-test/112ef11b-e2db-4558-a405-3bfcdf1411e4/.sdkman/candidates/grails/2.1.0
+
+
+
+----
+****
+
+[[Version, Version]]
+=== *Version*
+
+==== Background
+
+****
+Given ::
+the internet is reachable icon:thumbs-up[role="green",title="Passed"] [small right]#(014ms)#
+And ::
+an initialised environment icon:thumbs-up[role="green",title="Passed"] [small right]#(002ms)#
+And ::
+the system is bootstrapped icon:thumbs-up[role="green",title="Passed"] [small right]#(101ms)#
+****
+
+==== Scenario: Show the current version of sdkman
+
+****
+When ::
+I enter "sdk version" icon:thumbs-up[role="green",title="Passed"] [small right]#(100ms)#
+Then ::
+I see "SDKMAN x.y.z" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+----
+
+Output: 
+
+broadcast message
+SDKMAN x.y.z
+
+
+
+----
+****
+
