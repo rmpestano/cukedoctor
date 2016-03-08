@@ -9,7 +9,7 @@
 
 [quote]
 ____
-So you can bring your documentation back to life!
+Enabling Behaviour driven documentation!
 ____
 
 
@@ -38,7 +38,7 @@ ____
 
 [big]#*WHEN*# I convert the files using Cukedoctor
 
-[big]#*THEN*# I should have awesome _living_ documentation.
+[big]#*THEN*# I should have awesome _living_ documentation based on asciidoc.
 ****
 
 == Sample

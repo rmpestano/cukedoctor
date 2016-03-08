@@ -57,6 +57,7 @@ public class CukedoctorFeatureRenderer extends AbstractBaseRenderer implements F
         for (Scenario scenario : feature.getScenarios()) {
             sb.append(renderFeatureScenario(scenario, feature));
         }
+        feature.setBackgroundRendered(false);
         return sb.toString();
     }
 
