@@ -37,6 +37,9 @@ public class Feature implements Comparable<Feature>{
 
 	@JsonIgnore
 	private Integer order;
+	
+    @JsonIgnore
+	private boolean backgroundRendered;//backgrounds runs for each scenario so we will render it only in the first one
 
 
 	public Feature() {
@@ -127,13 +130,25 @@ public class Feature implements Comparable<Feature>{
 	public void setComments(List<Comment> comments) {
 		this.comments = comments;
 	}
+	
+	
 
-	public Integer getNumberOfScenarios() {
+	public boolean isBackgroundRendered() {
+        return backgroundRendered;
+    }
+
+
+    public void setBackgroundRendered(boolean backgroundRendered) {
+        this.backgroundRendered = backgroundRendered;
+    }
+
+
+    public Integer getNumberOfScenarios() {
 		Integer result = 0;
 		if (elements != null) {
 			List<Scenario> elementList = new ArrayList<Scenario>();
 			for (Scenario element : elements) {
-				if (!element.isBackground() && !element.hasExamples()) {
+				if (!element.hasExamples()) {
 					elementList.add(element);
 				}
 			}
@@ -189,9 +204,7 @@ public class Feature implements Comparable<Feature>{
 	public void initScenarios() {
 		if(elements != null){
 			for (Scenario element : elements) {
-				if(!element.isBackground()){
-					scenarios.add(element);
-				}
+				 scenarios.add(element);
 			}
 		}
 
@@ -230,13 +243,11 @@ public class Feature implements Comparable<Feature>{
 	}
 
 	private void calculateScenarioStats(List<Scenario> passedScenarios, List<Scenario> failedScenarios, Scenario element) {
-		if (!element.isBackground()) {
 			if (element.getStatus() == Status.passed) {
 				passedScenarios.add(element);
 			} else if (element.getStatus() == Status.failed) {
 				failedScenarios.add(element);
 			}
-		}
 	}
 
 

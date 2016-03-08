@@ -24,7 +24,8 @@ public class CukedoctorScenarioRenderer extends AbstractBaseRenderer implements 
     ExamplesRenderer examplesRenderer;
 
     StepsRenderer stepsRenderer;
-
+    
+    
     public CukedoctorScenarioRenderer() {
         ServiceLoader<TagsRenderer> tagsRenderers = ServiceLoader.load(TagsRenderer.class);
         ServiceLoader<ExamplesRenderer> examplesRenderers = ServiceLoader.load(ExamplesRenderer.class);
@@ -58,11 +59,21 @@ public class CukedoctorScenarioRenderer extends AbstractBaseRenderer implements 
         if (scenario.hasIgnoreDocsTag()) {
             return "";
         }
+        
+        if(scenario.isBackground() && feature.isBackgroundRendered()){
+            return "";
+        }
+        
+        if(!feature.isBackgroundRendered() && scenario.isBackground()){
+            feature.setBackgroundRendered(true);
+            docBuilder.sectionTitleLevel3(scenario.getKeyword());
+        } 
 
         if (hasText(scenario.getName())) {
             docBuilder.sectionTitleLevel3(new StringBuilder(scenario.getKeyword()).
                     append(": ").append(scenario.getName()).toString());
         }
+         
         if (feature.hasTags() || scenario.hasTags()) {
             docBuilder.append(renderScenarioTags(scenario, feature));
         }
