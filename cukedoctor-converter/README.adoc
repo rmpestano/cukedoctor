@@ -152,6 +152,8 @@ You can re-enable the extension by calling
 
 == Enriching documentation
 
+=== Asciidoc markup in comments
+
 To enrich the documentation one can use asciidoc markup inside Cucumber feature files, consider the following feature:
 
 .feature without enrichment
@@ -198,7 +200,7 @@ And it will be rendered as follows:
 
 image::enrich.png[]
 
-== Asciidoc content DocStrings
+=== Asciidoc markup in DocStrings
 You can use Asciidoc markup in https://www.relishapp.com/cucumber/cucumber/docs/gherkin/doc-strings[feature DocStrings], see feature below:
 
 ----
@@ -238,7 +240,7 @@ The docstrings will be rendered as follows:
 
 image::discrete.png[]
 
-IMPORTANT: By default cukedoctor will render DocStrings as http://asciidoctor.org/docs/user-manual/#listing-blocks[asciidoc listing]. To enable this feature use *# cukedoctor-discrete* comment.
+IMPORTANT: By default cukedoctor will render DocStrings as http://asciidoctor.org/docs/user-manual/\#listing-blocks[asciidoc listing^]. To enable this feature use *# cukedoctor-discrete* comment.
 
 == Customizing your Living Documentation
 
