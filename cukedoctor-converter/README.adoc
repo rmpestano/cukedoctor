@@ -198,12 +198,53 @@ And it will be rendered as follows:
 
 image::enrich.png[]
 
+== Asciidoc content DocStrings
+You can use Asciidoc markup in https://www.relishapp.com/cucumber/cucumber/docs/gherkin/doc-strings[feature DocStrings], see feature below:
+
+----
+Feature: Discrete class feature
+
+  Scenario: Render source code
+
+    # cukedoctor-discrete
+    Given the following source code
+    """
+[source, java]
+-----
+public int sum(int x, int y){
+        int result = x + y;
+        return result; <1>
+    }
+-----
+<1> We can have callouts in living documentation
+    """
+
+  Scenario: Render table
+
+    # cukedoctor-discrete
+    Given the following table
+    """
+|===
+
+| Cell in column 1, row 1 | Cell in column 2, row 1
+| Cell in column 1, row 2 | Cell in column 2, row 2
+| Cell in column 1, row 3 | Cell in column 2, row 3
+
+|===
+    """
+----
+
+The docstrings will be rendered as follows:
+
+image::discrete.png[]
+
+IMPORTANT: By default cukedoctor will render DocStrings as http://asciidoctor.org/docs/user-manual/#listing-blocks[asciidoc listing]. To enable this feature use *# cukedoctor-discrete* comment.
+
 == Customizing your Living Documentation
 
 Cukedoctor let you customize its generated documentation through Java service provider mechanism.
 
 For more details see https://github.com/rmpestano/cukedoctor/tree/master/cukedoctor-spi-example[spi-example module].
-
 
 
 == Maven coordinates
@@ -213,6 +254,6 @@ For more details see https://github.com/rmpestano/cukedoctor/tree/master/cukedoc
  <dependency>
       <groupId>com.github.cukedoctor</groupId>
       <artifactId>cukedoctor-converter</artifactId>
-      <version>0.8.0</version>
+      <version>0.9.0</version>
   </dependency>
 ----
