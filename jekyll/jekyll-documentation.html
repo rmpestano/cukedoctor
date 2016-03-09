@@ -510,19 +510,6 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
          <li><a href="#_scenario_use_per_post_permalink">Scenario: Use per-post permalink</a></li> 
          <li><a href="#_scenario_use_per_post_ending_in_html">Scenario: Use per-post ending in .html</a></li> 
         </ul> </li> 
-       <li><a href="#frontmatter-defaults"><strong>frontmatter defaults</strong></a> 
-        <ul class="sectlevel3"> 
-         <li><a href="#_scenario_use_default_for_frontmatter_variables_internally">Scenario: Use default for frontmatter variables internally</a></li> 
-         <li><a href="#_scenario_use_default_for_frontmatter_variables_in_liquid">Scenario: Use default for frontmatter variables in Liquid</a></li> 
-         <li><a href="#_scenario_override_frontmatter_defaults_by_path">Scenario: Override frontmatter defaults by path</a></li> 
-         <li><a href="#_scenario_use_frontmatter_variables_by_relative_path">Scenario: Use frontmatter variables by relative path</a></li> 
-         <li><a href="#_scenario_override_frontmatter_defaults_by_type">Scenario: Override frontmatter defaults by type</a></li> 
-         <li><a href="#_scenario_actual_frontmatter_overrides_defaults">Scenario: Actual frontmatter overrides defaults</a></li> 
-         <li><a href="#_scenario_define_permalink_default_for_posts">Scenario: Define permalink default for posts</a></li> 
-         <li><a href="#_scenario_use_frontmatter_defaults_in_collections">Scenario: Use frontmatter defaults in collections</a></li> 
-         <li><a href="#_scenario_override_frontmatter_defaults_inside_a_collection">Scenario: Override frontmatter defaults inside a collection</a></li> 
-         <li><a href="#_scenario_deep_merge_frontmatter_defaults">Scenario: Deep merge frontmatter defaults</a></li> 
-        </ul> </li> 
        <li><a href="#Hooks"><strong>Hooks</strong></a> 
         <ul class="sectlevel3"> 
          <li><a href="#_scenario_run_some_code_after_site_reset">Scenario: Run some code after site reset</a></li> 
@@ -644,6 +631,19 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
          <li><a href="#_scenario_outline_paginate_with_n_posts_per_page">Scenario Outline: Paginate with N posts per page</a></li> 
          <li><a href="#_scenario_outline_setting_a_custom_pagination_path">Scenario Outline: Setting a custom pagination path</a></li> 
          <li><a href="#_scenario_outline_setting_a_custom_pagination_path_without_an_index_html_in_it">Scenario Outline: Setting a custom pagination path without an index.html in it</a></li> 
+        </ul> </li> 
+       <li><a href="#frontmatter-defaults"><strong>frontmatter defaults</strong></a> 
+        <ul class="sectlevel3"> 
+         <li><a href="#_scenario_use_default_for_frontmatter_variables_internally">Scenario: Use default for frontmatter variables internally</a></li> 
+         <li><a href="#_scenario_use_default_for_frontmatter_variables_in_liquid">Scenario: Use default for frontmatter variables in Liquid</a></li> 
+         <li><a href="#_scenario_override_frontmatter_defaults_by_path">Scenario: Override frontmatter defaults by path</a></li> 
+         <li><a href="#_scenario_use_frontmatter_variables_by_relative_path">Scenario: Use frontmatter variables by relative path</a></li> 
+         <li><a href="#_scenario_override_frontmatter_defaults_by_type">Scenario: Override frontmatter defaults by type</a></li> 
+         <li><a href="#_scenario_actual_frontmatter_overrides_defaults">Scenario: Actual frontmatter overrides defaults</a></li> 
+         <li><a href="#_scenario_define_permalink_default_for_posts">Scenario: Define permalink default for posts</a></li> 
+         <li><a href="#_scenario_use_frontmatter_defaults_in_collections">Scenario: Use frontmatter defaults in collections</a></li> 
+         <li><a href="#_scenario_override_frontmatter_defaults_inside_a_collection">Scenario: Override frontmatter defaults inside a collection</a></li> 
+         <li><a href="#_scenario_deep_merge_frontmatter_defaults">Scenario: Deep merge frontmatter defaults</a></li> 
         </ul> </li> 
       </ul> </li> 
     </ul> 
@@ -826,23 +826,6 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
         <td class="tableblock halign-center valign-top"><p class="tableblock"><code><span class="green"><strong>passed</strong></span></code></p></td> 
        </tr> 
        <tr> 
-        <td class="tableblock halign-center valign-top" colspan="12"><p class="tableblock"><code><strong><a href="#frontmatter-defaults">frontmatter defaults</a></strong></code></p></td> 
-       </tr> 
-       <tr> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>10</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>0</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>10</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>85</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>0</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>0</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>0</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>0</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>0</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>85</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>05s 926ms</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code><span class="green"><strong>passed</strong></span></code></p></td> 
-       </tr> 
-       <tr> 
         <td class="tableblock halign-center valign-top" colspan="12"><p class="tableblock"><code><strong><a href="#Hooks">Hooks</a></strong></code></p></td> 
        </tr> 
        <tr> 
@@ -1010,6 +993,23 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
         <td class="tableblock halign-center valign-top"><p class="tableblock"><code>0</code></p></td> 
         <td class="tableblock halign-center valign-top"><p class="tableblock"><code>0</code></p></td> 
         <td class="tableblock halign-center valign-top"><p class="tableblock"><code>000ms</code></p></td> 
+        <td class="tableblock halign-center valign-top"><p class="tableblock"><code><span class="green"><strong>passed</strong></span></code></p></td> 
+       </tr> 
+       <tr> 
+        <td class="tableblock halign-center valign-top" colspan="12"><p class="tableblock"><code><strong><a href="#frontmatter-defaults">frontmatter defaults</a></strong></code></p></td> 
+       </tr> 
+       <tr> 
+        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>10</code></p></td> 
+        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>0</code></p></td> 
+        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>10</code></p></td> 
+        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>85</code></p></td> 
+        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>0</code></p></td> 
+        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>0</code></p></td> 
+        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>0</code></p></td> 
+        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>0</code></p></td> 
+        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>0</code></p></td> 
+        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>85</code></p></td> 
+        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>05s 926ms</code></p></td> 
         <td class="tableblock halign-center valign-top"><p class="tableblock"><code><span class="green"><strong>passed</strong></span></code></p></td> 
        </tr> 
        <tr> 
@@ -5171,936 +5171,6 @@ Leon,34</pre>
            </dt> 
            <dd> 
             <p>I should see "bla bla" in "_site/custom/posts/some.html" <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
-           </dd> 
-          </dl> 
-         </div> 
-        </div> 
-       </div> 
-      </div> 
-     </div> 
-     <div class="sect2"> 
-      <h3 id="frontmatter-defaults"><a class="anchor" href="#frontmatter-defaults"></a><strong>frontmatter defaults</strong></h3> 
-      <span class="fa fa-minus-square fa-fw" style="cursor:pointer;float:right;margin-top:-30px" title="Minimize" onclick="hideFeatureScenarios('frontmatter-defaults');document.getElementById('hidden-frontmatter-defaults').style.display = 'inline';this.style.display = 'none'"> </span> 
-      <span id="hidden-frontmatter-defaults" class="fa fa-plus-square fa-fw" style="cursor:pointer;float:right;display:none;margin-top:-30px" title="Maximize feature" onclick="showFeatureScenarios('frontmatter-defaults');this.style.display = 'none'"> </span> 
-      <div class="sect3"> 
-       <h4 id="_scenario_use_default_for_frontmatter_variables_internally"><a class="anchor" href="#_scenario_use_default_for_frontmatter_variables_internally"></a>Scenario: Use default for frontmatter variables internally</h4> 
-       <div class="sidebarblock"> 
-        <div class="content"> 
-         <div class="dlist"> 
-          <dl> 
-           <dt class="hdlist1">
-             Given 
-           </dt> 
-           <dd> 
-            <p>I have a _layouts directory <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
-           </dd> 
-           <dt class="hdlist1">
-             And 
-           </dt> 
-           <dd> 
-            <p>I have a pretty layout that contains "THIS IS THE LAYOUT: {{content}}" <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
-           </dd> 
-           <dt class="hdlist1">
-             And 
-           </dt> 
-           <dd> 
-            <p>I have a _posts directory <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
-           </dd> 
-           <dt class="hdlist1">
-             And 
-           </dt> 
-           <dd> 
-            <p>I have the following post: <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
-           </dd> 
-          </dl> 
-         </div> 
-         <table class="tableblock frame-all grid-all spread"> 
-          <colgroup> 
-           <col style="width: 33.3333%;"> 
-           <col style="width: 33.3333%;"> 
-           <col style="width: 33.3334%;"> 
-          </colgroup> 
-          <thead> 
-           <tr> 
-            <th class="tableblock halign-left valign-top">title</th> 
-            <th class="tableblock halign-left valign-top">date</th> 
-            <th class="tableblock halign-left valign-top">content</th> 
-           </tr> 
-          </thead> 
-          <tbody> 
-           <tr> 
-            <td class="tableblock halign-left valign-top"><p class="tableblock">default layout</p></td> 
-            <td class="tableblock halign-left valign-top"><p class="tableblock">2013-09-11</p></td> 
-            <td class="tableblock halign-left valign-top"><p class="tableblock">just some post</p></td> 
-           </tr> 
-          </tbody> 
-         </table> 
-         <div class="dlist"> 
-          <dl> 
-           <dt class="hdlist1">
-             And 
-           </dt> 
-           <dd> 
-            <p>I have an "index.html" page with title "some title" that contains "just some page" <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
-           </dd> 
-           <dt class="hdlist1">
-             And 
-           </dt> 
-           <dd> 
-            <p>I have a configuration file with "defaults" set to "[{scope: {path: ""}, values: {layout: "pretty"}}]" <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
-           </dd> 
-           <dt class="hdlist1">
-             When 
-           </dt> 
-           <dd> 
-            <p>I run jekyll build <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(638ms)</span></p> 
-           </dd> 
-           <dt class="hdlist1">
-             Then 
-           </dt> 
-           <dd> 
-            <p>the _site directory should exist <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
-           </dd> 
-           <dt class="hdlist1">
-             And 
-           </dt> 
-           <dd> 
-            <p>I should see "THIS IS THE LAYOUT: &lt;p&gt;just some post&lt;/p&gt;" in "_site/2013/09/11/default-layout.html" <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
-           </dd> 
-           <dt class="hdlist1">
-             And 
-           </dt> 
-           <dd> 
-            <p>I should see "THIS IS THE LAYOUT: just some page" in "_site/index.html" <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
-           </dd> 
-          </dl> 
-         </div> 
-        </div> 
-       </div> 
-      </div> 
-      <div class="sect3"> 
-       <h4 id="_scenario_use_default_for_frontmatter_variables_in_liquid"><a class="anchor" href="#_scenario_use_default_for_frontmatter_variables_in_liquid"></a>Scenario: Use default for frontmatter variables in Liquid</h4> 
-       <div class="sidebarblock"> 
-        <div class="content"> 
-         <div class="dlist"> 
-          <dl> 
-           <dt class="hdlist1">
-             Given 
-           </dt> 
-           <dd> 
-            <p>I have a _posts directory <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
-           </dd> 
-           <dt class="hdlist1">
-             And 
-           </dt> 
-           <dd> 
-            <p>I have the following post: <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
-           </dd> 
-          </dl> 
-         </div> 
-         <table class="tableblock frame-all grid-all spread"> 
-          <colgroup> 
-           <col style="width: 33.3333%;"> 
-           <col style="width: 33.3333%;"> 
-           <col style="width: 33.3334%;"> 
-          </colgroup> 
-          <thead> 
-           <tr> 
-            <th class="tableblock halign-left valign-top">title</th> 
-            <th class="tableblock halign-left valign-top">date</th> 
-            <th class="tableblock halign-left valign-top">content</th> 
-           </tr> 
-          </thead> 
-          <tbody> 
-           <tr> 
-            <td class="tableblock halign-left valign-top"><p class="tableblock">default data</p></td> 
-            <td class="tableblock halign-left valign-top"><p class="tableblock">2013-09-11</p></td> 
-            <td class="tableblock halign-left valign-top"><p class="tableblock">&lt;p&gt;{{page.custom}}&lt;/p&gt;&lt;div&gt;{{page.author}}&lt;/div&gt;</p></td> 
-           </tr> 
-          </tbody> 
-         </table> 
-         <div class="dlist"> 
-          <dl> 
-           <dt class="hdlist1">
-             And 
-           </dt> 
-           <dd> 
-            <p>I have an "index.html" page that contains "just {{page.custom}} by {{page.author}}" <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
-           </dd> 
-           <dt class="hdlist1">
-             And 
-           </dt> 
-           <dd> 
-            <p>I have a configuration file with "defaults" set to "[{scope: {path: ""}, values: {custom: "some special data", author: "Ben"}}]" <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
-           </dd> 
-           <dt class="hdlist1">
-             When 
-           </dt> 
-           <dd> 
-            <p>I run jekyll build <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(626ms)</span></p> 
-           </dd> 
-           <dt class="hdlist1">
-             Then 
-           </dt> 
-           <dd> 
-            <p>the _site directory should exist <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
-           </dd> 
-           <dt class="hdlist1">
-             And 
-           </dt> 
-           <dd> 
-            <p>I should see "&lt;p&gt;some special data&lt;/p&gt;\n&lt;div&gt;Ben&lt;/div&gt;" in "_site/2013/09/11/default-data.html" <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
-           </dd> 
-           <dt class="hdlist1">
-             And 
-           </dt> 
-           <dd> 
-            <p>I should see "just some special data by Ben" in "_site/index.html" <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
-           </dd> 
-          </dl> 
-         </div> 
-        </div> 
-       </div> 
-      </div> 
-      <div class="sect3"> 
-       <h4 id="_scenario_override_frontmatter_defaults_by_path"><a class="anchor" href="#_scenario_override_frontmatter_defaults_by_path"></a>Scenario: Override frontmatter defaults by path</h4> 
-       <div class="sidebarblock"> 
-        <div class="content"> 
-         <div class="dlist"> 
-          <dl> 
-           <dt class="hdlist1">
-             Given 
-           </dt> 
-           <dd> 
-            <p>I have a _layouts directory <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
-           </dd> 
-           <dt class="hdlist1">
-             And 
-           </dt> 
-           <dd> 
-            <p>I have a root layout that contains "root: {{ content }}" <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
-           </dd> 
-           <dt class="hdlist1">
-             And 
-           </dt> 
-           <dd> 
-            <p>I have a subfolder layout that contains "subfolder: {{ content }}" <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
-           </dd> 
-           <dt class="hdlist1">
-             And 
-           </dt> 
-           <dd> 
-            <p>I have a _posts directory <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
-           </dd> 
-           <dt class="hdlist1">
-             And 
-           </dt> 
-           <dd> 
-            <p>I have the following post: <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
-           </dd> 
-          </dl> 
-         </div> 
-         <table class="tableblock frame-all grid-all spread"> 
-          <colgroup> 
-           <col style="width: 33.3333%;"> 
-           <col style="width: 33.3333%;"> 
-           <col style="width: 33.3334%;"> 
-          </colgroup> 
-          <thead> 
-           <tr> 
-            <th class="tableblock halign-left valign-top">title</th> 
-            <th class="tableblock halign-left valign-top">date</th> 
-            <th class="tableblock halign-left valign-top">content</th> 
-           </tr> 
-          </thead> 
-          <tbody> 
-           <tr> 
-            <td class="tableblock halign-left valign-top"><p class="tableblock">about</p></td> 
-            <td class="tableblock halign-left valign-top"><p class="tableblock">2013-10-14</p></td> 
-            <td class="tableblock halign-left valign-top"><p class="tableblock">info on {{page.description}}</p></td> 
-           </tr> 
-          </tbody> 
-         </table> 
-         <div class="dlist"> 
-          <dl> 
-           <dt class="hdlist1">
-             And 
-           </dt> 
-           <dd> 
-            <p>I have a special/_posts directory <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
-           </dd> 
-           <dt class="hdlist1">
-             And 
-           </dt> 
-           <dd> 
-            <p>I have the following post in "special": <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
-           </dd> 
-          </dl> 
-         </div> 
-         <table class="tableblock frame-all grid-all spread"> 
-          <colgroup> 
-           <col style="width: 25%;"> 
-           <col style="width: 25%;"> 
-           <col style="width: 25%;"> 
-           <col style="width: 25%;"> 
-          </colgroup> 
-          <thead> 
-           <tr> 
-            <th class="tableblock halign-left valign-top">title</th> 
-            <th class="tableblock halign-left valign-top">date</th> 
-            <th class="tableblock halign-left valign-top">path</th> 
-            <th class="tableblock halign-left valign-top">content</th> 
-           </tr> 
-          </thead> 
-          <tbody> 
-           <tr> 
-            <td class="tableblock halign-left valign-top"><p class="tableblock">about</p></td> 
-            <td class="tableblock halign-left valign-top"><p class="tableblock">2013-10-14</p></td> 
-            <td class="tableblock halign-left valign-top"><p class="tableblock">local</p></td> 
-            <td class="tableblock halign-left valign-top"><p class="tableblock">info on {{page.description}}</p></td> 
-           </tr> 
-          </tbody> 
-         </table> 
-         <div class="dlist"> 
-          <dl> 
-           <dt class="hdlist1">
-             And 
-           </dt> 
-           <dd> 
-            <p>I have an "index.html" page with title "overview" that contains "Overview for {{page.description}}" <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
-           </dd> 
-           <dt class="hdlist1">
-             And 
-           </dt> 
-           <dd> 
-            <p>I have an "special/index.html" page with title "section overview" that contains "Overview for {{page.description}}" <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
-           </dd> 
-           <dt class="hdlist1">
-             And 
-           </dt> 
-           <dd> 
-            <p>I have a configuration file with "defaults" set to "[{scope: {path: "special"}, values: {layout: "subfolder", description: "the special section"}}, {scope: {path: ""}, values: {layout: "root", description: "the webpage"}}]" <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
-           </dd> 
-           <dt class="hdlist1">
-             When 
-           </dt> 
-           <dd> 
-            <p>I run jekyll build <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(641ms)</span></p> 
-           </dd> 
-           <dt class="hdlist1">
-             Then 
-           </dt> 
-           <dd> 
-            <p>the _site directory should exist <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
-           </dd> 
-           <dt class="hdlist1">
-             And 
-           </dt> 
-           <dd> 
-            <p>I should see "root: &lt;p&gt;info on the webpage&lt;/p&gt;" in "_site/2013/10/14/about.html" <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
-           </dd> 
-           <dt class="hdlist1">
-             And 
-           </dt> 
-           <dd> 
-            <p>I should see "subfolder: &lt;p&gt;info on the special section&lt;/p&gt;" in "_site/special/2013/10/14/about.html" <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
-           </dd> 
-           <dt class="hdlist1">
-             And 
-           </dt> 
-           <dd> 
-            <p>I should see "root: Overview for the webpage" in "_site/index.html" <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
-           </dd> 
-           <dt class="hdlist1">
-             And 
-           </dt> 
-           <dd> 
-            <p>I should see "subfolder: Overview for the special section" in "_site/special/index.html" <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
-           </dd> 
-          </dl> 
-         </div> 
-        </div> 
-       </div> 
-      </div> 
-      <div class="sect3"> 
-       <h4 id="_scenario_use_frontmatter_variables_by_relative_path"><a class="anchor" href="#_scenario_use_frontmatter_variables_by_relative_path"></a>Scenario: Use frontmatter variables by relative path</h4> 
-       <div class="sidebarblock"> 
-        <div class="content"> 
-         <div class="dlist"> 
-          <dl> 
-           <dt class="hdlist1">
-             Given 
-           </dt> 
-           <dd> 
-            <p>I have a _layouts directory <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
-           </dd> 
-           <dt class="hdlist1">
-             And 
-           </dt> 
-           <dd> 
-            <p>I have a main layout that contains "main: {{ content }}" <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
-           </dd> 
-           <dt class="hdlist1">
-             And 
-           </dt> 
-           <dd> 
-            <p>I have a _posts directory <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
-           </dd> 
-           <dt class="hdlist1">
-             And 
-           </dt> 
-           <dd> 
-            <p>I have the following post: <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
-           </dd> 
-          </dl> 
-         </div> 
-         <table class="tableblock frame-all grid-all spread"> 
-          <colgroup> 
-           <col style="width: 33.3333%;"> 
-           <col style="width: 33.3333%;"> 
-           <col style="width: 33.3334%;"> 
-          </colgroup> 
-          <thead> 
-           <tr> 
-            <th class="tableblock halign-left valign-top">title</th> 
-            <th class="tableblock halign-left valign-top">date</th> 
-            <th class="tableblock halign-left valign-top">content</th> 
-           </tr> 
-          </thead> 
-          <tbody> 
-           <tr> 
-            <td class="tableblock halign-left valign-top"><p class="tableblock">about</p></td> 
-            <td class="tableblock halign-left valign-top"><p class="tableblock">2013-10-14</p></td> 
-            <td class="tableblock halign-left valign-top"><p class="tableblock">content of site/2013/10/14/about.html</p></td> 
-           </tr> 
-          </tbody> 
-         </table> 
-         <div class="dlist"> 
-          <dl> 
-           <dt class="hdlist1">
-             And 
-           </dt> 
-           <dd> 
-            <p>I have a special/_posts directory <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
-           </dd> 
-           <dt class="hdlist1">
-             And 
-           </dt> 
-           <dd> 
-            <p>I have the following post in "special": <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
-           </dd> 
-          </dl> 
-         </div> 
-         <table class="tableblock frame-all grid-all spread"> 
-          <colgroup> 
-           <col style="width: 25%;"> 
-           <col style="width: 25%;"> 
-           <col style="width: 25%;"> 
-           <col style="width: 25%;"> 
-          </colgroup> 
-          <thead> 
-           <tr> 
-            <th class="tableblock halign-left valign-top">title</th> 
-            <th class="tableblock halign-left valign-top">date</th> 
-            <th class="tableblock halign-left valign-top">path</th> 
-            <th class="tableblock halign-left valign-top">content</th> 
-           </tr> 
-          </thead> 
-          <tbody> 
-           <tr> 
-            <td class="tableblock halign-left valign-top"><p class="tableblock">about1</p></td> 
-            <td class="tableblock halign-left valign-top"><p class="tableblock">2013-10-14</p></td> 
-            <td class="tableblock halign-left valign-top"><p class="tableblock">local</p></td> 
-            <td class="tableblock halign-left valign-top"><p class="tableblock">content of site/special/2013/10/14/about1.html</p></td> 
-           </tr> 
-           <tr> 
-            <td class="tableblock halign-left valign-top"><p class="tableblock">about2</p></td> 
-            <td class="tableblock halign-left valign-top"><p class="tableblock">2013-10-14</p></td> 
-            <td class="tableblock halign-left valign-top"><p class="tableblock">local</p></td> 
-            <td class="tableblock halign-left valign-top"><p class="tableblock">content of site/special/2013/10/14/about2.html</p></td> 
-           </tr> 
-          </tbody> 
-         </table> 
-         <div class="dlist"> 
-          <dl> 
-           <dt class="hdlist1">
-             And 
-           </dt> 
-           <dd> 
-            <p>I have a configuration file with "defaults" set to "[{scope: {path: "special"}, values: {layout: "main"}}, {scope: {path: "special/_posts"}, values: {layout: "main"}}, {scope: {path: "_posts"}, values: {layout: "main"}}]" <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
-           </dd> 
-           <dt class="hdlist1">
-             When 
-           </dt> 
-           <dd> 
-            <p>I run jekyll build <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(643ms)</span></p> 
-           </dd> 
-           <dt class="hdlist1">
-             Then 
-           </dt> 
-           <dd> 
-            <p>the _site directory should exist <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
-           </dd> 
-           <dt class="hdlist1">
-             And 
-           </dt> 
-           <dd> 
-            <p>I should see "main: &lt;p&gt;content of site/2013/10/14/about.html&lt;/p&gt;" in "_site/2013/10/14/about.html" <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
-           </dd> 
-           <dt class="hdlist1">
-             And 
-           </dt> 
-           <dd> 
-            <p>I should see "main: &lt;p&gt;content of site/special/2013/10/14/about1.html&lt;/p&gt;" in "_site/special/2013/10/14/about1.html" <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
-           </dd> 
-           <dt class="hdlist1">
-             And 
-           </dt> 
-           <dd> 
-            <p>I should see "main: &lt;p&gt;content of site/special/2013/10/14/about2.html&lt;/p&gt;" in "_site/special/2013/10/14/about2.html" <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
-           </dd> 
-          </dl> 
-         </div> 
-        </div> 
-       </div> 
-      </div> 
-      <div class="sect3"> 
-       <h4 id="_scenario_override_frontmatter_defaults_by_type"><a class="anchor" href="#_scenario_override_frontmatter_defaults_by_type"></a>Scenario: Override frontmatter defaults by type</h4> 
-       <div class="sidebarblock"> 
-        <div class="content"> 
-         <div class="dlist"> 
-          <dl> 
-           <dt class="hdlist1">
-             Given 
-           </dt> 
-           <dd> 
-            <p>I have a _posts directory <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
-           </dd> 
-           <dt class="hdlist1">
-             And 
-           </dt> 
-           <dd> 
-            <p>I have the following post: <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
-           </dd> 
-          </dl> 
-         </div> 
-         <table class="tableblock frame-all grid-all spread"> 
-          <colgroup> 
-           <col style="width: 33.3333%;"> 
-           <col style="width: 33.3333%;"> 
-           <col style="width: 33.3334%;"> 
-          </colgroup> 
-          <thead> 
-           <tr> 
-            <th class="tableblock halign-left valign-top">title</th> 
-            <th class="tableblock halign-left valign-top">date</th> 
-            <th class="tableblock halign-left valign-top">content</th> 
-           </tr> 
-          </thead> 
-          <tbody> 
-           <tr> 
-            <td class="tableblock halign-left valign-top"><p class="tableblock">this is a post</p></td> 
-            <td class="tableblock halign-left valign-top"><p class="tableblock">2013-10-14</p></td> 
-            <td class="tableblock halign-left valign-top"><p class="tableblock">blabla</p></td> 
-           </tr> 
-          </tbody> 
-         </table> 
-         <div class="dlist"> 
-          <dl> 
-           <dt class="hdlist1">
-             And 
-           </dt> 
-           <dd> 
-            <p>I have an "index.html" page that contains "interesting stuff" <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
-           </dd> 
-           <dt class="hdlist1">
-             And 
-           </dt> 
-           <dd> 
-            <p>I have a configuration file with "defaults" set to "[{scope: {path: "", type: "post"}, values: {permalink: "/post.html"}}, {scope: {path: "", type: "page"}, values: {permalink: "/page.html"}}, {scope: {path: ""}, values: {permalink: "/perma.html"}}]" <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
-           </dd> 
-           <dt class="hdlist1">
-             When 
-           </dt> 
-           <dd> 
-            <p>I run jekyll build <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(543ms)</span></p> 
-           </dd> 
-           <dt class="hdlist1">
-             Then 
-           </dt> 
-           <dd> 
-            <p>I should see "blabla" in "_site/post.html" <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
-           </dd> 
-           <dt class="hdlist1">
-             And 
-           </dt> 
-           <dd> 
-            <p>I should see "interesting stuff" in "_site/page.html" <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
-           </dd> 
-           <dt class="hdlist1">
-             But 
-           </dt> 
-           <dd> 
-            <p>the "_site/perma.html" file should not exist <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
-           </dd> 
-          </dl> 
-         </div> 
-        </div> 
-       </div> 
-      </div> 
-      <div class="sect3"> 
-       <h4 id="_scenario_actual_frontmatter_overrides_defaults"><a class="anchor" href="#_scenario_actual_frontmatter_overrides_defaults"></a>Scenario: Actual frontmatter overrides defaults</h4> 
-       <div class="sidebarblock"> 
-        <div class="content"> 
-         <div class="dlist"> 
-          <dl> 
-           <dt class="hdlist1">
-             Given 
-           </dt> 
-           <dd> 
-            <p>I have a _posts directory <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
-           </dd> 
-           <dt class="hdlist1">
-             And 
-           </dt> 
-           <dd> 
-            <p>I have the following post: <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
-           </dd> 
-          </dl> 
-         </div> 
-         <table class="tableblock frame-all grid-all spread"> 
-          <colgroup> 
-           <col style="width: 20%;"> 
-           <col style="width: 20%;"> 
-           <col style="width: 20%;"> 
-           <col style="width: 20%;"> 
-           <col style="width: 20%;"> 
-          </colgroup> 
-          <thead> 
-           <tr> 
-            <th class="tableblock halign-left valign-top">title</th> 
-            <th class="tableblock halign-left valign-top">date</th> 
-            <th class="tableblock halign-left valign-top">permalink</th> 
-            <th class="tableblock halign-left valign-top">author</th> 
-            <th class="tableblock halign-left valign-top">content</th> 
-           </tr> 
-          </thead> 
-          <tbody> 
-           <tr> 
-            <td class="tableblock halign-left valign-top"><p class="tableblock">override</p></td> 
-            <td class="tableblock halign-left valign-top"><p class="tableblock">2013-10-14</p></td> 
-            <td class="tableblock halign-left valign-top"><p class="tableblock">/frontmatter.html</p></td> 
-            <td class="tableblock halign-left valign-top"><p class="tableblock">some guy</p></td> 
-            <td class="tableblock halign-left valign-top"><p class="tableblock">a blog by {{page.author}}</p></td> 
-           </tr> 
-          </tbody> 
-         </table> 
-         <div class="dlist"> 
-          <dl> 
-           <dt class="hdlist1">
-             And 
-           </dt> 
-           <dd> 
-            <p>I have an "index.html" page with permalink "override.html" that contains "nothing" <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
-           </dd> 
-           <dt class="hdlist1">
-             And 
-           </dt> 
-           <dd> 
-            <p>I have a configuration file with "defaults" set to "[{scope: {path: ""}, values: {permalink: "/perma.html", author: "Chris"}}]" <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
-           </dd> 
-           <dt class="hdlist1">
-             When 
-           </dt> 
-           <dd> 
-            <p>I run jekyll build <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(556ms)</span></p> 
-           </dd> 
-           <dt class="hdlist1">
-             Then 
-           </dt> 
-           <dd> 
-            <p>I should see "a blog by some guy" in "_site/frontmatter.html" <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
-           </dd> 
-           <dt class="hdlist1">
-             And 
-           </dt> 
-           <dd> 
-            <p>I should see "nothing" in "_site/override.html" <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
-           </dd> 
-           <dt class="hdlist1">
-             But 
-           </dt> 
-           <dd> 
-            <p>the "_site/perma.html" file should not exist <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
-           </dd> 
-          </dl> 
-         </div> 
-        </div> 
-       </div> 
-      </div> 
-      <div class="sect3"> 
-       <h4 id="_scenario_define_permalink_default_for_posts"><a class="anchor" href="#_scenario_define_permalink_default_for_posts"></a>Scenario: Define permalink default for posts</h4> 
-       <div class="sidebarblock"> 
-        <div class="content"> 
-         <div class="dlist"> 
-          <dl> 
-           <dt class="hdlist1">
-             Given 
-           </dt> 
-           <dd> 
-            <p>I have a _posts directory <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
-           </dd> 
-           <dt class="hdlist1">
-             And 
-           </dt> 
-           <dd> 
-            <p>I have the following post: <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
-           </dd> 
-          </dl> 
-         </div> 
-         <table class="tableblock frame-all grid-all spread"> 
-          <colgroup> 
-           <col style="width: 25%;"> 
-           <col style="width: 25%;"> 
-           <col style="width: 25%;"> 
-           <col style="width: 25%;"> 
-          </colgroup> 
-          <thead> 
-           <tr> 
-            <th class="tableblock halign-left valign-top">title</th> 
-            <th class="tableblock halign-left valign-top">date</th> 
-            <th class="tableblock halign-left valign-top">category</th> 
-            <th class="tableblock halign-left valign-top">content</th> 
-           </tr> 
-          </thead> 
-          <tbody> 
-           <tr> 
-            <td class="tableblock halign-left valign-top"><p class="tableblock">testpost</p></td> 
-            <td class="tableblock halign-left valign-top"><p class="tableblock">2013-10-14</p></td> 
-            <td class="tableblock halign-left valign-top"><p class="tableblock">blog</p></td> 
-            <td class="tableblock halign-left valign-top"><p class="tableblock">blabla</p></td> 
-           </tr> 
-          </tbody> 
-         </table> 
-         <div class="dlist"> 
-          <dl> 
-           <dt class="hdlist1">
-             And 
-           </dt> 
-           <dd> 
-            <p>I have a configuration file with "defaults" set to "[{scope: {path: "", type: "posts"}, values: {permalink: "/:categories/:title/"}}]" <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
-           </dd> 
-           <dt class="hdlist1">
-             When 
-           </dt> 
-           <dd> 
-            <p>I run jekyll build <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(584ms)</span></p> 
-           </dd> 
-           <dt class="hdlist1">
-             Then 
-           </dt> 
-           <dd> 
-            <p>I should see "blabla" in "_site/blog/testpost/index.html" <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
-           </dd> 
-          </dl> 
-         </div> 
-        </div> 
-       </div> 
-      </div> 
-      <div class="sect3"> 
-       <h4 id="_scenario_use_frontmatter_defaults_in_collections"><a class="anchor" href="#_scenario_use_frontmatter_defaults_in_collections"></a>Scenario: Use frontmatter defaults in collections</h4> 
-       <div class="sidebarblock"> 
-        <div class="content"> 
-         <div class="dlist"> 
-          <dl> 
-           <dt class="hdlist1">
-             Given 
-           </dt> 
-           <dd> 
-            <p>I have a _slides directory <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
-           </dd> 
-           <dt class="hdlist1">
-             And 
-           </dt> 
-           <dd> 
-            <p>I have a "index.html" file that contains "nothing" <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
-           </dd> 
-           <dt class="hdlist1">
-             And 
-           </dt> 
-           <dd> 
-            <p>I have a "_slides/slide1.html" file with content: <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
-           </dd> 
-          </dl> 
-         </div> 
-         <div class="listingblock"> 
-          <div class="content"> 
-           <pre>---
----
-Value: {{ page.myval }}</pre> 
-          </div> 
-         </div> 
-         <div class="dlist"> 
-          <dl> 
-           <dt class="hdlist1">
-             And 
-           </dt> 
-           <dd> 
-            <p>I have a "_config.yml" file with content: <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
-           </dd> 
-          </dl> 
-         </div> 
-         <div class="listingblock"> 
-          <div class="content"> 
-           <pre>  collections:
-    slides:
-      output: true
-  defaults:
-    -
-      scope:
-        path: ""
-        type: slides
-      values:
-        myval: "Test"</pre> 
-          </div> 
-         </div> 
-         <div class="dlist"> 
-          <dl> 
-           <dt class="hdlist1">
-             When 
-           </dt> 
-           <dd> 
-            <p>I run jekyll build <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(607ms)</span></p> 
-           </dd> 
-           <dt class="hdlist1">
-             Then 
-           </dt> 
-           <dd> 
-            <p>the _site directory should exist <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
-           </dd> 
-           <dt class="hdlist1">
-             And 
-           </dt> 
-           <dd> 
-            <p>I should see "Value: Test" in "_site/slides/slide1.html" <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
-           </dd> 
-          </dl> 
-         </div> 
-        </div> 
-       </div> 
-      </div> 
-      <div class="sect3"> 
-       <h4 id="_scenario_override_frontmatter_defaults_inside_a_collection"><a class="anchor" href="#_scenario_override_frontmatter_defaults_inside_a_collection"></a>Scenario: Override frontmatter defaults inside a collection</h4> 
-       <div class="sidebarblock"> 
-        <div class="content"> 
-         <div class="dlist"> 
-          <dl> 
-           <dt class="hdlist1">
-             Given 
-           </dt> 
-           <dd> 
-            <p>I have a _slides directory <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
-           </dd> 
-           <dt class="hdlist1">
-             And 
-           </dt> 
-           <dd> 
-            <p>I have a "index.html" file that contains "nothing" <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
-           </dd> 
-           <dt class="hdlist1">
-             And 
-           </dt> 
-           <dd> 
-            <p>I have a "_slides/slide2.html" file with content: <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
-           </dd> 
-          </dl> 
-         </div> 
-         <div class="listingblock"> 
-          <div class="content"> 
-           <pre>---
-myval: Override
----
-Value: {{ page.myval }}</pre> 
-          </div> 
-         </div> 
-         <div class="dlist"> 
-          <dl> 
-           <dt class="hdlist1">
-             And 
-           </dt> 
-           <dd> 
-            <p>I have a "_config.yml" file with content: <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
-           </dd> 
-          </dl> 
-         </div> 
-         <div class="listingblock"> 
-          <div class="content"> 
-           <pre>  collections:
-    slides:
-      output: true
-  defaults:
-    -
-      scope:
-        path: ""
-        type: slides
-      values:
-        myval: "Test"</pre> 
-          </div> 
-         </div> 
-         <div class="dlist"> 
-          <dl> 
-           <dt class="hdlist1">
-             When 
-           </dt> 
-           <dd> 
-            <p>I run jekyll build <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(509ms)</span></p> 
-           </dd> 
-           <dt class="hdlist1">
-             Then 
-           </dt> 
-           <dd> 
-            <p>the _site directory should exist <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
-           </dd> 
-           <dt class="hdlist1">
-             And 
-           </dt> 
-           <dd> 
-            <p>I should see "Value: Override" in "_site/slides/slide2.html" <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
-           </dd> 
-          </dl> 
-         </div> 
-        </div> 
-       </div> 
-      </div> 
-      <div class="sect3"> 
-       <h4 id="_scenario_deep_merge_frontmatter_defaults"><a class="anchor" href="#_scenario_deep_merge_frontmatter_defaults"></a>Scenario: Deep merge frontmatter defaults</h4> 
-       <div class="sidebarblock"> 
-        <div class="content"> 
-         <div class="dlist"> 
-          <dl> 
-           <dt class="hdlist1">
-             Given 
-           </dt> 
-           <dd> 
-            <p>I have an "index.html" page with fruit "{orange: 1}" that contains "Fruits: {{ page.fruit.orange | plus: page.fruit.apple }}" <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
-           </dd> 
-           <dt class="hdlist1">
-             And 
-           </dt> 
-           <dd> 
-            <p>I have a configuration file with "defaults" set to "[{scope: {path: ""}, values: {fruit: {apple: 2}}}]" <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
-           </dd> 
-           <dt class="hdlist1">
-             When 
-           </dt> 
-           <dd> 
-            <p>I run jekyll build <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(560ms)</span></p> 
-           </dd> 
-           <dt class="hdlist1">
-             Then 
-           </dt> 
-           <dd> 
-            <p>I should see "Fruits: 3" in "_site/index.html" <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
            </dd> 
           </dl> 
          </div> 
@@ -13226,13 +12296,943 @@ text: all your base are belong to us
        </table> 
       </div> 
      </div> 
+     <div class="sect2"> 
+      <h3 id="frontmatter-defaults"><a class="anchor" href="#frontmatter-defaults"></a><strong>frontmatter defaults</strong></h3> 
+      <span class="fa fa-minus-square fa-fw" style="cursor:pointer;float:right;margin-top:-30px" title="Minimize" onclick="hideFeatureScenarios('frontmatter-defaults');document.getElementById('hidden-frontmatter-defaults').style.display = 'inline';this.style.display = 'none'"> </span> 
+      <span id="hidden-frontmatter-defaults" class="fa fa-plus-square fa-fw" style="cursor:pointer;float:right;display:none;margin-top:-30px" title="Maximize feature" onclick="showFeatureScenarios('frontmatter-defaults');this.style.display = 'none'"> </span> 
+      <div class="sect3"> 
+       <h4 id="_scenario_use_default_for_frontmatter_variables_internally"><a class="anchor" href="#_scenario_use_default_for_frontmatter_variables_internally"></a>Scenario: Use default for frontmatter variables internally</h4> 
+       <div class="sidebarblock"> 
+        <div class="content"> 
+         <div class="dlist"> 
+          <dl> 
+           <dt class="hdlist1">
+             Given 
+           </dt> 
+           <dd> 
+            <p>I have a _layouts directory <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
+           </dd> 
+           <dt class="hdlist1">
+             And 
+           </dt> 
+           <dd> 
+            <p>I have a pretty layout that contains "THIS IS THE LAYOUT: {{content}}" <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
+           </dd> 
+           <dt class="hdlist1">
+             And 
+           </dt> 
+           <dd> 
+            <p>I have a _posts directory <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
+           </dd> 
+           <dt class="hdlist1">
+             And 
+           </dt> 
+           <dd> 
+            <p>I have the following post: <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
+           </dd> 
+          </dl> 
+         </div> 
+         <table class="tableblock frame-all grid-all spread"> 
+          <colgroup> 
+           <col style="width: 33.3333%;"> 
+           <col style="width: 33.3333%;"> 
+           <col style="width: 33.3334%;"> 
+          </colgroup> 
+          <thead> 
+           <tr> 
+            <th class="tableblock halign-left valign-top">title</th> 
+            <th class="tableblock halign-left valign-top">date</th> 
+            <th class="tableblock halign-left valign-top">content</th> 
+           </tr> 
+          </thead> 
+          <tbody> 
+           <tr> 
+            <td class="tableblock halign-left valign-top"><p class="tableblock">default layout</p></td> 
+            <td class="tableblock halign-left valign-top"><p class="tableblock">2013-09-11</p></td> 
+            <td class="tableblock halign-left valign-top"><p class="tableblock">just some post</p></td> 
+           </tr> 
+          </tbody> 
+         </table> 
+         <div class="dlist"> 
+          <dl> 
+           <dt class="hdlist1">
+             And 
+           </dt> 
+           <dd> 
+            <p>I have an "index.html" page with title "some title" that contains "just some page" <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
+           </dd> 
+           <dt class="hdlist1">
+             And 
+           </dt> 
+           <dd> 
+            <p>I have a configuration file with "defaults" set to "[{scope: {path: ""}, values: {layout: "pretty"}}]" <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
+           </dd> 
+           <dt class="hdlist1">
+             When 
+           </dt> 
+           <dd> 
+            <p>I run jekyll build <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(638ms)</span></p> 
+           </dd> 
+           <dt class="hdlist1">
+             Then 
+           </dt> 
+           <dd> 
+            <p>the _site directory should exist <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
+           </dd> 
+           <dt class="hdlist1">
+             And 
+           </dt> 
+           <dd> 
+            <p>I should see "THIS IS THE LAYOUT: &lt;p&gt;just some post&lt;/p&gt;" in "_site/2013/09/11/default-layout.html" <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
+           </dd> 
+           <dt class="hdlist1">
+             And 
+           </dt> 
+           <dd> 
+            <p>I should see "THIS IS THE LAYOUT: just some page" in "_site/index.html" <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
+           </dd> 
+          </dl> 
+         </div> 
+        </div> 
+       </div> 
+      </div> 
+      <div class="sect3"> 
+       <h4 id="_scenario_use_default_for_frontmatter_variables_in_liquid"><a class="anchor" href="#_scenario_use_default_for_frontmatter_variables_in_liquid"></a>Scenario: Use default for frontmatter variables in Liquid</h4> 
+       <div class="sidebarblock"> 
+        <div class="content"> 
+         <div class="dlist"> 
+          <dl> 
+           <dt class="hdlist1">
+             Given 
+           </dt> 
+           <dd> 
+            <p>I have a _posts directory <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
+           </dd> 
+           <dt class="hdlist1">
+             And 
+           </dt> 
+           <dd> 
+            <p>I have the following post: <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
+           </dd> 
+          </dl> 
+         </div> 
+         <table class="tableblock frame-all grid-all spread"> 
+          <colgroup> 
+           <col style="width: 33.3333%;"> 
+           <col style="width: 33.3333%;"> 
+           <col style="width: 33.3334%;"> 
+          </colgroup> 
+          <thead> 
+           <tr> 
+            <th class="tableblock halign-left valign-top">title</th> 
+            <th class="tableblock halign-left valign-top">date</th> 
+            <th class="tableblock halign-left valign-top">content</th> 
+           </tr> 
+          </thead> 
+          <tbody> 
+           <tr> 
+            <td class="tableblock halign-left valign-top"><p class="tableblock">default data</p></td> 
+            <td class="tableblock halign-left valign-top"><p class="tableblock">2013-09-11</p></td> 
+            <td class="tableblock halign-left valign-top"><p class="tableblock">&lt;p&gt;{{page.custom}}&lt;/p&gt;&lt;div&gt;{{page.author}}&lt;/div&gt;</p></td> 
+           </tr> 
+          </tbody> 
+         </table> 
+         <div class="dlist"> 
+          <dl> 
+           <dt class="hdlist1">
+             And 
+           </dt> 
+           <dd> 
+            <p>I have an "index.html" page that contains "just {{page.custom}} by {{page.author}}" <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
+           </dd> 
+           <dt class="hdlist1">
+             And 
+           </dt> 
+           <dd> 
+            <p>I have a configuration file with "defaults" set to "[{scope: {path: ""}, values: {custom: "some special data", author: "Ben"}}]" <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
+           </dd> 
+           <dt class="hdlist1">
+             When 
+           </dt> 
+           <dd> 
+            <p>I run jekyll build <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(626ms)</span></p> 
+           </dd> 
+           <dt class="hdlist1">
+             Then 
+           </dt> 
+           <dd> 
+            <p>the _site directory should exist <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
+           </dd> 
+           <dt class="hdlist1">
+             And 
+           </dt> 
+           <dd> 
+            <p>I should see "&lt;p&gt;some special data&lt;/p&gt;\n&lt;div&gt;Ben&lt;/div&gt;" in "_site/2013/09/11/default-data.html" <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
+           </dd> 
+           <dt class="hdlist1">
+             And 
+           </dt> 
+           <dd> 
+            <p>I should see "just some special data by Ben" in "_site/index.html" <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
+           </dd> 
+          </dl> 
+         </div> 
+        </div> 
+       </div> 
+      </div> 
+      <div class="sect3"> 
+       <h4 id="_scenario_override_frontmatter_defaults_by_path"><a class="anchor" href="#_scenario_override_frontmatter_defaults_by_path"></a>Scenario: Override frontmatter defaults by path</h4> 
+       <div class="sidebarblock"> 
+        <div class="content"> 
+         <div class="dlist"> 
+          <dl> 
+           <dt class="hdlist1">
+             Given 
+           </dt> 
+           <dd> 
+            <p>I have a _layouts directory <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
+           </dd> 
+           <dt class="hdlist1">
+             And 
+           </dt> 
+           <dd> 
+            <p>I have a root layout that contains "root: {{ content }}" <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
+           </dd> 
+           <dt class="hdlist1">
+             And 
+           </dt> 
+           <dd> 
+            <p>I have a subfolder layout that contains "subfolder: {{ content }}" <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
+           </dd> 
+           <dt class="hdlist1">
+             And 
+           </dt> 
+           <dd> 
+            <p>I have a _posts directory <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
+           </dd> 
+           <dt class="hdlist1">
+             And 
+           </dt> 
+           <dd> 
+            <p>I have the following post: <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
+           </dd> 
+          </dl> 
+         </div> 
+         <table class="tableblock frame-all grid-all spread"> 
+          <colgroup> 
+           <col style="width: 33.3333%;"> 
+           <col style="width: 33.3333%;"> 
+           <col style="width: 33.3334%;"> 
+          </colgroup> 
+          <thead> 
+           <tr> 
+            <th class="tableblock halign-left valign-top">title</th> 
+            <th class="tableblock halign-left valign-top">date</th> 
+            <th class="tableblock halign-left valign-top">content</th> 
+           </tr> 
+          </thead> 
+          <tbody> 
+           <tr> 
+            <td class="tableblock halign-left valign-top"><p class="tableblock">about</p></td> 
+            <td class="tableblock halign-left valign-top"><p class="tableblock">2013-10-14</p></td> 
+            <td class="tableblock halign-left valign-top"><p class="tableblock">info on {{page.description}}</p></td> 
+           </tr> 
+          </tbody> 
+         </table> 
+         <div class="dlist"> 
+          <dl> 
+           <dt class="hdlist1">
+             And 
+           </dt> 
+           <dd> 
+            <p>I have a special/_posts directory <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
+           </dd> 
+           <dt class="hdlist1">
+             And 
+           </dt> 
+           <dd> 
+            <p>I have the following post in "special": <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
+           </dd> 
+          </dl> 
+         </div> 
+         <table class="tableblock frame-all grid-all spread"> 
+          <colgroup> 
+           <col style="width: 25%;"> 
+           <col style="width: 25%;"> 
+           <col style="width: 25%;"> 
+           <col style="width: 25%;"> 
+          </colgroup> 
+          <thead> 
+           <tr> 
+            <th class="tableblock halign-left valign-top">title</th> 
+            <th class="tableblock halign-left valign-top">date</th> 
+            <th class="tableblock halign-left valign-top">path</th> 
+            <th class="tableblock halign-left valign-top">content</th> 
+           </tr> 
+          </thead> 
+          <tbody> 
+           <tr> 
+            <td class="tableblock halign-left valign-top"><p class="tableblock">about</p></td> 
+            <td class="tableblock halign-left valign-top"><p class="tableblock">2013-10-14</p></td> 
+            <td class="tableblock halign-left valign-top"><p class="tableblock">local</p></td> 
+            <td class="tableblock halign-left valign-top"><p class="tableblock">info on {{page.description}}</p></td> 
+           </tr> 
+          </tbody> 
+         </table> 
+         <div class="dlist"> 
+          <dl> 
+           <dt class="hdlist1">
+             And 
+           </dt> 
+           <dd> 
+            <p>I have an "index.html" page with title "overview" that contains "Overview for {{page.description}}" <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
+           </dd> 
+           <dt class="hdlist1">
+             And 
+           </dt> 
+           <dd> 
+            <p>I have an "special/index.html" page with title "section overview" that contains "Overview for {{page.description}}" <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
+           </dd> 
+           <dt class="hdlist1">
+             And 
+           </dt> 
+           <dd> 
+            <p>I have a configuration file with "defaults" set to "[{scope: {path: "special"}, values: {layout: "subfolder", description: "the special section"}}, {scope: {path: ""}, values: {layout: "root", description: "the webpage"}}]" <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
+           </dd> 
+           <dt class="hdlist1">
+             When 
+           </dt> 
+           <dd> 
+            <p>I run jekyll build <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(641ms)</span></p> 
+           </dd> 
+           <dt class="hdlist1">
+             Then 
+           </dt> 
+           <dd> 
+            <p>the _site directory should exist <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
+           </dd> 
+           <dt class="hdlist1">
+             And 
+           </dt> 
+           <dd> 
+            <p>I should see "root: &lt;p&gt;info on the webpage&lt;/p&gt;" in "_site/2013/10/14/about.html" <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
+           </dd> 
+           <dt class="hdlist1">
+             And 
+           </dt> 
+           <dd> 
+            <p>I should see "subfolder: &lt;p&gt;info on the special section&lt;/p&gt;" in "_site/special/2013/10/14/about.html" <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
+           </dd> 
+           <dt class="hdlist1">
+             And 
+           </dt> 
+           <dd> 
+            <p>I should see "root: Overview for the webpage" in "_site/index.html" <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
+           </dd> 
+           <dt class="hdlist1">
+             And 
+           </dt> 
+           <dd> 
+            <p>I should see "subfolder: Overview for the special section" in "_site/special/index.html" <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
+           </dd> 
+          </dl> 
+         </div> 
+        </div> 
+       </div> 
+      </div> 
+      <div class="sect3"> 
+       <h4 id="_scenario_use_frontmatter_variables_by_relative_path"><a class="anchor" href="#_scenario_use_frontmatter_variables_by_relative_path"></a>Scenario: Use frontmatter variables by relative path</h4> 
+       <div class="sidebarblock"> 
+        <div class="content"> 
+         <div class="dlist"> 
+          <dl> 
+           <dt class="hdlist1">
+             Given 
+           </dt> 
+           <dd> 
+            <p>I have a _layouts directory <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
+           </dd> 
+           <dt class="hdlist1">
+             And 
+           </dt> 
+           <dd> 
+            <p>I have a main layout that contains "main: {{ content }}" <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
+           </dd> 
+           <dt class="hdlist1">
+             And 
+           </dt> 
+           <dd> 
+            <p>I have a _posts directory <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
+           </dd> 
+           <dt class="hdlist1">
+             And 
+           </dt> 
+           <dd> 
+            <p>I have the following post: <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
+           </dd> 
+          </dl> 
+         </div> 
+         <table class="tableblock frame-all grid-all spread"> 
+          <colgroup> 
+           <col style="width: 33.3333%;"> 
+           <col style="width: 33.3333%;"> 
+           <col style="width: 33.3334%;"> 
+          </colgroup> 
+          <thead> 
+           <tr> 
+            <th class="tableblock halign-left valign-top">title</th> 
+            <th class="tableblock halign-left valign-top">date</th> 
+            <th class="tableblock halign-left valign-top">content</th> 
+           </tr> 
+          </thead> 
+          <tbody> 
+           <tr> 
+            <td class="tableblock halign-left valign-top"><p class="tableblock">about</p></td> 
+            <td class="tableblock halign-left valign-top"><p class="tableblock">2013-10-14</p></td> 
+            <td class="tableblock halign-left valign-top"><p class="tableblock">content of site/2013/10/14/about.html</p></td> 
+           </tr> 
+          </tbody> 
+         </table> 
+         <div class="dlist"> 
+          <dl> 
+           <dt class="hdlist1">
+             And 
+           </dt> 
+           <dd> 
+            <p>I have a special/_posts directory <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
+           </dd> 
+           <dt class="hdlist1">
+             And 
+           </dt> 
+           <dd> 
+            <p>I have the following post in "special": <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
+           </dd> 
+          </dl> 
+         </div> 
+         <table class="tableblock frame-all grid-all spread"> 
+          <colgroup> 
+           <col style="width: 25%;"> 
+           <col style="width: 25%;"> 
+           <col style="width: 25%;"> 
+           <col style="width: 25%;"> 
+          </colgroup> 
+          <thead> 
+           <tr> 
+            <th class="tableblock halign-left valign-top">title</th> 
+            <th class="tableblock halign-left valign-top">date</th> 
+            <th class="tableblock halign-left valign-top">path</th> 
+            <th class="tableblock halign-left valign-top">content</th> 
+           </tr> 
+          </thead> 
+          <tbody> 
+           <tr> 
+            <td class="tableblock halign-left valign-top"><p class="tableblock">about1</p></td> 
+            <td class="tableblock halign-left valign-top"><p class="tableblock">2013-10-14</p></td> 
+            <td class="tableblock halign-left valign-top"><p class="tableblock">local</p></td> 
+            <td class="tableblock halign-left valign-top"><p class="tableblock">content of site/special/2013/10/14/about1.html</p></td> 
+           </tr> 
+           <tr> 
+            <td class="tableblock halign-left valign-top"><p class="tableblock">about2</p></td> 
+            <td class="tableblock halign-left valign-top"><p class="tableblock">2013-10-14</p></td> 
+            <td class="tableblock halign-left valign-top"><p class="tableblock">local</p></td> 
+            <td class="tableblock halign-left valign-top"><p class="tableblock">content of site/special/2013/10/14/about2.html</p></td> 
+           </tr> 
+          </tbody> 
+         </table> 
+         <div class="dlist"> 
+          <dl> 
+           <dt class="hdlist1">
+             And 
+           </dt> 
+           <dd> 
+            <p>I have a configuration file with "defaults" set to "[{scope: {path: "special"}, values: {layout: "main"}}, {scope: {path: "special/_posts"}, values: {layout: "main"}}, {scope: {path: "_posts"}, values: {layout: "main"}}]" <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
+           </dd> 
+           <dt class="hdlist1">
+             When 
+           </dt> 
+           <dd> 
+            <p>I run jekyll build <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(643ms)</span></p> 
+           </dd> 
+           <dt class="hdlist1">
+             Then 
+           </dt> 
+           <dd> 
+            <p>the _site directory should exist <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
+           </dd> 
+           <dt class="hdlist1">
+             And 
+           </dt> 
+           <dd> 
+            <p>I should see "main: &lt;p&gt;content of site/2013/10/14/about.html&lt;/p&gt;" in "_site/2013/10/14/about.html" <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
+           </dd> 
+           <dt class="hdlist1">
+             And 
+           </dt> 
+           <dd> 
+            <p>I should see "main: &lt;p&gt;content of site/special/2013/10/14/about1.html&lt;/p&gt;" in "_site/special/2013/10/14/about1.html" <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
+           </dd> 
+           <dt class="hdlist1">
+             And 
+           </dt> 
+           <dd> 
+            <p>I should see "main: &lt;p&gt;content of site/special/2013/10/14/about2.html&lt;/p&gt;" in "_site/special/2013/10/14/about2.html" <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
+           </dd> 
+          </dl> 
+         </div> 
+        </div> 
+       </div> 
+      </div> 
+      <div class="sect3"> 
+       <h4 id="_scenario_override_frontmatter_defaults_by_type"><a class="anchor" href="#_scenario_override_frontmatter_defaults_by_type"></a>Scenario: Override frontmatter defaults by type</h4> 
+       <div class="sidebarblock"> 
+        <div class="content"> 
+         <div class="dlist"> 
+          <dl> 
+           <dt class="hdlist1">
+             Given 
+           </dt> 
+           <dd> 
+            <p>I have a _posts directory <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
+           </dd> 
+           <dt class="hdlist1">
+             And 
+           </dt> 
+           <dd> 
+            <p>I have the following post: <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
+           </dd> 
+          </dl> 
+         </div> 
+         <table class="tableblock frame-all grid-all spread"> 
+          <colgroup> 
+           <col style="width: 33.3333%;"> 
+           <col style="width: 33.3333%;"> 
+           <col style="width: 33.3334%;"> 
+          </colgroup> 
+          <thead> 
+           <tr> 
+            <th class="tableblock halign-left valign-top">title</th> 
+            <th class="tableblock halign-left valign-top">date</th> 
+            <th class="tableblock halign-left valign-top">content</th> 
+           </tr> 
+          </thead> 
+          <tbody> 
+           <tr> 
+            <td class="tableblock halign-left valign-top"><p class="tableblock">this is a post</p></td> 
+            <td class="tableblock halign-left valign-top"><p class="tableblock">2013-10-14</p></td> 
+            <td class="tableblock halign-left valign-top"><p class="tableblock">blabla</p></td> 
+           </tr> 
+          </tbody> 
+         </table> 
+         <div class="dlist"> 
+          <dl> 
+           <dt class="hdlist1">
+             And 
+           </dt> 
+           <dd> 
+            <p>I have an "index.html" page that contains "interesting stuff" <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
+           </dd> 
+           <dt class="hdlist1">
+             And 
+           </dt> 
+           <dd> 
+            <p>I have a configuration file with "defaults" set to "[{scope: {path: "", type: "post"}, values: {permalink: "/post.html"}}, {scope: {path: "", type: "page"}, values: {permalink: "/page.html"}}, {scope: {path: ""}, values: {permalink: "/perma.html"}}]" <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
+           </dd> 
+           <dt class="hdlist1">
+             When 
+           </dt> 
+           <dd> 
+            <p>I run jekyll build <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(543ms)</span></p> 
+           </dd> 
+           <dt class="hdlist1">
+             Then 
+           </dt> 
+           <dd> 
+            <p>I should see "blabla" in "_site/post.html" <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
+           </dd> 
+           <dt class="hdlist1">
+             And 
+           </dt> 
+           <dd> 
+            <p>I should see "interesting stuff" in "_site/page.html" <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
+           </dd> 
+           <dt class="hdlist1">
+             But 
+           </dt> 
+           <dd> 
+            <p>the "_site/perma.html" file should not exist <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
+           </dd> 
+          </dl> 
+         </div> 
+        </div> 
+       </div> 
+      </div> 
+      <div class="sect3"> 
+       <h4 id="_scenario_actual_frontmatter_overrides_defaults"><a class="anchor" href="#_scenario_actual_frontmatter_overrides_defaults"></a>Scenario: Actual frontmatter overrides defaults</h4> 
+       <div class="sidebarblock"> 
+        <div class="content"> 
+         <div class="dlist"> 
+          <dl> 
+           <dt class="hdlist1">
+             Given 
+           </dt> 
+           <dd> 
+            <p>I have a _posts directory <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
+           </dd> 
+           <dt class="hdlist1">
+             And 
+           </dt> 
+           <dd> 
+            <p>I have the following post: <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
+           </dd> 
+          </dl> 
+         </div> 
+         <table class="tableblock frame-all grid-all spread"> 
+          <colgroup> 
+           <col style="width: 20%;"> 
+           <col style="width: 20%;"> 
+           <col style="width: 20%;"> 
+           <col style="width: 20%;"> 
+           <col style="width: 20%;"> 
+          </colgroup> 
+          <thead> 
+           <tr> 
+            <th class="tableblock halign-left valign-top">title</th> 
+            <th class="tableblock halign-left valign-top">date</th> 
+            <th class="tableblock halign-left valign-top">permalink</th> 
+            <th class="tableblock halign-left valign-top">author</th> 
+            <th class="tableblock halign-left valign-top">content</th> 
+           </tr> 
+          </thead> 
+          <tbody> 
+           <tr> 
+            <td class="tableblock halign-left valign-top"><p class="tableblock">override</p></td> 
+            <td class="tableblock halign-left valign-top"><p class="tableblock">2013-10-14</p></td> 
+            <td class="tableblock halign-left valign-top"><p class="tableblock">/frontmatter.html</p></td> 
+            <td class="tableblock halign-left valign-top"><p class="tableblock">some guy</p></td> 
+            <td class="tableblock halign-left valign-top"><p class="tableblock">a blog by {{page.author}}</p></td> 
+           </tr> 
+          </tbody> 
+         </table> 
+         <div class="dlist"> 
+          <dl> 
+           <dt class="hdlist1">
+             And 
+           </dt> 
+           <dd> 
+            <p>I have an "index.html" page with permalink "override.html" that contains "nothing" <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
+           </dd> 
+           <dt class="hdlist1">
+             And 
+           </dt> 
+           <dd> 
+            <p>I have a configuration file with "defaults" set to "[{scope: {path: ""}, values: {permalink: "/perma.html", author: "Chris"}}]" <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
+           </dd> 
+           <dt class="hdlist1">
+             When 
+           </dt> 
+           <dd> 
+            <p>I run jekyll build <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(556ms)</span></p> 
+           </dd> 
+           <dt class="hdlist1">
+             Then 
+           </dt> 
+           <dd> 
+            <p>I should see "a blog by some guy" in "_site/frontmatter.html" <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
+           </dd> 
+           <dt class="hdlist1">
+             And 
+           </dt> 
+           <dd> 
+            <p>I should see "nothing" in "_site/override.html" <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
+           </dd> 
+           <dt class="hdlist1">
+             But 
+           </dt> 
+           <dd> 
+            <p>the "_site/perma.html" file should not exist <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
+           </dd> 
+          </dl> 
+         </div> 
+        </div> 
+       </div> 
+      </div> 
+      <div class="sect3"> 
+       <h4 id="_scenario_define_permalink_default_for_posts"><a class="anchor" href="#_scenario_define_permalink_default_for_posts"></a>Scenario: Define permalink default for posts</h4> 
+       <div class="sidebarblock"> 
+        <div class="content"> 
+         <div class="dlist"> 
+          <dl> 
+           <dt class="hdlist1">
+             Given 
+           </dt> 
+           <dd> 
+            <p>I have a _posts directory <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
+           </dd> 
+           <dt class="hdlist1">
+             And 
+           </dt> 
+           <dd> 
+            <p>I have the following post: <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
+           </dd> 
+          </dl> 
+         </div> 
+         <table class="tableblock frame-all grid-all spread"> 
+          <colgroup> 
+           <col style="width: 25%;"> 
+           <col style="width: 25%;"> 
+           <col style="width: 25%;"> 
+           <col style="width: 25%;"> 
+          </colgroup> 
+          <thead> 
+           <tr> 
+            <th class="tableblock halign-left valign-top">title</th> 
+            <th class="tableblock halign-left valign-top">date</th> 
+            <th class="tableblock halign-left valign-top">category</th> 
+            <th class="tableblock halign-left valign-top">content</th> 
+           </tr> 
+          </thead> 
+          <tbody> 
+           <tr> 
+            <td class="tableblock halign-left valign-top"><p class="tableblock">testpost</p></td> 
+            <td class="tableblock halign-left valign-top"><p class="tableblock">2013-10-14</p></td> 
+            <td class="tableblock halign-left valign-top"><p class="tableblock">blog</p></td> 
+            <td class="tableblock halign-left valign-top"><p class="tableblock">blabla</p></td> 
+           </tr> 
+          </tbody> 
+         </table> 
+         <div class="dlist"> 
+          <dl> 
+           <dt class="hdlist1">
+             And 
+           </dt> 
+           <dd> 
+            <p>I have a configuration file with "defaults" set to "[{scope: {path: "", type: "posts"}, values: {permalink: "/:categories/:title/"}}]" <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
+           </dd> 
+           <dt class="hdlist1">
+             When 
+           </dt> 
+           <dd> 
+            <p>I run jekyll build <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(584ms)</span></p> 
+           </dd> 
+           <dt class="hdlist1">
+             Then 
+           </dt> 
+           <dd> 
+            <p>I should see "blabla" in "_site/blog/testpost/index.html" <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
+           </dd> 
+          </dl> 
+         </div> 
+        </div> 
+       </div> 
+      </div> 
+      <div class="sect3"> 
+       <h4 id="_scenario_use_frontmatter_defaults_in_collections"><a class="anchor" href="#_scenario_use_frontmatter_defaults_in_collections"></a>Scenario: Use frontmatter defaults in collections</h4> 
+       <div class="sidebarblock"> 
+        <div class="content"> 
+         <div class="dlist"> 
+          <dl> 
+           <dt class="hdlist1">
+             Given 
+           </dt> 
+           <dd> 
+            <p>I have a _slides directory <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
+           </dd> 
+           <dt class="hdlist1">
+             And 
+           </dt> 
+           <dd> 
+            <p>I have a "index.html" file that contains "nothing" <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
+           </dd> 
+           <dt class="hdlist1">
+             And 
+           </dt> 
+           <dd> 
+            <p>I have a "_slides/slide1.html" file with content: <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
+           </dd> 
+          </dl> 
+         </div> 
+         <div class="listingblock"> 
+          <div class="content"> 
+           <pre>---
+---
+Value: {{ page.myval }}</pre> 
+          </div> 
+         </div> 
+         <div class="dlist"> 
+          <dl> 
+           <dt class="hdlist1">
+             And 
+           </dt> 
+           <dd> 
+            <p>I have a "_config.yml" file with content: <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
+           </dd> 
+          </dl> 
+         </div> 
+         <div class="listingblock"> 
+          <div class="content"> 
+           <pre>  collections:
+    slides:
+      output: true
+  defaults:
+    -
+      scope:
+        path: ""
+        type: slides
+      values:
+        myval: "Test"</pre> 
+          </div> 
+         </div> 
+         <div class="dlist"> 
+          <dl> 
+           <dt class="hdlist1">
+             When 
+           </dt> 
+           <dd> 
+            <p>I run jekyll build <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(607ms)</span></p> 
+           </dd> 
+           <dt class="hdlist1">
+             Then 
+           </dt> 
+           <dd> 
+            <p>the _site directory should exist <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
+           </dd> 
+           <dt class="hdlist1">
+             And 
+           </dt> 
+           <dd> 
+            <p>I should see "Value: Test" in "_site/slides/slide1.html" <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
+           </dd> 
+          </dl> 
+         </div> 
+        </div> 
+       </div> 
+      </div> 
+      <div class="sect3"> 
+       <h4 id="_scenario_override_frontmatter_defaults_inside_a_collection"><a class="anchor" href="#_scenario_override_frontmatter_defaults_inside_a_collection"></a>Scenario: Override frontmatter defaults inside a collection</h4> 
+       <div class="sidebarblock"> 
+        <div class="content"> 
+         <div class="dlist"> 
+          <dl> 
+           <dt class="hdlist1">
+             Given 
+           </dt> 
+           <dd> 
+            <p>I have a _slides directory <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
+           </dd> 
+           <dt class="hdlist1">
+             And 
+           </dt> 
+           <dd> 
+            <p>I have a "index.html" file that contains "nothing" <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
+           </dd> 
+           <dt class="hdlist1">
+             And 
+           </dt> 
+           <dd> 
+            <p>I have a "_slides/slide2.html" file with content: <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
+           </dd> 
+          </dl> 
+         </div> 
+         <div class="listingblock"> 
+          <div class="content"> 
+           <pre>---
+myval: Override
+---
+Value: {{ page.myval }}</pre> 
+          </div> 
+         </div> 
+         <div class="dlist"> 
+          <dl> 
+           <dt class="hdlist1">
+             And 
+           </dt> 
+           <dd> 
+            <p>I have a "_config.yml" file with content: <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
+           </dd> 
+          </dl> 
+         </div> 
+         <div class="listingblock"> 
+          <div class="content"> 
+           <pre>  collections:
+    slides:
+      output: true
+  defaults:
+    -
+      scope:
+        path: ""
+        type: slides
+      values:
+        myval: "Test"</pre> 
+          </div> 
+         </div> 
+         <div class="dlist"> 
+          <dl> 
+           <dt class="hdlist1">
+             When 
+           </dt> 
+           <dd> 
+            <p>I run jekyll build <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(509ms)</span></p> 
+           </dd> 
+           <dt class="hdlist1">
+             Then 
+           </dt> 
+           <dd> 
+            <p>the _site directory should exist <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
+           </dd> 
+           <dt class="hdlist1">
+             And 
+           </dt> 
+           <dd> 
+            <p>I should see "Value: Override" in "_site/slides/slide2.html" <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
+           </dd> 
+          </dl> 
+         </div> 
+        </div> 
+       </div> 
+      </div> 
+      <div class="sect3"> 
+       <h4 id="_scenario_deep_merge_frontmatter_defaults"><a class="anchor" href="#_scenario_deep_merge_frontmatter_defaults"></a>Scenario: Deep merge frontmatter defaults</h4> 
+       <div class="sidebarblock"> 
+        <div class="content"> 
+         <div class="dlist"> 
+          <dl> 
+           <dt class="hdlist1">
+             Given 
+           </dt> 
+           <dd> 
+            <p>I have an "index.html" page with fruit "{orange: 1}" that contains "Fruits: {{ page.fruit.orange | plus: page.fruit.apple }}" <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
+           </dd> 
+           <dt class="hdlist1">
+             And 
+           </dt> 
+           <dd> 
+            <p>I have a configuration file with "defaults" set to "[{scope: {path: ""}, values: {fruit: {apple: 2}}}]" <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
+           </dd> 
+           <dt class="hdlist1">
+             When 
+           </dt> 
+           <dd> 
+            <p>I run jekyll build <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(560ms)</span></p> 
+           </dd> 
+           <dt class="hdlist1">
+             Then 
+           </dt> 
+           <dd> 
+            <p>I should see "Fruits: 3" in "_site/index.html" <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
+           </dd> 
+          </dl> 
+         </div> 
+        </div> 
+       </div> 
+      </div> 
+     </div> 
     </div> 
    </div> 
   </div> 
   <div id="footer" style="color:gray;font-size:11px">
    Generated by 
-   <a href="https://github.com/rmpestano/cukedoctor" target="_blank"> Cukedoctor 0.8.0</a> - 01/03/2016 00:28:15
-   <span style="float:right;font-size:11px"> Execution time: 7.396 seconds</span>
+   <a href="https://github.com/rmpestano/cukedoctor" target="_blank"> Cukedoctor 0.9.0</a> - 08/03/2016 21:53:53
+   <span style="float:right;font-size:11px"> Execution time: 8.017 seconds</span>
   </div> 
   <script type="text/javascript">  
 

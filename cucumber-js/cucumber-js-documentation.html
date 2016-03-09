@@ -568,21 +568,9 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
          <li><a href="#_scenario_fail_with_promise">Scenario: fail with promise</a></li> 
          <li><a href="#_scenario_succeed_synchronously">Scenario: succeed synchronously</a></li> 
         </ul> </li> 
-       <li><a href="#step-definition-snippets"><strong>step definition snippets</strong></a> 
-        <ul class="sectlevel3"> 
-         <li><a href="#_scenario_escape_regexp_special_characters">Scenario: escape regexp special characters</a></li> 
-         <li><a href="#_scenario_step_matching_groups">Scenario: step matching groups</a></li> 
-         <li><a href="#_scenario_multiple_matching_groups">Scenario: multiple matching groups</a></li> 
-         <li><a href="#_scenario_outline_steps_with_examples">Scenario: outline steps with examples</a></li> 
-        </ul> </li> 
-       <li><a href="#step-definitions-with-string-pattern"><strong>step definitions with string pattern</strong></a> 
-        <ul class="sectlevel3"> 
-         <li><a href="#_scenario_step_definition_with_string_based_pattern">Scenario: step definition with string-based pattern</a></li> 
-         <li><a href="#_scenario_step_definition_with_string_based_pattern_and_parameters">Scenario: step definition with string-based pattern and parameters</a></li> 
-         <li><a href="#_scenario_step_definition_with_string_based_pattern_and_multiple_parameters">Scenario: step definition with string-based pattern and multiple parameters</a></li> 
-        </ul> </li> 
        <li><a href="#Strict-mode"><strong>Strict mode</strong></a> 
         <ul class="sectlevel3"> 
+         <li><a href="#_background">Background</a></li> 
          <li><a href="#_scenario_succeed_scenario_with_implemented_step_with_strict">Scenario: Succeed scenario with implemented step with --strict</a></li> 
          <li><a href="#_scenario_fail_scenario_with_undefined_step_with_strict">Scenario: Fail scenario with undefined step with --strict</a></li> 
          <li><a href="#_scenario_fail_scenario_with_pending_step_with_strict">Scenario: Fail Scenario with pending step with --strict</a></li> 
@@ -606,6 +594,19 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
        <li><a href="#World-constructor-callback-with-object"><strong>World constructor callback with object</strong></a> 
         <ul class="sectlevel3"> 
          <li><a href="#_scenario_scenario_calling_function_on_explicit_world_instance">Scenario: scenario calling function on explicit world instance</a></li> 
+        </ul> </li> 
+       <li><a href="#step-definition-snippets"><strong>step definition snippets</strong></a> 
+        <ul class="sectlevel3"> 
+         <li><a href="#_scenario_escape_regexp_special_characters">Scenario: escape regexp special characters</a></li> 
+         <li><a href="#_scenario_step_matching_groups">Scenario: step matching groups</a></li> 
+         <li><a href="#_scenario_multiple_matching_groups">Scenario: multiple matching groups</a></li> 
+         <li><a href="#_scenario_outline_steps_with_examples">Scenario: outline steps with examples</a></li> 
+        </ul> </li> 
+       <li><a href="#step-definitions-with-string-pattern"><strong>step definitions with string pattern</strong></a> 
+        <ul class="sectlevel3"> 
+         <li><a href="#_scenario_step_definition_with_string_based_pattern">Scenario: step definition with string-based pattern</a></li> 
+         <li><a href="#_scenario_step_definition_with_string_based_pattern_and_parameters">Scenario: step definition with string-based pattern and parameters</a></li> 
+         <li><a href="#_scenario_step_definition_with_string_based_pattern_and_multiple_parameters">Scenario: step definition with string-based pattern and multiple parameters</a></li> 
         </ul> </li> 
       </ul> </li> 
     </ul> 
@@ -641,15 +642,15 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
       <tfoot> 
        <tr> 
         <td class="tableblock halign-center valign-top"><p class="tableblock"><code>92</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>16</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>108</code></p></td> 
+        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>17</code></p></td> 
+        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>109</code></p></td> 
         <td class="tableblock halign-center valign-top"><p class="tableblock"><code>440</code></p></td> 
         <td class="tableblock halign-center valign-top"><p class="tableblock"><code>0</code></p></td> 
         <td class="tableblock halign-center valign-top"><p class="tableblock"><code>14</code></p></td> 
         <td class="tableblock halign-center valign-top"><p class="tableblock"><code>0</code></p></td> 
         <td class="tableblock halign-center valign-top"><p class="tableblock"><code>43</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>0</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>497</code></p></td> 
+        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>1</code></p></td> 
+        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>498</code></p></td> 
         <td class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><code>19s 210ms</code></p></td> 
        </tr> 
       </tfoot> 
@@ -941,55 +942,21 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
         <td class="tableblock halign-center valign-top"><p class="tableblock"><code><span class="red"><strong>failed</strong></span></code></p></td> 
        </tr> 
        <tr> 
-        <td class="tableblock halign-center valign-top" colspan="12"><p class="tableblock"><code><strong><a href="#step-definition-snippets">step definition snippets</a></strong></code></p></td> 
-       </tr> 
-       <tr> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>1</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>3</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>4</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>9</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>0</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>0</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>0</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>4</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>0</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>13</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>020ms</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code><span class="red"><strong>failed</strong></span></code></p></td> 
-       </tr> 
-       <tr> 
-        <td class="tableblock halign-center valign-top" colspan="12"><p class="tableblock"><code><strong><a href="#step-definitions-with-string-pattern">step definitions with string pattern</a></strong></code></p></td> 
-       </tr> 
-       <tr> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>2</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>1</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>3</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>13</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>0</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>0</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>0</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>1</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>0</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>14</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>012ms</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code><span class="red"><strong>failed</strong></span></code></p></td> 
-       </tr> 
-       <tr> 
         <td class="tableblock halign-center valign-top" colspan="12"><p class="tableblock"><code><strong><a href="#Strict-mode">Strict mode</a></strong></code></p></td> 
        </tr> 
        <tr> 
         <td class="tableblock halign-center valign-top"><p class="tableblock"><code>5</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>0</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>5</code></p></td> 
+        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>1</code></p></td> 
+        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>6</code></p></td> 
         <td class="tableblock halign-center valign-top"><p class="tableblock"><code>23</code></p></td> 
         <td class="tableblock halign-center valign-top"><p class="tableblock"><code>0</code></p></td> 
         <td class="tableblock halign-center valign-top"><p class="tableblock"><code>0</code></p></td> 
         <td class="tableblock halign-center valign-top"><p class="tableblock"><code>0</code></p></td> 
         <td class="tableblock halign-center valign-top"><p class="tableblock"><code>0</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>0</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>23</code></p></td> 
+        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>1</code></p></td> 
+        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>24</code></p></td> 
         <td class="tableblock halign-center valign-top"><p class="tableblock"><code>01s 366ms</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code><span class="green"><strong>passed</strong></span></code></p></td> 
+        <td class="tableblock halign-center valign-top"><p class="tableblock"><code><span class="red"><strong>failed</strong></span></code></p></td> 
        </tr> 
        <tr> 
         <td class="tableblock halign-center valign-top" colspan="12"><p class="tableblock"><code><strong><a href="#Summary-Formatter">Summary Formatter</a></strong></code></p></td> 
@@ -1041,6 +1008,40 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
         <td class="tableblock halign-center valign-top"><p class="tableblock"><code>4</code></p></td> 
         <td class="tableblock halign-center valign-top"><p class="tableblock"><code>006ms</code></p></td> 
         <td class="tableblock halign-center valign-top"><p class="tableblock"><code><span class="green"><strong>passed</strong></span></code></p></td> 
+       </tr> 
+       <tr> 
+        <td class="tableblock halign-center valign-top" colspan="12"><p class="tableblock"><code><strong><a href="#step-definition-snippets">step definition snippets</a></strong></code></p></td> 
+       </tr> 
+       <tr> 
+        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>1</code></p></td> 
+        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>3</code></p></td> 
+        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>4</code></p></td> 
+        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>9</code></p></td> 
+        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>0</code></p></td> 
+        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>0</code></p></td> 
+        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>0</code></p></td> 
+        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>4</code></p></td> 
+        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>0</code></p></td> 
+        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>13</code></p></td> 
+        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>020ms</code></p></td> 
+        <td class="tableblock halign-center valign-top"><p class="tableblock"><code><span class="red"><strong>failed</strong></span></code></p></td> 
+       </tr> 
+       <tr> 
+        <td class="tableblock halign-center valign-top" colspan="12"><p class="tableblock"><code><strong><a href="#step-definitions-with-string-pattern">step definitions with string pattern</a></strong></code></p></td> 
+       </tr> 
+       <tr> 
+        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>2</code></p></td> 
+        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>1</code></p></td> 
+        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>3</code></p></td> 
+        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>13</code></p></td> 
+        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>0</code></p></td> 
+        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>0</code></p></td> 
+        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>0</code></p></td> 
+        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>1</code></p></td> 
+        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>0</code></p></td> 
+        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>14</code></p></td> 
+        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>012ms</code></p></td> 
+        <td class="tableblock halign-center valign-top"><p class="tableblock"><code><span class="red"><strong>failed</strong></span></code></p></td> 
        </tr> 
        <tr> 
         <td class="tableblock halign-center valign-top" colspan="12"><p class="tableblock"><code><strong>Totals</strong></code></p></td> 
@@ -9911,299 +9912,6 @@ module.exports = hooks;</pre>
       </div> 
      </div> 
      <div class="sect2"> 
-      <h3 id="step-definition-snippets"><a class="anchor" href="#step-definition-snippets"></a><strong>step definition snippets</strong></h3> 
-      <span class="fa fa-minus-square fa-fw" style="cursor:pointer;float:right;margin-top:-30px" title="Minimize" onclick="hideFeatureScenarios('step-definition-snippets');document.getElementById('hidden-step-definition-snippets').style.display = 'inline';this.style.display = 'none'"> </span> 
-      <span id="hidden-step-definition-snippets" class="fa fa-plus-square fa-fw" style="cursor:pointer;float:right;display:none;margin-top:-30px" title="Maximize feature" onclick="showFeatureScenarios('step-definition-snippets');this.style.display = 'none'"> </span> 
-      <div class="sect3"> 
-       <h4 id="_scenario_escape_regexp_special_characters"><a class="anchor" href="#_scenario_escape_regexp_special_characters"></a>Scenario: escape regexp special characters</h4> 
-       <div class="sidebarblock"> 
-        <div class="content"> 
-         <div class="dlist"> 
-          <dl> 
-           <dt class="hdlist1">
-             Given 
-           </dt> 
-           <dd> 
-            <p>a scenario with: <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
-           </dd> 
-          </dl> 
-         </div> 
-         <div class="listingblock"> 
-          <div class="content"> 
-           <pre>Given I am a happy veggie \o/
-When I type -[]{}()*+?.\^$|#/</pre> 
-          </div> 
-         </div> 
-         <div class="dlist"> 
-          <dl> 
-           <dt class="hdlist1">
-             When 
-           </dt> 
-           <dd> 
-            <p>Cucumber executes the scenario <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(006ms)</span></p> 
-           </dd> 
-           <dt class="hdlist1">
-             Then 
-           </dt> 
-           <dd> 
-            <p>a "Given" step definition snippet for /^I am a happy veggie \\o\/$/ is suggested <span class="icon yellow"><i class="fa fa-thumbs-down" title="Undefined"></i></span> <span class="small right">(000ms)</span></p> 
-           </dd> 
-           <dt class="hdlist1">
-             Then 
-           </dt> 
-           <dd> 
-            <p>a "When" step definition snippet for /^I type \-\[\]\{\}\(\)\*\+\?\.\\\^\$\|#\/$/ is suggested <span class="icon yellow"><i class="fa fa-thumbs-down" title="Undefined"></i></span> [small right]#(000ms)#</p> 
-           </dd> 
-          </dl> 
-         </div> 
-        </div> 
-       </div> 
-      </div> 
-      <div class="sect3"> 
-       <h4 id="_scenario_step_matching_groups"><a class="anchor" href="#_scenario_step_matching_groups"></a>Scenario: step matching groups</h4> 
-       <div class="sidebarblock"> 
-        <div class="content"> 
-         <div class="dlist"> 
-          <dl> 
-           <dt class="hdlist1">
-             Given 
-           </dt> 
-           <dd> 
-            <p>a scenario with: <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
-           </dd> 
-          </dl> 
-         </div> 
-         <div class="listingblock"> 
-          <div class="content"> 
-           <pre>Given I have 5 "kekiri" cucumbers</pre> 
-          </div> 
-         </div> 
-         <div class="dlist"> 
-          <dl> 
-           <dt class="hdlist1">
-             When 
-           </dt> 
-           <dd> 
-            <p>Cucumber executes the scenario <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(004ms)</span></p> 
-           </dd> 
-           <dt class="hdlist1">
-             Then 
-           </dt> 
-           <dd> 
-            <p>a "Given" step definition snippet for /^I have (\d+) "([^"]*)" cucumbers$/ with 2 parameters is suggested <span class="icon yellow"><i class="fa fa-thumbs-down" title="Undefined"></i></span> <span class="small right">(000ms)</span></p> 
-           </dd> 
-          </dl> 
-         </div> 
-        </div> 
-       </div> 
-      </div> 
-      <div class="sect3"> 
-       <h4 id="_scenario_multiple_matching_groups"><a class="anchor" href="#_scenario_multiple_matching_groups"></a>Scenario: multiple matching groups</h4> 
-       <div class="sidebarblock"> 
-        <div class="content"> 
-         <div class="dlist"> 
-          <dl> 
-           <dt class="hdlist1">
-             Given 
-           </dt> 
-           <dd> 
-            <p>a scenario with: <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
-           </dd> 
-          </dl> 
-         </div> 
-         <div class="listingblock"> 
-          <div class="content"> 
-           <pre>Given I have some "hekiri", "wild" and "regular" cucumbers</pre> 
-          </div> 
-         </div> 
-         <div class="dlist"> 
-          <dl> 
-           <dt class="hdlist1">
-             When 
-           </dt> 
-           <dd> 
-            <p>Cucumber executes the scenario <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(004ms)</span></p> 
-           </dd> 
-           <dt class="hdlist1">
-             Then 
-           </dt> 
-           <dd> 
-            <p>a "Given" step definition snippet for /^I have some "(<strong class="^" ">)", "([^"]</strong>)" and "([^"]*)" cucumbers$/ with 3 parameters is suggested <span class="icon yellow"><i class="fa fa-thumbs-down" title="Undefined"></i></span> <span class="small right">(000ms)</span></p> 
-           </dd> 
-          </dl> 
-         </div> 
-        </div> 
-       </div> 
-      </div> 
-      <div class="sect3"> 
-       <h4 id="_scenario_outline_steps_with_examples"><a class="anchor" href="#_scenario_outline_steps_with_examples"></a>Scenario: outline steps with examples</h4> 
-       <div class="sidebarblock"> 
-        <div class="content"> 
-         <div class="dlist"> 
-          <dl> 
-           <dt class="hdlist1">
-             Given 
-           </dt> 
-           <dd> 
-            <p>a scenario with: <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
-           </dd> 
-          </dl> 
-         </div> 
-         <div class="listingblock"> 
-          <div class="content"> 
-           <pre>Given I have &lt;some&gt; cucumbers</pre> 
-          </div> 
-         </div> 
-         <div class="dlist"> 
-          <dl> 
-           <dt class="hdlist1">
-             When 
-           </dt> 
-           <dd> 
-            <p>Cucumber executes the scenario <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(005ms)</span></p> 
-           </dd> 
-           <dt class="hdlist1">
-             Then 
-           </dt> 
-           <dd> 
-            <p>a "Given" example step definition snippet for /^I have "(.*)" cucumbers$/ with 1 parameters is suggested <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
-           </dd> 
-          </dl> 
-         </div> 
-        </div> 
-       </div> 
-      </div> 
-     </div> 
-     <div class="sect2"> 
-      <h3 id="step-definitions-with-string-pattern"><a class="anchor" href="#step-definitions-with-string-pattern"></a><strong>step definitions with string pattern</strong></h3> 
-      <span class="fa fa-minus-square fa-fw" style="cursor:pointer;float:right;margin-top:-30px" title="Minimize" onclick="hideFeatureScenarios('step-definitions-with-string-pattern');document.getElementById('hidden-step-definitions-with-string-pattern').style.display = 'inline';this.style.display = 'none'"> </span> 
-      <span id="hidden-step-definitions-with-string-pattern" class="fa fa-plus-square fa-fw" style="cursor:pointer;float:right;display:none;margin-top:-30px" title="Maximize feature" onclick="showFeatureScenarios('step-definitions-with-string-pattern');this.style.display = 'none'"> </span> 
-      <div class="sidebarblock"> 
-       <div class="content"> 
-        <div class="paragraph"> 
-         <p>Some people don’t like Regexps as step definition patterns.<br> Cucumber also supports string-based patterns.</p> 
-        </div> 
-       </div> 
-      </div> 
-      <div class="sect3"> 
-       <h4 id="_scenario_step_definition_with_string_based_pattern"><a class="anchor" href="#_scenario_step_definition_with_string_based_pattern"></a>Scenario: step definition with string-based pattern</h4> 
-       <div class="sidebarblock"> 
-        <div class="content"> 
-         <div class="dlist"> 
-          <dl> 
-           <dt class="hdlist1">
-             Given 
-           </dt> 
-           <dd> 
-            <p>a mapping with a string-based pattern <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
-           </dd> 
-           <dt class="hdlist1">
-             When 
-           </dt> 
-           <dd> 
-            <p>Cucumber executes a scenario using that mapping <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(004ms)</span></p> 
-           </dd> 
-           <dt class="hdlist1">
-             Then 
-           </dt> 
-           <dd> 
-            <p>the feature passes <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
-           </dd> 
-           <dt class="hdlist1">
-             And 
-           </dt> 
-           <dd> 
-            <p>the mapping is run <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
-           </dd> 
-          </dl> 
-         </div> 
-        </div> 
-       </div> 
-      </div> 
-      <div class="sect3"> 
-       <h4 id="_scenario_step_definition_with_string_based_pattern_and_parameters"><a class="anchor" href="#_scenario_step_definition_with_string_based_pattern_and_parameters"></a>Scenario: step definition with string-based pattern and parameters</h4> 
-       <div class="sidebarblock"> 
-        <div class="content"> 
-         <div class="dlist"> 
-          <dl> 
-           <dt class="hdlist1">
-             Given 
-           </dt> 
-           <dd> 
-            <p>a mapping with a string-based pattern and parameters <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
-           </dd> 
-           <dt class="hdlist1">
-             When 
-           </dt> 
-           <dd> 
-            <p>Cucumber executes a scenario that passes arguments to that mapping <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(003ms)</span></p> 
-           </dd> 
-           <dt class="hdlist1">
-             Then 
-           </dt> 
-           <dd> 
-            <p>the feature passes <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
-           </dd> 
-           <dt class="hdlist1">
-             And 
-           </dt> 
-           <dd> 
-            <p>the mapping is run <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
-           </dd> 
-           <dt class="hdlist1">
-             And 
-           </dt> 
-           <dd> 
-            <p>the mapping receives the arguments <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
-           </dd> 
-          </dl> 
-         </div> 
-        </div> 
-       </div> 
-      </div> 
-      <div class="sect3"> 
-       <h4 id="_scenario_step_definition_with_string_based_pattern_and_multiple_parameters"><a class="anchor" href="#_scenario_step_definition_with_string_based_pattern_and_multiple_parameters"></a>Scenario: step definition with string-based pattern and multiple parameters</h4> 
-       <div class="sidebarblock"> 
-        <div class="content"> 
-         <div class="dlist"> 
-          <dl> 
-           <dt class="hdlist1">
-             Given 
-           </dt> 
-           <dd> 
-            <p>a mapping with a string-based pattern and multiple parameters <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
-           </dd> 
-           <dt class="hdlist1">
-             When 
-           </dt> 
-           <dd> 
-            <p>Cucumber executes a scenario that passes multiple arguments to that mapping <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(003ms)</span></p> 
-           </dd> 
-           <dt class="hdlist1">
-             Then 
-           </dt> 
-           <dd> 
-            <p>the feature passes <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
-           </dd> 
-           <dt class="hdlist1">
-             And 
-           </dt> 
-           <dd> 
-            <p>the mapping is run <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
-           </dd> 
-           <dt class="hdlist1">
-             And 
-           </dt> 
-           <dd> 
-            <p>the mapping receives the multipple arguments <span class="icon yellow"><i class="fa fa-thumbs-down" title="Undefined"></i></span> <span class="small right">(000ms)</span></p> 
-           </dd> 
-          </dl> 
-         </div> 
-        </div> 
-       </div> 
-      </div> 
-     </div> 
-     <div class="sect2"> 
       <h3 id="Strict-mode"><a class="anchor" href="#Strict-mode"></a><strong>Strict mode</strong></h3> 
       <span class="fa fa-minus-square fa-fw" style="cursor:pointer;float:right;margin-top:-30px" title="Minimize" onclick="hideFeatureScenarios('Strict-mode');document.getElementById('hidden-Strict-mode').style.display = 'inline';this.style.display = 'none'"> </span> 
       <span id="hidden-Strict-mode" class="fa fa-plus-square fa-fw" style="cursor:pointer;float:right;display:none;margin-top:-30px" title="Maximize feature" onclick="showFeatureScenarios('Strict-mode');this.style.display = 'none'"> </span> 
@@ -10211,6 +9919,30 @@ When I type -[]{}()*+?.\^$|#/</pre>
        <div class="content"> 
         <div class="paragraph"> 
          <p>Using the <code>--strict</code> flag will cause cucumber to fail unless all the<br> step definitions have been defined.</p> 
+        </div> 
+       </div> 
+      </div> 
+      <div class="sect3"> 
+       <h4 id="_background"><a class="anchor" href="#_background"></a>Background</h4> 
+       <div class="sidebarblock"> 
+        <div class="content"> 
+         <div class="dlist"> 
+          <dl> 
+           <dt class="hdlist1">
+             Given 
+           </dt> 
+           <dd> 
+            <p>a file named "features/a.feature" with: <span class="icon blue"><i class="fa fa-thumbs-down" title="Missing"></i></span></p> 
+           </dd> 
+          </dl> 
+         </div> 
+         <div class="listingblock"> 
+          <div class="content"> 
+           <pre>Feature: Missing
+  Scenario: Missing
+    Given this step passes</pre> 
+          </div> 
+         </div> 
         </div> 
        </div> 
       </div> 
@@ -11024,13 +10756,306 @@ module.exports = hooks;</pre>
        </div> 
       </div> 
      </div> 
+     <div class="sect2"> 
+      <h3 id="step-definition-snippets"><a class="anchor" href="#step-definition-snippets"></a><strong>step definition snippets</strong></h3> 
+      <span class="fa fa-minus-square fa-fw" style="cursor:pointer;float:right;margin-top:-30px" title="Minimize" onclick="hideFeatureScenarios('step-definition-snippets');document.getElementById('hidden-step-definition-snippets').style.display = 'inline';this.style.display = 'none'"> </span> 
+      <span id="hidden-step-definition-snippets" class="fa fa-plus-square fa-fw" style="cursor:pointer;float:right;display:none;margin-top:-30px" title="Maximize feature" onclick="showFeatureScenarios('step-definition-snippets');this.style.display = 'none'"> </span> 
+      <div class="sect3"> 
+       <h4 id="_scenario_escape_regexp_special_characters"><a class="anchor" href="#_scenario_escape_regexp_special_characters"></a>Scenario: escape regexp special characters</h4> 
+       <div class="sidebarblock"> 
+        <div class="content"> 
+         <div class="dlist"> 
+          <dl> 
+           <dt class="hdlist1">
+             Given 
+           </dt> 
+           <dd> 
+            <p>a scenario with: <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
+           </dd> 
+          </dl> 
+         </div> 
+         <div class="listingblock"> 
+          <div class="content"> 
+           <pre>Given I am a happy veggie \o/
+When I type -[]{}()*+?.\^$|#/</pre> 
+          </div> 
+         </div> 
+         <div class="dlist"> 
+          <dl> 
+           <dt class="hdlist1">
+             When 
+           </dt> 
+           <dd> 
+            <p>Cucumber executes the scenario <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(006ms)</span></p> 
+           </dd> 
+           <dt class="hdlist1">
+             Then 
+           </dt> 
+           <dd> 
+            <p>a "Given" step definition snippet for /^I am a happy veggie \\o\/$/ is suggested <span class="icon yellow"><i class="fa fa-thumbs-down" title="Undefined"></i></span> <span class="small right">(000ms)</span></p> 
+           </dd> 
+           <dt class="hdlist1">
+             Then 
+           </dt> 
+           <dd> 
+            <p>a "When" step definition snippet for /^I type \-\[\]\{\}\(\)\*\+\?\.\\\^\$\|#\/$/ is suggested <span class="icon yellow"><i class="fa fa-thumbs-down" title="Undefined"></i></span> [small right]#(000ms)#</p> 
+           </dd> 
+          </dl> 
+         </div> 
+        </div> 
+       </div> 
+      </div> 
+      <div class="sect3"> 
+       <h4 id="_scenario_step_matching_groups"><a class="anchor" href="#_scenario_step_matching_groups"></a>Scenario: step matching groups</h4> 
+       <div class="sidebarblock"> 
+        <div class="content"> 
+         <div class="dlist"> 
+          <dl> 
+           <dt class="hdlist1">
+             Given 
+           </dt> 
+           <dd> 
+            <p>a scenario with: <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
+           </dd> 
+          </dl> 
+         </div> 
+         <div class="listingblock"> 
+          <div class="content"> 
+           <pre>Given I have 5 "kekiri" cucumbers</pre> 
+          </div> 
+         </div> 
+         <div class="dlist"> 
+          <dl> 
+           <dt class="hdlist1">
+             When 
+           </dt> 
+           <dd> 
+            <p>Cucumber executes the scenario <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(004ms)</span></p> 
+           </dd> 
+           <dt class="hdlist1">
+             Then 
+           </dt> 
+           <dd> 
+            <p>a "Given" step definition snippet for /^I have (\d+) "([^"]*)" cucumbers$/ with 2 parameters is suggested <span class="icon yellow"><i class="fa fa-thumbs-down" title="Undefined"></i></span> <span class="small right">(000ms)</span></p> 
+           </dd> 
+          </dl> 
+         </div> 
+        </div> 
+       </div> 
+      </div> 
+      <div class="sect3"> 
+       <h4 id="_scenario_multiple_matching_groups"><a class="anchor" href="#_scenario_multiple_matching_groups"></a>Scenario: multiple matching groups</h4> 
+       <div class="sidebarblock"> 
+        <div class="content"> 
+         <div class="dlist"> 
+          <dl> 
+           <dt class="hdlist1">
+             Given 
+           </dt> 
+           <dd> 
+            <p>a scenario with: <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
+           </dd> 
+          </dl> 
+         </div> 
+         <div class="listingblock"> 
+          <div class="content"> 
+           <pre>Given I have some "hekiri", "wild" and "regular" cucumbers</pre> 
+          </div> 
+         </div> 
+         <div class="dlist"> 
+          <dl> 
+           <dt class="hdlist1">
+             When 
+           </dt> 
+           <dd> 
+            <p>Cucumber executes the scenario <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(004ms)</span></p> 
+           </dd> 
+           <dt class="hdlist1">
+             Then 
+           </dt> 
+           <dd> 
+            <p>a "Given" step definition snippet for /^I have some "(<strong class="^" ">)", "([^"]</strong>)" and "([^"]*)" cucumbers$/ with 3 parameters is suggested <span class="icon yellow"><i class="fa fa-thumbs-down" title="Undefined"></i></span> <span class="small right">(000ms)</span></p> 
+           </dd> 
+          </dl> 
+         </div> 
+        </div> 
+       </div> 
+      </div> 
+      <div class="sect3"> 
+       <h4 id="_scenario_outline_steps_with_examples"><a class="anchor" href="#_scenario_outline_steps_with_examples"></a>Scenario: outline steps with examples</h4> 
+       <div class="sidebarblock"> 
+        <div class="content"> 
+         <div class="dlist"> 
+          <dl> 
+           <dt class="hdlist1">
+             Given 
+           </dt> 
+           <dd> 
+            <p>a scenario with: <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
+           </dd> 
+          </dl> 
+         </div> 
+         <div class="listingblock"> 
+          <div class="content"> 
+           <pre>Given I have &lt;some&gt; cucumbers</pre> 
+          </div> 
+         </div> 
+         <div class="dlist"> 
+          <dl> 
+           <dt class="hdlist1">
+             When 
+           </dt> 
+           <dd> 
+            <p>Cucumber executes the scenario <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(005ms)</span></p> 
+           </dd> 
+           <dt class="hdlist1">
+             Then 
+           </dt> 
+           <dd> 
+            <p>a "Given" example step definition snippet for /^I have "(.*)" cucumbers$/ with 1 parameters is suggested <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
+           </dd> 
+          </dl> 
+         </div> 
+        </div> 
+       </div> 
+      </div> 
+     </div> 
+     <div class="sect2"> 
+      <h3 id="step-definitions-with-string-pattern"><a class="anchor" href="#step-definitions-with-string-pattern"></a><strong>step definitions with string pattern</strong></h3> 
+      <span class="fa fa-minus-square fa-fw" style="cursor:pointer;float:right;margin-top:-30px" title="Minimize" onclick="hideFeatureScenarios('step-definitions-with-string-pattern');document.getElementById('hidden-step-definitions-with-string-pattern').style.display = 'inline';this.style.display = 'none'"> </span> 
+      <span id="hidden-step-definitions-with-string-pattern" class="fa fa-plus-square fa-fw" style="cursor:pointer;float:right;display:none;margin-top:-30px" title="Maximize feature" onclick="showFeatureScenarios('step-definitions-with-string-pattern');this.style.display = 'none'"> </span> 
+      <div class="sidebarblock"> 
+       <div class="content"> 
+        <div class="paragraph"> 
+         <p>Some people don’t like Regexps as step definition patterns.<br> Cucumber also supports string-based patterns.</p> 
+        </div> 
+       </div> 
+      </div> 
+      <div class="sect3"> 
+       <h4 id="_scenario_step_definition_with_string_based_pattern"><a class="anchor" href="#_scenario_step_definition_with_string_based_pattern"></a>Scenario: step definition with string-based pattern</h4> 
+       <div class="sidebarblock"> 
+        <div class="content"> 
+         <div class="dlist"> 
+          <dl> 
+           <dt class="hdlist1">
+             Given 
+           </dt> 
+           <dd> 
+            <p>a mapping with a string-based pattern <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
+           </dd> 
+           <dt class="hdlist1">
+             When 
+           </dt> 
+           <dd> 
+            <p>Cucumber executes a scenario using that mapping <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(004ms)</span></p> 
+           </dd> 
+           <dt class="hdlist1">
+             Then 
+           </dt> 
+           <dd> 
+            <p>the feature passes <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
+           </dd> 
+           <dt class="hdlist1">
+             And 
+           </dt> 
+           <dd> 
+            <p>the mapping is run <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
+           </dd> 
+          </dl> 
+         </div> 
+        </div> 
+       </div> 
+      </div> 
+      <div class="sect3"> 
+       <h4 id="_scenario_step_definition_with_string_based_pattern_and_parameters"><a class="anchor" href="#_scenario_step_definition_with_string_based_pattern_and_parameters"></a>Scenario: step definition with string-based pattern and parameters</h4> 
+       <div class="sidebarblock"> 
+        <div class="content"> 
+         <div class="dlist"> 
+          <dl> 
+           <dt class="hdlist1">
+             Given 
+           </dt> 
+           <dd> 
+            <p>a mapping with a string-based pattern and parameters <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
+           </dd> 
+           <dt class="hdlist1">
+             When 
+           </dt> 
+           <dd> 
+            <p>Cucumber executes a scenario that passes arguments to that mapping <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(003ms)</span></p> 
+           </dd> 
+           <dt class="hdlist1">
+             Then 
+           </dt> 
+           <dd> 
+            <p>the feature passes <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
+           </dd> 
+           <dt class="hdlist1">
+             And 
+           </dt> 
+           <dd> 
+            <p>the mapping is run <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
+           </dd> 
+           <dt class="hdlist1">
+             And 
+           </dt> 
+           <dd> 
+            <p>the mapping receives the arguments <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
+           </dd> 
+          </dl> 
+         </div> 
+        </div> 
+       </div> 
+      </div> 
+      <div class="sect3"> 
+       <h4 id="_scenario_step_definition_with_string_based_pattern_and_multiple_parameters"><a class="anchor" href="#_scenario_step_definition_with_string_based_pattern_and_multiple_parameters"></a>Scenario: step definition with string-based pattern and multiple parameters</h4> 
+       <div class="sidebarblock"> 
+        <div class="content"> 
+         <div class="dlist"> 
+          <dl> 
+           <dt class="hdlist1">
+             Given 
+           </dt> 
+           <dd> 
+            <p>a mapping with a string-based pattern and multiple parameters <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
+           </dd> 
+           <dt class="hdlist1">
+             When 
+           </dt> 
+           <dd> 
+            <p>Cucumber executes a scenario that passes multiple arguments to that mapping <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(003ms)</span></p> 
+           </dd> 
+           <dt class="hdlist1">
+             Then 
+           </dt> 
+           <dd> 
+            <p>the feature passes <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
+           </dd> 
+           <dt class="hdlist1">
+             And 
+           </dt> 
+           <dd> 
+            <p>the mapping is run <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
+           </dd> 
+           <dt class="hdlist1">
+             And 
+           </dt> 
+           <dd> 
+            <p>the mapping receives the multipple arguments <span class="icon yellow"><i class="fa fa-thumbs-down" title="Undefined"></i></span> <span class="small right">(000ms)</span></p> 
+           </dd> 
+          </dl> 
+         </div> 
+        </div> 
+       </div> 
+      </div> 
+     </div> 
     </div> 
    </div> 
   </div> 
   <div id="footer" style="color:gray;font-size:11px">
    Generated by 
-   <a href="https://github.com/rmpestano/cukedoctor" target="_blank"> Cukedoctor 0.8.0</a> - 01/03/2016 00:26:50
-   <span style="float:right;font-size:11px"> Execution time: 7.243 seconds</span>
+   <a href="https://github.com/rmpestano/cukedoctor" target="_blank"> Cukedoctor 0.9.0</a> - 08/03/2016 21:58:59
+   <span style="float:right;font-size:11px"> Execution time: 7.078 seconds</span>
   </div> 
   <script type="text/javascript">  
 

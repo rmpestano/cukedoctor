@@ -31,17 +31,17 @@
 |Status
 
 12+^|*<<After-Hooks>>*
-|6
+|12
 |0
-|6
-|24
-|0
-|0
+|12
+|30
 |0
 |0
 |0
-|24
-|081ms
+|0
+|0
+|30
+|084ms
 |[green]#*passed*#
 
 12+^|*<<Alle-bruker-ikke-UTF-8>>*
@@ -73,17 +73,17 @@
 |[green]#*passed*#
 
 12+^|*<<Background>>*
-|11
+|22
 |0
-|11
-|23
-|0
-|0
+|22
+|144
 |0
 |0
 |0
-|23
-|03s 037ms
+|0
+|0
+|144
+|03s 064ms
 |[green]#*passed*#
 
 12+^|*<<Before-Hook>>*
@@ -115,17 +115,31 @@
 |[green]#*passed*#
 
 12+^|*<<Cucumber---work-in-progress-switch>>*
-|5
+|10
 |0
-|5
-|16
-|0
-|0
+|10
+|31
 |0
 |0
 |0
-|16
-|03s 144ms
+|0
+|0
+|31
+|03s 151ms
+|[green]#*passed*#
+
+12+^|*<<Custom-Formatter>>*
+|6
+|0
+|6
+|15
+|0
+|0
+|0
+|0
+|0
+|15
+|027ms
 |[green]#*passed*#
 
 12+^|*<<Custom-filter>>*
@@ -142,32 +156,18 @@
 |009ms
 |[green]#*passed*#
 
-12+^|*<<Custom-Formatter>>*
-|3
-|0
-|3
-|9
-|0
-|0
-|0
-|0
-|0
-|9
-|026ms
-|[green]#*passed*#
-
 12+^|*<<Debug-formatter>>*
-|1
+|2
 |0
-|1
-|4
-|0
-|0
+|2
+|5
 |0
 |0
 |0
-|4
-|007ms
+|0
+|0
+|5
+|008ms
 |[green]#*passed*#
 
 12+^|*<<Doc-strings>>*
@@ -199,59 +199,59 @@
 |[green]#*passed*#
 
 12+^|*<<ERB-configuration>>*
-|2
+|4
 |0
-|2
-|9
-|0
-|0
+|4
+|11
 |0
 |0
 |0
-|9
-|142ms
+|0
+|0
+|11
+|143ms
 |[green]#*passed*#
 
 12+^|*<<Exception-in-After-Block>>*
-|3
+|6
 |0
-|3
-|9
-|0
-|0
+|6
+|18
 |0
 |0
 |0
-|9
-|01s 240ms
+|0
+|0
+|18
+|01s 243ms
 |[green]#*passed*#
 
 12+^|*<<Exception-in-AfterStep-Block>>*
-|2
+|4
 |0
-|2
-|6
-|0
-|0
+|4
+|12
 |0
 |0
 |0
-|6
-|045ms
+|0
+|0
+|12
+|047ms
 |[green]#*passed*#
 
 12+^|*<<Exception-in-Before-Block>>*
-|3
+|6
 |0
-|3
-|9
-|0
-|0
+|6
+|15
 |0
 |0
 |0
-|9
-|648ms
+|0
+|0
+|15
+|651ms
 |[green]#*passed*#
 
 12+^|*<<Exceptions-in-Around-Hooks>>*
@@ -310,88 +310,88 @@
 |616ms
 |[green]#*passed*#
 
+12+^|*<<HTML-output-formatter>>*
+|14
+|0
+|14
+|53
+|0
+|0
+|0
+|0
+|0
+|53
+|166ms
+|[green]#*passed*#
+
 12+^|*<<Handle-unexpected-response>>*
-|1
+|2
 |0
-|1
-|3
-|0
-|0
+|2
+|5
 |0
 |0
 |0
-|3
-|070ms
+|0
+|0
+|5
+|071ms
 |[green]#*passed*#
 
 12+^|*<<Hooks-execute-in-defined-order>>*
-|2
-|0
-|2
 |4
 |0
-|0
-|0
-|0
-|0
 |4
-|01s 214ms
-|[green]#*passed*#
-
-12+^|*<<HTML-output-formatter>>*
-|7
-|0
-|7
-|25
+|12
 |0
 |0
 |0
 |0
 |0
-|25
-|161ms
+|12
+|01s 217ms
 |[green]#*passed*#
 
 12+^|*<<Invoke-message>>*
-|6
+|12
 |0
-|6
-|25
-|0
-|0
+|12
+|37
 |0
 |0
 |0
-|25
-|02s 205ms
+|0
+|0
+|37
+|02s 210ms
 |[green]#*passed*#
 
 12+^|*<<JSON-output-formatter>>*
-|9
+|18
 |0
-|9
-|21
-|0
-|0
+|18
+|102
 |0
 |0
 |0
-|21
-|04s 983ms
+|0
+|0
+|102
+|05s 007ms
 |[green]#*passed*#
 
 12+^|*<<JUnit-output-formatter>>*
-|8
+|16
 |0
-|8
-|25
-|0
-|0
+|16
+|73
 |0
 |0
 |0
-|25
-|05s 367ms
+|0
+|0
+|73
+|05s 387ms
 |[green]#*passed*#
 
 12+^|*<<Language-help>>*
@@ -409,16 +409,16 @@
 |[green]#*passed*#
 
 12+^|*<<List-step-defs-as-json>>*
-|2
+|4
 |0
-|2
-|6
-|0
-|0
+|4
+|8
 |0
 |0
 |0
-|6
+|0
+|0
+|8
 |01s 223ms
 |[green]#*passed*#
 
@@ -437,45 +437,45 @@
 |[green]#*passed*#
 
 12+^|*<<Nested-Steps>>*
-|6
+|12
 |0
-|6
-|21
-|0
-|0
+|12
+|33
 |0
 |0
 |0
-|21
-|680ms
+|0
+|0
+|33
+|683ms
 |[green]#*passed*#
 
 12+^|*<<Nested-Steps-in-I18n>>*
-|1
+|2
 |0
-|1
-|3
-|0
-|0
+|2
+|5
 |0
 |0
 |0
-|3
+|0
+|0
+|5
 |014ms
 |[green]#*passed*#
 
 12+^|*<<Nested-Steps-with-either-table-or-doc-string>>*
-|3
+|6
 |0
-|3
-|12
-|0
-|0
+|6
+|15
 |0
 |0
 |0
-|12
-|032ms
+|0
+|0
+|15
+|033ms
 |[green]#*passed*#
 
 12+^|*<<One-line-step-definitions>>*
@@ -507,100 +507,100 @@
 |[green]#*passed*#
 
 12+^|*<<Pretty-formatter---Printing-messages>>*
-|2
+|4
 |0
-|2
-|5
-|0
-|0
+|4
+|13
 |0
 |0
 |0
-|5
-|547ms
+|0
+|0
+|13
+|549ms
 |[green]#*passed*#
 
 12+^|*<<Pretty-output-formatter>>*
-|3
+|6
 |0
-|3
-|12
-|0
-|0
+|6
+|15
 |0
 |0
 |0
-|12
-|052ms
+|0
+|0
+|15
+|054ms
 |[green]#*passed*#
 
 12+^|*<<Profiles>>*
-|11
+|22
 |0
-|11
-|33
-|0
-|0
+|22
+|77
 |0
 |0
 |0
-|33
-|121ms
+|0
+|0
+|77
+|127ms
 |[green]#*passed*#
 
 12+^|*<<Progress-output-formatter>>*
-|2
+|4
 |0
-|2
-|6
-|0
-|0
+|4
+|8
 |0
 |0
 |0
-|6
-|021ms
+|0
+|0
+|8
+|022ms
 |[green]#*passed*#
 
 12+^|*<<Rake-task>>*
-|5
+|10
 |0
-|5
-|22
-|0
-|0
+|10
+|27
 |0
 |0
 |0
-|22
-|05s 846ms
+|0
+|0
+|27
+|05s 848ms
 |[green]#*passed*#
 
 12+^|*<<Raketask>>*
-|2
+|4
 |0
-|2
-|5
-|0
-|0
+|4
+|11
 |0
 |0
 |0
-|5
-|03s 821ms
+|0
+|0
+|11
+|03s 824ms
 |[green]#*passed*#
 
 12+^|*<<Randomize>>*
-|2
+|4
 |0
-|2
-|5
-|0
-|0
+|4
+|9
 |0
 |0
 |0
-|5
+|0
+|0
+|9
 |713ms
 |[green]#*passed*#
 
@@ -619,17 +619,17 @@
 |[green]#*passed*#
 
 12+^|*<<Rerun-formatter>>*
-|7
+|14
 |0
-|7
-|23
-|0
-|0
+|14
+|30
 |0
 |0
 |0
-|23
-|095ms
+|0
+|0
+|30
+|097ms
 |[green]#*passed*#
 
 12+^|*<<Run-Cli::Main-with-existing-Runtime>>*
@@ -647,59 +647,59 @@
 |[green]#*passed*#
 
 12+^|*<<Run-feature-elements-matching-a-name-with---name/-n>>*
-|4
-|0
-|4
 |8
 |0
-|0
-|0
-|0
-|0
 |8
-|048ms
+|20
+|0
+|0
+|0
+|0
+|0
+|20
+|050ms
 |[green]#*passed*#
 
 12+^|*<<Run-specific-scenarios>>*
-|3
+|6
 |0
-|3
-|10
-|0
-|0
+|6
+|13
 |0
 |0
 |0
-|10
-|025ms
+|0
+|0
+|13
+|026ms
 |[green]#*passed*#
 
 12+^|*<<Running-multiple-formatters>>*
-|3
+|6
 |0
-|3
-|9
-|0
-|0
+|6
+|12
 |0
 |0
 |0
-|9
-|01s 829ms
+|0
+|0
+|12
+|01s 830ms
 |[green]#*passed*#
 
 12+^|*<<Scenario-outlines>>*
-|4
-|0
-|4
 |8
 |0
-|0
-|0
-|0
-|0
 |8
-|02s 428ms
+|16
+|0
+|0
+|0
+|0
+|0
+|16
+|02s 431ms
 |[green]#*passed*#
 
 12+^|*<<Scenario-outlines---expand-option>>*
@@ -773,17 +773,17 @@
 |[green]#*passed*#
 
 12+^|*<<Snippets-message>>*
-|1
+|2
 |0
-|1
-|5
-|0
-|0
+|2
+|7
 |0
 |0
 |0
-|5
-|913ms
+|0
+|0
+|7
+|914ms
 |[green]#*passed*#
 
 12+^|*<<State>>*
@@ -801,31 +801,31 @@
 |[green]#*passed*#
 
 12+^|*<<Step-matches-message>>*
-|3
+|6
 |0
-|3
-|10
-|0
-|0
+|6
+|16
 |0
 |0
 |0
-|10
-|110ms
+|0
+|0
+|16
+|112ms
 |[green]#*passed*#
 
 12+^|*<<Strict-mode>>*
-|3
+|6
 |0
-|3
-|8
-|0
-|0
+|6
+|14
 |0
 |0
 |0
-|8
-|044ms
+|0
+|0
+|14
+|046ms
 |[green]#*passed*#
 
 12+^|*<<Table-diffing>>*
@@ -843,45 +843,45 @@
 |[green]#*passed*#
 
 12+^|*<<Tag-logic>>*
-|7
-|0
-|7
 |14
 |0
-|0
-|0
-|0
-|0
 |14
-|050ms
+|21
+|0
+|0
+|0
+|0
+|0
+|21
+|051ms
 |[green]#*passed*#
 
 12+^|*<<Tagged-hooks>>*
-|3
+|7
 |0
-|3
-|6
-|0
-|0
+|7
+|20
 |0
 |0
 |0
-|6
-|041ms
+|0
+|0
+|20
+|054ms
 |[green]#*passed*#
 
 12+^|*<<Transforms>>*
-|2
+|4
 |0
-|2
-|6
-|0
-|0
+|4
+|10
 |0
 |0
 |0
-|6
-|022ms
+|0
+|0
+|10
+|023ms
 |[green]#*passed*#
 
 12+^|*<<Unicode-in-tables>>*
@@ -899,30 +899,30 @@
 |[green]#*passed*#
 
 12+^|*<<Usage-formatter>>*
-|3
-|0
-|3
 |6
 |0
-|0
-|0
-|0
-|0
 |6
-|059ms
+|12
+|0
+|0
+|0
+|0
+|0
+|12
+|060ms
 |[green]#*passed*#
 
 12+^|*<<Using-descriptions-to-give-features-context>>*
-|1
+|2
 |0
-|1
-|4
-|0
-|0
+|2
+|5
 |0
 |0
 |0
-|4
+|0
+|0
+|5
 |022ms
 |[green]#*passed*#
 
@@ -941,48 +941,48 @@
 |[green]#*passed*#
 
 12+^|*<<Wire-protocol-table-diffing>>*
-|4
+|8
 |0
-|4
-|13
-|0
-|0
+|8
+|21
 |0
 |0
 |0
-|13
-|02s 720ms
+|0
+|0
+|21
+|02s 723ms
 |[green]#*passed*#
 
 12+^|*<<Wire-protocol-tags>>*
-|2
+|4
 |0
-|2
-|10
-|0
-|0
+|4
+|12
 |0
 |0
 |0
-|10
-|302ms
+|0
+|0
+|12
+|304ms
 |[green]#*passed*#
 
 12+^|*<<Wire-protocol-timeouts>>*
-|2
+|4
 |0
-|2
-|9
-|0
-|0
+|4
+|11
 |0
 |0
 |0
-|9
-|927ms
+|0
+|0
+|11
+|928ms
 |[green]#*passed*#
 12+^|*Totals*
-|203|0|203|671|0|0|0|0|0|671 2+|51s 694ms
+|364|0|364|1204|0|0|0|0|0|1204 2+|51s 856ms
 |===
 
 == *Features*
@@ -998,6 +998,13 @@ You can ask a scenario whether it has failed, for example. +
  +
 Mind you, even if it hasn't failed yet, you can still make the scenario +
 fail if your After hook throws an error.
+****
+
+==== Background
+
+****
+Given ::
+the standard step definitions icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ****
 
 ==== Scenario Outline: Retreive the status of a scenario as a symbol
@@ -1585,6 +1592,237 @@ that you need to. +
 consider splitting them into a separate feature.
 ****
 
+==== Background
+
+****
+Given ::
+a file named "features/passing_background.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+----
+
+Feature: Passing background sample
+
+  Background:
+    Given '10' cukes
+
+  Scenario: passing background
+    Then I should have '10' cukes    
+
+  Scenario: another passing background
+    Then I should have '10' cukes
+
+----
+And ::
+a file named "features/scenario_outline_passing_background.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+----
+
+Feature: Passing background with scenario outlines sample
+
+  Background:
+    Given '10' cukes
+
+  Scenario Outline: passing background
+    Then I should have '<count>' cukes
+    Examples:
+      |count|
+      | 10  |
+
+  Scenario Outline: another passing background
+    Then I should have '<count>' cukes
+    Examples:
+      |count|
+      | 10  |
+
+----
+And ::
+a file named "features/background_tagged_before_on_outline.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+----
+
+@background_tagged_before_on_outline
+Feature: Background tagged Before on Outline
+
+  Background: 
+    Given this step passes
+
+  Scenario Outline: passing background
+    Then I should have '<count>' cukes
+
+    Examples: 
+      | count |
+      | 888   |
+
+----
+And ::
+a file named "features/failing_background.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+----
+
+Feature: Failing background sample
+
+  Background:
+    Given this step raises an error
+    And '10' cukes
+
+  Scenario: failing background
+    Then I should have '10' cukes
+
+  Scenario: another failing background
+    Then I should have '10' cukes
+
+----
+And ::
+a file named "features/scenario_outline_failing_background.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+----
+
+Feature: Failing background with scenario outlines sample
+
+  Background:
+    Given this step raises an error
+
+  Scenario Outline: failing background
+    Then I should have '<count>' cukes
+    Examples:
+      |count|
+      | 10  |
+
+  Scenario Outline: another failing background
+    Then I should have '<count>' cukes
+    Examples:
+      |count|
+      | 10  |
+
+----
+And ::
+a file named "features/pending_background.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+----
+
+Feature: Pending background sample
+
+  Background:
+    Given this step is pending
+
+  Scenario: pending background
+    Then I should have '10' cukes
+
+  Scenario: another pending background
+    Then I should have '10' cukes
+
+----
+And ::
+a file named "features/failing_background_after_success.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+----
+
+Feature: Failing background after previously successful background sample
+
+  Background:
+    Given this step passes
+    And '10' global cukes
+
+  Scenario: passing background
+    Then I should have '10' global cukes
+
+  Scenario: failing background
+    Then I should have '10' global cukes
+
+----
+And ::
+a file named "features/failing_background_after_success_outline.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+----
+
+Feature: Failing background after previously successful background sample
+
+  Background:
+    Given this step passes
+    And '10' global cukes
+
+  Scenario Outline: passing background
+    Then I should have '<count>' global cukes
+
+    Examples: 
+      | count |
+      | 10    |
+
+  Scenario Outline: failing background
+    Then I should have '<count>' global cukes
+
+    Examples: 
+      | count |
+      | 10    |
+
+
+----
+And ::
+a file named "features/multiline_args_background.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+----
+
+Feature: Passing background with multiline args
+
+  Background:
+    Given table
+      |a|b|
+      |c|d|
+    And multiline string
+      """
+      I'm a cucumber and I'm okay. 
+      I sleep all night and I test all day
+      """
+
+  Scenario: passing background
+    Then the table should be
+      |a|b|
+      |c|d|
+    Then the multiline string should be
+      """
+      I'm a cucumber and I'm okay. 
+      I sleep all night and I test all day
+      """
+
+  Scenario: another passing background
+    Then the table should be
+      |a|b|
+      |c|d|
+    Then the multiline string should be
+      """
+      I'm a cucumber and I'm okay. 
+      I sleep all night and I test all day
+      """
+
+----
+And ::
+the standard step definitions icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+And ::
+a file named "features/step_definitions/cuke_steps.rb" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+----
+
+Given /^'(.+)' cukes$/ do |cukes| x=1
+  raise "We already have #{@cukes} cukes!" if @cukes
+  @cukes = cukes
+end
+
+Given /^'(.+)' global cukes$/ do |cukes| x=1
+  $scenario_runs ||= 0
+  raise 'FAIL' if $scenario_runs >= 1
+  $cukes = cukes
+  $scenario_runs += 1
+end
+
+Then /^I should have '(.+)' global cukes$/ do |cukes| x=1
+  expect($cukes).to eq cukes
+end
+
+Then /^I should have '(.+)' cukes$/ do |cukes| x=1
+  expect(@cukes).to eq cukes
+end
+
+Before('@background_tagged_before_on_outline') do
+  @cukes = '888'
+end
+
+After('@background_tagged_before_on_outline') do
+  expect(@cukes).to eq '888'
+end
+
+----
+****
+
 ==== Scenario: run a specific scenario with a background
 
 ****
@@ -2156,6 +2394,51 @@ Developers should be able to run cucumber in a mode that +
           - will not fail otherwise
 ****
 
+==== Background
+==== Background: A passing and a pending feature
+[small]#tags: @spawn#
+
+
+****
+Given ::
+the standard step definitions icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+And ::
+a file named "features/wip.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+----
+
+Feature: WIP
+  @failing
+  Scenario: Failing
+    Given this step raises an error
+
+  @undefined
+  Scenario: Undefined
+    Given this step is undefined
+
+  @pending
+  Scenario: Pending
+    Given this step is pending
+
+  @passing
+  Scenario: Passing
+    Given this step passes
+
+----
+And ::
+a file named "features/passing_outline.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+----
+
+Feature: Not WIP
+  Scenario Outline: Passing
+    Given this step <what>
+
+    Examples:
+      | what   |
+      | passes |
+
+----
+****
+
 ==== Scenario: Pass with Failing Scenarios
 [small]#tags: @spawn,@spawn#
 
@@ -2333,49 +2616,24 @@ features/passing_outline.feature:7:in `Scenario Outline: Passing, Examples (#1)'
 ----
 ****
 
-[[Custom-filter, Custom filter]]
-=== *Custom filter*
+[[Custom-Formatter, Custom Formatter]]
+=== *Custom Formatter*
 
-==== Scenario: Add a custom filter via AfterConfiguration hook
+==== Background
 
 ****
 Given ::
-a file named "features/test.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+a file named "features/f.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
-Feature:
-  Scenario:
-    Given my special step
+Feature: I'll use my own
+  Scenario: Just print me
+    Given this step passes
 
 ----
 And ::
-a file named "features/support/my_filter.rb" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
-----
-
-require 'cucumber/core/filter'
-
-MakeAnythingPass = Cucumber::Core::Filter.new do
-  def test_case(test_case)
-    activated_steps = test_case.test_steps.map do |test_step|
-      test_step.with_action { }
-    end
-    test_case.with_steps(activated_steps).describe_to receiver
-  end
-end
-
-AfterConfiguration do |config|
-  config.filters << MakeAnythingPass.new
-end
-
-----
-When ::
-I run `cucumber --strict` icon:thumbs-up[role="green",title="Passed"] [small right]#(009ms)#
-Then ::
-it should pass icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+the standard step definitions icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ****
-
-[[Custom-Formatter, Custom Formatter]]
-=== *Custom Formatter*
 
 ==== Scenario: Use the new API
 
@@ -2490,6 +2748,47 @@ I'LL USE MY OWN
 ----
 ****
 
+[[Custom-filter, Custom filter]]
+=== *Custom filter*
+
+==== Scenario: Add a custom filter via AfterConfiguration hook
+
+****
+Given ::
+a file named "features/test.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+----
+
+Feature:
+  Scenario:
+    Given my special step
+
+----
+And ::
+a file named "features/support/my_filter.rb" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+----
+
+require 'cucumber/core/filter'
+
+MakeAnythingPass = Cucumber::Core::Filter.new do
+  def test_case(test_case)
+    activated_steps = test_case.test_steps.map do |test_step|
+      test_step.with_action { }
+    end
+    test_case.with_steps(activated_steps).describe_to receiver
+  end
+end
+
+AfterConfiguration do |config|
+  config.filters << MakeAnythingPass.new
+end
+
+----
+When ::
+I run `cucumber --strict` icon:thumbs-up[role="green",title="Passed"] [small right]#(009ms)#
+Then ::
+it should pass icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+****
+
 [[Debug-formatter, Debug formatter]]
 === *Debug formatter*
 
@@ -2497,6 +2796,13 @@ I'LL USE MY OWN
 In order to help you easily visualise the listener API, you can use +
 the `debug` formatter that prints the calls to the listener as a +
 feature is run.
+****
+
+==== Background
+
+****
+Given ::
+the standard step definitions icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ****
 
 ==== Scenario: title
@@ -2768,6 +3074,23 @@ I want to be able to configure which port my wire server runs on +
 So that I can avoid port conflicts
 ****
 
+==== Background
+[small]#tags: @wire#
+
+
+****
+Given ::
+a file named "features/wired.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+----
+
+Feature: High strung
+  Scenario: Wired
+    Given we're all wired
+
+
+----
+****
+
 ==== Scenario: ERB is used in the wire file which references an environment variable that is not set
 [small]#tags: @wire,@wire#
 
@@ -2837,6 +3160,34 @@ U
 In order to use custom assertions at the end of each scenario +
 As a developer +
 I want exceptions raised in After blocks to be handled gracefully and reported by the formatters
+****
+
+==== Background
+
+****
+Given ::
+the standard step definitions icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+And ::
+a file named "features/step_definitions/naughty_steps.rb" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+----
+
+Given /^this step does something naughty$/ do x=1
+  @naughty = true
+end
+
+----
+And ::
+a file named "features/support/env.rb" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+----
+
+class NaughtyScenarioException < Exception; end
+After do
+  if @naughty
+    raise NaughtyScenarioException.new("This scenario has been very very naughty")
+  end
+end
+
+----
 ****
 
 ==== Scenario: Handle Exception in standard scenario step and carry on
@@ -2983,6 +3334,34 @@ As a developer +
 I want exceptions raised in AfterStep blocks to be handled gracefully and reported by the formatters
 ****
 
+==== Background
+
+****
+Given ::
+the standard step definitions icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+And ::
+a file named "features/step_definitions/naughty_steps.rb" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+----
+
+Given /^this step does something naughty$/ do x=1
+  @naughty = true
+end
+
+----
+And ::
+a file named "features/support/env.rb" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+----
+
+class NaughtyStepException < Exception; end
+AfterStep do
+  if @naughty
+    raise NaughtyStepException.new("This step has been very very naughty")
+  end
+end
+
+----
+****
+
 ==== Scenario: Handle Exception in standard scenario step and carry on
 
 ****
@@ -3090,6 +3469,24 @@ cucumber features/naughty_step_in_scenario_outline.feature:9 # Scenario Outline:
 In order to know with confidence that my before blocks have run OK +
 As a developer +
 I want exceptions raised in Before blocks to be handled gracefully and reported by the formatters
+****
+
+==== Background
+
+****
+Given ::
+the standard step definitions icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+And ::
+a file named "features/support/env.rb" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+----
+
+class SomeSetupException < Exception; end
+class BadStepException < Exception; end
+Before do
+  raise SomeSetupException.new("I cannot even start this scenario")
+end
+
+----
 ****
 
 ==== Scenario: Handle Exception in standard scenario step and carry on
@@ -3467,68 +3864,61 @@ this will not be shown
 ----
 ****
 
-[[Handle-unexpected-response, Handle unexpected response]]
-=== *Handle unexpected response*
+[[HTML-output-formatter, HTML output formatter]]
+=== *HTML output formatter*
 
-****
-When the server sends us back a message we don't understand, this is how Cucumber will behave.
-****
-
-==== Scenario: Unexpected response
-[small]#tags: @wire,@wire#
-
+==== Background
 
 ****
 Given ::
-there is a wire server running on port 54321 which understands the following protocol: icon:thumbs-up[role="green",title="Passed"] [small right]#(002ms)#
-When ::
-I run `cucumber -f pretty` icon:thumbs-up[role="green",title="Passed"] [small right]#(068ms)#
-Then ::
-the output should contain: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+the standard step definitions icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+And ::
+a file named "features/scenario_outline_with_undefined_steps.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
-undefined method `handle_yikes'
+Feature:
+
+  Scenario Outline:
+    Given this step is undefined
+
+  Examples:
+    |foo|
+    |bar|
+
+----
+And ::
+a file named "features/scenario_outline_with_pending_step.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+----
+
+Feature: Outline
+
+  Scenario Outline: Will it blend?
+    Given this step is pending
+    And other step
+    When I do something with <example>
+    Then I should see something
+    Examples:
+      | example |
+      | one     |
+      | two     |
+      | three   |
+
+----
+And ::
+a file named "features/failing_background_step.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+----
+
+Feature: Feature with failing background step
+
+  Background:
+    Given this step fails
+
+  Scenario:
+    When I do something
+    Then I should see something
 
 ----
 ****
-
-[[Hooks-execute-in-defined-order, Hooks execute in defined order]]
-=== *Hooks execute in defined order*
-
-==== Scenario: Around hooks cover background steps
-[small]#tags: @spawn,@spawn#
-
-
-****
-When ::
-I run `cucumber -o /dev/null features/around_hook_covers_background.feature` icon:thumbs-up[role="green",title="Passed"] [small right]#(606ms)#
-Then ::
-the output should contain: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
-----
-
-Event order: around_begin background_step scenario_step around_end
-
-----
-****
-
-==== Scenario: All hooks execute in expected order
-[small]#tags: @spawn,@spawn#
-
-
-****
-When ::
-I run `cucumber -o /dev/null features/all_hook_order.feature` icon:thumbs-up[role="green",title="Passed"] [small right]#(606ms)#
-Then ::
-the output should contain: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
-----
-
-Event order: around_begin before background_step scenario_step after around_end
-
-----
-****
-
-[[HTML-output-formatter, HTML output formatter]]
-=== *HTML output formatter*
 
 ==== Scenario: an scenario outline, one undefined step, one random example, expand flag on
 
@@ -3675,6 +4065,154 @@ makeRed('background_0')
 ----
 ****
 
+[[Handle-unexpected-response, Handle unexpected response]]
+=== *Handle unexpected response*
+
+****
+When the server sends us back a message we don't understand, this is how Cucumber will behave.
+****
+
+==== Background
+[small]#tags: @wire#
+
+
+****
+Given ::
+a file named "features/wired.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+----
+
+Feature: High strung
+  Scenario: Wired
+    Given we're all wired
+
+
+----
+And ::
+a file named "features/step_definitions/some_remote_place.wire" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+----
+
+host: localhost
+port: 54321
+
+
+----
+****
+
+==== Scenario: Unexpected response
+[small]#tags: @wire,@wire#
+
+
+****
+Given ::
+there is a wire server running on port 54321 which understands the following protocol: icon:thumbs-up[role="green",title="Passed"] [small right]#(002ms)#
+When ::
+I run `cucumber -f pretty` icon:thumbs-up[role="green",title="Passed"] [small right]#(068ms)#
+Then ::
+the output should contain: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+----
+
+undefined method `handle_yikes'
+
+----
+****
+
+[[Hooks-execute-in-defined-order, Hooks execute in defined order]]
+=== *Hooks execute in defined order*
+
+==== Background
+[small]#tags: @spawn#
+
+
+****
+Given ::
+a file named "features/step_definitions/steps.rb" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+----
+
+Given /^background step$/ do; $EventOrder.push(:background_step) end
+Given /^scenario step$/ do; $EventOrder.push(:scenario_step) end
+
+----
+And ::
+a file named "features/support/hooks.rb" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+----
+
+$EventOrder = []
+Around('@around') do |scenario,block|
+  $EventOrder.push :around_begin
+  block.call
+  $EventOrder.push :around_end
+end
+Before('@before') do
+  $EventOrder.push :before
+end
+After('@after') do |scenario|
+  $EventOrder.push :after
+end
+at_exit {
+  puts "Event order: #{$EventOrder.join(' ')}"
+}
+
+----
+And ::
+a file named "features/around_hook_covers_background.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+----
+
+@around
+Feature: Around hooks cover background steps
+  Background:
+    Given background step
+  Scenario:
+    Given scenario step
+
+----
+And ::
+a file named "features/all_hook_order.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+----
+
+@around
+@before
+@after
+Feature: All hooks execute in expected order
+  Background:
+    Given background step
+  Scenario:
+    Given scenario step
+
+----
+****
+
+==== Scenario: Around hooks cover background steps
+[small]#tags: @spawn,@spawn#
+
+
+****
+When ::
+I run `cucumber -o /dev/null features/around_hook_covers_background.feature` icon:thumbs-up[role="green",title="Passed"] [small right]#(606ms)#
+Then ::
+the output should contain: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+----
+
+Event order: around_begin background_step scenario_step around_end
+
+----
+****
+
+==== Scenario: All hooks execute in expected order
+[small]#tags: @spawn,@spawn#
+
+
+****
+When ::
+I run `cucumber -o /dev/null features/all_hook_order.feature` icon:thumbs-up[role="green",title="Passed"] [small right]#(606ms)#
+Then ::
+the output should contain: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+----
+
+Event order: around_begin before background_step scenario_step after around_end
+
+----
+****
+
 [[Invoke-message, Invoke message]]
 === *Invoke message*
 
@@ -3694,6 +4232,32 @@ The wire server will normally reply one of the following: +
 * `pending` - optionally takes a message argument +
  +
 This isn't quite the whole story: see also table_diffing.feature
+****
+
+==== Background
+[small]#tags: @wire#
+
+
+****
+Given ::
+a file named "features/wired.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+----
+
+Feature: High strung
+  Scenario: Wired
+    Given we're all wired
+
+
+----
+And ::
+a file named "features/step_definitions/some_remote_place.wire" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+----
+
+host: localhost
+port: 54321
+
+
+----
 ****
 
 ==== Scenario: Invoke a step definition which is pending
@@ -3913,6 +4477,135 @@ the wire server should have received the following messages: icon:thumbs-up[role
 ****
 In order to simplify processing of Cucumber features and results +
 Developers should be able to consume features as JSON
+****
+
+==== Background
+
+****
+Given ::
+the standard step definitions icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+And ::
+a file named "features/one_passing_one_failing.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+----
+
+@a
+Feature: One passing scenario, one failing scenario
+
+  @b
+  Scenario: Passing
+    Given this step passes
+
+  @c
+  Scenario: Failing
+    Given this step fails
+
+----
+And ::
+a file named "features/step_definitions/json_steps.rb" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+----
+
+Given /^I embed a screenshot/ do
+  File.open("screenshot.png", "w") { |file| file << "foo" }
+  embed "screenshot.png", "image/png"
+end
+
+Given /^I print from step definition/ do
+  puts "from step definition"
+end
+
+Given /^I embed data directly/ do
+  data = "YWJj"
+  embed data, "mime-type;base64"
+end
+
+----
+And ::
+a file named "features/embed.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+----
+
+Feature: A screenshot feature
+
+  Scenario:
+    Given I embed a screenshot
+
+
+----
+And ::
+a file named "features/outline.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+----
+
+Feature: An outline feature
+
+  Scenario Outline: outline
+    Given this step <status>
+
+    Examples: examples1
+      | status |
+      | passes |
+      | fails  |
+
+    Examples: examples2
+      | status |
+      | passes |
+
+----
+And ::
+a file named "features/print_from_step_definition.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+----
+
+Feature: A print from step definition feature
+
+  Scenario:
+    Given I print from step definition
+    And I print from step definition
+
+
+----
+And ::
+a file named "features/print_from_step_definition.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+----
+
+Feature: A print from step definition feature
+
+  Scenario:
+    Given I print from step definition
+    And I print from step definition
+
+
+----
+And ::
+a file named "features/embed_data_directly.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+----
+
+Feature: An embed data directly feature
+
+  Scenario:
+    Given I embed data directly
+
+  Scenario Outline:
+    Given I embed data directly
+
+Examples:
+| dummy |
+|  1    |
+|  2    |
+
+
+----
+And ::
+a file named "features/out_scenario_out_scenario_outline.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+----
+
+Feature:
+  Scenario:
+    Given this step passes
+  Scenario Outline:
+    Given this step <status>
+    Examples:
+    | status |
+    | passes |
+
+----
 ****
 
 ==== Scenario: one feature, one passing scenario, one failing scenario
@@ -4668,6 +5361,84 @@ In order for developers to create test reports with ant +
 Cucumber should be able to output JUnit xml files
 ****
 
+==== Background
+[small]#tags: @spawn#
+
+
+****
+Given ::
+the standard step definitions icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+And ::
+a file named "features/one_passing_one_failing.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+----
+
+Feature: One passing scenario, one failing scenario
+
+  Scenario: Passing
+    Given this step passes
+
+  Scenario: Failing
+    Given this step fails
+
+----
+And ::
+a file named "features/some_subdirectory/one_passing_one_failing.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+----
+
+Feature: Subdirectory - One passing scenario, one failing scenario
+
+  Scenario: Passing
+    Given this step passes
+
+  Scenario: Failing
+    Given this step fails
+
+----
+And ::
+a file named "features/pending.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+----
+
+Feature: Pending step
+
+  Scenario: Pending
+    Given this step is pending
+
+  Scenario: Undefined
+    Given this step is undefined
+
+----
+And ::
+a file named "features/pending.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+----
+
+Feature: Pending step
+
+  Scenario: Pending
+    Given this step is pending
+
+  Scenario: Undefined
+    Given this step is undefined
+
+----
+And ::
+a file named "features/scenario_outline.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+----
+
+Feature: Scenario outlines
+
+  Scenario Outline: Using scenario outlines
+    Given this step <type>
+
+    Examples:
+      | type         |
+      | passes       |
+      | fails        |
+      | is pending   |
+      | is undefined |
+
+----
+****
+
 ==== Scenario: one feature, one passing scenario, one failing scenario
 [small]#tags: @spawn,@spawn#
 
@@ -5140,6 +5911,15 @@ As a tool developer +
 I want to be able to query a features directory for all the step definitions it contains
 ****
 
+==== Background
+[small]#tags: @spawn#
+
+
+****
+Given ::
+a directory named "features" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+****
+
 ==== Scenario: Two Ruby step definitions, in the same file
 [small]#tags: @spawn,@spawn#
 
@@ -5255,6 +6035,27 @@ Feature: Feature in Subdirectory
 
 [[Nested-Steps, Nested Steps]]
 === *Nested Steps*
+
+==== Background
+
+****
+Given ::
+a scenario with a step that looks like this: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+----
+
+Given two turtles
+
+----
+And ::
+a step definition that looks like this: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+----
+
+Given /a turtle/ do
+  puts "turtle!"
+end
+
+----
+****
 
 ==== Scenario: Use #steps to call several steps at once
 
@@ -5493,6 +6294,28 @@ cucumber features/call_undefined_step_from_step_def.feature:6
 [[Nested-Steps-in-I18n, Nested Steps in I18n]]
 === *Nested Steps in I18n*
 
+==== Background
+
+****
+Given ::
+a scenario with a step that looks like this in japanese: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+----
+
+前提 two turtles
+
+----
+And ::
+a step definition that looks like this: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+----
+
+# -*- coding: utf-8 -*-
+前提 /a turtle/ do
+  puts "turtle!"
+end
+
+----
+****
+
 ==== Scenario: Use #steps to call several steps at once
 
 ****
@@ -5525,6 +6348,18 @@ turtle!
 
 [[Nested-Steps-with-either-table-or-doc-string, Nested Steps with either table or doc string]]
 === *Nested Steps with either table or doc string*
+
+==== Background
+
+****
+Given ::
+a scenario with a step that looks like this: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+----
+
+Given two turtles
+
+----
+****
 
 ==== Scenario: Use #step with table
 
@@ -5816,6 +6651,87 @@ the formatter that you're using. +
 Your message will be printed out after the step has run.
 ****
 
+==== Background
+
+****
+Given ::
+the standard step definitions icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+And ::
+a file named "features/step_definitions/puts_steps.rb" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+----
+
+Given /^I use puts with text "(.*)"$/ do |ann|
+  puts(ann)
+end
+
+Given /^I use multiple putss$/ do
+  puts("Multiple")
+  puts("Announce","Me")
+end
+
+Given /^I use message (.+) in line (.+) (?:with result (.+))$/ do |ann, line, result|
+  puts("Last message") if line == "3"
+  puts("Line: #{line}: #{ann}")
+  fail if result =~ /fail/i
+end
+
+Given /^I use puts and step fails$/ do
+  puts("Announce with fail")
+  fail
+end
+
+Given /^I puts the world$/ do
+  puts(self)
+end
+
+----
+And ::
+a file named "features/f.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+----
+
+Feature:
+
+  Scenario:
+    Given I use puts with text "Ann"
+    And this step passes
+
+  Scenario:
+    Given I use multiple putss
+    And this step passes
+
+  Scenario Outline:
+    Given I use message <ann> in line <line>
+
+    Examples:
+      | line | ann   |
+      | 1    | anno1 |
+      | 2    | anno2 |
+      | 3    | anno3 |
+
+  Scenario:
+    Given I use puts and step fails
+    And this step passes
+
+  Scenario Outline:
+    Given I use message <ann> in line <line> with result <result>
+
+    Examples:
+      | line | ann   | result |
+      | 1    | anno1 | fail   |
+      | 2    | anno2 | pass   |
+
+----
+And ::
+a file named "features/puts_world.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+----
+
+Feature: puts_world
+  Scenario: puts_world
+    Given I puts the world
+
+----
+****
+
 ==== Scenario: Delayed messages feature
 [small]#tags: @spawn#
 
@@ -5904,6 +6820,25 @@ Line: 2: anno2
 
 [[Pretty-output-formatter, Pretty output formatter]]
 === *Pretty output formatter*
+
+==== Background
+
+****
+Given ::
+a file named "features/scenario_outline_with_undefined_steps.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+----
+
+Feature:
+
+  Scenario Outline:
+    Given this step is undefined
+
+  Examples:
+    |foo|
+    |bar|
+
+----
+****
 
 ==== Scenario: an scenario outline, one undefined step, one random example, expand flag on
 
@@ -6006,6 +6941,33 @@ These named arguments are called profiles and the yml file should be in the root
 Any cucumber argument is valid in a profile.  To see all the available flags type 'cucumber --help' +
 For more information about profiles please see the wiki: +
 http://wiki.github.com/cucumber/cucumber/cucumber.yml
+****
+
+==== Background
+==== Background: Basic App
+
+****
+Given ::
+a file named "features/sample.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+----
+
+Feature: Sample
+  Scenario: this is a test
+    Given this step raises an error
+
+----
+And ::
+an empty file named "features/support/env.rb" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+And ::
+an empty file named "features/support/super_env.rb" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+And ::
+the following profiles are defined: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+----
+
+default: features/sample.feature --require features/support/env.rb -v
+super: features/sample.feature --require features/support/super_env.rb -v
+
+----
 ****
 
 ==== Scenario: Explicitly defining a profile to run
@@ -6203,6 +7165,25 @@ cucumber -p super features/sample.feature:2
 [[Progress-output-formatter, Progress output formatter]]
 === *Progress output formatter*
 
+==== Background
+
+****
+Given ::
+a file named "features/scenario_outline_with_undefined_steps.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+----
+
+Feature:
+
+  Scenario Outline:
+    Given this step is undefined
+
+  Examples:
+    |foo|
+    |bar|
+
+----
+****
+
 ==== Scenario: an scenario outline, one undefined step, one random example, expand flag on
 
 ****
@@ -6242,6 +7223,26 @@ Using the default profile...
 In order to ease the development process +
 As a developer and CI server administrator +
 Cucumber features should be executable via Rake
+****
+
+==== Background
+[small]#tags: @spawn#
+
+
+****
+And ::
+a file named "features/missing_step_definitions.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+----
+
+Feature: Sample
+
+  Scenario: Wanted
+    Given I want to run this
+
+  Scenario: Unwanted
+    Given I don't want this ran
+
+----
 ****
 
 ==== Scenario: rake task with a defined profile
@@ -6454,6 +7455,45 @@ Also I want to get zero exit status code on failures +
 And non-zero exit status code when it pases
 ****
 
+==== Background
+[small]#tags: @spawn#
+
+
+****
+Given ::
+the standard step definitions icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+Given ::
+a file named "features/passing_and_failing.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+----
+
+Feature: Sample
+
+  Scenario: Passing
+    Given this step passes
+
+  Scenario: Failing
+    Given this step raises an error
+
+----
+Given ::
+a file named "Rakefile" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+----
+
+  require 'cucumber/rake/task'
+
+  SAMPLE_FEATURE_FILE = 'features/passing_and_failing.feature'
+
+  Cucumber::Rake::Task.new(:pass) do |t|
+    t.cucumber_opts = "#{SAMPLE_FEATURE_FILE}:3"
+  end
+
+  Cucumber::Rake::Task.new(:fail) do |t|
+    t.cucumber_opts = "#{SAMPLE_FEATURE_FILE}:6"
+  end
+
+----
+****
+
 ==== Scenario: Passing feature
 [small]#tags: @spawn,@spawn#
 
@@ -6490,6 +7530,37 @@ leaking between scenarios, which can cause flickering or fragile tests. +
 If you do find a randmon run that exposes dependencies between your tests, +
 you can reproduce that run by using the seed that's printed at the end of +
 the test run.
+****
+
+==== Background
+
+****
+Given ::
+a file named "features/bad_practice.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+----
+
+Feature: Bad practice
+  
+  Scenario: Set state
+    Given I set some state
+
+  Scenario: Depend on state
+    When I depend on the state
+
+----
+And ::
+a file named "features/step_definitions/steps.rb" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+----
+
+Given(/^I set some state$/) do
+  $global_state = "set"
+end
+
+Given(/^I depend on the state$/) do
+  raise "I expect the state to be set!" unless $global_state == "set"
+end
+
+----
 ****
 
 ==== Scenario: Run scenarios in order
@@ -6579,6 +7650,13 @@ which scenarios to run: +
 `cucumber \`cat .cucumber.rerun\`` +
  +
 This is useful when debugging in a large suite of features.
+****
+
+==== Background
+
+****
+Given ::
+the standard step definitions icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ****
 
 ==== Scenario: Exit code is zero
@@ -6871,6 +7949,47 @@ name. The NAME can be a substring of the names of Features, Scenarios, +
 Scenario Outlines or Example blocks.
 ****
 
+==== Background
+
+****
+Given ::
+a file named "features/first.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+----
+
+Feature: first feature
+  Scenario: foo first
+    Given missing
+  Scenario: bar first
+    Given missing
+
+----
+Given ::
+a file named "features/second.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+----
+
+Feature: second
+  Scenario: foo second
+    Given missing
+  Scenario: bar second
+    Given missing
+
+----
+Given ::
+a file named "features/outline.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+----
+
+Feature: outline
+  Scenario Outline: baz outline
+    Given outline step <name>
+
+    Examples: quux example
+      | name |
+      | a    |
+      | b    |
+
+----
+****
+
 ==== Scenario: Matching Feature names
 
 ****
@@ -6983,6 +8102,13 @@ For scenario outlines, if the line hits one example row, just that one +
 will be run. Otherwise all examples in the table or outline will be run.
 ****
 
+==== Background
+
+****
+Given ::
+the standard step definitions icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+****
+
 ==== Scenario: Two scenarios, run just one of them
 
 ****
@@ -7088,6 +8214,27 @@ formatters and redirect the output to text files. +
 Two formatters cannot both print to the same file (or to STDOUT)
 ****
 
+==== Background
+[small]#tags: @spawn#
+
+
+****
+Given ::
+a file named "features/test.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+----
+
+Feature: Lots of undefined
+
+  Scenario: Implement me
+    Given it snows in Sahara
+    Given it's 40 degrees in Norway
+    And it's 40 degrees in Norway
+    When I stop procrastinating
+    And there is world peace
+
+----
+****
+
 ==== Scenario: Multiple formatters and outputs
 [small]#tags: @spawn,@spawn#
 
@@ -7187,6 +8334,42 @@ within < > in the Scenario Outline's steps - see the examples below. +
 **IMPORTANT:** Your step definitions will never have to match a +
 placeholder. They will need to match the values that will replace the +
 placeholder.
+****
+
+==== Background
+[small]#tags: @spawn#
+
+
+****
+Given ::
+a file named "features/outline_sample.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+----
+
+Feature: Outline Sample
+
+  Scenario: I have no steps
+
+  Scenario Outline: Test state
+    Given <state> without a table
+    Given <other_state> without a table
+  Examples: Rainbow colours
+    | state    | other_state |
+    | missing  | passing     |
+    | passing  | passing     |
+    | failing  | passing     |
+Examples:Only passing
+    | state    | other_state |
+    | passing  | passing     |
+
+----
+And ::
+a file named "features/step_definitions/steps.rb" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+----
+
+Given(/^passing without a table$/) { }
+Given(/^failing without a table$/) { raise RuntimeError }
+
+----
 ****
 
 ==== Scenario: Run scenario outline with filtering on outline name
@@ -7666,6 +8849,32 @@ If a step doesn't match, Cucumber will ask the wire server to return a snippet o
 step definition.
 ****
 
+==== Background
+[small]#tags: @wire#
+
+
+****
+Given ::
+a file named "features/wired.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+----
+
+Feature: High strung
+  Scenario: Wired
+    Given we're all wired
+
+
+----
+And ::
+a file named "features/step_definitions/some_remote_place.wire" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+----
+
+host: localhost
+port: 54321
+
+
+----
+****
+
 ==== Scenario: Wire server returns snippets for a step that didn't match
 [small]#tags: @wire,@wire,@spawn#
 
@@ -7769,6 +8978,32 @@ is simply used for the wire server's own reference. +
 expression (or other argument matching) process.
 ****
 
+==== Background
+[small]#tags: @wire#
+
+
+****
+Given ::
+a file named "features/wired.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+----
+
+Feature: High strung
+  Scenario: Wired
+    Given we're all wired
+
+
+----
+And ::
+a file named "features/step_definitions/some_remote_place.wire" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+----
+
+host: localhost
+port: 54321
+
+
+----
+****
+
 ==== Scenario: Dry run finds no step match
 [small]#tags: @wire,@wire#
 
@@ -7848,6 +9083,29 @@ the stderr should not contain anything icon:thumbs-up[role="green",title="Passed
 ****
 Using the `--strict` flag will cause cucumber to fail unless all the +
 step definitions have been defined.
+****
+
+==== Background
+
+****
+Given ::
+a file named "features/missing.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+----
+
+Feature: Missing
+  Scenario: Missing
+    Given this step passes
+
+----
+And ::
+a file named "features/pending.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+----
+
+Feature: Pending
+  Scenario: Pending
+    Given this step is pending
+
+----
 ****
 
 ==== Scenario: Fail with --strict due to undefined step
@@ -7995,6 +9253,34 @@ As a Cuker +
 I want to select features using logical AND/OR of tags
 ****
 
+==== Background
+
+****
+Given ::
+a file named "features/test.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+----
+
+@feature
+Feature: Sample
+
+  @one @three
+  Scenario: Example
+    Given passing
+
+  @one
+  Scenario: Another Example
+    Given passing
+
+  @three
+  Scenario: Yet another Example
+    Given passing
+
+  @ignore
+  Scenario: And yet another Example
+
+----
+****
+
 ==== Scenario: ANDing tags
 
 ****
@@ -8135,6 +9421,47 @@ it should pass icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)
 [[Tagged-hooks, Tagged hooks]]
 === *Tagged hooks*
 
+==== Background
+
+****
+Given ::
+the standard step definitions icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+And ::
+a file named "features/support/hooks.rb" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+----
+
+Before('~@no-boom') do 
+  raise 'boom'
+end
+
+----
+And ::
+a file named "features/f.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+----
+
+Feature: With and without hooks
+  Scenario: using hook
+    Given this step passes
+
+  @no-boom
+  Scenario: omitting hook
+    Given this step passes
+
+  Scenario Outline: omitting hook on specified examples
+    Given this step passes
+
+    Examples:
+    | Value       |
+    | Irrelevant  |
+
+    @no-boom
+    Examples:
+    | Value           |
+    | Also Irrelevant |
+
+----
+****
+
 ==== Scenario: omit tagged hook
 
 ****
@@ -8222,6 +9549,35 @@ cucumber features/f.feature:14 # Scenario Outline: omitting hook on specified ex
 ****
 If you see certain phrases repeated over and over in your step definitions, you can +
 use transforms to factor out that duplication, and make your step definitions simpler.
+****
+
+==== Background
+Let's just create a simple feature for testing out Transforms.
+We also have a Person class that we need to be able to build.
+
+****
+Given ::
+a file named "features/foo.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+----
+
+Feature:
+  Scenario:
+    Given a Person aged 15 with blonde hair
+
+----
+And ::
+a file named "features/support/person.rb" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+----
+
+class Person
+  attr_accessor :age
+
+  def to_s
+    "I am #{age} years old"
+  end
+end
+
+----
 ****
 
 ==== Scenario: Basic Transform
@@ -8329,6 +9685,42 @@ In order to see where step definitions are used +
 Developers should be able to see a list of step definitions and their use
 ****
 
+==== Background
+
+****
+Given ::
+a file named "features/f.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+----
+
+Feature: F
+  Background: A
+    Given A
+  Scenario: B
+    Given B
+  Scenario Outline: CA
+    Given <x>
+    And B
+    Examples:
+      |x|
+      |C|
+      |A|
+  Scenario: AC
+    Given A
+    Given C
+
+----
+And ::
+a file named "features/step_definitions/steps.rb" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+----
+
+Given(/A/) { }
+Given(/B/) { }
+Given(/C/) { }
+Given(/D/) { }
+
+----
+****
+
 ==== Scenario: Run with --format usage
 
 ****
@@ -8432,6 +9824,13 @@ It's possible to have your descriptions run over more than one line, +
 and you can have blank lines too. As long as you don't start a line +
 with a Given, When, Then, Background:, Scenario: or similar, you're +
 fine: otherwise Gherkin will start to pay attention.
+****
+
+==== Background
+
+****
+Given ::
+the standard step definitions icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ****
 
 ==== Scenario: Everything with a description
@@ -8580,6 +9979,32 @@ As a wire server +
 I want to be able to ask for a table diff during a step definition invocation
 ****
 
+==== Background
+[small]#tags: @wire#
+
+
+****
+Given ::
+a file named "features/wired.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+----
+
+Feature: Hello
+  Scenario: Wired
+    Given we're all wired
+
+
+----
+And ::
+a file named "features/step_definitions/some_remote_place.wire" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+----
+
+host: localhost
+port: 54321
+
+
+----
+****
+
 ==== Scenario: Invoke a step definition tries to diff the table and fails
 [small]#tags: @wire,@wire,@spawn#
 
@@ -8708,6 +10133,22 @@ In order to use Before and After hooks in a wire server, we send tags with the  
 scenario in the begin_scenario and end_scenario messages
 ****
 
+==== Background
+[small]#tags: @wire#
+
+
+****
+And ::
+a file named "features/step_definitions/some_remote_place.wire" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+----
+
+host: localhost
+port: 54321
+
+
+----
+****
+
 ==== Scenario: Run a scenario
 [small]#tags: @wire,@wire#
 
@@ -8807,6 +10248,23 @@ Feature: Wired
 We don't want Cucumber to hang forever on a wire server that's not even there, +
 but equally we need to give the user the flexibility to allow step definitions +
 to take a while to execute, if that's what they need.
+****
+
+==== Background
+[small]#tags: @wire#
+
+
+****
+And ::
+a file named "features/wired.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+----
+
+Feature: Telegraphy
+  Scenario: Wired
+    Given we're all wired
+
+
+----
 ****
 
 ==== Scenario: Try to talk to a server that's not there

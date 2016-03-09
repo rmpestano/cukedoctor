@@ -254,47 +254,19 @@
 |010ms
 |[red]#*failed*#
 
-12+^|*<<step-definition-snippets>>*
-|1
-|3
-|4
-|9
-|0
-|0
-|0
-|4
-|0
-|13
-|020ms
-|[red]#*failed*#
-
-12+^|*<<step-definitions-with-string-pattern>>*
-|2
-|1
-|3
-|13
-|0
-|0
-|0
-|1
-|0
-|14
-|012ms
-|[red]#*failed*#
-
 12+^|*<<Strict-mode>>*
 |5
-|0
-|5
+|1
+|6
 |23
 |0
 |0
 |0
 |0
-|0
-|23
+|1
+|24
 |01s 366ms
-|[green]#*passed*#
+|[red]#*failed*#
 
 12+^|*<<Summary-Formatter>>*
 |2
@@ -337,8 +309,36 @@
 |4
 |006ms
 |[green]#*passed*#
+
+12+^|*<<step-definition-snippets>>*
+|1
+|3
+|4
+|9
+|0
+|0
+|0
+|4
+|0
+|13
+|020ms
+|[red]#*failed*#
+
+12+^|*<<step-definitions-with-string-pattern>>*
+|2
+|1
+|3
+|13
+|0
+|0
+|0
+|1
+|0
+|14
+|012ms
+|[red]#*failed*#
 12+^|*Totals*
-|92|16|108|440|0|14|0|43|0|497 2+|19s 210ms
+|92|17|109|440|0|14|0|43|1|498 2+|19s 210ms
 |===
 
 == *Features*
@@ -6326,133 +6326,26 @@ And ::
 the scenario passes icon:thumbs-down[role="purple",title="Skipped"] [small right]#(000ms)#
 ****
 
-[[step-definition-snippets, step definition snippets]]
-=== *step definition snippets*
-
-==== Scenario: escape regexp special characters
-
-****
-Given ::
-a scenario with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
-----
-
-Given I am a happy veggie \o/
-When I type -[]{}()*+?.\^$|#/
-
-----
-When ::
-Cucumber executes the scenario icon:thumbs-up[role="green",title="Passed"] [small right]#(006ms)#
-Then ::
-a "Given" step definition snippet for /^I am a happy veggie \\o\/$/ is suggested icon:thumbs-down[role="yellow",title="Undefined"] [small right]#(000ms)#
-Then ::
-a "When" step definition snippet for /^I type \-\[\]\{\}\(\)\*\+\?\.\\\^\$\|\#\/$/ is suggested icon:thumbs-down[role="yellow",title="Undefined"] [small right]#(000ms)#
-****
-
-==== Scenario: step matching groups
-
-****
-Given ::
-a scenario with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
-----
-
-Given I have 5 "kekiri" cucumbers
-
-----
-When ::
-Cucumber executes the scenario icon:thumbs-up[role="green",title="Passed"] [small right]#(004ms)#
-Then ::
-a "Given" step definition snippet for /^I have (\d+) "([^"]*)" cucumbers$/ with 2 parameters is suggested icon:thumbs-down[role="yellow",title="Undefined"] [small right]#(000ms)#
-****
-
-==== Scenario: multiple matching groups
-
-****
-Given ::
-a scenario with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
-----
-
-Given I have some "hekiri", "wild" and "regular" cucumbers
-
-----
-When ::
-Cucumber executes the scenario icon:thumbs-up[role="green",title="Passed"] [small right]#(004ms)#
-Then ::
-a "Given" step definition snippet for /^I have some "([^"]*)", "([^"]*)" and "([^"]*)" cucumbers$/ with 3 parameters is suggested icon:thumbs-down[role="yellow",title="Undefined"] [small right]#(000ms)#
-****
-
-==== Scenario: outline steps with examples
-
-****
-Given ::
-a scenario with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
-----
-
-Given I have <some> cucumbers
-
-----
-When ::
-Cucumber executes the scenario icon:thumbs-up[role="green",title="Passed"] [small right]#(005ms)#
-Then ::
-a "Given" example step definition snippet for /^I have "(.*)" cucumbers$/ with 1 parameters is suggested icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
-****
-
-[[step-definitions-with-string-pattern, step definitions with string pattern]]
-=== *step definitions with string pattern*
-
-****
-Some people don't like Regexps as step definition patterns. +
-Cucumber also supports string-based patterns.
-****
-
-==== Scenario: step definition with string-based pattern
-
-****
-Given ::
-a mapping with a string-based pattern icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
-When ::
-Cucumber executes a scenario using that mapping icon:thumbs-up[role="green",title="Passed"] [small right]#(004ms)#
-Then ::
-the feature passes icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
-And ::
-the mapping is run icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
-****
-
-==== Scenario: step definition with string-based pattern and parameters
-
-****
-Given ::
-a mapping with a string-based pattern and parameters icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
-When ::
-Cucumber executes a scenario that passes arguments to that mapping icon:thumbs-up[role="green",title="Passed"] [small right]#(003ms)#
-Then ::
-the feature passes icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
-And ::
-the mapping is run icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
-And ::
-the mapping receives the arguments icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
-****
-
-==== Scenario: step definition with string-based pattern and multiple parameters
-
-****
-Given ::
-a mapping with a string-based pattern and multiple parameters icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
-When ::
-Cucumber executes a scenario that passes multiple arguments to that mapping icon:thumbs-up[role="green",title="Passed"] [small right]#(003ms)#
-Then ::
-the feature passes icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
-And ::
-the mapping is run icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
-And ::
-the mapping receives the multipple arguments icon:thumbs-down[role="yellow",title="Undefined"] [small right]#(000ms)#
-****
-
 [[Strict-mode, Strict mode]]
 === *Strict mode*
 
 ****
 Using the `--strict` flag will cause cucumber to fail unless all the +
 step definitions have been defined.
+****
+
+==== Background
+
+****
+Given ::
+a file named "features/a.feature" with: icon:thumbs-down[role="blue",title="Missing"]
+----
+
+Feature: Missing
+  Scenario: Missing
+    Given this step passes
+
+----
 ****
 
 ==== Scenario: Succeed scenario with implemented step with --strict
@@ -6858,5 +6751,126 @@ Then ::
 the feature passes icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 And ::
 the explicit World object function should have been called icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+****
+
+[[step-definition-snippets, step definition snippets]]
+=== *step definition snippets*
+
+==== Scenario: escape regexp special characters
+
+****
+Given ::
+a scenario with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+----
+
+Given I am a happy veggie \o/
+When I type -[]{}()*+?.\^$|#/
+
+----
+When ::
+Cucumber executes the scenario icon:thumbs-up[role="green",title="Passed"] [small right]#(006ms)#
+Then ::
+a "Given" step definition snippet for /^I am a happy veggie \\o\/$/ is suggested icon:thumbs-down[role="yellow",title="Undefined"] [small right]#(000ms)#
+Then ::
+a "When" step definition snippet for /^I type \-\[\]\{\}\(\)\*\+\?\.\\\^\$\|\#\/$/ is suggested icon:thumbs-down[role="yellow",title="Undefined"] [small right]#(000ms)#
+****
+
+==== Scenario: step matching groups
+
+****
+Given ::
+a scenario with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+----
+
+Given I have 5 "kekiri" cucumbers
+
+----
+When ::
+Cucumber executes the scenario icon:thumbs-up[role="green",title="Passed"] [small right]#(004ms)#
+Then ::
+a "Given" step definition snippet for /^I have (\d+) "([^"]*)" cucumbers$/ with 2 parameters is suggested icon:thumbs-down[role="yellow",title="Undefined"] [small right]#(000ms)#
+****
+
+==== Scenario: multiple matching groups
+
+****
+Given ::
+a scenario with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+----
+
+Given I have some "hekiri", "wild" and "regular" cucumbers
+
+----
+When ::
+Cucumber executes the scenario icon:thumbs-up[role="green",title="Passed"] [small right]#(004ms)#
+Then ::
+a "Given" step definition snippet for /^I have some "([^"]*)", "([^"]*)" and "([^"]*)" cucumbers$/ with 3 parameters is suggested icon:thumbs-down[role="yellow",title="Undefined"] [small right]#(000ms)#
+****
+
+==== Scenario: outline steps with examples
+
+****
+Given ::
+a scenario with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+----
+
+Given I have <some> cucumbers
+
+----
+When ::
+Cucumber executes the scenario icon:thumbs-up[role="green",title="Passed"] [small right]#(005ms)#
+Then ::
+a "Given" example step definition snippet for /^I have "(.*)" cucumbers$/ with 1 parameters is suggested icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+****
+
+[[step-definitions-with-string-pattern, step definitions with string pattern]]
+=== *step definitions with string pattern*
+
+****
+Some people don't like Regexps as step definition patterns. +
+Cucumber also supports string-based patterns.
+****
+
+==== Scenario: step definition with string-based pattern
+
+****
+Given ::
+a mapping with a string-based pattern icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+When ::
+Cucumber executes a scenario using that mapping icon:thumbs-up[role="green",title="Passed"] [small right]#(004ms)#
+Then ::
+the feature passes icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+And ::
+the mapping is run icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+****
+
+==== Scenario: step definition with string-based pattern and parameters
+
+****
+Given ::
+a mapping with a string-based pattern and parameters icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+When ::
+Cucumber executes a scenario that passes arguments to that mapping icon:thumbs-up[role="green",title="Passed"] [small right]#(003ms)#
+Then ::
+the feature passes icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+And ::
+the mapping is run icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+And ::
+the mapping receives the arguments icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+****
+
+==== Scenario: step definition with string-based pattern and multiple parameters
+
+****
+Given ::
+a mapping with a string-based pattern and multiple parameters icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+When ::
+Cucumber executes a scenario that passes multiple arguments to that mapping icon:thumbs-up[role="green",title="Passed"] [small right]#(003ms)#
+Then ::
+the feature passes icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+And ::
+the mapping is run icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+And ::
+the mapping receives the multipple arguments icon:thumbs-down[role="yellow",title="Undefined"] [small right]#(000ms)#
 ****
 

@@ -128,20 +128,6 @@
 |05s 198ms
 |[green]#*passed*#
 
-12+^|*<<frontmatter-defaults>>*
-|10
-|0
-|10
-|85
-|0
-|0
-|0
-|0
-|0
-|85
-|05s 926ms
-|[green]#*passed*#
-
 12+^|*<<Hooks>>*
 |17
 |0
@@ -280,6 +266,20 @@
 |0
 |0
 |000ms
+|[green]#*passed*#
+
+12+^|*<<frontmatter-defaults>>*
+|10
+|0
+|10
+|85
+|0
+|0
+|0
+|0
+|0
+|85
+|05s 926ms
 |[green]#*passed*#
 12+^|*Totals*
 |152|0|152|1111|0|0|0|0|0|1111 2+|01m 35s 384ms
@@ -1950,385 +1950,6 @@ And ::
 the _site/custom/posts directory should exist icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 And ::
 I should see "bla bla" in "_site/custom/posts/some.html" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
-****
-
-[[frontmatter-defaults, frontmatter defaults]]
-=== *frontmatter defaults*
-
-==== Scenario: Use default for frontmatter variables internally
-
-****
-Given ::
-I have a _layouts directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
-And ::
-I have a pretty layout that contains "THIS IS THE LAYOUT: {{content}}" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
-And ::
-I have a _posts directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
-And ::
-I have the following post: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
-
-[cols="3*", options="header"]
-|===
-|title
-|date
-|content
-|default layout
-|2013-09-11
-|just some post
-|===
-
-And ::
-I have an "index.html" page with title "some title" that contains "just some page" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
-And ::
-I have a configuration file with "defaults" set to "[{scope: {path: ""}, values: {layout: "pretty"}}]" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
-When ::
-I run jekyll build icon:thumbs-up[role="green",title="Passed"] [small right]#(638ms)#
-Then ::
-the _site directory should exist icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
-And ::
-I should see "THIS IS THE LAYOUT: <p>just some post</p>" in "_site/2013/09/11/default-layout.html" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
-And ::
-I should see "THIS IS THE LAYOUT: just some page" in "_site/index.html" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
-****
-
-==== Scenario: Use default for frontmatter variables in Liquid
-
-****
-Given ::
-I have a _posts directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
-And ::
-I have the following post: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
-
-[cols="3*", options="header"]
-|===
-|title
-|date
-|content
-|default data
-|2013-09-11
-|<p>{{page.custom}}</p><div>{{page.author}}</div>
-|===
-
-And ::
-I have an "index.html" page that contains "just {{page.custom}} by {{page.author}}" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
-And ::
-I have a configuration file with "defaults" set to "[{scope: {path: ""}, values: {custom: "some special data", author: "Ben"}}]" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
-When ::
-I run jekyll build icon:thumbs-up[role="green",title="Passed"] [small right]#(626ms)#
-Then ::
-the _site directory should exist icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
-And ::
-I should see "<p>some special data</p>\n<div>Ben</div>" in "_site/2013/09/11/default-data.html" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
-And ::
-I should see "just some special data by Ben" in "_site/index.html" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
-****
-
-==== Scenario: Override frontmatter defaults by path
-
-****
-Given ::
-I have a _layouts directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
-And ::
-I have a root layout that contains "root: {{ content }}" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
-And ::
-I have a subfolder layout that contains "subfolder: {{ content }}" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
-And ::
-I have a _posts directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
-And ::
-I have the following post: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
-
-[cols="3*", options="header"]
-|===
-|title
-|date
-|content
-|about
-|2013-10-14
-|info on {{page.description}}
-|===
-
-And ::
-I have a special/_posts directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
-And ::
-I have the following post in "special": icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
-
-[cols="4*", options="header"]
-|===
-|title
-|date
-|path
-|content
-|about
-|2013-10-14
-|local
-|info on {{page.description}}
-|===
-
-And ::
-I have an "index.html" page with title "overview" that contains "Overview for {{page.description}}" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
-And ::
-I have an "special/index.html" page with title "section overview" that contains "Overview for {{page.description}}" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
-And ::
-I have a configuration file with "defaults" set to "[{scope: {path: "special"}, values: {layout: "subfolder", description: "the special section"}}, {scope: {path: ""}, values: {layout: "root", description: "the webpage"}}]" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
-When ::
-I run jekyll build icon:thumbs-up[role="green",title="Passed"] [small right]#(641ms)#
-Then ::
-the _site directory should exist icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
-And ::
-I should see "root: <p>info on the webpage</p>" in "_site/2013/10/14/about.html" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
-And ::
-I should see "subfolder: <p>info on the special section</p>" in "_site/special/2013/10/14/about.html" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
-And ::
-I should see "root: Overview for the webpage" in "_site/index.html" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
-And ::
-I should see "subfolder: Overview for the special section" in "_site/special/index.html" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
-****
-
-==== Scenario: Use frontmatter variables by relative path
-
-****
-Given ::
-I have a _layouts directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
-And ::
-I have a main layout that contains "main: {{ content }}" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
-And ::
-I have a _posts directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
-And ::
-I have the following post: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
-
-[cols="3*", options="header"]
-|===
-|title
-|date
-|content
-|about
-|2013-10-14
-|content of site/2013/10/14/about.html
-|===
-
-And ::
-I have a special/_posts directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
-And ::
-I have the following post in "special": icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
-
-[cols="4*", options="header"]
-|===
-|title
-|date
-|path
-|content
-|about1
-|2013-10-14
-|local
-|content of site/special/2013/10/14/about1.html
-|about2
-|2013-10-14
-|local
-|content of site/special/2013/10/14/about2.html
-|===
-
-And ::
-I have a configuration file with "defaults" set to "[{scope: {path: "special"}, values: {layout: "main"}}, {scope: {path: "special/_posts"}, values: {layout: "main"}}, {scope: {path: "_posts"}, values: {layout: "main"}}]" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
-When ::
-I run jekyll build icon:thumbs-up[role="green",title="Passed"] [small right]#(643ms)#
-Then ::
-the _site directory should exist icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
-And ::
-I should see "main: <p>content of site/2013/10/14/about.html</p>" in "_site/2013/10/14/about.html" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
-And ::
-I should see "main: <p>content of site/special/2013/10/14/about1.html</p>" in "_site/special/2013/10/14/about1.html" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
-And ::
-I should see "main: <p>content of site/special/2013/10/14/about2.html</p>" in "_site/special/2013/10/14/about2.html" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
-****
-
-==== Scenario: Override frontmatter defaults by type
-
-****
-Given ::
-I have a _posts directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
-And ::
-I have the following post: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
-
-[cols="3*", options="header"]
-|===
-|title
-|date
-|content
-|this is a post
-|2013-10-14
-|blabla
-|===
-
-And ::
-I have an "index.html" page that contains "interesting stuff" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
-And ::
-I have a configuration file with "defaults" set to "[{scope: {path: "", type: "post"}, values: {permalink: "/post.html"}}, {scope: {path: "", type: "page"}, values: {permalink: "/page.html"}}, {scope: {path: ""}, values: {permalink: "/perma.html"}}]" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
-When ::
-I run jekyll build icon:thumbs-up[role="green",title="Passed"] [small right]#(543ms)#
-Then ::
-I should see "blabla" in "_site/post.html" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
-And ::
-I should see "interesting stuff" in "_site/page.html" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
-But ::
-the "_site/perma.html" file should not exist icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
-****
-
-==== Scenario: Actual frontmatter overrides defaults
-
-****
-Given ::
-I have a _posts directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
-And ::
-I have the following post: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
-
-[cols="5*", options="header"]
-|===
-|title
-|date
-|permalink
-|author
-|content
-|override
-|2013-10-14
-|/frontmatter.html
-|some guy
-|a blog by {{page.author}}
-|===
-
-And ::
-I have an "index.html" page with permalink "override.html" that contains "nothing" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
-And ::
-I have a configuration file with "defaults" set to "[{scope: {path: ""}, values: {permalink: "/perma.html", author: "Chris"}}]" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
-When ::
-I run jekyll build icon:thumbs-up[role="green",title="Passed"] [small right]#(556ms)#
-Then ::
-I should see "a blog by some guy" in "_site/frontmatter.html" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
-And ::
-I should see "nothing" in "_site/override.html" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
-But ::
-the "_site/perma.html" file should not exist icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
-****
-
-==== Scenario: Define permalink default for posts
-
-****
-Given ::
-I have a _posts directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
-And ::
-I have the following post: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
-
-[cols="4*", options="header"]
-|===
-|title
-|date
-|category
-|content
-|testpost
-|2013-10-14
-|blog
-|blabla
-|===
-
-And ::
-I have a configuration file with "defaults" set to "[{scope: {path: "", type: "posts"}, values: {permalink: "/:categories/:title/"}}]" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
-When ::
-I run jekyll build icon:thumbs-up[role="green",title="Passed"] [small right]#(584ms)#
-Then ::
-I should see "blabla" in "_site/blog/testpost/index.html" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
-****
-
-==== Scenario: Use frontmatter defaults in collections
-
-****
-Given ::
-I have a _slides directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
-And ::
-I have a "index.html" file that contains "nothing" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
-And ::
-I have a "_slides/slide1.html" file with content: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
-----
-
----
----
-Value: {{ page.myval }}
-
-----
-And ::
-I have a "_config.yml" file with content: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
-----
-
-  collections:
-    slides:
-      output: true
-  defaults:
-    -
-      scope:
-        path: ""
-        type: slides
-      values:
-        myval: "Test"
-
-----
-When ::
-I run jekyll build icon:thumbs-up[role="green",title="Passed"] [small right]#(607ms)#
-Then ::
-the _site directory should exist icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
-And ::
-I should see "Value: Test" in "_site/slides/slide1.html" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
-****
-
-==== Scenario: Override frontmatter defaults inside a collection
-
-****
-Given ::
-I have a _slides directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
-And ::
-I have a "index.html" file that contains "nothing" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
-And ::
-I have a "_slides/slide2.html" file with content: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
-----
-
----
-myval: Override
----
-Value: {{ page.myval }}
-
-----
-And ::
-I have a "_config.yml" file with content: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
-----
-
-  collections:
-    slides:
-      output: true
-  defaults:
-    -
-      scope:
-        path: ""
-        type: slides
-      values:
-        myval: "Test"
-
-----
-When ::
-I run jekyll build icon:thumbs-up[role="green",title="Passed"] [small right]#(509ms)#
-Then ::
-the _site directory should exist icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
-And ::
-I should see "Value: Override" in "_site/slides/slide2.html" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
-****
-
-==== Scenario: Deep merge frontmatter defaults
-
-****
-Given ::
-I have an "index.html" page with fruit "{orange: 1}" that contains "Fruits: {{ page.fruit.orange | plus: page.fruit.apple }}" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
-And ::
-I have a configuration file with "defaults" set to "[{scope: {path: ""}, values: {fruit: {apple: 2}}}]" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
-When ::
-I run jekyll build icon:thumbs-up[role="green",title="Passed"] [small right]#(560ms)#
-Then ::
-I should see "Fruits: 3" in "_site/index.html" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ****
 
 [[Hooks, Hooks]]
@@ -5274,4 +4895,383 @@ I want divide the posts in several pages
 |1
 |7
 |===
+
+[[frontmatter-defaults, frontmatter defaults]]
+=== *frontmatter defaults*
+
+==== Scenario: Use default for frontmatter variables internally
+
+****
+Given ::
+I have a _layouts directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+And ::
+I have a pretty layout that contains "THIS IS THE LAYOUT: {{content}}" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+And ::
+I have a _posts directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+And ::
+I have the following post: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+
+[cols="3*", options="header"]
+|===
+|title
+|date
+|content
+|default layout
+|2013-09-11
+|just some post
+|===
+
+And ::
+I have an "index.html" page with title "some title" that contains "just some page" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+And ::
+I have a configuration file with "defaults" set to "[{scope: {path: ""}, values: {layout: "pretty"}}]" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+When ::
+I run jekyll build icon:thumbs-up[role="green",title="Passed"] [small right]#(638ms)#
+Then ::
+the _site directory should exist icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+And ::
+I should see "THIS IS THE LAYOUT: <p>just some post</p>" in "_site/2013/09/11/default-layout.html" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+And ::
+I should see "THIS IS THE LAYOUT: just some page" in "_site/index.html" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+****
+
+==== Scenario: Use default for frontmatter variables in Liquid
+
+****
+Given ::
+I have a _posts directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+And ::
+I have the following post: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+
+[cols="3*", options="header"]
+|===
+|title
+|date
+|content
+|default data
+|2013-09-11
+|<p>{{page.custom}}</p><div>{{page.author}}</div>
+|===
+
+And ::
+I have an "index.html" page that contains "just {{page.custom}} by {{page.author}}" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+And ::
+I have a configuration file with "defaults" set to "[{scope: {path: ""}, values: {custom: "some special data", author: "Ben"}}]" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+When ::
+I run jekyll build icon:thumbs-up[role="green",title="Passed"] [small right]#(626ms)#
+Then ::
+the _site directory should exist icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+And ::
+I should see "<p>some special data</p>\n<div>Ben</div>" in "_site/2013/09/11/default-data.html" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+And ::
+I should see "just some special data by Ben" in "_site/index.html" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+****
+
+==== Scenario: Override frontmatter defaults by path
+
+****
+Given ::
+I have a _layouts directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+And ::
+I have a root layout that contains "root: {{ content }}" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+And ::
+I have a subfolder layout that contains "subfolder: {{ content }}" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+And ::
+I have a _posts directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+And ::
+I have the following post: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+
+[cols="3*", options="header"]
+|===
+|title
+|date
+|content
+|about
+|2013-10-14
+|info on {{page.description}}
+|===
+
+And ::
+I have a special/_posts directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+And ::
+I have the following post in "special": icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+
+[cols="4*", options="header"]
+|===
+|title
+|date
+|path
+|content
+|about
+|2013-10-14
+|local
+|info on {{page.description}}
+|===
+
+And ::
+I have an "index.html" page with title "overview" that contains "Overview for {{page.description}}" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+And ::
+I have an "special/index.html" page with title "section overview" that contains "Overview for {{page.description}}" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+And ::
+I have a configuration file with "defaults" set to "[{scope: {path: "special"}, values: {layout: "subfolder", description: "the special section"}}, {scope: {path: ""}, values: {layout: "root", description: "the webpage"}}]" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+When ::
+I run jekyll build icon:thumbs-up[role="green",title="Passed"] [small right]#(641ms)#
+Then ::
+the _site directory should exist icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+And ::
+I should see "root: <p>info on the webpage</p>" in "_site/2013/10/14/about.html" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+And ::
+I should see "subfolder: <p>info on the special section</p>" in "_site/special/2013/10/14/about.html" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+And ::
+I should see "root: Overview for the webpage" in "_site/index.html" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+And ::
+I should see "subfolder: Overview for the special section" in "_site/special/index.html" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+****
+
+==== Scenario: Use frontmatter variables by relative path
+
+****
+Given ::
+I have a _layouts directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+And ::
+I have a main layout that contains "main: {{ content }}" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+And ::
+I have a _posts directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+And ::
+I have the following post: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+
+[cols="3*", options="header"]
+|===
+|title
+|date
+|content
+|about
+|2013-10-14
+|content of site/2013/10/14/about.html
+|===
+
+And ::
+I have a special/_posts directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+And ::
+I have the following post in "special": icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+
+[cols="4*", options="header"]
+|===
+|title
+|date
+|path
+|content
+|about1
+|2013-10-14
+|local
+|content of site/special/2013/10/14/about1.html
+|about2
+|2013-10-14
+|local
+|content of site/special/2013/10/14/about2.html
+|===
+
+And ::
+I have a configuration file with "defaults" set to "[{scope: {path: "special"}, values: {layout: "main"}}, {scope: {path: "special/_posts"}, values: {layout: "main"}}, {scope: {path: "_posts"}, values: {layout: "main"}}]" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+When ::
+I run jekyll build icon:thumbs-up[role="green",title="Passed"] [small right]#(643ms)#
+Then ::
+the _site directory should exist icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+And ::
+I should see "main: <p>content of site/2013/10/14/about.html</p>" in "_site/2013/10/14/about.html" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+And ::
+I should see "main: <p>content of site/special/2013/10/14/about1.html</p>" in "_site/special/2013/10/14/about1.html" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+And ::
+I should see "main: <p>content of site/special/2013/10/14/about2.html</p>" in "_site/special/2013/10/14/about2.html" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+****
+
+==== Scenario: Override frontmatter defaults by type
+
+****
+Given ::
+I have a _posts directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+And ::
+I have the following post: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+
+[cols="3*", options="header"]
+|===
+|title
+|date
+|content
+|this is a post
+|2013-10-14
+|blabla
+|===
+
+And ::
+I have an "index.html" page that contains "interesting stuff" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+And ::
+I have a configuration file with "defaults" set to "[{scope: {path: "", type: "post"}, values: {permalink: "/post.html"}}, {scope: {path: "", type: "page"}, values: {permalink: "/page.html"}}, {scope: {path: ""}, values: {permalink: "/perma.html"}}]" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+When ::
+I run jekyll build icon:thumbs-up[role="green",title="Passed"] [small right]#(543ms)#
+Then ::
+I should see "blabla" in "_site/post.html" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+And ::
+I should see "interesting stuff" in "_site/page.html" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+But ::
+the "_site/perma.html" file should not exist icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+****
+
+==== Scenario: Actual frontmatter overrides defaults
+
+****
+Given ::
+I have a _posts directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+And ::
+I have the following post: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+
+[cols="5*", options="header"]
+|===
+|title
+|date
+|permalink
+|author
+|content
+|override
+|2013-10-14
+|/frontmatter.html
+|some guy
+|a blog by {{page.author}}
+|===
+
+And ::
+I have an "index.html" page with permalink "override.html" that contains "nothing" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+And ::
+I have a configuration file with "defaults" set to "[{scope: {path: ""}, values: {permalink: "/perma.html", author: "Chris"}}]" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+When ::
+I run jekyll build icon:thumbs-up[role="green",title="Passed"] [small right]#(556ms)#
+Then ::
+I should see "a blog by some guy" in "_site/frontmatter.html" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+And ::
+I should see "nothing" in "_site/override.html" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+But ::
+the "_site/perma.html" file should not exist icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+****
+
+==== Scenario: Define permalink default for posts
+
+****
+Given ::
+I have a _posts directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+And ::
+I have the following post: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+
+[cols="4*", options="header"]
+|===
+|title
+|date
+|category
+|content
+|testpost
+|2013-10-14
+|blog
+|blabla
+|===
+
+And ::
+I have a configuration file with "defaults" set to "[{scope: {path: "", type: "posts"}, values: {permalink: "/:categories/:title/"}}]" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+When ::
+I run jekyll build icon:thumbs-up[role="green",title="Passed"] [small right]#(584ms)#
+Then ::
+I should see "blabla" in "_site/blog/testpost/index.html" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+****
+
+==== Scenario: Use frontmatter defaults in collections
+
+****
+Given ::
+I have a _slides directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+And ::
+I have a "index.html" file that contains "nothing" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+And ::
+I have a "_slides/slide1.html" file with content: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+----
+
+---
+---
+Value: {{ page.myval }}
+
+----
+And ::
+I have a "_config.yml" file with content: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+----
+
+  collections:
+    slides:
+      output: true
+  defaults:
+    -
+      scope:
+        path: ""
+        type: slides
+      values:
+        myval: "Test"
+
+----
+When ::
+I run jekyll build icon:thumbs-up[role="green",title="Passed"] [small right]#(607ms)#
+Then ::
+the _site directory should exist icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+And ::
+I should see "Value: Test" in "_site/slides/slide1.html" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+****
+
+==== Scenario: Override frontmatter defaults inside a collection
+
+****
+Given ::
+I have a _slides directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+And ::
+I have a "index.html" file that contains "nothing" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+And ::
+I have a "_slides/slide2.html" file with content: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+----
+
+---
+myval: Override
+---
+Value: {{ page.myval }}
+
+----
+And ::
+I have a "_config.yml" file with content: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+----
+
+  collections:
+    slides:
+      output: true
+  defaults:
+    -
+      scope:
+        path: ""
+        type: slides
+      values:
+        myval: "Test"
+
+----
+When ::
+I run jekyll build icon:thumbs-up[role="green",title="Passed"] [small right]#(509ms)#
+Then ::
+the _site directory should exist icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+And ::
+I should see "Value: Override" in "_site/slides/slide2.html" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+****
+
+==== Scenario: Deep merge frontmatter defaults
+
+****
+Given ::
+I have an "index.html" page with fruit "{orange: 1}" that contains "Fruits: {{ page.fruit.orange | plus: page.fruit.apple }}" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+And ::
+I have a configuration file with "defaults" set to "[{scope: {path: ""}, values: {fruit: {apple: 2}}}]" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+When ::
+I run jekyll build icon:thumbs-up[role="green",title="Passed"] [small right]#(560ms)#
+Then ::
+I should see "Fruits: 3" in "_site/index.html" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+****
 
