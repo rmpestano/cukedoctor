@@ -173,7 +173,7 @@ public interface Expectations {
 			"this step passes icon:thumbs-up[role=\"green\",title=\"Passed\"] [small right]#(001ms)#"+newLine() +
 			"****"+newLine() +
 			""+newLine() +
-			"==== Scenario: Failing"+newLine() +
+			"==== Scenario: Failing icon:thumbs-down[role=\"red\",title=\"Failed\"]"+newLine() +
 			"[small]#tags: @a,@c#"+newLine() +
 			""+newLine() +
 			""+newLine() +
@@ -295,7 +295,7 @@ public interface Expectations {
 			"=== *An outline feature*"+newLine() +
 			""+newLine() +
 			"minmax::An-outline-feature[]"+newLine() +
-			"==== Scenario Outline: outline"+newLine() +
+			"==== Scenario Outline: outline icon:thumbs-down[role=\"red\",title=\"Failed\"]"+newLine() +
 			""+newLine() +
 			""+newLine() +
 			".examples1"+newLine() +
@@ -326,7 +326,7 @@ public interface Expectations {
 			"this step passes icon:thumbs-up[role=\"green\",title=\"Passed\"] [small right]#(001ms)#"+newLine() +
 			"****"+newLine() +
 			""+newLine() +
-			"==== Scenario: Failing"+newLine() +
+			"==== Scenario: Failing icon:thumbs-down[role=\"red\",title=\"Failed\"]"+newLine() +
 			"[small]#tags: @a,@c#"+newLine() +
 			""+newLine() +
 			""+newLine() +

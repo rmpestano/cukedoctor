@@ -2,6 +2,7 @@ package com.github.cukedoctor.renderer;
 
 import com.github.cukedoctor.api.model.Feature;
 import com.github.cukedoctor.api.model.Scenario;
+import com.github.cukedoctor.api.model.Status;
 import com.github.cukedoctor.api.model.Step;
 import com.github.cukedoctor.spi.ExamplesRenderer;
 import com.github.cukedoctor.spi.ScenarioRenderer;
@@ -66,12 +67,22 @@ public class CukedoctorScenarioRenderer extends AbstractBaseRenderer implements 
         
         if(!feature.isBackgroundRendered() && scenario.isBackground()){
             feature.setBackgroundRendered(true);
-            docBuilder.sectionTitleLevel3(scenario.getKeyword());
-        } 
+            StringBuilder backgroundTitle = new StringBuilder(scenario.getKeyword());
+            if(!Status.passed.equals(scenario.getStatus())){
+                backgroundTitle.append(" " + Status.getStatusIcon(Status.failed));
+            }
+            docBuilder.sectionTitleLevel3(backgroundTitle.toString());
+        }
 
         if (hasText(scenario.getName())) {
-            docBuilder.sectionTitleLevel3(new StringBuilder(scenario.getKeyword()).
-                    append(": ").append(scenario.getName()).toString());
+            StringBuilder scenarioTitle = new StringBuilder(scenario.getKeyword()).
+                    append(": ").append(scenario.getName());
+            if(!Status.passed.equals(scenario.getStatus())){
+                scenarioTitle.append(" "+Status.getStatusIcon(Status.failed));
+            }
+
+            docBuilder.sectionTitleLevel3(scenarioTitle.toString());
+
         }
          
         if (feature.hasTags() || scenario.hasTags()) {
