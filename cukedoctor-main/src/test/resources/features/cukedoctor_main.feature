@@ -71,7 +71,7 @@ Given ::
 this step passes icon:thumbs-up[role="green",title="Passed"] [small right]#(001ms)#
 ****
 
-==== Scenario: Failing
+==== Scenario: Failing icon:thumbs-down[role="red",title="Failed"]
 [small]#tags: @a,@c#
 
 ****
@@ -210,7 +210,7 @@ I embed data directly icon:thumbs-up[role="green",title="Passed"] [small right]#
 === *An outline feature*
 
 minmax::An-outline-feature[]
-==== Scenario Outline: outline
+==== Scenario Outline: outline icon:thumbs-down[role="red",title="Failed"]
 
 .examples1
 [cols="1*", options="header"]
@@ -239,7 +239,7 @@ Given ::
 this step passes icon:thumbs-up[role="green",title="Passed"] [small right]#(001ms)#
 ****
 
-==== Scenario: Failing
+==== Scenario: Failing icon:thumbs-down[role="red",title="Failed"]
 [small]#tags: @a,@c#
 
 ****
@@ -261,7 +261,7 @@ I want to do something  +
 In order to achieve another thing
 ****
 
-==== Scenario Outline: Parsing scenarios with multiple examples
+==== Scenario Outline: Parsing scenarios with multiple examples icon:thumbs-down[role="red",title="Failed"]
 
 .Example
 [cols="2*", options="header"]
@@ -280,7 +280,7 @@ Then ::
 I see the text 'Home' icon:thumbs-up[role="green",title="Passed"] [small right]#(001ms)#
 ****
 
-==== Scenario: Basic failure
+==== Scenario: Basic failure icon:thumbs-down[role="red",title="Failed"]
 ****
 Given ::
 I navigate to the home page icon:thumbs-up[role="green",title="Passed"] [small right]#(040ms)#
