@@ -99,7 +99,7 @@ For more details see https://github.com/rmpestano/cukedoctor/tree/master/cukedoc
 
 === Standalone jar
 
-To use Cukedoctor as a standalone jar you can https://bintray.com/artifact/download/rmpestano/cukedoctor/com/github/cukedoctor/cukedoctor-main/0.8.0/cukedoctor-main-0.8.0.jar[download it here^]. For more details, see https://github.com/rmpestano/cukedoctor/tree/master/cukedoctor-main[cukedoctor-main].
+To use Cukedoctor as a standalone jar you can https://bintray.com/artifact/download/rmpestano/cukedoctor/com/github/cukedoctor/cukedoctor-main/0.9.0/cukedoctor-main-0.9.0.jar[download it here^]. For more details, see https://github.com/rmpestano/cukedoctor/tree/master/cukedoctor-main[cukedoctor-main].
 
 === Converter
 
