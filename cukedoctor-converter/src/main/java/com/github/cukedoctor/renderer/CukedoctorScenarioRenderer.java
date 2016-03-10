@@ -13,6 +13,7 @@ import java.util.List;
 import java.util.ServiceLoader;
 
 import static com.github.cukedoctor.util.Assert.hasText;
+import static com.github.cukedoctor.util.Assert.notNull;
 
 /**
  * Created by pestano on 27/02/16.
@@ -77,7 +78,7 @@ public class CukedoctorScenarioRenderer extends AbstractBaseRenderer implements 
         if (hasText(scenario.getName())) {
             StringBuilder scenarioTitle = new StringBuilder(scenario.getKeyword()).
                     append(": ").append(scenario.getName());
-            if(!Status.passed.equals(scenario.getStatus())){
+            if(notNull(scenario.getStatus()) && !Status.passed.equals(scenario.getStatus())){
                 scenarioTitle.append(" "+Status.getStatusIcon(Status.failed));
             }
 

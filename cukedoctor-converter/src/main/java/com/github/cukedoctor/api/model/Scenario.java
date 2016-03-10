@@ -6,6 +6,7 @@ import com.github.cukedoctor.util.Constants;
 import java.util.List;
 
 import static com.github.cukedoctor.util.Assert.hasText;
+import static com.github.cukedoctor.util.Assert.notEmpty;
 
 /**
  * represents a scenario is most of the cases but can be also a background
@@ -84,10 +85,11 @@ public class Scenario {
 	}
 
 	public Status getStatus() {
-
-		for (Step step : steps) {
-			if (!step.isPassing()) {//if one or more steps are not passing, its considered a failed scenario
-				return Status.failed;
+		if(hasSteps()){
+			for (Step step : steps) {
+				if (!step.isPassing()) {//if one or more steps are not passing, its considered a failed scenario
+					return Status.failed;
+				}
 			}
 		}
 		return Status.passed;

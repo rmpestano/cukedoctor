@@ -212,8 +212,9 @@ public class RendererTest {
         features.add(feature);
         CukedoctorFeatureRenderer featureRenderer = new CukedoctorFeatureRenderer();
         String resultDoc = featureRenderer.renderFeatureScenarios(feature);
-        assertThat(resultDoc).isEqualTo("==== Scenario: scenario"+newLine() +
-                "description" + newLine() + newLine() +
+        assertThat(resultDoc.replaceAll("\r","")).isEqualTo(("==== Scenario: scenario icon:thumbs-down[role=\"red\",title=\"Failed\"]"+newLine() +
+                "description"+newLine() +
+                ""+newLine() +
                 "****"+newLine() +
                 "Given::"+newLine() +
                 "passing step icon:thumbs-up[role=\"green\",title=\"Passed\"] [small right]#(000ms)#"+newLine() +
@@ -221,20 +222,22 @@ public class RendererTest {
                 "failing step icon:thumbs-down[role=\"red\",title=\"Failed\"] [small right]#(000ms)#"+newLine() +
                 "****"+newLine() +
                 ""+newLine() +
-                "==== Scenario: scenario"+newLine() +
-                "description" +newLine() + newLine() +
-                "****" + newLine() +
+                "==== Scenario: scenario icon:thumbs-down[role=\"red\",title=\"Failed\"]"+newLine() +
+                "description"+newLine() +
+                ""+newLine() +
+                "****"+newLine() +
                 "Then::"+newLine() +
                 "skipped step icon:thumbs-down[role=\"purple\",title=\"Skipped\"] [small right]#(000ms)#"+newLine() +
                 "****"+newLine() +
                 ""+newLine() +
-                "==== Scenario: scenario"+newLine() +
-                "description" + newLine()+ newLine() +
+                "==== Scenario: scenario icon:thumbs-down[role=\"red\",title=\"Failed\"]"+newLine() +
+                "description"+newLine() +
+                ""+newLine() +
                 "****"+newLine() +
                 "Given::"+newLine() +
                 "undefined step icon:thumbs-down[role=\"yellow\",title=\"Undefined\"] [small right]#(000ms)#"+newLine() +
                 "****"+newLine() +
-                ""+newLine());
+                ""+newLine()).replaceAll("\r",""));
     }
 
     @Test
