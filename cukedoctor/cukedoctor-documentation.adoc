@@ -1,0 +1,522 @@
+:toc: right
+:backend: pdf
+:doctitle: Cukedoctor Living Documentation
+:doctype: book
+:icons: font
+:!numbered:
+:!linkcss:
+:sectanchors:
+:sectlink:
+:docinfo:
+:toclevels: 3
+
+= *Cukedoctor Living Documentation*
+
+== *Summary*
+[cols="12*^m", options="header,footer"]
+|===
+3+|Scenarios 7+|Steps 2+|Features: 3
+
+|[green]#*Passed*#
+|[red]#*Failed*#
+|Total
+|[green]#*Passed*#
+|[red]#*Failed*#
+|[purple]#*Skipped*#
+|[maroon]#*Pending*#
+|[yellow]#*Undefined*#
+|[blue]#*Missing*#
+|Total
+|Duration
+|Status
+
+12+^|*<<Cukedoctor-Converter>>*
+|1
+|0
+|1
+|3
+|0
+|0
+|0
+|0
+|0
+|3
+|723ms
+|[green]#*passed*#
+
+12+^|*<<Ordering>>*
+|2
+|0
+|2
+|6
+|0
+|0
+|0
+|0
+|0
+|6
+|076ms
+|[green]#*passed*#
+
+12+^|*<<Enrich-features>>*
+|2
+|0
+|2
+|6
+|0
+|0
+|0
+|0
+|0
+|6
+|093ms
+|[green]#*passed*#
+12+^|*Totals*
+|5|0|5|15|0|0|0|0|0|15 2+|894ms
+|===
+
+== *Features*
+
+[[Cukedoctor-Converter, Cukedoctor Converter]]
+=== *Cukedoctor Converter*
+
+****
+In order to have awesome _living documentation_ +
+As a bdd developer +
+I want to use *Cukedoctor* to handle my cucumber reports
+****
+
+==== Scenario: Default ordering
+
+****
+Given ::
+The following two features: icon:thumbs-up[role="green",title="Passed"] [small right]#(167ms)#
+----
+
+Feature: Feature1
+
+  Scenario: Scenario feature 1
+
+    Given scenario step
+
+Feature: Feature2
+
+  Scenario: Scenario feature 2
+
+    Given scenario step
+
+----
+When ::
+I convert their json output report using cukedoctor converter icon:thumbs-up[role="green",title="Passed"] [small right]#(554ms)#
+Then ::
+I should have awesome living documentation icon:thumbs-up[role="green",title="Passed"] [small right]#(002ms)#
+******
+
+[discrete]
+= *Documentation*
+[discrete]
+== *Summary*
+[discrete]
+[cols="12*^m", options="header,footer"]
+[discrete]
+|===
+3+|Scenarios 7+|Steps 2+|Features: 2
+|[green]#*Passed*#
+|[red]#*Failed*#
+|Total
+|[green]#*Passed*#
+|[red]#*Failed*#
+|[purple]#*Skipped*#
+|[maroon]#*Pending*#
+|[yellow]#*Undefined*#
+|[blue]#*Missing*#
+|Total
+|Duration
+|Status
+12+^|*<<Feature1>>*
+|1
+|0
+|1
+|1
+|0
+|0
+|0
+|0
+|0
+|1
+|647ms
+|[green]#*passed*#
+12+^|*<<Feature2>>*
+|1
+|0
+|1
+|1
+|0
+|0
+|0
+|0
+|0
+|1
+|000ms
+|[green]#*passed*#
+12+^|*Totals*
+|2|0|2|2|0|0|0|0|0|2 2+|647ms
+|===
+[discrete]
+== *Features*
+[discrete]
+[[Feature1, Feature1]]
+[discrete]
+=== *Feature1*
+[discrete]
+==== Scenario: Scenario feature 1
+[discrete]
+*****
+[discrete]
+Given ::
+[discrete]
+scenario step icon:thumbs-up[role="green",title="Passed"] [small right]#(647ms)#
+[discrete]
+*****
+[discrete]
+[[Feature2, Feature2]]
+[discrete]
+=== *Feature2*
+[discrete]
+==== Scenario: Scenario feature 2
+[discrete]
+*****
+[discrete]
+Given ::
+[discrete]
+scenario step icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+[discrete]
+*****
+
+
+******
+
+****
+
+[[Ordering, Ordering]]
+=== *Ordering*
+
+****
+In order to have features ordered in living documentation +
+As a bdd developer +
+I want to control the order of features in my documentation
+****
+
+==== Scenario: Default ordering
+
+****
+Given ::
+The following two features: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+----
+
+Feature: Feature1
+
+  Scenario: Scenario feature 1
+
+    Given scenario step
+
+Feature: Feature2
+
+  Scenario: Scenario feature 2
+
+    Given scenario step
+
+----
+When ::
+I convert them using default order icon:thumbs-up[role="green",title="Passed"] [small right]#(036ms)#
+Then ::
+Features should be ordered by name in resulting documentation icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+******
+
+[discrete]
+[[Feature1, Feature1]]
+[discrete]
+=== *Feature1*
+[discrete]
+==== Scenario: Scenario feature 1
+[discrete]
+*****
+[discrete]
+Given ::
+[discrete]
+scenario step icon:thumbs-up[role="green",title="Passed"] [small right]#(647ms)#
+[discrete]
+*****
+[discrete]
+[[Feature2, Feature2]]
+[discrete]
+=== *Feature2*
+[discrete]
+==== Scenario: Scenario feature 2
+[discrete]
+*****
+[discrete]
+Given ::
+[discrete]
+scenario step icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+[discrete]
+*****
+
+
+******
+
+****
+
+==== Scenario: Custom ordering
+
+****
+Given ::
+The following two features: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+----
+
+#order: 2
+Feature: Feature1
+
+  Scenario: Scenario feature 1
+
+    Given scenario step
+
+#order: 1
+Feature: Feature2
+
+  Scenario: Scenario feature 2
+
+    Given scenario step
+
+----
+
+NOTE: Ordering is done using feature comment '*order:*'
+
+When ::
+I convert them using comment order icon:thumbs-up[role="green",title="Passed"] [small right]#(039ms)#
+Then ::
+Features should be ordered respecting order comment icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+******
+
+[discrete]
+[[Feature2, Feature2]]
+[discrete]
+=== *Feature2*
+[discrete]
+==== Scenario: Scenario feature 2
+[discrete]
+*****
+[discrete]
+Given ::
+[discrete]
+scenario step icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+[discrete]
+*****
+[discrete]
+[[Feature1, Feature1]]
+[discrete]
+=== *Feature1*
+[discrete]
+==== Scenario: Scenario feature 1
+[discrete]
+*****
+[discrete]
+Given ::
+[discrete]
+scenario step icon:thumbs-up[role="green",title="Passed"] [small right]#(313ms)#
+[discrete]
+*****
+
+
+******
+
+****
+
+[[Enrich-features, Enrich features]]
+=== *Enrich features*
+
+****
+In order to have awesome _living documentation_ +
+As a bdd developer +
+I want to render asciidoc markup inside my features
+****
+
+==== Scenario: DocSting enrichment
+Asciidoc markup can be used in feature *DocStrings*. To do so you need to enable it by using *cukector-dicrete* comment on the feature.
+
+****
+Given ::
+The following two features: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+----
+
+Feature: Enrich feature
+
+  Scenario: Render source code
+
+    # cukedoctor-discrete
+    Given the following source code in docstrings
+"""
+  [source, java]
+  -----
+  public int sum(int x, int y){
+  int result = x + y;
+  return result; (1)
+  }
+  -----
+  <1> We can have callouts in living documentation
+"""
+
+  Scenario: Render table
+
+    # cukedoctor-discrete
+    Given the following table
+ """
+  |===
+
+  | Cell in column 1, row 1 | Cell in column 2, row 1
+  | Cell in column 1, row 2 | Cell in column 2, row 2
+  | Cell in column 1, row 3 | Cell in column 2, row 3
+
+  |===
+  """
+
+----
+When ::
+I convert docstring enriched json output using cukedoctor converter icon:thumbs-up[role="green",title="Passed"] [small right]#(047ms)#
+Then ::
+DocString asciidoc output must be rendered in my documentation icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+******
+
+[discrete]
+[[Discrete-class-feature, Discrete class feature]]
+[discrete]
+=== *Discrete class feature*
+[discrete]
+==== Scenario: Render source code
+[discrete]
+*****
+[discrete]
+Given ::
+[discrete]
+the following source code icon:thumbs-up[role="green",title="Passed"] [small right]#(267ms)#
+[discrete]
+*******
+[discrete]
+[discrete]
+[discrete]
+[source, java]
+-----
+public int sum(int x, int y){
+    int result = x + y;
+    return result; <1>
+}
+-----
+<1> We can have callouts in living documentation>
+[discrete]
+*******
+[discrete]
+*****
+[discrete]
+==== Scenario: Render table
+[discrete]
+*****
+[discrete]
+Given ::
+[discrete]
+the following table icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+[discrete]
+*******
+[discrete]
+[discrete]
+[discrete]
+|===
+| Cell in column 1, row 1 | Cell in column 2, row 1
+| Cell in column 1, row 2 | Cell in column 2, row 2
+| Cell in column 1, row 3 | Cell in column 2, row 3
+|===
+[discrete]
+*******
+[discrete]
+*****
+
+
+******
+
+****
+
+==== Scenario: Comments enrichment
+Asciidoc markup can be used in feature comments. To do so you need to surround asciidoc markup by *curly brackets*;.
+
+****
+Given ::
+The following feature with asciidoc markup in comments: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+----
+
+Feature: Calculator
+
+  Scenario: Adding numbers
+   You can *asciidoc markup* in _feature_ #description#.
+
+    NOTE: This is a very important feature!
+
+    #{IMPORTANT: Asciidoc markup inside *steps* must be surrounded by *curly brackets*.}
+    Given I have numbers 1 and 2
+
+    # {NOTE: Steps comments are placed *before* each steps so this comment is for the *WHEN* step.}
+
+    When I sum the numbers
+    # {* this is a list of itens inside a feature step}
+    # {* there is no multiline comment in gherkin}
+    # {** second level list item}
+    Then I should have 3 as result
+
+
+----
+When ::
+I convert enriched feature json output using cukedoctor icon:thumbs-up[role="green",title="Passed"] [small right]#(044ms)#
+Then ::
+Asciidoc markup on comments must be rendered in my documentation icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+******
+
+[discrete]
+[[Calculator, Calculator]]
+[discrete]
+=== *Calculator*
+[discrete]
+==== Scenario: Adding numbers
+[discrete]
+You can use *asciidoc markup* in _feature_ #description#.
+[discrete]
+NOTE: This is a very important feature!
+[discrete]
+*****
+[discrete]
+Given ::
+[discrete]
+I have numbers 1 and 2 icon:thumbs-up[role="green",title="Passed"] [small right]#(114ms)#
+[discrete]
+IMPORTANT: Asciidoc markup inside *steps* must be surrounded by *curly brackets*.
+[discrete]
+When ::
+[discrete]
+I sum the numbers icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+[discrete]
+NOTE: Steps comments are placed *before* each steps so this comment is for the *WHEN* step.
+[discrete]
+Then ::
+[discrete]
+I should have 3 as result icon:thumbs-up[role="green",title="Passed"] [small right]#(001ms)#
+[discrete]
+* this is a list of itens inside a feature step
+[discrete]
+* there is no multiline comment in gherkin
+[discrete]
+** second level list item
+[discrete]
+*****
+
+
+******
+
+****
+
