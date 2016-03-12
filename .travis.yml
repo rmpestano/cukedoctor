@@ -17,8 +17,8 @@ before_script:
 - echo "https://${GH_TOKEN}:@github.com" > .git/credentials
 
 script:
-- mvn clean test jacoco:report coveralls:report -Pcoverage
+#- mvn clean test jacoco:report coveralls:report -Pcoverage
 #- cd cukedoctor-converter && mvn compile exec:exec -Pperf
-- mvn scm-publish:publish-scm -Ppublish-docs
+- cd cukedoctor-converter && mvn clean install scm-publish:publish-scm -Ppublish-docs
 
-after_success: mvn -Pfat-jar deploy --settings settings.xml -DskipTests=true
+#after_success: mvn -Pfat-jar deploy --settings settings.xml -DskipTests=true
