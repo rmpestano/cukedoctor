@@ -67,8 +67,8 @@ image::cukedoctor-sample.png[]
 
 As a proof of concept, https://github.com/rmpestano/cukedoctor/tree/master/cukedoctor-converter/src/test/java/com/github/cukedoctor/bdd/cukedoctor[Cukedoctor bdd tests^] output are rendered by _itself_:
 
-* http://rmpestano.github.io/cukedoctor/cukedoctor/cukedoctor-documentation.html?theme=foundation[Cukedoctor documentation html^]
-* http://rmpestano.github.io/cukedoctor/cukedoctor/cukedoctor-documentation.pdf[Cukedoctor documentation pdf^]
+* http://rmpestano.github.io/cukedoctor/cukedoctor-documentation.html?theme=foundation[Cukedoctor documentation html^]
+* http://rmpestano.github.io/cukedoctor/cukedoctor-documentation.pdf[Cukedoctor documentation pdf^]
 * http://rmpestano.github.io/cukedoctor/cukedoctor/default/cukedoctor.html[Default cucumber formatter html^]
 
 
