@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>com.github.cukedoctor</groupId>
@@ -56,64 +57,66 @@
         </dependency>
     </dependencies>
 
-	<profiles>
-		<profile>
-		   <id>perf</id>
-		   <build>
-		    <resources>
-              <resource>
-                <directory>src/perf/resources</directory>
-                <filtering>true</filtering>
-             </resource>
-			  <resource>
-                <directory>src/main/resources</directory>
-                <filtering>true</filtering>
-             </resource>
-           </resources>
-				<plugins>
-					<plugin>
-						<groupId>org.apache.maven.plugins</groupId>
-						<artifactId>maven-compiler-plugin</artifactId>
-						<version>3.1</version>
-						<configuration>
-							<compilerVersion>1.7</compilerVersion>
-							<source>1.7</source>
-							<target>1.7</target>
-						</configuration>
-					</plugin>
-					<plugin>
-						<groupId>org.codehaus.mojo</groupId>
-						<artifactId>exec-maven-plugin</artifactId>
-						<version>1.4.0</version>
-						<configuration>
-							<executable>java</executable>
-							<arguments>
-								<argument>-classpath</argument>
-								<classpath />
-								<argument>com.github.cukedoctor.CukedoctorBenchmark</argument>
-							</arguments>
-						</configuration>
-					</plugin>
-					<plugin>
-						<groupId>org.codehaus.mojo</groupId>
-						<artifactId>build-helper-maven-plugin</artifactId>
-						<executions>
-							<execution>
-								<phase>generate-sources</phase>
-								<goals><goal>add-source</goal></goals>
-								<configuration>
-									<sources>
-										<source>src/perf/java</source>
-									</sources>
-								</configuration>
-							</execution>
-						</executions>
-					</plugin>
+    <profiles>
+        <profile>
+            <id>perf</id>
+            <build>
+                <resources>
+                    <resource>
+                        <directory>src/perf/resources</directory>
+                        <filtering>true</filtering>
+                    </resource>
+                    <resource>
+                        <directory>src/main/resources</directory>
+                        <filtering>true</filtering>
+                    </resource>
+                </resources>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-compiler-plugin</artifactId>
+                        <version>3.1</version>
+                        <configuration>
+                            <compilerVersion>1.7</compilerVersion>
+                            <source>1.7</source>
+                            <target>1.7</target>
+                        </configuration>
+                    </plugin>
+                    <plugin>
+                        <groupId>org.codehaus.mojo</groupId>
+                        <artifactId>exec-maven-plugin</artifactId>
+                        <version>1.4.0</version>
+                        <configuration>
+                            <executable>java</executable>
+                            <arguments>
+                                <argument>-classpath</argument>
+                                <classpath/>
+                                <argument>com.github.cukedoctor.CukedoctorBenchmark</argument>
+                            </arguments>
+                        </configuration>
+                    </plugin>
+                    <plugin>
+                        <groupId>org.codehaus.mojo</groupId>
+                        <artifactId>build-helper-maven-plugin</artifactId>
+                        <executions>
+                            <execution>
+                                <phase>generate-sources</phase>
+                                <goals>
+                                    <goal>add-source</goal>
+                                </goals>
+                                <configuration>
+                                    <sources>
+                                        <source>src/perf/java</source>
+                                    </sources>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
 
-				</plugins>
-		   </build>
+                </plugins>
+            </build>
 
-		</profile>
+        </profile>
 
         <profile>
             <id>publish-docs</id>
@@ -149,7 +152,8 @@
                         <configuration>
                             <addUniqueDirectory>true</addUniqueDirectory>
                             <checkoutDirectory>${project.build.outputDirectory}/cukedoctor</checkoutDirectory>
-                            <checkinComment>Publishing Cukedoctor-${project.parent.version} living documentation.</checkinComment>
+                            <checkinComment>Publishing Cukedoctor-${project.parent.version} living documentation.
+                            </checkinComment>
                             <content>target/cukedoctor</content>
                             <skipDeletedFiles>true</skipDeletedFiles>
                             <pubScmUrl>scm:git:git@github.com:rmpestano/cukedoctor.git</pubScmUrl>
@@ -160,8 +164,7 @@
             </build>
         </profile>
 
-	</profiles>
-
+    </profiles>
 
 
 </project>
