@@ -156,7 +156,7 @@
                             </checkinComment>
                             <content>target/cukedoctor</content>
                             <skipDeletedFiles>true</skipDeletedFiles>
-                            <pubScmUrl>https://github.com/rmpestano/cukedoctor.git</pubScmUrl>
+                            <pubScmUrl>scm:git:https://github.com/rmpestano/cukedoctor.git</pubScmUrl>
                             <scmBranch>gh-pages</scmBranch>
                         </configuration>
                     </plugin>
