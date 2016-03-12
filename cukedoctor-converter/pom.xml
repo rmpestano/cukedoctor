@@ -150,13 +150,12 @@
                         <artifactId>maven-scm-publish-plugin</artifactId>
                         <version>1.1</version>
                         <configuration>
-                            <addUniqueDirectory>true</addUniqueDirectory>
                             <checkoutDirectory>${project.build.outputDirectory}/cukedoctor</checkoutDirectory>
                             <checkinComment>Publishing Cukedoctor-${project.parent.version} living documentation.
                             </checkinComment>
                             <content>target/cukedoctor</content>
                             <skipDeletedFiles>true</skipDeletedFiles>
-                            <pubScmUrl>scm:git:https://github.com/rmpestano/cukedoctor.git</pubScmUrl>
+                            <pubScmUrl>scm:git:git@github.com:rmpestano/cukedoctor.git</pubScmUrl>
                             <scmBranch>gh-pages</scmBranch>
                         </configuration>
                     </plugin>
