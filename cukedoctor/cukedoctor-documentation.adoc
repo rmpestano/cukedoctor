@@ -1,4 +1,4 @@
-:toc: right
+:toc: center
 :backend: pdf
 :doctitle: Cukedoctor Living Documentation
 :doctype: book
