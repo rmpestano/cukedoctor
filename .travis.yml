@@ -11,7 +11,7 @@ env:
 script:
        - mvn clean test jacoco:report coveralls:report -Pcoverage
        - cd cukedoctor-converter && mvn compile exec:exec -Pperf
-       - mvn --settings settings.xml scm-publish:publish-scm -Ppublish-docs
+       - mvn --settings ../settings.xml scm-publish:publish-scm -Ppublish-docs
 
 
 after_success: mvn -Pfat-jar deploy --settings settings.xml -DskipTests=true
