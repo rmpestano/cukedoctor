@@ -11,8 +11,10 @@ env:
   - secure: SSxZ9PifB11sNikoMl2nKyUTgfG/vmLL3wbKi0cxXv0ALc5EsUWarNgOU8LYVOWwU2R2ydi7+LZNa+XShPOFrH0lndRAU4Gb6kna/X8jfT3rGgH7Eop4v3ia4BnTT8rzhSoQ8Ie4KwkghdDDSJ+kMB+T6hgEkDCiPLXgbipbTJLpnsX1wAaZ7XvMFSF7aS4aOxTnLy+z1+UtqrsH5yjc+lu2x5Q1vIVUVSFpCbzod3APE5OF/i+W5cOnFMJ9/rftNlJorrWqQGiKhUemL84RxB9D1/TxahuBvLAEQxq9mWY72A6IYb+6qi5GTzygUPbIoWmp/eZW86EAFwb9u6fN2/PS0i5QZxQqthqPKH+RZoNyX9vtHmgtjAmnW80+q2TA5ix8pcowscRavYNpBQun3CbefNjMghTw7W47wMYXy4ACDgC04VtNzwLB+DPqgKzzYpBkAiuNOuXApo1OBB8Umt5VpQUxah/nbLzF4yMh/KcffaM/Sj2klTX+BwaOhAbUGKMdvwIV3Lf7M/qoTWCZV0lTDieexcDIhS7QKlO4610/ZT3QTDmAyDjN5Nyu14Mm47OhaJ5gGIM2Y+hMTuGGNl7kxrL5/b1iZsMvtvPpqVNhLLUST6+evcSRvtwJX78SqZKK9TxAm21Vids2EGRxdU+INPPm6JtF1hrCqRnDl80=
 
 before_script:
-- git config credential.helper "store --file=.git/credentials"
-- echo "https://${GH_TOKEN}:@github.com" > .git/credentials
+- git config --global user.name rmpestano
+- git config --global user.email rmpestano@gmail.com
+- git config --global credential.helper "store --file=~/.git/credentials"
+- echo "https://${GH_TOKEN}:@github.com" > ~/.git/credentials
 
 script:
 #- mvn clean test jacoco:report coveralls:report -Pcoverage
