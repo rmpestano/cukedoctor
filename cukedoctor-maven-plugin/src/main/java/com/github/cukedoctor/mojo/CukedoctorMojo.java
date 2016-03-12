@@ -156,16 +156,23 @@ public class CukedoctorMojo extends AbstractMojo {
 	private void configExtensions() {
 		if(disableFilter){
 			System.setProperty("cukedoctor.disable.filter","disabled");
+		} else{
+			System.clearProperty("cukedoctor.disable.filter");
 		}
 		if(disableMinimizable){
 			System.setProperty("cukedoctor.disable.minmax","disabled");
+		}else{
+			System.clearProperty("cukedoctor.disable.minmax");
 		}
 		if(disableTheme){
 			System.setProperty("cukedoctor.disable.theme","disabled");
+		}else{
+			System.clearProperty("cukedoctor.disable.theme");
 		}
-
 		if(disableFooter){
 			System.setProperty("cukedoctor.disable.footer","disabled");
+		}else{
+			System.clearProperty("cukedoctor.disable.footer");
 		}
 	}
 
