@@ -25,7 +25,7 @@ Feature: Feature2
     When I convert their json output report using cukedoctor converter
 """
 [IMPORTANT]
-====
+======
 To generate cucumber .json output files just execute your _BDD_ tests with *json* formatter, example:
 
 [source,java]
@@ -35,7 +35,7 @@ To generate cucumber .json output files just execute your _BDD_ tests with *json
 ----
 NOTE: *plugin* option replaced *format* option which was deprecated in newer cucumber versions.
 
-====
+======
 """
 
     # cukedoctor-discrete

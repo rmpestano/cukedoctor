@@ -118,9 +118,9 @@ public class CukedoctorStepsRenderer extends AbstractBaseRenderer implements Ste
              * [discrete]
                [IMPORTANT]
                [discrete]
-                ====
+                ======
              */
-            if(line.startsWith("====")){
+            if(line.startsWith("======")){
                 docBuilder.textLine(line);
                 continue;
             }
