@@ -113,6 +113,17 @@ public class CukedoctorStepsRenderer extends AbstractBaseRenderer implements Ste
                 docBuilder.textLine(line);
                 continue;
             }
+            //do not add discrete to complex blocks otherwise it will produce invalid markup like below:
+            /**
+             * [discrete]
+               [IMPORTANT]
+               [discrete]
+                ====
+             */
+            if(line.startsWith("====")){
+                docBuilder.textLine(line);
+                continue;
+            }
 
             if(isTable){
                 //skip discrete class when within a table

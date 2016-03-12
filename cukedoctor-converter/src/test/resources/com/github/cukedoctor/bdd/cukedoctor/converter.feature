@@ -5,7 +5,7 @@ Feature: Cukedoctor Converter
   As a bdd developer
   I want to use *Cukedoctor* to handle my cucumber reports
 
-  Scenario: Default ordering
+  Scenario: Convert features output into documentation
 
     Given The following two features:
 """
@@ -21,8 +21,22 @@ Feature: Feature2
 
     Given scenario step
 """
-
+    # cukedoctor-discrete
     When I convert their json output report using cukedoctor converter
+"""
+[IMPORTANT]
+====
+To generate cucumber .json output files just execute your _BDD_ tests with *json* formatter, example:
+
+[source,java]
+----
+@RunWith(Cucumber.class)
+@CucumberOptions(plugin = {"json:target/cucumber.json"} )
+----
+NOTE: *plugin* option replaced *format* option which was deprecated in newer cucumber versions.
+
+====
+"""
 
     # cukedoctor-discrete
     Then I should have awesome living documentation
