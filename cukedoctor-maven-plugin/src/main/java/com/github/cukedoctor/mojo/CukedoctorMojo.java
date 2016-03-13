@@ -144,7 +144,15 @@ public class CukedoctorMojo extends AbstractMojo {
         if (format.equals(Format.all)) {
             documentAttributes.backend(Format.html5.name().toLowerCase());
             generateDocumentation(documentAttributes, adocFile, asciidoctor);
-            documentAttributes.backend(Format.pdf.name().toLowerCase()).docInfo(false);
+            //pdf backend
+            documentAttributes = new DocumentAttributes().
+                    backend(Format.pdf.name()).
+                    toc(toc.name().toLowerCase()).
+                    numbered(numbered);
+            converter = Cukedoctor.instance(featuresList, documentAttributes);
+            converter.setFilename(pathToSave);//needed by docinfo, pdf-theme
+            generatedFile = converter.renderDocumentation();
+            adocFile = FileUtil.saveFile(pathToSave, generatedFile);
             generateDocumentation(documentAttributes, adocFile, asciidoctor);
         } else {
             generateDocumentation(documentAttributes, adocFile, asciidoctor);

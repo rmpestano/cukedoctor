@@ -214,12 +214,16 @@ public class CukedoctorMojoTest extends AbstractMojoTestCase {
         File pdfFile = FileUtil.loadFile(mojo.getDocumentationDir() + mojo.outputFileName + ".pdf");
         assertThat(pdfFile).exists().hasParent("target/docs");
 
+        String docHtml = readFileContent(loadTestFile("documentation.html"));
+        assertThat(docHtml).isNotEmpty().
+                containsOnlyOnce("searchFeature(criteria)").
+                containsOnlyOnce("function showFeatureScenarios(featureId)").
+                contains("One passing scenario, one failing scenario").
+                contains("Eat cukes in lot").
+                contains("function themefy()");
         File htmlFile = FileUtil.loadFile(mojo.getDocumentationDir() + mojo.outputFileName + ".html");
         assertThat(htmlFile).exists().hasParent("target/docs");
-        assertThat(mojo.getGeneratedFile()).
-                contains(":toc: left").
-                contains(":backend: html5").
-                contains(":numbered:");
+
     }
 
 }
