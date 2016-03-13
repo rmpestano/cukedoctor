@@ -1,6 +1,6 @@
 :toc: right
 :backend: pdf
-:doctitle: asciidoctor-documentation
+:doctitle: Asciidoctor Living Documentation
 :doctype: book
 :icons: font
 :!numbered:
@@ -10,7 +10,7 @@
 :docinfo:
 :toclevels: 3
 
-= *asciidoctor-documentation*
+= *Asciidoctor Living Documentation*
 
 == *Summary*
 [cols="12*^m", options="header,footer"]

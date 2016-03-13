@@ -5,7 +5,7 @@
   <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]--> 
   <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
   <meta name="generator" content="Asciidoctor 1.5.4"> 
-  <title>cucumber-js-documentation</title> 
+  <title>CucumberJS Living Documentation</title> 
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700"> 
   <style>
 /* Asciidoctor default stylesheet | MIT License | http://asciidoctor.org */
@@ -424,7 +424,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
    <select style="width:100px;font-size:10px;" name="select" onchange="window.location.href = window.location.href.substring(0,window.location.href.indexOf('?')) + '?theme='+ this.value"> <option value="asciidoctor" selected>Asciidoctor</option> <option value="colony">Colony</option> <option value="foundation">Foundation</option> <option value="github">Github</option> <option value="iconic">Iconic</option> <option value="maker">Maker</option> <option value="rocket-panda">Rocket Panda</option> <option value="readthedocs">Read the Docs</option> <option value="rubygems">Rubygems</option> </select> 
   </div> 
   <div id="header"> 
-   <h1>cucumber-js-documentation</h1> 
+   <h1>CucumberJS Living Documentation</h1> 
    <div id="toc" class="toc2"> 
     <div id="toctitle">
       Table of Contents 
@@ -436,7 +436,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
        <li><a href="#Asynchronous-failing-steps"><strong>Asynchronous failing steps</strong></a> 
         <ul class="sectlevel3"> 
          <li><a href="#_scenario_see_asynchronously_failing_scenarios">Scenario: see asynchronously failing scenarios</a></li> 
-         <li><a href="#_scenario_see_asynchronously_failing_scenarios_with_exception">Scenario: see asynchronously failing scenarios with exception</a></li> 
+         <li><a href="#_scenario_see_asynchronously_failing_scenarios_with_exception_span_class_icon_red_i_class_fa_fa_thumbs_down_title_failed_i_span">Scenario: see asynchronously failing scenarios with exception <span class="icon red"><i class="fa fa-thumbs-down" title="Failed"></i></span></a></li> 
         </ul> </li> 
        <li><a href="#Asynchronous-pending-steps"><strong>Asynchronous pending steps</strong></a> 
         <ul class="sectlevel3"> 
@@ -463,7 +463,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
         </ul> </li> 
        <li><a href="#CoffeeScript-support"><strong>CoffeeScript support</strong></a> 
         <ul class="sectlevel3"> 
-         <li><a href="#_scenario_coffeescript_step_definition">Scenario: CoffeeScript step definition</a></li> 
+         <li><a href="#_scenario_coffeescript_step_definition_span_class_icon_red_i_class_fa_fa_thumbs_down_title_failed_i_span">Scenario: CoffeeScript step definition <span class="icon red"><i class="fa fa-thumbs-down" title="Failed"></i></span></a></li> 
         </ul> </li> 
        <li><a href="#Command-line-interface"><strong>Command line interface</strong></a> 
         <ul class="sectlevel3"> 
@@ -537,7 +537,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
         </ul> </li> 
        <li><a href="#PogoScript-support"><strong>PogoScript support</strong></a> 
         <ul class="sectlevel3"> 
-         <li><a href="#_scenario_pogoscript_step_definition">Scenario: PogoScript step definition</a></li> 
+         <li><a href="#_scenario_pogoscript_step_definition_span_class_icon_red_i_class_fa_fa_thumbs_down_title_failed_i_span">Scenario: PogoScript step definition <span class="icon red"><i class="fa fa-thumbs-down" title="Failed"></i></span></a></li> 
         </ul> </li> 
        <li><a href="#Pretty-Formatter"><strong>Pretty Formatter</strong></a> 
         <ul class="sectlevel3"> 
@@ -564,13 +564,13 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
        <li><a href="#Step-definition-callbacks"><strong>Step definition callbacks</strong></a> 
         <ul class="sectlevel3"> 
          <li><a href="#_scenario_fail_with_single_parameter_error_node_js_style">Scenario: fail with single-parameter error (Node.js style)</a></li> 
-         <li><a href="#_scenario_succeed_with_promise">Scenario: succeed with promise</a></li> 
-         <li><a href="#_scenario_fail_with_promise">Scenario: fail with promise</a></li> 
-         <li><a href="#_scenario_succeed_synchronously">Scenario: succeed synchronously</a></li> 
+         <li><a href="#_scenario_succeed_with_promise_span_class_icon_red_i_class_fa_fa_thumbs_down_title_failed_i_span">Scenario: succeed with promise <span class="icon red"><i class="fa fa-thumbs-down" title="Failed"></i></span></a></li> 
+         <li><a href="#_scenario_fail_with_promise_span_class_icon_red_i_class_fa_fa_thumbs_down_title_failed_i_span">Scenario: fail with promise <span class="icon red"><i class="fa fa-thumbs-down" title="Failed"></i></span></a></li> 
+         <li><a href="#_scenario_succeed_synchronously_span_class_icon_red_i_class_fa_fa_thumbs_down_title_failed_i_span">Scenario: succeed synchronously <span class="icon red"><i class="fa fa-thumbs-down" title="Failed"></i></span></a></li> 
         </ul> </li> 
        <li><a href="#Strict-mode"><strong>Strict mode</strong></a> 
         <ul class="sectlevel3"> 
-         <li><a href="#_background">Background</a></li> 
+         <li><a href="#_background_span_class_icon_red_i_class_fa_fa_thumbs_down_title_failed_i_span">Background <span class="icon red"><i class="fa fa-thumbs-down" title="Failed"></i></span></a></li> 
          <li><a href="#_scenario_succeed_scenario_with_implemented_step_with_strict">Scenario: Succeed scenario with implemented step with --strict</a></li> 
          <li><a href="#_scenario_fail_scenario_with_undefined_step_with_strict">Scenario: Fail scenario with undefined step with --strict</a></li> 
          <li><a href="#_scenario_fail_scenario_with_pending_step_with_strict">Scenario: Fail Scenario with pending step with --strict</a></li> 
@@ -584,12 +584,12 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
         </ul> </li> 
        <li><a href="#User-logs-into-the-system"><strong>User logs into the system</strong></a> 
         <ul class="sectlevel3"> 
-         <li><a href="#_scenario_unlogged_user_sees_welcome_page_with_login">Scenario: Unlogged user sees welcome page with login</a></li> 
-         <li><a href="#_scenario_minimal_user_sees_welcome_page_with_its_username_and_logout">Scenario: Minimal user sees welcome page with its username and logout</a></li> 
-         <li><a href="#_scenario_unlogged_user_logs_in">Scenario: Unlogged user logs in</a></li> 
-         <li><a href="#_scenario_logged_user_logs_out">Scenario: Logged user logs out</a></li> 
-         <li><a href="#_scenario_disconnected_user_sees_welcome_page_and_reconnect_option">Scenario: Disconnected user sees welcome page and reconnect option</a></li> 
-         <li><a href="#_scenario_user_sees_connecting_while_connecting">Scenario: User sees 'connecting' while connecting</a></li> 
+         <li><a href="#_scenario_unlogged_user_sees_welcome_page_with_login_span_class_icon_red_i_class_fa_fa_thumbs_down_title_failed_i_span">Scenario: Unlogged user sees welcome page with login <span class="icon red"><i class="fa fa-thumbs-down" title="Failed"></i></span></a></li> 
+         <li><a href="#_scenario_minimal_user_sees_welcome_page_with_its_username_and_logout_span_class_icon_red_i_class_fa_fa_thumbs_down_title_failed_i_span">Scenario: Minimal user sees welcome page with its username and logout <span class="icon red"><i class="fa fa-thumbs-down" title="Failed"></i></span></a></li> 
+         <li><a href="#_scenario_unlogged_user_logs_in_span_class_icon_red_i_class_fa_fa_thumbs_down_title_failed_i_span">Scenario: Unlogged user logs in <span class="icon red"><i class="fa fa-thumbs-down" title="Failed"></i></span></a></li> 
+         <li><a href="#_scenario_logged_user_logs_out_span_class_icon_red_i_class_fa_fa_thumbs_down_title_failed_i_span">Scenario: Logged user logs out <span class="icon red"><i class="fa fa-thumbs-down" title="Failed"></i></span></a></li> 
+         <li><a href="#_scenario_disconnected_user_sees_welcome_page_and_reconnect_option_span_class_icon_red_i_class_fa_fa_thumbs_down_title_failed_i_span">Scenario: Disconnected user sees welcome page and reconnect option <span class="icon red"><i class="fa fa-thumbs-down" title="Failed"></i></span></a></li> 
+         <li><a href="#_scenario_user_sees_connecting_while_connecting_span_class_icon_red_i_class_fa_fa_thumbs_down_title_failed_i_span">Scenario: User sees 'connecting' while connecting <span class="icon red"><i class="fa fa-thumbs-down" title="Failed"></i></span></a></li> 
         </ul> </li> 
        <li><a href="#World-constructor-callback-with-object"><strong>World constructor callback with object</strong></a> 
         <ul class="sectlevel3"> 
@@ -597,16 +597,16 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
         </ul> </li> 
        <li><a href="#step-definition-snippets"><strong>step definition snippets</strong></a> 
         <ul class="sectlevel3"> 
-         <li><a href="#_scenario_escape_regexp_special_characters">Scenario: escape regexp special characters</a></li> 
-         <li><a href="#_scenario_step_matching_groups">Scenario: step matching groups</a></li> 
-         <li><a href="#_scenario_multiple_matching_groups">Scenario: multiple matching groups</a></li> 
+         <li><a href="#_scenario_escape_regexp_special_characters_span_class_icon_red_i_class_fa_fa_thumbs_down_title_failed_i_span">Scenario: escape regexp special characters <span class="icon red"><i class="fa fa-thumbs-down" title="Failed"></i></span></a></li> 
+         <li><a href="#_scenario_step_matching_groups_span_class_icon_red_i_class_fa_fa_thumbs_down_title_failed_i_span">Scenario: step matching groups <span class="icon red"><i class="fa fa-thumbs-down" title="Failed"></i></span></a></li> 
+         <li><a href="#_scenario_multiple_matching_groups_span_class_icon_red_i_class_fa_fa_thumbs_down_title_failed_i_span">Scenario: multiple matching groups <span class="icon red"><i class="fa fa-thumbs-down" title="Failed"></i></span></a></li> 
          <li><a href="#_scenario_outline_steps_with_examples">Scenario: outline steps with examples</a></li> 
         </ul> </li> 
        <li><a href="#step-definitions-with-string-pattern"><strong>step definitions with string pattern</strong></a> 
         <ul class="sectlevel3"> 
          <li><a href="#_scenario_step_definition_with_string_based_pattern">Scenario: step definition with string-based pattern</a></li> 
          <li><a href="#_scenario_step_definition_with_string_based_pattern_and_parameters">Scenario: step definition with string-based pattern and parameters</a></li> 
-         <li><a href="#_scenario_step_definition_with_string_based_pattern_and_multiple_parameters">Scenario: step definition with string-based pattern and multiple parameters</a></li> 
+         <li><a href="#_scenario_step_definition_with_string_based_pattern_and_multiple_parameters_span_class_icon_red_i_class_fa_fa_thumbs_down_title_failed_i_span">Scenario: step definition with string-based pattern and multiple parameters <span class="icon red"><i class="fa fa-thumbs-down" title="Failed"></i></span></a></li> 
         </ul> </li> 
       </ul> </li> 
     </ul> 
@@ -1105,7 +1105,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
        </div> 
       </div> 
       <div class="sect3"> 
-       <h4 id="_scenario_see_asynchronously_failing_scenarios_with_exception"><a class="anchor" href="#_scenario_see_asynchronously_failing_scenarios_with_exception"></a>Scenario: see asynchronously failing scenarios with exception</h4> 
+       <h4 id="_scenario_see_asynchronously_failing_scenarios_with_exception_span_class_icon_red_i_class_fa_fa_thumbs_down_title_failed_i_span"><a class="anchor" href="#_scenario_see_asynchronously_failing_scenarios_with_exception_span_class_icon_red_i_class_fa_fa_thumbs_down_title_failed_i_span"></a>Scenario: see asynchronously failing scenarios with exception <span class="icon red"><i class="fa fa-thumbs-down" title="Failed"></i></span></h4> 
        <div class="paragraph"> 
         <p><span class="small">tags: @untestable-on-self</span></p> 
        </div> 
@@ -2423,7 +2423,7 @@ module.exports = hooks;</pre>
        </div> 
       </div> 
       <div class="sect3"> 
-       <h4 id="_scenario_coffeescript_step_definition"><a class="anchor" href="#_scenario_coffeescript_step_definition"></a>Scenario: CoffeeScript step definition</h4> 
+       <h4 id="_scenario_coffeescript_step_definition_span_class_icon_red_i_class_fa_fa_thumbs_down_title_failed_i_span"><a class="anchor" href="#_scenario_coffeescript_step_definition_span_class_icon_red_i_class_fa_fa_thumbs_down_title_failed_i_span"></a>Scenario: CoffeeScript step definition <span class="icon red"><i class="fa fa-thumbs-down" title="Failed"></i></span></h4> 
        <div class="sidebarblock"> 
         <div class="content"> 
          <div class="dlist"> 
@@ -8229,7 +8229,7 @@ module.exports = hooks;</pre>
        </div> 
       </div> 
       <div class="sect3"> 
-       <h4 id="_scenario_pogoscript_step_definition"><a class="anchor" href="#_scenario_pogoscript_step_definition"></a>Scenario: PogoScript step definition</h4> 
+       <h4 id="_scenario_pogoscript_step_definition_span_class_icon_red_i_class_fa_fa_thumbs_down_title_failed_i_span"><a class="anchor" href="#_scenario_pogoscript_step_definition_span_class_icon_red_i_class_fa_fa_thumbs_down_title_failed_i_span"></a>Scenario: PogoScript step definition <span class="icon red"><i class="fa fa-thumbs-down" title="Failed"></i></span></h4> 
        <div class="sidebarblock"> 
         <div class="content"> 
          <div class="dlist"> 
@@ -9806,7 +9806,7 @@ module.exports = hooks;</pre>
        </div> 
       </div> 
       <div class="sect3"> 
-       <h4 id="_scenario_succeed_with_promise"><a class="anchor" href="#_scenario_succeed_with_promise"></a>Scenario: succeed with promise</h4> 
+       <h4 id="_scenario_succeed_with_promise_span_class_icon_red_i_class_fa_fa_thumbs_down_title_failed_i_span"><a class="anchor" href="#_scenario_succeed_with_promise_span_class_icon_red_i_class_fa_fa_thumbs_down_title_failed_i_span"></a>Scenario: succeed with promise <span class="icon red"><i class="fa fa-thumbs-down" title="Failed"></i></span></h4> 
        <div class="sidebarblock"> 
         <div class="content"> 
          <div class="dlist"> 
@@ -9841,7 +9841,7 @@ module.exports = hooks;</pre>
        </div> 
       </div> 
       <div class="sect3"> 
-       <h4 id="_scenario_fail_with_promise"><a class="anchor" href="#_scenario_fail_with_promise"></a>Scenario: fail with promise</h4> 
+       <h4 id="_scenario_fail_with_promise_span_class_icon_red_i_class_fa_fa_thumbs_down_title_failed_i_span"><a class="anchor" href="#_scenario_fail_with_promise_span_class_icon_red_i_class_fa_fa_thumbs_down_title_failed_i_span"></a>Scenario: fail with promise <span class="icon red"><i class="fa fa-thumbs-down" title="Failed"></i></span></h4> 
        <div class="sidebarblock"> 
         <div class="content"> 
          <div class="dlist"> 
@@ -9876,7 +9876,7 @@ module.exports = hooks;</pre>
        </div> 
       </div> 
       <div class="sect3"> 
-       <h4 id="_scenario_succeed_synchronously"><a class="anchor" href="#_scenario_succeed_synchronously"></a>Scenario: succeed synchronously</h4> 
+       <h4 id="_scenario_succeed_synchronously_span_class_icon_red_i_class_fa_fa_thumbs_down_title_failed_i_span"><a class="anchor" href="#_scenario_succeed_synchronously_span_class_icon_red_i_class_fa_fa_thumbs_down_title_failed_i_span"></a>Scenario: succeed synchronously <span class="icon red"><i class="fa fa-thumbs-down" title="Failed"></i></span></h4> 
        <div class="sidebarblock"> 
         <div class="content"> 
          <div class="dlist"> 
@@ -9923,7 +9923,7 @@ module.exports = hooks;</pre>
        </div> 
       </div> 
       <div class="sect3"> 
-       <h4 id="_background"><a class="anchor" href="#_background"></a>Background</h4> 
+       <h4 id="_background_span_class_icon_red_i_class_fa_fa_thumbs_down_title_failed_i_span"><a class="anchor" href="#_background_span_class_icon_red_i_class_fa_fa_thumbs_down_title_failed_i_span"></a>Background <span class="icon red"><i class="fa fa-thumbs-down" title="Failed"></i></span></h4> 
        <div class="sidebarblock"> 
         <div class="content"> 
          <div class="dlist"> 
@@ -10469,7 +10469,7 @@ module.exports = hooks;</pre>
        </div> 
       </div> 
       <div class="sect3"> 
-       <h4 id="_scenario_unlogged_user_sees_welcome_page_with_login"><a class="anchor" href="#_scenario_unlogged_user_sees_welcome_page_with_login"></a>Scenario: Unlogged user sees welcome page with login</h4> 
+       <h4 id="_scenario_unlogged_user_sees_welcome_page_with_login_span_class_icon_red_i_class_fa_fa_thumbs_down_title_failed_i_span"><a class="anchor" href="#_scenario_unlogged_user_sees_welcome_page_with_login_span_class_icon_red_i_class_fa_fa_thumbs_down_title_failed_i_span"></a>Scenario: Unlogged user sees welcome page with login <span class="icon red"><i class="fa fa-thumbs-down" title="Failed"></i></span></h4> 
        <div class="sidebarblock"> 
         <div class="content"> 
          <div class="dlist"> 
@@ -10510,7 +10510,7 @@ module.exports = hooks;</pre>
        </div> 
       </div> 
       <div class="sect3"> 
-       <h4 id="_scenario_minimal_user_sees_welcome_page_with_its_username_and_logout"><a class="anchor" href="#_scenario_minimal_user_sees_welcome_page_with_its_username_and_logout"></a>Scenario: Minimal user sees welcome page with its username and logout</h4> 
+       <h4 id="_scenario_minimal_user_sees_welcome_page_with_its_username_and_logout_span_class_icon_red_i_class_fa_fa_thumbs_down_title_failed_i_span"><a class="anchor" href="#_scenario_minimal_user_sees_welcome_page_with_its_username_and_logout_span_class_icon_red_i_class_fa_fa_thumbs_down_title_failed_i_span"></a>Scenario: Minimal user sees welcome page with its username and logout <span class="icon red"><i class="fa fa-thumbs-down" title="Failed"></i></span></h4> 
        <div class="sidebarblock"> 
         <div class="content"> 
          <div class="dlist"> 
@@ -10551,7 +10551,7 @@ module.exports = hooks;</pre>
        </div> 
       </div> 
       <div class="sect3"> 
-       <h4 id="_scenario_unlogged_user_logs_in"><a class="anchor" href="#_scenario_unlogged_user_logs_in"></a>Scenario: Unlogged user logs in</h4> 
+       <h4 id="_scenario_unlogged_user_logs_in_span_class_icon_red_i_class_fa_fa_thumbs_down_title_failed_i_span"><a class="anchor" href="#_scenario_unlogged_user_logs_in_span_class_icon_red_i_class_fa_fa_thumbs_down_title_failed_i_span"></a>Scenario: Unlogged user logs in <span class="icon red"><i class="fa fa-thumbs-down" title="Failed"></i></span></h4> 
        <div class="sidebarblock"> 
         <div class="content"> 
          <div class="dlist"> 
@@ -10592,7 +10592,7 @@ module.exports = hooks;</pre>
        </div> 
       </div> 
       <div class="sect3"> 
-       <h4 id="_scenario_logged_user_logs_out"><a class="anchor" href="#_scenario_logged_user_logs_out"></a>Scenario: Logged user logs out</h4> 
+       <h4 id="_scenario_logged_user_logs_out_span_class_icon_red_i_class_fa_fa_thumbs_down_title_failed_i_span"><a class="anchor" href="#_scenario_logged_user_logs_out_span_class_icon_red_i_class_fa_fa_thumbs_down_title_failed_i_span"></a>Scenario: Logged user logs out <span class="icon red"><i class="fa fa-thumbs-down" title="Failed"></i></span></h4> 
        <div class="sidebarblock"> 
         <div class="content"> 
          <div class="dlist"> 
@@ -10633,7 +10633,7 @@ module.exports = hooks;</pre>
        </div> 
       </div> 
       <div class="sect3"> 
-       <h4 id="_scenario_disconnected_user_sees_welcome_page_and_reconnect_option"><a class="anchor" href="#_scenario_disconnected_user_sees_welcome_page_and_reconnect_option"></a>Scenario: Disconnected user sees welcome page and reconnect option</h4> 
+       <h4 id="_scenario_disconnected_user_sees_welcome_page_and_reconnect_option_span_class_icon_red_i_class_fa_fa_thumbs_down_title_failed_i_span"><a class="anchor" href="#_scenario_disconnected_user_sees_welcome_page_and_reconnect_option_span_class_icon_red_i_class_fa_fa_thumbs_down_title_failed_i_span"></a>Scenario: Disconnected user sees welcome page and reconnect option <span class="icon red"><i class="fa fa-thumbs-down" title="Failed"></i></span></h4> 
        <div class="sidebarblock"> 
         <div class="content"> 
          <div class="dlist"> 
@@ -10674,7 +10674,7 @@ module.exports = hooks;</pre>
        </div> 
       </div> 
       <div class="sect3"> 
-       <h4 id="_scenario_user_sees_connecting_while_connecting"><a class="anchor" href="#_scenario_user_sees_connecting_while_connecting"></a>Scenario: User sees 'connecting' while connecting</h4> 
+       <h4 id="_scenario_user_sees_connecting_while_connecting_span_class_icon_red_i_class_fa_fa_thumbs_down_title_failed_i_span"><a class="anchor" href="#_scenario_user_sees_connecting_while_connecting_span_class_icon_red_i_class_fa_fa_thumbs_down_title_failed_i_span"></a>Scenario: User sees 'connecting' while connecting <span class="icon red"><i class="fa fa-thumbs-down" title="Failed"></i></span></h4> 
        <div class="sidebarblock"> 
         <div class="content"> 
          <div class="dlist"> 
@@ -10761,7 +10761,7 @@ module.exports = hooks;</pre>
       <span class="fa fa-minus-square fa-fw" style="cursor:pointer;float:right;margin-top:-30px" title="Minimize" onclick="hideFeatureScenarios('step-definition-snippets');document.getElementById('hidden-step-definition-snippets').style.display = 'inline';this.style.display = 'none'"> </span> 
       <span id="hidden-step-definition-snippets" class="fa fa-plus-square fa-fw" style="cursor:pointer;float:right;display:none;margin-top:-30px" title="Maximize feature" onclick="showFeatureScenarios('step-definition-snippets');this.style.display = 'none'"> </span> 
       <div class="sect3"> 
-       <h4 id="_scenario_escape_regexp_special_characters"><a class="anchor" href="#_scenario_escape_regexp_special_characters"></a>Scenario: escape regexp special characters</h4> 
+       <h4 id="_scenario_escape_regexp_special_characters_span_class_icon_red_i_class_fa_fa_thumbs_down_title_failed_i_span"><a class="anchor" href="#_scenario_escape_regexp_special_characters_span_class_icon_red_i_class_fa_fa_thumbs_down_title_failed_i_span"></a>Scenario: escape regexp special characters <span class="icon red"><i class="fa fa-thumbs-down" title="Failed"></i></span></h4> 
        <div class="sidebarblock"> 
         <div class="content"> 
          <div class="dlist"> 
@@ -10806,7 +10806,7 @@ When I type -[]{}()*+?.\^$|#/</pre>
        </div> 
       </div> 
       <div class="sect3"> 
-       <h4 id="_scenario_step_matching_groups"><a class="anchor" href="#_scenario_step_matching_groups"></a>Scenario: step matching groups</h4> 
+       <h4 id="_scenario_step_matching_groups_span_class_icon_red_i_class_fa_fa_thumbs_down_title_failed_i_span"><a class="anchor" href="#_scenario_step_matching_groups_span_class_icon_red_i_class_fa_fa_thumbs_down_title_failed_i_span"></a>Scenario: step matching groups <span class="icon red"><i class="fa fa-thumbs-down" title="Failed"></i></span></h4> 
        <div class="sidebarblock"> 
         <div class="content"> 
          <div class="dlist"> 
@@ -10844,7 +10844,7 @@ When I type -[]{}()*+?.\^$|#/</pre>
        </div> 
       </div> 
       <div class="sect3"> 
-       <h4 id="_scenario_multiple_matching_groups"><a class="anchor" href="#_scenario_multiple_matching_groups"></a>Scenario: multiple matching groups</h4> 
+       <h4 id="_scenario_multiple_matching_groups_span_class_icon_red_i_class_fa_fa_thumbs_down_title_failed_i_span"><a class="anchor" href="#_scenario_multiple_matching_groups_span_class_icon_red_i_class_fa_fa_thumbs_down_title_failed_i_span"></a>Scenario: multiple matching groups <span class="icon red"><i class="fa fa-thumbs-down" title="Failed"></i></span></h4> 
        <div class="sidebarblock"> 
         <div class="content"> 
          <div class="dlist"> 
@@ -11008,7 +11008,7 @@ When I type -[]{}()*+?.\^$|#/</pre>
        </div> 
       </div> 
       <div class="sect3"> 
-       <h4 id="_scenario_step_definition_with_string_based_pattern_and_multiple_parameters"><a class="anchor" href="#_scenario_step_definition_with_string_based_pattern_and_multiple_parameters"></a>Scenario: step definition with string-based pattern and multiple parameters</h4> 
+       <h4 id="_scenario_step_definition_with_string_based_pattern_and_multiple_parameters_span_class_icon_red_i_class_fa_fa_thumbs_down_title_failed_i_span"><a class="anchor" href="#_scenario_step_definition_with_string_based_pattern_and_multiple_parameters_span_class_icon_red_i_class_fa_fa_thumbs_down_title_failed_i_span"></a>Scenario: step definition with string-based pattern and multiple parameters <span class="icon red"><i class="fa fa-thumbs-down" title="Failed"></i></span></h4> 
        <div class="sidebarblock"> 
         <div class="content"> 
          <div class="dlist"> 
@@ -11054,8 +11054,8 @@ When I type -[]{}()*+?.\^$|#/</pre>
   </div> 
   <div id="footer" style="color:gray;font-size:11px">
    Generated by 
-   <a href="https://github.com/rmpestano/cukedoctor" target="_blank"> Cukedoctor 0.9.0</a> - 08/03/2016 21:58:59
-   <span style="float:right;font-size:11px"> Execution time: 7.078 seconds</span>
+   <a href="https://github.com/rmpestano/cukedoctor" target="_blank"> Cukedoctor 0.9.1</a> - 13/03/2016 07:38:04
+   <span style="float:right;font-size:11px"> Execution time: 5.838 seconds</span>
   </div> 
   <script type="text/javascript">  
 

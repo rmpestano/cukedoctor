@@ -1,6 +1,6 @@
 :toc: right
 :backend: pdf
-:doctitle: jekyll-documentation
+:doctitle: Jekyll Living Documentation
 :doctype: book
 :icons: font
 :!numbered:
@@ -10,7 +10,7 @@
 :docinfo:
 :toclevels: 3
 
-= *jekyll-documentation*
+= *Jekyll Living Documentation*
 
 == *Summary*
 [cols="12*^m", options="header,footer"]
@@ -3579,7 +3579,7 @@ And ::
 I should see "Post categories: SciFi and movies" in "_site/scifi/movies/2013/03/17/star-trek.html" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ****
 
-==== Scenario Outline: Use page.path variable
+==== Scenario Outline: Use page.path variable icon:thumbs-down[role="red",title="Failed"]
 
 
 .Example
@@ -3997,7 +3997,7 @@ And ::
 I should see "Changing destination directory" in "_mysite/index.html" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ****
 
-==== Scenario Outline: Similarly named source and destination
+==== Scenario Outline: Similarly named source and destination icon:thumbs-down[role="red",title="Failed"]
 
 
 .Example
@@ -4581,7 +4581,7 @@ And ::
 I should see "Contact: email@example.com" in "_site/contact.html" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ****
 
-==== Scenario Outline: Use page.path variable in a page
+==== Scenario Outline: Use page.path variable in a page icon:thumbs-down[role="red",title="Failed"]
 
 
 .Example
@@ -4832,7 +4832,7 @@ As a blog's user +
 I want divide the posts in several pages
 ****
 
-==== Scenario Outline: Paginate with N posts per page
+==== Scenario Outline: Paginate with N posts per page icon:thumbs-down[role="red",title="Failed"]
 
 
 .Example
@@ -4856,7 +4856,7 @@ I want divide the posts in several pages
 |3
 |===
 
-==== Scenario Outline: Setting a custom pagination path
+==== Scenario Outline: Setting a custom pagination path icon:thumbs-down[role="red",title="Failed"]
 
 
 .Example
@@ -4876,7 +4876,7 @@ I want divide the posts in several pages
 |7
 |===
 
-==== Scenario Outline: Setting a custom pagination path without an index.html in it
+==== Scenario Outline: Setting a custom pagination path without an index.html in it icon:thumbs-down[role="red",title="Failed"]
 
 
 .Example

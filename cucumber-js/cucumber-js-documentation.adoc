@@ -1,6 +1,6 @@
 :toc: right
 :backend: pdf
-:doctitle: cucumber-js-documentation
+:doctitle: CucumberJS Living Documentation
 :doctype: book
 :icons: font
 :!numbered:
@@ -10,7 +10,7 @@
 :docinfo:
 :toclevels: 3
 
-= *cucumber-js-documentation*
+= *CucumberJS Living Documentation*
 
 == *Summary*
 [cols="12*^m", options="header,footer"]
@@ -367,7 +367,7 @@ Then ::
 the scenario called "a failing scenario" is reported as failing icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ****
 
-==== Scenario: see asynchronously failing scenarios with exception
+==== Scenario: see asynchronously failing scenarios with exception icon:thumbs-down[role="red",title="Failed"]
 [small]#tags: @untestable-on-self#
 
 
@@ -1237,7 +1237,7 @@ As a step definition implementor +
 I want to use CoffeeScript for writing step definitions
 ****
 
-==== Scenario: CoffeeScript step definition
+==== Scenario: CoffeeScript step definition icon:thumbs-down[role="red",title="Failed"]
 
 ****
 Given ::
@@ -5258,7 +5258,7 @@ As a step definition implementor +
 I want to use PogoScript for writing step definitions
 ****
 
-==== Scenario: PogoScript step definition
+==== Scenario: PogoScript step definition icon:thumbs-down[role="red",title="Failed"]
 
 ****
 Given ::
@@ -6287,7 +6287,7 @@ Then ::
 the scenario fails icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ****
 
-==== Scenario: succeed with promise
+==== Scenario: succeed with promise icon:thumbs-down[role="red",title="Failed"]
 
 ****
 Given ::
@@ -6300,7 +6300,7 @@ And ::
 the scenario passes icon:thumbs-down[role="purple",title="Skipped"] [small right]#(000ms)#
 ****
 
-==== Scenario: fail with promise
+==== Scenario: fail with promise icon:thumbs-down[role="red",title="Failed"]
 
 ****
 Given ::
@@ -6313,7 +6313,7 @@ And ::
 the scenario fails icon:thumbs-down[role="purple",title="Skipped"] [small right]#(000ms)#
 ****
 
-==== Scenario: succeed synchronously
+==== Scenario: succeed synchronously icon:thumbs-down[role="red",title="Failed"]
 
 ****
 Given ::
@@ -6334,7 +6334,7 @@ Using the `--strict` flag will cause cucumber to fail unless all the +
 step definitions have been defined.
 ****
 
-==== Background
+==== Background icon:thumbs-down[role="red",title="Failed"]
 
 ****
 Given ::
@@ -6630,7 +6630,7 @@ As a user +
 I want to log in to the system
 ****
 
-==== Scenario: Unlogged user sees welcome page with login
+==== Scenario: Unlogged user sees welcome page with login icon:thumbs-down[role="red",title="Failed"]
 
 ****
 Given ::
@@ -6645,7 +6645,7 @@ And ::
 I should not see any username icon:thumbs-down[role="yellow",title="Undefined"] [small right]#(000ms)#
 ****
 
-==== Scenario: Minimal user sees welcome page with its username and logout
+==== Scenario: Minimal user sees welcome page with its username and logout icon:thumbs-down[role="red",title="Failed"]
 
 ****
 Given ::
@@ -6660,7 +6660,7 @@ And ::
 I should see "Guest" as username icon:thumbs-down[role="yellow",title="Undefined"] [small right]#(000ms)#
 ****
 
-==== Scenario: Unlogged user logs in
+==== Scenario: Unlogged user logs in icon:thumbs-down[role="red",title="Failed"]
 
 ****
 Given ::
@@ -6675,7 +6675,7 @@ Then ::
 I should be taken to login page icon:thumbs-down[role="yellow",title="Undefined"] [small right]#(000ms)#
 ****
 
-==== Scenario: Logged user logs out
+==== Scenario: Logged user logs out icon:thumbs-down[role="red",title="Failed"]
 
 ****
 Given ::
@@ -6690,7 +6690,7 @@ Then ::
 I should be taken to logout page icon:thumbs-down[role="yellow",title="Undefined"] [small right]#(000ms)#
 ****
 
-==== Scenario: Disconnected user sees welcome page and reconnect option
+==== Scenario: Disconnected user sees welcome page and reconnect option icon:thumbs-down[role="red",title="Failed"]
 
 ****
 Given ::
@@ -6705,7 +6705,7 @@ And ::
 I should not see any username icon:thumbs-down[role="yellow",title="Undefined"] [small right]#(000ms)#
 ****
 
-==== Scenario: User sees 'connecting' while connecting
+==== Scenario: User sees 'connecting' while connecting icon:thumbs-down[role="red",title="Failed"]
 
 ****
 Given ::
@@ -6756,7 +6756,7 @@ the explicit World object function should have been called icon:thumbs-up[role="
 [[step-definition-snippets, step definition snippets]]
 === *step definition snippets*
 
-==== Scenario: escape regexp special characters
+==== Scenario: escape regexp special characters icon:thumbs-down[role="red",title="Failed"]
 
 ****
 Given ::
@@ -6775,7 +6775,7 @@ Then ::
 a "When" step definition snippet for /^I type \-\[\]\{\}\(\)\*\+\?\.\\\^\$\|\#\/$/ is suggested icon:thumbs-down[role="yellow",title="Undefined"] [small right]#(000ms)#
 ****
 
-==== Scenario: step matching groups
+==== Scenario: step matching groups icon:thumbs-down[role="red",title="Failed"]
 
 ****
 Given ::
@@ -6791,7 +6791,7 @@ Then ::
 a "Given" step definition snippet for /^I have (\d+) "([^"]*)" cucumbers$/ with 2 parameters is suggested icon:thumbs-down[role="yellow",title="Undefined"] [small right]#(000ms)#
 ****
 
-==== Scenario: multiple matching groups
+==== Scenario: multiple matching groups icon:thumbs-down[role="red",title="Failed"]
 
 ****
 Given ::
@@ -6859,7 +6859,7 @@ And ::
 the mapping receives the arguments icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ****
 
-==== Scenario: step definition with string-based pattern and multiple parameters
+==== Scenario: step definition with string-based pattern and multiple parameters icon:thumbs-down[role="red",title="Failed"]
 
 ****
 Given ::
