@@ -218,7 +218,7 @@ public class CukedoctorMojoTest extends AbstractMojoTestCase {
         assertThat(htmlFile).exists().hasParent("target/docs");
         assertThat(mojo.getGeneratedFile()).
                 contains(":toc: left").
-                contains(":backend: all").
+                contains(":backend: html5").
                 contains(":numbered:");
     }
 

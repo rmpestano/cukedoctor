@@ -115,7 +115,9 @@ public class CukedoctorMojo extends AbstractMojo {
         if (format.equals(Format.pdf)) {
             documentAttributes.pdfTheme(true).docInfo(false);
         } else {
-            documentAttributes.docInfo(true).pdfTheme(false);
+            documentAttributes.docInfo(true).
+                    backend(Format.html5.name()).
+                    pdfTheme(false);
         }
 
         if (documentTitle == null) {
