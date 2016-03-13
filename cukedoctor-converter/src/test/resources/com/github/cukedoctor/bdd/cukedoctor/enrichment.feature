@@ -39,7 +39,7 @@ Feature: Enrich feature
   | Cell in column 1, row 3 | Cell in column 2, row 3
 
   |===
-  \"\"\"
+\"\"\"
 """
 
     When I convert docstring enriched json output using cukedoctor converter
