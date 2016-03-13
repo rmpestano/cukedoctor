@@ -51,7 +51,6 @@ public class CukedoctorConverterImpl implements CukedoctorConverter {
 	private void loadRenderers() {
 		ServiceLoader<SummaryRenderer> summaryRenderers = ServiceLoader.load(SummaryRenderer.class);
 		ServiceLoader<FeatureRenderer> featureRenderers = ServiceLoader.load(FeatureRenderer.class);
-		ServiceLoader<ScenarioRenderer> scenarioRenderers = ServiceLoader.load(ScenarioRenderer.class);
 
 		if(summaryRenderers.iterator().hasNext()){
 			summaryRenderer = summaryRenderers.iterator().next();
