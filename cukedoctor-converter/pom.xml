@@ -143,6 +143,13 @@
                                 <phase>install</phase>
                             </execution>
                         </executions>
+                        <dependencies>
+                            <dependency>
+                                <groupId>org.jruby</groupId>
+                                <artifactId>jruby-complete</artifactId>
+                                <version>9.0.4.0</version>
+                             </dependency>
+                        </dependencies>
                     </plugin>
                     <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
