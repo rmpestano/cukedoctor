@@ -71,7 +71,7 @@ As a proof of concept, https://github.com/rmpestano/cukedoctor/tree/master/cuked
 * http://rmpestano.github.io/cukedoctor/cukedoctor-documentation.pdf[Cukedoctor documentation pdf^]
 * http://rmpestano.github.io/cukedoctor/cukedoctor/default/cukedoctor.html[Default cucumber formatter html^]
 
-
+NOTE: This documentation is published to gh-pages by travisci on each successful build.
 
 == Other Documentation Examples
 
