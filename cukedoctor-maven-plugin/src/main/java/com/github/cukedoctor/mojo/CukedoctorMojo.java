@@ -37,189 +37,187 @@ import org.asciidoctor.OptionsBuilder;
 import org.asciidoctor.SafeMode;
 
 import java.io.File;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
 @Mojo(name = "execute",
-		defaultPhase = LifecyclePhase.INSTALL)
+        defaultPhase = LifecyclePhase.INSTALL)
 public class CukedoctorMojo extends AbstractMojo {
 
-	@Parameter(defaultValue = "documentation", required = false)
-	String outputFileName;
+    @Parameter(defaultValue = "documentation", required = false)
+    String outputFileName;
 
-	@Parameter(defaultValue = "cukedoctor", required = false)
-	String outputDir;
+    @Parameter(defaultValue = "cukedoctor", required = false)
+    String outputDir;
 
-	@Parameter(required = false)
-	String featuresDir;
+    @Parameter(required = false)
+    String featuresDir;
 
-	@Parameter(required = false)
-	String documentTitle;
+    @Parameter(required = false)
+    String documentTitle;
 
-	@Parameter(defaultValue = "html5", required = true)
-	Format format;
+    @Parameter(defaultValue = "html5", required = true)
+    Format format;
 
-	@Parameter(defaultValue = "right", required = false)
-	Toc toc;
+    @Parameter(defaultValue = "right", required = false)
+    Toc toc;
 
-	@Parameter(defaultValue = "false", required = false)
-	boolean numbered;
+    @Parameter(defaultValue = "false", required = false)
+    boolean numbered;
 
-	@Parameter(defaultValue = "false", required = false)
-	boolean disableTheme;
+    @Parameter(defaultValue = "false", required = false)
+    boolean disableTheme;
 
-	@Parameter(defaultValue = "false", required = false)
-	boolean disableFilter;
+    @Parameter(defaultValue = "false", required = false)
+    boolean disableFilter;
 
-	@Parameter(defaultValue = "false", required = false)
-	boolean disableMinimizable;
+    @Parameter(defaultValue = "false", required = false)
+    boolean disableMinimizable;
 
-	@Parameter(defaultValue = "false", required = false)
-	boolean disableFooter;
-
-
-	@Component
-	MavenProject project;
-
-	private String generatedFile = null;//only for tests
+    @Parameter(defaultValue = "false", required = false)
+    boolean disableFooter;
 
 
-	public void execute() throws MojoExecutionException, MojoFailureException {
-		String startDir = null;
-		if(featuresDir != null){
-			startDir = featuresDir;
-		}
-		if(startDir == null || !new File(startDir).exists()){
-			startDir = project.getBuild().getDirectory() != null ?  new File(project.getBuild().getDirectory()).getAbsolutePath():null;
-			if(startDir == null || !new File(startDir).exists()){
-				//last resource use project dir
-				startDir = project.getBasedir().getAbsolutePath();
-			}
-	 	 }
-		getLog().info("Searching cucumber features in path: "+startDir);
-		Set<Feature> featuresFound = new HashSet<>(FeatureParser.findAndParse(startDir));
-		if (featuresFound == null || featuresFound.isEmpty()) {
-			getLog().warn("No cucumber json files found in " + startDir);
-			return;
-		} else {
-			getLog().info("Generating living documentation for " + featuresFound.size() + " feature(s)...");
-		}
+    @Component
+    MavenProject project;
 
-		configExtensions();
-		DocumentAttributes documentAttributes = new DocumentAttributes().
-				backend(format.name().toLowerCase()).
-				toc(toc.name().toLowerCase()).
-				numbered(numbered);
-		if (format.equals(Format.pdf)) {
-			documentAttributes.pdfTheme(true).docInfo(false);
-		} else {
-			documentAttributes.docInfo(true).pdfTheme(false);
-		}
+    private String generatedFile = null;//only for tests
 
-		if (documentTitle == null) {
-			documentTitle = "Living Documentation";
-		}
-		documentAttributes.docTitle(documentTitle);
-		List<Feature> featuresList = new ArrayList<>(featuresFound);
-		CukedoctorConverter converter = Cukedoctor.instance(featuresList, documentAttributes);
-		String targetFile = "";
-		if (outputFileName.contains(".")) {
-			targetFile = outputFileName.substring(0, outputFileName.lastIndexOf(".")) + ".adoc";
-		} else {
-			targetFile = outputFileName + ".adoc";
-		}
 
-		String targetDir = getDocumentationDir();
-		String pathToSave = targetDir + targetFile;
-		converter.setFilename(pathToSave);//needed by docinfo, pdf-theme
-		generatedFile = converter.renderDocumentation();
-		File adocFile = FileUtil.saveFile(pathToSave, generatedFile);
+    public void execute() throws MojoExecutionException, MojoFailureException {
+        String startDir = null;
+        if (featuresDir != null) {
+            startDir = featuresDir;
+        }
+        if (startDir == null || !new File(startDir).exists()) {
+            startDir = project.getBuild().getDirectory() != null ? new File(project.getBuild().getDirectory()).getAbsolutePath() : null;
+            if (startDir == null || !new File(startDir).exists()) {
+                //last resource use project dir
+                startDir = project.getBasedir().getAbsolutePath();
+            }
+        }
+        getLog().info("Searching cucumber features in path: " + startDir);
+        Set<Feature> featuresFound = new HashSet<>(FeatureParser.findAndParse(startDir));
+        if (featuresFound == null || featuresFound.isEmpty()) {
+            getLog().warn("No cucumber json files found in " + startDir);
+            return;
+        } else {
+            getLog().info("Generating living documentation for " + featuresFound.size() + " feature(s)...");
+        }
 
-		Asciidoctor asciidoctor = Asciidoctor.Factory.create();
+        configExtensions();
+        DocumentAttributes documentAttributes = new DocumentAttributes().
+                backend(format.name().toLowerCase()).
+                toc(toc.name().toLowerCase()).
+                numbered(numbered);
+        if (format.equals(Format.pdf)) {
+            documentAttributes.pdfTheme(true).docInfo(false);
+        } else {
+            documentAttributes.docInfo(true).pdfTheme(false);
+        }
 
-		if (format.equals(Format.all)) {
-			documentAttributes.backend(Format.html5.name().toLowerCase());
-			generateDocumentation(documentAttributes, adocFile, asciidoctor);
-			documentAttributes.backend(Format.pdf.name().toLowerCase()).docInfo(false);
-			generateDocumentation(documentAttributes, adocFile, asciidoctor);
-		} else {
-			generateDocumentation(documentAttributes, adocFile, asciidoctor);
-		}
+        if (documentTitle == null) {
+            documentTitle = "Living Documentation";
+        }
+        documentAttributes.docTitle(documentTitle);
+        List<Feature> featuresList = new ArrayList<>(featuresFound);
+        CukedoctorConverter converter = Cukedoctor.instance(featuresList, documentAttributes);
+        String targetFile = "";
+        if (outputFileName.contains(".")) {
+            targetFile = outputFileName.substring(0, outputFileName.lastIndexOf(".")) + ".adoc";
+        } else {
+            targetFile = outputFileName + ".adoc";
+        }
 
-		asciidoctor.shutdown();
-	}
+        String targetDir = getDocumentationDir();
+        String pathToSave = targetDir + targetFile;
+        converter.setFilename(pathToSave);//needed by docinfo, pdf-theme
+        generatedFile = converter.renderDocumentation();
+        File adocFile = FileUtil.saveFile(pathToSave, generatedFile);
 
-	private void configExtensions() {
-		if(disableFilter){
-			System.setProperty("cukedoctor.disable.filter","disabled");
-		} else{
-			System.clearProperty("cukedoctor.disable.filter");
-		}
-		if(disableMinimizable){
-			System.setProperty("cukedoctor.disable.minmax","disabled");
-		}else{
-			System.clearProperty("cukedoctor.disable.minmax");
-		}
-		if(disableTheme){
-			System.setProperty("cukedoctor.disable.theme","disabled");
-		}else{
-			System.clearProperty("cukedoctor.disable.theme");
-		}
-		if(disableFooter){
-			System.setProperty("cukedoctor.disable.footer","disabled");
-		}else{
-			System.clearProperty("cukedoctor.disable.footer");
-		}
-	}
+        Asciidoctor asciidoctor = Asciidoctor.Factory.create();
 
-	private void generateDocumentation(DocumentAttributes documentAttributes, File adocFile, Asciidoctor asciidoctor) {
-		if ("pdf".equals(documentAttributes.getBackend())) {
-	 		asciidoctor.unregisterAllExtensions();
-		}
-		asciidoctor.convertFile(adocFile, OptionsBuilder.options().backend(documentAttributes.getBackend()).safe(SafeMode.UNSAFE).asMap());
-		//remove auxiliary files
-		if ("pdf".equals(documentAttributes.getBackend())) {
-			FileUtil.removeFile(adocFile.getParent() + "/" + outputFileName + "-theme.yml");
+        if (format.equals(Format.all)) {
+            documentAttributes.backend(Format.html5.name().toLowerCase());
+            generateDocumentation(documentAttributes, adocFile, asciidoctor);
+            documentAttributes.backend(Format.pdf.name().toLowerCase()).docInfo(false);
+            generateDocumentation(documentAttributes, adocFile, asciidoctor);
+        } else {
+            generateDocumentation(documentAttributes, adocFile, asciidoctor);
+        }
 
-		}
+        asciidoctor.shutdown();
+    }
 
-		getLog().info("Generated documentation at: " + adocFile.getParent());
-	}
+    private void configExtensions() {
+        if (disableFilter) {
+            System.setProperty("cukedoctor.disable.filter", "disabled");
+        } else {
+            System.clearProperty("cukedoctor.disable.filter");
+        }
+        if (disableMinimizable) {
+            System.setProperty("cukedoctor.disable.minmax", "disabled");
+        } else {
+            System.clearProperty("cukedoctor.disable.minmax");
+        }
+        if (disableTheme) {
+            System.setProperty("cukedoctor.disable.theme", "disabled");
+        } else {
+            System.clearProperty("cukedoctor.disable.theme");
+        }
+        if (disableFooter) {
+            System.setProperty("cukedoctor.disable.footer", "disabled");
+        } else {
+            System.clearProperty("cukedoctor.disable.footer");
+        }
+    }
 
-	/**
-	 * documentation is saved under ${buildDir}/cukedoctor folder
-	 */
-	String getDocumentationDir() {
-		String baseDir = project.getBuild().getDirectory();
-		if (baseDir == null || new File(baseDir).exists()) {
-			baseDir = project.getBasedir().getAbsolutePath();
-		    baseDir = baseDir + "/target";
-			if(!new File(baseDir).exists()){
-				//maven plugin declared in child module
-				baseDir = project.getBasedir().getAbsolutePath();
-			}
-		}
-		if (!baseDir.endsWith("/")) {
-			baseDir = baseDir + "/";
-		}
+    private void generateDocumentation(DocumentAttributes documentAttributes, File adocFile, Asciidoctor asciidoctor) {
+        if ("pdf".equals(documentAttributes.getBackend())) {
+            asciidoctor.unregisterAllExtensions();
+        }
+        asciidoctor.convertFile(adocFile, OptionsBuilder.options().backend(documentAttributes.getBackend()).safe(SafeMode.UNSAFE).asMap());
+        //remove auxiliary files
+        if ("pdf".equals(documentAttributes.getBackend())) {
+            FileUtil.removeFile(adocFile.getParent() + "/" + outputFileName + "-theme.yml");
 
-		if (outputDir == null) {
-			outputDir = "cukedoctor/";
-		}
+        }
 
-		if (!outputDir.endsWith("/")) {
-			outputDir = outputDir + "/";
-		}
+        getLog().info("Generated documentation at: " + adocFile.getParent());
+    }
 
-		return baseDir + outputDir;
+    /**
+     * documentation is saved under ${buildDir}/cukedoctor folder
+     */
+    String getDocumentationDir() {
+        String baseDir = project.getBuild().getDirectory();
+        if (baseDir == null || new File(baseDir).exists()) {
+            baseDir = project.getBasedir().getAbsolutePath();
+            baseDir = baseDir + "/target";
+            if (!new File(baseDir).exists()) {
+                //maven plugin declared in child module
+                baseDir = project.getBasedir().getAbsolutePath();
+            }
+        }
+        if (!baseDir.endsWith("/")) {
+            baseDir = baseDir + "/";
+        }
 
-	}
+        if (outputDir == null) {
+            outputDir = "cukedoctor/";
+        }
 
-	public String getGeneratedFile() {
-		return generatedFile;
-	}
+        if (!outputDir.endsWith("/")) {
+            outputDir = outputDir + "/";
+        }
+
+        return baseDir + outputDir;
+
+    }
+
+    public String getGeneratedFile() {
+        return generatedFile;
+    }
 }

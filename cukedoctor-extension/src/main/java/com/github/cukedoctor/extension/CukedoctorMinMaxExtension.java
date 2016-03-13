@@ -17,7 +17,7 @@ public class CukedoctorMinMaxExtension extends BlockMacroProcessor {
 
     @Override
     protected Object process(AbstractBlock parent, String target, Map<String, Object> attributes) {
-        if(parent.document().basebackend("html")) {
+        if(parent.getDocument().basebackend("html") && System.getProperty("cukedoctor.disable.theme") == null) {
             StringBuilder minMax = new StringBuilder();
             minMax.append("<span class=\"fa fa-minus-square fa-fw\" style=\"cursor:pointer;float:right;margin-top:-30px\" ").
                     append(" title=\"Minimize\" onclick=\"hideFeatureScenarios('").

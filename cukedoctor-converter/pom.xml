@@ -135,6 +135,7 @@
                             <format>all</format>
                             <toc>center</toc>
                             <numbered>true</numbered>
+                            <disableMinimizable>false</disableMinimizable>
                         </configuration>
                         <executions>
                             <execution>

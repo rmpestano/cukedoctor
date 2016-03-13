@@ -19,7 +19,7 @@ public class CukedoctorScriptExtension extends Postprocessor{
 
     @Override
     public String process(Document document, String output) {
-        if(document.basebackend("html")){
+        if(document.basebackend("html") ){
             org.jsoup.nodes.Document doc = Jsoup.parse(output, "UTF-8");
 
             Element contentElement = doc.getElementById("footer");
