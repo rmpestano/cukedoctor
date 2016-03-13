@@ -17,7 +17,7 @@ before_script:
 - git config --global user.email rmpestano@gmail.com
 
 script:
-- mvn clean test jacoco:report coveralls:report -Pcoverage
+- mvn clean install jacoco:report coveralls:report -Pcoverage
 - cd cukedoctor-converter && mvn compile exec:exec -Pperf
 - mvn scm-publish:publish-scm -Ppublish-docs
 
