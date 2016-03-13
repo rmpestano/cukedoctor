@@ -153,9 +153,9 @@
                             <checkoutDirectory>${project.build.outputDirectory}</checkoutDirectory>
                             <checkinComment>Publishing Cukedoctor-${project.parent.version} living documentation.
                             </checkinComment>
-                            <content>target/cukedoctor</content>
+                            <content>target/cukedoctr</content>
                             <skipDeletedFiles>true</skipDeletedFiles>
-                            <pubScmUrl>scm:git:https://${GH_TOKEN}@github.com:rmpestano/cukedoctor.git</pubScmUrl>
+                            <pubScmUrl>scm:git:git:https://${GH_USER}:${GH_PASS}@github.com:rmpestano/cukedoctor.git</pubScmUrl>
                             <scmBranch>gh-pages</scmBranch>
                         </configuration>
                     </plugin>
