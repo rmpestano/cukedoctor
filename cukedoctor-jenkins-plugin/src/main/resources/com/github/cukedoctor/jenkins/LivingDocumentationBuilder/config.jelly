@@ -1,21 +1,24 @@
+<?jelly escape-by-default='true'?>
 <j:jelly xmlns:j="jelly:core" xmlns:st="jelly:stapler" xmlns:d="jelly:define" xmlns:l="/lib/layout" xmlns:t="/lib/hudson" xmlns:f="/lib/form">
- 
-<f:section title="Advanced Project Options">
-  <f:advanced>
-    <p:config-quietPeriod />
-    <f:textbox title="Features dir" name="featuresDir" value="${it.featuresDir}" />
-    <f:block>
-        <table>
-          <f:optionalBlock name="numbered" title="Numbered sections">
-            <f:entry title="View drive">
-              <f:textbox name="drive" value="${it.numbered}"/>
-            </f:entry>
-          </f:optionalBlock>
-        </table>
-    </f:block>
-  </f:advanced>
-</f:section>
-  
+ <l:layout norefresh="true">
+  <f:section title="Advanced Project Options">
+    <f:advanced>
+        <p:config-quietPeriod />
+         <f:entry title="Features dir" field="propertyValue">
+            <f:textbox  name="featuresDir" value="${it.featuresDir}" />
+         </f:entry>
+        <f:block>
+            <table>
+              <f:optionalBlock name="numbered" title="Numbered sections">
+                <f:entry title="View drive">
+                  <f:textbox name="drive" value="${it.numbered}"/>
+                </f:entry>
+              </f:optionalBlock>
+            </table>
+        </f:block>
+   </f:advanced>
+  </f:section>
+ </l:layout>
 </j:jelly>
 
 

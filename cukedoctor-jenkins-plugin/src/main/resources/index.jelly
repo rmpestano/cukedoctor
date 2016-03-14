@@ -1,11 +1,11 @@
 <?jelly escape-by-default='true'?>
+<j:jelly xmlns:j="jelly:core" xmlns:st="jelly:stapler" xmlns:d="jelly:define" xmlns:l="/lib/layout" xmlns:t="/lib/hudson" xmlns:f="/lib/form">
 <div>
     <p>Generates BDD living documentation based on Cucumber tests results</p>
     <p>This plugin expects <b>Cucumber json output</b> from your tests to generate the "Living" documentation of your project. The plugin
     uses the json report to produce html and pdf documentation that you be available after the build.</p>
     <p>The plugin also allows you to publish the resulting documentation to a VCS like git.</p>
     <p>This plugin is backed by Cukedoctor, for more information <a href="http://github.com/rmpestano/cukedoctor" target="_blank">see here.</a></p>
-</div> 
-
-
+</div>
+</j:jelly>
 
