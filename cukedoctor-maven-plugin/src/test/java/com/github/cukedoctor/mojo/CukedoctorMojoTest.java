@@ -1,5 +1,7 @@
 package com.github.cukedoctor.mojo;
 
+import static com.github.cukedoctor.extension.CukedoctorExtensionRegistry.*;
+
 import static com.github.cukedoctor.mojo.FileUtil.loadTestFile;
 import static com.github.cukedoctor.mojo.FileUtil.readFileContent;
 import static org.assertj.core.api.Assertions.assertThat;
