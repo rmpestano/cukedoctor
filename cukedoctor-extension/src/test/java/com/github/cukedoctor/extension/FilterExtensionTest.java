@@ -2,6 +2,7 @@ package com.github.cukedoctor.extension;
 
 import org.asciidoctor.Asciidoctor;
 import org.asciidoctor.OptionsBuilder;
+import static com.github.cukedoctor.extension.CukedoctorExtensionRegistry.*;
 import org.asciidoctor.SafeMode;
 import org.junit.*;
 import org.junit.runner.RunWith;
@@ -42,7 +43,7 @@ public class FilterExtensionTest {
     @Before
     @After
     public void enableExtension(){
-        System.clearProperty("cukedoctor.disable.filter");
+        System.clearProperty(FILTER_DISABLE_EXT_KEY);
     }
 
     @Test
@@ -59,7 +60,7 @@ public class FilterExtensionTest {
 
     @Test
     public void shouldNotAddFilterToRenderedHtmlWhenExtensionDisabled(){
-        System.setProperty("cukedoctor.disable.filter","anyValue");
+        System.setProperty(FILTER_DISABLE_EXT_KEY,"anyValue");
         File sampleAdoc = loadTestFile("sample.adoc");
         assertThat(sampleAdoc).exists();
         asciidoctor.convertFile(sampleAdoc, OptionsBuilder.options().safe(SafeMode.UNSAFE).asMap());

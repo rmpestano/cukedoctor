@@ -1,5 +1,7 @@
 package com.github.cukedoctor.extension;
 
+import static com.github.cukedoctor.extension.CukedoctorExtensionRegistry.*;
+
 import org.asciidoctor.ast.Document;
 import org.asciidoctor.extension.Postprocessor;
 import org.jsoup.Jsoup;
@@ -23,13 +25,13 @@ public class CukedoctorScriptExtension extends Postprocessor{
             org.jsoup.nodes.Document doc = Jsoup.parse(output, "UTF-8");
 
             Element contentElement = doc.getElementById("footer");
-                if(System.getProperty("cukedoctor.disable.filter") == null) {
+                if(System.getProperty(FILTER_DISABLE_EXT_KEY) == null) {
                         addSearchScript(contentElement);
                 }
-                if(System.getProperty("cukedoctor.disable.minmax") == null){
+                if(System.getProperty(MINMAX_DISABLE_EXT_KEY) == null){
                         addMinMaxScript(contentElement);
                 }
-                if(System.getProperty("cukedoctor.disable.theme") == null){
+                if(System.getProperty(THEME_DISABLE_EXT_KEY) == null){
                         addThemeScript(contentElement);
                 }
             return doc.html();

@@ -4,7 +4,7 @@ image:https://www.versioneye.com/user/projects/55d3325f265ff6001c000425/badge.sv
 
 This module extend cukedoctor generated documentation via http://asciidoctor.org/docs/asciidoctorj/#extension-api[Asciidoctor extensions mechanism^].
 
-Cukedoctor comes with 4 extensions to enhance documentation content:
+Cukedoctor comes with 5 extensions to enhance documentation content:
 
 * *Filter extension* which lets features to be filtered using an input at top right of the page;
 
@@ -13,6 +13,8 @@ Cukedoctor comes with 4 extensions to enhance documentation content:
 * *Theme extension* to add theme support.
 
 * *Footer* add cukedoctor footer.
+
+* *Style* customizes asciidoctor stylesheet.
 
 NOTE: All extensions target html documentation.
 
@@ -27,6 +29,8 @@ To disable extensions you can just clear the following system properties:
    System.setProperty("cukedoctor.disable.minmax","anyValue");
 
    System.setProperty("cukedoctor.disable.footer","anyValue");
+
+   System.setProperty("cukedoctor.disable.style","anyValue");
 
 ----
 

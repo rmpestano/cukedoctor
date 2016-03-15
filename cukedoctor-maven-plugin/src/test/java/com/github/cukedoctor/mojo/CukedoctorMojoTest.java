@@ -20,7 +20,7 @@ public class CukedoctorMojoTest extends AbstractMojoTestCase {
     protected void setUp() throws Exception {
         super.setUp();
         System.clearProperty("cukedoctor.disable.theme");
-        System.clearProperty("cukedoctor.disable.filter");
+        System.clearProperty(FILTER_DISABLE_EXT_KEY);
         System.clearProperty("cukedoctor.disable.minmax");
         System.clearProperty("cukedoctor.disable.footer");
     }
@@ -28,7 +28,7 @@ public class CukedoctorMojoTest extends AbstractMojoTestCase {
     protected void tearDown() throws Exception {
         super.tearDown();
         System.clearProperty("cukedoctor.disable.theme");
-        System.clearProperty("cukedoctor.disable.filter");
+        System.clearProperty(FILTER_DISABLE_EXT_KEY);
         System.clearProperty("cukedoctor.disable.minmax");
         System.clearProperty("cukedoctor.disable.footer");
 

@@ -1,5 +1,5 @@
 package com.github.cukedoctor.extension;
-
+import static com.github.cukedoctor.extension.CukedoctorExtensionRegistry.*;
 import org.asciidoctor.Asciidoctor;
 import org.asciidoctor.OptionsBuilder;
 import org.asciidoctor.SafeMode;
@@ -40,12 +40,12 @@ public class ThemeExtensionTest {
     @Before
     @After
     public void enableExtension(){
-        System.clearProperty("cukedoctor.disable.theme");
+        System.clearProperty(THEME_DISABLE_EXT_KEY);
     }
 
     @Test
     public void shouldAddThemesToRenderedHtml(){
-        System.clearProperty("cukedoctor.disable.theme");
+        System.clearProperty(THEME_DISABLE_EXT_KEY);
         File sampleAdoc = loadTestFile("sample.adoc");
         assertThat(sampleAdoc).exists();
         asciidoctor.convertFile(sampleAdoc, OptionsBuilder.options().safe(SafeMode.UNSAFE).asMap());
@@ -58,7 +58,7 @@ public class ThemeExtensionTest {
 
     @Test
     public void shouldNotAddThemeToRenderedHtmlWhenExtensionDisabled(){
-        System.setProperty("cukedoctor.disable.theme","anyValue");
+        System.setProperty(THEME_DISABLE_EXT_KEY,"anyValue");
         File sampleAdoc = loadTestFile("sample.adoc");
         assertThat(sampleAdoc).exists();
         asciidoctor.convertFile(sampleAdoc, OptionsBuilder.options().safe(SafeMode.UNSAFE).asMap());

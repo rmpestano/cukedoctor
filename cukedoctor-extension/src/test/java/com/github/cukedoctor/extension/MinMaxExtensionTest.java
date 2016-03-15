@@ -1,5 +1,5 @@
 package com.github.cukedoctor.extension;
-
+import static com.github.cukedoctor.extension.CukedoctorExtensionRegistry.*;
 import org.asciidoctor.Asciidoctor;
 import org.asciidoctor.OptionsBuilder;
 import org.asciidoctor.SafeMode;
@@ -42,7 +42,7 @@ public class MinMaxExtensionTest {
     @Before
     @After
     public void enableExtension(){
-        System.clearProperty("cukedoctor.disable.minmax");
+        System.clearProperty(MINMAX_DISABLE_EXT_KEY);
     }
 
     @Test
@@ -62,7 +62,7 @@ public class MinMaxExtensionTest {
 
     @Test
     public void shouldNotAddMinMaxMacroToRenderedHtmlWhenExtensionDisabled(){
-        System.setProperty("cukedoctor.disable.minmax","anyValue");
+        System.setProperty(MINMAX_DISABLE_EXT_KEY,"anyValue");
         File sampleAdoc = loadTestFile("sample.adoc");
         assertThat(sampleAdoc).exists();
         asciidoctor.convertFile(sampleAdoc, OptionsBuilder.options().safe(SafeMode.UNSAFE).asMap());

@@ -1,4 +1,5 @@
 package com.github.cukedoctor.extension;
+import static com.github.cukedoctor.extension.CukedoctorExtensionRegistry.*;
 
 import com.github.cukedoctor.extension.util.FileUtil;
 import org.asciidoctor.ast.Document;
@@ -21,7 +22,7 @@ public class CukedoctorThemeExtension extends Postprocessor {
 
     @Override
     public String process(Document document, String output) {
-        if (document.basebackend("html") && System.getProperty("cukedoctor.disable.theme") == null) {
+        if (document.basebackend("html") && System.getProperty(THEME_DISABLE_EXT_KEY) == null) {
             Object docDir = document.getAttributes().get("docdir");
             if (docDir != null && new File(docDir.toString()).exists()) {
                 File themeDir = new File(docDir.toString() + "/themes/");

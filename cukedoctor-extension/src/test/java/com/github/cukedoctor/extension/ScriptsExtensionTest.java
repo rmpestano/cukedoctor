@@ -1,5 +1,5 @@
 package com.github.cukedoctor.extension;
-
+import static com.github.cukedoctor.extension.CukedoctorExtensionRegistry.*;
 import org.asciidoctor.Asciidoctor;
 import org.asciidoctor.OptionsBuilder;
 import org.asciidoctor.SafeMode;
@@ -40,9 +40,9 @@ public class ScriptsExtensionTest {
     @Before
     @After
     public void enableAllExtensions(){
-        System.clearProperty("cukedoctor.disable.theme");
-        System.clearProperty("cukedoctor.disable.filter");
-        System.clearProperty("cukedoctor.disable.minmax");
+        System.clearProperty(THEME_DISABLE_EXT_KEY);
+        System.clearProperty(FILTER_DISABLE_EXT_KEY);
+        System.clearProperty(MINMAX_DISABLE_EXT_KEY);
     }
 
     @Test
@@ -62,7 +62,7 @@ public class ScriptsExtensionTest {
 
     @Test
     public void shouldDisableThemeExtension(){
-        System.setProperty("cukedoctor.disable.theme","anyValue");
+        System.setProperty(THEME_DISABLE_EXT_KEY,"anyValue");
         File sampleAdoc = loadTestFile("sample.adoc");
         assertThat(sampleAdoc).exists();
         asciidoctor.convertFile(sampleAdoc, OptionsBuilder.options().safe(SafeMode.UNSAFE).asMap());
@@ -76,7 +76,7 @@ public class ScriptsExtensionTest {
 
     @Test
     public void shouldDisableFilterExtension(){
-        System.setProperty("cukedoctor.disable.filter","anything");
+        System.setProperty(FILTER_DISABLE_EXT_KEY,"anything");
         File sampleAdoc = loadTestFile("sample.adoc");
         assertThat(sampleAdoc).exists();
         asciidoctor.convertFile(sampleAdoc, OptionsBuilder.options().safe(SafeMode.UNSAFE).asMap());
@@ -90,7 +90,7 @@ public class ScriptsExtensionTest {
 
     @Test
     public void shouldDisableMinMaxExtension(){
-        System.setProperty("cukedoctor.disable.minmax","any");
+        System.setProperty(MINMAX_DISABLE_EXT_KEY,"any");
         File sampleAdoc = loadTestFile("sample.adoc");
         assertThat(sampleAdoc).exists();
         asciidoctor.convertFile(sampleAdoc, OptionsBuilder.options().safe(SafeMode.UNSAFE).asMap());

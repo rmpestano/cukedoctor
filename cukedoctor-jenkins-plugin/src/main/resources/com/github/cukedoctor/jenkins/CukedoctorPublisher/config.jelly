@@ -2,7 +2,7 @@
 <j:jelly xmlns:j="jelly:core" xmlns:st="jelly:stapler" xmlns:d="jelly:define" xmlns:l="/lib/layout" xmlns:t="/lib/hudson" xmlns:f="/lib/form">
  <l:layout norefresh="true">
   <f:section title="Advanced Project Options">
-    <f:advanced>
+    <!-- <f:advanced>
         <p:config-quietPeriod />
          <f:entry title="Features dir" field="propertyValue">
             <f:textbox  name="featuresDir" value="${it.featuresDir}" />
@@ -16,7 +16,7 @@
               </f:optionalBlock>
             </table>
         </f:block>
-   </f:advanced>
+   </f:advanced> -->
   </f:section>
  </l:layout>
 </j:jelly>

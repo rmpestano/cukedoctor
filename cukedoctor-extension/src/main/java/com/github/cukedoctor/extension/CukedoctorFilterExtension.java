@@ -1,4 +1,5 @@
 package com.github.cukedoctor.extension;
+import static com.github.cukedoctor.extension.CukedoctorExtensionRegistry.*;
 
 import org.asciidoctor.ast.Document;
 import org.asciidoctor.extension.Postprocessor;
@@ -19,7 +20,7 @@ public class CukedoctorFilterExtension extends Postprocessor{
 
     @Override
     public String process(Document document, String output) {
-        if(document.basebackend("html") && System.getProperty("cukedoctor.disable.filter") == null){
+        if(document.basebackend("html") && System.getProperty(FILTER_DISABLE_EXT_KEY) == null){
             org.jsoup.nodes.Document doc = Jsoup.parse(output, "UTF-8");
 
             Element contentElement = doc.getElementsByClass("sect1").get(0);

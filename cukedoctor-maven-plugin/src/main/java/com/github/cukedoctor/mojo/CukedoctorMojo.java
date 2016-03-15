@@ -16,6 +16,8 @@ package com.github.cukedoctor.mojo;
  * limitations under the License.
  */
 
+import static com.github.cukedoctor.extension.CukedoctorExtensionRegistry.*;
+
 import com.github.cukedoctor.Cukedoctor;
 import com.github.cukedoctor.api.CukedoctorConverter;
 import com.github.cukedoctor.api.DocumentAttributes;
@@ -163,9 +165,9 @@ public class CukedoctorMojo extends AbstractMojo {
 
     private void configExtensions() {
         if (disableFilter) {
-            System.setProperty("cukedoctor.disable.filter", "disabled");
+            System.setProperty(FILTER_DISABLE_EXT_KEY, "disabled");
         } else {
-            System.clearProperty("cukedoctor.disable.filter");
+            System.clearProperty(FILTER_DISABLE_EXT_KEY);
         }
         if (disableMinimizable) {
             System.setProperty("cukedoctor.disable.minmax", "disabled");
