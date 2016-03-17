@@ -43,7 +43,7 @@ include::/home/travis/build/rmpestano/cukedoctor/cukedoctor-converter/target/tes
 |0
 |0
 |3
-|03s 014ms
+|01s 881ms
 |[green]#*passed*#
 
 12+^|*<<Ordering>>*
@@ -57,7 +57,7 @@ include::/home/travis/build/rmpestano/cukedoctor/cukedoctor-converter/target/tes
 |0
 |0
 |6
-|106ms
+|089ms
 |[green]#*passed*#
 
 12+^|*<<Enrich-features>>*
@@ -71,10 +71,10 @@ include::/home/travis/build/rmpestano/cukedoctor/cukedoctor-converter/target/tes
 |0
 |0
 |6
-|133ms
+|092ms
 |[green]#*passed*#
 12+^|*Totals*
-|5|0|5|15|0|0|0|0|0|15 2+|03s 253ms
+|5|0|5|15|0|0|0|0|0|15 2+|02s 063ms
 |===
 
 == *Features*
@@ -92,7 +92,7 @@ I want to use *Cukedoctor* to handle my cucumber reports
 
 ****
 Given ::
-The following two features: icon:thumbs-up[role="green",title="Passed"] [small right]#(01s 130ms)#
+The following two features: icon:thumbs-up[role="green",title="Passed"] [small right]#(484ms)#
 ----
 
 Feature: Feature1
@@ -109,7 +109,7 @@ Feature: Feature2
 
 ----
 When ::
-I convert their json output report using cukedoctor converter icon:thumbs-up[role="green",title="Passed"] [small right]#(01s 881ms)#
+I convert their json output report using cukedoctor converter icon:thumbs-up[role="green",title="Passed"] [small right]#(01s 396ms)#
 ******
 
 [discrete]
@@ -131,7 +131,7 @@ NOTE: *plugin* option replaced *format* option which was deprecated in newer cuc
 ******
 
 Then ::
-I should have awesome living documentation icon:thumbs-up[role="green",title="Passed"] [small right]#(001ms)#
+I should have awesome living documentation icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ******
 
 [discrete]
@@ -250,7 +250,7 @@ Feature: Feature2
 
 ----
 When ::
-I convert them using default order icon:thumbs-up[role="green",title="Passed"] [small right]#(045ms)#
+I convert them using default order icon:thumbs-up[role="green",title="Passed"] [small right]#(054ms)#
 Then ::
 Features should be ordered by name in resulting documentation icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ******
@@ -315,7 +315,7 @@ Feature: Feature2
 NOTE: Ordering is done using feature comment '*order:*'
 
 When ::
-I convert them using comment order icon:thumbs-up[role="green",title="Passed"] [small right]#(060ms)#
+I convert them using comment order icon:thumbs-up[role="green",title="Passed"] [small right]#(034ms)#
 Then ::
 Features should be ordered respecting order comment icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ******
@@ -404,7 +404,7 @@ Feature: Enrich feature
 
 ----
 When ::
-I convert docstring enriched json output using cukedoctor converter icon:thumbs-up[role="green",title="Passed"] [small right]#(070ms)#
+I convert docstring enriched json output using cukedoctor converter icon:thumbs-up[role="green",title="Passed"] [small right]#(042ms)#
 Then ::
 DocString asciidoc output must be rendered in my documentation icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ******
@@ -495,7 +495,7 @@ Feature: Calculator
 
 ----
 When ::
-I convert enriched feature json output using cukedoctor icon:thumbs-up[role="green",title="Passed"] [small right]#(062ms)#
+I convert enriched feature json output using cukedoctor icon:thumbs-up[role="green",title="Passed"] [small right]#(049ms)#
 Then ::
 Asciidoc markup on comments must be rendered in my documentation icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ******
