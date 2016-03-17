@@ -18,7 +18,7 @@
         "steps": [
           {
             "result": {
-              "duration": 992524160,
+              "duration": 708022030,
               "status": "passed"
             },
             "line": 10,
@@ -35,7 +35,7 @@
           },
           {
             "result": {
-              "duration": 1661619161,
+              "duration": 1465466388,
               "status": "passed"
             },
             "comments": [
@@ -58,9 +58,8 @@
           },
           {
             "result": {
-              "duration": 20020311,
-              "error_message": "org.junit.ComparisonFailure: expected:\u003c...\n\u003d *Documentation*\n\n[include::/home/travis/build/rmpestano/cukedoctor/cukedoctor-converter/target/test-classes/cukedoctor-intro.adoc[leveloffset\u003d+1]\n\n]\u003d\u003d *Summary*\n[cols\u003d\"...\u003e but was:\u003c...\n\u003d *Documentation*\n\n[]\u003d\u003d *Summary*\n[cols\u003d\"...\u003e\n\tat sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)\n\tat sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)\n\tat sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)\n\tat com.github.cukedoctor.bdd.cukedoctor.ConverterSteps.I_should_have_awesome_living_documentation(ConverterSteps.java:36)\n\tat ✽.Then I should have awesome living documentation(com/github/cukedoctor/bdd/cukedoctor/converter.feature:42)\n",
-              "status": "failed"
+              "duration": 1083428,
+              "status": "passed"
             },
             "comments": [
               {
@@ -108,7 +107,7 @@
         "steps": [
           {
             "result": {
-              "duration": 330973,
+              "duration": 59322,
               "status": "passed"
             },
             "line": 11,
@@ -125,7 +124,7 @@
           },
           {
             "result": {
-              "duration": 42650562,
+              "duration": 58128391,
               "status": "passed"
             },
             "line": 45,
@@ -137,7 +136,7 @@
           },
           {
             "result": {
-              "duration": 128448,
+              "duration": 140877,
               "status": "passed"
             },
             "comments": [
@@ -170,7 +169,7 @@
         "steps": [
           {
             "result": {
-              "duration": 90358,
+              "duration": 67925,
               "status": "passed"
             },
             "line": 100,
@@ -187,7 +186,7 @@
           },
           {
             "result": {
-              "duration": 39029745,
+              "duration": 45782783,
               "status": "passed"
             },
             "line": 122,
@@ -199,7 +198,7 @@
           },
           {
             "result": {
-              "duration": 152227,
+              "duration": 159944,
               "status": "passed"
             },
             "comments": [
@@ -248,7 +247,7 @@
         "steps": [
           {
             "result": {
-              "duration": 62019,
+              "duration": 101316,
               "status": "passed"
             },
             "line": 11,
@@ -265,7 +264,7 @@
           },
           {
             "result": {
-              "duration": 30093749,
+              "duration": 24873509,
               "status": "passed"
             },
             "line": 25,
@@ -277,7 +276,7 @@
           },
           {
             "result": {
-              "duration": 120674,
+              "duration": 128077,
               "status": "passed"
             },
             "comments": [
@@ -310,7 +309,7 @@
         "steps": [
           {
             "result": {
-              "duration": 76452,
+              "duration": 97482,
               "status": "passed"
             },
             "comments": [
@@ -333,7 +332,7 @@
           },
           {
             "result": {
-              "duration": 20795535,
+              "duration": 40987313,
               "status": "passed"
             },
             "line": 72,
@@ -345,7 +344,7 @@
           },
           {
             "result": {
-              "duration": 137395,
+              "duration": 90945,
               "status": "passed"
             },
             "comments": [
