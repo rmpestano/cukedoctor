@@ -100,7 +100,7 @@ public class I18nLoader extends ResourceBundle.Control{
      * @return
      */
     private InputStream getBundleFromTargetTestFolder(String baseDir) {
-        List<String> files = FileUtil.findFiles(baseDir, new String[]{"**/*cukedoctor.properties"});
+        List<String> files = FileUtil.findFiles(baseDir,"cukedoctor.properties");
         if(files != null && !files.isEmpty()){
             String path = files.get(0);
             log.fine("Loading cukedoctor resource bundle from: " + path);

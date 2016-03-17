@@ -7,9 +7,12 @@ import org.apache.maven.shared.utils.io.IOUtil;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
-import java.nio.file.Paths;
+import java.nio.file.*;
+import java.nio.file.attribute.BasicFileAttributes;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.regex.Pattern;
@@ -51,34 +54,38 @@ public class FileUtil {
      * @return all found json files path that represent cucumber features
      */
     public static List<String> findJsonFiles(String startDir) {
-        return findFiles(startDir, new String[]{"**/*.json"});
+        return findFiles(startDir,".json");
 
     }
 
-    public static List<String> findFiles(String startDir, String[] includes) {
+    public static List<String> findFiles(String startDir, final String sulfix) {
+        final List<String> absolutePaths = new ArrayList<>();
         if (startDir == null) {
             startDir = "";
         }
 
-        DirectoryScanner scanner = new DirectoryScanner();
-        scanner.setIncludes(includes);
+        if (startDir.startsWith("/")) {//remove slash to use relative paths
+            startDir = startDir.substring(1);
+        }
 
-        File f = new File(startDir);
-        if (f.exists()) {
-            startDir = f.getAbsolutePath();
-            scanner.setBasedir(startDir);
-        } else {//relative path
-            if (startDir.startsWith("/")) {//remove slash to use relative paths
-                startDir = startDir.substring(1);
-            }
-            scanner.setBasedir(new File(Paths.get(startDir.trim()).toAbsolutePath().toString()));
+        try {
+            Files.walkFileTree(Paths.get(startDir), new SimpleFileVisitor<Path>() {
+                @Override
+                public FileVisitResult visitFile(final Path file, final BasicFileAttributes attrs) throws IOException {
+                    final String fileName = file.getFileName().toString();
+                    if (fileName.endsWith(sulfix)) {
+                        absolutePaths.add(file.toAbsolutePath().toString());
+                    }
+                    if(attrs.isDirectory()){
+                        return super.visitFile(file, attrs);
+                    }else{
+                        return FileVisitResult.SKIP_SUBTREE;
+                    }
+                }
+            });
+        } catch (IOException e) {
+           log.log(Level.WARNING,"Problems scanning "+sulfix +" files",e);
         }
-        scanner.scan();
-        List<String> absolutePaths = new ArrayList<>(scanner.getIncludedFiles().length);
-        for (int i = 0; i < scanner.getIncludedFiles().length; i++) {
-            absolutePaths.add(new File(scanner.getBasedir(), scanner.getIncludedFiles()[i]).getAbsolutePath());
-        }
-        //scanner.getIncludedFiles()
         return absolutePaths;
     }
 
