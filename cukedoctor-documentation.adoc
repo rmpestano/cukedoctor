@@ -12,8 +12,6 @@
 
 = *Living Documentation*
 
-include::/home/travis/build/rmpestano/cukedoctor/cukedoctor-converter/target/test-classes/cukedoctor-intro.adoc[leveloffset=+1]
-
 == *Summary*
 [cols="12*^m", options="header,footer"]
 |===
@@ -33,18 +31,18 @@ include::/home/travis/build/rmpestano/cukedoctor/cukedoctor-converter/target/tes
 |Status
 
 12+^|*<<Cukedoctor-Converter>>*
-|1
 |0
 |1
+|1
+|2
+|1
+|0
+|0
+|0
+|0
 |3
-|0
-|0
-|0
-|0
-|0
-|3
-|01s 949ms
-|[green]#*passed*#
+|02s 674ms
+|[red]#*failed*#
 
 12+^|*<<Ordering>>*
 |2
@@ -57,7 +55,7 @@ include::/home/travis/build/rmpestano/cukedoctor/cukedoctor-converter/target/tes
 |0
 |0
 |6
-|063ms
+|051ms
 |[green]#*passed*#
 
 12+^|*<<Enrich-features>>*
@@ -71,10 +69,10 @@ include::/home/travis/build/rmpestano/cukedoctor/cukedoctor-converter/target/tes
 |0
 |0
 |6
-|068ms
+|082ms
 |[green]#*passed*#
 12+^|*Totals*
-|5|0|5|15|0|0|0|0|0|15 2+|02s 081ms
+|4|1|5|14|1|0|0|0|0|15 2+|02s 807ms
 |===
 
 == *Features*
@@ -88,11 +86,11 @@ As a bdd developer +
 I want to use *Cukedoctor* to handle my cucumber reports
 ****
 
-==== Scenario: Convert features output into documentation
+==== Scenario: Convert features output into documentation icon:thumbs-down[role="red",title="Failed"]
 
 ****
 Given ::
-The following two features: icon:thumbs-up[role="green",title="Passed"] [small right]#(709ms)#
+The following two features: icon:thumbs-up[role="green",title="Passed"] [small right]#(992ms)#
 ----
 
 Feature: Feature1
@@ -109,7 +107,7 @@ Feature: Feature2
 
 ----
 When ::
-I convert their json output report using cukedoctor converter icon:thumbs-up[role="green",title="Passed"] [small right]#(01s 238ms)#
+I convert their json output report using cukedoctor converter icon:thumbs-up[role="green",title="Passed"] [small right]#(01s 661ms)#
 ******
 
 [discrete]
@@ -131,7 +129,7 @@ NOTE: *plugin* option replaced *format* option which was deprecated in newer cuc
 ******
 
 Then ::
-I should have awesome living documentation icon:thumbs-up[role="green",title="Passed"] [small right]#(001ms)#
+I should have awesome living documentation icon:thumbs-down[role="red",title="Failed"] [small right]#(020ms)#
 ******
 
 [discrete]
@@ -218,6 +216,21 @@ scenario step icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 
 ******
 
+IMPORTANT: org.junit.ComparisonFailure: expected:<...
+= *Documentation*
+
+[include::/home/travis/build/rmpestano/cukedoctor/cukedoctor-converter/target/test-classes/cukedoctor-intro.adoc[leveloffset=+1]
+
+]== *Summary*
+[cols="...> but was:<...
+= *Documentation*
+
+[]== *Summary*
+[cols="...>
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.new...
+
+
 ****
 
 [[Ordering, Ordering]]
@@ -250,7 +263,7 @@ Feature: Feature2
 
 ----
 When ::
-I convert them using default order icon:thumbs-up[role="green",title="Passed"] [small right]#(042ms)#
+I convert them using default order icon:thumbs-up[role="green",title="Passed"] [small right]#(030ms)#
 Then ::
 Features should be ordered by name in resulting documentation icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ******
@@ -404,7 +417,7 @@ Feature: Enrich feature
 
 ----
 When ::
-I convert docstring enriched json output using cukedoctor converter icon:thumbs-up[role="green",title="Passed"] [small right]#(030ms)#
+I convert docstring enriched json output using cukedoctor converter icon:thumbs-up[role="green",title="Passed"] [small right]#(042ms)#
 Then ::
 DocString asciidoc output must be rendered in my documentation icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ******
@@ -495,7 +508,7 @@ Feature: Calculator
 
 ----
 When ::
-I convert enriched feature json output using cukedoctor icon:thumbs-up[role="green",title="Passed"] [small right]#(037ms)#
+I convert enriched feature json output using cukedoctor icon:thumbs-up[role="green",title="Passed"] [small right]#(039ms)#
 Then ::
 Asciidoc markup on comments must be rendered in my documentation icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ******
