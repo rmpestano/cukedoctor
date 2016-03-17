@@ -14,11 +14,11 @@ Cukedoctor comes with 5 extensions to enhance documentation content:
 
 * *Footer* add cukedoctor footer.
 
-* *Style* customizes asciidoctor stylesheet.
+* *Style* customizes Asciidoctor stylesheet.
 
 NOTE: All extensions target html documentation.
 
-To disable extensions you can just clear the following system properties:
+To disable extensions just set the following system properties:
 
 [source,java]
 ----
@@ -35,3 +35,23 @@ To disable extensions you can just clear the following system properties:
 ----
 
 NOTE: The value doesn't matter, if there is something in the system property the extension will be disabled.
+
+
+[TIP]
+====
+You can re-enable the extensions by calling
+
+[source,java]
+----
+    System.clearProperty("cukedoctor.disable.theme");
+
+    System.clearProperty("cukedoctor.disable.filter");
+
+    System.clearProperty("cukedoctor.disable.minmax");
+
+    System.clearProperty("cukedoctor.disable.footer");
+
+    System.clearProperty("cukedoctor.disable.style");
+----
+====
+

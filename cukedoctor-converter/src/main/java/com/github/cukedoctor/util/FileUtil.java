@@ -68,8 +68,16 @@ public class FileUtil {
             startDir = "";
         }
 
-        if (startDir.startsWith("/")) {//remove slash to use relative paths
-            startDir = startDir.substring(1);
+        Path startPath = Paths.get(startDir);
+
+        if(!Files.exists(startPath)){
+            if (startDir.startsWith("/")) {// try to find using relative paths
+                startDir = startDir.substring(1);
+                startPath = Paths.get(startDir);
+                if(!Files.exists(startPath)){
+                    startPath = Paths.get("");
+                }
+            }
         }
 
         try {

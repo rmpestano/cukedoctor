@@ -18,7 +18,7 @@ Just declare the plugin in your _pom.xml_:
 <plugin>
     <groupId>com.github.cukedoctor</groupId>
     <artifactId>cukedoctor-maven-plugin</artifactId>
-    <version>0.9.0</version>
+    <version>0.9.1</version>
     <executions>
         <execution>
             <goals>
@@ -51,7 +51,7 @@ NOTE: *plugin* option replaced *format* option which was deprecated in newer cuc
 <plugin>
     <groupId>com.github.cukedoctor</groupId>
     <artifactId>cukedoctor-maven-plugin</artifactId>
-    <version>0.9.0</version>
+    <version>0.9.1</version>
          <configuration>
             <outputFileName>documentation</outputFileName> <1>
             <outputDir>docs</outputDir> <2>
@@ -132,17 +132,7 @@ mvn cukedoctor:execute
 
 == Disable extensions
 
-Cukedoctor comes with 3 extensions to enhance documentation content:
-
-* *Filter extension* which add filter input at top right of the page;
-
-* *Minimizable extension* which lets you minimize/maximize features sections(minus/plus icon next to feature name);
-
-* *Theme extension* to add theme support.
-
-NOTE: All extensions target html documentation.
-
-To disable extension you can use the following option in maven plugin:
+You can disable https://github.com/rmpestano/cukedoctor/tree/master/cukedoctor-converter#disable-extensions[cukedoctor extensions^] using the following configuration in maven plugin:
 
 [source,xml]
 ----
@@ -154,6 +144,7 @@ To disable extension you can use the following option in maven plugin:
        <disableTheme>true</disableTheme>
        <disableFilter>true</disableFilter>
        <disableMinimizable>true</disableMinimizable>
+       <disableStyle>true</disableStyle>
   </configuration>
 
 ----
