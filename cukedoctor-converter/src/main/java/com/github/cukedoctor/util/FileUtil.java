@@ -99,7 +99,7 @@ public class FileUtil {
                 }
             });
         } catch (IOException e) {
-           log.log(Level.WARNING,"Problems scanning "+sulfix +" files",e);
+           log.log(Level.WARNING,"Problems scanning "+sulfix +" files in path:"+startDir,e);
         }
         return absolutePaths;
     }
