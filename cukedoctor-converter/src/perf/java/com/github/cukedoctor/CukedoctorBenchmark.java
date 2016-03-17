@@ -64,7 +64,7 @@ public class CukedoctorBenchmark {
                     build()
             ).run();
         }finally {
-            List<String> files = FileUtil.findFiles("target/benchmark", new String[]{"**/*.adoc"});
+            List<String> files = FileUtil.findFiles("target/benchmark", ".adoc");
             Logger.getLogger(CukedoctorBenchmark.class.getName()).info("Number of files converted: " + files.size());
             CukedoctorBenchmark.removeAdocFIles();
         }
@@ -72,7 +72,7 @@ public class CukedoctorBenchmark {
     }
 
     private static void removeAdocFIles() {
-        List<String> files = FileUtil.findFiles("target/benchmark", new String[]{"**/*.adoc"});
+        List<String> files = FileUtil.findFiles("target/benchmark", ".adoc");
         if (files != null) {
             for (String file : files) {
                 FileUtil.removeFile(file);

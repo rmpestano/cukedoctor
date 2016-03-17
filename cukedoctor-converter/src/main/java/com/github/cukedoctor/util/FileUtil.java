@@ -59,6 +59,10 @@ public class FileUtil {
     }
 
     public static List<String> findFiles(String startDir, final String sulfix) {
+        return findFiles(startDir,sulfix,false);
+    }
+
+    public static List<String> findFiles(String startDir, final String sulfix, final boolean singleResult) {
         final List<String> absolutePaths = new ArrayList<>();
         if (startDir == null) {
             startDir = "";
@@ -75,6 +79,9 @@ public class FileUtil {
                     final String fileName = file.getFileName().toString();
                     if (fileName.endsWith(sulfix)) {
                         absolutePaths.add(file.toAbsolutePath().toString());
+                        if(singleResult){
+                            return FileVisitResult.TERMINATE;
+                        }
                     }
                     if(attrs.isDirectory()){
                         return super.visitFile(file, attrs);
