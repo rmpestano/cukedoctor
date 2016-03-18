@@ -22,4 +22,4 @@ script:
 - cd cukedoctor-converter && mvn compile exec:exec -Pperf
 - mvn -q cukedoctor:execute scm-publish:publish-scm -Ppublish-docs
 
-after_success: cd .. && mvn -Pfat-jar deploy --settings settings.xml -DskipTests=true
+after_success: cd .. && mvn clean package -Pfat-jar deploy --settings settings.xml -DskipTests=true
