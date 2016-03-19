@@ -6,7 +6,7 @@ This module brings the ability to execute cukedoctor converter as a Java main ap
 
 == Usage
 
-This module  converts generated adoc files into html and pdf, here's an example:
+This module converts generated adoc files into html and pdf, here's an example:
 
 [source, java]
 ----
@@ -33,6 +33,7 @@ public void shouldRenderHtmlForOneFeature(){
 <5> table of contents position (Default is right)
 <6> Section numbering (Default is false)
 
+=== Command line
 
 Using in command line, the above test should be something like:
 
@@ -42,6 +43,37 @@ java -jar cukedoctor-main.jar
 		-p "target/test-classes/json-output/one_passing_one_failing.json"
 		-t "Living Documentation" -f html
 ----
+
+=== Maven exec plugin
+
+You can use maven exec plugin, see example:
+
+----
+<plugin>
+    <groupId>org.codehaus.mojo</groupId>
+    <artifactId>exec-maven-plugin</artifactId>
+    <version>1.4.0</version>
+    <configuration>
+        <executable>java</executable>
+        <arguments>
+            <argument>-classpath</argument>
+            <classpath />
+            <argument>com.github.cukedoctor.CukedoctorMain</argument>
+        </arguments>
+    </configuration>
+</plugin>
+----
+
+IMPORTANT: cukedoctor-main must be on your classpath
+
+To invoke Cukedoctor just use:
+
+----
+mvn exec:exec
+----
+
+It will run with default args. To provide arguments, in this approach, you'll have a bit more work: http://stackoverflow.com/questions/15013651/using-maven-execexec-with-arguments[see here].
+
 
 == Disable extensions
 
