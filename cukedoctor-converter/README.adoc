@@ -108,7 +108,7 @@ Here are the https://github.com/rmpestano/cukedoctor/tree/master/cukedoctor-conv
 
 == Disable extensions
 
-Cukedoctor comes with some extensions to enhance and customize its documentation content, for more details see https://github.com/rmpestano/cukedoctor/tree/master/cukedoctor-converter#disable-extensions[cukedoctor extensions module^].
+Cukedoctor comes with some extensions to enhance and customize its documentation content, for more details see https://github.com/rmpestano/cukedoctor/tree/master/cukedoctor-extension#disable-extensions[cukedoctor extensions module^].
 
 
 == Enriching documentation

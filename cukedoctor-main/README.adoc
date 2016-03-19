@@ -77,7 +77,7 @@ It will run with default args. To provide arguments, in this approach, you'll ha
 
 == Disable extensions
 
-You can disable https://github.com/rmpestano/cukedoctor/tree/master/cukedoctor-converter#disable-extensions[cukedoctor extensions^] by using _-D_ option when executing Cukedoctor main at command line:
+You can disable https://github.com/rmpestano/cukedoctor/tree/master/cukedoctor-extension#disable-extensions[cukedoctor extensions^] by using _-D_ option when executing Cukedoctor main at command line:
 
 ----
 java -jar -Dcukedoctor.disable.filter=123  -Dcukedoctor.disable.theme=abc

@@ -132,7 +132,7 @@ mvn cukedoctor:execute
 
 == Disable extensions
 
-You can disable https://github.com/rmpestano/cukedoctor/tree/master/cukedoctor-converter#disable-extensions[cukedoctor extensions^] using the following configuration in maven plugin:
+You can disable https://github.com/rmpestano/cukedoctor/tree/master/cukedoctor-extension#disable-extensions[cukedoctor extensions^] using the following configuration in maven plugin:
 
 [source,xml]
 ----

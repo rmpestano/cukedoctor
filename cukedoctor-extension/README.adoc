@@ -18,6 +18,8 @@ Cukedoctor comes with 5 extensions to enhance documentation content:
 
 NOTE: All extensions target html documentation.
 
+== Disable extensions
+
 To disable extensions just set the following system properties:
 
 [source,java]
