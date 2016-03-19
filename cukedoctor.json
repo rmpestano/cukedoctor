@@ -18,7 +18,7 @@
         "steps": [
           {
             "result": {
-              "duration": 1094345085,
+              "duration": 740272453,
               "status": "passed"
             },
             "line": 10,
@@ -35,7 +35,7 @@
           },
           {
             "result": {
-              "duration": 1822799510,
+              "duration": 1009527733,
               "status": "passed"
             },
             "comments": [
@@ -58,7 +58,7 @@
           },
           {
             "result": {
-              "duration": 2969945,
+              "duration": 993886,
               "status": "passed"
             },
             "comments": [
@@ -107,7 +107,7 @@
         "steps": [
           {
             "result": {
-              "duration": 87482,
+              "duration": 56573,
               "status": "passed"
             },
             "line": 11,
@@ -124,7 +124,7 @@
           },
           {
             "result": {
-              "duration": 49040110,
+              "duration": 31202563,
               "status": "passed"
             },
             "line": 45,
@@ -136,7 +136,7 @@
           },
           {
             "result": {
-              "duration": 184364,
+              "duration": 127237,
               "status": "passed"
             },
             "comments": [
@@ -169,7 +169,7 @@
         "steps": [
           {
             "result": {
-              "duration": 124725,
+              "duration": 58858,
               "status": "passed"
             },
             "line": 100,
@@ -186,7 +186,7 @@
           },
           {
             "result": {
-              "duration": 76116768,
+              "duration": 30697251,
               "status": "passed"
             },
             "line": 122,
@@ -198,7 +198,7 @@
           },
           {
             "result": {
-              "duration": 256573,
+              "duration": 151922,
               "status": "passed"
             },
             "comments": [
@@ -247,7 +247,7 @@
         "steps": [
           {
             "result": {
-              "duration": 69954,
+              "duration": 64974,
               "status": "passed"
             },
             "line": 11,
@@ -264,7 +264,7 @@
           },
           {
             "result": {
-              "duration": 66583137,
+              "duration": 31202382,
               "status": "passed"
             },
             "line": 25,
@@ -276,7 +276,7 @@
           },
           {
             "result": {
-              "duration": 187925,
+              "duration": 114666,
               "status": "passed"
             },
             "comments": [
@@ -309,7 +309,7 @@
         "steps": [
           {
             "result": {
-              "duration": 894691,
+              "duration": 56663,
               "status": "passed"
             },
             "comments": [
@@ -332,7 +332,7 @@
           },
           {
             "result": {
-              "duration": 18328268,
+              "duration": 42321267,
               "status": "passed"
             },
             "line": 72,
@@ -344,7 +344,7 @@
           },
           {
             "result": {
-              "duration": 102556,
+              "duration": 80735,
               "status": "passed"
             },
             "comments": [
