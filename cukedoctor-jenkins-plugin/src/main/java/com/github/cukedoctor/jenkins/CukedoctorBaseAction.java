@@ -27,7 +27,7 @@ public abstract class CukedoctorBaseAction implements Action {
     }
 
     public String getIconFileName() {
-        return "/plugin/living-documentation/cuke.png";
+        return "/plugin/cukedoctor-jenkins/cuke.png";
     }
 
     public void doDynamic(StaplerRequest req, StaplerResponse rsp) throws IOException, ServletException {

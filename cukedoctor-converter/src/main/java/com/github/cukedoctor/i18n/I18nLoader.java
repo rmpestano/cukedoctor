@@ -64,16 +64,16 @@ public class I18nLoader extends ResourceBundle.Control{
         if (lang != null && bundle == null) {
             InputStream stream = getBundleFromTargetTestFolder(Constants.baseDir);
             if(stream == null){
-                String bundleName = toBundleName("i18n/cukedoctor", Locale.forLanguageTag(lang));
+                String bundleName = toBundleName("/i18n/cukedoctor", Locale.forLanguageTag(lang));
                 String resourceName = toResourceName(bundleName, "properties");
-                stream = Thread.currentThread().getContextClassLoader().getResourceAsStream(resourceName);
+                stream = I18nLoader.class.getResourceAsStream(resourceName);
             }
             try {
                 bundle = new PropertyResourceBundle(new InputStreamReader(stream, "UTF-8"));
             } catch (Exception e) {
                 log.warning(String.format("No resource bundle found for language %s. Using 'cukedoctor_en.properties' as default bundle.", lang));
                 try {
-                    bundle = new PropertyResourceBundle(new InputStreamReader(Thread.currentThread().getContextClassLoader().getResourceAsStream("i18n/cukedoctor_en.properties"), "UTF-8"));
+                    bundle = new PropertyResourceBundle(new InputStreamReader(I18nLoader.class.getResourceAsStream("/i18n/cukedoctor_en.properties"), "UTF-8"));
                 } catch (Exception e1) {
                     throw new RuntimeException("Could not find cukedoctor resource bundle",e1);
                 }

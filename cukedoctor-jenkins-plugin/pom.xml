@@ -21,16 +21,16 @@
         <java.level>7</java.level>
         <!-- Jenkins Test Harness version you use to test the plugin. -->
         <!-- For Jenkins version >= 1.580.1 use JTH 2.x or higher. -->
-        <jenkins-test-harness.version>2.1</jenkins-test-harness.version>
+        <jenkins-test-harness.version>${jenkins.version}</jenkins-test-harness.version>
         <!-- Other properties you may want to use:
              ~ hpi-plugin.version: The HPI Maven Plugin version used by the plugin..
              ~ stapler-plugin.version: The Stapler Maven plugin version required by the plugin.
         -->
     </properties>
 
-    <name>cukedoctor-jenkins-plugin</name>
+    <name>living-documentation-plugin</name>
     <description>Enables Cucumber living documentation on Jenkins</description>
-    <url>https://wiki.jenkins-ci.org/display/JENKINS/cukedoctor-jenkins-plugin</url>
+    <url>https://wiki.jenkins-ci.org/display/JENKINS/living-documentation-plugin</url>
 
     <!-- The default licence for Jenkins OSS Plugins is MIT. Substitute for the applicable one if needed. -->
 
@@ -91,5 +91,9 @@
             <url>http://repo.jenkins-ci.org/public/</url>
         </pluginRepository>
     </pluginRepositories>
+
+    <build>
+        <finalName>living-documentation-plugin</finalName>
+    </build>
 
 </project>

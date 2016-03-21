@@ -1,0 +1,4 @@
+<?jelly escape-by-default='true'?>
+<div>
+  This plugin uses Cucumber tests <a href="http://www.relishapp.com/cucumber/cucumber/docs/formatters/json-output-formatter" target="_blank">json output</a> to enable true BDD living documentation into your Jenkins build. For more information <a href="http://github.com/rmpestano/cukedoctor" target="_blank">see here.</a><br/>
+</div>
