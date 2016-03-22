@@ -144,7 +144,7 @@ public class CukedoctorConverterImpl implements CukedoctorConverter {
 		if (notNull(documentAttributes) && documentAttributes.isDocInfo()) {
 			//name must be filename-docinfo.html
 			String docInfoName = filename.substring(0, filename.lastIndexOf(".")) + "-docinfo.html";
-			File savedFile = FileUtil.copyFile("docinfo.html", docInfoName);
+			FileUtil.copyFile("/docinfo.html", docInfoName);
 			//docinfo depends on cukedoctor.js and cukedoctor.css
 			//save js and css file in same dir as docinfo
 			String basePath = "";
