@@ -18,7 +18,7 @@
         "steps": [
           {
             "result": {
-              "duration": 605046471,
+              "duration": 1080983493,
               "status": "passed"
             },
             "line": 10,
@@ -35,7 +35,7 @@
           },
           {
             "result": {
-              "duration": 1124909276,
+              "duration": 1703106971,
               "status": "passed"
             },
             "comments": [
@@ -58,7 +58,7 @@
           },
           {
             "result": {
-              "duration": 20247470,
+              "duration": 8638998,
               "error_message": "org.junit.ComparisonFailure: expected:\u003c...arget/test-classes/c[om/github/cukedoctor/util/c]ukedoctor-intro.adoc...\u003e but was:\u003c...arget/test-classes/c[]ukedoctor-intro.adoc...\u003e\n\tat sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)\n\tat sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)\n\tat sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)\n\tat com.github.cukedoctor.bdd.cukedoctor.ConverterSteps.I_should_have_awesome_living_documentation(ConverterSteps.java:36)\n\tat ✽.Then I should have awesome living documentation(com/github/cukedoctor/bdd/cukedoctor/converter.feature:42)\n",
               "status": "failed"
             },
@@ -108,7 +108,7 @@
         "steps": [
           {
             "result": {
-              "duration": 86155,
+              "duration": 181782,
               "status": "passed"
             },
             "line": 11,
@@ -125,7 +125,7 @@
           },
           {
             "result": {
-              "duration": 45782703,
+              "duration": 53750718,
               "status": "passed"
             },
             "line": 45,
@@ -137,7 +137,7 @@
           },
           {
             "result": {
-              "duration": 132530,
+              "duration": 202607,
               "status": "passed"
             },
             "comments": [
@@ -170,7 +170,7 @@
         "steps": [
           {
             "result": {
-              "duration": 64953,
+              "duration": 135777,
               "status": "passed"
             },
             "line": 100,
@@ -187,7 +187,7 @@
           },
           {
             "result": {
-              "duration": 36529884,
+              "duration": 44874401,
               "status": "passed"
             },
             "line": 122,
@@ -199,7 +199,7 @@
           },
           {
             "result": {
-              "duration": 186589,
+              "duration": 314557,
               "status": "passed"
             },
             "comments": [
@@ -248,7 +248,7 @@
         "steps": [
           {
             "result": {
-              "duration": 62411,
+              "duration": 179494,
               "status": "passed"
             },
             "line": 11,
@@ -265,7 +265,7 @@
           },
           {
             "result": {
-              "duration": 24153927,
+              "duration": 45749059,
               "status": "passed"
             },
             "line": 25,
@@ -277,7 +277,7 @@
           },
           {
             "result": {
-              "duration": 198578,
+              "duration": 195066,
               "status": "passed"
             },
             "comments": [
@@ -310,7 +310,7 @@
         "steps": [
           {
             "result": {
-              "duration": 58860,
+              "duration": 115756,
               "status": "passed"
             },
             "comments": [
@@ -333,7 +333,7 @@
           },
           {
             "result": {
-              "duration": 28494407,
+              "duration": 36290318,
               "status": "passed"
             },
             "line": 72,
@@ -345,7 +345,7 @@
           },
           {
             "result": {
-              "duration": 93612,
+              "duration": 176658,
               "status": "passed"
             },
             "comments": [
