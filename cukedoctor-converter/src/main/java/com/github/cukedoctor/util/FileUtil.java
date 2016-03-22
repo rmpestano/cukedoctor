@@ -176,7 +176,7 @@ public class FileUtil {
                 dest = dest.substring(1);
 			}*/
             try {
-                InputStream in = Thread.currentThread().getContextClassLoader().getResourceAsStream(source);
+                InputStream in = FileUtil.class.getResourceAsStream(source);
                 //OutputStream out = new FileOutputStream(new File(Paths.get(dest).toAbsolutePath().toString()));
                 //IOUtil.copy(in, out);
                 return saveFile(dest, IOUtil.toString(in));

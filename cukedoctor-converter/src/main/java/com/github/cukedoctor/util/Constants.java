@@ -22,7 +22,7 @@ public abstract class Constants {
 	}
 
 	public static String home() {
-		String homeDir = Thread.currentThread().getContextClassLoader().getResource("").getPath();
+		String homeDir = Constants.class.getResource("").getPath();
 		if(!homeDir.endsWith("/")){
 			homeDir += "/";
 		}

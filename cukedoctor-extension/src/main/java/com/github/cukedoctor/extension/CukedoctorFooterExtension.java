@@ -29,7 +29,7 @@ public class CukedoctorFooterExtension extends Postprocessor {
       String documentationDate = dateFormat.format(new Date());
       String cukedoctorVersion = "";
       try {
-        ResourceBundle bundle = new PropertyResourceBundle(Thread.currentThread().getContextClassLoader().getResourceAsStream("cukedoctor-extension.properties"));
+        ResourceBundle bundle = new PropertyResourceBundle(CukedoctorFooterExtension.class.getResourceAsStream("cukedoctor-extension.properties"));
         cukedoctorVersion = bundle.getString("cukedoctor.version");
       } catch (Exception e) {
         Logger.getLogger(getClass().getName()).warning("Could not find bundle cukedoctor-extension");
