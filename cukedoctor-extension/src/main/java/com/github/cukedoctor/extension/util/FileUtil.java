@@ -85,14 +85,8 @@ public class FileUtil {
     public static File copyFile(String source, String dest) {
 
         if (source != null && dest != null) {
-
-			/*if (dest.startsWith("/")) { //remove slash to use relative paths. Dest file is saved using folder where Cukedoctor is executed as relative path
-                dest = dest.substring(1);
-			}*/
             try {
                 InputStream in = FileUtil.class.getResourceAsStream(source);
-                //OutputStream out = new FileOutputStream(new File(Paths.get(dest).toAbsolutePath().toString()));
-                //IOUtil.copy(in, out);
                 return saveFile(dest, IOUtil.toString(in));
             } catch (IOException e) {
                 log.log(Level.SEVERE, "Could not copy source file: " + source + " to dest file: " + dest, e);

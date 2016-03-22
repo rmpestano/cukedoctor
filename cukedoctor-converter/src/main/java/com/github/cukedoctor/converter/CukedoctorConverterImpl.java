@@ -151,8 +151,8 @@ public class CukedoctorConverterImpl implements CukedoctorConverter {
 			if (contains(filename, "/")) {
 				basePath = filename.substring(0, filename.lastIndexOf("/"));
 			}
-			FileUtil.copyFile("cukedoctor.js", basePath + "/cukedoctor.js");
-			FileUtil.copyFile("cukedoctor.css", basePath + "/cukedoctor.css");
+			FileUtil.copyFile("/cukedoctor.js", basePath + "/cukedoctor.js");
+			FileUtil.copyFile("/cukedoctor.css", basePath + "/cukedoctor.css");
 
 		}
 
@@ -163,7 +163,7 @@ public class CukedoctorConverterImpl implements CukedoctorConverter {
 		if (notNull(documentAttributes) && documentAttributes.isPdfTheme()) {
 			//name must be filename-theme.yml
 			String pdfThemeName = filename.substring(0, filename.lastIndexOf(".")) + "-theme.yml";
-			FileUtil.copyFile("theme.yml", pdfThemeName);
+			FileUtil.copyFile("/theme.yml", pdfThemeName);
 		}
 		return this;
 	}
