@@ -18,7 +18,7 @@
         "steps": [
           {
             "result": {
-              "duration": 871757589,
+              "duration": 686884763,
               "status": "passed"
             },
             "line": 10,
@@ -35,7 +35,7 @@
           },
           {
             "result": {
-              "duration": 1414301831,
+              "duration": 1473444248,
               "status": "passed"
             },
             "comments": [
@@ -58,8 +58,9 @@
           },
           {
             "result": {
-              "duration": 2130605,
-              "status": "passed"
+              "duration": 24199975,
+              "error_message": "org.junit.ComparisonFailure: expected:\u003c...arget/test-classes/c[om/github/cukedoctor/util/c]ukedoctor-intro.adoc...\u003e but was:\u003c...arget/test-classes/c[]ukedoctor-intro.adoc...\u003e\n\tat sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)\n\tat sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)\n\tat sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)\n\tat com.github.cukedoctor.bdd.cukedoctor.ConverterSteps.I_should_have_awesome_living_documentation(ConverterSteps.java:36)\n\tat ✽.Then I should have awesome living documentation(com/github/cukedoctor/bdd/cukedoctor/converter.feature:42)\n",
+              "status": "failed"
             },
             "comments": [
               {
@@ -107,7 +108,7 @@
         "steps": [
           {
             "result": {
-              "duration": 57876,
+              "duration": 85045,
               "status": "passed"
             },
             "line": 11,
@@ -124,7 +125,7 @@
           },
           {
             "result": {
-              "duration": 45353415,
+              "duration": 46202394,
               "status": "passed"
             },
             "line": 45,
@@ -136,7 +137,7 @@
           },
           {
             "result": {
-              "duration": 217171,
+              "duration": 117830,
               "status": "passed"
             },
             "comments": [
@@ -169,7 +170,7 @@
         "steps": [
           {
             "result": {
-              "duration": 110159,
+              "duration": 61897,
               "status": "passed"
             },
             "line": 100,
@@ -186,7 +187,7 @@
           },
           {
             "result": {
-              "duration": 52683491,
+              "duration": 36778700,
               "status": "passed"
             },
             "line": 122,
@@ -198,7 +199,7 @@
           },
           {
             "result": {
-              "duration": 167513,
+              "duration": 149329,
               "status": "passed"
             },
             "comments": [
@@ -247,7 +248,7 @@
         "steps": [
           {
             "result": {
-              "duration": 69692,
+              "duration": 57398,
               "status": "passed"
             },
             "line": 11,
@@ -264,7 +265,7 @@
           },
           {
             "result": {
-              "duration": 18244657,
+              "duration": 16731386,
               "status": "passed"
             },
             "line": 25,
@@ -276,7 +277,7 @@
           },
           {
             "result": {
-              "duration": 99167,
+              "duration": 102902,
               "status": "passed"
             },
             "comments": [
@@ -309,7 +310,7 @@
         "steps": [
           {
             "result": {
-              "duration": 53311,
+              "duration": 51517,
               "status": "passed"
             },
             "comments": [
@@ -332,7 +333,7 @@
           },
           {
             "result": {
-              "duration": 41016246,
+              "duration": 48060876,
               "status": "passed"
             },
             "line": 72,
@@ -344,7 +345,7 @@
           },
           {
             "result": {
-              "duration": 98043,
+              "duration": 279091,
               "status": "passed"
             },
             "comments": [

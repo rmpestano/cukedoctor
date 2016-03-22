@@ -33,18 +33,18 @@ include::/home/travis/build/rmpestano/cukedoctor/cukedoctor-converter/target/tes
 |Status
 
 12+^|*<<Cukedoctor-Converter>>*
-|1
 |0
 |1
+|1
+|2
+|1
+|0
+|0
+|0
+|0
 |3
-|0
-|0
-|0
-|0
-|0
-|3
-|02s 288ms
-|[green]#*passed*#
+|02s 184ms
+|[red]#*failed*#
 
 12+^|*<<Ordering>>*
 |2
@@ -57,7 +57,7 @@ include::/home/travis/build/rmpestano/cukedoctor/cukedoctor-converter/target/tes
 |0
 |0
 |6
-|059ms
+|065ms
 |[green]#*passed*#
 
 12+^|*<<Enrich-features>>*
@@ -71,10 +71,10 @@ include::/home/travis/build/rmpestano/cukedoctor/cukedoctor-converter/target/tes
 |0
 |0
 |6
-|098ms
+|083ms
 |[green]#*passed*#
 12+^|*Totals*
-|5|0|5|15|0|0|0|0|0|15 2+|02s 446ms
+|4|1|5|14|1|0|0|0|0|15 2+|02s 333ms
 |===
 
 == *Features*
@@ -88,11 +88,11 @@ As a bdd developer +
 I want to use *Cukedoctor* to handle my cucumber reports
 ****
 
-==== Scenario: Convert features output into documentation
+==== Scenario: Convert features output into documentation icon:thumbs-down[role="red",title="Failed"]
 
 ****
 Given ::
-The following two features: icon:thumbs-up[role="green",title="Passed"] [small right]#(871ms)#
+The following two features: icon:thumbs-up[role="green",title="Passed"] [small right]#(686ms)#
 ----
 
 Feature: Feature1
@@ -109,7 +109,7 @@ Feature: Feature2
 
 ----
 When ::
-I convert their json output report using cukedoctor converter icon:thumbs-up[role="green",title="Passed"] [small right]#(01s 414ms)#
+I convert their json output report using cukedoctor converter icon:thumbs-up[role="green",title="Passed"] [small right]#(01s 473ms)#
 ******
 
 [discrete]
@@ -131,7 +131,7 @@ NOTE: *plugin* option replaced *format* option which was deprecated in newer cuc
 ******
 
 Then ::
-I should have awesome living documentation icon:thumbs-up[role="green",title="Passed"] [small right]#(002ms)#
+I should have awesome living documentation icon:thumbs-down[role="red",title="Failed"] [small right]#(024ms)#
 ******
 
 [discrete]
@@ -218,6 +218,12 @@ scenario step icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 
 ******
 
+IMPORTANT: org.junit.ComparisonFailure: expected:<...arget/test-classes/c[om/github/cukedoctor/util/c]ukedoctor-intro.adoc...> but was:<...arget/test-classes/c[]ukedoctor-intro.adoc...>
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newI...
+
+
 ****
 
 [[Ordering, Ordering]]
@@ -250,7 +256,7 @@ Feature: Feature2
 
 ----
 When ::
-I convert them using default order icon:thumbs-up[role="green",title="Passed"] [small right]#(018ms)#
+I convert them using default order icon:thumbs-up[role="green",title="Passed"] [small right]#(016ms)#
 Then ::
 Features should be ordered by name in resulting documentation icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ******
@@ -315,7 +321,7 @@ Feature: Feature2
 NOTE: Ordering is done using feature comment '*order:*'
 
 When ::
-I convert them using comment order icon:thumbs-up[role="green",title="Passed"] [small right]#(041ms)#
+I convert them using comment order icon:thumbs-up[role="green",title="Passed"] [small right]#(048ms)#
 Then ::
 Features should be ordered respecting order comment icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ******
@@ -404,7 +410,7 @@ Feature: Enrich feature
 
 ----
 When ::
-I convert docstring enriched json output using cukedoctor converter icon:thumbs-up[role="green",title="Passed"] [small right]#(045ms)#
+I convert docstring enriched json output using cukedoctor converter icon:thumbs-up[role="green",title="Passed"] [small right]#(046ms)#
 Then ::
 DocString asciidoc output must be rendered in my documentation icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ******
@@ -495,7 +501,7 @@ Feature: Calculator
 
 ----
 When ::
-I convert enriched feature json output using cukedoctor icon:thumbs-up[role="green",title="Passed"] [small right]#(052ms)#
+I convert enriched feature json output using cukedoctor icon:thumbs-up[role="green",title="Passed"] [small right]#(036ms)#
 Then ::
 Asciidoc markup on comments must be rendered in my documentation icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ******
