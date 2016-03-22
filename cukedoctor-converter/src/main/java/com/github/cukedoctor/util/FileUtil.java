@@ -1,8 +1,7 @@
 package com.github.cukedoctor.util;
 
-import org.apache.maven.shared.utils.io.DirectoryScanner;
-import org.apache.maven.shared.utils.io.FileUtils;
-import org.apache.maven.shared.utils.io.IOUtil;
+import org.apache.commons.io.FileUtils;
+import org.apache.commons.io.IOUtils;
 
 import java.io.File;
 import java.io.IOException;
@@ -11,8 +10,6 @@ import java.nio.file.*;
 import java.nio.file.attribute.BasicFileAttributes;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.regex.Pattern;
@@ -133,7 +130,7 @@ public class FileUtil {
             }
             File file = new File(fullyQualifiedName);
             file.createNewFile();
-            FileUtils.fileWrite(file, "UTF-8", data);
+            FileUtils.write(file, data,"UTF-8");
             log.info("Wrote: " + file.getAbsolutePath());
             return file;
         } catch (IOException e) {
@@ -173,7 +170,7 @@ public class FileUtil {
         if (source != null && dest != null) {
             try {
                 InputStream in = FileUtil.class.getResourceAsStream(source);
-                return saveFile(dest, IOUtil.toString(in));
+                return saveFile(dest, IOUtils.toString(in));
             } catch (IOException e) {
                 log.log(Level.SEVERE, "Could not copy source file: " + source + " to dest file: " + dest, e);
             }
