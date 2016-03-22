@@ -29,14 +29,14 @@ public class CukedoctorThemeExtension extends Postprocessor {
                 boolean created = false;
                 created = themeDir.mkdir();
                 if (created) {
-                    FileUtil.copyFile("themes/colony.css", docDir + "/themes/colony.css");
-                    FileUtil.copyFile("themes/foundation.css", docDir + "/themes/foundation.css");
-                    FileUtil.copyFile("themes/rubygems.css", docDir + "/themes/rubygems.css");
-                    FileUtil.copyFile("themes/iconic.css", docDir + "/themes/iconic.css");
-                    FileUtil.copyFile("themes/readthedocs.css", docDir + "/themes/readthedocs.css");
-                    FileUtil.copyFile("themes/rocket-panda.css", docDir + "/themes/rocket-panda.css");
-                    FileUtil.copyFile("themes/maker.css", docDir + "/themes/maker.css");
-                    FileUtil.copyFile("themes/github.css", docDir + "/themes/github.css");
+                    FileUtil.copyFile("/themes/colony.css", docDir + "/themes/colony.css");
+                    FileUtil.copyFile("/themes/foundation.css", docDir + "/themes/foundation.css");
+                    FileUtil.copyFile("/themes/rubygems.css", docDir + "/themes/rubygems.css");
+                    FileUtil.copyFile("/themes/iconic.css", docDir + "/themes/iconic.css");
+                    FileUtil.copyFile("/themes/readthedocs.css", docDir + "/themes/readthedocs.css");
+                    FileUtil.copyFile("/themes/rocket-panda.css", docDir + "/themes/rocket-panda.css");
+                    FileUtil.copyFile("/themes/maker.css", docDir + "/themes/maker.css");
+                    FileUtil.copyFile("/themes/github.css", docDir + "/themes/github.css");
                 }
             }
 
