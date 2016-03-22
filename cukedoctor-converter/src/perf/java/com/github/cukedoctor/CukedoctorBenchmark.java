@@ -35,7 +35,7 @@ public class CukedoctorBenchmark {
         @Setup
         public void init() throws RunnerException {
             Logger.getLogger(FileUtil.class.getName()).setLevel(Level.SEVERE);
-            String asciidoctorFeaturesPath = FileUtil.findJsonFile(CukedoctorBenchmark.class.getResource("asciidoctor-features.json").getPath());
+            String asciidoctorFeaturesPath = FileUtil.findJsonFile(CukedoctorBenchmark.class.getResource("/asciidoctor-features.json").getPath());
             asciidoctorFeatures = FeatureParser.parse(asciidoctorFeaturesPath);
             cukedoctorConverter = Cukedoctor.instance(asciidoctorFeatures);
         }
