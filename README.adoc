@@ -121,6 +121,10 @@ Cukedoctor extension adds new features to generated documentation in order to le
 
 This module provides an example project to show how cukedoctor documentation can be extended and customized. For more details see https://github.com/rmpestano/cukedoctor/tree/master/cukedoctor-spi-example[cukedoctor-spi-example].
 
+=== Jenkins plugin
+
+Cukedoctor is the backbone of https://github.com/rmpestano/living-documentation-plugin[Living documentation plugin for Jenkins^].
+
 == Distribution
 
 Cukedoctor is available at https://bintray.com/rmpestano/cukedoctor[Bintray] and at http://search.maven.org/#search%7Cga%7C1%7Ccukedoctor[Maven central^].
