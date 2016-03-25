@@ -50,10 +50,12 @@ public class CukedoctorScriptExtension extends Postprocessor{
                      "\tfunction themefy() {\n" +
                      " \t\t\t\t\t\tvar theme = getThemeFromQueryParameters() || 'asciidoctor';\n" +
                      " \t\t\t\t\t\tvar themeLink = document.createElement('link');\n" +
+                     "\t\t\t\t\t if('asciidoctor' !== theme) {" +
                      " \t\t\t\t\t\tthemeLink.rel = 'stylesheet';\n" +
                      " \t\t\t\t\t\tthemeLink.id = 'asciidoctor-style';\n" +
                      " \t\t\t\t\t\tthemeLink.href = 'themes/' + theme + '.css';\n" +
                      " \t\t\t\t\t\t document.head.appendChild(themeLink);\n" +
+                     "\t\t\t\t }" +
                      "}\n" +
                      "\n" +
                      "\n" +
