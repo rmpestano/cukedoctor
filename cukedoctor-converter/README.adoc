@@ -217,6 +217,6 @@ For more details see https://github.com/rmpestano/cukedoctor/tree/master/cukedoc
  <dependency>
       <groupId>com.github.cukedoctor</groupId>
       <artifactId>cukedoctor-converter</artifactId>
-      <version>0.9.1</version>
+      <version>0.9.3</version>
   </dependency>
 ----

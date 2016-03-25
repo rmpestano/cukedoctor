@@ -81,8 +81,8 @@ You can disable https://github.com/rmpestano/cukedoctor/tree/master/cukedoctor-e
 
 ----
 java -jar -Dcukedoctor.disable.filter=123  -Dcukedoctor.disable.theme=abc
-		cukedoctor-main-0.9.1.jar
+		cukedoctor-main-0.9.3.jar
 		-p cucumber-output.json
 ----
 
-You can download Cukedoctor main https://bintray.com/artifact/download/rmpestano/cukedoctor/com/github/cukedoctor/cukedoctor-main/0.9.1/cukedoctor-main-0.9.1.jar[jar here^]
+You can download Cukedoctor main https://bintray.com/artifact/download/rmpestano/cukedoctor/com/github/cukedoctor/cukedoctor-main/0.9.3/cukedoctor-main-0.9.3.jar[jar here^]

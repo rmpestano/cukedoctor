@@ -107,7 +107,7 @@ For more details see https://github.com/rmpestano/cukedoctor/tree/master/cukedoc
 
 === Standalone jar
 
-To use Cukedoctor as a standalone jar you can https://bintray.com/artifact/download/rmpestano/cukedoctor/com/github/cukedoctor/cukedoctor-main/0.9.0/cukedoctor-main-0.9.0.jar[download it here^]. For more details, see https://github.com/rmpestano/cukedoctor/tree/master/cukedoctor-main[cukedoctor-main].
+To use Cukedoctor as a standalone jar you can https://bintray.com/artifact/download/rmpestano/cukedoctor/com/github/cukedoctor/cukedoctor-main/0.9.3/cukedoctor-main-0.9.3.jar[download it here^]. For more details, see https://github.com/rmpestano/cukedoctor/tree/master/cukedoctor-main[cukedoctor-main].
 
 === Converter
 
@@ -150,9 +150,9 @@ TIP: You can download snapshots directly from Sonatype https://oss.sonatype.org/
 == Contributing
 
 * Found a bug? open an https://github.com/rmpestano/cukedoctor/issues[issue^] and attach your https://github.com/rmpestano/cukedoctor/tree/master/cukedoctor-converter/src/test/resources/json-output[feature json^] output to it;
-** If you're are *Jedi* at opening issues then provide a https://github.com/rmpestano/cukedoctor/blob/master/cukedoctor-converter/src/test/java/com/github/cukedoctor/converter/CukedoctorConverterTest.java#L547[test^] that reproduces the issue;
+** If you're are *Jedi* then provide a https://github.com/rmpestano/cukedoctor/blob/master/cukedoctor-converter/src/test/java/com/github/cukedoctor/converter/CukedoctorConverterTest.java#L547[test^] that reproduces the issue;
 *** If you are *Chuck Norris* then send a pull request with the fix :facepunch:
-* Have an idea? open an issue so we can discuss it;
+* Have an idea? open an issue and lets discuss it;
 * Any form of feedback is more than welcome!
 
 
