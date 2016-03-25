@@ -75,6 +75,9 @@ public class CukedoctorScriptExtension extends Postprocessor{
                      "\t\t\t}\n" +
                      "\t\t}\n" +
                      " \t});\n" +
+                     "\tif(!result){\n" +
+                     "\t\tresult = 'asciidoctor';\n" +
+                     "\t\t\n\t}\n"+
                      "\tdocument.getElementById('themes').value = result;  \n" +
                      "\tvar els = document.querySelector('select[name=\"select\"] option[value=\"' + result + '\"]');  \n" +
                      "\tif(els){\n" +
