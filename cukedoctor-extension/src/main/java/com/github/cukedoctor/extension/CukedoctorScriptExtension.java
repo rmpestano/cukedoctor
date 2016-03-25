@@ -104,7 +104,7 @@ public class CukedoctorScriptExtension extends Postprocessor{
                 "    \t\t\t}\t\t\t        \n" +
                 "\t\t}\n" +
                 "\t\t \n" +
-                " \t\tdocument.getElementById(featureId).childNodes[0].click();\n" +
+                " \t\tdocument.getElementById(featureId).children[0].click();\n" +
                 "\t}\n" +
                 "\n" +
                 "\tfunction hideFeatureScenarios(featureId){\n" +
@@ -115,7 +115,7 @@ public class CukedoctorScriptExtension extends Postprocessor{
                 "                 \t}\n" +
                 "\t\t      \n" +
                 "\t\t}\n" +
-                "\t   document.getElementById(featureId).childNodes[0].click();\n" +
+                "\t   document.getElementById(featureId).children[0].click();\n" +
                 " \t}\n" +
                 "\n" +
                 "</script>";
