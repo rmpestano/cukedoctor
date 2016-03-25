@@ -1,6 +1,6 @@
 :toc: right
 :backend: pdf
-:doctitle: SDKMan Living Documentation
+:doctitle: Sdkman Living Documentation
 :doctype: book
 :icons: font
 :!numbered:
@@ -10,7 +10,7 @@
 :docinfo:
 :toclevels: 3
 
-= *SDKMan Living Documentation*
+= *Sdkman Living Documentation*
 
 == *Summary*
 [cols="12*^m", options="header,footer"]

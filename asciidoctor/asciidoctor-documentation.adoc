@@ -1,5 +1,5 @@
 :toc: right
-:backend: pdf
+:backend: html5
 :doctitle: Asciidoctor Living Documentation
 :doctype: book
 :icons: font
@@ -94,6 +94,7 @@
 [[Cross-References, Cross References]]
 === *Cross References*
 
+minmax::Cross-References[]
 ****
 In order to create links to other sections +
 As a writer +
@@ -250,6 +251,7 @@ the result should match the HTML structure icon:thumbs-up[role="green",title="Pa
 [[Open-Blocks, Open Blocks]]
 === *Open Blocks*
 
+minmax::Open-Blocks[]
 ****
 In order to group content in a generic container +
 As a writer +
@@ -391,6 +393,7 @@ the result should match the HTML structure icon:thumbs-up[role="green",title="Pa
 [[Open-Blocks, Open Blocks]]
 === *Open Blocks*
 
+minmax::Open-Blocks[]
 ****
 In order to pass content through unprocessed +
 As a writer +
@@ -488,6 +491,7 @@ the result should match the HTML source icon:thumbs-up[role="green",title="Passe
 [[Text-Formatting, Text Formatting]]
 === *Text Formatting*
 
+minmax::Text-Formatting[]
 ****
 In order to apply formatting to the text +
 As a writer +
