@@ -1,23 +1,23 @@
 package com.github.cukedoctor.parser;
 
-import com.github.cukedoctor.api.model.Feature;
-import com.github.cukedoctor.api.model.Scenario;
-import com.github.cukedoctor.api.model.Step;
-import com.github.cukedoctor.util.builder.FeatureBuilder;
-import com.github.cukedoctor.util.FileUtil;
-import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.junit.runners.JUnit4;
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNull;
 
 import java.io.IOException;
 import java.net.URL;
 import java.nio.file.Paths;
 import java.util.List;
 
-import static com.github.cukedoctor.util.Constants.newLine;
-import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertNull;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.junit.runners.JUnit4;
+
+import com.github.cukedoctor.api.model.Feature;
+import com.github.cukedoctor.api.model.Scenario;
+import com.github.cukedoctor.api.model.Step;
+import com.github.cukedoctor.util.FileUtil;
+import com.github.cukedoctor.util.builder.FeatureBuilder;
 
 /**
  * Created by rafael-pestano on 03/03/2015.

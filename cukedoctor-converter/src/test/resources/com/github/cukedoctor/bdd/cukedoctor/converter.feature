@@ -3,7 +3,7 @@ Feature: Cukedoctor Converter
 
   In order to have awesome _living documentation_
   As a bdd developer
-  I want to use *Cukedoctor* to handle my cucumber reports
+  I want to use *Cukedoctor* to convert my cucumber test results into [[readable]] living documentation
 
   Scenario: Convert features output into documentation
 
