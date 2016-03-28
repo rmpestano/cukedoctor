@@ -157,8 +157,8 @@ public class CukedoctorStepsRenderer extends AbstractBaseRenderer implements Ste
            int numComments = step.getComments().size();
            for (Comment comment : step.getComments()) {
                if(hasText(comment.getValue()) && (comment.getValue().contains("{") && comment.getValue().contains("}"))){
-                   //do not add new line for listing
-                   if(comment.getValue().contains("[source")){
+                   //do not add new line for listing, complex blocks,
+                   if(comment.getValue().contains("[source") || comment.getValue().contains("====") || comment.getValue().contains(Constants.Markup.listing())){
                        docBuilder.textLine(comment.getValue().replaceAll("\\n", newLine()).replaceAll("#", "").
                            replaceAll("\\{", "").
                            replaceAll("}", ""));
