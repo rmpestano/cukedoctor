@@ -245,7 +245,7 @@ public class RendererTest {
         List<Feature> features = FeatureParser.parse(featureWithTableInStep);
         CukedoctorConverter converter = Cukedoctor.instance(features,new DocumentAttributes().docTitle("Doc Title"));
         String resultDoc = converter.renderDocumentation();
-        assertThat(resultDoc).isEqualTo(Expectations.FEATURE_WITH_STEP_TABLE_IN_PT_BR);
+        assertThat(resultDoc.replaceAll("\r","")).isEqualTo(Expectations.FEATURE_WITH_STEP_TABLE_IN_PT_BR.replaceAll("\r",""));
     }
 
     @Test

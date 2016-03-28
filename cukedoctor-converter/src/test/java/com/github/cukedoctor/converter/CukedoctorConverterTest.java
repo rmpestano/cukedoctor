@@ -630,7 +630,7 @@ public class CukedoctorConverterTest {
 		List<Feature> features = FeatureParser.parse(getClass().getResource("/json-output/parser/feature_with_output.json").getPath());
 		assertThat(features).isNotNull().hasSize(1);
 		String output = Cukedoctor.instance(features).renderFeatures(features).getDocumentation();
-		assertThat(output).isEqualTo(("[[A-feature-with-output, A feature with output]]"+newLine() +
+		assertThat(output.replaceAll("\r","")).isEqualTo(("[[A-feature-with-output, A feature with output]]"+newLine() +
 				"=== *A feature with output*"+newLine() +
 				""+newLine() +
 				"==== Scenario: Show the current version of sdkman"+newLine() +
@@ -651,7 +651,7 @@ public class CukedoctorConverterTest {
 				""+newLine() +
 				"----"+newLine() +
 				"****"+newLine() +
-				""+newLine()));
+				""+newLine()).replaceAll("\r",""));
 	}
 
 	@Test
@@ -659,7 +659,7 @@ public class CukedoctorConverterTest {
 			List<Feature> features = FeatureParser.parse(getClass().getResource("/json-output/one_passing_one_failing.json").getPath());
 			assertThat(features).isNotNull().hasSize(1);
 			String output = Cukedoctor.instance(features,new DocumentAttributes()).renderDocumentation();
-			assertThat(output).isEqualTo((":toc: right" + newLine() +
+			assertThat(output.replaceAll("\r","")).isEqualTo((":toc: right" + newLine() +
 					":backend: html5" + newLine() +
 					":doctitle: Living Documentation" + newLine() +
 					":doctype: book" + newLine() +
@@ -737,7 +737,7 @@ public class CukedoctorConverterTest {
 					"./features/step_definitions/steps.rb:4:in /^this step fails$/'" + newLine() +
 					"features/one_passing_one_failing.feature:10:in Given this step fails'" + newLine() +
 					"****" + newLine() +
-					"\n"));
+					"\n").replaceAll("\r",""));
 	}
 	
 }
