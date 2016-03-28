@@ -52,7 +52,7 @@ public class StyleExtensionTest {
 
         String sampleHtml = readFileContent(loadTestFile("sample.html"));
         assertThat(sampleHtml).isNotEmpty().
-                containsOnlyOnce(".sidebarblock{overflow:auto!important;}");
+                containsOnlyOnce(".sidebarblock, .sectionbody{overflow:auto!important;}");
 
     }
 
