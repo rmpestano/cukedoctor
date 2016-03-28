@@ -1,9 +1,13 @@
 package com.github.cukedoctor.util.builder;
 
-import com.github.cukedoctor.api.model.*;
-
 import java.util.ArrayList;
-import java.util.List;
+
+import com.github.cukedoctor.api.model.Feature;
+import com.github.cukedoctor.api.model.Match;
+import com.github.cukedoctor.api.model.Result;
+import com.github.cukedoctor.api.model.Scenario;
+import com.github.cukedoctor.api.model.Status;
+import com.github.cukedoctor.api.model.Type;
 
 /**
  * Created by pestano on 04/06/15.

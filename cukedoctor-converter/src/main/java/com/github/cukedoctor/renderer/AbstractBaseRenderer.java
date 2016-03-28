@@ -2,10 +2,7 @@ package com.github.cukedoctor.renderer;
 
 import com.github.cukedoctor.api.CukedoctorDocumentBuilder;
 import com.github.cukedoctor.api.DocumentAttributes;
-import com.github.cukedoctor.api.model.Feature;
 import com.github.cukedoctor.i18n.I18nLoader;
-
-import java.util.List;
 
 /**
  * Created by pestano on 26/02/16.

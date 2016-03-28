@@ -1,19 +1,27 @@
 package com.github.cukedoctor.renderer;
 
-import com.github.cukedoctor.api.CukedoctorDocumentBuilder;
-import com.github.cukedoctor.api.model.*;
-import com.github.cukedoctor.spi.StepsRenderer;
-import com.github.cukedoctor.util.Assert;
-import com.github.cukedoctor.util.Constants;
-import com.github.cukedoctor.util.Formatter;
+import static com.github.cukedoctor.api.CukedoctorDocumentBuilder.Factory.newInstance;
+import static com.github.cukedoctor.util.Assert.hasText;
+import static com.github.cukedoctor.util.Assert.notEmpty;
+import static com.github.cukedoctor.util.Assert.notNull;
+import static com.github.cukedoctor.util.Constants.newLine;
+import static com.github.cukedoctor.util.Constants.Markup.listing;
+import static com.github.cukedoctor.util.Constants.Markup.table;
+import static com.github.cukedoctor.util.Constants.Markup.tableCol;
 
 import java.util.List;
-import java.util.regex.Pattern;
 
-import static com.github.cukedoctor.api.CukedoctorDocumentBuilder.Factory.newInstance;
-import static com.github.cukedoctor.util.Assert.*;
-import static com.github.cukedoctor.util.Constants.Markup.*;
-import static com.github.cukedoctor.util.Constants.newLine;
+import com.github.cukedoctor.api.CukedoctorDocumentBuilder;
+import com.github.cukedoctor.api.model.Comment;
+import com.github.cukedoctor.api.model.DocString;
+import com.github.cukedoctor.api.model.Output;
+import com.github.cukedoctor.api.model.Result;
+import com.github.cukedoctor.api.model.Row;
+import com.github.cukedoctor.api.model.Status;
+import com.github.cukedoctor.api.model.Step;
+import com.github.cukedoctor.spi.StepsRenderer;
+import com.github.cukedoctor.util.Constants;
+import com.github.cukedoctor.util.Formatter;
 
 /**
  * Created by pestano on 28/02/16.

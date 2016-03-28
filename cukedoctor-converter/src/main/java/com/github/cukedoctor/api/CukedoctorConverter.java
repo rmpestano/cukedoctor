@@ -59,10 +59,5 @@ public interface CukedoctorConverter {
 	 */
 	CukedoctorConverter saveDocumentation();
 
-	/**
-	 * base dir to search for intro chapter cukedoctor-intro.adoc file
-	 * @param baseDir
-	 */
-	void setIntroChapterDir(String baseDir);
 
 }

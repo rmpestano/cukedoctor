@@ -1,14 +1,14 @@
 package com.github.cukedoctor.builder;
 
+import static com.github.cukedoctor.util.Assert.hasText;
+import static com.github.cukedoctor.util.Assert.notEmpty;
+
 import com.github.cukedoctor.api.CukedoctorDocumentBuilder;
 import com.github.cukedoctor.api.builder.AttributesBuilder;
 import com.github.cukedoctor.markup.Asciidoc;
 import com.github.cukedoctor.util.Constants;
-import io.github.robwin.markup.builder.MarkupDocBuilder;
-import io.github.robwin.markup.builder.asciidoc.AsciiDocBuilder;
 
-import static com.github.cukedoctor.util.Assert.hasText;
-import static com.github.cukedoctor.util.Assert.notEmpty;
+import io.github.robwin.markup.builder.asciidoc.AsciiDocBuilder;
 
 /**
  * Created by pestano on 17/02/16.

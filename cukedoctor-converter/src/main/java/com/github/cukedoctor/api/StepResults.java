@@ -1,15 +1,12 @@
 package com.github.cukedoctor.api;
 
-import com.github.cukedoctor.api.model.Status;
-import com.github.cukedoctor.api.model.Step;
-import com.github.cukedoctor.util.Formatter;
-import org.joda.time.Period;
-import org.joda.time.format.PeriodFormatter;
-import org.joda.time.format.PeriodFormatterBuilder;
-
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicInteger;
+
+import com.github.cukedoctor.api.model.Status;
+import com.github.cukedoctor.api.model.Step;
+import com.github.cukedoctor.util.Formatter;
 
 /**
  * Created by pestano on 04/06/15.

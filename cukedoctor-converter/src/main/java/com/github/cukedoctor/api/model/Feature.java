@@ -1,12 +1,8 @@
 package com.github.cukedoctor.api.model;
 
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.github.cukedoctor.api.ScenarioResults;
-import com.github.cukedoctor.api.StepResults;
-import com.github.cukedoctor.util.Assert;
-import com.github.cukedoctor.util.Constants;
+import static com.github.cukedoctor.util.Assert.hasText;
+import static com.github.cukedoctor.util.Assert.notEmpty;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -15,8 +11,11 @@ import java.util.Map;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.logging.Logger;
 
-import static com.github.cukedoctor.util.Assert.hasText;
-import static com.github.cukedoctor.util.Assert.notEmpty;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.github.cukedoctor.api.ScenarioResults;
+import com.github.cukedoctor.api.StepResults;
+import com.github.cukedoctor.util.Constants;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Feature implements Comparable<Feature>{

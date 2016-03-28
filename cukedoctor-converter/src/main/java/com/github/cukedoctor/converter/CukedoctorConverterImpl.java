@@ -1,28 +1,26 @@
 package com.github.cukedoctor.converter;
 
-import com.github.cukedoctor.api.CukedoctorConverter;
-import com.github.cukedoctor.api.CukedoctorDocumentBuilder;
-import com.github.cukedoctor.api.DocumentAttributes;
-import com.github.cukedoctor.api.model.*;
-import com.github.cukedoctor.config.CukedoctorConfig;
-import com.github.cukedoctor.i18n.I18nLoader;
-import com.github.cukedoctor.renderer.CukedoctorFeatureRenderer;
-import com.github.cukedoctor.renderer.CukedoctorScenarioRenderer;
-import com.github.cukedoctor.renderer.CukedoctorSummaryRenderer;
-import com.github.cukedoctor.spi.FeatureRenderer;
-import com.github.cukedoctor.spi.ScenarioRenderer;
-import com.github.cukedoctor.spi.SummaryRenderer;
-import com.github.cukedoctor.util.Constants;
-import com.github.cukedoctor.util.FileUtil;
-import com.github.cukedoctor.util.Formatter;
+import static com.github.cukedoctor.util.Assert.contains;
+import static com.github.cukedoctor.util.Assert.hasText;
+import static com.github.cukedoctor.util.Assert.notNull;
+import static com.github.cukedoctor.util.Constants.newLine;
+import static com.github.cukedoctor.util.Constants.Markup.bold;
 
-import java.io.File;
 import java.util.List;
 import java.util.ServiceLoader;
 
-import static com.github.cukedoctor.util.Assert.*;
-import static com.github.cukedoctor.util.Constants.Markup.*;
-import static com.github.cukedoctor.util.Constants.newLine;
+import com.github.cukedoctor.api.CukedoctorConverter;
+import com.github.cukedoctor.api.CukedoctorDocumentBuilder;
+import com.github.cukedoctor.api.DocumentAttributes;
+import com.github.cukedoctor.api.model.Feature;
+import com.github.cukedoctor.config.CukedoctorConfig;
+import com.github.cukedoctor.i18n.I18nLoader;
+import com.github.cukedoctor.renderer.CukedoctorFeatureRenderer;
+import com.github.cukedoctor.renderer.CukedoctorSummaryRenderer;
+import com.github.cukedoctor.spi.FeatureRenderer;
+import com.github.cukedoctor.spi.SummaryRenderer;
+import com.github.cukedoctor.util.Constants;
+import com.github.cukedoctor.util.FileUtil;
 
 
 /**
@@ -38,7 +36,6 @@ public class CukedoctorConverterImpl implements CukedoctorConverter {
 	private I18nLoader i18n;
 	private SummaryRenderer summaryRenderer;
 	private FeatureRenderer featureRenderer;
-	private String introChapterDir;//base directory to search for introduction chapter
 
 
 	public CukedoctorConverterImpl(List<Feature> features, DocumentAttributes attrs) {
@@ -106,10 +103,7 @@ public class CukedoctorConverterImpl implements CukedoctorConverter {
 	}
 
 	public void renderIntro() {
-		if(introChapterDir == null){
-			introChapterDir = Constants.baseDir;
-		}
-		List<String> files = FileUtil.findFiles(introChapterDir, "cukedoctor-intro.adoc",true);
+		List<String> files = FileUtil.findFiles(CukedoctorConfig.INTRO_CHAPTER_DIR, "cukedoctor-intro.adoc",true);
 		if(files != null && !files.isEmpty()){
 			String introPath = files.get(0);
 			 introPath = introPath.replaceAll("\\\\","/");
@@ -227,8 +221,4 @@ public class CukedoctorConverterImpl implements CukedoctorConverter {
 		return this;
 	}
 
-	@Override
-	public void setIntroChapterDir(String introChapterDir) {
-		this.introChapterDir = introChapterDir;
-	}
 }

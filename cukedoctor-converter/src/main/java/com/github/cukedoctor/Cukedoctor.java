@@ -1,15 +1,13 @@
 package com.github.cukedoctor;
 
-import com.github.cukedoctor.api.DocumentAttributes;
-import com.github.cukedoctor.api.model.Feature;
-import com.github.cukedoctor.api.CukedoctorConverter;
-import com.github.cukedoctor.converter.CukedoctorConverterImpl;
-import com.github.cukedoctor.spi.SummaryRenderer;
+import static com.github.cukedoctor.util.Assert.hasElements;
 
-import java.util.ArrayList;
 import java.util.List;
 
-import static com.github.cukedoctor.util.Assert.*;
+import com.github.cukedoctor.api.CukedoctorConverter;
+import com.github.cukedoctor.api.DocumentAttributes;
+import com.github.cukedoctor.api.model.Feature;
+import com.github.cukedoctor.converter.CukedoctorConverterImpl;
 
 /**
  * Created by pestano on 10/06/15.
