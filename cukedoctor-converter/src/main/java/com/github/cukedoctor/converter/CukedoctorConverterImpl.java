@@ -38,6 +38,7 @@ public class CukedoctorConverterImpl implements CukedoctorConverter {
 	private I18nLoader i18n;
 	private SummaryRenderer summaryRenderer;
 	private FeatureRenderer featureRenderer;
+	private String introChapterDir;//base directory to search for introduction chapter
 
 
 	public CukedoctorConverterImpl(List<Feature> features, DocumentAttributes attrs) {
@@ -105,7 +106,10 @@ public class CukedoctorConverterImpl implements CukedoctorConverter {
 	}
 
 	public void renderIntro() {
-		List<String> files = FileUtil.findFiles(Constants.baseDir, "cukedoctor-intro.adoc",true);
+		if(introChapterDir == null){
+			introChapterDir = Constants.baseDir;
+		}
+		List<String> files = FileUtil.findFiles(introChapterDir, "cukedoctor-intro.adoc",true);
 		if(files != null && !files.isEmpty()){
 			String introPath = files.get(0);
 			 introPath = introPath.replaceAll("\\\\","/");
@@ -223,5 +227,8 @@ public class CukedoctorConverterImpl implements CukedoctorConverter {
 		return this;
 	}
 
-
+	@Override
+	public void setIntroChapterDir(String introChapterDir) {
+		this.introChapterDir = introChapterDir;
+	}
 }
