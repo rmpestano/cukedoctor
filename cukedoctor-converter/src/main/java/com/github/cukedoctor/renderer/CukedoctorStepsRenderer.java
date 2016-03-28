@@ -157,9 +157,17 @@ public class CukedoctorStepsRenderer extends AbstractBaseRenderer implements Ste
            int numComments = step.getComments().size();
            for (Comment comment : step.getComments()) {
                if(hasText(comment.getValue()) && (comment.getValue().contains("{") && comment.getValue().contains("}"))){
-                   docBuilder.textLine(comment.getValue().replaceAll("\\n", newLine()).replaceAll("#", "").
-                       replaceAll("\\{", newLine()).
-                       replaceAll("}", ""));
+                   //do not add new line for listing
+                   if(comment.getValue().contains("[source")){
+                       docBuilder.textLine(comment.getValue().replaceAll("\\n", newLine()).replaceAll("#", "").
+                           replaceAll("\\{", "").
+                           replaceAll("}", ""));
+                   } else{
+                       docBuilder.textLine(comment.getValue().replaceAll("\\n", newLine()).replaceAll("#", "").
+                           replaceAll("\\{", newLine()).
+                           replaceAll("}", ""));
+                   }
+
                }
                //add new line to last comment
                if(step.getComments().indexOf(comment) == numComments-1){
