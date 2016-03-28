@@ -23,6 +23,11 @@ Feature: Feature2
 
 #{NOTE: The introduction file must be named *intro-chapter.adoc* and can be in any package of your application}
 
+#{TIP: By default Cukedoctor will look into application folders but you can make Cukedoctor look into external folder by setting the following system property:}
+#{[source,java]}
+#{----}
+#{System.setProperty("INTRO_CHAPTER_DIR","/home/some/external/folder")}
+#{----}
     #cukedoctor-discrete
     And The following asciidoc document is on your application classpath
 """
