@@ -22,7 +22,7 @@ Feature: Feature2
     Given scenario step
 """
 
-#{NOTE: The introduction file must be named *intro-chapter.adoc* and can be in any package of your application}
+#{NOTE: The introduction file must be named *intro-chapter.adoc* and can be in any package of your application,}
 
 #{[TIP]}
 #{====}
