@@ -5,7 +5,7 @@ Feature: Cukedoctor Converter
   As a bdd developer
   I want to use *Cukedoctor* to convert my cucumber test results into [[readable]] living documentation
 
-  Scenario: Convert features output into documentation
+  Scenario: Convert features test output into documentation
 
     Given The following two features:
 """
@@ -22,7 +22,7 @@ Feature: Feature2
     Given scenario step
 """
     # cukedoctor-discrete
-    When I convert their json output report using cukedoctor converter
+    When I convert their json test output using cukedoctor converter
 """
 [IMPORTANT]
 ======
