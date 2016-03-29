@@ -33,62 +33,62 @@ include::/home/travis/build/rmpestano/cukedoctor/cukedoctor-converter/target/tes
 |Status
 
 12+^|*<<Cukedoctor-Converter>>*
-|1
 |0
 |1
+|1
+|2
+|1
+|0
+|0
+|0
+|0
 |3
-|0
-|0
-|0
-|0
-|0
-|3
-|02s 244ms
-|[green]#*passed*#
+|03s 020ms
+|[red]#*failed*#
 
 12+^|*<<Ordering>>*
-|2
 |0
 |2
+|2
+|4
+|2
+|0
+|0
+|0
+|0
 |6
-|0
-|0
-|0
-|0
-|0
-|6
-|066ms
-|[green]#*passed*#
+|120ms
+|[red]#*failed*#
 
 12+^|*<<Documentation-introduction-chapter>>*
-|1
 |0
 |1
+|1
+|3
+|1
+|0
+|0
+|0
+|0
 |4
-|0
-|0
-|0
-|0
-|0
-|4
-|032ms
-|[green]#*passed*#
+|029ms
+|[red]#*failed*#
 
 12+^|*<<Enrich-features>>*
-|2
 |0
 |2
+|2
+|4
+|2
+|0
+|0
+|0
+|0
 |6
-|0
-|0
-|0
-|0
-|0
-|6
-|089ms
-|[green]#*passed*#
+|130ms
+|[red]#*failed*#
 12+^|*Totals*
-|6|0|6|19|0|0|0|0|0|19 2+|02s 433ms
+|0|6|6|13|6|0|0|0|0|19 2+|03s 301ms
 |===
 
 == *Features*
@@ -102,11 +102,12 @@ As a bdd developer +
 I want to use *Cukedoctor* to convert my cucumber test results into `readable` living documentation
 ****
 
-==== Scenario: Convert features test output into documentation
+==== Scenario: Convert features test output into documentation icon:thumbs-down[role="red",title="Failed"]
 
 ****
 Given ::
-The following two features: icon:thumbs-up[role="green",title="Passed"] [small right]#(01s 011ms)#
+=====
+The following two features: icon:thumbs-up[role="green",title="Passed"] [small right]#(01s 087ms)#
 ----
 
 Feature: Feature1
@@ -122,13 +123,15 @@ Feature: Feature2
     Given scenario step
 
 ----
+=====
 When ::
-I convert their json test output using cukedoctor converter icon:thumbs-up[role="green",title="Passed"] [small right]#(01s 231ms)#
+=====
+I convert their json test output using cukedoctor converter icon:thumbs-up[role="green",title="Passed"] [small right]#(01s 922ms)#
 ******
 
 [discrete]
 [IMPORTANT]
-======
+=======
 [discrete]
 To generate cucumber .json output files just execute your _BDD_ tests with *json* formatter, example:
 [discrete]
@@ -139,13 +142,15 @@ To generate cucumber .json output files just execute your _BDD_ tests with *json
 ----
 [discrete]
 NOTE: *plugin* option replaced *format* option which was deprecated in newer cucumber versions.
-======
+=======
 
 
 ******
 
+=====
 Then ::
-I should have awesome living documentation icon:thumbs-up[role="green",title="Passed"] [small right]#(001ms)#
+=====
+I should have awesome living documentation icon:thumbs-down[role="red",title="Failed"] [small right]#(010ms)#
 ******
 
 [discrete]
@@ -210,6 +215,7 @@ I should have awesome living documentation icon:thumbs-up[role="green",title="Pa
 *****
 [discrete]
 Given ::
+======
 [discrete]
 scenario step icon:thumbs-up[role="green",title="Passed"] [small right]#(647ms)#
 [discrete]
@@ -220,18 +226,49 @@ scenario step icon:thumbs-up[role="green",title="Passed"] [small right]#(647ms)#
 === *Feature2*
 [discrete]
 ==== Scenario: Scenario feature 2
+======
 [discrete]
 *****
 [discrete]
 Given ::
+======
 [discrete]
 scenario step icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+======
 [discrete]
 *****
 
 
 ******
 
+IMPORTANT: org.junit.ComparisonFailure: expected:<...all right]#(647ms)#
+[****
+
+[[Feature2, Feature2]]
+=== *Feature2*
+
+==== Scenario: Scenario feature 2
+=====]
+
+****
+Given ::
+====...> but was:<...all right]#(647ms)#
+[=====
+****
+
+[[Feature2, Feature2]]
+=== *Feature2*
+
+==== Scenario: Scenario feature 2]
+
+****
+Given ::
+====...>
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.re...
+
+
+=====
 ****
 
 [[Ordering, Ordering]]
@@ -243,10 +280,11 @@ As a bdd developer +
 I want to control the order of features in my documentation
 ****
 
-==== Scenario: Default ordering
+==== Scenario: Default ordering icon:thumbs-down[role="red",title="Failed"]
 
 ****
 Given ::
+=====
 The following two features: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -263,10 +301,14 @@ Feature: Feature2
     Given scenario step
 
 ----
+=====
 When ::
-I convert them using default order icon:thumbs-up[role="green",title="Passed"] [small right]#(039ms)#
+=====
+I convert them using default order icon:thumbs-up[role="green",title="Passed"] [small right]#(086ms)#
+=====
 Then ::
-Features should be ordered by name in resulting documentation icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
+Features should be ordered by name in resulting documentation icon:thumbs-down[role="red",title="Failed"] [small right]#(000ms)#
 ******
 
 [discrete]
@@ -301,12 +343,39 @@ scenario step icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 
 ******
 
-****
-
-==== Scenario: Custom ordering
+IMPORTANT: org.junit.ComparisonFailure: expected:<...re 1
 
 ****
 Given ::
+[scenario step icon:thumbs-up[role="green",title="Passed"] [small right]#(647ms)#
+****
+
+[[Feature2, Feature2]]
+=== *Feature2*
+
+==== Scenario: Scenario feature 2
+
+****
+Given ::
+scenario step icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#]
+****
+
+"> but was:<...re 1
+
+****
+Given ::
+[=====
+scenario step icon:thumbs-up[rol...
+
+
+=====
+****
+
+==== Scenario: Custom ordering icon:thumbs-down[role="red",title="Failed"]
+
+****
+Given ::
+=====
 The following two features: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -328,10 +397,14 @@ Feature: Feature2
 
 NOTE: Ordering is done using feature comment '*order:*'
 
+=====
 When ::
-I convert them using comment order icon:thumbs-up[role="green",title="Passed"] [small right]#(026ms)#
+=====
+I convert them using comment order icon:thumbs-up[role="green",title="Passed"] [small right]#(033ms)#
+=====
 Then ::
-Features should be ordered respecting order comment icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
+Features should be ordered respecting order comment icon:thumbs-down[role="red",title="Failed"] [small right]#(000ms)#
 ******
 
 [discrete]
@@ -366,6 +439,32 @@ scenario step icon:thumbs-up[role="green",title="Passed"] [small right]#(313ms)#
 
 ******
 
+IMPORTANT: org.junit.ComparisonFailure: expected:<...re 2
+
+****
+Given ::
+[scenario step icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+****
+
+[[Feature1, Feature1]]
+=== *Feature1*
+
+==== Scenario: Scenario feature 1
+
+****
+Given ::
+scenario step icon:thumbs-up[role="green",title="Passed"] [small right]#(313ms)#]
+****
+
+"> but was:<...re 2
+
+****
+Given ::
+[=====
+scenario step icon:thumbs-up[rol...
+
+
+=====
 ****
 
 [[Documentation-introduction-chapter, Documentation introduction chapter]]
@@ -377,10 +476,11 @@ As a bdd developer +
 I want to be able to provide an asciidoc based document which introduces my software
 ****
 
-==== Scenario: Introduction chapter in classpath
+==== Scenario: Introduction chapter in classpath icon:thumbs-down[role="red",title="Failed"]
 
 ****
 Given ::
+=====
 The following two features: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -397,8 +497,10 @@ Feature: Feature2
     Given scenario step
 
 ----
+=====
 And ::
-The following asciidoc document is on your application classpath icon:thumbs-up[role="green",title="Passed"] [small right]#(032ms)#
+=====
+The following asciidoc document is on your application classpath icon:thumbs-up[role="green",title="Passed"] [small right]#(028ms)#
 ******
 
 [discrete]
@@ -432,10 +534,14 @@ System.setProperty("INTRO_CHAPTER_DIR","/home/some/external/folder");
 ----
 ====
 
+=====
 When ::
+=====
 Bdd tests results are converted into documentation by Cukedoctor icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 Then ::
-Resulting documentation should have the provided introduction chapter icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
+Resulting documentation should have the provided introduction chapter icon:thumbs-down[role="red",title="Failed"] [small right]#(000ms)#
 ******
 
 [discrete]
@@ -536,6 +642,32 @@ scenario step icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 
 ******
 
+IMPORTANT: org.junit.ComparisonFailure: expected:<...re 1
+
+****
+Given ::
+[scenario step icon:thumbs-up[role="green",title="Passed"] [small right]#(647ms)#
+****
+
+[[Feature2, Feature2]]
+=== *Feature2*
+
+==== Scenario: Scenario feature 2
+
+****
+Given ::
+scenario step icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#]
+****
+
+"> but was:<...re 1
+
+****
+Given ::
+[=====
+scenario step icon:thumbs-up[rol...
+
+
+=====
 ****
 
 [[Enrich-features, Enrich features]]
@@ -547,11 +679,12 @@ As a bdd developer +
 I want to render asciidoc markup inside my features
 ****
 
-==== Scenario: DocSting enrichment
+==== Scenario: DocSting enrichment icon:thumbs-down[role="red",title="Failed"]
 Asciidoc markup can be used in feature *DocStrings*. To do so you need to enable it by using *cukector-dicrete* comment on the feature.
 
 ****
 Given ::
+=====
 The following two features: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -587,10 +720,14 @@ Feature: Enrich feature
 """
 
 ----
+=====
 When ::
-I convert docstring enriched json output using cukedoctor converter icon:thumbs-up[role="green",title="Passed"] [small right]#(041ms)#
+=====
+I convert docstring enriched json output using cukedoctor converter icon:thumbs-up[role="green",title="Passed"] [small right]#(081ms)#
+=====
 Then ::
-DocString asciidoc output must be rendered in my documentation icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
+DocString asciidoc output must be rendered in my documentation icon:thumbs-down[role="red",title="Failed"] [small right]#(000ms)#
 ******
 
 [discrete]
@@ -603,6 +740,7 @@ DocString asciidoc output must be rendered in my documentation icon:thumbs-up[ro
 *****
 [discrete]
 Given ::
+======
 [discrete]
 the following source code icon:thumbs-up[role="green",title="Passed"] [small right]#(267ms)#
 [discrete]
@@ -648,13 +786,43 @@ the following table icon:thumbs-up[role="green",title="Passed"] [small right]#(0
 
 ******
 
+IMPORTANT: org.junit.ComparisonFailure: expected:<...entation>
+
+
+******
+
+[****
+
+==== Scenario: Render table
+
+****
+Given ::
+the following table icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+******
+
+[discrete]
+|===
+| Cell in column 1, row 1 | Cell in column 2, row 1
+| Cell in column 1, row 2 | Cell in column 2, row 2
+| Cell in column 1, row 3 | Cell in column 2, row 3
+|===
+
+
+******
+]
+****
+...
+
+
+=====
 ****
 
-==== Scenario: Comments enrichment
+==== Scenario: Comments enrichment icon:thumbs-down[role="red",title="Failed"]
 Asciidoc markup can be used in feature comments. To do so you need to surround asciidoc markup by *curly brackets*;.
 
 ****
 Given ::
+=====
 The following feature with asciidoc markup in comments: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -678,10 +846,14 @@ Feature: Calculator
 
 
 ----
+=====
 When ::
-I convert enriched feature json output using cukedoctor icon:thumbs-up[role="green",title="Passed"] [small right]#(047ms)#
+=====
+I convert enriched feature json output using cukedoctor icon:thumbs-up[role="green",title="Passed"] [small right]#(048ms)#
+=====
 Then ::
-Asciidoc markup on comments must be rendered in my documentation icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
+Asciidoc markup on comments must be rendered in my documentation icon:thumbs-down[role="red",title="Failed"] [small right]#(000ms)#
 ******
 
 [discrete]
@@ -724,5 +896,23 @@ I should have 3 as result icon:thumbs-up[role="green",title="Passed"] [small rig
 
 ******
 
+IMPORTANT: org.junit.ComparisonFailure: expected:<...ture!
+
+****
+Given::
+[Ihavenumbers1and2icon:thumbs-up[role="green",title="Passed"][smallright]#(114ms)#
+
+IMPORTANT:Asciidocmarkupinside*steps*mustbesurroundedby*curlybrackets*.
+
+When::
+Isumthenumbersicon:thumbs-up[role="green",title="Passed"][smallright]#(000ms)#
+
+NOTE:Stepscommentsareplaced*before*eachstepssothiscommentisforthe*WHEN*step.
+
+Then::
+Ishouldha...
+
+
+=====
 ****
 
