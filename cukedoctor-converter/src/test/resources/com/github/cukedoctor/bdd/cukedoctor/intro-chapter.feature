@@ -126,7 +126,9 @@ Here are some design principles:
 
 ****
 Given ::
+=====
 scenario step icon:thumbs-up[role="green",title="Passed"] [small right]#(647ms)#
+=====
 ****
 
 [[Feature2, Feature2]]
@@ -136,7 +138,9 @@ scenario step icon:thumbs-up[role="green",title="Passed"] [small right]#(647ms)#
 
 ****
 Given ::
+=====
 scenario step icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 ****
 
 

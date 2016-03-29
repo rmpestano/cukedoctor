@@ -7,6 +7,7 @@ import com.github.cukedoctor.api.model.*;
 import com.github.cukedoctor.parser.FeatureParser;
 import com.github.cukedoctor.spi.FeatureRenderer;
 import com.github.cukedoctor.spi.StepsRenderer;
+import com.github.cukedoctor.util.Constants;
 import com.github.cukedoctor.util.Expectations;
 import com.github.cukedoctor.util.FileUtil;
 import com.github.cukedoctor.util.builder.FeatureBuilder;
@@ -136,7 +137,9 @@ public class RendererTest {
         String resultDoc = stepsRenderer.renderSteps(steps);
         assertThat(resultDoc).isEqualTo("****" + newLine() +
                 "Given::" + newLine() +
+                Constants.Markup.exampleBlock() + newLine() +
                 "passing step icon:thumbs-up[role=\"green\",title=\"Passed\"] [small right]#(000ms)#" + newLine() +
+                Constants.Markup.exampleBlock() + newLine() +
                 "****" + newLine() + newLine());
     }
 
@@ -152,9 +155,13 @@ public class RendererTest {
         String resultDoc = stepsRenderer.renderSteps(steps);
         assertThat(resultDoc).isEqualTo("****" + newLine() +
                 "Given::" + newLine() +
+                Constants.Markup.exampleBlock() + newLine() +
                 "passing step icon:thumbs-up[role=\"green\",title=\"Passed\"] [small right]#(000ms)#" + newLine() +
+                Constants.Markup.exampleBlock() + newLine() +
                 "When::" + newLine() +
+                Constants.Markup.exampleBlock() + newLine() +
                 "failing step icon:thumbs-down[role=\"red\",title=\"Failed\"] [small right]#(000ms)#" + newLine() +
+                Constants.Markup.exampleBlock() + newLine() +
                 "****" + newLine()+newLine());
     }
 
@@ -176,7 +183,9 @@ public class RendererTest {
                         "description"+newLine() +newLine()+
                         "****"+newLine() +
                         "Given::"+newLine() +
+                        Constants.Markup.exampleBlock() + newLine() +
                         "passing step icon:thumbs-up[role=\"green\",title=\"Passed\"] [small right]#(000ms)#"+newLine() +
+                        Constants.Markup.exampleBlock() + newLine() +
                         "****"+newLine() +
                         ""+newLine());
     }
@@ -190,18 +199,27 @@ public class RendererTest {
         CukedoctorScenarioRenderer scenarioRenderer = new CukedoctorScenarioRenderer();
         String resultDoc = scenarioRenderer.renderScenarioSteps(steps);
         assertThat(resultDoc).isEqualTo("****" + newLine() +
-                "Given::" + newLine() +
+                "Given::" + newLine() + Constants.Markup.exampleBlock() + newLine() +
                 "passing step icon:thumbs-up[role=\"green\",title=\"Passed\"] [small right]#(000ms)#" + newLine() +
-                "When::" + newLine() +
-                "failing step icon:thumbs-down[role=\"red\",title=\"Failed\"] [small right]#(000ms)#" + newLine() +
-                "When::" + newLine() +
+                Constants.Markup.exampleBlock() + newLine() +
+                "When::" + newLine() + Constants.Markup.exampleBlock() + newLine() +
+               "failing step icon:thumbs-down[role=\"red\",title=\"Failed\"] [small right]#(000ms)#" + newLine() +
+                Constants.Markup.exampleBlock() + newLine() +
+                "When::" + newLine() + Constants.Markup.exampleBlock() + newLine() +
                 "pending step icon:thumbs-down[role=\"maroon\",title=\"Pending\"] [small right]#(000ms)#" + newLine() +
+                Constants.Markup.exampleBlock() + newLine() +
                 "When::" + newLine() +
+                Constants.Markup.exampleBlock() + newLine() +
                 "missing step icon:thumbs-down[role=\"blue\",title=\"Missing\"] [small right]#(000ms)#" + newLine() +
+                Constants.Markup.exampleBlock() + newLine() +
                 "When::" + newLine() +
+                Constants.Markup.exampleBlock() + newLine() +
                 "undefined step icon:thumbs-down[role=\"yellow\",title=\"Undefined\"] [small right]#(000ms)#" + newLine() +
+                Constants.Markup.exampleBlock() + newLine() +
                 "Then::" + newLine() +
+                Constants.Markup.exampleBlock() + newLine() +
                 "skipped step icon:thumbs-down[role=\"purple\",title=\"Skipped\"] [small right]#(000ms)#" + newLine() +
+                Constants.Markup.exampleBlock() + newLine() +
                 "****" + newLine()+newLine());
     }
 
@@ -217,9 +235,13 @@ public class RendererTest {
                 ""+newLine() +
                 "****"+newLine() +
                 "Given::"+newLine() +
+                Constants.Markup.exampleBlock() + newLine() +
                 "passing step icon:thumbs-up[role=\"green\",title=\"Passed\"] [small right]#(000ms)#"+newLine() +
+                 Constants.Markup.exampleBlock() + newLine() +
                 "When::"+newLine() +
+                Constants.Markup.exampleBlock() + newLine() +
                 "failing step icon:thumbs-down[role=\"red\",title=\"Failed\"] [small right]#(000ms)#"+newLine() +
+                Constants.Markup.exampleBlock() + newLine() +
                 "****"+newLine() +
                 ""+newLine() +
                 "==== Scenario: scenario icon:thumbs-down[role=\"red\",title=\"Failed\"]"+newLine() +
@@ -227,7 +249,9 @@ public class RendererTest {
                 ""+newLine() +
                 "****"+newLine() +
                 "Then::"+newLine() +
+                Constants.Markup.exampleBlock() + newLine() +
                 "skipped step icon:thumbs-down[role=\"purple\",title=\"Skipped\"] [small right]#(000ms)#"+newLine() +
+                Constants.Markup.exampleBlock() + newLine() +
                 "****"+newLine() +
                 ""+newLine() +
                 "==== Scenario: scenario icon:thumbs-down[role=\"red\",title=\"Failed\"]"+newLine() +
@@ -235,7 +259,9 @@ public class RendererTest {
                 ""+newLine() +
                 "****"+newLine() +
                 "Given::"+newLine() +
+                 Constants.Markup.exampleBlock() + newLine() +
                 "undefined step icon:thumbs-down[role=\"yellow\",title=\"Undefined\"] [small right]#(000ms)#"+newLine() +
+                Constants.Markup.exampleBlock() + newLine() +
                 "****"+newLine() +
                 ""+newLine()).replaceAll("\r",""));
     }

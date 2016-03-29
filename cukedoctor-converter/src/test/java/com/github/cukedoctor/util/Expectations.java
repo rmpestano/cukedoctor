@@ -327,7 +327,7 @@ public interface Expectations {
 			""+newLine() +
 			""+newLine() +
 			"****"+newLine() +
-			"Given ::"+newLine() + "=====" +newLine() +
+			"Given ::"+newLine() + Constants.Markup.exampleBlock() + newLine() +
 			"this step passes icon:thumbs-up[role=\"green\",title=\"Passed\"] [small right]#(001ms)#"+newLine() +
 			"=====" +newLine() +
 			"****"+newLine() +
@@ -337,7 +337,7 @@ public interface Expectations {
 			""+newLine() +
 			""+newLine() +
 			"****"+newLine() +
-			"Given ::"+newLine() + "=====" +newLine() +
+			"Given ::"+newLine() + Constants.Markup.exampleBlock() + newLine() +
 			"this step fails icon:thumbs-down[role=\"red\",title=\"Failed\"] [small right]#(008ms)#"+newLine() +
 			""+newLine() +
 			"IMPORTANT:  (RuntimeError)"+newLine() +
@@ -407,6 +407,7 @@ public interface Expectations {
 			""+newLine() + newLine() +
 			"****"+newLine()  +
 			"Dado ::"+newLine() +
+			Constants.Markup.exampleBlock() + newLine() +
 			"a User has posted the following messages: icon:thumbs-up[role=\"green\",title=\"Passed\"] [small right]#(111ms)#"+newLine() +
 			""+newLine() +
 			"[cols=\"1*\", options=\"header\"]"+newLine() +
@@ -424,6 +425,7 @@ public interface Expectations {
 			"--"+newLine() +
 			""+newLine() +
 			"----"+newLine() +
+			Constants.Markup.exampleBlock() + newLine() +
 			"****"+newLine() +
 			""+newLine();
 
@@ -489,6 +491,7 @@ public interface Expectations {
 			""+newLine() +
 			"****"+newLine() +
 			"Dado ::"+newLine() +
+			Constants.Markup.exampleBlock() + newLine() +
 			"a User has posted the following messages: icon:thumbs-up[role=\"green\",title=\"Passed\"] [small right]#(111ms)#"+newLine() +
 			""+newLine() +
 			"[cols=\"1*\", options=\"header\"]"+newLine() +
@@ -506,6 +509,7 @@ public interface Expectations {
 			"--"+newLine() +
 			""+newLine() +
 			"----"+newLine() +
+			Constants.Markup.exampleBlock() + newLine() +
 			"****"+newLine() +
 			""+newLine();
 }

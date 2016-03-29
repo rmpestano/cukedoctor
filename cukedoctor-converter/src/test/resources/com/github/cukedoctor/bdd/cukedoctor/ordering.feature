@@ -34,7 +34,9 @@ Feature: Feature2
 
 ****
 Given ::
+=====
 scenario step icon:thumbs-up[role="green",title="Passed"] [small right]#(647ms)#
+=====
 ****
 
 [[Feature2, Feature2]]
@@ -44,7 +46,9 @@ scenario step icon:thumbs-up[role="green",title="Passed"] [small right]#(647ms)#
 
 ****
 Given ::
+=====
 scenario step icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 ****
 
 
@@ -81,7 +85,9 @@ Feature: Feature2
 
 ****
 Given ::
+=====
 scenario step icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 ****
 
 [[Feature1, Feature1]]
@@ -91,7 +97,9 @@ scenario step icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 
 ****
 Given ::
+=====
 scenario step icon:thumbs-up[role="green",title="Passed"] [small right]#(313ms)#
+=====
 ****
 
 

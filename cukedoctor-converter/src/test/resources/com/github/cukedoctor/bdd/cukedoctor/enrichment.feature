@@ -71,12 +71,14 @@ public int sum(int x, int y){
 
 ******
 
+=====
 ****
 
 ==== Scenario: Render table
 
 ****
 Given ::
+=====
 the following table icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ******
 
@@ -90,6 +92,7 @@ the following table icon:thumbs-up[role="green",title="Passed"] [small right]#(0
 
 ******
 
+=====
 ****
 
 
@@ -135,16 +138,21 @@ NOTE: This is a very important feature!
 
 ****
 Given ::
+=====
 I have numbers 1 and 2 icon:thumbs-up[role="green",title="Passed"] [small right]#(114ms)#
 
 IMPORTANT: Asciidoc markup inside *steps* must be surrounded by *curly brackets*.
 
+=====
 When ::
+=====
 I sum the numbers icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 
 NOTE: Steps comments are placed *before* each steps so this comment is for the *WHEN* step.
 
+=====
 Then ::
+=====
 I should have 3 as result icon:thumbs-up[role="green",title="Passed"] [small right]#(001ms)#
 
 * this is a list of itens inside a feature step
@@ -153,6 +161,7 @@ I should have 3 as result icon:thumbs-up[role="green",title="Passed"] [small rig
 
 ** second level list item
 
+=====
 ****
 
 
