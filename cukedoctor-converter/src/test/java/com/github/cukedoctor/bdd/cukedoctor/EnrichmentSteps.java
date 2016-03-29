@@ -54,4 +54,5 @@ public class EnrichmentSteps {
     public void The_following_feature_with_asciidoc_markup_in_comments(String features) throws Throwable {
         assertThat(features).isNotNull();
     }
+
 }

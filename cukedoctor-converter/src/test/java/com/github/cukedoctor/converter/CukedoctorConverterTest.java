@@ -404,20 +404,20 @@ public class CukedoctorConverterTest {
 
 		assertThat(resultDoc).
 				doesNotContain("feature to skip").
-				isEqualTo("[[Feature-name, Feature name]]"+newLine() +
-						"=== *Feature name*"+newLine() +
-						""+newLine() +
-						"minmax::Feature-name[]"+newLine() +
-						"****"+newLine() +
-						"Feature description"+newLine() +
-						"****"+newLine() +
-						""+newLine() +
-						"==== Scenario: scenario 1"+newLine() +
-						"description"+newLine() +
-						""+newLine() +
-						"==== Scenario: scenario 2"+newLine() +
-						"description 2"+newLine() +
-						""+newLine());
+				isEqualTo("[[Feature-name, Feature name]]" + newLine() +
+						"=== *Feature name*" + newLine() +
+						"" + newLine() +
+						"minmax::Feature-name[]" + newLine() +
+						"****" + newLine() +
+						"Feature description" + newLine() +
+						"****" + newLine() +
+						"" + newLine() +
+						"==== Scenario: scenario 1" + newLine() +
+						"description" + newLine() +
+						"" + newLine() +
+						"==== Scenario: scenario 2" + newLine() +
+						"description 2" + newLine() +
+						"" + newLine());
 	}
 
 
@@ -446,7 +446,7 @@ public class CukedoctorConverterTest {
 				containsOnlyOnce("|1|1|2|1|1|0|0|0|0|2 2+|010ms");
 
 		FileUtil.saveFile("target/test-docs/doc_one_feature.adoc", resultDoc); //save to target/test-docs folder
-		assertThat(resultDoc.replaceAll("\r","")).isEqualTo(Expectations.DOCUMENTATION_FOR_ONE_FEATURE.replaceAll("\r",""));
+		assertThat(resultDoc.replaceAll("\r", "")).isEqualTo(Expectations.DOCUMENTATION_FOR_ONE_FEATURE.replaceAll("\r", ""));
 	}
 
 	@Test
@@ -540,6 +540,58 @@ public class CukedoctorConverterTest {
 				"** second level list item" + newLine() +
 				newLine() +
 				"****" + newLine() + newLine()).replaceAll("\r", ""));
+	}
+
+	@Test
+	public void shouldEnrichFeatureWithListing(){
+		List<Feature> features = FeatureParser.parse(getClass().getResource("/com/github/cukedoctor/json-output/comment-with-listing.json").getPath());
+		assertThat(features).isNotNull().hasSize(1);
+		String output = Cukedoctor.instance(features).renderFeatures(features).getDocumentation();
+		assertThat(output.replaceAll("\r", "")).isEqualTo(("[[Enriched-feature, Enriched feature]]"+newLine() +
+				"=== *Enriched feature*"+newLine() +
+				""+newLine() +
+				"==== Scenario: Scenario with listing"+newLine() +
+				"You can use *asciidoc markup* using feature comments."+newLine() +
+				""+newLine() +
+				"****"+newLine() +
+				"Given ::"+newLine() +
+				"I have listing in feature comments. icon:thumbs-up[role=\"green\",title=\"Passed\"] [small right]#(000ms)#"+newLine() +
+				"[source,java]"+newLine() +
+				"----"+newLine() +
+				""+newLine() +
+				"System.setProperty(\"INTRO_CHAPTER_DIR\",\"/home/some/external/folder\");"+newLine() +
+				"----"+newLine() +
+				""+newLine() +
+				"****"+newLine()+newLine()).replaceAll("\r",""));
+	}
+
+	@Test
+	public void shouldEnrichFeatureWithListingWithinAdmonitionBlock(){
+		List<Feature> features = FeatureParser.parse(getClass().getResource("/com/github/cukedoctor/json-output/comment-with-admonition-and-listing.json").getPath());
+		assertThat(features).isNotNull().hasSize(1);
+		String output = Cukedoctor.instance(features).renderFeatures(features).getDocumentation();
+		assertThat(output.replaceAll("\r", "")).isEqualTo(("[[Enriched-feature, Enriched feature]]"+newLine() +
+				"=== *Enriched feature*"+newLine() +
+				""+newLine() +
+				"==== Scenario: Scenario with admonition and  listing"+newLine() +
+				"You can use *asciidoc markup* using feature comments."+newLine() +
+				""+newLine() +
+				"****"+newLine() +
+				"Given ::"+newLine() +
+				"I have admonition with a listing in feature comments. icon:thumbs-up[role=\"green\",title=\"Passed\"] [small right]#(032ms)#"+newLine() +
+				""+newLine() +
+				"[TIP]"+newLine() +
+				"===="+newLine() +
+				""+newLine() +
+				"This is a tip with source code inside"+newLine() +
+				"[source,java]"+newLine() +
+				"----"+newLine() +
+				""+newLine() +
+				"System.setProperty(\"INTRO_CHAPTER_DIR\",\"/home/some/external/folder\");"+newLine() +
+				"----"+newLine() +
+				"===="+newLine() +
+				""+newLine() +
+				"****"+newLine()+newLine()).replaceAll("\r",""));
 	}
 
 

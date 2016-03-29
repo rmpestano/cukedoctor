@@ -171,7 +171,7 @@ public class CukedoctorStepsRenderer extends AbstractBaseRenderer implements Ste
                }
                //add new line to last comment
                if(step.getComments().indexOf(comment) == numComments-1){
-                     docBuilder.newLine();  
+                     docBuilder.newLine();
                }
         }
        }

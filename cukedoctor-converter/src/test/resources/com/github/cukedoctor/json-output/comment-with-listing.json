@@ -1,0 +1,52 @@
+[
+  {
+    "line": 1,
+    "elements": [
+      {
+        "line": 3,
+        "name": "Scenario with listing",
+        "description": "You can use *asciidoc markup* using feature comments.",
+        "id": "enriched-feature;scenario-with-listing",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 122658,
+              "status": "passed"
+            },
+            "comments": [
+              {
+                "line": 6,
+                "value": "#{[source,java]}"
+              },
+              {
+                "line": 7,
+                "value": "#{----}"
+              },
+              {
+                "line": 8,
+                "value": "#{System.setProperty(\"INTRO_CHAPTER_DIR\",\"/home/some/external/folder\");}"
+              },
+              {
+                "line": 9,
+                "value": "#{----}"
+              }
+            ],
+            "line": 10,
+            "name": "I have listing in feature comments.",
+            "match": {
+              "location": "EnrichmentSteps.I_have_listing_in_feature_comments()"
+            },
+            "keyword": "Given "
+          }
+        ]
+      }
+    ],
+    "name": "Enriched feature",
+    "description": "",
+    "id": "enriched-feature",
+    "keyword": "Feature",
+    "uri": "com/github/cukedoctor/bdd/sample/enriched-feaure-with-listing.feature"
+  }
+]

@@ -10,6 +10,8 @@ import com.github.cukedoctor.api.model.Feature;
 import com.github.cukedoctor.parser.FeatureParser;
 import com.github.cukedoctor.util.Constants;
 
+import cucumber.api.PendingException;
+import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
@@ -34,5 +36,6 @@ public class ConverterSteps {
     public void I_should_have_awesome_living_documentation(String expected) throws Throwable {
        assertThat(documentation.replaceAll("\r","")).isEqualTo(expected.replaceAll("\r","").replace("/home/pestano/projects/cukedoctor/cukedoctor-converter/target/test-classes/", Constants.home()));
     }
+
 
 }
