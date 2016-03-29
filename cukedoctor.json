@@ -18,7 +18,7 @@
         "steps": [
           {
             "result": {
-              "duration": 350714629,
+              "duration": 607661536,
               "status": "passed"
             },
             "line": 10,
@@ -35,7 +35,7 @@
           },
           {
             "result": {
-              "duration": 1404698441,
+              "duration": 1235424435,
               "status": "passed"
             },
             "comments": [
@@ -58,7 +58,7 @@
           },
           {
             "result": {
-              "duration": 920619,
+              "duration": 2023775,
               "status": "passed"
             },
             "comments": [
@@ -107,7 +107,7 @@
         "steps": [
           {
             "result": {
-              "duration": 93452,
+              "duration": 151617,
               "status": "passed"
             },
             "line": 11,
@@ -124,7 +124,7 @@
           },
           {
             "result": {
-              "duration": 37660248,
+              "duration": 37493741,
               "status": "passed"
             },
             "line": 45,
@@ -136,7 +136,7 @@
           },
           {
             "result": {
-              "duration": 109023,
+              "duration": 289300,
               "status": "passed"
             },
             "comments": [
@@ -169,7 +169,7 @@
         "steps": [
           {
             "result": {
-              "duration": 64936,
+              "duration": 97264,
               "status": "passed"
             },
             "line": 100,
@@ -186,7 +186,7 @@
           },
           {
             "result": {
-              "duration": 34887698,
+              "duration": 48042550,
               "status": "passed"
             },
             "line": 122,
@@ -198,7 +198,7 @@
           },
           {
             "result": {
-              "duration": 137525,
+              "duration": 235167,
               "status": "passed"
             },
             "comments": [
@@ -229,10 +229,16 @@
     "uri": "com/github/cukedoctor/bdd/cukedoctor/enrichment.feature"
   },
   {
-    "line": 1,
+    "comments": [
+      {
+        "line": 1,
+        "value": "# order: 3"
+      }
+    ],
+    "line": 2,
     "elements": [
       {
-        "line": 7,
+        "line": 8,
         "name": "Introduction chapter in classpath",
         "description": "",
         "id": "documentation-introduction-chapter;introduction-chapter-in-classpath",
@@ -241,10 +247,10 @@
         "steps": [
           {
             "result": {
-              "duration": 54032,
+              "duration": 85353,
               "status": "passed"
             },
-            "line": 9,
+            "line": 10,
             "name": "The following two features:",
             "match": {
               "location": "OrderingSteps.the_following_two_features(String)"
@@ -252,46 +258,58 @@
             "keyword": "Given ",
             "doc_string": {
               "content_type": "",
-              "line": 10,
+              "line": 11,
               "value": "Feature: Feature1\n\n  Scenario: Scenario feature 1\n\n    Given scenario step\n\nFeature: Feature2\n\n  Scenario: Scenario feature 2\n\n    Given scenario step"
             }
           },
           {
             "result": {
-              "duration": 21296424,
+              "duration": 41098341,
               "status": "passed"
             },
             "comments": [
               {
-                "line": 24,
+                "line": 25,
                 "value": "#{NOTE: The introduction file must be named *intro-chapter.adoc* and can be in any package of your application}"
               },
               {
-                "line": 26,
-                "value": "#{TIP: By default Cukedoctor will look into application folders but you can make Cukedoctor look into external folder by setting the following system property:}"
-              },
-              {
                 "line": 27,
-                "value": "#{[source,java]}"
+                "value": "#{[TIP]}"
               },
               {
                 "line": 28,
-                "value": "#{----}"
+                "value": "#{\u003d\u003d\u003d\u003d}"
               },
               {
                 "line": 29,
-                "value": "#{System.setProperty(\"INTRO_CHAPTER_DIR\",\"/home/some/external/folder\")}"
+                "value": "#{By default Cukedoctor will look into application folders but you can make Cukedoctor look into external folder by setting the following system property:}"
               },
               {
                 "line": 30,
-                "value": "#{----}"
+                "value": "#{[source,java]}"
               },
               {
                 "line": 31,
+                "value": "#{----}"
+              },
+              {
+                "line": 32,
+                "value": "#{System.setProperty(\"INTRO_CHAPTER_DIR\",\"/home/some/external/folder\");}"
+              },
+              {
+                "line": 33,
+                "value": "#{----}"
+              },
+              {
+                "line": 34,
+                "value": "#{\u003d\u003d\u003d\u003d}"
+              },
+              {
+                "line": 36,
                 "value": "#cukedoctor-discrete"
               }
             ],
-            "line": 32,
+            "line": 37,
             "name": "The following asciidoc document is on your application classpath",
             "match": {
               "location": "IntroChapterSteps.I_convert_their_json_output_report_using_cukedoctor_converter(String)"
@@ -299,16 +317,16 @@
             "keyword": "And ",
             "doc_string": {
               "content_type": "",
-              "line": 33,
+              "line": 38,
               "value": "\u003d *Introduction*\n\nCukedoctor is a *Living documentation* tool which integrates Cucumber and Asciidoctor in order to convert your _BDD_ tests results into an awesome documentation.\n\nHere are some design principles:\n\n* Living documentation should be readable and highlight your software features;\n** Most bdd tools generate reports and not a truly documentation.\n* Cukedoctor *do not* introduce a new API that you need to learn, instead it operates on top of http://www.relishapp.com/cucumber/cucumber/docs/formatters/json-output-formatter[cucumber json output^] files;\n** In the \u0027worst case\u0027 to \u003c\u003cEnrich-features,enhance\u003e\u003e your documentation you will need to know a bit of http://asciidoctor.org/docs/what-is-asciidoc/[asciidoc markup^]."
             }
           },
           {
             "result": {
-              "duration": 26190,
+              "duration": 76684,
               "status": "passed"
             },
-            "line": 46,
+            "line": 51,
             "name": "Bdd tests results are converted into documentation by Cukedoctor",
             "match": {
               "location": "IntroChapterSteps.Bdd_tests_results_are_converted_into_documentation_by_Cukedoctor()"
@@ -317,16 +335,16 @@
           },
           {
             "result": {
-              "duration": 243185,
+              "duration": 444100,
               "status": "passed"
             },
             "comments": [
               {
-                "line": 49,
+                "line": 54,
                 "value": "# cukedoctor-discrete"
               }
             ],
-            "line": 50,
+            "line": 55,
             "name": "Resulting documentation should have the provided introduction chapter",
             "match": {
               "location": "IntroChapterSteps.I_should_have_awesome_living_documentation(String)"
@@ -334,7 +352,7 @@
             "keyword": "Then ",
             "doc_string": {
               "content_type": "",
-              "line": 51,
+              "line": 56,
               "value": "\n\u003d *Documentation*\n\n\u003d\u003d *Introduction*\n\nCukedoctor is a *Living documentation* tool which integrates Cucumber and Asciidoctor in order to convert your _BDD_ tests results into an awesome documentation.\n\nHere are some design principles:\n\n* Living documentation should be readable and highlight your software features;\n** Most bdd tools generate reports and not a truly documentation.\n* Cukedoctor *do not* introduce a new API that you need to learn, instead it operates on top of http://www.relishapp.com/cucumber/cucumber/docs/formatters/json-output-formatter[cucumber json output^] files;\n** In the \u0027worst case\u0027 to \u003c\u003cEnrich-features,enhance\u003e\u003e your documentation you will need to know a bit of http://asciidoctor.org/docs/what-is-asciidoc/[asciidoc markup^].\n\n\u003d\u003d *Summary*\n[cols\u003d\"12*^m\", options\u003d\"header,footer\"]\n|\u003d\u003d\u003d\n3+|Scenarios 7+|Steps 2+|Features: 2\n\n|[green]#*Passed*#\n|[red]#*Failed*#\n|Total\n|[green]#*Passed*#\n|[red]#*Failed*#\n|[purple]#*Skipped*#\n|[maroon]#*Pending*#\n|[yellow]#*Undefined*#\n|[blue]#*Missing*#\n|Total\n|Duration\n|Status\n\n12+^|*\u003c\u003cFeature1\u003e\u003e*\n|1\n|0\n|1\n|1\n|0\n|0\n|0\n|0\n|0\n|1\n|647ms\n|[green]#*passed*#\n\n12+^|*\u003c\u003cFeature2\u003e\u003e*\n|1\n|0\n|1\n|1\n|0\n|0\n|0\n|0\n|0\n|1\n|000ms\n|[green]#*passed*#\n12+^|*Totals*\n|2|0|2|2|0|0|0|0|0|2 2+|647ms\n|\u003d\u003d\u003d\n\n\u003d\u003d *Features*\n\n[[Feature1, Feature1]]\n\u003d\u003d\u003d *Feature1*\n\n\u003d\u003d\u003d\u003d Scenario: Scenario feature 1\n\n****\nGiven ::\nscenario step icon:thumbs-up[role\u003d\"green\",title\u003d\"Passed\"] [small right]#(647ms)#\n****\n\n[[Feature2, Feature2]]\n\u003d\u003d\u003d *Feature2*\n\n\u003d\u003d\u003d\u003d Scenario: Scenario feature 2\n\n****\nGiven ::\nscenario step icon:thumbs-up[role\u003d\"green\",title\u003d\"Passed\"] [small right]#(000ms)#\n****\n\n"
             }
           }
@@ -366,7 +384,7 @@
         "steps": [
           {
             "result": {
-              "duration": 54879,
+              "duration": 92707,
               "status": "passed"
             },
             "line": 11,
@@ -383,7 +401,7 @@
           },
           {
             "result": {
-              "duration": 34252804,
+              "duration": 30009743,
               "status": "passed"
             },
             "line": 25,
@@ -395,7 +413,7 @@
           },
           {
             "result": {
-              "duration": 91820,
+              "duration": 116501,
               "status": "passed"
             },
             "comments": [
@@ -428,7 +446,7 @@
         "steps": [
           {
             "result": {
-              "duration": 4859866,
+              "duration": 55457,
               "status": "passed"
             },
             "comments": [
@@ -451,7 +469,7 @@
           },
           {
             "result": {
-              "duration": 32895729,
+              "duration": 26405702,
               "status": "passed"
             },
             "line": 72,
@@ -463,7 +481,7 @@
           },
           {
             "result": {
-              "duration": 80633,
+              "duration": 142461,
               "status": "passed"
             },
             "comments": [

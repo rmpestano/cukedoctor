@@ -43,7 +43,7 @@ include::/home/travis/build/rmpestano/cukedoctor/cukedoctor-converter/target/tes
 |0
 |0
 |3
-|01s 756ms
+|01s 845ms
 |[green]#*passed*#
 
 12+^|*<<Ordering>>*
@@ -57,7 +57,7 @@ include::/home/travis/build/rmpestano/cukedoctor/cukedoctor-converter/target/tes
 |0
 |0
 |6
-|072ms
+|056ms
 |[green]#*passed*#
 
 12+^|*<<Documentation-introduction-chapter>>*
@@ -71,7 +71,7 @@ include::/home/travis/build/rmpestano/cukedoctor/cukedoctor-converter/target/tes
 |0
 |0
 |4
-|021ms
+|041ms
 |[green]#*passed*#
 
 12+^|*<<Enrich-features>>*
@@ -85,10 +85,10 @@ include::/home/travis/build/rmpestano/cukedoctor/cukedoctor-converter/target/tes
 |0
 |0
 |6
-|072ms
+|086ms
 |[green]#*passed*#
 12+^|*Totals*
-|6|0|6|19|0|0|0|0|0|19 2+|01s 923ms
+|6|0|6|19|0|0|0|0|0|19 2+|02s 029ms
 |===
 
 == *Features*
@@ -106,7 +106,7 @@ I want to use *Cukedoctor* to convert my cucumber test results into [[readable]]
 
 ****
 Given ::
-The following two features: icon:thumbs-up[role="green",title="Passed"] [small right]#(350ms)#
+The following two features: icon:thumbs-up[role="green",title="Passed"] [small right]#(607ms)#
 ----
 
 Feature: Feature1
@@ -123,7 +123,7 @@ Feature: Feature2
 
 ----
 When ::
-I convert their json output report using cukedoctor converter icon:thumbs-up[role="green",title="Passed"] [small right]#(01s 404ms)#
+I convert their json output report using cukedoctor converter icon:thumbs-up[role="green",title="Passed"] [small right]#(01s 235ms)#
 ******
 
 [discrete]
@@ -145,7 +145,7 @@ NOTE: *plugin* option replaced *format* option which was deprecated in newer cuc
 ******
 
 Then ::
-I should have awesome living documentation icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+I should have awesome living documentation icon:thumbs-up[role="green",title="Passed"] [small right]#(002ms)#
 ******
 
 [discrete]
@@ -264,7 +264,7 @@ Feature: Feature2
 
 ----
 When ::
-I convert them using default order icon:thumbs-up[role="green",title="Passed"] [small right]#(034ms)#
+I convert them using default order icon:thumbs-up[role="green",title="Passed"] [small right]#(030ms)#
 Then ::
 Features should be ordered by name in resulting documentation icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ******
@@ -307,7 +307,7 @@ scenario step icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 
 ****
 Given ::
-The following two features: icon:thumbs-up[role="green",title="Passed"] [small right]#(004ms)#
+The following two features: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
 #order: 2
@@ -329,7 +329,7 @@ Feature: Feature2
 NOTE: Ordering is done using feature comment '*order:*'
 
 When ::
-I convert them using comment order icon:thumbs-up[role="green",title="Passed"] [small right]#(032ms)#
+I convert them using comment order icon:thumbs-up[role="green",title="Passed"] [small right]#(026ms)#
 Then ::
 Features should be ordered respecting order comment icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ******
@@ -398,7 +398,7 @@ Feature: Feature2
 
 ----
 And ::
-The following asciidoc document is on your application classpath icon:thumbs-up[role="green",title="Passed"] [small right]#(021ms)#
+The following asciidoc document is on your application classpath icon:thumbs-up[role="green",title="Passed"] [small right]#(041ms)#
 ******
 
 [discrete]
@@ -421,15 +421,16 @@ Here are some design principles:
 
 NOTE: The introduction file must be named *intro-chapter.adoc* and can be in any package of your application
 
-TIP: By default Cukedoctor will look into application folders but you can make Cukedoctor look into external folder by setting the following system property:
+[TIP]
+====
 
+By default Cukedoctor will look into application folders but you can make Cukedoctor look into external folder by setting the following system property:
 [source,java]
-
 ----
 
-System.setProperty("INTRO_CHAPTER_DIR","/home/some/external/folder")
-
+System.setProperty("INTRO_CHAPTER_DIR","/home/some/external/folder");
 ----
+====
 
 When ::
 Bdd tests results are converted into documentation by Cukedoctor icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
@@ -678,7 +679,7 @@ Feature: Calculator
 
 ----
 When ::
-I convert enriched feature json output using cukedoctor icon:thumbs-up[role="green",title="Passed"] [small right]#(034ms)#
+I convert enriched feature json output using cukedoctor icon:thumbs-up[role="green",title="Passed"] [small right]#(048ms)#
 Then ::
 Asciidoc markup on comments must be rendered in my documentation icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ******
