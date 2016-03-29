@@ -6,6 +6,7 @@ import com.github.cukedoctor.api.CukedoctorConverter;
 import com.github.cukedoctor.api.DocumentAttributes;
 import com.github.cukedoctor.api.model.Feature;
 import com.github.cukedoctor.parser.FeatureParser;
+import com.github.cukedoctor.util.Constants;
 import com.github.cukedoctor.util.FileUtil;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -96,11 +97,17 @@ public class CustomRendererTest {
                 "+" + newLine() +
                 "****" + newLine() +
                 "Given ::" + newLine() +
+                 Constants.Markup.exampleBlock() + newLine() +
                 "I have numbers 1 and 2 icon:thumbs-up[role=\"green\",title=\"Passed\"] [small right]#(155ms)#" + newLine() +
+                 Constants.Markup.exampleBlock() + newLine() +
                 "When ::" + newLine() +
+                 Constants.Markup.exampleBlock() + newLine() +
                 "I sum the numbers icon:thumbs-up[role=\"green\",title=\"Passed\"] [small right]#(000ms)#" + newLine() +
+                Constants.Markup.exampleBlock() + newLine() +
                 "Then ::" + newLine() +
+                Constants.Markup.exampleBlock() + newLine() +
                 "I should have 3 as result icon:thumbs-up[role=\"green\",title=\"Passed\"] [small right]#(001ms)#" + newLine() +
+                Constants.Markup.exampleBlock() + newLine() +
                 "****" + newLine() +
                 "" + newLine() +
                 "  Subtracting numbers:::" + newLine() +
@@ -108,10 +115,15 @@ public class CustomRendererTest {
                 "+" + newLine() +
                 "****" + newLine() +
                 "Given ::" + newLine() +
+                Constants.Markup.exampleBlock() + newLine() +
                 "I have numbers 2 and 1 icon:thumbs-up[role=\"green\",title=\"Passed\"] [small right]#(000ms)#" + newLine() +
+                Constants.Markup.exampleBlock() + newLine() +
                 "When ::" + newLine() +
+                Constants.Markup.exampleBlock() + newLine() +
                 "I subtract the numbers icon:thumbs-up[role=\"green\",title=\"Passed\"] [small right]#(000ms)#" + newLine() +
+                Constants.Markup.exampleBlock() + newLine() +
                 "Then ::" + newLine() +
+                Constants.Markup.exampleBlock() + newLine() +
                 "I should have 0 as result icon:thumbs-down[role=\"red\",title=\"Failed\"] [small right]#(000ms)#" + newLine() +
                 "" + newLine() +
                 "IMPORTANT: java.lang.AssertionError: expected:<0> but was:<1>" + newLine() +
@@ -123,6 +135,7 @@ public class CustomRendererTest {
                 "\tat com.github.cukedoctor.example.bdd.CalcStepDef.I_should_have_result(CalcStepDef.java:37)" + newLine() +
                 "\tat ✽.Then..." + newLine() +
                 "" + newLine() +
+                Constants.Markup.exampleBlock() + newLine() +
                 "****" + newLine() +
                 "" + newLine());
         //FileUtil.saveFile("target/test-docs/calc.adoc", resultDoc);
