@@ -75,6 +75,10 @@ public abstract class Constants {
 		public static String listing() {
 			return "----";
 		}
+
+		public static String exampleBlock() {
+			return "=====";
+		}
 	}
 
 	public abstract static class Atributes {

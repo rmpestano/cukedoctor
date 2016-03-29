@@ -54,6 +54,7 @@ Feature: Enrich feature
 
 ****
 Given ::
+=====
 the following source code icon:thumbs-up[role="green",title="Passed"] [small right]#(267ms)#
 ******
 

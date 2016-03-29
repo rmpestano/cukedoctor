@@ -39,7 +39,7 @@ public class CukedoctorStyleExtension extends Postprocessor{
         private void addStyleClass(Element contentElement) {
              String styleClass = " <style>  \n" +
                      "\n" +
-                     ".sidebarblock, .sectionbody{\n" +
+                     ".sidebarblock, .sectionbody, .content{\n" +
                  "overflow:auto!important;\n" +
                  "}\n";
 

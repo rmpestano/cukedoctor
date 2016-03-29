@@ -35,6 +35,7 @@ public class CukedoctorStepsRenderer extends AbstractBaseRenderer implements Ste
         docBuilder.textLine("****");
         for (Step step : steps) {
             docBuilder.append(step.getKeyword(), "::", newLine());
+            docBuilder.append(Constants.Markup.exampleBlock(),newLine());
             docBuilder.append(step.getName() + " ", Status.getStatusIcon(step.getStatus()));
             docBuilder.append(renderStepTime(step.getResult()));
 
@@ -58,6 +59,7 @@ public class CukedoctorStepsRenderer extends AbstractBaseRenderer implements Ste
             }
             renderOutput(step);
             enrichStep(step);
+            docBuilder.append(Constants.Markup.exampleBlock(),newLine());
         }
         docBuilder.textLine("****").newLine();
 
@@ -83,12 +85,12 @@ public class CukedoctorStepsRenderer extends AbstractBaseRenderer implements Ste
     private void renderDiscreteSidebarBlock(DocString docString) {
         docBuilder.append("******", newLine(), newLine());
 
-        String[] lines = docString.getValue().replaceAll("\\*\\*\\*\\*","*****").split("\\n");
+        String[] lines = docString.getValue().replaceAll("\\*\\*\\*\\*","*****").replaceAll(Constants.Markup.exampleBlock(),Constants.Markup.exampleBlock()+"=").split("\\n");
 
         //every line that starts with \n and not contains pipe(|) will have discrete class
         // pipe is skipped because it denotes table cells in asciidoc and putting
         // a discrete class will break tables
-        //also includes are skiped
+        //also includes are skipped
         //regex try:("^(?=.*^\\n)(?!\\n\\|).*$")
         boolean isListing = false; //control if line is inside a listing
         boolean isTable = false;//control if line is inside a table
@@ -157,13 +159,17 @@ public class CukedoctorStepsRenderer extends AbstractBaseRenderer implements Ste
            int numComments = step.getComments().size();
            for (Comment comment : step.getComments()) {
                if(hasText(comment.getValue()) && (comment.getValue().contains("{") && comment.getValue().contains("}"))){
-                   //do not add new line for listing, complex blocks,
-                   if(comment.getValue().contains("[source") || comment.getValue().contains("====") || comment.getValue().contains(Constants.Markup.listing())){
-                       docBuilder.textLine(comment.getValue().replaceAll("\\n", newLine()).replaceAll("#", "").
+                   String line = comment.getValue();
+                   //do not add new line for listing, complex blocks, callouts
+                   if(comment.getValue().contains("[source") ||
+                       line.contains("====") || line.contains(Constants.Markup.listing())
+                       || (line.startsWith("<") && line.endsWith(">"))
+                       ){
+                       docBuilder.textLine(line.replaceAll("\\n", newLine()).replaceAll("#", "").
                            replaceAll("\\{", "").
                            replaceAll("}", ""));
                    } else{
-                       docBuilder.textLine(comment.getValue().replaceAll("\\n", newLine()).replaceAll("#", "").
+                       docBuilder.textLine(line.replaceAll("\\n", newLine()).replaceAll("#", "").
                            replaceAll("\\{", newLine()).
                            replaceAll("}", ""));
                    }

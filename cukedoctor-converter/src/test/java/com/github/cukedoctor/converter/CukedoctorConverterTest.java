@@ -476,7 +476,7 @@ public class CukedoctorConverterTest {
 				containsOnlyOnce("|4|1|5|4|1|0|0|0|0|5 2+|010ms");
 
 		FileUtil.saveFile("target/test-docs/doc_multiple_feature.adoc", resultDoc); //save to target/test-docs folder
-		assertThat(resultDoc.replaceAll("\r","")).isEqualTo(Expectations.DOCUMENTATION_FOR_MULTIPLE_FEATURES.replaceAll("\r",""));
+		assertThat(resultDoc.replaceAll("\r", "")).isEqualTo(Expectations.DOCUMENTATION_FOR_MULTIPLE_FEATURES.replaceAll("\r", ""));
 	}
 
 	@Test
@@ -520,17 +520,18 @@ public class CukedoctorConverterTest {
 				"NOTE: This is a very important feature!" + newLine() +
 				newLine() +
 				"****" + newLine() +
-				"Given ::" + newLine() +
+				"Given ::" + newLine() + "=====" + newLine() +
 				"I have numbers 1 and 2 icon:thumbs-up[role=\"green\",title=\"Passed\"] [small right]#(114ms)#" + newLine() +
 				newLine() +
 				"IMPORTANT: Asciidoc markup inside *steps* must be surrounded by *curly brackets*." + newLine() +
 				newLine() +
-				"When ::" + newLine() +
+				"=====" + newLine() +
+				"When ::" + newLine() + "=====" + newLine() +
 				"I sum the numbers icon:thumbs-up[role=\"green\",title=\"Passed\"] [small right]#(000ms)#" + newLine() +
 				" " + newLine() +
 				"NOTE: Steps comments are placed *before* each steps so this comment is for the *WHEN* step." + newLine() +
-				newLine() +
-				"Then ::" + newLine() +
+				newLine() + "=====" + newLine() +
+				"Then ::" + newLine() + "=====" + newLine() +
 				"I should have 3 as result icon:thumbs-up[role=\"green\",title=\"Passed\"] [small right]#(001ms)#" + newLine() +
 				" " + newLine() +
 				"* this is a list of itens inside a feature step" + newLine() +
@@ -538,7 +539,7 @@ public class CukedoctorConverterTest {
 				"* there is no multiline comment in gherkin" + newLine() +
 				" " + newLine() +
 				"** second level list item" + newLine() +
-				newLine() +
+				newLine() + "=====" + newLine() +
 				"****" + newLine() + newLine()).replaceAll("\r", ""));
 	}
 
@@ -547,22 +548,22 @@ public class CukedoctorConverterTest {
 		List<Feature> features = FeatureParser.parse(getClass().getResource("/com/github/cukedoctor/json-output/comment-with-listing.json").getPath());
 		assertThat(features).isNotNull().hasSize(1);
 		String output = Cukedoctor.instance(features).renderFeatures(features).getDocumentation();
-		assertThat(output.replaceAll("\r", "")).isEqualTo(("[[Enriched-feature, Enriched feature]]"+newLine() +
-				"=== *Enriched feature*"+newLine() +
-				""+newLine() +
-				"==== Scenario: Scenario with listing"+newLine() +
-				"You can use *asciidoc markup* using feature comments."+newLine() +
-				""+newLine() +
-				"****"+newLine() +
-				"Given ::"+newLine() +
-				"I have listing in feature comments. icon:thumbs-up[role=\"green\",title=\"Passed\"] [small right]#(000ms)#"+newLine() +
-				"[source,java]"+newLine() +
-				"----"+newLine() +
-				""+newLine() +
-				"System.setProperty(\"INTRO_CHAPTER_DIR\",\"/home/some/external/folder\");"+newLine() +
-				"----"+newLine() +
-				""+newLine() +
-				"****"+newLine()+newLine()).replaceAll("\r",""));
+		assertThat(output.replaceAll("\r", "")).isEqualTo(("[[Enriched-feature, Enriched feature]]" + newLine() +
+				"=== *Enriched feature*" + newLine() +
+				"" + newLine() +
+				"==== Scenario: Scenario with listing" + newLine() +
+				"You can use *asciidoc markup* using feature comments." + newLine() +
+				"" + newLine() +
+				"****" + newLine() +
+				"Given ::" + newLine() + "=====" + newLine() +
+				"I have listing in feature comments. icon:thumbs-up[role=\"green\",title=\"Passed\"] [small right]#(000ms)#" + newLine() +
+				"[source,java]" + newLine() +
+				"----" + newLine() +
+				"" + newLine() +
+				"System.setProperty(\"INTRO_CHAPTER_DIR\",\"/home/some/external/folder\");" + newLine() +
+				"----" + newLine() +
+				"" + newLine() + "=====" + newLine() +
+				"****" + newLine() + newLine()).replaceAll("\r", ""));
 	}
 
 	@Test
@@ -570,28 +571,28 @@ public class CukedoctorConverterTest {
 		List<Feature> features = FeatureParser.parse(getClass().getResource("/com/github/cukedoctor/json-output/comment-with-admonition-and-listing.json").getPath());
 		assertThat(features).isNotNull().hasSize(1);
 		String output = Cukedoctor.instance(features).renderFeatures(features).getDocumentation();
-		assertThat(output.replaceAll("\r", "")).isEqualTo(("[[Enriched-feature, Enriched feature]]"+newLine() +
-				"=== *Enriched feature*"+newLine() +
-				""+newLine() +
-				"==== Scenario: Scenario with admonition and  listing"+newLine() +
-				"You can use *asciidoc markup* using feature comments."+newLine() +
-				""+newLine() +
-				"****"+newLine() +
-				"Given ::"+newLine() +
-				"I have admonition with a listing in feature comments. icon:thumbs-up[role=\"green\",title=\"Passed\"] [small right]#(032ms)#"+newLine() +
-				""+newLine() +
-				"[TIP]"+newLine() +
-				"===="+newLine() +
-				""+newLine() +
-				"This is a tip with source code inside"+newLine() +
-				"[source,java]"+newLine() +
-				"----"+newLine() +
-				""+newLine() +
-				"System.setProperty(\"INTRO_CHAPTER_DIR\",\"/home/some/external/folder\");"+newLine() +
-				"----"+newLine() +
-				"===="+newLine() +
-				""+newLine() +
-				"****"+newLine()+newLine()).replaceAll("\r",""));
+		assertThat(output.replaceAll("\r", "")).isEqualTo(("[[Enriched-feature, Enriched feature]]" + newLine() +
+				"=== *Enriched feature*" + newLine() +
+				"" + newLine() +
+				"==== Scenario: Scenario with admonition and  listing" + newLine() +
+				"You can use *asciidoc markup* using feature comments." + newLine() +
+				"" + newLine() +
+				"****" + newLine() +
+				"Given ::" + newLine() + "=====" + newLine() +
+				"I have admonition with a listing in feature comments. icon:thumbs-up[role=\"green\",title=\"Passed\"] [small right]#(032ms)#" + newLine() +
+				"" + newLine() +
+				"[TIP]" + newLine() +
+				"====" + newLine() +
+				"" + newLine() +
+				"This is a tip with source code inside" + newLine() +
+				"[source,java]" + newLine() +
+				"----" + newLine() +
+				"" + newLine() +
+				"System.setProperty(\"INTRO_CHAPTER_DIR\",\"/home/some/external/folder\");" + newLine() +
+				"----" + newLine() +
+				"====" + newLine() +
+				"" + newLine() + "=====" + newLine() +
+				"****" + newLine() + newLine()).replaceAll("\r", ""));
 	}
 
 
@@ -600,13 +601,13 @@ public class CukedoctorConverterTest {
 		List<Feature> features = FeatureParser.parse(getClass().getResource("/json-output/enrichment/table-and-source.json").getPath());
 		assertThat(features).isNotNull().hasSize(1);
 		String output = Cukedoctor.instance(features).renderFeatures(features).getDocumentation();
-		assertThat(output.replaceAll("\r","")).isEqualTo(("[[Discrete-class-feature, Discrete class feature]]" + newLine() +
+		assertThat(output.replaceAll("\r", "")).isEqualTo(("[[Discrete-class-feature, Discrete class feature]]" + newLine() +
 				"=== *Discrete class feature*" + newLine() +
 				"" + newLine() +
 				"==== Scenario: Render source code" + newLine() +
 				"" + newLine() +
 				"****" + newLine() +
-				"Given ::" + newLine() +
+				"Given ::" + newLine() + "=====" + newLine() +
 				"the following source code icon:thumbs-up[role=\"green\",title=\"Passed\"] [small right]#(267ms)#" + newLine() +
 				"******" + newLine() +
 				"" + newLine() +
@@ -623,12 +624,13 @@ public class CukedoctorConverterTest {
 				"" + newLine() +
 				"******" + newLine() +
 				"" + newLine() +
+				"=====" +newLine() +
 				"****" + newLine() +
 				"" + newLine() +
 				"==== Scenario: Render table" + newLine() +
 				"" + newLine() +
 				"****" + newLine() +
-				"Given ::" + newLine() +
+				"Given ::" + newLine() + "=====" +newLine() +
 				"the following table icon:thumbs-up[role=\"green\",title=\"Passed\"] [small right]#(000ms)#" + newLine() +
 				"******" + newLine() +
 				"" + newLine() +
@@ -642,8 +644,9 @@ public class CukedoctorConverterTest {
 				"" + newLine() +
 				"******" + newLine() +
 				"" + newLine() +
+				"=====" +newLine() +
 				"****" + newLine() +
-				"" + newLine()).replaceAll("\r",""));
+				"" + newLine()).replaceAll("\r", ""));
 	}
 
 	@Test
@@ -657,22 +660,25 @@ public class CukedoctorConverterTest {
 				"==== Background"+newLine() +
 				""+newLine() +
 				"****"+newLine() +
-				"Given ::"+newLine() +
+				"Given ::"+newLine() + "=====" + newLine() +
 				"this is a background step icon:thumbs-up[role=\"green\",title=\"Passed\"] [small right]#(000ms)#"+newLine() +
+				"=====" + newLine() +
 				"****"+newLine() +
 				""+newLine() +
 				"==== Scenario: Scenario 1"+newLine() +
 				""+newLine() +
 				"****"+newLine() +
-				"Given ::"+newLine() +
+				"Given ::"+newLine() + "=====" + newLine() +
 				"this is scenario one step icon:thumbs-up[role=\"green\",title=\"Passed\"] [small right]#(000ms)#"+newLine() +
+				"=====" + newLine() +
 				"****"+newLine() +
 				""+newLine() +
 				"==== Scenario: Scenario 2"+newLine() +
 				""+newLine() +
 				"****"+newLine() +
-				"Given ::"+newLine() +
+				"Given ::"+newLine() + "=====" + newLine() +
 				"this is scenario two step icon:thumbs-up[role=\"green\",title=\"Passed\"] [small right]#(000ms)#"+newLine() +
+				"=====" + newLine() +
 				"****"+newLine() +
 				""+newLine()));
 	}
@@ -688,9 +694,10 @@ public class CukedoctorConverterTest {
 				"==== Scenario: Show the current version of sdkman"+newLine() +
 				""+newLine() +
 				"****"+newLine() +
-				"When ::"+newLine() +
+				"When ::"+newLine() + "=====" + newLine() +
 				"I enter \"sdk version\" icon:thumbs-up[role=\"green\",title=\"Passed\"] [small right]#(100ms)#"+newLine() +
-				"Then ::"+newLine() +
+				"=====" + newLine() +
+				"Then ::"+newLine() + "=====" + newLine() +
 				"I see \"SDKMAN x.y.z\" icon:thumbs-up[role=\"green\",title=\"Passed\"] [small right]#(000ms)#"+newLine() +
 				"----"+newLine() +
 				""+newLine() +
@@ -702,6 +709,7 @@ public class CukedoctorConverterTest {
 				""+newLine() +
 				""+newLine() +
 				"----"+newLine() +
+				"=====" + newLine() +
 				"****"+newLine() +
 				""+newLine()).replaceAll("\r",""));
 	}
@@ -711,7 +719,7 @@ public class CukedoctorConverterTest {
 			List<Feature> features = FeatureParser.parse(getClass().getResource("/json-output/one_passing_one_failing.json").getPath());
 			assertThat(features).isNotNull().hasSize(1);
 			String output = Cukedoctor.instance(features,new DocumentAttributes()).renderDocumentation();
-			assertThat(output.replaceAll("\r","")).isEqualTo((":toc: right" + newLine() +
+			assertThat(output.replaceAll("\r", "")).isEqualTo((":toc: right" + newLine() +
 					":backend: html5" + newLine() +
 					":doctitle: Living Documentation" + newLine() +
 					":doctype: book" + newLine() +
@@ -773,8 +781,9 @@ public class CukedoctorConverterTest {
 					"" + newLine() +
 					"" + newLine() +
 					"****" + newLine() +
-					"Given ::" + newLine() +
+					"Given ::" + newLine() + "=====" + newLine() +
 					"this step passes icon:thumbs-up[role=\"green\",title=\"Passed\"] [small right]#(001ms)#" + newLine() +
+					"=====" + newLine() +
 					"****" + newLine() +
 					"" + newLine() +
 					"==== Scenario: Failing icon:thumbs-down[role=\"red\",title=\"Failed\"]" + newLine() +
@@ -782,14 +791,15 @@ public class CukedoctorConverterTest {
 					"" + newLine() +
 					"" + newLine() +
 					"****" + newLine() +
-					"Given ::" + newLine() +
+					"Given ::" + newLine() + "=====" + newLine() +
 					"this step fails icon:thumbs-down[role=\"red\",title=\"Failed\"] [small right]#(008ms)#" + newLine() +
 					"" + newLine() +
 					"IMPORTANT:  (RuntimeError)" + newLine() +
 					"./features/step_definitions/steps.rb:4:in /^this step fails$/'" + newLine() +
 					"features/one_passing_one_failing.feature:10:in Given this step fails'" + newLine() +
+					"=====" + newLine() +
 					"****" + newLine() +
-					"\n").replaceAll("\r",""));
+					"\n").replaceAll("\r", ""));
 	}
 	
 }
