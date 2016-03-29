@@ -18,7 +18,7 @@
         "steps": [
           {
             "result": {
-              "duration": 960594163,
+              "duration": 1011795006,
               "status": "passed"
             },
             "line": 10,
@@ -35,7 +35,7 @@
           },
           {
             "result": {
-              "duration": 1118184954,
+              "duration": 1231651986,
               "status": "passed"
             },
             "comments": [
@@ -58,7 +58,7 @@
           },
           {
             "result": {
-              "duration": 3021474,
+              "duration": 1096542,
               "status": "passed"
             },
             "comments": [
@@ -83,7 +83,7 @@
       }
     ],
     "name": "Cukedoctor Converter",
-    "description": "\nIn order to have awesome _living documentation_\nAs a bdd developer\nI want to use *Cukedoctor* to convert my cucumber test results into [[readable]] living documentation",
+    "description": "\nIn order to have awesome _living documentation_\nAs a bdd developer\nI want to use *Cukedoctor* to convert my cucumber test results into `readable` living documentation",
     "id": "cukedoctor-converter",
     "keyword": "Feature",
     "uri": "com/github/cukedoctor/bdd/cukedoctor/converter.feature"
@@ -107,7 +107,7 @@
         "steps": [
           {
             "result": {
-              "duration": 57952,
+              "duration": 69897,
               "status": "passed"
             },
             "line": 11,
@@ -124,7 +124,7 @@
           },
           {
             "result": {
-              "duration": 43329875,
+              "duration": 41905964,
               "status": "passed"
             },
             "line": 45,
@@ -136,7 +136,7 @@
           },
           {
             "result": {
-              "duration": 103520,
+              "duration": 205983,
               "status": "passed"
             },
             "comments": [
@@ -169,7 +169,7 @@
         "steps": [
           {
             "result": {
-              "duration": 58867,
+              "duration": 102543,
               "status": "passed"
             },
             "line": 100,
@@ -186,7 +186,7 @@
           },
           {
             "result": {
-              "duration": 39334189,
+              "duration": 47279792,
               "status": "passed"
             },
             "line": 122,
@@ -198,7 +198,7 @@
           },
           {
             "result": {
-              "duration": 120221,
+              "duration": 151286,
               "status": "passed"
             },
             "comments": [
@@ -247,7 +247,7 @@
         "steps": [
           {
             "result": {
-              "duration": 52117,
+              "duration": 59615,
               "status": "passed"
             },
             "line": 10,
@@ -264,13 +264,13 @@
           },
           {
             "result": {
-              "duration": 34722540,
+              "duration": 32481972,
               "status": "passed"
             },
             "comments": [
               {
                 "line": 25,
-                "value": "#{NOTE: The introduction file must be named *intro-chapter.adoc* and can be in any package of your application}"
+                "value": "#{NOTE: The introduction file must be named *intro-chapter.adoc* and can be in any package of your application,}"
               },
               {
                 "line": 27,
@@ -323,7 +323,7 @@
           },
           {
             "result": {
-              "duration": 22317,
+              "duration": 26221,
               "status": "passed"
             },
             "line": 51,
@@ -335,7 +335,7 @@
           },
           {
             "result": {
-              "duration": 254389,
+              "duration": 284176,
               "status": "passed"
             },
             "comments": [
@@ -384,7 +384,7 @@
         "steps": [
           {
             "result": {
-              "duration": 54567,
+              "duration": 61044,
               "status": "passed"
             },
             "line": 11,
@@ -401,7 +401,7 @@
           },
           {
             "result": {
-              "duration": 24211103,
+              "duration": 39493987,
               "status": "passed"
             },
             "line": 25,
@@ -413,7 +413,7 @@
           },
           {
             "result": {
-              "duration": 1131271,
+              "duration": 107569,
               "status": "passed"
             },
             "comments": [
@@ -446,7 +446,7 @@
         "steps": [
           {
             "result": {
-              "duration": 51411,
+              "duration": 52468,
               "status": "passed"
             },
             "comments": [
@@ -469,7 +469,7 @@
           },
           {
             "result": {
-              "duration": 28924441,
+              "duration": 26667735,
               "status": "passed"
             },
             "line": 72,
@@ -481,7 +481,7 @@
           },
           {
             "result": {
-              "duration": 60474,
+              "duration": 91965,
               "status": "passed"
             },
             "comments": [
