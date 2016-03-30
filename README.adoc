@@ -80,7 +80,7 @@ Feature: Calculator
 ------
 
 
-will be converted by Cukedoctor (after tests execution) into the following document:
+Will be converted by Cukedoctor (after tests execution) into the following document:
 
 image::cukedoctor-sample.png[]
 
