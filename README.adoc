@@ -70,7 +70,7 @@ Feature: Calculator
       }
   }
 ----
-<1> This is an asciidoc callouts inside a feature.
+<1> This is an asciidoc callout inside a feature.
 """
 
     # {* this is a list of itens inside a feature step}
