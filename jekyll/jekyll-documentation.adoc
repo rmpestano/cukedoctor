@@ -1,6 +1,6 @@
 :toc: right
 :backend: pdf
-:doctitle: Jekyll Living Documentation
+:doctitle: jekyll-documentation
 :doctype: book
 :icons: font
 :!numbered:
@@ -10,7 +10,7 @@
 :docinfo:
 :toclevels: 3
 
-= *Jekyll Living Documentation*
+= *jekyll-documentation*
 
 == *Summary*
 [cols="12*^m", options="header,footer"]
@@ -300,31 +300,52 @@ And render them
 
 ****
 Given ::
+=====
 I have an "index.html" page that contains "Collections: {{ site.methods }}" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have fixture collections icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have a configuration file with "collections" set to "['methods']" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 When ::
+=====
 I run jekyll build icon:thumbs-up[role="green",title="Passed"] [small right]#(640ms)#
+=====
 Then ::
+=====
 the _site directory should exist icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I should see "Collections: <p>Use <code>Jekyll.configuration</code> to build a full configuration for use w/Jekyll.</p>\n\n<p>Whatever: foo.bar</p>\n<p>Signs are nice</p>\n<p><code>Jekyll.sanitized_path</code> is used to make sure your path is in your source.</p>\n<p>Run your generators! default</p>\n<p>Page without title.</p>\n<p>Run your generators! default</p>" in "_site/index.html" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 the "_site/methods/configuration.html" file should not exist icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 ****
 
 ==== Scenario: Rendered collection
 
 ****
 Given ::
+=====
 I have an "index.html" page that contains "Collections: {{ site.collections }}" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have an "collection_metadata.html" page that contains "Methods metadata: {{ site.collections[0].foo }} {{ site.collections[0] }}" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have fixture collections icon:thumbs-up[role="green",title="Passed"] [small right]#(002ms)#
+=====
 And ::
+=====
 I have a "_config.yml" file with content: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -334,28 +355,46 @@ collections:
     foo:   bar
 
 ----
+=====
 When ::
+=====
 I run jekyll build icon:thumbs-up[role="green",title="Passed"] [small right]#(558ms)#
+=====
 Then ::
+=====
 the _site directory should exist icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I should see "Collections: {\"output\"=>true" in "_site/index.html" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I should see "\"label\"=>\"methods\"," in "_site/index.html" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I should see "Methods metadata: bar" in "_site/collection_metadata.html" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I should see "<p>Whatever: foo.bar</p>" in "_site/methods/configuration.html" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 ****
 
 ==== Scenario: Rendered collection at a custom URL
 
 ****
 Given ::
+=====
 I have an "index.html" page that contains "Collections: {{ site.collections }}" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have fixture collections icon:thumbs-up[role="green",title="Passed"] [small right]#(001ms)#
+=====
 And ::
+=====
 I have a "_config.yml" file with content: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -365,24 +404,38 @@ collections:
     permalink: /:collection/:path/
 
 ----
+=====
 When ::
+=====
 I run jekyll build icon:thumbs-up[role="green",title="Passed"] [small right]#(547ms)#
+=====
 Then ::
+=====
 the _site directory should exist icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I should see "<p>Whatever: foo.bar</p>" in "_site/methods/configuration/index.html" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 ****
 
 ==== Scenario: Rendered document in a layout
 
 ****
 Given ::
+=====
 I have an "index.html" page that contains "Collections: {{ site.collections }}" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have a default layout that contains "<div class='title'>Tom Preston-Werner</div> {{content}}" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have fixture collections icon:thumbs-up[role="green",title="Passed"] [small right]#(001ms)#
+=====
 And ::
+=====
 I have a "_config.yml" file with content: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -392,28 +445,46 @@ collections:
     foo:   bar
 
 ----
+=====
 When ::
+=====
 I run jekyll build icon:thumbs-up[role="green",title="Passed"] [small right]#(547ms)#
+=====
 Then ::
+=====
 the _site directory should exist icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I should see "Collections: {\"output\"=>true" in "_site/index.html" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I should see "\"label\"=>\"methods\"," in "_site/index.html" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I should see "<p>Run your generators! default</p>" in "_site/methods/site/generate.html" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I should see "<div class='title'>Tom Preston-Werner</div>" in "_site/methods/site/generate.html" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 ****
 
 ==== Scenario: Collections specified as an array
 
 ****
 Given ::
+=====
 I have an "index.html" page that contains "Collections: {% for method in site.methods %}{{ method.relative_path }} {% endfor %}" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have fixture collections icon:thumbs-up[role="green",title="Passed"] [small right]#(001ms)#
+=====
 And ::
+=====
 I have a "_config.yml" file with content: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -421,22 +492,34 @@ collections:
 - methods
 
 ----
+=====
 When ::
+=====
 I run jekyll build icon:thumbs-up[role="green",title="Passed"] [small right]#(647ms)#
+=====
 Then ::
+=====
 the _site directory should exist icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I should see "Collections: _methods/configuration.md _methods/escape-\+ #%20\[\].md _methods/sanitized_path.md _methods/site/generate.md _methods/site/initialize.md _methods/um_hi.md" in "_site/index.html" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 ****
 
 ==== Scenario: Collections specified as an hash
 
 ****
 Given ::
+=====
 I have an "index.html" page that contains "Collections: {% for method in site.methods %}{{ method.relative_path }} {% endfor %}" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have fixture collections icon:thumbs-up[role="green",title="Passed"] [small right]#(001ms)#
+=====
 And ::
+=====
 I have a "_config.yml" file with content: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -444,22 +527,34 @@ collections:
 - methods
 
 ----
+=====
 When ::
+=====
 I run jekyll build icon:thumbs-up[role="green",title="Passed"] [small right]#(620ms)#
+=====
 Then ::
+=====
 the _site directory should exist icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I should see "Collections: _methods/configuration.md _methods/escape-\+ #%20\[\].md _methods/sanitized_path.md _methods/site/generate.md _methods/site/initialize.md _methods/um_hi.md" in "_site/index.html" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 ****
 
 ==== Scenario: All the documents
 
 ****
 Given ::
+=====
 I have an "index.html" page that contains "All documents: {% for doc in site.documents %}{{ doc.relative_path }} {% endfor %}" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have fixture collections icon:thumbs-up[role="green",title="Passed"] [small right]#(002ms)#
+=====
 And ::
+=====
 I have a "_config.yml" file with content: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -467,22 +562,34 @@ collections:
 - methods
 
 ----
+=====
 When ::
+=====
 I run jekyll build icon:thumbs-up[role="green",title="Passed"] [small right]#(566ms)#
+=====
 Then ::
+=====
 the _site directory should exist icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I should see "All documents: _methods/configuration.md _methods/escape-\+ #%20\[\].md _methods/sanitized_path.md _methods/site/generate.md _methods/site/initialize.md _methods/um_hi.md" in "_site/index.html" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 ****
 
 ==== Scenario: Documents have an output attribute, which is the converted HTML
 
 ****
 Given ::
+=====
 I have an "index.html" page that contains "First document's output: {{ site.documents.first.output }}" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have fixture collections icon:thumbs-up[role="green",title="Passed"] [small right]#(001ms)#
+=====
 And ::
+=====
 I have a "_config.yml" file with content: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -490,22 +597,34 @@ collections:
 - methods
 
 ----
+=====
 When ::
+=====
 I run jekyll build icon:thumbs-up[role="green",title="Passed"] [small right]#(609ms)#
+=====
 Then ::
+=====
 the _site directory should exist icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I should see "First document's output: <p>Use <code>Jekyll.configuration</code> to build a full configuration for use w/Jekyll.</p>\n\n<p>Whatever: foo.bar</p>" in "_site/index.html" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 ****
 
 ==== Scenario: Filter documents by where
 
 ****
 Given ::
+=====
 I have an "index.html" page that contains "{% assign items = site.methods | where: 'whatever','foo.bar' %}Item count: {{ items.size }}" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have fixture collections icon:thumbs-up[role="green",title="Passed"] [small right]#(002ms)#
+=====
 And ::
+=====
 I have a "_config.yml" file with content: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -513,22 +632,34 @@ collections:
 - methods
 
 ----
+=====
 When ::
+=====
 I run jekyll build icon:thumbs-up[role="green",title="Passed"] [small right]#(599ms)#
+=====
 Then ::
+=====
 the _site directory should exist icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I should see "Item count: 2" in "_site/index.html" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 ****
 
 ==== Scenario: Sort by title
 
 ****
 Given ::
+=====
 I have an "index.html" page that contains "{% assign items = site.methods | sort: 'title' %}1. of {{ items.size }}: {{ items.first.output }}" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have fixture collections icon:thumbs-up[role="green",title="Passed"] [small right]#(001ms)#
+=====
 And ::
+=====
 I have a "_config.yml" file with content: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -536,22 +667,34 @@ collections:
 - methods
 
 ----
+=====
 When ::
+=====
 I run jekyll build icon:thumbs-up[role="green",title="Passed"] [small right]#(558ms)#
+=====
 Then ::
+=====
 the _site directory should exist icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I should see "1. of 7: <p>Page without title.</p>" in "_site/index.html" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 ****
 
 ==== Scenario: Sort by relative_path
 
 ****
 Given ::
+=====
 I have an "index.html" page that contains "Collections: {% assign methods = site.methods | sort: 'relative_path' %}{% for method in methods %}{{ method.title }}, {% endfor %}" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have fixture collections icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have a "_config.yml" file with content: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -559,12 +702,19 @@ collections:
 - methods
 
 ----
+=====
 When ::
+=====
 I run jekyll build icon:thumbs-up[role="green",title="Passed"] [small right]#(634ms)#
+=====
 Then ::
+=====
 the _site directory should exist icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I should see "Collections: Jekyll.configuration, Jekyll.escape, Jekyll.sanitized_path, Site#generate, , Site#generate," in "_site/index.html" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 ****
 
 [[Configuring-and-using-plugins, Configuring and using plugins]]
@@ -579,25 +729,40 @@ I want to specify my own plugins that can modify Jekyll's behaviour
 
 ****
 Given ::
+=====
 I have an "index.html" file that contains "Whatever" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have a configuration file with "gems" set to "[jekyll_test_plugin]" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 When ::
+=====
 I run jekyll build icon:thumbs-up[role="green",title="Passed"] [small right]#(549ms)#
+=====
 Then ::
+=====
 the _site directory should exist icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I should see "Whatever" in "_site/index.html" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I should see "this is a test" in "_site/test.txt" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 ****
 
 ==== Scenario: Add an empty whitelist to restrict all gems
 
 ****
 Given ::
+=====
 I have an "index.html" file that contains "Whatever" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have a configuration file with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 
 [cols="2*", options="header"]
@@ -610,22 +775,34 @@ I have a configuration file with: icon:thumbs-up[role="green",title="Passed"] [s
 |[]
 |===
 
+=====
 When ::
+=====
 I run jekyll build --safe icon:thumbs-up[role="green",title="Passed"] [small right]#(579ms)#
+=====
 Then ::
+=====
 the _site directory should exist icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I should see "Whatever" in "_site/index.html" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 the "_site/test.txt" file should not exist icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 ****
 
 ==== Scenario: Add a whitelist to restrict some gems but allow others
 
 ****
 Given ::
+=====
 I have an "index.html" file that contains "Whatever" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have a configuration file with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 
 [cols="2*", options="header"]
@@ -638,16 +815,27 @@ I have a configuration file with: icon:thumbs-up[role="green",title="Passed"] [s
 |[jekyll_test_plugin]
 |===
 
+=====
 When ::
+=====
 I run jekyll build --safe icon:thumbs-up[role="green",title="Passed"] [small right]#(658ms)#
+=====
 Then ::
+=====
 the _site directory should exist icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I should see "Whatever" in "_site/index.html" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 the "_site/test.txt" file should exist icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I should see "this is a test" in "_site/test.txt" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 ****
 
 [[Create-sites, Create sites]]
@@ -663,36 +851,57 @@ In order to share my awesome ideas with the interwebs
 
 ****
 Given ::
+=====
 I do not have a "test_blank" directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 When ::
+=====
 I run jekyll new test_blank --blank icon:thumbs-up[role="green",title="Passed"] [small right]#(520ms)#
+=====
 Then ::
+=====
 the test_blank/_layouts directory should exist icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 the test_blank/_posts directory should exist icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 the "test_blank/index.html" file should exist icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 ****
 
 ==== Scenario: Basic site
 
 ****
 Given ::
+=====
 I have an "index.html" file that contains "Basic Site" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 When ::
+=====
 I run jekyll build icon:thumbs-up[role="green",title="Passed"] [small right]#(517ms)#
+=====
 Then ::
+=====
 the _site directory should exist icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I should see "Basic Site" in "_site/index.html" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 ****
 
 ==== Scenario: Basic site with a post
 
 ****
 Given ::
+=====
 I have a _posts directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have the following post: icon:thumbs-up[role="green",title="Passed"] [small right]#(002ms)#
 
 [cols="3*", options="header"]
@@ -705,39 +914,63 @@ I have the following post: icon:thumbs-up[role="green",title="Passed"] [small ri
 |My First Exploit
 |===
 
+=====
 When ::
+=====
 I run jekyll build icon:thumbs-up[role="green",title="Passed"] [small right]#(638ms)#
+=====
 Then ::
+=====
 the _site directory should exist icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I should see "My First Exploit" in "_site/2009/03/27/hackers.html" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 ****
 
 ==== Scenario: Basic site with layout and a page
 
 ****
 Given ::
+=====
 I have a _layouts directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have an "index.html" page with layout "default" that contains "Basic Site with Layout" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have a default layout that contains "Page Layout: {{ content }}" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 When ::
+=====
 I run jekyll build icon:thumbs-up[role="green",title="Passed"] [small right]#(623ms)#
+=====
 Then ::
+=====
 the _site directory should exist icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I should see "Page Layout: Basic Site with Layout" in "_site/index.html" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 ****
 
 ==== Scenario: Basic site with layout and a post
 
 ****
 Given ::
+=====
 I have a _layouts directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have a _posts directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have the following posts: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 
 [cols="4*", options="header"]
@@ -752,24 +985,38 @@ I have the following posts: icon:thumbs-up[role="green",title="Passed"] [small r
 |The only winning move is not to play.
 |===
 
+=====
 And ::
+=====
 I have a default layout that contains "Post Layout: {{ content }}" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 When ::
+=====
 I run jekyll build icon:thumbs-up[role="green",title="Passed"] [small right]#(555ms)#
+=====
 Then ::
+=====
 the _site directory should exist icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I should see "Post Layout: <p>The only winning move is not to play.</p>" in "_site/2009/03/27/wargames.html" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 ****
 
 ==== Scenario: Basic site with layout inside a subfolder and a post
 
 ****
 Given ::
+=====
 I have a _layouts directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have a _posts directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have the following posts: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 
 [cols="4*", options="header"]
@@ -784,38 +1031,66 @@ I have the following posts: icon:thumbs-up[role="green",title="Passed"] [small r
 |The only winning move is not to play.
 |===
 
+=====
 And ::
+=====
 I have a post/simple layout that contains "Post Layout: {{ content }}" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 When ::
+=====
 I run jekyll build icon:thumbs-up[role="green",title="Passed"] [small right]#(599ms)#
+=====
 Then ::
+=====
 the _site directory should exist icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I should see "Post Layout: <p>The only winning move is not to play.</p>" in "_site/2009/03/27/wargames.html" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 ****
 
 ==== Scenario: Basic site with layouts, pages, posts and files
 
 ****
 Given ::
+=====
 I have a _layouts directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have a page layout that contains "Page {{ page.title }}: {{ content }}" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have a post layout that contains "Post {{ page.title }}: {{ content }}" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have an "index.html" page with layout "page" that contains "Site contains {{ site.pages.size }} pages and {{ site.posts.size }} posts" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have a blog directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have a "blog/index.html" page with layout "page" that contains "blog category index page" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have an "about.html" file that contains "No replacement {{ site.posts.size }}" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have an "another_file" file that contains "" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have a _posts directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have the following posts: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 
 [cols="4*", options="header"]
@@ -834,9 +1109,13 @@ I have the following posts: icon:thumbs-up[role="green",title="Passed"] [small r
 |content for entry2.
 |===
 
+=====
 And ::
+=====
 I have a category/_posts directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have the following posts in "category": icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 
 [cols="4*", options="header"]
@@ -855,93 +1134,161 @@ I have the following posts in "category": icon:thumbs-up[role="green",title="Pas
 |content for entry4.
 |===
 
+=====
 When ::
+=====
 I run jekyll build icon:thumbs-up[role="green",title="Passed"] [small right]#(658ms)#
+=====
 Then ::
+=====
 the _site directory should exist icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I should see "Page : Site contains 2 pages and 4 posts" in "_site/index.html" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I should see "No replacement \{\{ site.posts.size \}\}" in "_site/about.html" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I should see "" in "_site/another_file" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I should see "Page : blog category index page" in "_site/blog/index.html" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I should see "Post entry1: <p>content for entry1.</p>" in "_site/2009/03/27/entry1.html" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I should see "Post entry2: <p>content for entry2.</p>" in "_site/2009/04/27/entry2.html" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I should see "Post entry3: <p>content for entry3.</p>" in "_site/category/2009/05/27/entry3.html" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I should see "Post entry4: <p>content for entry4.</p>" in "_site/category/2009/06/27/entry4.html" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 ****
 
 ==== Scenario: Basic site with include tag
 
 ****
 Given ::
+=====
 I have a _includes directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have an "index.html" page that contains "Basic Site with include tag: {% include about.textile %}" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have an "_includes/about.textile" file that contains "Generated by Jekyll" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 When ::
+=====
 I run jekyll build icon:thumbs-up[role="green",title="Passed"] [small right]#(518ms)#
+=====
 Then ::
+=====
 the _site directory should exist icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I should see "Basic Site with include tag: Generated by Jekyll" in "_site/index.html" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 ****
 
 ==== Scenario: Basic site with subdir include tag
 
 ****
 Given ::
+=====
 I have a _includes directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have an "_includes/about.textile" file that contains "Generated by Jekyll" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have an info directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have an "info/index.html" page that contains "Basic Site with subdir include tag: {% include about.textile %}" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 When ::
+=====
 I run jekyll build icon:thumbs-up[role="green",title="Passed"] [small right]#(487ms)#
+=====
 Then ::
+=====
 the _site directory should exist icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I should see "Basic Site with subdir include tag: Generated by Jekyll" in "_site/info/index.html" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 ****
 
 ==== Scenario: Basic site with nested include tag
 
 ****
 Given ::
+=====
 I have a _includes directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have an "_includes/about.textile" file that contains "Generated by {% include jekyll.textile %}" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have an "_includes/jekyll.textile" file that contains "Jekyll" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have an "index.html" page that contains "Basic Site with include tag: {% include about.textile %}" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 When ::
+=====
 I run jekyll build icon:thumbs-up[role="green",title="Passed"] [small right]#(534ms)#
+=====
 Then ::
+=====
 the _site directory should exist icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I should see "Basic Site with include tag: Generated by Jekyll" in "_site/index.html" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 ****
 
 ==== Scenario: Basic site with internal post linking
 
 ****
 Given ::
+=====
 I have an "index.html" page that contains "URL: {% post_url 2020-01-31-entry2 %}" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have a configuration file with "permalink" set to "pretty" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have a _posts directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have the following posts: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 
 [cols="4*", options="header"]
@@ -960,79 +1307,138 @@ I have the following posts: icon:thumbs-up[role="green",title="Passed"] [small r
 |content for entry2.
 |===
 
+=====
 When ::
+=====
 I run jekyll build icon:thumbs-up[role="green",title="Passed"] [small right]#(539ms)#
+=====
 Then ::
+=====
 the _site directory should exist icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I should see "URL: /2020/01/31/entry2/" in "_site/index.html" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 ****
 
 ==== Scenario: Basic site with whitelisted dotfile
 
 ****
 Given ::
+=====
 I have an ".htaccess" file that contains "SomeDirective" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 When ::
+=====
 I run jekyll build icon:thumbs-up[role="green",title="Passed"] [small right]#(541ms)#
+=====
 Then ::
+=====
 the _site directory should exist icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I should see "SomeDirective" in "_site/.htaccess" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 ****
 
 ==== Scenario: File was replaced by a directory
 
 ****
 Given ::
+=====
 I have a "test" file that contains "some stuff" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 When ::
+=====
 I run jekyll build icon:thumbs-up[role="green",title="Passed"] [small right]#(520ms)#
+=====
 Then ::
+=====
 the _site directory should exist icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 When ::
+=====
 I delete the file "test" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 Given ::
+=====
 I have a test directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have a "test/index.html" file that contains "some other stuff" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 When ::
+=====
 I run jekyll build icon:thumbs-up[role="green",title="Passed"] [small right]#(482ms)#
+=====
 Then ::
+=====
 the _site/test directory should exist icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I should see "some other stuff" in "_site/test/index.html" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 ****
 
 ==== Scenario: Basic site with unpublished page
 
 ****
 Given ::
+=====
 I have an "index.html" page with title "index" that contains "Published page" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have a "public.html" page with published "true" that contains "Explicitly published page" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have a "secret.html" page with published "false" that contains "Unpublished page" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 When ::
+=====
 I run jekyll build icon:thumbs-up[role="green",title="Passed"] [small right]#(489ms)#
+=====
 Then ::
+=====
 the _site directory should exist icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 the "_site/index.html" file should exist icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 the "_site/public.html" file should exist icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 But ::
+=====
 the "_site/secret.html" file should not exist icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 When ::
+=====
 I run jekyll build --unpublished icon:thumbs-up[role="green",title="Passed"] [small right]#(589ms)#
+=====
 Then ::
+=====
 the _site directory should exist icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 the "_site/index.html" file should exist icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 the "_site/public.html" file should exist icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 the "_site/secret.html" file should exist icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 ****
 
 [[Data, Data]]
@@ -1048,8 +1454,11 @@ I want to use _data directory in my site
 
 ****
 Given ::
+=====
 I have a _data directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have a "_data/products.yaml" file with content: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -1059,24 +1468,38 @@ I have a "_data/products.yaml" file with content: icon:thumbs-up[role="green",ti
   price: 2.5
 
 ----
+=====
 And ::
+=====
 I have an "index.html" page that contains "{% for product in site.data.products %}{{product.name}}{% endfor %}" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 When ::
+=====
 I run jekyll build icon:thumbs-up[role="green",title="Passed"] [small right]#(588ms)#
+=====
 Then ::
+=====
 the "_site/index.html" file should exist icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I should see "sugar" in "_site/index.html" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I should see "salt" in "_site/index.html" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 ****
 
 ==== Scenario: autoload *.yml files in _data directory
 
 ****
 Given ::
+=====
 I have a _data directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have a "_data/members.yml" file with content: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -1086,48 +1509,76 @@ I have a "_data/members.yml" file with content: icon:thumbs-up[role="green",titl
   age: 34
 
 ----
+=====
 And ::
+=====
 I have an "index.html" page that contains "{% for member in site.data.members %}{{member.name}}{% endfor %}" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 When ::
+=====
 I run jekyll build icon:thumbs-up[role="green",title="Passed"] [small right]#(552ms)#
+=====
 Then ::
+=====
 the "_site/index.html" file should exist icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I should see "Jack" in "_site/index.html" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I should see "Leon" in "_site/index.html" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 ****
 
 ==== Scenario: autoload *.json files in _data directory
 
 ****
 Given ::
+=====
 I have a _data directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have a "_data/members.json" file with content: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
 [{"name": "Jack", "age": 28},{"name": "Leon", "age": 34}]
 
 ----
+=====
 And ::
+=====
 I have an "index.html" page that contains "{% for member in site.data.members %}{{member.name}}{% endfor %}" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 When ::
+=====
 I run jekyll build icon:thumbs-up[role="green",title="Passed"] [small right]#(510ms)#
+=====
 Then ::
+=====
 the "_site/index.html" file should exist icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I should see "Jack" in "_site/index.html" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I should see "Leon" in "_site/index.html" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 ****
 
 ==== Scenario: autoload *.csv files in _data directory
 
 ****
 Given ::
+=====
 I have a _data directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have a "_data/members.csv" file with content: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -1136,24 +1587,38 @@ Jack,28
 Leon,34
 
 ----
+=====
 And ::
+=====
 I have an "index.html" page that contains "{% for member in site.data.members %}{{member.name}}{% endfor %}" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 When ::
+=====
 I run jekyll build icon:thumbs-up[role="green",title="Passed"] [small right]#(503ms)#
+=====
 Then ::
+=====
 the "_site/index.html" file should exist icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I should see "Jack" in "_site/index.html" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I should see "Leon" in "_site/index.html" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 ****
 
 ==== Scenario: autoload *.yml files in _data directory with space in file name
 
 ****
 Given ::
+=====
 I have a _data directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have a "_data/team members.yml" file with content: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -1163,57 +1628,89 @@ I have a "_data/team members.yml" file with content: icon:thumbs-up[role="green"
   age: 34
 
 ----
+=====
 And ::
+=====
 I have an "index.html" page that contains "{% for member in site.data.team_members %}{{member.name}}{% endfor %}" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 When ::
+=====
 I run jekyll build icon:thumbs-up[role="green",title="Passed"] [small right]#(555ms)#
+=====
 Then ::
+=====
 the "_site/index.html" file should exist icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I should see "Jack" in "_site/index.html" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I should see "Leon" in "_site/index.html" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 ****
 
 ==== Scenario: autoload *.yaml files in subdirectories in _data directory
 
 ****
 Given ::
+=====
 I have a _data directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have a _data/categories directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have a "_data/categories/dairy.yaml" file with content: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
 name: Dairy Products
 
 ----
+=====
 And ::
+=====
 I have an "index.html" page that contains "{{ site.data.categories.dairy.name }}" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 When ::
+=====
 I run jekyll build icon:thumbs-up[role="green",title="Passed"] [small right]#(605ms)#
+=====
 Then ::
+=====
 the "_site/index.html" file should exist icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I should see "Dairy Products" in "_site/index.html" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 ****
 
 ==== Scenario: folders should have precedence over files with the same name
 
 ****
 Given ::
+=====
 I have a _data directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have a _data/categories directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have a "_data/categories/dairy.yaml" file with content: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
 name: Dairy Products
 
 ----
+=====
 And ::
+=====
 I have a "_data/categories.yaml" file with content: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -1221,20 +1718,30 @@ dairy:
   name: Should not display this
 
 ----
+=====
 And ::
+=====
 I have an "index.html" page that contains "{{ site.data.categories.dairy.name }}" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 When ::
+=====
 I run jekyll build icon:thumbs-up[role="green",title="Passed"] [small right]#(592ms)#
+=====
 Then ::
+=====
 the "_site/index.html" file should exist icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I should see "Dairy Products" in "_site/index.html" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 ****
 
 ==== Scenario: should be backward compatible with site.data in _config.yml
 
 ****
 Given ::
+=====
 I have a "_config.yml" file with content: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -1245,16 +1752,27 @@ data:
     age: 34
 
 ----
+=====
 And ::
+=====
 I have an "index.html" page that contains "{% for member in site.data %}{{member.name}}{% endfor %}" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 When ::
+=====
 I run jekyll build icon:thumbs-up[role="green",title="Passed"] [small right]#(608ms)#
+=====
 Then ::
+=====
 the "_site/index.html" file should exist icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I should see "Jack" in "_site/index.html" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I should see "Leon" in "_site/index.html" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 ****
 
 [[Draft-Posts, Draft Posts]]
@@ -1270,10 +1788,15 @@ In order to see if they look alright before publishing
 
 ****
 Given ::
+=====
 I have a configuration file with "permalink" set to "none" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have a _drafts directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have the following draft: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 
 [cols="4*", options="header"]
@@ -1288,24 +1811,38 @@ I have the following draft: icon:thumbs-up[role="green",title="Passed"] [small r
 |Not baked yet.
 |===
 
+=====
 When ::
+=====
 I run jekyll build --drafts icon:thumbs-up[role="green",title="Passed"] [small right]#(547ms)#
+=====
 Then ::
+=====
 the _site directory should exist icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I should see "Not baked yet." in "_site/recipe.html" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 ****
 
 ==== Scenario: Don't preview a draft
 
 ****
 Given ::
+=====
 I have a configuration file with "permalink" set to "none" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have an "index.html" page that contains "Totally index" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have a _drafts directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have the following draft: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 
 [cols="4*", options="header"]
@@ -1320,24 +1857,38 @@ I have the following draft: icon:thumbs-up[role="green",title="Passed"] [small r
 |Not baked yet.
 |===
 
+=====
 When ::
+=====
 I run jekyll build icon:thumbs-up[role="green",title="Passed"] [small right]#(509ms)#
+=====
 Then ::
+=====
 the _site directory should exist icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 the "_site/recipe.html" file should not exist icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 ****
 
 ==== Scenario: Don't preview a draft that is not published
 
 ****
 Given ::
+=====
 I have a configuration file with "permalink" set to "none" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have an "index.html" page that contains "Totally index" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have a _drafts directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have the following draft: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 
 [cols="5*", options="header"]
@@ -1354,22 +1905,34 @@ I have the following draft: icon:thumbs-up[role="green",title="Passed"] [small r
 |Not baked yet.
 |===
 
+=====
 When ::
+=====
 I run jekyll build --drafts icon:thumbs-up[role="green",title="Passed"] [small right]#(577ms)#
+=====
 Then ::
+=====
 the _site directory should exist icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 the "_site/recipe.html" file should not exist icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 ****
 
 ==== Scenario: Use page.path variable
 
 ****
 Given ::
+=====
 I have a configuration file with "permalink" set to "none" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have a _drafts directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have the following draft: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 
 [cols="4*", options="header"]
@@ -1384,12 +1947,19 @@ I have the following draft: icon:thumbs-up[role="green",title="Passed"] [small r
 |Post path: {{ page.path }}
 |===
 
+=====
 When ::
+=====
 I run jekyll build --drafts icon:thumbs-up[role="green",title="Passed"] [small right]#(652ms)#
+=====
 Then ::
+=====
 the _site directory should exist icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I should see "Post path: _drafts/recipe.markdown" in "_site/recipe.html" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 ****
 
 [[Embed-filters, Embed filters]]
@@ -1405,10 +1975,15 @@ In order to perform cool stuff in my posts
 
 ****
 Given ::
+=====
 I have a _posts directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have a _layouts directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have the following post: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 
 [cols="4*", options="header"]
@@ -1423,24 +1998,38 @@ I have the following post: icon:thumbs-up[role="green",title="Passed"] [small ri
 |These aren't the droids you're looking for.
 |===
 
+=====
 And ::
+=====
 I have a default layout that contains "{{ site.time | date_to_xmlschema }}" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 When ::
+=====
 I run jekyll build icon:thumbs-up[role="green",title="Passed"] [small right]#(578ms)#
+=====
 Then ::
+=====
 the _site directory should exist icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I should see today's date in "_site/2009/03/27/star-wars.html" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 ****
 
 ==== Scenario: Escape text for XML
 
 ****
 Given ::
+=====
 I have a _posts directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have a _layouts directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have the following post: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 
 [cols="4*", options="header"]
@@ -1455,24 +2044,38 @@ I have the following post: icon:thumbs-up[role="green",title="Passed"] [small ri
 |These aren't the droids you're looking for.
 |===
 
+=====
 And ::
+=====
 I have a default layout that contains "{{ page.title | xml_escape }}" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 When ::
+=====
 I run jekyll build icon:thumbs-up[role="green",title="Passed"] [small right]#(587ms)#
+=====
 Then ::
+=====
 the _site directory should exist icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I should see "Star &amp; Wars" in "_site/2009/03/27/star-wars.html" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 ****
 
 ==== Scenario: Calculate number of words
 
 ****
 Given ::
+=====
 I have a _posts directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have a _layouts directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have the following post: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 
 [cols="4*", options="header"]
@@ -1487,24 +2090,38 @@ I have the following post: icon:thumbs-up[role="green",title="Passed"] [small ri
 |These aren't the droids you're looking for.
 |===
 
+=====
 And ::
+=====
 I have a default layout that contains "{{ content | number_of_words }}" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 When ::
+=====
 I run jekyll build icon:thumbs-up[role="green",title="Passed"] [small right]#(583ms)#
+=====
 Then ::
+=====
 the _site directory should exist icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I should see "7" in "_site/2009/03/27/star-wars.html" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 ****
 
 ==== Scenario: Convert an array into a sentence
 
 ****
 Given ::
+=====
 I have a _posts directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have a _layouts directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have the following post: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 
 [cols="5*", options="header"]
@@ -1521,24 +2138,38 @@ I have the following post: icon:thumbs-up[role="green",title="Passed"] [small ri
 |These aren't the droids you're looking for.
 |===
 
+=====
 And ::
+=====
 I have a default layout that contains "{{ page.tags | array_to_sentence_string }}" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 When ::
+=====
 I run jekyll build icon:thumbs-up[role="green",title="Passed"] [small right]#(555ms)#
+=====
 Then ::
+=====
 the _site directory should exist icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I should see "scifi, movies, and force" in "_site/2009/03/27/star-wars.html" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 ****
 
 ==== Scenario: Markdownify a given string
 
 ****
 Given ::
+=====
 I have a _posts directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have a _layouts directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have the following post: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 
 [cols="4*", options="header"]
@@ -1553,22 +2184,34 @@ I have the following post: icon:thumbs-up[role="green",title="Passed"] [small ri
 |These aren't the droids you're looking for.
 |===
 
+=====
 And ::
+=====
 I have a default layout that contains "By {{ '_Obi-wan_' | markdownify }}" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 When ::
+=====
 I run jekyll build icon:thumbs-up[role="green",title="Passed"] [small right]#(603ms)#
+=====
 Then ::
+=====
 the _site directory should exist icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I should see "By <p><em>Obi-wan</em></p>" in "_site/2009/03/27/star-wars.html" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 ****
 
 ==== Scenario: Sort by an arbitrary variable
 
 ****
 Given ::
+=====
 I have a _layouts directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have the following page: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 
 [cols="4*", options="header"]
@@ -1583,7 +2226,9 @@ I have the following page: icon:thumbs-up[role="green",title="Passed"] [small ri
 |Something
 |===
 
+=====
 And ::
+=====
 I have the following page: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 
 [cols="4*", options="header"]
@@ -1598,24 +2243,38 @@ I have the following page: icon:thumbs-up[role="green",title="Passed"] [small ri
 |Something
 |===
 
+=====
 And ::
+=====
 I have a default layout that contains "{{ site.pages | sort:'value' | map:'title' | join:', ' }}" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 When ::
+=====
 I run jekyll build icon:thumbs-up[role="green",title="Passed"] [small right]#(568ms)#
+=====
 Then ::
+=====
 the _site directory should exist icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I should see exactly "Page-2, Page-1" in "_site/page-1.html" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I should see exactly "Page-2, Page-1" in "_site/page-2.html" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 ****
 
 ==== Scenario: Sort pages by the title
 
 ****
 Given ::
+=====
 I have a _layouts directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have the following page: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 
 [cols="3*", options="header"]
@@ -1628,7 +2287,9 @@ I have the following page: icon:thumbs-up[role="green",title="Passed"] [small ri
 |Run
 |===
 
+=====
 And ::
+=====
 I have the following page: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 
 [cols="3*", options="header"]
@@ -1641,7 +2302,9 @@ I have the following page: icon:thumbs-up[role="green",title="Passed"] [small ri
 |Fly
 |===
 
+=====
 And ::
+=====
 I have the following page: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 
 [cols="2*", options="header"]
@@ -1652,22 +2315,34 @@ I have the following page: icon:thumbs-up[role="green",title="Passed"] [small ri
 |Jump
 |===
 
+=====
 And ::
+=====
 I have a default layout that contains "{% assign sorted_pages = site.pages | sort: 'title' %}The rule of {{ sorted_pages.size }}: {% for p in sorted_pages %}{{ p.content | strip_html | strip_newlines }}, {% endfor %}" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 When ::
+=====
 I run jekyll build icon:thumbs-up[role="green",title="Passed"] [small right]#(561ms)#
+=====
 Then ::
+=====
 the _site directory should exist icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I should see exactly "The rule of 3: Jump, Fly, Run," in "_site/bird.html" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 ****
 
 ==== Scenario: Sort pages by the title ordering pages without title last
 
 ****
 Given ::
+=====
 I have a _layouts directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have the following page: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 
 [cols="3*", options="header"]
@@ -1680,7 +2355,9 @@ I have the following page: icon:thumbs-up[role="green",title="Passed"] [small ri
 |Run
 |===
 
+=====
 And ::
+=====
 I have the following page: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 
 [cols="3*", options="header"]
@@ -1693,7 +2370,9 @@ I have the following page: icon:thumbs-up[role="green",title="Passed"] [small ri
 |Fly
 |===
 
+=====
 And ::
+=====
 I have the following page: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 
 [cols="2*", options="header"]
@@ -1704,14 +2383,23 @@ I have the following page: icon:thumbs-up[role="green",title="Passed"] [small ri
 |Jump
 |===
 
+=====
 And ::
+=====
 I have a default layout that contains "{% assign sorted_pages = site.pages | sort: 'title', 'last' %}The rule of {{ sorted_pages.size }}: {% for p in sorted_pages %}{{ p.content | strip_html | strip_newlines }}, {% endfor %}" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 When ::
+=====
 I run jekyll build icon:thumbs-up[role="green",title="Passed"] [small right]#(543ms)#
+=====
 Then ::
+=====
 the _site directory should exist icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I should see exactly "The rule of 3: Fly, Run, Jump," in "_site/bird.html" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 ****
 
 [[Fancy-permalinks, Fancy permalinks]]
@@ -1727,8 +2415,11 @@ In order to make my blog URLs awesome
 
 ****
 Given ::
+=====
 I have a _posts directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have the following post: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 
 [cols="3*", options="header"]
@@ -1741,22 +2432,34 @@ I have the following post: icon:thumbs-up[role="green",title="Passed"] [small ri
 |Totally nothing.
 |===
 
+=====
 And ::
+=====
 I have a configuration file with "permalink" set to "none" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 When ::
+=====
 I run jekyll build icon:thumbs-up[role="green",title="Passed"] [small right]#(635ms)#
+=====
 Then ::
+=====
 the _site directory should exist icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I should see "Totally nothing." in "_site/none-permalink-schema.html" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 ****
 
 ==== Scenario: Use pretty permalink schema
 
 ****
 Given ::
+=====
 I have a _posts directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have the following post: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 
 [cols="3*", options="header"]
@@ -1769,45 +2472,75 @@ I have the following post: icon:thumbs-up[role="green",title="Passed"] [small ri
 |Totally wordpress.
 |===
 
+=====
 And ::
+=====
 I have a configuration file with "permalink" set to "pretty" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 When ::
+=====
 I run jekyll build icon:thumbs-up[role="green",title="Passed"] [small right]#(684ms)#
+=====
 Then ::
+=====
 the _site directory should exist icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I should see "Totally wordpress." in "_site/2009/03/27/pretty-permalink-schema/index.html" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 ****
 
 ==== Scenario: Use pretty permalink schema for pages
 
 ****
 Given ::
+=====
 I have an "index.html" page that contains "Totally index" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have an "awesome.html" page that contains "Totally awesome" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have an "sitemap.xml" page that contains "Totally uhm, sitemap" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have a configuration file with "permalink" set to "pretty" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 When ::
+=====
 I run jekyll build icon:thumbs-up[role="green",title="Passed"] [small right]#(565ms)#
+=====
 Then ::
+=====
 the _site directory should exist icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I should see "Totally index" in "_site/index.html" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I should see "Totally awesome" in "_site/awesome/index.html" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I should see "Totally uhm, sitemap" in "_site/sitemap.xml" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 ****
 
 ==== Scenario: Use custom permalink schema with prefix
 
 ****
 Given ::
+=====
 I have a _posts directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have the following post: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 
 [cols="4*", options="header"]
@@ -1822,22 +2555,34 @@ I have the following post: icon:thumbs-up[role="green",title="Passed"] [small ri
 |Totally custom.
 |===
 
+=====
 And ::
+=====
 I have a configuration file with "permalink" set to "/blog/:year/:month/:day/:title/" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 When ::
+=====
 I run jekyll build icon:thumbs-up[role="green",title="Passed"] [small right]#(664ms)#
+=====
 Then ::
+=====
 the _site directory should exist icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I should see "Totally custom." in "_site/blog/2009/03/27/custom-permalink-schema/index.html" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 ****
 
 ==== Scenario: Use custom permalink schema with category
 
 ****
 Given ::
+=====
 I have a _posts directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have the following post: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 
 [cols="4*", options="header"]
@@ -1852,22 +2597,34 @@ I have the following post: icon:thumbs-up[role="green",title="Passed"] [small ri
 |Totally custom.
 |===
 
+=====
 And ::
+=====
 I have a configuration file with "permalink" set to "/:categories/:title.html" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 When ::
+=====
 I run jekyll build icon:thumbs-up[role="green",title="Passed"] [small right]#(673ms)#
+=====
 Then ::
+=====
 the _site directory should exist icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I should see "Totally custom." in "_site/stuff/custom-permalink-schema.html" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 ****
 
 ==== Scenario: Use custom permalink schema with squished date
 
 ****
 Given ::
+=====
 I have a _posts directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have the following post: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 
 [cols="4*", options="header"]
@@ -1882,22 +2639,34 @@ I have the following post: icon:thumbs-up[role="green",title="Passed"] [small ri
 |Totally custom.
 |===
 
+=====
 And ::
+=====
 I have a configuration file with "permalink" set to "/:month-:day-:year/:title.html" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 When ::
+=====
 I run jekyll build icon:thumbs-up[role="green",title="Passed"] [small right]#(637ms)#
+=====
 Then ::
+=====
 the _site directory should exist icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I should see "Totally custom." in "_site/03-27-2009/custom-permalink-schema.html" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 ****
 
 ==== Scenario: Use per-post permalink
 
 ****
 Given ::
+=====
 I have a _posts directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have the following post: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 
 [cols="4*", options="header"]
@@ -1912,22 +2681,34 @@ I have the following post: icon:thumbs-up[role="green",title="Passed"] [small ri
 |bla bla
 |===
 
+=====
 When ::
+=====
 I run jekyll build icon:thumbs-up[role="green",title="Passed"] [small right]#(656ms)#
+=====
 Then ::
+=====
 the _site directory should exist icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 the _site/custom/posts/1 directory should exist icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I should see "bla bla" in "_site/custom/posts/1/index.html" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 ****
 
 ==== Scenario: Use per-post ending in .html
 
 ****
 Given ::
+=====
 I have a _posts directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have the following post: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 
 [cols="4*", options="header"]
@@ -1942,14 +2723,23 @@ I have the following post: icon:thumbs-up[role="green",title="Passed"] [small ri
 |bla bla
 |===
 
+=====
 When ::
+=====
 I run jekyll build icon:thumbs-up[role="green",title="Passed"] [small right]#(674ms)#
+=====
 Then ::
+=====
 the _site directory should exist icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 the _site/custom/posts directory should exist icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I should see "bla bla" in "_site/custom/posts/some.html" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 ****
 
 [[Hooks, Hooks]]
@@ -1964,8 +2754,11 @@ I want to be able to run code during various stages of the build process
 
 ****
 Given ::
+=====
 I have a _plugins directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have a "_plugins/ext.rb" file with content: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -1987,22 +2780,34 @@ Jekyll::Hooks.register :site, :after_reset do |site|
 end
 
 ----
+=====
 When ::
+=====
 I run jekyll build icon:thumbs-up[role="green",title="Passed"] [small right]#(513ms)#
+=====
 Then ::
+=====
 the _site directory should exist icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I should see "mytinypage" in "_site/foo.html" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 ****
 
 ==== Scenario: Modify the payload before rendering the site
 
 ****
 Given ::
+=====
 I have a _plugins directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have a "index.html" page that contains "{{ site.injected }}!" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have a "_plugins/ext.rb" file with content: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -2011,24 +2816,38 @@ Jekyll::Hooks.register :site, :pre_render do |site, payload|
 end
 
 ----
+=====
 When ::
+=====
 I run jekyll build icon:thumbs-up[role="green",title="Passed"] [small right]#(558ms)#
+=====
 Then ::
+=====
 the _site directory should exist icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I should see "myparam!" in "_site/index.html" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 ****
 
 ==== Scenario: Modify the site contents after reading
 
 ****
 Given ::
+=====
 I have a _plugins directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have a "page1.html" page that contains "page1" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have a "page2.html" page that contains "page2" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have a "_plugins/ext.rb" file with content: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -2037,22 +2856,34 @@ Jekyll::Hooks.register :site, :post_read do |site|
 end
 
 ----
+=====
 When ::
+=====
 I run jekyll build icon:thumbs-up[role="green",title="Passed"] [small right]#(639ms)#
+=====
 Then ::
+=====
 the _site directory should exist icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 the "_site/page1.html" file should not exist icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I should see "page2" in "_site/page2.html" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 ****
 
 ==== Scenario: Work with the site files after they've been written to disk
 
 ****
 Given ::
+=====
 I have a _plugins directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have a "_plugins/ext.rb" file with content: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -2063,22 +2894,34 @@ Jekyll::Hooks.register :site, :post_write do |site|
 end
 
 ----
+=====
 And ::
+=====
 I have a "page1.html" page that contains "page1" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 When ::
+=====
 I run jekyll build icon:thumbs-up[role="green",title="Passed"] [small right]#(522ms)#
+=====
 Then ::
+=====
 the _site directory should exist icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I should see "page1" in "_site/firstpage.html" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 ****
 
 ==== Scenario: Alter a page right after it is initialized
 
 ****
 Given ::
+=====
 I have a _plugins directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have a "_plugins/ext.rb" file with content: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -2088,22 +2931,34 @@ Jekyll::Hooks.register :page, :post_init do |page|
 end
 
 ----
+=====
 And ::
+=====
 I have a "page1.html" page that contains "page1" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 When ::
+=====
 I run jekyll build icon:thumbs-up[role="green",title="Passed"] [small right]#(590ms)#
+=====
 Then ::
+=====
 the _site directory should exist icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I should see "page1" in "_site/renamed.html" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 ****
 
 ==== Scenario: Alter the payload for one page but not another
 
 ****
 Given ::
+=====
 I have a _plugins directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have a "_plugins/ext.rb" file with content: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -2112,26 +2967,42 @@ Jekyll::Hooks.register :page, :pre_render do |page, payload|
 end
 
 ----
+=====
 And ::
+=====
 I have a "page1.html" page that contains "{{ myparam }}" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have a "page2.html" page that contains "{{ myparam }}" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 When ::
+=====
 I run jekyll build icon:thumbs-up[role="green",title="Passed"] [small right]#(503ms)#
+=====
 Then ::
+=====
 I should see "special" in "_site/page1.html" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I should not see "special" in "_site/page2.html" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 ****
 
 ==== Scenario: Modify page contents before writing to disk
 
 ****
 Given ::
+=====
 I have a _plugins directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have a "index.html" page that contains "WRAP ME" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have a "_plugins/ext.rb" file with content: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -2140,20 +3011,30 @@ Jekyll::Hooks.register :page, :post_render do |page|
 end
 
 ----
+=====
 When ::
+=====
 I run jekyll build icon:thumbs-up[role="green",title="Passed"] [small right]#(569ms)#
+=====
 Then ::
+=====
 I should see "{{{{{ WRAP ME }}}}}" in "_site/index.html" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 ****
 
 ==== Scenario: Work with a page after writing it to disk
 
 ****
 Given ::
+=====
 I have a _plugins directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have a "index.html" page that contains "HELLO FROM A PAGE" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have a "_plugins/ext.rb" file with content: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -2164,18 +3045,26 @@ Jekyll::Hooks.register :page, :post_write do |page|
 end
 
 ----
+=====
 When ::
+=====
 I run jekyll build icon:thumbs-up[role="green",title="Passed"] [small right]#(560ms)#
+=====
 Then ::
+=====
 I should see "HELLO FROM A PAGE" in "_site/index.html.moved" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 ****
 
 ==== Scenario: Alter a post right after it is initialized
 
 ****
 Given ::
+=====
 I have a _plugins directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have a "_plugins/ext.rb" file with content: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -2186,9 +3075,13 @@ Jekyll::Hooks.register :post, :post_init do |post|
 end
 
 ----
+=====
 And ::
+=====
 I have a _posts directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have the following posts: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 
 [cols="4*", options="header"]
@@ -2203,20 +3096,30 @@ I have the following posts: icon:thumbs-up[role="green",title="Passed"] [small r
 |content for entry1.
 |===
 
+=====
 When ::
+=====
 I run jekyll build icon:thumbs-up[role="green",title="Passed"] [small right]#(531ms)#
+=====
 Then ::
+=====
 the _site directory should exist icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I should see "pbagrag sbe ragel1." in "_site/2015/03/14/entry1.html" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 ****
 
 ==== Scenario: Alter the payload for certain posts
 
 ****
 Given ::
+=====
 I have a _plugins directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have a "_plugins/ext.rb" file with content: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -2231,9 +3134,13 @@ Jekyll::Hooks.register :post, :pre_render do |post, payload|
 end
 
 ----
+=====
 And ::
+=====
 I have a _posts directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have the following posts: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 
 [cols="4*", options="header"]
@@ -2252,20 +3159,30 @@ I have the following posts: icon:thumbs-up[role="green",title="Passed"] [small r
 |{{ myvar }} post
 |===
 
+=====
 When ::
+=====
 I run jekyll build icon:thumbs-up[role="green",title="Passed"] [small right]#(534ms)#
+=====
 Then ::
+=====
 I should see "old post" in "_site/2015/03/14/entry1.html" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I should see "new post" in "_site/2015/03/15/entry2.html" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 ****
 
 ==== Scenario: Modify post contents before writing to disk
 
 ****
 Given ::
+=====
 I have a _plugins directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have a "_plugins/ext.rb" file with content: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -2275,9 +3192,13 @@ Jekyll::Hooks.register :post, :post_render do |post|
 end
 
 ----
+=====
 And ::
+=====
 I have a _posts directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have the following posts: icon:thumbs-up[role="green",title="Passed"] [small right]#(001ms)#
 
 [cols="4*", options="header"]
@@ -2296,20 +3217,30 @@ I have the following posts: icon:thumbs-up[role="green",title="Passed"] [small r
 |{{ 6 | times: 8 }}
 |===
 
+=====
 When ::
+=====
 I run jekyll build icon:thumbs-up[role="green",title="Passed"] [small right]#(619ms)#
+=====
 Then ::
+=====
 I should see "the answer to life, the universe and everything" in "_site/2015/03/14/entry1.html" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I should see "48" in "_site/2015/03/15/entry2.html" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 ****
 
 ==== Scenario: Work with a post after writing it to disk
 
 ****
 Given ::
+=====
 I have a _plugins directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have a "_plugins/ext.rb" file with content: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -2322,9 +3253,13 @@ Jekyll::Hooks.register :post, :post_write do |post|
 end
 
 ----
+=====
 And ::
+=====
 I have a _posts directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have the following posts: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 
 [cols="4*", options="header"]
@@ -2343,20 +3278,30 @@ I have the following posts: icon:thumbs-up[role="green",title="Passed"] [small r
 |entry two
 |===
 
+=====
 When ::
+=====
 I run jekyll build icon:thumbs-up[role="green",title="Passed"] [small right]#(549ms)#
+=====
 Then ::
+=====
 I should see "_site/2015/03/14/entry1.html at" in "_site/post-build.log" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 Then ::
+=====
 I should see "_site/2015/03/15/entry2.html at" in "_site/post-build.log" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 ****
 
 ==== Scenario: Register a hook on multiple owners at the same time
 
 ****
 Given ::
+=====
 I have a _plugins directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have a "_plugins/ext.rb" file with content: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -2365,11 +3310,17 @@ Jekyll::Hooks.register [:page, :post], :post_render do |owner|
 end
 
 ----
+=====
 And ::
+=====
 I have a "index.html" page that contains "WRAP ME" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have a _posts directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have the following posts: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 
 [cols="4*", options="header"]
@@ -2384,20 +3335,30 @@ I have the following posts: icon:thumbs-up[role="green",title="Passed"] [small r
 |entry one
 |===
 
+=====
 When ::
+=====
 I run jekyll build icon:thumbs-up[role="green",title="Passed"] [small right]#(643ms)#
+=====
 Then ::
+=====
 I should see "{{{{{ WRAP ME }}}}}" in "_site/index.html" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I should see "{{{{{ <p>entry one</p> }}}}}" in "_site/2015/03/14/entry1.html" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 ****
 
 ==== Scenario: Allow hooks to have a named priority
 
 ****
 Given ::
+=====
 I have a _plugins directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have a "_plugins/ext.rb" file with content: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -2419,20 +3380,30 @@ Jekyll::Hooks.register :page, :post_render, priority: :low do |owner|
 end
 
 ----
+=====
 And ::
+=====
 I have a "index.html" page that contains "WRAP ME" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 When ::
+=====
 I run jekyll build icon:thumbs-up[role="green",title="Passed"] [small right]#(486ms)#
+=====
 Then ::
+=====
 I should see "2 3 1 4 WRAP ME" in "_site/index.html" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 ****
 
 ==== Scenario: Alter a document right after it is initialized
 
 ****
 Given ::
+=====
 I have a _plugins directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have a "_plugins/ext.rb" file with content: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -2441,11 +3412,17 @@ Jekyll::Hooks.register :document, :pre_render do |doc, payload|
 end
 
 ----
+=====
 And ::
+=====
 I have a "_config.yml" file that contains "collections: [ memes ]" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have a _memes directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have a "_memes/doc1.md" file with content: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -2454,7 +3431,9 @@ text: all your base
 ---
 
 ----
+=====
 And ::
+=====
 I have an "index.md" file with content: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -2463,20 +3442,30 @@ I have an "index.md" file with content: icon:thumbs-up[role="green",title="Passe
 {{ site.memes.first.text }}
 
 ----
+=====
 When ::
+=====
 I run jekyll build icon:thumbs-up[role="green",title="Passed"] [small right]#(566ms)#
+=====
 Then ::
+=====
 the _site directory should exist icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I should see "all your base are belong to us" in "_site/index.html" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 ****
 
 ==== Scenario: Update a document after rendering it, but before writing it to disk
 
 ****
 Given ::
+=====
 I have a _plugins directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have a "_plugins/ext.rb" file with content: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -2485,7 +3474,9 @@ Jekyll::Hooks.register :document, :post_render do |doc|
 end
 
 ----
+=====
 And ::
+=====
 I have a "_config.yml" file with content: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -2494,9 +3485,13 @@ collections:
     output: true
 
 ----
+=====
 And ::
+=====
 I have a _memes directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have a "_memes/doc1.md" file with content: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -2506,20 +3501,30 @@ text: all your base are belong to us
 {{ page.text }}
 
 ----
+=====
 When ::
+=====
 I run jekyll build icon:thumbs-up[role="green",title="Passed"] [small right]#(619ms)#
+=====
 Then ::
+=====
 the _site directory should exist icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I should see "<p class=\"meme\">all your base are belong to us" in "_site/memes/doc1.html" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 ****
 
 ==== Scenario: Perform an action after every document is written
 
 ****
 Given ::
+=====
 I have a _plugins directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have a "_plugins/ext.rb" file with content: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -2530,7 +3535,9 @@ Jekyll::Hooks.register :document, :post_write do |doc|
 end
 
 ----
+=====
 And ::
+=====
 I have a "_config.yml" file with content: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -2539,9 +3546,13 @@ collections:
     output: true
 
 ----
+=====
 And ::
+=====
 I have a _memes directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have a "_memes/doc1.md" file with content: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -2551,12 +3562,19 @@ text: all your base are belong to us
 {{ page.text }}
 
 ----
+=====
 When ::
+=====
 I run jekyll build icon:thumbs-up[role="green",title="Passed"] [small right]#(623ms)#
+=====
 Then ::
+=====
 the _site directory should exist icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I should see "Wrote document 0" in "_site/document-build.log" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 ****
 
 [[Include-tags, Include tags]]
@@ -2572,16 +3590,27 @@ I want to be able to include files in my blog posts
 
 ****
 Given ::
+=====
 I have an _includes directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have an "_includes/header.html" file that contains "<header>My awesome blog header: {{include.param}}</header>" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have an "_includes/params.html" file that contains "Parameters:<ul>{% for param in include %}<li>{{param[0]}} = {{param[1]}}</li>{% endfor %}</ul>" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have an "_includes/ignore.html" file that contains "<footer>My blog footer</footer>" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have a _posts directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have the following posts: icon:thumbs-up[role="green",title="Passed"] [small right]#(002ms)#
 
 [cols="4*", options="header"]
@@ -2621,48 +3650,86 @@ I have the following posts: icon:thumbs-up[role="green",title="Passed"] [small r
 |{% assign var = 'some text' %}{% include params.html local=var title=page.title %}
 |===
 
+=====
 When ::
+=====
 I run jekyll build icon:thumbs-up[role="green",title="Passed"] [small right]#(606ms)#
+=====
 Then ::
+=====
 the _site directory should exist icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I should see "<header>My awesome blog header: myparam</header>" in "_site/2013/03/21/include-files.html" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I should not see "myparam" in "_site/2013/03/21/ignore-params-if-unused.html" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I should see "<li>date = today</li>" in "_site/2013/03/21/list-multiple-parameters.html" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I should see "<li>start = tomorrow</li>" in "_site/2013/03/21/list-multiple-parameters.html" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I should not see "<header>My awesome blog header: myparam</header>" in "_site/2013/03/21/dont-keep-parameters.html" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 But ::
+=====
 I should see "<header>My awesome blog header: </header>" in "_site/2013/03/21/dont-keep-parameters.html" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I should see "<li>cool = param with spaces</li>" in "_site/2013/04/07/allow-params-with-spaces-and-quotes.html" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I should see "<li>super = \"quoted\"</li>" in "_site/2013/04/07/allow-params-with-spaces-and-quotes.html" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I should see "<li>single = has \"quotes\"</li>" in "_site/2013/04/07/allow-params-with-spaces-and-quotes.html" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I should see "<li>escaped = 'single' quotes</li>" in "_site/2013/04/07/allow-params-with-spaces-and-quotes.html" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I should see "<li>param1_or_2 = value</li>" in "_site/2013/04/12/parameter-syntax.html" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I should see "<li>local = some text</li>" in "_site/2013/06/22/pass-a-variable.html" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I should see "<li>title = Pass a variable</li>" in "_site/2013/06/22/pass-a-variable.html" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 ****
 
 ==== Scenario: Include a file from a variable
 
 ****
 Given ::
+=====
 I have an _includes directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have an "_includes/snippet.html" file that contains "a snippet" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have an "_includes/parametrized.html" file that contains "works with {{include.what}}" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have a configuration file with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 
 [cols="2*", options="header"]
@@ -2675,43 +3742,71 @@ I have a configuration file with: icon:thumbs-up[role="green",title="Passed"] [s
 |parametrized.html
 |===
 
+=====
 And ::
+=====
 I have an "index.html" page that contains "{% include {{site.include_file1}} %} that {% include {{site.include_file2}} what='parameters' %}" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 When ::
+=====
 I run jekyll build icon:thumbs-up[role="green",title="Passed"] [small right]#(702ms)#
+=====
 Then ::
+=====
 the _site directory should exist icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I should see "a snippet that works with parameters" in "_site/index.html" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 ****
 
 ==== Scenario: Include a variable file in a loop
 
 ****
 Given ::
+=====
 I have an _includes directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have an "_includes/one.html" file that contains "one" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have an "_includes/two.html" file that contains "two" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have an "index.html" page with files "[one.html, two.html]" that contains "{% for file in page.files %}{% include {{file}} %} {% endfor %}" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 When ::
+=====
 I run jekyll build icon:thumbs-up[role="green",title="Passed"] [small right]#(552ms)#
+=====
 Then ::
+=====
 the _site directory should exist icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I should see "one two" in "_site/index.html" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 ****
 
 ==== Scenario: Include a file with variables and filters
 
 ****
 Given ::
+=====
 I have an _includes directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have an "_includes/one.html" file that contains "one included" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have a configuration file with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 
 [cols="2*", options="header"]
@@ -2722,24 +3817,38 @@ I have a configuration file with: icon:thumbs-up[role="green",title="Passed"] [s
 |one
 |===
 
+=====
 And ::
+=====
 I have an "index.html" page that contains "{% include {{ site.include_file | append: '.html' }} %}" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 When ::
+=====
 I run jekyll build icon:thumbs-up[role="green",title="Passed"] [small right]#(542ms)#
+=====
 Then ::
+=====
 the _site directory should exist icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I should see "one included" in "_site/index.html" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 ****
 
 ==== Scenario: Include a file with partial variables
 
 ****
 Given ::
+=====
 I have an _includes directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have an "_includes/one.html" file that contains "one included" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have a configuration file with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 
 [cols="2*", options="header"]
@@ -2750,14 +3859,23 @@ I have a configuration file with: icon:thumbs-up[role="green",title="Passed"] [s
 |one
 |===
 
+=====
 And ::
+=====
 I have an "index.html" page that contains "{% include {{ site.include_file }}.html %}" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 When ::
+=====
 I run jekyll build icon:thumbs-up[role="green",title="Passed"] [small right]#(600ms)#
+=====
 Then ::
+=====
 the _site directory should exist icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I should see "one included" in "_site/index.html" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 ****
 
 [[Incremental-rebuild, Incremental rebuild]]
@@ -2773,10 +3891,15 @@ Without waiting too long for it to build
 
 ****
 Given ::
+=====
 I have a _layouts directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have a _posts directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have the following posts: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 
 [cols="4*", options="header"]
@@ -2791,108 +3914,191 @@ I have the following posts: icon:thumbs-up[role="green",title="Passed"] [small r
 |The only winning move is not to play.
 |===
 
+=====
 And ::
+=====
 I have a default layout that contains "Post Layout: {{ content }}" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 When ::
+=====
 I run jekyll build icon:thumbs-up[role="green",title="Passed"] [small right]#(622ms)#
+=====
 Then ::
+=====
 the _site directory should exist icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I should see "Post Layout: <p>The only winning move is not to play.</p>" in "_site/2009/03/27/wargames.html" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 When ::
+=====
 I run jekyll build icon:thumbs-up[role="green",title="Passed"] [small right]#(512ms)#
+=====
 Then ::
+=====
 the _site directory should exist icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I should see "Post Layout: <p>The only winning move is not to play.</p>" in "_site/2009/03/27/wargames.html" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 ****
 
 ==== Scenario: Generate a metadata file
 
 ****
 Given ::
+=====
 I have an "index.html" file that contains "Basic Site" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 When ::
+=====
 I run jekyll build icon:thumbs-up[role="green",title="Passed"] [small right]#(499ms)#
+=====
 Then ::
+=====
 the ".jekyll-metadata" file should exist icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 ****
 
 ==== Scenario: Rebuild when content is changed
 
 ****
 Given ::
+=====
 I have an "index.html" file that contains "Basic Site" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 When ::
+=====
 I run jekyll build icon:thumbs-up[role="green",title="Passed"] [small right]#(481ms)#
+=====
 Then ::
+=====
 the _site directory should exist icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I should see "Basic Site" in "_site/index.html" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 When ::
+=====
 I wait 1 second icon:thumbs-up[role="green",title="Passed"] [small right]#(01s)#
+=====
 Then ::
+=====
 I have an "index.html" file that contains "Bacon Site" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 When ::
+=====
 I run jekyll build icon:thumbs-up[role="green",title="Passed"] [small right]#(576ms)#
+=====
 Then ::
+=====
 the _site directory should exist icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I should see "Bacon Site" in "_site/index.html" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 ****
 
 ==== Scenario: Rebuild when layout is changed
 
 ****
 Given ::
+=====
 I have a _layouts directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have an "index.html" page with layout "default" that contains "Basic Site with Layout" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have a default layout that contains "Page Layout: {{ content }}" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 When ::
+=====
 I run jekyll build icon:thumbs-up[role="green",title="Passed"] [small right]#(487ms)#
+=====
 Then ::
+=====
 the _site directory should exist icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I should see "Page Layout: Basic Site with Layout" in "_site/index.html" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 When ::
+=====
 I wait 1 second icon:thumbs-up[role="green",title="Passed"] [small right]#(01s)#
+=====
 Then ::
+=====
 I have a default layout that contains "Page Layout Changed: {{ content }}" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 When ::
+=====
 I run jekyll build --full-rebuild icon:thumbs-up[role="green",title="Passed"] [small right]#(580ms)#
+=====
 Then ::
+=====
 the _site directory should exist icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I should see "Page Layout Changed: Basic Site with Layout" in "_site/index.html" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 ****
 
 ==== Scenario: Rebuild when an include is changed
 
 ****
 Given ::
+=====
 I have a _includes directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have an "index.html" page that contains "Basic Site with include tag: {% include about.textile %}" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have an "_includes/about.textile" file that contains "Generated by Jekyll" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 When ::
+=====
 I run jekyll build icon:thumbs-up[role="green",title="Passed"] [small right]#(593ms)#
+=====
 Then ::
+=====
 the _site directory should exist icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I should see "Basic Site with include tag: Generated by Jekyll" in "_site/index.html" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 When ::
+=====
 I wait 1 second icon:thumbs-up[role="green",title="Passed"] [small right]#(01s)#
+=====
 Then ::
+=====
 I have an "_includes/about.textile" file that contains "Regenerated by Jekyll" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 When ::
+=====
 I run jekyll build icon:thumbs-up[role="green",title="Passed"] [small right]#(560ms)#
+=====
 Then ::
+=====
 the _site directory should exist icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I should see "Basic Site with include tag: Regenerated by Jekyll" in "_site/index.html" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 ****
 
 [[Markdown, Markdown]]
@@ -2908,12 +4114,19 @@ In order to share my awesome ideas with the interwebs
 
 ****
 Given ::
+=====
 I have a configuration file with "paginate" set to "5" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have an "index.html" page that contains "Index - {% for post in site.posts %} {{ post.content }} {% endfor %}" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have a _posts directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have the following post: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 
 [cols="4*", options="header"]
@@ -2928,22 +4141,34 @@ I have the following post: icon:thumbs-up[role="green",title="Passed"] [small ri
 |markdown
 |===
 
+=====
 When ::
+=====
 I run jekyll build icon:thumbs-up[role="green",title="Passed"] [small right]#(576ms)#
+=====
 Then ::
+=====
 the _site directory should exist icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I should see "Index" in "_site/index.html" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I should see "<h1 id=\"my-title\">My Title</h1>" in "_site/2009/03/27/hackers.html" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I should see "<h1 id=\"my-title\">My Title</h1>" in "_site/index.html" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 ****
 
 ==== Scenario: Markdown in pagination on index
 
 ****
 Given ::
+=====
 I have a configuration file with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 
 [cols="2*", options="header"]
@@ -2956,11 +4181,17 @@ I have a configuration file with: icon:thumbs-up[role="green",title="Passed"] [s
 |[jekyll-paginate]
 |===
 
+=====
 And ::
+=====
 I have an "index.html" page that contains "Index - {% for post in paginator.posts %} {{ post.content }} {% endfor %}" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have a _posts directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have the following post: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 
 [cols="4*", options="header"]
@@ -2975,14 +4206,23 @@ I have the following post: icon:thumbs-up[role="green",title="Passed"] [small ri
 |markdown
 |===
 
+=====
 When ::
+=====
 I run jekyll build icon:thumbs-up[role="green",title="Passed"] [small right]#(610ms)#
+=====
 Then ::
+=====
 the _site directory should exist icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I should see "Index" in "_site/index.html" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I should see "<h1 id=\"my-title\">My Title</h1>" in "_site/index.html" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 ****
 
 [[Post-data, Post data]]
@@ -2998,10 +4238,15 @@ In order to make the posts slightly dynamic
 
 ****
 Given ::
+=====
 I have a _posts directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have a _layouts directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have the following post: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 
 [cols="4*", options="header"]
@@ -3016,24 +4261,38 @@ I have the following post: icon:thumbs-up[role="green",title="Passed"] [small ri
 |Luke, I am your father.
 |===
 
+=====
 And ::
+=====
 I have a simple layout that contains "Post title: {{ page.title }}" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 When ::
+=====
 I run jekyll build icon:thumbs-up[role="green",title="Passed"] [small right]#(664ms)#
+=====
 Then ::
+=====
 the _site directory should exist icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I should see "Post title: Star Wars" in "_site/2009/03/27/star-wars.html" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 ****
 
 ==== Scenario: Use post.url variable
 
 ****
 Given ::
+=====
 I have a _posts directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have a _layouts directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have the following post: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 
 [cols="4*", options="header"]
@@ -3048,24 +4307,38 @@ I have the following post: icon:thumbs-up[role="green",title="Passed"] [small ri
 |Luke, I am your father.
 |===
 
+=====
 And ::
+=====
 I have a simple layout that contains "Post url: {{ page.url }}" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 When ::
+=====
 I run jekyll build icon:thumbs-up[role="green",title="Passed"] [small right]#(728ms)#
+=====
 Then ::
+=====
 the _site directory should exist icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I should see "Post url: /2009/03/27/star-wars.html" in "_site/2009/03/27/star-wars.html" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 ****
 
 ==== Scenario: Use post.date variable
 
 ****
 Given ::
+=====
 I have a _posts directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have a _layouts directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have the following post: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 
 [cols="4*", options="header"]
@@ -3080,24 +4353,38 @@ I have the following post: icon:thumbs-up[role="green",title="Passed"] [small ri
 |Luke, I am your father.
 |===
 
+=====
 And ::
+=====
 I have a simple layout that contains "Post date: {{ page.date | date_to_string }}" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 When ::
+=====
 I run jekyll build icon:thumbs-up[role="green",title="Passed"] [small right]#(610ms)#
+=====
 Then ::
+=====
 the _site directory should exist icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I should see "Post date: 27 Mar 2009" in "_site/2009/03/27/star-wars.html" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 ****
 
 ==== Scenario: Use post.id variable
 
 ****
 Given ::
+=====
 I have a _posts directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have a _layouts directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have the following post: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 
 [cols="4*", options="header"]
@@ -3112,24 +4399,38 @@ I have the following post: icon:thumbs-up[role="green",title="Passed"] [small ri
 |Luke, I am your father.
 |===
 
+=====
 And ::
+=====
 I have a simple layout that contains "Post id: {{ page.id }}" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 When ::
+=====
 I run jekyll build icon:thumbs-up[role="green",title="Passed"] [small right]#(632ms)#
+=====
 Then ::
+=====
 the _site directory should exist icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I should see "Post id: /2009/03/27/star-wars" in "_site/2009/03/27/star-wars.html" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 ****
 
 ==== Scenario: Use post.content variable
 
 ****
 Given ::
+=====
 I have a _posts directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have a _layouts directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have the following post: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 
 [cols="4*", options="header"]
@@ -3144,26 +4445,42 @@ I have the following post: icon:thumbs-up[role="green",title="Passed"] [small ri
 |Luke, I am your father.
 |===
 
+=====
 And ::
+=====
 I have a simple layout that contains "Post content: {{ content }}" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 When ::
+=====
 I run jekyll build icon:thumbs-up[role="green",title="Passed"] [small right]#(605ms)#
+=====
 Then ::
+=====
 the _site directory should exist icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I should see "Post content: <p>Luke, I am your father.</p>" in "_site/2009/03/27/star-wars.html" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 ****
 
 ==== Scenario: Use post.categories variable when category is in a folder
 
 ****
 Given ::
+=====
 I have a movies directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have a movies/_posts directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have a _layouts directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have the following post in "movies": icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 
 [cols="4*", options="header"]
@@ -3178,26 +4495,42 @@ I have the following post in "movies": icon:thumbs-up[role="green",title="Passed
 |Luke, I am your father.
 |===
 
+=====
 And ::
+=====
 I have a simple layout that contains "Post category: {{ page.categories }}" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 When ::
+=====
 I run jekyll build icon:thumbs-up[role="green",title="Passed"] [small right]#(622ms)#
+=====
 Then ::
+=====
 the _site directory should exist icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I should see "Post category: movies" in "_site/movies/2009/03/27/star-wars.html" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 ****
 
 ==== Scenario: Use post.categories variable when category is in a folder and has category in YAML
 
 ****
 Given ::
+=====
 I have a movies directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have a movies/_posts directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have a _layouts directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have the following post in "movies": icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 
 [cols="5*", options="header"]
@@ -3214,26 +4547,42 @@ I have the following post in "movies": icon:thumbs-up[role="green",title="Passed
 |Luke, I am your father.
 |===
 
+=====
 And ::
+=====
 I have a simple layout that contains "Post category: {{ page.categories }}" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 When ::
+=====
 I run jekyll build icon:thumbs-up[role="green",title="Passed"] [small right]#(590ms)#
+=====
 Then ::
+=====
 the _site directory should exist icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I should see "Post category: movies" in "_site/movies/film/2009/03/27/star-wars.html" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 ****
 
 ==== Scenario: Use post.categories variable when category is in a folder and has categories in YAML
 
 ****
 Given ::
+=====
 I have a movies directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have a movies/_posts directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have a _layouts directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have the following post in "movies": icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 
 [cols="5*", options="header"]
@@ -3250,26 +4599,42 @@ I have the following post in "movies": icon:thumbs-up[role="green",title="Passed
 |Luke, I am your father.
 |===
 
+=====
 And ::
+=====
 I have a simple layout that contains "Post category: {{ page.categories }}" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 When ::
+=====
 I run jekyll build icon:thumbs-up[role="green",title="Passed"] [small right]#(570ms)#
+=====
 Then ::
+=====
 the _site directory should exist icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I should see "Post category: movies" in "_site/movies/film/scifi/2009/03/27/star-wars.html" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 ****
 
 ==== Scenario: Use post.categories variable when category is in a folder and duplicated category is in YAML
 
 ****
 Given ::
+=====
 I have a movies directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have a movies/_posts directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have a _layouts directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have the following post in "movies": icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 
 [cols="5*", options="header"]
@@ -3286,24 +4651,38 @@ I have the following post in "movies": icon:thumbs-up[role="green",title="Passed
 |Luke, I am your father.
 |===
 
+=====
 And ::
+=====
 I have a simple layout that contains "Post category: {{ page.categories }}" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 When ::
+=====
 I run jekyll build icon:thumbs-up[role="green",title="Passed"] [small right]#(627ms)#
+=====
 Then ::
+=====
 the _site directory should exist icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I should see "Post category: movies" in "_site/movies/2009/03/27/star-wars.html" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 ****
 
 ==== Scenario: Use post.tags variable
 
 ****
 Given ::
+=====
 I have a _posts directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have a _layouts directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have the following post: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 
 [cols="5*", options="header"]
@@ -3320,28 +4699,46 @@ I have the following post: icon:thumbs-up[role="green",title="Passed"] [small ri
 |Luke, I am your father.
 |===
 
+=====
 And ::
+=====
 I have a simple layout that contains "Post tags: {{ page.tags }}" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 When ::
+=====
 I run jekyll build icon:thumbs-up[role="green",title="Passed"] [small right]#(568ms)#
+=====
 Then ::
+=====
 the _site directory should exist icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I should see "Post tags: twist" in "_site/2009/05/18/star-wars.html" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 ****
 
 ==== Scenario: Use post.categories variable when categories are in folders
 
 ****
 Given ::
+=====
 I have a scifi directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have a scifi/movies directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have a scifi/movies/_posts directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have a _layouts directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have the following post in "scifi/movies": icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 
 [cols="4*", options="header"]
@@ -3356,28 +4753,46 @@ I have the following post in "scifi/movies": icon:thumbs-up[role="green",title="
 |Luke, I am your father.
 |===
 
+=====
 And ::
+=====
 I have a simple layout that contains "Post categories: {{ page.categories | array_to_sentence_string }}" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 When ::
+=====
 I run jekyll build icon:thumbs-up[role="green",title="Passed"] [small right]#(641ms)#
+=====
 Then ::
+=====
 the _site directory should exist icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I should see "Post categories: scifi and movies" in "_site/scifi/movies/2009/03/27/star-wars.html" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 ****
 
 ==== Scenario: Use post.categories variable when categories are in folders with mixed case
 
 ****
 Given ::
+=====
 I have a scifi directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have a scifi/Movies directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have a scifi/Movies/_posts directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have a _layouts directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have the following post in "scifi/Movies": icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 
 [cols="4*", options="header"]
@@ -3392,24 +4807,38 @@ I have the following post in "scifi/Movies": icon:thumbs-up[role="green",title="
 |Luke, I am your father.
 |===
 
+=====
 And ::
+=====
 I have a simple layout that contains "Post categories: {{ page.categories | array_to_sentence_string }}" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 When ::
+=====
 I run jekyll build icon:thumbs-up[role="green",title="Passed"] [small right]#(609ms)#
+=====
 Then ::
+=====
 the _site directory should exist icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I should see "Post categories: scifi and Movies" in "_site/scifi/movies/2009/03/27/star-wars.html" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 ****
 
 ==== Scenario: Use post.categories variable when category is in YAML
 
 ****
 Given ::
+=====
 I have a _posts directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have a _layouts directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have the following post: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 
 [cols="5*", options="header"]
@@ -3426,24 +4855,38 @@ I have the following post: icon:thumbs-up[role="green",title="Passed"] [small ri
 |Luke, I am your father.
 |===
 
+=====
 And ::
+=====
 I have a simple layout that contains "Post category: {{ page.categories }}" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 When ::
+=====
 I run jekyll build icon:thumbs-up[role="green",title="Passed"] [small right]#(560ms)#
+=====
 Then ::
+=====
 the _site directory should exist icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I should see "Post category: movies" in "_site/movies/2009/03/27/star-wars.html" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 ****
 
 ==== Scenario: Use post.categories variable when category is in YAML and is mixed-case
 
 ****
 Given ::
+=====
 I have a _posts directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have a _layouts directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have the following post: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 
 [cols="5*", options="header"]
@@ -3460,24 +4903,38 @@ I have the following post: icon:thumbs-up[role="green",title="Passed"] [small ri
 |Luke, I am your father.
 |===
 
+=====
 And ::
+=====
 I have a simple layout that contains "Post category: {{ page.categories }}" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 When ::
+=====
 I run jekyll build icon:thumbs-up[role="green",title="Passed"] [small right]#(583ms)#
+=====
 Then ::
+=====
 the _site directory should exist icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I should see "Post category: Movies" in "_site/movies/2009/03/27/star-wars.html" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 ****
 
 ==== Scenario: Use post.categories variable when categories are in YAML
 
 ****
 Given ::
+=====
 I have a _posts directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have a _layouts directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have the following post: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 
 [cols="5*", options="header"]
@@ -3494,24 +4951,38 @@ I have the following post: icon:thumbs-up[role="green",title="Passed"] [small ri
 |Luke, I am your father.
 |===
 
+=====
 And ::
+=====
 I have a simple layout that contains "Post categories: {{ page.categories | array_to_sentence_string }}" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 When ::
+=====
 I run jekyll build icon:thumbs-up[role="green",title="Passed"] [small right]#(589ms)#
+=====
 Then ::
+=====
 the _site directory should exist icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I should see "Post categories: scifi and movies" in "_site/scifi/movies/2009/03/27/star-wars.html" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 ****
 
 ==== Scenario: Use post.categories variable when categories are in YAML and are duplicated
 
 ****
 Given ::
+=====
 I have a _posts directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have a _layouts directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have the following post: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 
 [cols="5*", options="header"]
@@ -3528,24 +4999,38 @@ I have the following post: icon:thumbs-up[role="green",title="Passed"] [small ri
 |Luke, I am your father.
 |===
 
+=====
 And ::
+=====
 I have a simple layout that contains "Post category: {{ page.categories }}" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 When ::
+=====
 I run jekyll build icon:thumbs-up[role="green",title="Passed"] [small right]#(641ms)#
+=====
 Then ::
+=====
 the _site directory should exist icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I should see "Post category: movies" in "_site/movies/2009/03/27/star-wars.html" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 ****
 
 ==== Scenario: Use post.categories variable when categories are in YAML with mixed case
 
 ****
 Given ::
+=====
 I have a _posts directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have a _layouts directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have the following posts: icon:thumbs-up[role="green",title="Passed"] [small right]#(001ms)#
 
 [cols="5*", options="header"]
@@ -3567,16 +5052,27 @@ I have the following posts: icon:thumbs-up[role="green",title="Passed"] [small r
 |Jean Luc, I am your father.
 |===
 
+=====
 And ::
+=====
 I have a simple layout that contains "Post categories: {{ page.categories | array_to_sentence_string }}" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 When ::
+=====
 I run jekyll build icon:thumbs-up[role="green",title="Passed"] [small right]#(550ms)#
+=====
 Then ::
+=====
 the _site directory should exist icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I should see "Post categories: scifi and Movies" in "_site/scifi/movies/2009/03/27/star-wars.html" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I should see "Post categories: SciFi and movies" in "_site/scifi/movies/2013/03/17/star-trek.html" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 ****
 
 ==== Scenario Outline: Use page.path variable icon:thumbs-down[role="red",title="Failed"]
@@ -3599,8 +5095,11 @@ I should see "Post categories: SciFi and movies" in "_site/scifi/movies/2013/03/
 
 ****
 Given ::
+=====
 I have a _posts directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have the following post: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 
 [cols="4*", options="header"]
@@ -3615,22 +5114,34 @@ I have the following post: icon:thumbs-up[role="green",title="Passed"] [small ri
 |Custom path: {{ page.path }}
 |===
 
+=====
 When ::
+=====
 I run jekyll build icon:thumbs-up[role="green",title="Passed"] [small right]#(577ms)#
+=====
 Then ::
+=====
 the _site directory should exist icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I should see "Custom path: override-path.html" in "_site/2013/04/12/override.html" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 ****
 
 ==== Scenario: Disable a post from being published
 
 ****
 Given ::
+=====
 I have a _posts directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have an "index.html" file that contains "Published!" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have the following post: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 
 [cols="5*", options="header"]
@@ -3647,24 +5158,38 @@ I have the following post: icon:thumbs-up[role="green",title="Passed"] [small ri
 |Luke, I am your father.
 |===
 
+=====
 When ::
+=====
 I run jekyll build icon:thumbs-up[role="green",title="Passed"] [small right]#(607ms)#
+=====
 Then ::
+=====
 the _site directory should exist icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 the "_site/2009/03/27/star-wars.html" file should not exist icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I should see "Published!" in "_site/index.html" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 ****
 
 ==== Scenario: Use a custom variable
 
 ****
 Given ::
+=====
 I have a _posts directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have a _layouts directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have the following post: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 
 [cols="5*", options="header"]
@@ -3681,24 +5206,38 @@ I have the following post: icon:thumbs-up[role="green",title="Passed"] [small ri
 |Luke, I am your father.
 |===
 
+=====
 And ::
+=====
 I have a simple layout that contains "Post author: {{ page.author }}" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 When ::
+=====
 I run jekyll build icon:thumbs-up[role="green",title="Passed"] [small right]#(549ms)#
+=====
 Then ::
+=====
 the _site directory should exist icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I should see "Post author: Darth Vader" in "_site/2009/03/27/star-wars.html" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 ****
 
 ==== Scenario: Previous and next posts title
 
 ****
 Given ::
+=====
 I have a _posts directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have a _layouts directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have the following posts: icon:thumbs-up[role="green",title="Passed"] [small right]#(001ms)#
 
 [cols="5*", options="header"]
@@ -3725,16 +5264,27 @@ I have the following posts: icon:thumbs-up[role="green",title="Passed"] [small r
 |Sayonara, baby
 |===
 
+=====
 And ::
+=====
 I have a ordered layout that contains "Previous post: {{ page.previous.title }} and next post: {{ page.next.title }}" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 When ::
+=====
 I run jekyll build icon:thumbs-up[role="green",title="Passed"] [small right]#(570ms)#
+=====
 Then ::
+=====
 the _site directory should exist icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I should see "next post: Some like it hot" in "_site/2009/03/27/star-wars.html" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I should see "Previous post: Some like it hot" in "_site/2009/05/27/terminator.html" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 ****
 
 [[Post-excerpts, Post excerpts]]
@@ -3752,10 +5302,15 @@ So just give them a taste
 
 ****
 Given ::
+=====
 I have an "index.html" page that contains "{% for post in site.posts %}{{ post.excerpt }}{% endfor %}" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have a _posts directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have the following posts: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 
 [cols="4*", options="header"]
@@ -3770,26 +5325,42 @@ I have the following posts: icon:thumbs-up[role="green",title="Passed"] [small r
 |content for entry1.
 |===
 
+=====
 When ::
+=====
 I run jekyll build icon:thumbs-up[role="green",title="Passed"] [small right]#(627ms)#
+=====
 Then ::
+=====
 the _site directory should exist icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I should see exactly "<p>content for entry1.</p>" in "_site/index.html" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 ****
 
 ==== Scenario: An excerpt from a post with a layout
 
 ****
 Given ::
+=====
 I have an "index.html" page that contains "{% for post in site.posts %}{{ post.excerpt }}{% endfor %}" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have a _posts directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have a _layouts directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have a post layout that contains "{{ page.excerpt }}" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have the following posts: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 
 [cols="4*", options="header"]
@@ -3804,36 +5375,62 @@ I have the following posts: icon:thumbs-up[role="green",title="Passed"] [small r
 |content for entry1.
 |===
 
+=====
 When ::
+=====
 I run jekyll build icon:thumbs-up[role="green",title="Passed"] [small right]#(552ms)#
+=====
 Then ::
+=====
 the _site directory should exist icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 the _site/2007 directory should exist icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 the _site/2007/12 directory should exist icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 the _site/2007/12/31 directory should exist icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 the "_site/2007/12/31/entry1.html" file should exist icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I should see exactly "<p>content for entry1.</p>" in "_site/2007/12/31/entry1.html" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I should see exactly "<p>content for entry1.</p>" in "_site/index.html" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 ****
 
 ==== Scenario: An excerpt from a post with a layout which has context
 
 ****
 Given ::
+=====
 I have an "index.html" page that contains "{% for post in site.posts %}{{ post.excerpt }}{% endfor %}" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have a _posts directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have a _layouts directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have a post layout that contains "<html><head></head><body>{{ page.excerpt }}</body></html>" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have the following posts: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 
 [cols="4*", options="header"]
@@ -3848,22 +5445,39 @@ I have the following posts: icon:thumbs-up[role="green",title="Passed"] [small r
 |content for entry1.
 |===
 
+=====
 When ::
+=====
 I run jekyll build icon:thumbs-up[role="green",title="Passed"] [small right]#(538ms)#
+=====
 Then ::
+=====
 the _site directory should exist icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 the _site/2007 directory should exist icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 the _site/2007/12 directory should exist icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 the _site/2007/12/31 directory should exist icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 the "_site/2007/12/31/entry1.html" file should exist icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I should see "<p>content for entry1.</p>" in "_site/index.html" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I should see "<html><head></head><body><p>content for entry1.</p>\n\n</body></html>" in "_site/2007/12/31/entry1.html" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 ****
 
 [[Rendering, Rendering]]
@@ -3881,79 +5495,133 @@ So render with Liquid and place in Layouts
 
 ****
 Given ::
+=====
 I have a "index.html" page with layout "simple" that contains "Hi there, Jekyll {{ jekyll.environment }}!" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have a simple layout that contains "{{ content }}Ahoy, indeed!" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 When ::
+=====
 I run jekyll build icon:thumbs-up[role="green",title="Passed"] [small right]#(569ms)#
+=====
 Then ::
+=====
 the _site directory should exist icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I should see "Hi there, Jekyll development!\nAhoy, indeed" in "_site/index.html" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 ****
 
 ==== Scenario: Don't place asset files in layout
 
 ****
 Given ::
+=====
 I have an "index.scss" page with layout "simple" that contains ".foo-bar { color:black; }" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have an "index.coffee" page with layout "simple" that contains "whatever()" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have a configuration file with "gems" set to "[jekyll-coffeescript]" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have a simple layout that contains "{{ content }}Ahoy, indeed!" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 When ::
+=====
 I run jekyll build icon:thumbs-up[role="green",title="Passed"] [small right]#(882ms)#
+=====
 Then ::
+=====
 the _site directory should exist icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I should not see "Ahoy, indeed!" in "_site/index.css" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I should not see "Ahoy, indeed!" in "_site/index.js" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 ****
 
 ==== Scenario: Render liquid in Sass
 
 ****
 Given ::
+=====
 I have an "index.scss" page that contains ".foo-bar { color:{{site.color}}; }" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have a configuration file with "color" set to "red" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 When ::
+=====
 I run jekyll build icon:thumbs-up[role="green",title="Passed"] [small right]#(590ms)#
+=====
 Then ::
+=====
 the _site directory should exist icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I should see ".foo-bar {\n  color: red; }" in "_site/index.css" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 ****
 
 ==== Scenario: Not render liquid in CoffeeScript without explicitly including jekyll-coffeescript
 
 ****
 Given ::
+=====
 I have an "index.coffee" page with animal "cicada" that contains "hey='for {{page.animal}}'" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 When ::
+=====
 I run jekyll build icon:thumbs-up[role="green",title="Passed"] [small right]#(586ms)#
+=====
 Then ::
+=====
 the _site directory should exist icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 the "_site/index.js" file should not exist icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 ****
 
 ==== Scenario: Render liquid in CoffeeScript with jekyll-coffeescript enabled
 
 ****
 Given ::
+=====
 I have an "index.coffee" page with animal "cicada" that contains "hey='for {{page.animal}}'" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have a configuration file with "gems" set to "[jekyll-coffeescript]" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 When ::
+=====
 I run jekyll build icon:thumbs-up[role="green",title="Passed"] [small right]#(796ms)#
+=====
 Then ::
+=====
 the _site directory should exist icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I should see "hey = 'for cicada';" in "_site/index.js" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 ****
 
 [[Site-configuration, Site configuration]]
@@ -3969,32 +5637,54 @@ In order to make setting up a site easier
 
 ****
 Given ::
+=====
 I have a blank site in "_sourcedir" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have an "_sourcedir/index.html" file that contains "Changing source directory" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have a configuration file with "source" set to "_sourcedir" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 When ::
+=====
 I run jekyll build icon:thumbs-up[role="green",title="Passed"] [small right]#(574ms)#
+=====
 Then ::
+=====
 the _site directory should exist icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I should see "Changing source directory" in "_site/index.html" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 ****
 
 ==== Scenario: Change destination directory
 
 ****
 Given ::
+=====
 I have an "index.html" file that contains "Changing destination directory" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have a configuration file with "destination" set to "_mysite" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 When ::
+=====
 I run jekyll build icon:thumbs-up[role="green",title="Passed"] [small right]#(578ms)#
+=====
 Then ::
+=====
 the _mysite directory should exist icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I should see "Changing destination directory" in "_mysite/index.html" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 ****
 
 ==== Scenario Outline: Similarly named source and destination icon:thumbs-down[role="red",title="Failed"]
@@ -4030,33 +5720,56 @@ I should see "Changing destination directory" in "_mysite/index.html" icon:thumb
 
 ****
 Given ::
+=====
 I have an "Rakefile" file that contains "I want to be excluded" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have an "README" file that contains "I want to be excluded" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have an "index.html" file that contains "I want to be included" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have a configuration file with "exclude" set to "['Rakefile', 'README']" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 When ::
+=====
 I run jekyll build icon:thumbs-up[role="green",title="Passed"] [small right]#(558ms)#
+=====
 Then ::
+=====
 I should see "I want to be included" in "_site/index.html" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 the "_site/Rakefile" file should not exist icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 the "_site/README" file should not exist icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 ****
 
 ==== Scenario: Exclude files with YAML array
 
 ****
 Given ::
+=====
 I have an "Rakefile" file that contains "I want to be excluded" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have an "README" file that contains "I want to be excluded" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have an "index.html" file that contains "I want to be included" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have a configuration file with "exclude" set to: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 
 [cols="1*", options="header"]
@@ -4066,101 +5779,167 @@ I have a configuration file with "exclude" set to: icon:thumbs-up[role="green",t
 |Rakefile
 |===
 
+=====
 When ::
+=====
 I run jekyll build icon:thumbs-up[role="green",title="Passed"] [small right]#(498ms)#
+=====
 Then ::
+=====
 I should see "I want to be included" in "_site/index.html" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 the "_site/Rakefile" file should not exist icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 the "_site/README" file should not exist icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 ****
 
 ==== Scenario: Use RDiscount for markup
 
 ****
 Given ::
+=====
 I have an "index.markdown" page that contains "[Google](http://google.com)" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have a configuration file with "markdown" set to "rdiscount" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 When ::
+=====
 I run jekyll build icon:thumbs-up[role="green",title="Passed"] [small right]#(498ms)#
+=====
 Then ::
+=====
 the _site directory should exist icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I should see "<a href=\"http://google.com\">Google</a>" in "_site/index.html" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 ****
 
 ==== Scenario: Use Kramdown for markup
 
 ****
 Given ::
+=====
 I have an "index.markdown" page that contains "[Google](http://google.com)" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have a configuration file with "markdown" set to "kramdown" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 When ::
+=====
 I run jekyll build icon:thumbs-up[role="green",title="Passed"] [small right]#(552ms)#
+=====
 Then ::
+=====
 the _site directory should exist icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I should see "<a href=\"http://google.com\">Google</a>" in "_site/index.html" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 ****
 
 ==== Scenario: Use Redcarpet for markup
 
 ****
 Given ::
+=====
 I have an "index.markdown" page that contains "[Google](http://google.com)" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have a configuration file with "markdown" set to "redcarpet" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 When ::
+=====
 I run jekyll build icon:thumbs-up[role="green",title="Passed"] [small right]#(595ms)#
+=====
 Then ::
+=====
 the _site directory should exist icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I should see "<a href=\"http://google.com\">Google</a>" in "_site/index.html" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 ****
 
 ==== Scenario: Highlight code with pygments
 
 ****
 Given ::
+=====
 I have an "index.html" page that contains "{% highlight ruby %} puts 'Hello world!' {% endhighlight %}" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 When ::
+=====
 I run jekyll build icon:thumbs-up[role="green",title="Passed"] [small right]#(593ms)#
+=====
 Then ::
+=====
 the _site directory should exist icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I should see "Hello world!" in "_site/index.html" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I should see "class=\"highlight\"" in "_site/index.html" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 ****
 
 ==== Scenario: Highlight code with rouge
 
 ****
 Given ::
+=====
 I have an "index.html" page that contains "{% highlight ruby %} puts 'Hello world!' {% endhighlight %}" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have a configuration file with "highlighter" set to "rouge" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 When ::
+=====
 I run jekyll build icon:thumbs-up[role="green",title="Passed"] [small right]#(630ms)#
+=====
 Then ::
+=====
 the _site directory should exist icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I should see "Hello world!" in "_site/index.html" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I should see "class=\"highlight\"" in "_site/index.html" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 ****
 
 ==== Scenario: Rouge renders code block once
 
 ****
 Given ::
+=====
 I have a configuration file with "highlighter" set to "rouge" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have a _posts directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have the following post: icon:thumbs-up[role="green",title="Passed"] [small right]#(001ms)#
 
 [cols="4*", options="header"]
@@ -4175,24 +5954,38 @@ I have the following post: icon:thumbs-up[role="green",title="Passed"] [small ri
 |{% highlight text %} test {% endhighlight %}
 |===
 
+=====
 When ::
+=====
 I run jekyll build icon:thumbs-up[role="green",title="Passed"] [small right]#(733ms)#
+=====
 Then ::
+=====
 I should not see "highlight(.*)highlight" in "_site/2014/04/27/foo.html" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 ****
 
 ==== Scenario: Set time and no future dated posts
 
 ****
 Given ::
+=====
 I have a _layouts directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have a page layout that contains "Page Layout: {{ site.posts.size }} on {{ site.time | date: "%Y-%m-%d" }}" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have a post layout that contains "Post Layout: {{ content }}" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have an "index.html" page with layout "page" that contains "site index page" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have a configuration file with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 
 [cols="2*", options="header"]
@@ -4205,9 +5998,13 @@ I have a configuration file with: icon:thumbs-up[role="green",title="Passed"] [s
 |false
 |===
 
+=====
 And ::
+=====
 I have a _posts directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have the following posts: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 
 [cols="4*", options="header"]
@@ -4226,30 +6023,50 @@ I have the following posts: icon:thumbs-up[role="green",title="Passed"] [small r
 |content for entry2.
 |===
 
+=====
 When ::
+=====
 I run jekyll build icon:thumbs-up[role="green",title="Passed"] [small right]#(575ms)#
+=====
 Then ::
+=====
 the _site directory should exist icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I should see "Page Layout: 1 on 2010-01-01" in "_site/index.html" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I should see "Post Layout: <p>content for entry1.</p>" in "_site/2007/12/31/entry1.html" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 the "_site/2020/01/31/entry2.html" file should not exist icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 ****
 
 ==== Scenario: Set time and future dated posts allowed
 
 ****
 Given ::
+=====
 I have a _layouts directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have a page layout that contains "Page Layout: {{ site.posts.size }} on {{ site.time | date: "%Y-%m-%d" }}" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have a post layout that contains "Post Layout: {{ content }}" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have an "index.html" page with layout "page" that contains "site index page" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have a configuration file with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 
 [cols="2*", options="header"]
@@ -4262,9 +6079,13 @@ I have a configuration file with: icon:thumbs-up[role="green",title="Passed"] [s
 |true
 |===
 
+=====
 And ::
+=====
 I have a _posts directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have the following posts: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 
 [cols="4*", options="header"]
@@ -4283,30 +6104,50 @@ I have the following posts: icon:thumbs-up[role="green",title="Passed"] [small r
 |content for entry2.
 |===
 
+=====
 When ::
+=====
 I run jekyll build icon:thumbs-up[role="green",title="Passed"] [small right]#(540ms)#
+=====
 Then ::
+=====
 the _site directory should exist icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I should see "Page Layout: 2 on 2010-01-01" in "_site/index.html" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I should see "Post Layout: <p>content for entry1.</p>" in "_site/2007/12/31/entry1.html" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I should see "Post Layout: <p>content for entry2.</p>" in "_site/2020/01/31/entry2.html" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 ****
 
 ==== Scenario: Generate proper dates with explicitly set timezone (same as posts' time)
 
 ****
 Given ::
+=====
 I have a _layouts directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have a page layout that contains "Page Layout: {{ site.posts.size }}" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have a post layout that contains "Post Layout: {{ content }} built at {{ page.date | date_to_xmlschema }}" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have an "index.html" page with layout "page" that contains "site index page" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have a configuration file with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 
 [cols="2*", options="header"]
@@ -4317,9 +6158,13 @@ I have a configuration file with: icon:thumbs-up[role="green",title="Passed"] [s
 |America/New_York
 |===
 
+=====
 And ::
+=====
 I have a _posts directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have the following posts: icon:thumbs-up[role="green",title="Passed"] [small right]#(001ms)#
 
 [cols="4*", options="header"]
@@ -4338,30 +6183,50 @@ I have the following posts: icon:thumbs-up[role="green",title="Passed"] [small r
 |content for entry2.
 |===
 
+=====
 When ::
+=====
 I run jekyll build icon:thumbs-up[role="green",title="Passed"] [small right]#(544ms)#
+=====
 Then ::
+=====
 the _site directory should exist icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I should see "Page Layout: 2" in "_site/index.html" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I should see "Post Layout: <p>content for entry1.</p>\n built at 2013-04-09T23:22:00-04:00" in "_site/2013/04/09/entry1.html" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I should see "Post Layout: <p>content for entry2.</p>\n built at 2013-04-10T03:14:00-04:00" in "_site/2013/04/10/entry2.html" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 ****
 
 ==== Scenario: Generate proper dates with explicitly set timezone (different than posts' time)
 
 ****
 Given ::
+=====
 I have a _layouts directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have a page layout that contains "Page Layout: {{ site.posts.size }}" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have a post layout that contains "Post Layout: {{ content }} built at {{ page.date | date_to_xmlschema }}" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have an "index.html" page with layout "page" that contains "site index page" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have a configuration file with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 
 [cols="2*", options="header"]
@@ -4372,9 +6237,13 @@ I have a configuration file with: icon:thumbs-up[role="green",title="Passed"] [s
 |Pacific/Honolulu
 |===
 
+=====
 And ::
+=====
 I have a _posts directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have the following posts: icon:thumbs-up[role="green",title="Passed"] [small right]#(001ms)#
 
 [cols="4*", options="header"]
@@ -4393,28 +6262,46 @@ I have the following posts: icon:thumbs-up[role="green",title="Passed"] [small r
 |content for entry2.
 |===
 
+=====
 When ::
+=====
 I run jekyll build icon:thumbs-up[role="green",title="Passed"] [small right]#(639ms)#
+=====
 Then ::
+=====
 the _site directory should exist icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I should see "Page Layout: 2" in "_site/index.html" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 the "_site/2013/04/09/entry1.html" file should exist icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 the "_site/2013/04/09/entry2.html" file should exist icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I should see "Post Layout: <p>content for entry1.</p>\n built at 2013-04-09T09:22:00-10:00" in "_site/2013/04/09/entry1.html" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I should see "Post Layout: <p>content for entry2.</p>\n built at 2013-04-09T13:14:00-10:00" in "_site/2013/04/09/entry2.html" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 ****
 
 ==== Scenario: Limit the number of posts generated by most recent date
 
 ****
 Given ::
+=====
 I have a _posts directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have a configuration file with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 
 [cols="2*", options="header"]
@@ -4425,7 +6312,9 @@ I have a configuration file with: icon:thumbs-up[role="green",title="Passed"] [s
 |2
 |===
 
+=====
 And ::
+=====
 I have the following posts: icon:thumbs-up[role="green",title="Passed"] [small right]#(001ms)#
 
 [cols="3*", options="header"]
@@ -4444,26 +6333,42 @@ I have the following posts: icon:thumbs-up[role="green",title="Passed"] [small r
 |An article about bananas
 |===
 
+=====
 When ::
+=====
 I run jekyll build icon:thumbs-up[role="green",title="Passed"] [small right]#(581ms)#
+=====
 Then ::
+=====
 the _site directory should exist icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 the "_site/2009/04/05/bananas.html" file should exist icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 the "_site/2009/04/01/oranges.html" file should exist icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 the "_site/2009/03/27/apples.html" file should not exist icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 ****
 
 ==== Scenario: Copy over normally excluded files when they are explicitly included
 
 ****
 Given ::
+=====
 I have a ".gitignore" file that contains ".DS_Store" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have an ".htaccess" file that contains "SomeDirective" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have a configuration file with "include" set to: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 
 [cols="1*", options="header"]
@@ -4473,28 +6378,46 @@ I have a configuration file with "include" set to: icon:thumbs-up[role="green",t
 |.foo
 |===
 
+=====
 When ::
+=====
 I run jekyll build icon:thumbs-up[role="green",title="Passed"] [small right]#(517ms)#
+=====
 Then ::
+=====
 the _site directory should exist icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I should see ".DS_Store" in "_site/.gitignore" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 the "_site/.htaccess" file should not exist icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 ****
 
 ==== Scenario: Using a different layouts directory
 
 ****
 Given ::
+=====
 I have a _theme directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have a page theme that contains "Page Layout: {{ site.posts.size }} on {{ site.time | date: "%Y-%m-%d" }}" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have a post theme that contains "Post Layout: {{ content }}" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have an "index.html" page with layout "page" that contains "site index page" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have a configuration file with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 
 [cols="2*", options="header"]
@@ -4509,9 +6432,13 @@ I have a configuration file with: icon:thumbs-up[role="green",title="Passed"] [s
 |_theme
 |===
 
+=====
 And ::
+=====
 I have a _posts directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have the following posts: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 
 [cols="4*", options="header"]
@@ -4530,33 +6457,56 @@ I have the following posts: icon:thumbs-up[role="green",title="Passed"] [small r
 |content for entry2.
 |===
 
+=====
 When ::
+=====
 I run jekyll build icon:thumbs-up[role="green",title="Passed"] [small right]#(577ms)#
+=====
 Then ::
+=====
 the _site directory should exist icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I should see "Page Layout: 2 on 2010-01-01" in "_site/index.html" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I should see "Post Layout: <p>content for entry1.</p>" in "_site/2007/12/31/entry1.html" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I should see "Post Layout: <p>content for entry2.</p>" in "_site/2020/01/31/entry2.html" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 ****
 
 ==== Scenario: arbitrary file reads via layouts
 
 ****
 Given ::
+=====
 I have an "index.html" page with layout "page" that contains "FOO" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have a "_config.yml" file that contains "layouts: '../../../../../../../../../../../../../../usr/include'" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 When ::
+=====
 I run jekyll build icon:thumbs-up[role="green",title="Passed"] [small right]#(493ms)#
+=====
 Then ::
+=====
 the _site directory should exist icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I should see "FOO" in "_site/index.html" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I should not see " " in "_site/index.html" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 ****
 
 [[Site-data, Site data]]
@@ -4572,13 +6522,21 @@ In order to make the site slightly dynamic
 
 ****
 Given ::
+=====
 I have an "contact.html" page with title "Contact" that contains "{{ page.title }}: email@example.com" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 When ::
+=====
 I run jekyll build icon:thumbs-up[role="green",title="Passed"] [small right]#(540ms)#
+=====
 Then ::
+=====
 the _site directory should exist icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I should see "Contact: email@example.com" in "_site/contact.html" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 ****
 
 ==== Scenario Outline: Use page.path variable in a page icon:thumbs-down[role="red",title="Failed"]
@@ -4601,36 +6559,57 @@ I should see "Contact: email@example.com" in "_site/contact.html" icon:thumbs-up
 
 ****
 Given ::
+=====
 I have an "override.html" page with path "custom-override.html" that contains "Custom path: {{ page.path }}" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 When ::
+=====
 I run jekyll build icon:thumbs-up[role="green",title="Passed"] [small right]#(493ms)#
+=====
 Then ::
+=====
 the _site directory should exist icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I should see "Custom path: custom-override.html" in "_site/override.html" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 ****
 
 ==== Scenario: Use site.time variable
 
 ****
 Given ::
+=====
 I have an "index.html" page that contains "{{ site.time }}" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 When ::
+=====
 I run jekyll build icon:thumbs-up[role="green",title="Passed"] [small right]#(529ms)#
+=====
 Then ::
+=====
 the _site directory should exist icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I should see today's time in "_site/index.html" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 ****
 
 ==== Scenario: Use site.posts variable for latest post
 
 ****
 Given ::
+=====
 I have a _posts directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have an "index.html" page that contains "{{ site.posts.first.title }}: {{ site.posts.first.url }}" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have the following posts: icon:thumbs-up[role="green",title="Passed"] [small right]#(001ms)#
 
 [cols="3*", options="header"]
@@ -4649,22 +6628,34 @@ I have the following posts: icon:thumbs-up[role="green",title="Passed"] [small r
 |My Third Post
 |===
 
+=====
 When ::
+=====
 I run jekyll build icon:thumbs-up[role="green",title="Passed"] [small right]#(545ms)#
+=====
 Then ::
+=====
 the _site directory should exist icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I should see "Third Post: /2009/03/27/third-post.html" in "_site/index.html" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 ****
 
 ==== Scenario: Use site.posts variable in a loop
 
 ****
 Given ::
+=====
 I have a _posts directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have an "index.html" page that contains "{% for post in site.posts %} {{ post.title }} {% endfor %}" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have the following posts: icon:thumbs-up[role="green",title="Passed"] [small right]#(001ms)#
 
 [cols="3*", options="header"]
@@ -4683,22 +6674,34 @@ I have the following posts: icon:thumbs-up[role="green",title="Passed"] [small r
 |My Third Post
 |===
 
+=====
 When ::
+=====
 I run jekyll build icon:thumbs-up[role="green",title="Passed"] [small right]#(579ms)#
+=====
 Then ::
+=====
 the _site directory should exist icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I should see "Third Post  Second Post  First Post" in "_site/index.html" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 ****
 
 ==== Scenario: Use site.categories.code variable
 
 ****
 Given ::
+=====
 I have a _posts directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have an "index.html" page that contains "{% for post in site.categories.code %} {{ post.title }} {% endfor %}" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have the following posts: icon:thumbs-up[role="green",title="Passed"] [small right]#(001ms)#
 
 [cols="4*", options="header"]
@@ -4717,22 +6720,34 @@ I have the following posts: icon:thumbs-up[role="green",title="Passed"] [small r
 |1) Yuengling
 |===
 
+=====
 When ::
+=====
 I run jekyll build icon:thumbs-up[role="green",title="Passed"] [small right]#(581ms)#
+=====
 Then ::
+=====
 the _site directory should exist icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I should see "Awesome Hack" in "_site/index.html" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 ****
 
 ==== Scenario: Use site.tags variable
 
 ****
 Given ::
+=====
 I have a _posts directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have an "index.html" page that contains "{% for post in site.tags.beer %} {{ post.content }} {% endfor %}" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have the following posts: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 
 [cols="4*", options="header"]
@@ -4747,22 +6762,34 @@ I have the following posts: icon:thumbs-up[role="green",title="Passed"] [small r
 |1) Yuengling
 |===
 
+=====
 When ::
+=====
 I run jekyll build icon:thumbs-up[role="green",title="Passed"] [small right]#(586ms)#
+=====
 Then ::
+=====
 the _site directory should exist icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I should see "Yuengling" in "_site/index.html" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 ****
 
 ==== Scenario: Order Posts by name when on the same date
 
 ****
 Given ::
+=====
 I have a _posts directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have an "index.html" page that contains "{% for post in site.posts %}{{ post.title }}:{{ post.previous.title}},{{ post.next.title}} {% endfor %}" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have the following posts: icon:thumbs-up[role="green",title="Passed"] [small right]#(001ms)#
 
 [cols="3*", options="header"]
@@ -4787,40 +6814,65 @@ I have the following posts: icon:thumbs-up[role="green",title="Passed"] [small r
 |last
 |===
 
+=====
 When ::
+=====
 I run jekyll build icon:thumbs-up[role="green",title="Passed"] [small right]#(594ms)#
+=====
 Then ::
+=====
 the _site directory should exist icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I should see "last:C, C:B,last B:A,C A:first,B first:,A" in "_site/index.html" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 ****
 
 ==== Scenario: Use configuration date in site payload
 
 ****
 Given ::
+=====
 I have an "index.html" page that contains "{{ site.url }}" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have a configuration file with "url" set to "http://example.com" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 When ::
+=====
 I run jekyll build icon:thumbs-up[role="green",title="Passed"] [small right]#(616ms)#
+=====
 Then ::
+=====
 the _site directory should exist icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I should see "http://example.com" in "_site/index.html" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 ****
 
 ==== Scenario: Access Jekyll version via jekyll.version
 
 ****
 Given ::
+=====
 I have an "index.html" page that contains "{{ jekyll.version }}" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 When ::
+=====
 I run jekyll build icon:thumbs-up[role="green",title="Passed"] [small right]#(607ms)#
+=====
 Then ::
+=====
 the _site directory should exist icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I should see "\d+\.\d+\.\d+" in "_site/index.html" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 ****
 
 [[Site-pagination, Site pagination]]
@@ -4903,12 +6955,19 @@ I want divide the posts in several pages
 
 ****
 Given ::
+=====
 I have a _layouts directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have a pretty layout that contains "THIS IS THE LAYOUT: {{content}}" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have a _posts directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have the following post: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 
 [cols="3*", options="header"]
@@ -4921,26 +6980,42 @@ I have the following post: icon:thumbs-up[role="green",title="Passed"] [small ri
 |just some post
 |===
 
+=====
 And ::
+=====
 I have an "index.html" page with title "some title" that contains "just some page" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have a configuration file with "defaults" set to "[{scope: {path: ""}, values: {layout: "pretty"}}]" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 When ::
+=====
 I run jekyll build icon:thumbs-up[role="green",title="Passed"] [small right]#(638ms)#
+=====
 Then ::
+=====
 the _site directory should exist icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I should see "THIS IS THE LAYOUT: <p>just some post</p>" in "_site/2013/09/11/default-layout.html" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I should see "THIS IS THE LAYOUT: just some page" in "_site/index.html" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 ****
 
 ==== Scenario: Use default for frontmatter variables in Liquid
 
 ****
 Given ::
+=====
 I have a _posts directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have the following post: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 
 [cols="3*", options="header"]
@@ -4953,32 +7028,54 @@ I have the following post: icon:thumbs-up[role="green",title="Passed"] [small ri
 |<p>{{page.custom}}</p><div>{{page.author}}</div>
 |===
 
+=====
 And ::
+=====
 I have an "index.html" page that contains "just {{page.custom}} by {{page.author}}" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have a configuration file with "defaults" set to "[{scope: {path: ""}, values: {custom: "some special data", author: "Ben"}}]" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 When ::
+=====
 I run jekyll build icon:thumbs-up[role="green",title="Passed"] [small right]#(626ms)#
+=====
 Then ::
+=====
 the _site directory should exist icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I should see "<p>some special data</p>\n<div>Ben</div>" in "_site/2013/09/11/default-data.html" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I should see "just some special data by Ben" in "_site/index.html" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 ****
 
 ==== Scenario: Override frontmatter defaults by path
 
 ****
 Given ::
+=====
 I have a _layouts directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have a root layout that contains "root: {{ content }}" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have a subfolder layout that contains "subfolder: {{ content }}" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have a _posts directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have the following post: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 
 [cols="3*", options="header"]
@@ -4991,9 +7088,13 @@ I have the following post: icon:thumbs-up[role="green",title="Passed"] [small ri
 |info on {{page.description}}
 |===
 
+=====
 And ::
+=====
 I have a special/_posts directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have the following post in "special": icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 
 [cols="4*", options="header"]
@@ -5008,36 +7109,62 @@ I have the following post in "special": icon:thumbs-up[role="green",title="Passe
 |info on {{page.description}}
 |===
 
+=====
 And ::
+=====
 I have an "index.html" page with title "overview" that contains "Overview for {{page.description}}" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have an "special/index.html" page with title "section overview" that contains "Overview for {{page.description}}" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have a configuration file with "defaults" set to "[{scope: {path: "special"}, values: {layout: "subfolder", description: "the special section"}}, {scope: {path: ""}, values: {layout: "root", description: "the webpage"}}]" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 When ::
+=====
 I run jekyll build icon:thumbs-up[role="green",title="Passed"] [small right]#(641ms)#
+=====
 Then ::
+=====
 the _site directory should exist icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I should see "root: <p>info on the webpage</p>" in "_site/2013/10/14/about.html" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I should see "subfolder: <p>info on the special section</p>" in "_site/special/2013/10/14/about.html" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I should see "root: Overview for the webpage" in "_site/index.html" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I should see "subfolder: Overview for the special section" in "_site/special/index.html" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 ****
 
 ==== Scenario: Use frontmatter variables by relative path
 
 ****
 Given ::
+=====
 I have a _layouts directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have a main layout that contains "main: {{ content }}" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have a _posts directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have the following post: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 
 [cols="3*", options="header"]
@@ -5050,9 +7177,13 @@ I have the following post: icon:thumbs-up[role="green",title="Passed"] [small ri
 |content of site/2013/10/14/about.html
 |===
 
+=====
 And ::
+=====
 I have a special/_posts directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have the following post in "special": icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 
 [cols="4*", options="header"]
@@ -5071,26 +7202,42 @@ I have the following post in "special": icon:thumbs-up[role="green",title="Passe
 |content of site/special/2013/10/14/about2.html
 |===
 
+=====
 And ::
+=====
 I have a configuration file with "defaults" set to "[{scope: {path: "special"}, values: {layout: "main"}}, {scope: {path: "special/_posts"}, values: {layout: "main"}}, {scope: {path: "_posts"}, values: {layout: "main"}}]" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 When ::
+=====
 I run jekyll build icon:thumbs-up[role="green",title="Passed"] [small right]#(643ms)#
+=====
 Then ::
+=====
 the _site directory should exist icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I should see "main: <p>content of site/2013/10/14/about.html</p>" in "_site/2013/10/14/about.html" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I should see "main: <p>content of site/special/2013/10/14/about1.html</p>" in "_site/special/2013/10/14/about1.html" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I should see "main: <p>content of site/special/2013/10/14/about2.html</p>" in "_site/special/2013/10/14/about2.html" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 ****
 
 ==== Scenario: Override frontmatter defaults by type
 
 ****
 Given ::
+=====
 I have a _posts directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have the following post: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 
 [cols="3*", options="header"]
@@ -5103,26 +7250,42 @@ I have the following post: icon:thumbs-up[role="green",title="Passed"] [small ri
 |blabla
 |===
 
+=====
 And ::
+=====
 I have an "index.html" page that contains "interesting stuff" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have a configuration file with "defaults" set to "[{scope: {path: "", type: "post"}, values: {permalink: "/post.html"}}, {scope: {path: "", type: "page"}, values: {permalink: "/page.html"}}, {scope: {path: ""}, values: {permalink: "/perma.html"}}]" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 When ::
+=====
 I run jekyll build icon:thumbs-up[role="green",title="Passed"] [small right]#(543ms)#
+=====
 Then ::
+=====
 I should see "blabla" in "_site/post.html" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I should see "interesting stuff" in "_site/page.html" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 But ::
+=====
 the "_site/perma.html" file should not exist icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 ****
 
 ==== Scenario: Actual frontmatter overrides defaults
 
 ****
 Given ::
+=====
 I have a _posts directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have the following post: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 
 [cols="5*", options="header"]
@@ -5139,26 +7302,42 @@ I have the following post: icon:thumbs-up[role="green",title="Passed"] [small ri
 |a blog by {{page.author}}
 |===
 
+=====
 And ::
+=====
 I have an "index.html" page with permalink "override.html" that contains "nothing" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have a configuration file with "defaults" set to "[{scope: {path: ""}, values: {permalink: "/perma.html", author: "Chris"}}]" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 When ::
+=====
 I run jekyll build icon:thumbs-up[role="green",title="Passed"] [small right]#(556ms)#
+=====
 Then ::
+=====
 I should see "a blog by some guy" in "_site/frontmatter.html" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I should see "nothing" in "_site/override.html" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 But ::
+=====
 the "_site/perma.html" file should not exist icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 ****
 
 ==== Scenario: Define permalink default for posts
 
 ****
 Given ::
+=====
 I have a _posts directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have the following post: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 
 [cols="4*", options="header"]
@@ -5173,22 +7352,34 @@ I have the following post: icon:thumbs-up[role="green",title="Passed"] [small ri
 |blabla
 |===
 
+=====
 And ::
+=====
 I have a configuration file with "defaults" set to "[{scope: {path: "", type: "posts"}, values: {permalink: "/:categories/:title/"}}]" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 When ::
+=====
 I run jekyll build icon:thumbs-up[role="green",title="Passed"] [small right]#(584ms)#
+=====
 Then ::
+=====
 I should see "blabla" in "_site/blog/testpost/index.html" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 ****
 
 ==== Scenario: Use frontmatter defaults in collections
 
 ****
 Given ::
+=====
 I have a _slides directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have a "index.html" file that contains "nothing" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have a "_slides/slide1.html" file with content: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -5197,7 +7388,9 @@ I have a "_slides/slide1.html" file with content: icon:thumbs-up[role="green",ti
 Value: {{ page.myval }}
 
 ----
+=====
 And ::
+=====
 I have a "_config.yml" file with content: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -5213,22 +7406,34 @@ I have a "_config.yml" file with content: icon:thumbs-up[role="green",title="Pas
         myval: "Test"
 
 ----
+=====
 When ::
+=====
 I run jekyll build icon:thumbs-up[role="green",title="Passed"] [small right]#(607ms)#
+=====
 Then ::
+=====
 the _site directory should exist icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I should see "Value: Test" in "_site/slides/slide1.html" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 ****
 
 ==== Scenario: Override frontmatter defaults inside a collection
 
 ****
 Given ::
+=====
 I have a _slides directory icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have a "index.html" file that contains "nothing" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have a "_slides/slide2.html" file with content: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -5238,7 +7443,9 @@ myval: Override
 Value: {{ page.myval }}
 
 ----
+=====
 And ::
+=====
 I have a "_config.yml" file with content: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -5254,24 +7461,39 @@ I have a "_config.yml" file with content: icon:thumbs-up[role="green",title="Pas
         myval: "Test"
 
 ----
+=====
 When ::
+=====
 I run jekyll build icon:thumbs-up[role="green",title="Passed"] [small right]#(509ms)#
+=====
 Then ::
+=====
 the _site directory should exist icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I should see "Value: Override" in "_site/slides/slide2.html" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 ****
 
 ==== Scenario: Deep merge frontmatter defaults
 
 ****
 Given ::
+=====
 I have an "index.html" page with fruit "{orange: 1}" that contains "Fruits: {{ page.fruit.orange | plus: page.fruit.apple }}" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have a configuration file with "defaults" set to "[{scope: {path: ""}, values: {fruit: {apple: 2}}}]" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 When ::
+=====
 I run jekyll build icon:thumbs-up[role="green",title="Passed"] [small right]#(560ms)#
+=====
 Then ::
+=====
 I should see "Fruits: 3" in "_site/index.html" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 ****
 

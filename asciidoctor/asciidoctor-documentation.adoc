@@ -1,6 +1,6 @@
 :toc: right
-:backend: html5
-:doctitle: Asciidoctor Living Documentation
+:backend: pdf
+:doctitle: asciidoctor-documentation
 :doctype: book
 :icons: font
 :!numbered:
@@ -10,7 +10,7 @@
 :docinfo:
 :toclevels: 3
 
-= *Asciidoctor Living Documentation*
+= *asciidoctor-documentation*
 
 == *Summary*
 [cols="12*^m", options="header,footer"]
@@ -94,7 +94,6 @@
 [[Cross-References, Cross References]]
 === *Cross References*
 
-minmax::Cross-References[]
 ****
 In order to create links to other sections +
 As a writer +
@@ -105,6 +104,7 @@ I want to be able to use a cross reference macro
 
 ****
 Given ::
+=====
 the AsciiDoc source icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -117,9 +117,13 @@ a|See <<_install>>
 Instructions go here.
 
 ----
+=====
 When ::
+=====
 it is converted to html icon:thumbs-up[role="green",title="Passed"] [small right]#(002ms)#
+=====
 Then ::
+=====
 the result should match the HTML structure icon:thumbs-up[role="green",title="Passed"] [small right]#(005ms)#
 ----
 
@@ -139,12 +143,14 @@ table.tableblock.frame-all.grid-all.spread
     .paragraph: p Instructions go here.
 
 ----
+=====
 ****
 
 ==== Scenario: Create a cross reference using the target section title
 
 ****
 Given ::
+=====
 the AsciiDoc source icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -157,9 +163,13 @@ content
 refer to <<Section One>>
 
 ----
+=====
 When ::
+=====
 it is converted to html icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 Then ::
+=====
 the result should match the HTML structure icon:thumbs-up[role="green",title="Passed"] [small right]#(004ms)#
 ----
 
@@ -173,12 +183,14 @@ the result should match the HTML structure icon:thumbs-up[role="green",title="Pa
     a href='#_section_one' Section One
 
 ----
+=====
 ****
 
 ==== Scenario: Create a cross reference using the target reftext
 
 ****
 Given ::
+=====
 the AsciiDoc source icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -192,9 +204,13 @@ content
 refer to <<the first section>>
 
 ----
+=====
 When ::
+=====
 it is converted to html icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 Then ::
+=====
 the result should match the HTML structure icon:thumbs-up[role="green",title="Passed"] [small right]#(005ms)#
 ----
 
@@ -208,12 +224,14 @@ the result should match the HTML structure icon:thumbs-up[role="green",title="Pa
     a href='#_section_one' the first section
 
 ----
+=====
 ****
 
 ==== Scenario: Create a cross reference using the formatted target title
 
 ****
 Given ::
+=====
 the AsciiDoc source icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -226,9 +244,13 @@ content
 refer to <<Section *One*>>
 
 ----
+=====
 When ::
+=====
 it is converted to html icon:thumbs-up[role="green",title="Passed"] [small right]#(001ms)#
+=====
 Then ::
+=====
 the result should match the HTML structure icon:thumbs-up[role="green",title="Passed"] [small right]#(005ms)#
 ----
 
@@ -246,12 +268,12 @@ the result should match the HTML structure icon:thumbs-up[role="green",title="Pa
       strong One
 
 ----
+=====
 ****
 
 [[Open-Blocks, Open Blocks]]
 === *Open Blocks*
 
-minmax::Open-Blocks[]
 ****
 In order to group content in a generic container +
 As a writer +
@@ -262,6 +284,7 @@ I want to be able to wrap content in an open block
 
 ****
 Given ::
+=====
 the AsciiDoc source icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -270,9 +293,13 @@ A paragraph in an open block.
 --
 
 ----
+=====
 When ::
+=====
 it is converted to html icon:thumbs-up[role="green",title="Passed"] [small right]#(008ms)#
+=====
 Then ::
+=====
 the result should match the HTML source icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -285,12 +312,14 @@ the result should match the HTML source icon:thumbs-up[role="green",title="Passe
 </div>
 
 ----
+=====
 ****
 
 ==== Scenario: Render an open block that contains a paragraph to DocBook
 
 ****
 Given ::
+=====
 the AsciiDoc source icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -299,21 +328,27 @@ A paragraph in an open block.
 --
 
 ----
+=====
 When ::
+=====
 it is converted to docbook icon:thumbs-up[role="green",title="Passed"] [small right]#(003ms)#
+=====
 Then ::
+=====
 the result should match the XML source icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
 <simpara>A paragraph in an open block.</simpara>
 
 ----
+=====
 ****
 
 ==== Scenario: Render an open block that contains a paragraph to HTML (alt)
 
 ****
 Given ::
+=====
 the AsciiDoc source icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -322,9 +357,13 @@ A paragraph in an open block.
 --
 
 ----
+=====
 When ::
+=====
 it is converted to html icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 Then ::
+=====
 the result should match the HTML structure icon:thumbs-up[role="green",title="Passed"] [small right]#(019ms)#
 ----
 
@@ -334,12 +373,14 @@ the result should match the HTML structure icon:thumbs-up[role="green",title="Pa
       p A paragraph in an open block.
 
 ----
+=====
 ****
 
 ==== Scenario: Render an open block that contains a paragraph to DocBook (alt)
 
 ****
 Given ::
+=====
 the AsciiDoc source icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -348,21 +389,27 @@ A paragraph in an open block.
 --
 
 ----
+=====
 When ::
+=====
 it is converted to docbook icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 Then ::
+=====
 the result should match the XML structure icon:thumbs-up[role="green",title="Passed"] [small right]#(003ms)#
 ----
 
 simpara A paragraph in an open block.
 
 ----
+=====
 ****
 
 ==== Scenario: Render an open block that contains a list to HTML
 
 ****
 Given ::
+=====
 the AsciiDoc source icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -373,9 +420,13 @@ the AsciiDoc source icon:thumbs-up[role="green",title="Passed"] [small right]#(0
 --
 
 ----
+=====
 When ::
+=====
 it is converted to html icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 Then ::
+=====
 the result should match the HTML structure icon:thumbs-up[role="green",title="Passed"] [small right]#(004ms)#
 ----
 
@@ -388,12 +439,12 @@ the result should match the HTML structure icon:thumbs-up[role="green",title="Pa
         li: p three
 
 ----
+=====
 ****
 
 [[Open-Blocks, Open Blocks]]
 === *Open Blocks*
 
-minmax::Open-Blocks[]
 ****
 In order to pass content through unprocessed +
 As a writer +
@@ -404,6 +455,7 @@ I want to be able to mark passthrough content using a pass block
 
 ****
 Given ::
+=====
 the AsciiDoc source icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -416,9 +468,13 @@ image:tiger.png[]
 ++++
 
 ----
+=====
 When ::
+=====
 it is converted to html icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 Then ::
+=====
 the result should match the HTML source icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -427,12 +483,14 @@ the result should match the HTML source icon:thumbs-up[role="green",title="Passe
 image:tiger.png[]
 
 ----
+=====
 ****
 
 ==== Scenario: Render a pass block without performing substitutions by default to DocBook
 
 ****
 Given ::
+=====
 the AsciiDoc source icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -445,9 +503,13 @@ image:tiger.png[]
 ++++
 
 ----
+=====
 When ::
+=====
 it is converted to docbook icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 Then ::
+=====
 the result should match the XML source icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -456,12 +518,14 @@ the result should match the XML source icon:thumbs-up[role="green",title="Passed
 image:tiger.png[]
 
 ----
+=====
 ****
 
 ==== Scenario: Render a pass block performing explicit substitutions to HTML
 
 ****
 Given ::
+=====
 the AsciiDoc source icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -475,9 +539,13 @@ image:tiger.png[]
 ++++
 
 ----
+=====
 When ::
+=====
 it is converted to html icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 Then ::
+=====
 the result should match the HTML source icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -486,12 +554,12 @@ the result should match the HTML source icon:thumbs-up[role="green",title="Passe
 <span class="image"><img src="tiger.png" alt="tiger"></span>
 
 ----
+=====
 ****
 
 [[Text-Formatting, Text Formatting]]
 === *Text Formatting*
 
-minmax::Text-Formatting[]
 ****
 In order to apply formatting to the text +
 As a writer +
@@ -502,6 +570,7 @@ I want to be able to markup inline text with formatting characters
 
 ****
 Given ::
+=====
 the AsciiDoc source icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -512,9 +581,13 @@ M^me^ White is the address
 the 10^th^ point has coordinate (x~10~, y~10~)
 
 ----
+=====
 When ::
+=====
 it is converted to html icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 Then ::
+=====
 the result should match the HTML source icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -527,21 +600,27 @@ the 10<sup>th</sup> point has coordinate (x<sub>10</sub>, y<sub>10</sub>)</p>
 </div>
 
 ----
+=====
 ****
 
 ==== Scenario: Convert text that has ex-inline literal formatting
 
 ****
 Given ::
+=====
 the AsciiDoc source icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
 Use [x-]`{asciidoctor-version}` to print the version of Asciidoctor.
 
 ----
+=====
 When ::
+=====
 it is converted to html icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 Then ::
+=====
 the result should match the HTML source icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -550,21 +629,27 @@ the result should match the HTML source icon:thumbs-up[role="green",title="Passe
 </div>
 
 ----
+=====
 ****
 
 ==== Scenario: Convert text that has ex-inline monospaced formatting
 
 ****
 Given ::
+=====
 the AsciiDoc source icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
 The document is assumed to be encoded as [x-]+{encoding}+.
 
 ----
+=====
 When ::
+=====
 it is converted to html icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 Then ::
+=====
 the result should match the HTML source icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -573,5 +658,6 @@ the result should match the HTML source icon:thumbs-up[role="green",title="Passe
 </div>
 
 ----
+=====
 ****
 

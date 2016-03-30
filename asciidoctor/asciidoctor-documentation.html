@@ -5,7 +5,7 @@
   <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]--> 
   <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
   <meta name="generator" content="Asciidoctor 1.5.4"> 
-  <title>Asciidoctor Living Documentation</title> 
+  <title>asciidoctor-documentation</title> 
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700"> 
   <style>
 /* Asciidoctor default stylesheet | MIT License | http://asciidoctor.org */
@@ -424,7 +424,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
    <select style="width:100px;font-size:10px;" name="select" onchange="window.location.href = window.location.href.substring(0,window.location.href.indexOf('?')) + '?theme='+ this.value"> <option value="asciidoctor" selected>Asciidoctor</option> <option value="colony">Colony</option> <option value="foundation">Foundation</option> <option value="github">Github</option> <option value="iconic">Iconic</option> <option value="maker">Maker</option> <option value="rocket-panda">Rocket Panda</option> <option value="readthedocs">Read the Docs</option> <option value="rubygems">Rubygems</option> </select> 
   </div> 
   <div id="header"> 
-   <h1>Asciidoctor Living Documentation</h1> 
+   <h1>asciidoctor-documentation</h1> 
    <div id="toc" class="toc2"> 
     <div id="toctitle">
       Table of Contents 
@@ -619,20 +619,24 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
            <dt class="hdlist1">
              Given 
            </dt> 
-           <dd> 
-            <p>the AsciiDoc source <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
-           </dd> 
           </dl> 
          </div> 
-         <div class="listingblock"> 
+         <div class="exampleblock"> 
           <div class="content"> 
-           <pre>|===
+           <div class="paragraph"> 
+            <p>the AsciiDoc source <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
+           </div> 
+           <div class="listingblock"> 
+            <div class="content"> 
+             <pre>|===
 a|See &lt;&lt;_install&gt;&gt;
 |===
 
 == Install
 
 Instructions go here.</pre> 
+            </div> 
+           </div> 
           </div> 
          </div> 
          <div class="dlist"> 
@@ -640,20 +644,30 @@ Instructions go here.</pre>
            <dt class="hdlist1">
              When 
            </dt> 
-           <dd> 
+          </dl> 
+         </div> 
+         <div class="exampleblock"> 
+          <div class="content"> 
+           <div class="paragraph"> 
             <p>it is converted to html <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(002ms)</span></p> 
-           </dd> 
+           </div> 
+          </div> 
+         </div> 
+         <div class="dlist"> 
+          <dl> 
            <dt class="hdlist1">
              Then 
            </dt> 
-           <dd> 
-            <p>the result should match the HTML structure <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(005ms)</span></p> 
-           </dd> 
           </dl> 
          </div> 
-         <div class="listingblock"> 
+         <div class="exampleblock"> 
           <div class="content"> 
-           <pre>table.tableblock.frame-all.grid-all.spread
+           <div class="paragraph"> 
+            <p>the result should match the HTML structure <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(005ms)</span></p> 
+           </div> 
+           <div class="listingblock"> 
+            <div class="content"> 
+             <pre>table.tableblock.frame-all.grid-all.spread
   colgroup
     col style='width: 100%;'
   tbody
@@ -667,6 +681,8 @@ Instructions go here.</pre>
   h2#_install Install
   .sectionbody
     .paragraph: p Instructions go here.</pre> 
+            </div> 
+           </div> 
           </div> 
          </div> 
         </div> 
@@ -681,20 +697,24 @@ Instructions go here.</pre>
            <dt class="hdlist1">
              Given 
            </dt> 
-           <dd> 
-            <p>the AsciiDoc source <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
-           </dd> 
           </dl> 
          </div> 
-         <div class="listingblock"> 
+         <div class="exampleblock"> 
           <div class="content"> 
-           <pre>== Section One
+           <div class="paragraph"> 
+            <p>the AsciiDoc source <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
+           </div> 
+           <div class="listingblock"> 
+            <div class="content"> 
+             <pre>== Section One
 
 content
 
 == Section Two
 
 refer to &lt;&lt;Section One&gt;&gt;</pre> 
+            </div> 
+           </div> 
           </div> 
          </div> 
          <div class="dlist"> 
@@ -702,20 +722,30 @@ refer to &lt;&lt;Section One&gt;&gt;</pre>
            <dt class="hdlist1">
              When 
            </dt> 
-           <dd> 
+          </dl> 
+         </div> 
+         <div class="exampleblock"> 
+          <div class="content"> 
+           <div class="paragraph"> 
             <p>it is converted to html <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
-           </dd> 
+           </div> 
+          </div> 
+         </div> 
+         <div class="dlist"> 
+          <dl> 
            <dt class="hdlist1">
              Then 
            </dt> 
-           <dd> 
-            <p>the result should match the HTML structure <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(004ms)</span></p> 
-           </dd> 
           </dl> 
          </div> 
-         <div class="listingblock"> 
+         <div class="exampleblock"> 
           <div class="content"> 
-           <pre>.sect1
+           <div class="paragraph"> 
+            <p>the result should match the HTML structure <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(004ms)</span></p> 
+           </div> 
+           <div class="listingblock"> 
+            <div class="content"> 
+             <pre>.sect1
   h2#_section_one Section One
   .sectionbody: .paragraph: p content
 .sect1
@@ -723,6 +753,8 @@ refer to &lt;&lt;Section One&gt;&gt;</pre>
   .sectionbody: .paragraph: p
     'refer to
     a href='#_section_one' Section One</pre> 
+            </div> 
+           </div> 
           </div> 
          </div> 
         </div> 
@@ -737,14 +769,16 @@ refer to &lt;&lt;Section One&gt;&gt;</pre>
            <dt class="hdlist1">
              Given 
            </dt> 
-           <dd> 
-            <p>the AsciiDoc source <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
-           </dd> 
           </dl> 
          </div> 
-         <div class="listingblock"> 
+         <div class="exampleblock"> 
           <div class="content"> 
-           <pre>[reftext="the first section"]
+           <div class="paragraph"> 
+            <p>the AsciiDoc source <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
+           </div> 
+           <div class="listingblock"> 
+            <div class="content"> 
+             <pre>[reftext="the first section"]
 == Section One
 
 content
@@ -752,6 +786,8 @@ content
 == Section Two
 
 refer to &lt;&lt;the first section&gt;&gt;</pre> 
+            </div> 
+           </div> 
           </div> 
          </div> 
          <div class="dlist"> 
@@ -759,20 +795,30 @@ refer to &lt;&lt;the first section&gt;&gt;</pre>
            <dt class="hdlist1">
              When 
            </dt> 
-           <dd> 
+          </dl> 
+         </div> 
+         <div class="exampleblock"> 
+          <div class="content"> 
+           <div class="paragraph"> 
             <p>it is converted to html <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
-           </dd> 
+           </div> 
+          </div> 
+         </div> 
+         <div class="dlist"> 
+          <dl> 
            <dt class="hdlist1">
              Then 
            </dt> 
-           <dd> 
-            <p>the result should match the HTML structure <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(005ms)</span></p> 
-           </dd> 
           </dl> 
          </div> 
-         <div class="listingblock"> 
+         <div class="exampleblock"> 
           <div class="content"> 
-           <pre>.sect1
+           <div class="paragraph"> 
+            <p>the result should match the HTML structure <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(005ms)</span></p> 
+           </div> 
+           <div class="listingblock"> 
+            <div class="content"> 
+             <pre>.sect1
   h2#_section_one Section One
   .sectionbody: .paragraph: p content
 .sect1
@@ -780,6 +826,8 @@ refer to &lt;&lt;the first section&gt;&gt;</pre>
   .sectionbody: .paragraph: p
     'refer to
     a href='#_section_one' the first section</pre> 
+            </div> 
+           </div> 
           </div> 
          </div> 
         </div> 
@@ -794,20 +842,24 @@ refer to &lt;&lt;the first section&gt;&gt;</pre>
            <dt class="hdlist1">
              Given 
            </dt> 
-           <dd> 
-            <p>the AsciiDoc source <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
-           </dd> 
           </dl> 
          </div> 
-         <div class="listingblock"> 
+         <div class="exampleblock"> 
           <div class="content"> 
-           <pre>== Section *One*
+           <div class="paragraph"> 
+            <p>the AsciiDoc source <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
+           </div> 
+           <div class="listingblock"> 
+            <div class="content"> 
+             <pre>== Section *One*
 
 content
 
 == Section Two
 
 refer to &lt;&lt;Section *One*&gt;&gt;</pre> 
+            </div> 
+           </div> 
           </div> 
          </div> 
          <div class="dlist"> 
@@ -815,20 +867,30 @@ refer to &lt;&lt;Section *One*&gt;&gt;</pre>
            <dt class="hdlist1">
              When 
            </dt> 
-           <dd> 
+          </dl> 
+         </div> 
+         <div class="exampleblock"> 
+          <div class="content"> 
+           <div class="paragraph"> 
             <p>it is converted to html <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(001ms)</span></p> 
-           </dd> 
+           </div> 
+          </div> 
+         </div> 
+         <div class="dlist"> 
+          <dl> 
            <dt class="hdlist1">
              Then 
            </dt> 
-           <dd> 
-            <p>the result should match the HTML structure <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(005ms)</span></p> 
-           </dd> 
           </dl> 
          </div> 
-         <div class="listingblock"> 
+         <div class="exampleblock"> 
           <div class="content"> 
-           <pre>.sect1
+           <div class="paragraph"> 
+            <p>the result should match the HTML structure <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(005ms)</span></p> 
+           </div> 
+           <div class="listingblock"> 
+            <div class="content"> 
+             <pre>.sect1
   h2#_section_strong_one_strong
     'Section
     strong One
@@ -840,6 +902,8 @@ refer to &lt;&lt;Section *One*&gt;&gt;</pre>
     a href='#_section_strong_one_strong'
       'Section
       strong One</pre> 
+            </div> 
+           </div> 
           </div> 
          </div> 
         </div> 
@@ -866,16 +930,20 @@ refer to &lt;&lt;Section *One*&gt;&gt;</pre>
            <dt class="hdlist1">
              Given 
            </dt> 
-           <dd> 
-            <p>the AsciiDoc source <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
-           </dd> 
           </dl> 
          </div> 
-         <div class="listingblock"> 
+         <div class="exampleblock"> 
           <div class="content"> 
-           <pre>--
+           <div class="paragraph"> 
+            <p>the AsciiDoc source <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
+           </div> 
+           <div class="listingblock"> 
+            <div class="content"> 
+             <pre>--
 A paragraph in an open block.
 --</pre> 
+            </div> 
+           </div> 
           </div> 
          </div> 
          <div class="dlist"> 
@@ -883,26 +951,38 @@ A paragraph in an open block.
            <dt class="hdlist1">
              When 
            </dt> 
-           <dd> 
+          </dl> 
+         </div> 
+         <div class="exampleblock"> 
+          <div class="content"> 
+           <div class="paragraph"> 
             <p>it is converted to html <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(008ms)</span></p> 
-           </dd> 
+           </div> 
+          </div> 
+         </div> 
+         <div class="dlist"> 
+          <dl> 
            <dt class="hdlist1">
              Then 
            </dt> 
-           <dd> 
-            <p>the result should match the HTML source <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
-           </dd> 
           </dl> 
          </div> 
-         <div class="listingblock"> 
+         <div class="exampleblock"> 
           <div class="content"> 
-           <pre>&lt;div class="openblock"&gt;
+           <div class="paragraph"> 
+            <p>the result should match the HTML source <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
+           </div> 
+           <div class="listingblock"> 
+            <div class="content"> 
+             <pre>&lt;div class="openblock"&gt;
 &lt;div class="content"&gt;
 &lt;div class="paragraph"&gt;
 &lt;p&gt;A paragraph in an open block.&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;</pre> 
+            </div> 
+           </div> 
           </div> 
          </div> 
         </div> 
@@ -917,16 +997,20 @@ A paragraph in an open block.
            <dt class="hdlist1">
              Given 
            </dt> 
-           <dd> 
-            <p>the AsciiDoc source <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
-           </dd> 
           </dl> 
          </div> 
-         <div class="listingblock"> 
+         <div class="exampleblock"> 
           <div class="content"> 
-           <pre>--
+           <div class="paragraph"> 
+            <p>the AsciiDoc source <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
+           </div> 
+           <div class="listingblock"> 
+            <div class="content"> 
+             <pre>--
 A paragraph in an open block.
 --</pre> 
+            </div> 
+           </div> 
           </div> 
          </div> 
          <div class="dlist"> 
@@ -934,20 +1018,32 @@ A paragraph in an open block.
            <dt class="hdlist1">
              When 
            </dt> 
-           <dd> 
+          </dl> 
+         </div> 
+         <div class="exampleblock"> 
+          <div class="content"> 
+           <div class="paragraph"> 
             <p>it is converted to docbook <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(003ms)</span></p> 
-           </dd> 
+           </div> 
+          </div> 
+         </div> 
+         <div class="dlist"> 
+          <dl> 
            <dt class="hdlist1">
              Then 
            </dt> 
-           <dd> 
-            <p>the result should match the XML source <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
-           </dd> 
           </dl> 
          </div> 
-         <div class="listingblock"> 
+         <div class="exampleblock"> 
           <div class="content"> 
-           <pre>&lt;simpara&gt;A paragraph in an open block.&lt;/simpara&gt;</pre> 
+           <div class="paragraph"> 
+            <p>the result should match the XML source <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
+           </div> 
+           <div class="listingblock"> 
+            <div class="content"> 
+             <pre>&lt;simpara&gt;A paragraph in an open block.&lt;/simpara&gt;</pre> 
+            </div> 
+           </div> 
           </div> 
          </div> 
         </div> 
@@ -962,16 +1058,20 @@ A paragraph in an open block.
            <dt class="hdlist1">
              Given 
            </dt> 
-           <dd> 
-            <p>the AsciiDoc source <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
-           </dd> 
           </dl> 
          </div> 
-         <div class="listingblock"> 
+         <div class="exampleblock"> 
           <div class="content"> 
-           <pre>--
+           <div class="paragraph"> 
+            <p>the AsciiDoc source <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
+           </div> 
+           <div class="listingblock"> 
+            <div class="content"> 
+             <pre>--
 A paragraph in an open block.
 --</pre> 
+            </div> 
+           </div> 
           </div> 
          </div> 
          <div class="dlist"> 
@@ -979,23 +1079,35 @@ A paragraph in an open block.
            <dt class="hdlist1">
              When 
            </dt> 
-           <dd> 
+          </dl> 
+         </div> 
+         <div class="exampleblock"> 
+          <div class="content"> 
+           <div class="paragraph"> 
             <p>it is converted to html <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
-           </dd> 
+           </div> 
+          </div> 
+         </div> 
+         <div class="dlist"> 
+          <dl> 
            <dt class="hdlist1">
              Then 
            </dt> 
-           <dd> 
-            <p>the result should match the HTML structure <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(019ms)</span></p> 
-           </dd> 
           </dl> 
          </div> 
-         <div class="listingblock"> 
+         <div class="exampleblock"> 
           <div class="content"> 
-           <pre>.openblock
+           <div class="paragraph"> 
+            <p>the result should match the HTML structure <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(019ms)</span></p> 
+           </div> 
+           <div class="listingblock"> 
+            <div class="content"> 
+             <pre>.openblock
   .content
     .paragraph
       p A paragraph in an open block.</pre> 
+            </div> 
+           </div> 
           </div> 
          </div> 
         </div> 
@@ -1010,16 +1122,20 @@ A paragraph in an open block.
            <dt class="hdlist1">
              Given 
            </dt> 
-           <dd> 
-            <p>the AsciiDoc source <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
-           </dd> 
           </dl> 
          </div> 
-         <div class="listingblock"> 
+         <div class="exampleblock"> 
           <div class="content"> 
-           <pre>--
+           <div class="paragraph"> 
+            <p>the AsciiDoc source <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
+           </div> 
+           <div class="listingblock"> 
+            <div class="content"> 
+             <pre>--
 A paragraph in an open block.
 --</pre> 
+            </div> 
+           </div> 
           </div> 
          </div> 
          <div class="dlist"> 
@@ -1027,20 +1143,32 @@ A paragraph in an open block.
            <dt class="hdlist1">
              When 
            </dt> 
-           <dd> 
+          </dl> 
+         </div> 
+         <div class="exampleblock"> 
+          <div class="content"> 
+           <div class="paragraph"> 
             <p>it is converted to docbook <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
-           </dd> 
+           </div> 
+          </div> 
+         </div> 
+         <div class="dlist"> 
+          <dl> 
            <dt class="hdlist1">
              Then 
            </dt> 
-           <dd> 
-            <p>the result should match the XML structure <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(003ms)</span></p> 
-           </dd> 
           </dl> 
          </div> 
-         <div class="listingblock"> 
+         <div class="exampleblock"> 
           <div class="content"> 
-           <pre>simpara A paragraph in an open block.</pre> 
+           <div class="paragraph"> 
+            <p>the result should match the XML structure <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(003ms)</span></p> 
+           </div> 
+           <div class="listingblock"> 
+            <div class="content"> 
+             <pre>simpara A paragraph in an open block.</pre> 
+            </div> 
+           </div> 
           </div> 
          </div> 
         </div> 
@@ -1055,18 +1183,22 @@ A paragraph in an open block.
            <dt class="hdlist1">
              Given 
            </dt> 
-           <dd> 
-            <p>the AsciiDoc source <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
-           </dd> 
           </dl> 
          </div> 
-         <div class="listingblock"> 
+         <div class="exampleblock"> 
           <div class="content"> 
-           <pre>--
+           <div class="paragraph"> 
+            <p>the AsciiDoc source <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
+           </div> 
+           <div class="listingblock"> 
+            <div class="content"> 
+             <pre>--
 * one
 * two
 * three
 --</pre> 
+            </div> 
+           </div> 
           </div> 
          </div> 
          <div class="dlist"> 
@@ -1074,26 +1206,38 @@ A paragraph in an open block.
            <dt class="hdlist1">
              When 
            </dt> 
-           <dd> 
+          </dl> 
+         </div> 
+         <div class="exampleblock"> 
+          <div class="content"> 
+           <div class="paragraph"> 
             <p>it is converted to html <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
-           </dd> 
+           </div> 
+          </div> 
+         </div> 
+         <div class="dlist"> 
+          <dl> 
            <dt class="hdlist1">
              Then 
            </dt> 
-           <dd> 
-            <p>the result should match the HTML structure <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(004ms)</span></p> 
-           </dd> 
           </dl> 
          </div> 
-         <div class="listingblock"> 
+         <div class="exampleblock"> 
           <div class="content"> 
-           <pre>.openblock
+           <div class="paragraph"> 
+            <p>the result should match the HTML structure <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(004ms)</span></p> 
+           </div> 
+           <div class="listingblock"> 
+            <div class="content"> 
+             <pre>.openblock
   .content
     .ulist
       ul
         li: p one
         li: p two
         li: p three</pre> 
+            </div> 
+           </div> 
           </div> 
          </div> 
         </div> 
@@ -1120,20 +1264,24 @@ A paragraph in an open block.
            <dt class="hdlist1">
              Given 
            </dt> 
-           <dd> 
-            <p>the AsciiDoc source <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
-           </dd> 
           </dl> 
          </div> 
-         <div class="listingblock"> 
+         <div class="exampleblock"> 
           <div class="content"> 
-           <pre>:name: value
+           <div class="paragraph"> 
+            <p>the AsciiDoc source <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
+           </div> 
+           <div class="listingblock"> 
+            <div class="content"> 
+             <pre>:name: value
 
 ++++
 &lt;p&gt;{name}&lt;/p&gt;
 
 image:tiger.png[]
 ++++</pre> 
+            </div> 
+           </div> 
           </div> 
          </div> 
          <div class="dlist"> 
@@ -1141,22 +1289,34 @@ image:tiger.png[]
            <dt class="hdlist1">
              When 
            </dt> 
-           <dd> 
+          </dl> 
+         </div> 
+         <div class="exampleblock"> 
+          <div class="content"> 
+           <div class="paragraph"> 
             <p>it is converted to html <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
-           </dd> 
+           </div> 
+          </div> 
+         </div> 
+         <div class="dlist"> 
+          <dl> 
            <dt class="hdlist1">
              Then 
            </dt> 
-           <dd> 
-            <p>the result should match the HTML source <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
-           </dd> 
           </dl> 
          </div> 
-         <div class="listingblock"> 
+         <div class="exampleblock"> 
           <div class="content"> 
-           <pre>&lt;p&gt;{name}&lt;/p&gt;
+           <div class="paragraph"> 
+            <p>the result should match the HTML source <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
+           </div> 
+           <div class="listingblock"> 
+            <div class="content"> 
+             <pre>&lt;p&gt;{name}&lt;/p&gt;
 
 image:tiger.png[]</pre> 
+            </div> 
+           </div> 
           </div> 
          </div> 
         </div> 
@@ -1171,20 +1331,24 @@ image:tiger.png[]</pre>
            <dt class="hdlist1">
              Given 
            </dt> 
-           <dd> 
-            <p>the AsciiDoc source <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
-           </dd> 
           </dl> 
          </div> 
-         <div class="listingblock"> 
+         <div class="exampleblock"> 
           <div class="content"> 
-           <pre>:name: value
+           <div class="paragraph"> 
+            <p>the AsciiDoc source <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
+           </div> 
+           <div class="listingblock"> 
+            <div class="content"> 
+             <pre>:name: value
 
 ++++
 &lt;simpara&gt;{name}&lt;/simpara&gt;
 
 image:tiger.png[]
 ++++</pre> 
+            </div> 
+           </div> 
           </div> 
          </div> 
          <div class="dlist"> 
@@ -1192,22 +1356,34 @@ image:tiger.png[]
            <dt class="hdlist1">
              When 
            </dt> 
-           <dd> 
+          </dl> 
+         </div> 
+         <div class="exampleblock"> 
+          <div class="content"> 
+           <div class="paragraph"> 
             <p>it is converted to docbook <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
-           </dd> 
+           </div> 
+          </div> 
+         </div> 
+         <div class="dlist"> 
+          <dl> 
            <dt class="hdlist1">
              Then 
            </dt> 
-           <dd> 
-            <p>the result should match the XML source <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
-           </dd> 
           </dl> 
          </div> 
-         <div class="listingblock"> 
+         <div class="exampleblock"> 
           <div class="content"> 
-           <pre>&lt;simpara&gt;{name}&lt;/simpara&gt;
+           <div class="paragraph"> 
+            <p>the result should match the XML source <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
+           </div> 
+           <div class="listingblock"> 
+            <div class="content"> 
+             <pre>&lt;simpara&gt;{name}&lt;/simpara&gt;
 
 image:tiger.png[]</pre> 
+            </div> 
+           </div> 
           </div> 
          </div> 
         </div> 
@@ -1222,14 +1398,16 @@ image:tiger.png[]</pre>
            <dt class="hdlist1">
              Given 
            </dt> 
-           <dd> 
-            <p>the AsciiDoc source <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
-           </dd> 
           </dl> 
          </div> 
-         <div class="listingblock"> 
+         <div class="exampleblock"> 
           <div class="content"> 
-           <pre>:name: value
+           <div class="paragraph"> 
+            <p>the AsciiDoc source <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
+           </div> 
+           <div class="listingblock"> 
+            <div class="content"> 
+             <pre>:name: value
 
 [subs="attributes,macros"]
 ++++
@@ -1237,6 +1415,8 @@ image:tiger.png[]</pre>
 
 image:tiger.png[]
 ++++</pre> 
+            </div> 
+           </div> 
           </div> 
          </div> 
          <div class="dlist"> 
@@ -1244,22 +1424,34 @@ image:tiger.png[]
            <dt class="hdlist1">
              When 
            </dt> 
-           <dd> 
+          </dl> 
+         </div> 
+         <div class="exampleblock"> 
+          <div class="content"> 
+           <div class="paragraph"> 
             <p>it is converted to html <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
-           </dd> 
+           </div> 
+          </div> 
+         </div> 
+         <div class="dlist"> 
+          <dl> 
            <dt class="hdlist1">
              Then 
            </dt> 
-           <dd> 
-            <p>the result should match the HTML source <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
-           </dd> 
           </dl> 
          </div> 
-         <div class="listingblock"> 
+         <div class="exampleblock"> 
           <div class="content"> 
-           <pre>&lt;p&gt;value&lt;/p&gt;
+           <div class="paragraph"> 
+            <p>the result should match the HTML source <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
+           </div> 
+           <div class="listingblock"> 
+            <div class="content"> 
+             <pre>&lt;p&gt;value&lt;/p&gt;
 
 &lt;span class="image"&gt;&lt;img src="tiger.png" alt="tiger"&gt;&lt;/span&gt;</pre> 
+            </div> 
+           </div> 
           </div> 
          </div> 
         </div> 
@@ -1286,18 +1478,22 @@ image:tiger.png[]
            <dt class="hdlist1">
              Given 
            </dt> 
-           <dd> 
-            <p>the AsciiDoc source <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
-           </dd> 
           </dl> 
          </div> 
-         <div class="listingblock"> 
+         <div class="exampleblock"> 
           <div class="content"> 
-           <pre>_v_~rocket~ is the value
+           <div class="paragraph"> 
+            <p>the AsciiDoc source <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
+           </div> 
+           <div class="listingblock"> 
+            <div class="content"> 
+             <pre>_v_~rocket~ is the value
 ^3^He is the isotope
 log~4~x^n^ is the expression
 M^me^ White is the address
 the 10^th^ point has coordinate (x~10~, y~10~)</pre> 
+            </div> 
+           </div> 
           </div> 
          </div> 
          <div class="dlist"> 
@@ -1305,26 +1501,38 @@ the 10^th^ point has coordinate (x~10~, y~10~)</pre>
            <dt class="hdlist1">
              When 
            </dt> 
-           <dd> 
+          </dl> 
+         </div> 
+         <div class="exampleblock"> 
+          <div class="content"> 
+           <div class="paragraph"> 
             <p>it is converted to html <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
-           </dd> 
+           </div> 
+          </div> 
+         </div> 
+         <div class="dlist"> 
+          <dl> 
            <dt class="hdlist1">
              Then 
            </dt> 
-           <dd> 
-            <p>the result should match the HTML source <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
-           </dd> 
           </dl> 
          </div> 
-         <div class="listingblock"> 
+         <div class="exampleblock"> 
           <div class="content"> 
-           <pre>&lt;div class="paragraph"&gt;
+           <div class="paragraph"> 
+            <p>the result should match the HTML source <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
+           </div> 
+           <div class="listingblock"> 
+            <div class="content"> 
+             <pre>&lt;div class="paragraph"&gt;
 &lt;p&gt;&lt;em&gt;v&lt;/em&gt;&lt;sub&gt;rocket&lt;/sub&gt; is the value
 &lt;sup&gt;3&lt;/sup&gt;He is the isotope
 log&lt;sub&gt;4&lt;/sub&gt;x&lt;sup&gt;n&lt;/sup&gt; is the expression
 M&lt;sup&gt;me&lt;/sup&gt; White is the address
 the 10&lt;sup&gt;th&lt;/sup&gt; point has coordinate (x&lt;sub&gt;10&lt;/sub&gt;, y&lt;sub&gt;10&lt;/sub&gt;)&lt;/p&gt;
 &lt;/div&gt;</pre> 
+            </div> 
+           </div> 
           </div> 
          </div> 
         </div> 
@@ -1339,14 +1547,18 @@ the 10&lt;sup&gt;th&lt;/sup&gt; point has coordinate (x&lt;sub&gt;10&lt;/sub&gt;
            <dt class="hdlist1">
              Given 
            </dt> 
-           <dd> 
-            <p>the AsciiDoc source <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
-           </dd> 
           </dl> 
          </div> 
-         <div class="listingblock"> 
+         <div class="exampleblock"> 
           <div class="content"> 
-           <pre>Use [x-]`{asciidoctor-version}` to print the version of Asciidoctor.</pre> 
+           <div class="paragraph"> 
+            <p>the AsciiDoc source <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
+           </div> 
+           <div class="listingblock"> 
+            <div class="content"> 
+             <pre>Use [x-]`{asciidoctor-version}` to print the version of Asciidoctor.</pre> 
+            </div> 
+           </div> 
           </div> 
          </div> 
          <div class="dlist"> 
@@ -1354,22 +1566,34 @@ the 10&lt;sup&gt;th&lt;/sup&gt; point has coordinate (x&lt;sub&gt;10&lt;/sub&gt;
            <dt class="hdlist1">
              When 
            </dt> 
-           <dd> 
+          </dl> 
+         </div> 
+         <div class="exampleblock"> 
+          <div class="content"> 
+           <div class="paragraph"> 
             <p>it is converted to html <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
-           </dd> 
+           </div> 
+          </div> 
+         </div> 
+         <div class="dlist"> 
+          <dl> 
            <dt class="hdlist1">
              Then 
            </dt> 
-           <dd> 
-            <p>the result should match the HTML source <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
-           </dd> 
           </dl> 
          </div> 
-         <div class="listingblock"> 
+         <div class="exampleblock"> 
           <div class="content"> 
-           <pre>&lt;div class="paragraph"&gt;
+           <div class="paragraph"> 
+            <p>the result should match the HTML source <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
+           </div> 
+           <div class="listingblock"> 
+            <div class="content"> 
+             <pre>&lt;div class="paragraph"&gt;
 &lt;p&gt;Use &lt;code&gt;{asciidoctor-version}&lt;/code&gt; to print the version of Asciidoctor.&lt;/p&gt;
 &lt;/div&gt;</pre> 
+            </div> 
+           </div> 
           </div> 
          </div> 
         </div> 
@@ -1384,14 +1608,18 @@ the 10&lt;sup&gt;th&lt;/sup&gt; point has coordinate (x&lt;sub&gt;10&lt;/sub&gt;
            <dt class="hdlist1">
              Given 
            </dt> 
-           <dd> 
-            <p>the AsciiDoc source <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
-           </dd> 
           </dl> 
          </div> 
-         <div class="listingblock"> 
+         <div class="exampleblock"> 
           <div class="content"> 
-           <pre>The document is assumed to be encoded as [x-]+{encoding}+.</pre> 
+           <div class="paragraph"> 
+            <p>the AsciiDoc source <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
+           </div> 
+           <div class="listingblock"> 
+            <div class="content"> 
+             <pre>The document is assumed to be encoded as [x-]+{encoding}+.</pre> 
+            </div> 
+           </div> 
           </div> 
          </div> 
          <div class="dlist"> 
@@ -1399,22 +1627,34 @@ the 10&lt;sup&gt;th&lt;/sup&gt; point has coordinate (x&lt;sub&gt;10&lt;/sub&gt;
            <dt class="hdlist1">
              When 
            </dt> 
-           <dd> 
+          </dl> 
+         </div> 
+         <div class="exampleblock"> 
+          <div class="content"> 
+           <div class="paragraph"> 
             <p>it is converted to html <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
-           </dd> 
+           </div> 
+          </div> 
+         </div> 
+         <div class="dlist"> 
+          <dl> 
            <dt class="hdlist1">
              Then 
            </dt> 
-           <dd> 
-            <p>the result should match the HTML source <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
-           </dd> 
           </dl> 
          </div> 
-         <div class="listingblock"> 
+         <div class="exampleblock"> 
           <div class="content"> 
-           <pre>&lt;div class="paragraph"&gt;
+           <div class="paragraph"> 
+            <p>the result should match the HTML source <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
+           </div> 
+           <div class="listingblock"> 
+            <div class="content"> 
+             <pre>&lt;div class="paragraph"&gt;
 &lt;p&gt;The document is assumed to be encoded as &lt;code&gt;UTF-8&lt;/code&gt;.&lt;/p&gt;
 &lt;/div&gt;</pre> 
+            </div> 
+           </div> 
           </div> 
          </div> 
         </div> 
@@ -1426,12 +1666,12 @@ the 10&lt;sup&gt;th&lt;/sup&gt; point has coordinate (x&lt;sub&gt;10&lt;/sub&gt;
   </div> 
   <div id="footer" style="color:gray;font-size:11px">
     Generated by 
-   <a href="https://github.com/rmpestano/cukedoctor" target="_blank"> Cukedoctor 0.9.3</a> - 25/03/2016 00:50:04 
-   <span style="float:right;font-size:11px"> Execution time: 3.925 seconds</span> 
+   <a href="https://github.com/rmpestano/cukedoctor" target="_blank"> Cukedoctor 1.0.0</a> - Mar 29, 2016 11:19:15 PM 
+   <span style="float:right;font-size:11px"> Execution time: 4.283 seconds</span> 
   </div> 
   <style>  
 
-.sidebarblock{
+.sidebarblock, .sectionbody, .content{
 overflow:auto!important;
 }
 </style> 
