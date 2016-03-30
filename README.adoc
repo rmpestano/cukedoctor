@@ -45,7 +45,7 @@ ____
 
 The following cucumber feature:
 
-----
+------
 Feature: Calculator
 
   Scenario: Adding numbers
@@ -77,7 +77,7 @@ Feature: Calculator
     # {* there is no multiline comment in gherkin}
     # {** second level list item}
     Then I should have 3 as result
-----
+------
 
 
 will be converted by Cukedoctor (after tests execution) into the following document:
