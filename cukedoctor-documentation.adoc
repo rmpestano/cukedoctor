@@ -17,7 +17,7 @@ include::/home/travis/build/rmpestano/cukedoctor/cukedoctor-converter/target/tes
 == *Summary*
 [cols="12*^m", options="header,footer"]
 |===
-3+|Scenarios 7+|Steps 2+|Features: 3
+3+|Scenarios 7+|Steps 2+|Features: 4
 
 |[green]#*Passed*#
 |[red]#*Failed*#
@@ -43,7 +43,7 @@ include::/home/travis/build/rmpestano/cukedoctor/cukedoctor-converter/target/tes
 |0
 |0
 |3
-|02s 424ms
+|03s 361ms
 |[green]#*passed*#
 
 12+^|*<<Ordering>>*
@@ -57,7 +57,21 @@ include::/home/travis/build/rmpestano/cukedoctor/cukedoctor-converter/target/tes
 |0
 |0
 |6
-|069ms
+|052ms
+|[green]#*passed*#
+
+12+^|*<<Documentation-introduction-chapter>>*
+|1
+|0
+|1
+|4
+|0
+|0
+|0
+|0
+|0
+|4
+|049ms
 |[green]#*passed*#
 
 12+^|*<<Enrich-features>>*
@@ -71,10 +85,10 @@ include::/home/travis/build/rmpestano/cukedoctor/cukedoctor-converter/target/tes
 |0
 |0
 |6
-|058ms
+|132ms
 |[green]#*passed*#
 12+^|*Totals*
-|5|0|5|15|0|0|0|0|0|15 2+|02s 553ms
+|6|0|6|19|0|0|0|0|0|19 2+|03s 595ms
 |===
 
 == *Features*
@@ -85,14 +99,15 @@ include::/home/travis/build/rmpestano/cukedoctor/cukedoctor-converter/target/tes
 ****
 In order to have awesome _living documentation_ +
 As a bdd developer +
-I want to use *Cukedoctor* to handle my cucumber reports
+I want to use *Cukedoctor* to convert my cucumber test results into `readable` living documentation
 ****
 
-==== Scenario: Convert features output into documentation
+==== Scenario: Convert features test output into documentation
 
 ****
 Given ::
-The following two features: icon:thumbs-up[role="green",title="Passed"] [small right]#(947ms)#
+=====
+The following two features: icon:thumbs-up[role="green",title="Passed"] [small right]#(01s 021ms)#
 ----
 
 Feature: Feature1
@@ -108,13 +123,15 @@ Feature: Feature2
     Given scenario step
 
 ----
+=====
 When ::
-I convert their json output report using cukedoctor converter icon:thumbs-up[role="green",title="Passed"] [small right]#(01s 476ms)#
+=====
+I convert their json test output using cukedoctor converter icon:thumbs-up[role="green",title="Passed"] [small right]#(02s 338ms)#
 ******
 
 [discrete]
 [IMPORTANT]
-======
+=======
 [discrete]
 To generate cucumber .json output files just execute your _BDD_ tests with *json* formatter, example:
 [discrete]
@@ -125,12 +142,14 @@ To generate cucumber .json output files just execute your _BDD_ tests with *json
 ----
 [discrete]
 NOTE: *plugin* option replaced *format* option which was deprecated in newer cucumber versions.
-======
+=======
 
 
 ******
 
+=====
 Then ::
+=====
 I should have awesome living documentation icon:thumbs-up[role="green",title="Passed"] [small right]#(001ms)#
 ******
 
@@ -196,8 +215,10 @@ I should have awesome living documentation icon:thumbs-up[role="green",title="Pa
 *****
 [discrete]
 Given ::
+======
 [discrete]
 scenario step icon:thumbs-up[role="green",title="Passed"] [small right]#(647ms)#
+======
 [discrete]
 *****
 [discrete]
@@ -210,14 +231,17 @@ scenario step icon:thumbs-up[role="green",title="Passed"] [small right]#(647ms)#
 *****
 [discrete]
 Given ::
+======
 [discrete]
 scenario step icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+======
 [discrete]
 *****
 
 
 ******
 
+=====
 ****
 
 [[Ordering, Ordering]]
@@ -233,6 +257,7 @@ I want to control the order of features in my documentation
 
 ****
 Given ::
+=====
 The following two features: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -249,9 +274,13 @@ Feature: Feature2
     Given scenario step
 
 ----
+=====
 When ::
+=====
 I convert them using default order icon:thumbs-up[role="green",title="Passed"] [small right]#(023ms)#
+=====
 Then ::
+=====
 Features should be ordered by name in resulting documentation icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ******
 
@@ -265,8 +294,10 @@ Features should be ordered by name in resulting documentation icon:thumbs-up[rol
 *****
 [discrete]
 Given ::
+======
 [discrete]
 scenario step icon:thumbs-up[role="green",title="Passed"] [small right]#(647ms)#
+======
 [discrete]
 *****
 [discrete]
@@ -279,20 +310,24 @@ scenario step icon:thumbs-up[role="green",title="Passed"] [small right]#(647ms)#
 *****
 [discrete]
 Given ::
+======
 [discrete]
 scenario step icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+======
 [discrete]
 *****
 
 
 ******
 
+=====
 ****
 
 ==== Scenario: Custom ordering
 
 ****
 Given ::
+=====
 The following two features: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -314,9 +349,13 @@ Feature: Feature2
 
 NOTE: Ordering is done using feature comment '*order:*'
 
+=====
 When ::
-I convert them using comment order icon:thumbs-up[role="green",title="Passed"] [small right]#(045ms)#
+=====
+I convert them using comment order icon:thumbs-up[role="green",title="Passed"] [small right]#(028ms)#
+=====
 Then ::
+=====
 Features should be ordered respecting order comment icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ******
 
@@ -330,8 +369,10 @@ Features should be ordered respecting order comment icon:thumbs-up[role="green",
 *****
 [discrete]
 Given ::
+======
 [discrete]
 scenario step icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+======
 [discrete]
 *****
 [discrete]
@@ -344,14 +385,199 @@ scenario step icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 *****
 [discrete]
 Given ::
+======
 [discrete]
 scenario step icon:thumbs-up[role="green",title="Passed"] [small right]#(313ms)#
+======
 [discrete]
 *****
 
 
 ******
 
+=====
+****
+
+[[Documentation-introduction-chapter, Documentation introduction chapter]]
+=== *Documentation introduction chapter*
+
+****
+In order to have an introduction chapter in my documentation +
+As a bdd developer +
+I want to be able to provide an asciidoc based document which introduces my software
+****
+
+==== Scenario: Introduction chapter in classpath
+
+****
+Given ::
+=====
+The following two features: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+----
+
+Feature: Feature1
+
+  Scenario: Scenario feature 1
+
+    Given scenario step
+
+Feature: Feature2
+
+  Scenario: Scenario feature 2
+
+    Given scenario step
+
+----
+=====
+And ::
+=====
+The following asciidoc document is on your application classpath icon:thumbs-up[role="green",title="Passed"] [small right]#(048ms)#
+******
+
+[discrete]
+= *Introduction*
+[discrete]
+Cukedoctor is a *Living documentation* tool which integrates Cucumber and Asciidoctor in order to convert your _BDD_ tests results into an awesome documentation.
+[discrete]
+Here are some design principles:
+[discrete]
+* Living documentation should be readable and highlight your software features;
+[discrete]
+** Most bdd tools generate reports and not a truly documentation.
+[discrete]
+* Cukedoctor *do not* introduce a new API that you need to learn, instead it operates on top of http://www.relishapp.com/cucumber/cucumber/docs/formatters/json-output-formatter[cucumber json output^] files;
+[discrete]
+** In the 'worst case' to <<Enrich-features,enhance>> your documentation you will need to know a bit of http://asciidoctor.org/docs/what-is-asciidoc/[asciidoc markup^].
+
+
+******
+
+NOTE: The introduction file must be named *intro-chapter.adoc* and can be in any package of your application,
+
+[TIP]
+====
+
+By default Cukedoctor will look into application folders but you can make Cukedoctor look into external folder by setting the following system property:
+[source,java]
+----
+
+System.setProperty("INTRO_CHAPTER_DIR","/home/some/external/folder");
+----
+====
+
+=====
+When ::
+=====
+Bdd tests results are converted into documentation by Cukedoctor icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
+Then ::
+=====
+Resulting documentation should have the provided introduction chapter icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+******
+
+[discrete]
+= *Documentation*
+[discrete]
+== *Introduction*
+[discrete]
+Cukedoctor is a *Living documentation* tool which integrates Cucumber and Asciidoctor in order to convert your _BDD_ tests results into an awesome documentation.
+[discrete]
+Here are some design principles:
+[discrete]
+* Living documentation should be readable and highlight your software features;
+[discrete]
+** Most bdd tools generate reports and not a truly documentation.
+[discrete]
+* Cukedoctor *do not* introduce a new API that you need to learn, instead it operates on top of http://www.relishapp.com/cucumber/cucumber/docs/formatters/json-output-formatter[cucumber json output^] files;
+[discrete]
+** In the 'worst case' to <<Enrich-features,enhance>> your documentation you will need to know a bit of http://asciidoctor.org/docs/what-is-asciidoc/[asciidoc markup^].
+[discrete]
+== *Summary*
+[discrete]
+[cols="12*^m", options="header,footer"]
+[discrete]
+|===
+3+|Scenarios 7+|Steps 2+|Features: 2
+|[green]#*Passed*#
+|[red]#*Failed*#
+|Total
+|[green]#*Passed*#
+|[red]#*Failed*#
+|[purple]#*Skipped*#
+|[maroon]#*Pending*#
+|[yellow]#*Undefined*#
+|[blue]#*Missing*#
+|Total
+|Duration
+|Status
+12+^|*<<Feature1>>*
+|1
+|0
+|1
+|1
+|0
+|0
+|0
+|0
+|0
+|1
+|647ms
+|[green]#*passed*#
+12+^|*<<Feature2>>*
+|1
+|0
+|1
+|1
+|0
+|0
+|0
+|0
+|0
+|1
+|000ms
+|[green]#*passed*#
+12+^|*Totals*
+|2|0|2|2|0|0|0|0|0|2 2+|647ms
+|===
+[discrete]
+== *Features*
+[discrete]
+[[Feature1, Feature1]]
+[discrete]
+=== *Feature1*
+[discrete]
+==== Scenario: Scenario feature 1
+[discrete]
+*****
+[discrete]
+Given ::
+======
+[discrete]
+scenario step icon:thumbs-up[role="green",title="Passed"] [small right]#(647ms)#
+======
+[discrete]
+*****
+[discrete]
+[[Feature2, Feature2]]
+[discrete]
+=== *Feature2*
+[discrete]
+==== Scenario: Scenario feature 2
+[discrete]
+*****
+[discrete]
+Given ::
+======
+[discrete]
+scenario step icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+======
+[discrete]
+*****
+
+
+******
+
+=====
 ****
 
 [[Enrich-features, Enrich features]]
@@ -368,6 +594,7 @@ Asciidoc markup can be used in feature *DocStrings*. To do so you need to enable
 
 ****
 Given ::
+=====
 The following two features: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -403,9 +630,13 @@ Feature: Enrich feature
 """
 
 ----
+=====
 When ::
-I convert docstring enriched json output using cukedoctor converter icon:thumbs-up[role="green",title="Passed"] [small right]#(034ms)#
+=====
+I convert docstring enriched json output using cukedoctor converter icon:thumbs-up[role="green",title="Passed"] [small right]#(054ms)#
+=====
 Then ::
+=====
 DocString asciidoc output must be rendered in my documentation icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ******
 
@@ -419,6 +650,7 @@ DocString asciidoc output must be rendered in my documentation icon:thumbs-up[ro
 *****
 [discrete]
 Given ::
+======
 [discrete]
 the following source code icon:thumbs-up[role="green",title="Passed"] [small right]#(267ms)#
 [discrete]
@@ -436,6 +668,7 @@ public int sum(int x, int y){
 <1> We can have callouts in living documentation>
 [discrete]
 *******
+======
 [discrete]
 *****
 [discrete]
@@ -444,6 +677,7 @@ public int sum(int x, int y){
 *****
 [discrete]
 Given ::
+======
 [discrete]
 the following table icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 [discrete]
@@ -458,12 +692,14 @@ the following table icon:thumbs-up[role="green",title="Passed"] [small right]#(0
 |===
 [discrete]
 *******
+======
 [discrete]
 *****
 
 
 ******
 
+=====
 ****
 
 ==== Scenario: Comments enrichment
@@ -471,6 +707,7 @@ Asciidoc markup can be used in feature comments. To do so you need to surround a
 
 ****
 Given ::
+=====
 The following feature with asciidoc markup in comments: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -494,9 +731,13 @@ Feature: Calculator
 
 
 ----
+=====
 When ::
-I convert enriched feature json output using cukedoctor icon:thumbs-up[role="green",title="Passed"] [small right]#(022ms)#
+=====
+I convert enriched feature json output using cukedoctor icon:thumbs-up[role="green",title="Passed"] [small right]#(076ms)#
+=====
 Then ::
+=====
 Asciidoc markup on comments must be rendered in my documentation icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ******
 
@@ -514,18 +755,23 @@ NOTE: This is a very important feature!
 *****
 [discrete]
 Given ::
+======
 [discrete]
 I have numbers 1 and 2 icon:thumbs-up[role="green",title="Passed"] [small right]#(114ms)#
 [discrete]
 IMPORTANT: Asciidoc markup inside *steps* must be surrounded by *curly brackets*.
+======
 [discrete]
 When ::
+======
 [discrete]
 I sum the numbers icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 [discrete]
 NOTE: Steps comments are placed *before* each steps so this comment is for the *WHEN* step.
+======
 [discrete]
 Then ::
+======
 [discrete]
 I should have 3 as result icon:thumbs-up[role="green",title="Passed"] [small right]#(001ms)#
 [discrete]
@@ -534,11 +780,13 @@ I should have 3 as result icon:thumbs-up[role="green",title="Passed"] [small rig
 * there is no multiline comment in gherkin
 [discrete]
 ** second level list item
+======
 [discrete]
 *****
 
 
 ******
 
+=====
 ****
 
