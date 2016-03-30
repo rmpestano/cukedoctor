@@ -1,0 +1,113 @@
+[
+  {
+    "line": 1,
+    "elements": [
+      {
+        "line": 3,
+        "name": "Adding numbers",
+        "description": "You can *asciidoc markup* in _feature_ #description#.\n\nNOTE: This is a very important feature!",
+        "id": "calculator;adding-numbers",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 212755812,
+              "status": "passed"
+            },
+            "comments": [
+              {
+                "line": 8,
+                "value": "#{IMPORTANT: Asciidoc markup inside *steps* must be surrounded by *curly brackets*.}"
+              }
+            ],
+            "line": 9,
+            "name": "I have numbers 1 and 2",
+            "match": {
+              "arguments": [
+                {
+                  "val": "1",
+                  "offset": 15
+                },
+                {
+                  "val": "2",
+                  "offset": 21
+                }
+              ],
+              "location": "CalcSteps.I_have_numbers_and(int,int)"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 1642885,
+              "status": "passed"
+            },
+            "comments": [
+              {
+                "line": 11,
+                "value": "#{NOTE: You can use asciidoc in doc strings as well}"
+              },
+              {
+                "line": 12,
+                "value": "#{TIP: Steps comments are placed *before* each steps}"
+              },
+              {
+                "line": 13,
+                "value": "#cukedoctor-discrete"
+              }
+            ],
+            "line": 14,
+            "name": "I sum the numbers using the following java code:",
+            "match": {
+              "location": "CalcSteps.I_sum_the_numbers_using_the_following_java_code(String)"
+            },
+            "keyword": "When ",
+            "doc_string": {
+              "content_type": "",
+              "line": 15,
+              "value": "[source,java]\n----\n    public class Calc {\n\n      public long sum(int x, int y){\n          return  x + y; //\u003c1\u003e\n      }\n  }\n----\n\u003c1\u003e This is an asciidoc call inside a feature."
+            }
+          },
+          {
+            "result": {
+              "duration": 3403667,
+              "status": "passed"
+            },
+            "comments": [
+              {
+                "line": 28,
+                "value": "# {* this is a list of itens inside a feature step}"
+              },
+              {
+                "line": 29,
+                "value": "# {* there is no multiline comment in gherkin}"
+              },
+              {
+                "line": 30,
+                "value": "# {** second level list item}"
+              }
+            ],
+            "line": 31,
+            "name": "I should have 3 as result",
+            "match": {
+              "arguments": [
+                {
+                  "val": "3",
+                  "offset": 14
+                }
+              ],
+              "location": "CalcSteps.I_should_have_as_result(int)"
+            },
+            "keyword": "Then "
+          }
+        ]
+      }
+    ],
+    "name": "Calculator",
+    "description": "",
+    "id": "calculator",
+    "keyword": "Feature",
+    "uri": "com/github/cukedoctor/bdd/sample/calc-enriched.feature"
+  }
+]

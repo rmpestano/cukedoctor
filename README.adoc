@@ -46,16 +46,37 @@ ____
 The following cucumber feature:
 
 ----
-@a
-Feature: One passing scenario, one failing scenario
+Feature: Calculator
 
-  @b
-  Scenario: Passing
-    Given this step passes
+  Scenario: Adding numbers
+   You can *asciidoc markup* in _feature_ #description#.
 
-  @c
-  Scenario: Failing
-    Given this step fails
+   NOTE: This is a very important feature!
+
+    #{IMPORTANT: Asciidoc markup inside *steps* must be surrounded by *curly brackets*.}
+    Given I have numbers 1 and 2
+
+   #{NOTE: You can use asciidoc in doc strings as well}
+   #{TIP: Steps comments are placed *before* each steps}
+   #cukedoctor-discrete
+    When I sum the numbers using the following java code:
+"""
+[source,java]
+----
+    public class Calc {
+
+      public long sum(int x, int y){
+          return  x + y; //<1>
+      }
+  }
+----
+<1> This is an asciidoc call inside a feature.
+"""
+
+    # {* this is a list of itens inside a feature step}
+    # {* there is no multiline comment in gherkin}
+    # {** second level list item}
+    Then I should have 3 as result
 ----
 
 
@@ -107,7 +128,7 @@ For more details see https://github.com/rmpestano/cukedoctor/tree/master/cukedoc
 
 === Standalone jar
 
-To use Cukedoctor as a standalone jar you can https://bintray.com/artifact/download/rmpestano/cukedoctor/com/github/cukedoctor/cukedoctor-main/0.9.4/cukedoctor-main-0.9.4.jar[download it here^]. For more details, see https://github.com/rmpestano/cukedoctor/tree/master/cukedoctor-main[cukedoctor-main].
+To use Cukedoctor as a standalone jar you can https://bintray.com/artifact/download/rmpestano/cukedoctor/com/github/cukedoctor/cukedoctor-main/1.0.0/cukedoctor-main-1.0.0.jar[download it here^]. For more details, see https://github.com/rmpestano/cukedoctor/tree/master/cukedoctor-main[cukedoctor-main].
 
 === Converter
 
