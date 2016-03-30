@@ -43,7 +43,7 @@ include::/home/travis/build/rmpestano/cukedoctor/cukedoctor-converter/target/tes
 |0
 |0
 |3
-|02s 689ms
+|02s 268ms
 |[green]#*passed*#
 
 12+^|*<<Ordering>>*
@@ -57,7 +57,7 @@ include::/home/travis/build/rmpestano/cukedoctor/cukedoctor-converter/target/tes
 |0
 |0
 |6
-|051ms
+|029ms
 |[green]#*passed*#
 
 12+^|*<<Documentation-introduction-chapter>>*
@@ -71,7 +71,7 @@ include::/home/travis/build/rmpestano/cukedoctor/cukedoctor-converter/target/tes
 |0
 |0
 |4
-|054ms
+|031ms
 |[green]#*passed*#
 
 12+^|*<<Enrich-features>>*
@@ -85,10 +85,10 @@ include::/home/travis/build/rmpestano/cukedoctor/cukedoctor-converter/target/tes
 |0
 |0
 |6
-|095ms
+|100ms
 |[green]#*passed*#
 12+^|*Totals*
-|6|0|6|19|0|0|0|0|0|19 2+|02s 890ms
+|6|0|6|19|0|0|0|0|0|19 2+|02s 429ms
 |===
 
 == *Features*
@@ -107,7 +107,7 @@ I want to use *Cukedoctor* to convert my cucumber test results into `readable` l
 ****
 Given ::
 =====
-The following two features: icon:thumbs-up[role="green",title="Passed"] [small right]#(925ms)#
+The following two features: icon:thumbs-up[role="green",title="Passed"] [small right]#(845ms)#
 ----
 
 Feature: Feature1
@@ -126,7 +126,7 @@ Feature: Feature2
 =====
 When ::
 =====
-I convert their json test output using cukedoctor converter icon:thumbs-up[role="green",title="Passed"] [small right]#(01s 763ms)#
+I convert their json test output using cukedoctor converter icon:thumbs-up[role="green",title="Passed"] [small right]#(01s 421ms)#
 ******
 
 [discrete]
@@ -277,7 +277,7 @@ Feature: Feature2
 =====
 When ::
 =====
-I convert them using default order icon:thumbs-up[role="green",title="Passed"] [small right]#(021ms)#
+I convert them using default order icon:thumbs-up[role="green",title="Passed"] [small right]#(014ms)#
 =====
 Then ::
 =====
@@ -352,7 +352,7 @@ NOTE: Ordering is done using feature comment '*order:*'
 =====
 When ::
 =====
-I convert them using comment order icon:thumbs-up[role="green",title="Passed"] [small right]#(029ms)#
+I convert them using comment order icon:thumbs-up[role="green",title="Passed"] [small right]#(014ms)#
 =====
 Then ::
 =====
@@ -431,7 +431,7 @@ Feature: Feature2
 =====
 And ::
 =====
-The following asciidoc document is on your application classpath icon:thumbs-up[role="green",title="Passed"] [small right]#(053ms)#
+The following asciidoc document is on your application classpath icon:thumbs-up[role="green",title="Passed"] [small right]#(030ms)#
 ******
 
 [discrete]
@@ -633,7 +633,7 @@ Feature: Enrich feature
 =====
 When ::
 =====
-I convert docstring enriched json output using cukedoctor converter icon:thumbs-up[role="green",title="Passed"] [small right]#(056ms)#
+I convert docstring enriched json output using cukedoctor converter icon:thumbs-up[role="green",title="Passed"] [small right]#(050ms)#
 =====
 Then ::
 =====
@@ -734,7 +734,7 @@ Feature: Calculator
 =====
 When ::
 =====
-I convert enriched feature json output using cukedoctor icon:thumbs-up[role="green",title="Passed"] [small right]#(038ms)#
+I convert enriched feature json output using cukedoctor icon:thumbs-up[role="green",title="Passed"] [small right]#(050ms)#
 =====
 Then ::
 =====
