@@ -30,6 +30,11 @@ public class CalcSteps {
         result = x + y;
     }
 
+    @When("^I sum the numbers$")
+    public void I_sum_the_numbers() throws Throwable {
+
+    }
+
     @Then("^I should have (\\d+) as result$")
     public void I_should_have_as_result(int arg1) throws Throwable {
         assertEquals(arg1,result);
