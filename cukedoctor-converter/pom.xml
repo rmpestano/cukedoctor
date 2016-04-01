@@ -86,8 +86,12 @@
                                 <argument>-classpath</argument>
                                 <classpath />
                                 <argument>com.github.cukedoctor.CukedoctorBenchmark</argument>
-                                <argument>-Xms256m</argument>
-                                <argument>-Xmx512m</argument>
+                                <argument>-Xms1024m</argument>
+                                <argument>-Xmx1024m</argument>
+                                <argument>-XX:+PrintGCTimeStamps</argument>
+                                <argument>-XX:+PrintGCDetails</argument>
+                                <argument>-Xloggc:gc.log</argument>
+                                <argument>-XX:+HeapDumpOnOutOfMemoryError</argument>
                             </arguments>
                         </configuration>
                     </plugin>
