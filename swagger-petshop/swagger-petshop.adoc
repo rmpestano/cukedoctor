@@ -1,0 +1,324 @@
+:toc: center
+:backend: pdf
+:doctitle: Living Documentation
+:doctype: book
+:icons: font
+:numbered:
+:!linkcss:
+:sectanchors:
+:sectlink:
+:docinfo:
+:toclevels: 3
+
+= *Living Documentation*
+
+== *Summary*
+[cols="12*^m", options="header,footer"]
+|===
+3+|Scenarios 7+|Steps 2+|Features: 2
+
+|[green]#*Passed*#
+|[red]#*Failed*#
+|Total
+|[green]#*Passed*#
+|[red]#*Failed*#
+|[purple]#*Skipped*#
+|[maroon]#*Pending*#
+|[yellow]#*Undefined*#
+|[blue]#*Missing*#
+|Total
+|Duration
+|Status
+
+12+^|*<<SwaggerHub-REST-API>>*
+|10
+|0
+|10
+|29
+|0
+|0
+|0
+|0
+|0
+|29
+|01s 013ms
+|[green]#*passed*#
+
+12+^|*<<Petstore-API>>*
+|4
+|0
+|4
+|20
+|0
+|0
+|0
+|0
+|0
+|20
+|382ms
+|[green]#*passed*#
+12+^|*Totals*
+|14|0|14|49|0|0|0|0|0|49 2+|01s 396ms
+|===
+
+== *Features*
+
+[[SwaggerHub-REST-API, SwaggerHub REST API]]
+=== *SwaggerHub REST API*
+
+==== Background
+
+****
+Given ::
+=====
+the Swagger definition at https://api.swaggerhub.com/apis/swagger-hub/registry-api/1.0.10 icon:thumbs-up[role="green",title="Passed"] [small right]#(01s 007ms)#
+=====
+****
+
+==== Scenario: Default API Listing
+
+****
+When ::
+=====
+a request to searchApis is made icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
+Then ::
+=====
+the response is a list of APIs in APIs.json format icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
+****
+
+==== Scenario: Owner API Listing
+
+****
+When ::
+=====
+a request to getOwnerApis is made icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
+And ::
+=====
+owner is swagger-hub icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
+Then ::
+=====
+the response is a list of APIs in APIs.json format icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
+****
+
+==== Scenario: API Version Listing
+
+****
+When ::
+=====
+a request to getApiVersions is made icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
+And ::
+=====
+owner is swagger-hub icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
+And ::
+=====
+api is registry-api icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
+Then ::
+=====
+the response is a list of API versions in APIs.json format icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
+And ::
+=====
+the response body contains /apis/swagger-hub/registry-api icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
+****
+
+==== Scenario Outline: API Retrieval
+
+****
+When ::
+=====
+a request to getDefinition is made icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
+And ::
+=====
+owner is swagger-hub icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
+And ::
+=====
+api is registry-api icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
+And ::
+=====
+version is 1.0.10 icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
+Then ::
+=====
+a 200 response is returned within 500ms icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
+And ::
+=====
+the response type is json icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
+And ::
+=====
+the response body contains icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+----
+
+"description":"The registry API for SwaggerHub"
+
+----
+=====
+****
+
+==== Scenario Outline: API Retrieval
+
+****
+When ::
+=====
+a request to getDefinition is made icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
+And ::
+=====
+owner is fehguy icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
+And ::
+=====
+api is sonos-api icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
+And ::
+=====
+version is 1.0.0 icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
+Then ::
+=====
+a 200 response is returned within 500ms icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
+And ::
+=====
+the response type is json icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
+And ::
+=====
+the response body contains icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+----
+
+"description":"A REST API for the Sonos platform"
+
+----
+=====
+****
+
+[[Petstore-API, Petstore API]]
+=== *Petstore API*
+
+==== Scenario: Find pet by status
+
+****
+Given ::
+=====
+the API running at http://petstore.swagger.io/v2 icon:thumbs-up[role="green",title="Passed"] [small right]#(364ms)#
+=====
+When ::
+=====
+a GET request to /pet/findByStatus is made icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
+And ::
+=====
+the status parameter is test icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
+And ::
+=====
+the Accepts header is application/json icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
+Then ::
+=====
+a 200 response is returned within 50ms icon:thumbs-up[role="green",title="Passed"] [small right]#(003ms)#
+=====
+****
+
+==== Scenario: Find pet by tags
+
+****
+Given ::
+=====
+the API running at http://petstore.swagger.io/v2 icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
+When ::
+=====
+a GET request to /pet/findByTags is made icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
+And ::
+=====
+the tags parameter is test icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
+And ::
+=====
+the request expects json icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
+Then ::
+=====
+a 200 response is returned within 50ms icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
+****
+
+==== Scenario: Create pet with parameters
+
+****
+Given ::
+=====
+the API running at http://petstore.swagger.io/v2 icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
+When ::
+=====
+a POST request to /pet is made icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
+And ::
+=====
+name is doggies icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
+And ::
+=====
+status is available icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
+Then ::
+=====
+a 200 response is returned within 50ms icon:thumbs-up[role="green",title="Passed"] [small right]#(010ms)#
+=====
+****
+
+==== Scenario: Create pet with body
+
+****
+Given ::
+=====
+the API running at http://petstore.swagger.io/v2 icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
+When ::
+=====
+a POST request to /pet is made icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
+And ::
+=====
+the request body is icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+----
+
+{
+"name": "doggie",
+"status": "available"
+}
+
+----
+=====
+Then ::
+=====
+a 200 response is returned within 50ms icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
+And ::
+=====
+the response body contains icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+----
+
+"id":
+
+----
+=====
+****
+
