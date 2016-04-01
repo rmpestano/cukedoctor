@@ -139,31 +139,6 @@ public class FileUtil {
         }
     }
 
-    public static File loadFile(String path) {
-        if (path == null) {
-            path = "/";
-        }
-
-        File f = new File(path);
-        if (f.exists()) {
-            return f.getAbsoluteFile();
-        }
-
-        if (!path.startsWith("/")) {
-            path = "/" + path;
-        }
-
-        return new File(Paths.get("").toAbsolutePath().toString() + path.trim());
-    }
-
-    public static boolean removeFile(String path) {
-
-
-        File fileToRemove = loadFile(path);
-
-        return fileToRemove.delete();
-    }
-
 
     public static File copyFile(String source, String dest) {
 
