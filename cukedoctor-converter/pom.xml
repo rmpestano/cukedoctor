@@ -86,6 +86,8 @@
                                 <argument>-classpath</argument>
                                 <classpath />
                                 <argument>com.github.cukedoctor.CukedoctorBenchmark</argument>
+                                <argument>-Xms256m</argument>
+                                <argument>-Xmx512m</argument>
                             </arguments>
                         </configuration>
                     </plugin>
