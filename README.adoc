@@ -148,7 +148,7 @@ Cukedoctor extension adds new features to generated documentation in order to le
 
 This module provides an example project to show how cukedoctor documentation can be extended and customized. For more details see https://github.com/rmpestano/cukedoctor/tree/master/cukedoctor-spi-example[cukedoctor-spi-example].
 
-=== Jenkins plugin
+== Jenkins plugin
 
 Cukedoctor brings Living documentation to Jenkins via https://github.com/jenkinsci/living-documentation-plugin[Living documentation plugin^].
 
