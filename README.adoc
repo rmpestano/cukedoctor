@@ -150,7 +150,7 @@ This module provides an example project to show how cukedoctor documentation can
 
 == Jenkins plugin
 
-Cukedoctor brings Living documentation to Jenkins via https://github.com/jenkinsci/cucumber-living-documentation-plugin[cucumber-living-documentation plugin^].
+Cukedoctor brings Living documentation to Jenkins via https://wiki.jenkins-ci.org/display/JENKINS/Cucumber+Living+Documentation+Plugin[Cucumber living documentation plugin^].
 
 == Distribution
 
