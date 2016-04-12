@@ -525,7 +525,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
         <td class="tableblock halign-center valign-top"><p class="tableblock"><code>0</code></p></td> 
         <td class="tableblock halign-center valign-top"><p class="tableblock"><code>0</code></p></td> 
         <td class="tableblock halign-center valign-top"><p class="tableblock"><code>19</code></p></td> 
-        <td class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><code>03s 298ms</code></p></td> 
+        <td class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><code>02s 479ms</code></p></td> 
        </tr> 
       </tfoot> 
       <tbody> 
@@ -557,7 +557,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
         <td class="tableblock halign-center valign-top"><p class="tableblock"><code>0</code></p></td> 
         <td class="tableblock halign-center valign-top"><p class="tableblock"><code>0</code></p></td> 
         <td class="tableblock halign-center valign-top"><p class="tableblock"><code>3</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>03s 119ms</code></p></td> 
+        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>02s 300ms</code></p></td> 
         <td class="tableblock halign-center valign-top"><p class="tableblock"><code><span class="green"><strong>passed</strong></span></code></p></td> 
        </tr> 
        <tr> 
@@ -574,7 +574,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
         <td class="tableblock halign-center valign-top"><p class="tableblock"><code>0</code></p></td> 
         <td class="tableblock halign-center valign-top"><p class="tableblock"><code>0</code></p></td> 
         <td class="tableblock halign-center valign-top"><p class="tableblock"><code>6</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>071ms</code></p></td> 
+        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>060ms</code></p></td> 
         <td class="tableblock halign-center valign-top"><p class="tableblock"><code><span class="green"><strong>passed</strong></span></code></p></td> 
        </tr> 
        <tr> 
@@ -591,7 +591,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
         <td class="tableblock halign-center valign-top"><p class="tableblock"><code>0</code></p></td> 
         <td class="tableblock halign-center valign-top"><p class="tableblock"><code>0</code></p></td> 
         <td class="tableblock halign-center valign-top"><p class="tableblock"><code>4</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>019ms</code></p></td> 
+        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>018ms</code></p></td> 
         <td class="tableblock halign-center valign-top"><p class="tableblock"><code><span class="green"><strong>passed</strong></span></code></p></td> 
        </tr> 
        <tr> 
@@ -608,7 +608,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
         <td class="tableblock halign-center valign-top"><p class="tableblock"><code>0</code></p></td> 
         <td class="tableblock halign-center valign-top"><p class="tableblock"><code>0</code></p></td> 
         <td class="tableblock halign-center valign-top"><p class="tableblock"><code>6</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>088ms</code></p></td> 
+        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>100ms</code></p></td> 
         <td class="tableblock halign-center valign-top"><p class="tableblock"><code><span class="green"><strong>passed</strong></span></code></p></td> 
        </tr> 
        <tr> 
@@ -646,7 +646,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
          <div class="exampleblock"> 
           <div class="content"> 
            <div class="paragraph"> 
-            <p>The following two features: <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(01s 208ms)</span></p> 
+            <p>The following two features: <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(532ms)</span></p> 
            </div> 
            <div class="listingblock"> 
             <div class="content"> 
@@ -675,7 +675,7 @@ Feature: Feature2
          <div class="exampleblock"> 
           <div class="content"> 
            <div class="paragraph"> 
-            <p>I convert their json test output using cukedoctor converter <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(01s 909ms)</span></p> 
+            <p>I convert their json test output using cukedoctor converter <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(01s 754ms)</span></p> 
            </div> 
            <div class="sidebarblock"> 
             <div class="content"> 
@@ -690,7 +690,7 @@ Feature: Feature2
                   </div> 
                   <div class="listingblock"> 
                    <div class="content"> 
-                    <pre class="highlight"><code class="language-java" data-lang="java">@RunWith(Cucumber.class)
+                    <pre class="highlightjs highlight"><code class="language-java" data-lang="java">@RunWith(Cucumber.class)
 @CucumberOptions(plugin = {"json:target/cucumber.json"} )</code></pre> 
                    </div> 
                   </div> 
@@ -722,11 +722,14 @@ Feature: Feature2
          <div class="exampleblock"> 
           <div class="content"> 
            <div class="paragraph"> 
-            <p>I should have awesome living documentation <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
+            <p>I should have awesome living documentation <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(012ms)</span></p> 
            </div> 
            <div class="sidebarblock"> 
             <div class="content"> 
              <h1 id="__strong_documentation_strong" class="discrete"><strong>Documentation</strong></h1> 
+             <div class="paragraph"> 
+              <p>Unresolved directive in cukedoctor-documentation.adoc - include::/home/pestano/projects/cukedoctor/cukedoctor-converter/target/test-classes/cukedoctor-intro.adoc[leveloffset=+1]</p> 
+             </div> 
              <h2 id="__strong_summary_strong_2" class="discrete"><strong>Summary</strong></h2> 
              <table class="tableblock frame-all grid-all spread"> 
               <colgroup> 
@@ -1042,7 +1045,7 @@ Feature: Feature2
          <div class="exampleblock"> 
           <div class="content"> 
            <div class="paragraph"> 
-            <p>I convert them using comment order <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(035ms)</span></p> 
+            <p>I convert them using comment order <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(025ms)</span></p> 
            </div> 
           </div> 
          </div> 
@@ -1212,7 +1215,7 @@ Feature: Feature2
                 </div> 
                 <div class="listingblock"> 
                  <div class="content"> 
-                  <pre class="highlight"><code class="language-java" data-lang="java">System.setProperty("INTRO_CHAPTER_DIR","/home/some/external/folder");</code></pre> 
+                  <pre class="highlightjs highlight"><code class="language-java" data-lang="java">System.setProperty("INTRO_CHAPTER_DIR","/home/some/external/folder");</code></pre> 
                  </div> 
                 </div> </td> 
               </tr> 
@@ -1485,7 +1488,7 @@ Feature: Feature2
          <div class="exampleblock"> 
           <div class="content"> 
            <div class="paragraph"> 
-            <p>I convert docstring enriched json output using cukedoctor converter <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(040ms)</span></p> 
+            <p>I convert docstring enriched json output using cukedoctor converter <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(058ms)</span></p> 
            </div> 
           </div> 
          </div> 
@@ -1523,7 +1526,7 @@ Feature: Feature2
                   <div class="content"> 
                    <div class="listingblock"> 
                     <div class="content"> 
-                     <pre class="highlight"><code class="language-java" data-lang="java">public int sum(int x, int y){
+                     <pre class="highlightjs highlight"><code class="language-java" data-lang="java">public int sum(int x, int y){
     int result = x + y;
     return result; <i class="conum" data-value="1"></i><b>(1)</b>
 }</code></pre> 
@@ -1647,7 +1650,7 @@ Feature: Feature2
          <div class="exampleblock"> 
           <div class="content"> 
            <div class="paragraph"> 
-            <p>I convert enriched feature json output using cukedoctor <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(047ms)</span></p> 
+            <p>I convert enriched feature json output using cukedoctor <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(041ms)</span></p> 
            </div> 
           </div> 
          </div> 
@@ -1770,8 +1773,8 @@ Feature: Feature2
   </div> 
   <div id="footer" style="color:gray;font-size:11px">
     Generated by 
-   <a href="https://github.com/rmpestano/cukedoctor" target="_blank"> Cukedoctor 1.0.1-SNAPSHOT</a> - Apr 3, 2016 12:42:35 AM 
-   <span style="float:right;font-size:11px"> Execution time: 12.774 seconds</span> 
+   <a href="https://github.com/rmpestano/cukedoctor" target="_blank"> Cukedoctor 1.0.1-SNAPSHOT</a> - Apr 12, 2016 2:27:58 AM 
+   <span style="float:right;font-size:11px"> Execution time: 11.239 seconds</span> 
   </div> 
   <style>  
 
@@ -1958,6 +1961,9 @@ function collectallLevel2IListItens() {
     }//end for uls
 
 }
-</script>  
+</script> 
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.9.1/styles/github.min.css"> 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.9.1/highlight.min.js"></script> 
+  <script>hljs.initHighlighting()</script>  
  </body>
 </html>
