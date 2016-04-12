@@ -34,7 +34,9 @@ public class ConverterSteps {
 
     @Then("^I should have awesome living documentation$")
     public void I_should_have_awesome_living_documentation(String expected) throws Throwable {
-       assertThat(documentation.replaceAll("\r","")).isEqualTo(expected.replaceAll("\r","").replace("/home/pestano/projects/cukedoctor/cukedoctor-converter/target/test-classes/", Constants.home()));
+       assertThat(documentation.replaceAll("\r","").replaceAll(Constants.home(),"")).
+               isEqualTo(expected.replaceAll("\r", "").
+                       replace("/home/pestano/projects/cukedoctor/cukedoctor-converter/target/test-classes/", ""));
     }
 
 
