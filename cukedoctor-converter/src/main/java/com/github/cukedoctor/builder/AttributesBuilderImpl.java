@@ -76,6 +76,12 @@ public class AttributesBuilderImpl implements AttributesBuilder {
     }
 
     @Override
+    public AttributesBuilder sourceHighlighter(String value) {
+        docBuilder.textLine(Constants.Atributes.sourceHighlighter(value));
+        return this;
+    }
+
+    @Override
     public AttributesBuilder tocLevels(String value) {
         docBuilder.textLine(Constants.Atributes.tocLevels(value));
         return this;

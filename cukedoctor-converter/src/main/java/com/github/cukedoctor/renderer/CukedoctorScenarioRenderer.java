@@ -72,7 +72,7 @@ public class CukedoctorScenarioRenderer extends AbstractBaseRenderer implements 
             if(!Status.passed.equals(scenario.getStatus())){
                 backgroundTitle.append(" " + Status.getStatusIcon(Status.failed));
             }
-            docBuilder.sectionTitleLevel3(backgroundTitle.toString());
+            docBuilder.sectionTitleLevel3(backgroundTitle.toString().replaceAll("\\\\",""));
         }
 
         if (hasText(scenario.getName())) {
@@ -90,7 +90,7 @@ public class CukedoctorScenarioRenderer extends AbstractBaseRenderer implements 
             docBuilder.append(renderScenarioTags(scenario, feature));
         }
 
-        docBuilder.textLine(scenario.getDescription()).newLine();
+        docBuilder.textLine(scenario.getDescription().replaceAll("\\\\","")).newLine();
 
         if (scenario.hasExamples()) {
             docBuilder.append(renderScenarioExamples(scenario));

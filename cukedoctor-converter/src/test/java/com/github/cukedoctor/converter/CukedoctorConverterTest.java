@@ -85,7 +85,7 @@ public class CukedoctorConverterTest {
 						":sectanchors:" + newLine() +
 						":sectlink:" + newLine() +
 						":docinfo:" + newLine() +
-						":toclevels: 3"+newLine();
+						":source-highlighter: highlightjs\n:toclevels: 3"+newLine();
 
 
 		attrs.docTitle("Title");
@@ -111,7 +111,7 @@ public class CukedoctorConverterTest {
 				":sectanchors:" + newLine() +
 				":sectlink:" + newLine() +
 				":docinfo:" + newLine() +
-				":toclevels: 3"+newLine();
+				":source-highlighter: highlightjs\n:toclevels: 3"+newLine();
 
 
 		String document = Cukedoctor.instance(features,new DocumentAttributes()).renderAttributes().
@@ -161,7 +161,7 @@ public class CukedoctorConverterTest {
 						":sectanchors:" + newLine() +
 						":sectlink:" + newLine() +
 						":docinfo:" + newLine() +
-						":toclevels: 3"+newLine();
+						":source-highlighter: highlightjs\n:toclevels: 3"+newLine();
 
 		attrs.docTitle("Title");
 		String document = Cukedoctor.instance(features, attrs).renderAttributes().
@@ -192,6 +192,7 @@ public class CukedoctorConverterTest {
 						":sectanchors:" + newLine() +
 						":sectlink:" + newLine() +
 						":docinfo:" + newLine() +
+						":source-highlighter: highlightjs" + newLine()+
 						":toclevels: 2"+newLine();
 
 
@@ -224,7 +225,7 @@ public class CukedoctorConverterTest {
 						":sectanchors:" + newLine() +
 						":sectlink:" + newLine() +
 						":docinfo:" + newLine() +
-						":toclevels: 3"+newLine();
+						":source-highlighter: highlightjs\n:toclevels: 3"+newLine();
 
 
 		attrs.docTitle("Documentation Title");

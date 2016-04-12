@@ -135,7 +135,9 @@ public abstract class Constants {
 			return docInfo ? ":docinfo:":":!docinfo:";
 		}
 
-
+		public static String sourceHighlighter(String value) {
+			return ":source-highlighter: " + value;
+		}
 	}
 
 }

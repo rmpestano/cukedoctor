@@ -6,6 +6,7 @@ import com.github.cukedoctor.spi.FeatureRenderer;
 import com.github.cukedoctor.spi.ScenarioRenderer;
 
 import java.util.ServiceLoader;
+import java.util.logging.Logger;
 
 import static com.github.cukedoctor.util.Assert.*;
 import static com.github.cukedoctor.util.Constants.Markup.bold;
@@ -42,7 +43,7 @@ public class CukedoctorFeatureRenderer extends AbstractBaseRenderer implements F
             docBuilder.append("minmax::", feature.getName().replaceAll(",", "").replaceAll(" ", "-")).append("[]").newLine();
         }
         if (hasText(feature.getDescription())) {
-            docBuilder.sideBarBlock(feature.getDescription().trim().replaceAll("\\n", " +" + newLine()));
+            docBuilder.sideBarBlock(feature.getDescription().trim().replaceAll("\\n", " +" + newLine()).replaceAll("\\\\", ""));
         }
 
         if(feature.hasScenarios()){

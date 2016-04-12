@@ -18,6 +18,7 @@ Feature: Cukedoctor Main
 :sectanchors:
 :sectlink:
 :docinfo:
+:source-highlighter: highlightjs
 :toclevels: 3
 
 = *Documentation*
@@ -106,6 +107,7 @@ features/one_passing_one_failing.feature:10:in Given this step fails'
 :sectanchors:
 :sectlink:
 :docinfo:
+:source-highlighter: highlightjs
 :toclevels: 3
 
 = *Documentation*

@@ -133,6 +133,7 @@ public class CukedoctorConverterImpl implements CukedoctorConverter {
 					.sectAnchors(documentAttributes.isSectAnchors())
 					.sectLink(documentAttributes.isSectLink())
 					.docInfo(documentAttributes.isDocInfo())
+					.sourceHighlighter(documentAttributes.getSourceHighlighter())
 					.tocLevels(documentAttributes.getTocLevels());
 		}
 		return this;

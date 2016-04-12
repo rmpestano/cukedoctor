@@ -27,6 +27,8 @@ public interface AttributesBuilder {
 
     AttributesBuilder docInfo(boolean value);
 
+    AttributesBuilder sourceHighlighter(String value);
+
     AttributesBuilder tocLevels(String value);
 
 

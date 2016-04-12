@@ -97,9 +97,6 @@ public class CukedoctorStepsRenderer extends AbstractBaseRenderer implements Ste
 
         for (String line : lines) {
 
-            if(line.trim().isEmpty() || line.contains("include::")){
-                continue;
-            }
             if(!isListing){
                 line = line.replaceAll("\r", "");
             }

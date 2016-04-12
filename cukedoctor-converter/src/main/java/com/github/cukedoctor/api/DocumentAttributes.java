@@ -19,6 +19,7 @@ public class DocumentAttributes {
 	private boolean numbered = false;
 	private boolean docInfo = true;
 	private boolean pdfTheme = true;
+	private String sourceHighlighter = "highlightjs";
 
 	public DocumentAttributes docTitle(String docTitle) {
 		this.docTitle = docTitle;
@@ -81,6 +82,11 @@ public class DocumentAttributes {
 		return this;
 	}
 
+	public DocumentAttributes sourceHighlighter(String sourceHighlighter) {
+		this.sourceHighlighter = sourceHighlighter;
+		return this;
+	}
+
 
 	public String getBackend() {
 		return backend;
@@ -104,6 +110,10 @@ public class DocumentAttributes {
 
 	public String getTocLevels() {
 		return tocLevels;
+	}
+
+	public String getSourceHighlighter() {
+		return sourceHighlighter;
 	}
 
 	public boolean isSectAnchors() {

@@ -8,7 +8,7 @@
 :sectanchors:
 :sectlink:
 :docinfo:
-:toclevels: 3
+:source-highlighter: highlightjs\n:toclevels: 3
 :toc: right
 
 = *Living Documentation*
