@@ -3,6 +3,8 @@ package com.github.cukedoctor.bdd.cukedoctor;
 import static org.assertj.core.api.Assertions.assertThat;
 
 import java.net.URL;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.List;
 
 import com.github.cukedoctor.Cukedoctor;
@@ -11,6 +13,8 @@ import com.github.cukedoctor.parser.FeatureParser;
 import com.github.cukedoctor.util.Constants;
 
 import cucumber.api.PendingException;
+import cucumber.api.java.After;
+import cucumber.api.java.Before;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
@@ -34,9 +38,9 @@ public class ConverterSteps {
 
     @Then("^I should have awesome living documentation$")
     public void I_should_have_awesome_living_documentation(String expected) throws Throwable {
-       assertThat(documentation.replaceAll("\r","").replaceAll(Constants.home(),"")).
-               isEqualTo(expected.replaceAll("\r", "").
-                       replace("/home/pestano/projects/cukedoctor/cukedoctor-converter/target/test-classes/", ""));
+       assertThat(documentation.replaceAll("\r","").replace("include::" +
+               "" +Constants.home() + "cukedoctor-intro.adoc[leveloffset=+1]","")).
+               isEqualTo(expected.replaceAll("\r", ""));
     }
 
 

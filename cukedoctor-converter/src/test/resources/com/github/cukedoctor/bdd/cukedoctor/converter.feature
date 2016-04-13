@@ -44,7 +44,7 @@ NOTE: *plugin* option replaced *format* option which was deprecated in newer cuc
 
 = *Documentation*
 
-include::/home/pestano/projects/cukedoctor/cukedoctor-converter/target/test-classes/cukedoctor-intro.adoc[leveloffset=+1]
+
 
 == *Summary*
 [cols="12*^m", options="header,footer"]
