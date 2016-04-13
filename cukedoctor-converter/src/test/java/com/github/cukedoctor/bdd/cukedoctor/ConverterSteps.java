@@ -38,6 +38,7 @@ public class ConverterSteps {
 
     @Then("^I should have awesome living documentation$")
     public void I_should_have_awesome_living_documentation(String expected) throws Throwable {
+       //remove include cause its resolved by asciidoctor converter
        assertThat(documentation.replaceAll("\r","").replace("include::" +
                "" +Constants.home() + "cukedoctor-intro.adoc[leveloffset=+1]","")).
                isEqualTo(expected.replaceAll("\r", ""));

@@ -58,6 +58,9 @@ public class CukedoctorMojo extends AbstractMojo {
     String featuresDir;
 
     @Parameter(required = false)
+    String introChapterDir;
+
+    @Parameter(required = false)
     String documentTitle;
 
     @Parameter(defaultValue = "html5", required = true)
@@ -99,6 +102,9 @@ public class CukedoctorMojo extends AbstractMojo {
                 //last resource use project dir
                 startDir = project.getBasedir().getAbsolutePath();
             }
+        }
+        if(introChapterDir != null){
+            System.setProperty("INTRO_CHAPTER_DIR",introChapterDir);
         }
         getLog().info("Searching cucumber features in path: " + startDir);
         Set<Feature> featuresFound = new HashSet<>(FeatureParser.findAndParse(startDir));
