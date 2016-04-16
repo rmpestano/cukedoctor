@@ -1,6 +1,8 @@
 Feature: Cukedoctor Main
   As a user of CukedoctorMain
+
   I want to generate asciidoc files based on my cucumber test output
+
   So that I can generate wonderful living documentation
 
   Scenario: Generate documentation of a single file
@@ -272,8 +274,10 @@ features/one_passing_one_failing.feature:10:in Given this step fails'
 
 minmax::Sample-test[]
 ****
-As a user  +
-I want to do something  +
+As a user
+
+I want to do something
+
 In order to achieve another thing
 ****
 
