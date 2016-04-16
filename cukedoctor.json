@@ -9,7 +9,7 @@
     "line": 2,
     "elements": [
       {
-        "line": 10,
+        "line": 11,
         "name": "Convert features test output into documentation",
         "description": "",
         "id": "cukedoctor-converter;convert-features-test-output-into-documentation",
@@ -18,10 +18,10 @@
         "steps": [
           {
             "result": {
-              "duration": 1365382174,
+              "duration": 728556662,
               "status": "passed"
             },
-            "line": 12,
+            "line": 13,
             "name": "The following two features:",
             "match": {
               "location": "OrderingSteps.the_following_two_features(String)"
@@ -29,22 +29,22 @@
             "keyword": "Given ",
             "doc_string": {
               "content_type": "",
-              "line": 13,
+              "line": 14,
               "value": "Feature: Feature1\n\n  Scenario: Scenario feature 1\n\n    Given scenario step\n\nFeature: Feature2\n\n  Scenario: Scenario feature 2\n\n    Given scenario step"
             }
           },
           {
             "result": {
-              "duration": 1096549967,
+              "duration": 1335169982,
               "status": "passed"
             },
             "comments": [
               {
-                "line": 26,
+                "line": 27,
                 "value": "# cukedoctor-discrete"
               }
             ],
-            "line": 27,
+            "line": 28,
             "name": "I convert their json test output using cukedoctor converter",
             "match": {
               "location": "ConverterSteps.I_convert_their_json_output_report_using_cukedoctor_converter(String)"
@@ -52,22 +52,22 @@
             "keyword": "When ",
             "doc_string": {
               "content_type": "",
-              "line": 28,
+              "line": 29,
               "value": "[IMPORTANT]\n\u003d\u003d\u003d\u003d\u003d\u003d\nTo generate cucumber .json output files just execute your _BDD_ tests with *json* formatter, example:\n\n[source,java]\n----\n@RunWith(Cucumber.class)\n@CucumberOptions(plugin \u003d {\"json:target/cucumber.json\"} )\n----\nNOTE: *plugin* option replaced *format* option which was deprecated in newer cucumber versions.\n\n\u003d\u003d\u003d\u003d\u003d\u003d"
             }
           },
           {
             "result": {
-              "duration": 896323,
+              "duration": 1021820,
               "status": "passed"
             },
             "comments": [
               {
-                "line": 43,
+                "line": 44,
                 "value": "# cukedoctor-discrete"
               }
             ],
-            "line": 44,
+            "line": 45,
             "name": "I should have awesome living documentation",
             "match": {
               "location": "ConverterSteps.I_should_have_awesome_living_documentation(String)"
@@ -75,7 +75,7 @@
             "keyword": "Then ",
             "doc_string": {
               "content_type": "",
-              "line": 45,
+              "line": 46,
               "value": "\n\u003d *Documentation*\n\n\n\n\u003d\u003d *Summary*\n[cols\u003d\"12*^m\", options\u003d\"header,footer\"]\n|\u003d\u003d\u003d\n3+|Scenarios 7+|Steps 2+|Features: 2\n\n|[green]#*Passed*#\n|[red]#*Failed*#\n|Total\n|[green]#*Passed*#\n|[red]#*Failed*#\n|[purple]#*Skipped*#\n|[maroon]#*Pending*#\n|[yellow]#*Undefined*#\n|[blue]#*Missing*#\n|Total\n|Duration\n|Status\n\n12+^|*\u003c\u003cFeature1\u003e\u003e*\n|1\n|0\n|1\n|1\n|0\n|0\n|0\n|0\n|0\n|1\n|647ms\n|[green]#*passed*#\n\n12+^|*\u003c\u003cFeature2\u003e\u003e*\n|1\n|0\n|1\n|1\n|0\n|0\n|0\n|0\n|0\n|1\n|000ms\n|[green]#*passed*#\n12+^|*Totals*\n|2|0|2|2|0|0|0|0|0|2 2+|647ms\n|\u003d\u003d\u003d\n\n\u003d\u003d *Features*\n\n[[Feature1, Feature1]]\n\u003d\u003d\u003d *Feature1*\n\n\u003d\u003d\u003d\u003d Scenario: Scenario feature 1\n\n****\nGiven ::\n\u003d\u003d\u003d\u003d\u003d\nscenario step icon:thumbs-up[role\u003d\"green\",title\u003d\"Passed\"] [small right]#(647ms)#\n\u003d\u003d\u003d\u003d\u003d\n****\n\n[[Feature2, Feature2]]\n\u003d\u003d\u003d *Feature2*\n\n\u003d\u003d\u003d\u003d Scenario: Scenario feature 2\n\n****\nGiven ::\n\u003d\u003d\u003d\u003d\u003d\nscenario step icon:thumbs-up[role\u003d\"green\",title\u003d\"Passed\"] [small right]#(000ms)#\n\u003d\u003d\u003d\u003d\u003d\n****\n\n"
             }
           }
@@ -83,7 +83,7 @@
       }
     ],
     "name": "Cukedoctor Converter",
-    "description": "\nIn order to have awesome _living documentation_\n+\nAs a bdd developer\n+\nI want to use *Cukedoctor* to convert my cucumber test results into `readable` living documentation",
+    "description": "[quote]\n____\nIn order to have awesome _living documentation_\n\nAs a bdd developer\n\nI want to use *Cukedoctor* to convert my cucumber test results into `readable` living documentation\n----",
     "id": "cukedoctor-converter",
     "keyword": "Feature",
     "uri": "com/github/cukedoctor/bdd/cukedoctor/converter.feature"
@@ -98,7 +98,7 @@
     "line": 2,
     "elements": [
       {
-        "line": 10,
+        "line": 12,
         "name": "DocSting enrichment",
         "description": "Asciidoc markup can be used in feature *DocStrings*. To do so you need to enable it by using *[cukector-dicrete]* comment on the feature.",
         "id": "enrich-features;docsting-enrichment",
@@ -107,10 +107,10 @@
         "steps": [
           {
             "result": {
-              "duration": 60401,
+              "duration": 62132,
               "status": "passed"
             },
-            "line": 13,
+            "line": 15,
             "name": "The following two features:",
             "match": {
               "location": "OrderingSteps.the_following_two_features(String)"
@@ -118,16 +118,16 @@
             "keyword": "Given ",
             "doc_string": {
               "content_type": "",
-              "line": 14,
+              "line": 16,
               "value": "Feature: Enrich feature\n\n  Scenario: Render source code\n\n    # cukedoctor-discrete\n    Given the following source code in docstrings\n\"\"\"\n  [source, java]\n  -----\n  public int sum(int x, int y){\n  int result \u003d x + y;\n  return result; (1)\n  }\n  -----\n  \u003c1\u003e We can have callouts in living documentation\n\"\"\"\n\n  Scenario: Render table\n\n    # cukedoctor-discrete\n    Given the following table\n \"\"\"\n  |\u003d\u003d\u003d\n\n  | Cell in column 1, row 1 | Cell in column 2, row 1\n  | Cell in column 1, row 2 | Cell in column 2, row 2\n  | Cell in column 1, row 3 | Cell in column 2, row 3\n\n  |\u003d\u003d\u003d\n\"\"\""
             }
           },
           {
             "result": {
-              "duration": 58458024,
+              "duration": 37005776,
               "status": "passed"
             },
-            "line": 47,
+            "line": 49,
             "name": "I convert docstring enriched json output using cukedoctor converter",
             "match": {
               "location": "EnrichmentSteps.I_convert_docstring_enriched_json_output_using_cukedoctor_converter()"
@@ -136,16 +136,16 @@
           },
           {
             "result": {
-              "duration": 125217,
+              "duration": 180275,
               "status": "passed"
             },
             "comments": [
               {
-                "line": 49,
+                "line": 51,
                 "value": "# cukedoctor-discrete"
               }
             ],
-            "line": 50,
+            "line": 52,
             "name": "DocString asciidoc output must be rendered in my documentation",
             "match": {
               "location": "EnrichmentSteps.DocString_asciidoc_output_must_be_rendered_in_my_documentation(String)"
@@ -153,14 +153,14 @@
             "keyword": "Then ",
             "doc_string": {
               "content_type": "",
-              "line": 51,
+              "line": 53,
               "value": "[[Discrete-class-feature, Discrete class feature]]\n\u003d\u003d\u003d *Discrete class feature*\n\n\u003d\u003d\u003d\u003d Scenario: Render source code\n\n****\nGiven ::\n\u003d\u003d\u003d\u003d\u003d\nthe following source code icon:thumbs-up[role\u003d\"green\",title\u003d\"Passed\"] [small right]#(267ms)#\n******\n\n[discrete]\n[source, java]\n-----\npublic int sum(int x, int y){\n    int result \u003d x + y;\n    return result; \u003c1\u003e\n}\n-----\n\u003c1\u003e We can have callouts in living documentation\u003e\n\n\n******\n\n\u003d\u003d\u003d\u003d\u003d\n****\n\n\u003d\u003d\u003d\u003d Scenario: Render table\n\n****\nGiven ::\n\u003d\u003d\u003d\u003d\u003d\nthe following table icon:thumbs-up[role\u003d\"green\",title\u003d\"Passed\"] [small right]#(000ms)#\n******\n\n[discrete]\n|\u003d\u003d\u003d\n| Cell in column 1, row 1 | Cell in column 2, row 1\n| Cell in column 1, row 2 | Cell in column 2, row 2\n| Cell in column 1, row 3 | Cell in column 2, row 3\n|\u003d\u003d\u003d\n\n\n******\n\n\u003d\u003d\u003d\u003d\u003d\n****\n\n"
             }
           }
         ]
       },
       {
-        "line": 103,
+        "line": 105,
         "name": "Comments enrichment",
         "description": "Asciidoc markup can be used in feature comments. To do so you need to surround asciidoc markup by *curly brackets*;.",
         "id": "enrich-features;comments-enrichment",
@@ -169,10 +169,10 @@
         "steps": [
           {
             "result": {
-              "duration": 66559,
+              "duration": 82893,
               "status": "passed"
             },
-            "line": 106,
+            "line": 108,
             "name": "The following feature with asciidoc markup in comments:",
             "match": {
               "location": "EnrichmentSteps.The_following_feature_with_asciidoc_markup_in_comments(String)"
@@ -180,16 +180,16 @@
             "keyword": "Given ",
             "doc_string": {
               "content_type": "",
-              "line": 107,
+              "line": 109,
               "value": "Feature: Calculator\n\n  Scenario: Adding numbers\n   You can *asciidoc markup* in _feature_ #description#.\n\n    NOTE: This is a very important feature!\n\n    #{IMPORTANT: Asciidoc markup inside *steps* must be surrounded by *curly brackets*.}\n    Given I have numbers 1 and 2\n\n    # {NOTE: Steps comments are placed *before* each steps so this comment is for the *WHEN* step.}\n\n    When I sum the numbers\n    # {* this is a list of itens inside a feature step}\n    # {* there is no multiline comment in gherkin}\n    # {** second level list item}\n    Then I should have 3 as result\n"
             }
           },
           {
             "result": {
-              "duration": 42426202,
+              "duration": 61950257,
               "status": "passed"
             },
-            "line": 128,
+            "line": 130,
             "name": "I convert enriched feature json output using cukedoctor",
             "match": {
               "location": "EnrichmentSteps.I_convert_enriched_feature_json_output_using_cukedoctor()"
@@ -198,16 +198,16 @@
           },
           {
             "result": {
-              "duration": 151899,
+              "duration": 161837,
               "status": "passed"
             },
             "comments": [
               {
-                "line": 130,
+                "line": 132,
                 "value": "# cukedoctor-discrete"
               }
             ],
-            "line": 131,
+            "line": 133,
             "name": "Asciidoc markup on comments must be rendered in my documentation",
             "match": {
               "location": "EnrichmentSteps.Asciidoc_output_must_be_rendered_in_my_documentation(String)"
@@ -215,7 +215,7 @@
             "keyword": "Then ",
             "doc_string": {
               "content_type": "",
-              "line": 132,
+              "line": 134,
               "value": "[[Calculator, Calculator]]\n\u003d\u003d\u003d *Calculator*\n\n\u003d\u003d\u003d\u003d Scenario: Adding numbers\nYou can use *asciidoc markup* in _feature_ #description#.\n\nNOTE: This is a very important feature!\n\n****\nGiven ::\n\u003d\u003d\u003d\u003d\u003d\nI have numbers 1 and 2 icon:thumbs-up[role\u003d\"green\",title\u003d\"Passed\"] [small right]#(114ms)#\n\nIMPORTANT: Asciidoc markup inside *steps* must be surrounded by *curly brackets*.\n\n\u003d\u003d\u003d\u003d\u003d\nWhen ::\n\u003d\u003d\u003d\u003d\u003d\nI sum the numbers icon:thumbs-up[role\u003d\"green\",title\u003d\"Passed\"] [small right]#(000ms)#\n\nNOTE: Steps comments are placed *before* each steps so this comment is for the *WHEN* step.\n\n\u003d\u003d\u003d\u003d\u003d\nThen ::\n\u003d\u003d\u003d\u003d\u003d\nI should have 3 as result icon:thumbs-up[role\u003d\"green\",title\u003d\"Passed\"] [small right]#(001ms)#\n\n* this is a list of itens inside a feature step\n\n* there is no multiline comment in gherkin\n\n** second level list item\n\n\u003d\u003d\u003d\u003d\u003d\n****\n\n"
             }
           }
@@ -223,7 +223,7 @@
       }
     ],
     "name": "Enrich features",
-    "description": "\nIn order to have awesome _living documentation_\n\nAs a bdd developer\n\nI want to render asciidoc markup inside my features",
+    "description": "[quote]\n____\nIn order to have awesome _living documentation_\n\nAs a bdd developer\n\nI want to render asciidoc markup inside my features\n----",
     "id": "enrich-features",
     "keyword": "Feature",
     "uri": "com/github/cukedoctor/bdd/cukedoctor/enrichment.feature"
@@ -238,7 +238,7 @@
     "line": 2,
     "elements": [
       {
-        "line": 8,
+        "line": 12,
         "name": "Introduction chapter in classpath",
         "description": "",
         "id": "documentation-introduction-chapter;introduction-chapter-in-classpath",
@@ -247,10 +247,10 @@
         "steps": [
           {
             "result": {
-              "duration": 58946,
+              "duration": 59511,
               "status": "passed"
             },
-            "line": 10,
+            "line": 14,
             "name": "The following two features:",
             "match": {
               "location": "OrderingSteps.the_following_two_features(String)"
@@ -258,58 +258,58 @@
             "keyword": "Given ",
             "doc_string": {
               "content_type": "",
-              "line": 11,
+              "line": 15,
               "value": "Feature: Feature1\n\n  Scenario: Scenario feature 1\n\n    Given scenario step\n\nFeature: Feature2\n\n  Scenario: Scenario feature 2\n\n    Given scenario step"
             }
           },
           {
             "result": {
-              "duration": 29807600,
+              "duration": 40290651,
               "status": "passed"
             },
             "comments": [
               {
-                "line": 25,
+                "line": 29,
                 "value": "#{NOTE: The introduction file must be named *intro-chapter.adoc* and can be in any package of your application,}"
               },
               {
-                "line": 27,
+                "line": 31,
                 "value": "#{[TIP]}"
               },
               {
-                "line": 28,
-                "value": "#{\u003d\u003d\u003d\u003d}"
-              },
-              {
-                "line": 29,
-                "value": "#{By default Cukedoctor will look into application folders but you can make Cukedoctor look into external folder by setting the following system property:}"
-              },
-              {
-                "line": 30,
-                "value": "#{[source,java]}"
-              },
-              {
-                "line": 31,
-                "value": "#{----}"
-              },
-              {
                 "line": 32,
-                "value": "#{System.setProperty(\"INTRO_CHAPTER_DIR\",\"/home/some/external/folder\");}"
+                "value": "#{\u003d\u003d\u003d\u003d}"
               },
               {
                 "line": 33,
-                "value": "#{----}"
+                "value": "#{By default Cukedoctor will look into application folders but you can make Cukedoctor look into external folder by setting the following system property:}"
               },
               {
                 "line": 34,
-                "value": "#{\u003d\u003d\u003d\u003d}"
+                "value": "#{[source,java]}"
+              },
+              {
+                "line": 35,
+                "value": "#{----}"
               },
               {
                 "line": 36,
+                "value": "#{System.setProperty(\"INTRO_CHAPTER_DIR\",\"/home/some/external/folder\");}"
+              },
+              {
+                "line": 37,
+                "value": "#{----}"
+              },
+              {
+                "line": 38,
+                "value": "#{\u003d\u003d\u003d\u003d}"
+              },
+              {
+                "line": 40,
                 "value": "#cukedoctor-discrete"
               }
             ],
-            "line": 37,
+            "line": 41,
             "name": "The following asciidoc document is on your application classpath",
             "match": {
               "location": "IntroChapterSteps.I_convert_their_json_output_report_using_cukedoctor_converter(String)"
@@ -317,16 +317,16 @@
             "keyword": "And ",
             "doc_string": {
               "content_type": "",
-              "line": 38,
+              "line": 42,
               "value": "\u003d *Introduction*\n\nCukedoctor is a *Living documentation* tool which integrates Cucumber and Asciidoctor in order to convert your _BDD_ tests results into an awesome documentation.\n\nHere are some design principles:\n\n* Living documentation should be readable and highlight your software features;\n** Most bdd tools generate reports and not a truly documentation.\n* Cukedoctor *do not* introduce a new API that you need to learn, instead it operates on top of http://www.relishapp.com/cucumber/cucumber/docs/formatters/json-output-formatter[cucumber json output^] files;\n** In the \u0027worst case\u0027 to \u003c\u003cEnrich-features,enhance\u003e\u003e your documentation you will need to know a bit of http://asciidoctor.org/docs/what-is-asciidoc/[asciidoc markup^]."
             }
           },
           {
             "result": {
-              "duration": 25527,
+              "duration": 35786,
               "status": "passed"
             },
-            "line": 51,
+            "line": 55,
             "name": "Bdd tests results are converted into documentation by Cukedoctor",
             "match": {
               "location": "IntroChapterSteps.Bdd_tests_results_are_converted_into_documentation_by_Cukedoctor()"
@@ -335,16 +335,16 @@
           },
           {
             "result": {
-              "duration": 290170,
+              "duration": 307513,
               "status": "passed"
             },
             "comments": [
               {
-                "line": 54,
+                "line": 58,
                 "value": "# cukedoctor-discrete"
               }
             ],
-            "line": 55,
+            "line": 59,
             "name": "Resulting documentation should have the provided introduction chapter",
             "match": {
               "location": "IntroChapterSteps.I_should_have_awesome_living_documentation(String)"
@@ -352,7 +352,7 @@
             "keyword": "Then ",
             "doc_string": {
               "content_type": "",
-              "line": 56,
+              "line": 60,
               "value": "\n\u003d *Documentation*\n\n\u003d\u003d *Introduction*\n\nCukedoctor is a *Living documentation* tool which integrates Cucumber and Asciidoctor in order to convert your _BDD_ tests results into an awesome documentation.\n\nHere are some design principles:\n\n* Living documentation should be readable and highlight your software features;\n** Most bdd tools generate reports and not a truly documentation.\n* Cukedoctor *do not* introduce a new API that you need to learn, instead it operates on top of http://www.relishapp.com/cucumber/cucumber/docs/formatters/json-output-formatter[cucumber json output^] files;\n** In the \u0027worst case\u0027 to \u003c\u003cEnrich-features,enhance\u003e\u003e your documentation you will need to know a bit of http://asciidoctor.org/docs/what-is-asciidoc/[asciidoc markup^].\n\n\u003d\u003d *Summary*\n[cols\u003d\"12*^m\", options\u003d\"header,footer\"]\n|\u003d\u003d\u003d\n3+|Scenarios 7+|Steps 2+|Features: 2\n\n|[green]#*Passed*#\n|[red]#*Failed*#\n|Total\n|[green]#*Passed*#\n|[red]#*Failed*#\n|[purple]#*Skipped*#\n|[maroon]#*Pending*#\n|[yellow]#*Undefined*#\n|[blue]#*Missing*#\n|Total\n|Duration\n|Status\n\n12+^|*\u003c\u003cFeature1\u003e\u003e*\n|1\n|0\n|1\n|1\n|0\n|0\n|0\n|0\n|0\n|1\n|647ms\n|[green]#*passed*#\n\n12+^|*\u003c\u003cFeature2\u003e\u003e*\n|1\n|0\n|1\n|1\n|0\n|0\n|0\n|0\n|0\n|1\n|000ms\n|[green]#*passed*#\n12+^|*Totals*\n|2|0|2|2|0|0|0|0|0|2 2+|647ms\n|\u003d\u003d\u003d\n\n\u003d\u003d *Features*\n\n[[Feature1, Feature1]]\n\u003d\u003d\u003d *Feature1*\n\n\u003d\u003d\u003d\u003d Scenario: Scenario feature 1\n\n****\nGiven ::\n\u003d\u003d\u003d\u003d\u003d\nscenario step icon:thumbs-up[role\u003d\"green\",title\u003d\"Passed\"] [small right]#(647ms)#\n\u003d\u003d\u003d\u003d\u003d\n****\n\n[[Feature2, Feature2]]\n\u003d\u003d\u003d *Feature2*\n\n\u003d\u003d\u003d\u003d Scenario: Scenario feature 2\n\n****\nGiven ::\n\u003d\u003d\u003d\u003d\u003d\nscenario step icon:thumbs-up[role\u003d\"green\",title\u003d\"Passed\"] [small right]#(000ms)#\n\u003d\u003d\u003d\u003d\u003d\n****\n\n"
             }
           }
@@ -360,7 +360,7 @@
       }
     ],
     "name": "Documentation introduction chapter",
-    "description": "\nIn order to have an introduction chapter in my documentation\nAs a bdd developer\nI want to be able to provide an asciidoc based document which introduces my software",
+    "description": "[quote]\n____\nIn order to have an introduction chapter in my documentation\n\nAs a bdd developer\n\nI want to be able to provide an asciidoc based document which introduces my software\n____",
     "id": "documentation-introduction-chapter",
     "keyword": "Feature",
     "uri": "com/github/cukedoctor/bdd/cukedoctor/intro-chapter.feature"
@@ -375,7 +375,7 @@
     "line": 2,
     "elements": [
       {
-        "line": 9,
+        "line": 13,
         "name": "Default ordering",
         "description": "",
         "id": "ordering;default-ordering",
@@ -384,10 +384,10 @@
         "steps": [
           {
             "result": {
-              "duration": 58797,
+              "duration": 77109,
               "status": "passed"
             },
-            "line": 11,
+            "line": 15,
             "name": "The following two features:",
             "match": {
               "location": "OrderingSteps.the_following_two_features(String)"
@@ -395,16 +395,16 @@
             "keyword": "Given ",
             "doc_string": {
               "content_type": "",
-              "line": 12,
+              "line": 16,
               "value": "Feature: Feature1\n\n  Scenario: Scenario feature 1\n\n    Given scenario step\n\nFeature: Feature2\n\n  Scenario: Scenario feature 2\n\n    Given scenario step"
             }
           },
           {
             "result": {
-              "duration": 28457019,
+              "duration": 41313059,
               "status": "passed"
             },
-            "line": 25,
+            "line": 29,
             "name": "I convert them using default order",
             "match": {
               "location": "OrderingSteps.I_convert_the_using_default_order()"
@@ -413,16 +413,16 @@
           },
           {
             "result": {
-              "duration": 105890,
+              "duration": 119511,
               "status": "passed"
             },
             "comments": [
               {
-                "line": 27,
+                "line": 31,
                 "value": "# cukedoctor-discrete"
               }
             ],
-            "line": 28,
+            "line": 32,
             "name": "Features should be ordered by name in resulting documentation",
             "match": {
               "location": "OrderingSteps.Features_should_be_ordered_by_name_in_resulting_documentation(String)"
@@ -430,14 +430,14 @@
             "keyword": "Then ",
             "doc_string": {
               "content_type": "",
-              "line": 29,
+              "line": 33,
               "value": "[[Feature1, Feature1]]\n\u003d\u003d\u003d *Feature1*\n\n\u003d\u003d\u003d\u003d Scenario: Scenario feature 1\n\n****\nGiven ::\n\u003d\u003d\u003d\u003d\u003d\nscenario step icon:thumbs-up[role\u003d\"green\",title\u003d\"Passed\"] [small right]#(647ms)#\n\u003d\u003d\u003d\u003d\u003d\n****\n\n[[Feature2, Feature2]]\n\u003d\u003d\u003d *Feature2*\n\n\u003d\u003d\u003d\u003d Scenario: Scenario feature 2\n\n****\nGiven ::\n\u003d\u003d\u003d\u003d\u003d\nscenario step icon:thumbs-up[role\u003d\"green\",title\u003d\"Passed\"] [small right]#(000ms)#\n\u003d\u003d\u003d\u003d\u003d\n****\n\n"
             }
           }
         ]
       },
       {
-        "line": 57,
+        "line": 61,
         "name": "Custom ordering",
         "description": "",
         "id": "ordering;custom-ordering",
@@ -446,16 +446,16 @@
         "steps": [
           {
             "result": {
-              "duration": 53240,
+              "duration": 75891,
               "status": "passed"
             },
             "comments": [
               {
-                "line": 59,
+                "line": 63,
                 "value": "#{NOTE: Ordering is done using feature comment \u0027*#order:*\u0027}"
               }
             ],
-            "line": 60,
+            "line": 64,
             "name": "The following two features:",
             "match": {
               "location": "OrderingSteps.the_following_two_features(String)"
@@ -463,16 +463,16 @@
             "keyword": "Given ",
             "doc_string": {
               "content_type": "",
-              "line": 61,
+              "line": 65,
               "value": "#order: 2\nFeature: Feature1\n\n  Scenario: Scenario feature 1\n\n    Given scenario step\n\n#order: 1\nFeature: Feature2\n\n  Scenario: Scenario feature 2\n\n    Given scenario step"
             }
           },
           {
             "result": {
-              "duration": 32966945,
+              "duration": 26087595,
               "status": "passed"
             },
-            "line": 76,
+            "line": 80,
             "name": "I convert them using comment order",
             "match": {
               "location": "OrderingSteps.I_convert_them__using_comment_order()"
@@ -481,16 +481,16 @@
           },
           {
             "result": {
-              "duration": 91664,
+              "duration": 91015,
               "status": "passed"
             },
             "comments": [
               {
-                "line": 78,
+                "line": 82,
                 "value": "# cukedoctor-discrete"
               }
             ],
-            "line": 79,
+            "line": 83,
             "name": "Features should be ordered respecting order comment",
             "match": {
               "location": "OrderingSteps.Features_should_be_ordered_respecting_order_comment(String)"
@@ -498,7 +498,7 @@
             "keyword": "Then ",
             "doc_string": {
               "content_type": "",
-              "line": 80,
+              "line": 84,
               "value": "[[Feature2, Feature2]]\n\u003d\u003d\u003d *Feature2*\n\n\u003d\u003d\u003d\u003d Scenario: Scenario feature 2\n\n****\nGiven ::\n\u003d\u003d\u003d\u003d\u003d\nscenario step icon:thumbs-up[role\u003d\"green\",title\u003d\"Passed\"] [small right]#(000ms)#\n\u003d\u003d\u003d\u003d\u003d\n****\n\n[[Feature1, Feature1]]\n\u003d\u003d\u003d *Feature1*\n\n\u003d\u003d\u003d\u003d Scenario: Scenario feature 1\n\n****\nGiven ::\n\u003d\u003d\u003d\u003d\u003d\nscenario step icon:thumbs-up[role\u003d\"green\",title\u003d\"Passed\"] [small right]#(313ms)#\n\u003d\u003d\u003d\u003d\u003d\n****\n\n"
             }
           }
@@ -506,7 +506,7 @@
       }
     ],
     "name": "Ordering",
-    "description": "\nIn order to have features ordered in living documentation\nAs a bdd developer\nI want to control the order of features in my documentation",
+    "description": "[quote]\n____\nIn order to have features ordered in living documentation\n\nAs a bdd developer\n\nI want to control the order of features in my documentation\n----",
     "id": "ordering",
     "keyword": "Feature",
     "uri": "com/github/cukedoctor/bdd/cukedoctor/ordering.feature"
