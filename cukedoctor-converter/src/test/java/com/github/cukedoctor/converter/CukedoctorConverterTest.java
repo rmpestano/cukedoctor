@@ -488,8 +488,8 @@ public class CukedoctorConverterTest {
 		converter.setFilename("target/living_documentation.adoc");
 		String resultDoc =	converter.renderDocumentation();
 		assertThat(resultDoc).contains("****" + newLine() +
-				"As a user  +" + newLine() +
-				"I want to do something  +" + newLine() +
+				"As a user " + newLine() +
+				"I want to do something " + newLine() +
 				"In order to achieve an important goal" + newLine() +
 				"****");
 		FileUtil.saveFile("target/sample.adoc", resultDoc);
