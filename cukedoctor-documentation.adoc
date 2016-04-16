@@ -44,7 +44,7 @@ include::/home/travis/build/rmpestano/cukedoctor/cukedoctor-converter/target/tes
 |0
 |0
 |3
-|02s 150ms
+|02s 211ms
 |[green]#*passed*#
 
 12+^|*<<Ordering>>*
@@ -58,7 +58,7 @@ include::/home/travis/build/rmpestano/cukedoctor/cukedoctor-converter/target/tes
 |0
 |0
 |6
-|050ms
+|052ms
 |[green]#*passed*#
 
 12+^|*<<Documentation-introduction-chapter>>*
@@ -72,7 +72,7 @@ include::/home/travis/build/rmpestano/cukedoctor/cukedoctor-converter/target/tes
 |0
 |0
 |4
-|082ms
+|059ms
 |[green]#*passed*#
 
 12+^|*<<Enrich-features>>*
@@ -86,10 +86,10 @@ include::/home/travis/build/rmpestano/cukedoctor/cukedoctor-converter/target/tes
 |0
 |0
 |6
-|097ms
+|085ms
 |[green]#*passed*#
 12+^|*Totals*
-|6|0|6|19|0|0|0|0|0|19 2+|02s 379ms
+|6|0|6|19|0|0|0|0|0|19 2+|02s 408ms
 |===
 
 == *Features*
@@ -98,14 +98,14 @@ include::/home/travis/build/rmpestano/cukedoctor/cukedoctor-converter/target/tes
 === *Cukedoctor Converter*
 
 ****
+====
 [quote]
 ____
-In order to have awesome _living documentation_
-
-As a bdd developer
-
-I want to use *Cukedoctor* to convert my cucumber test results into `readable` living documentation
+In order to have awesome _living documentation_ +
+As a bdd developer +
+I want to use *Cukedoctor* to convert my cucumber test results into `readable` living documentation.
 ----
+====
 ****
 
 ==== Scenario: Convert features test output into documentation
@@ -113,7 +113,7 @@ I want to use *Cukedoctor* to convert my cucumber test results into `readable` l
 ****
 Given ::
 =====
-The following two features: icon:thumbs-up[role="green",title="Passed"] [small right]#(440ms)#
+The following two features: icon:thumbs-up[role="green",title="Passed"] [small right]#(706ms)#
 ----
 
 Feature: Feature1
@@ -132,7 +132,7 @@ Feature: Feature2
 =====
 When ::
 =====
-I convert their json test output using cukedoctor converter icon:thumbs-up[role="green",title="Passed"] [small right]#(01s 708ms)#
+I convert their json test output using cukedoctor converter icon:thumbs-up[role="green",title="Passed"] [small right]#(01s 503ms)#
 ******
 
 [discrete]
@@ -267,14 +267,14 @@ scenario step icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 === *Ordering*
 
 ****
+====
 [quote]
 ____
-In order to have features ordered in living documentation
-
-As a bdd developer
-
+In order to have features ordered in living documentation +
+As a bdd developer +
 I want to control the order of features in my documentation
 ----
+====
 ****
 
 ==== Scenario: Default ordering
@@ -301,7 +301,7 @@ Feature: Feature2
 =====
 When ::
 =====
-I convert them using default order icon:thumbs-up[role="green",title="Passed"] [small right]#(031ms)#
+I convert them using default order icon:thumbs-up[role="green",title="Passed"] [small right]#(015ms)#
 =====
 Then ::
 =====
@@ -381,7 +381,7 @@ NOTE: Ordering is done using feature comment '*order:*'
 =====
 When ::
 =====
-I convert them using comment order icon:thumbs-up[role="green",title="Passed"] [small right]#(018ms)#
+I convert them using comment order icon:thumbs-up[role="green",title="Passed"] [small right]#(036ms)#
 =====
 Then ::
 =====
@@ -436,14 +436,14 @@ scenario step icon:thumbs-up[role="green",title="Passed"] [small right]#(313ms)#
 === *Documentation introduction chapter*
 
 ****
+====
 [quote]
 ____
-In order to have an introduction chapter in my documentation
-
-As a bdd developer
-
-I want to be able to provide an asciidoc based document which introduces my software
+In order to have an introduction chapter in my documentation +
+As a bdd developer +
+I want to be able to provide an asciidoc based document which introduces my software.
 ____
+====
 ****
 
 ==== Scenario: Introduction chapter in classpath
@@ -470,7 +470,7 @@ Feature: Feature2
 =====
 And ::
 =====
-The following asciidoc document is on your application classpath icon:thumbs-up[role="green",title="Passed"] [small right]#(081ms)#
+The following asciidoc document is on your application classpath icon:thumbs-up[role="green",title="Passed"] [small right]#(058ms)#
 ******
 
 [discrete]
@@ -639,14 +639,14 @@ scenario step icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 === *Enrich features*
 
 ****
+====
 [quote]
 ____
-In order to have awesome _living documentation_
-
-As a bdd developer
-
-I want to render asciidoc markup inside my features
+In order to have awesome _living documentation_ +
+As a bdd developer +
+I want to render asciidoc markup inside my features.
 ----
+====
 ****
 
 ==== Scenario: DocSting enrichment
@@ -693,7 +693,7 @@ Feature: Enrich feature
 =====
 When ::
 =====
-I convert docstring enriched json output using cukedoctor converter icon:thumbs-up[role="green",title="Passed"] [small right]#(046ms)#
+I convert docstring enriched json output using cukedoctor converter icon:thumbs-up[role="green",title="Passed"] [small right]#(050ms)#
 =====
 Then ::
 =====
@@ -806,7 +806,7 @@ Feature: Calculator
 =====
 When ::
 =====
-I convert enriched feature json output using cukedoctor icon:thumbs-up[role="green",title="Passed"] [small right]#(050ms)#
+I convert enriched feature json output using cukedoctor icon:thumbs-up[role="green",title="Passed"] [small right]#(034ms)#
 =====
 Then ::
 =====
