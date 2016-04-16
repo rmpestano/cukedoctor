@@ -1,12 +1,13 @@
 # order: 0
 Feature: Cukedoctor Converter
-
+  [quote]
+  ____
   In order to have awesome _living documentation_
-  +
-  As a bdd developer
-  +
-  I want to use *Cukedoctor* to convert my cucumber test results into `readable` living documentation
 
+  As a bdd developer
+
+  I want to use *Cukedoctor* to convert my cucumber test results into `readable` living documentation
+  ----
   Scenario: Convert features test output into documentation
 
     Given The following two features:
