@@ -18,7 +18,7 @@
         "steps": [
           {
             "result": {
-              "duration": 706487336,
+              "duration": 1766318241,
               "status": "passed"
             },
             "line": 13,
@@ -35,7 +35,7 @@
           },
           {
             "result": {
-              "duration": 1503498333,
+              "duration": 1696377624,
               "status": "passed"
             },
             "comments": [
@@ -58,7 +58,7 @@
           },
           {
             "result": {
-              "duration": 1300539,
+              "duration": 1262956,
               "status": "passed"
             },
             "comments": [
@@ -83,7 +83,7 @@
       }
     ],
     "name": "Cukedoctor Converter",
-    "description": "\u003d\u003d\u003d\u003d\n[quote]\n____\nIn order to have awesome _living documentation_ +\nAs a bdd developer +\nI want to use *Cukedoctor* to convert my cucumber test results into `readable` living documentation.\n----\n\u003d\u003d\u003d\u003d",
+    "description": "\u003d\u003d\u003d\u003d\n[quote]\n____\nIn order to have awesome _living documentation_ +\nAs a bdd developer +\nI want to use *Cukedoctor* to convert my cucumber test results into `readable` living documentation.\n____\n\u003d\u003d\u003d\u003d",
     "id": "cukedoctor-converter",
     "keyword": "Feature",
     "uri": "com/github/cukedoctor/bdd/cukedoctor/converter.feature"
@@ -98,7 +98,7 @@
     "line": 2,
     "elements": [
       {
-        "line": 12,
+        "line": 11,
         "name": "DocSting enrichment",
         "description": "Asciidoc markup can be used in feature *DocStrings*. To do so you need to enable it by using *[cukector-dicrete]* comment on the feature.",
         "id": "enrich-features;docsting-enrichment",
@@ -107,10 +107,10 @@
         "steps": [
           {
             "result": {
-              "duration": 68763,
+              "duration": 86291,
               "status": "passed"
             },
-            "line": 15,
+            "line": 14,
             "name": "The following two features:",
             "match": {
               "location": "OrderingSteps.the_following_two_features(String)"
@@ -118,16 +118,16 @@
             "keyword": "Given ",
             "doc_string": {
               "content_type": "",
-              "line": 16,
+              "line": 15,
               "value": "Feature: Enrich feature\n\n  Scenario: Render source code\n\n    # cukedoctor-discrete\n    Given the following source code in docstrings\n\"\"\"\n  [source, java]\n  -----\n  public int sum(int x, int y){\n  int result \u003d x + y;\n  return result; (1)\n  }\n  -----\n  \u003c1\u003e We can have callouts in living documentation\n\"\"\"\n\n  Scenario: Render table\n\n    # cukedoctor-discrete\n    Given the following table\n \"\"\"\n  |\u003d\u003d\u003d\n\n  | Cell in column 1, row 1 | Cell in column 2, row 1\n  | Cell in column 1, row 2 | Cell in column 2, row 2\n  | Cell in column 1, row 3 | Cell in column 2, row 3\n\n  |\u003d\u003d\u003d\n\"\"\""
             }
           },
           {
             "result": {
-              "duration": 50287617,
+              "duration": 44626418,
               "status": "passed"
             },
-            "line": 49,
+            "line": 48,
             "name": "I convert docstring enriched json output using cukedoctor converter",
             "match": {
               "location": "EnrichmentSteps.I_convert_docstring_enriched_json_output_using_cukedoctor_converter()"
@@ -136,16 +136,16 @@
           },
           {
             "result": {
-              "duration": 125470,
+              "duration": 198105,
               "status": "passed"
             },
             "comments": [
               {
-                "line": 51,
+                "line": 50,
                 "value": "# cukedoctor-discrete"
               }
             ],
-            "line": 52,
+            "line": 51,
             "name": "DocString asciidoc output must be rendered in my documentation",
             "match": {
               "location": "EnrichmentSteps.DocString_asciidoc_output_must_be_rendered_in_my_documentation(String)"
@@ -153,14 +153,14 @@
             "keyword": "Then ",
             "doc_string": {
               "content_type": "",
-              "line": 53,
+              "line": 52,
               "value": "[[Discrete-class-feature, Discrete class feature]]\n\u003d\u003d\u003d *Discrete class feature*\n\n\u003d\u003d\u003d\u003d Scenario: Render source code\n\n****\nGiven ::\n\u003d\u003d\u003d\u003d\u003d\nthe following source code icon:thumbs-up[role\u003d\"green\",title\u003d\"Passed\"] [small right]#(267ms)#\n******\n\n[discrete]\n[source, java]\n-----\npublic int sum(int x, int y){\n    int result \u003d x + y;\n    return result; \u003c1\u003e\n}\n-----\n\u003c1\u003e We can have callouts in living documentation\u003e\n\n\n******\n\n\u003d\u003d\u003d\u003d\u003d\n****\n\n\u003d\u003d\u003d\u003d Scenario: Render table\n\n****\nGiven ::\n\u003d\u003d\u003d\u003d\u003d\nthe following table icon:thumbs-up[role\u003d\"green\",title\u003d\"Passed\"] [small right]#(000ms)#\n******\n\n[discrete]\n|\u003d\u003d\u003d\n| Cell in column 1, row 1 | Cell in column 2, row 1\n| Cell in column 1, row 2 | Cell in column 2, row 2\n| Cell in column 1, row 3 | Cell in column 2, row 3\n|\u003d\u003d\u003d\n\n\n******\n\n\u003d\u003d\u003d\u003d\u003d\n****\n\n"
             }
           }
         ]
       },
       {
-        "line": 105,
+        "line": 104,
         "name": "Comments enrichment",
         "description": "Asciidoc markup can be used in feature comments. To do so you need to surround asciidoc markup by *curly brackets*;.",
         "id": "enrich-features;comments-enrichment",
@@ -169,10 +169,10 @@
         "steps": [
           {
             "result": {
-              "duration": 65752,
+              "duration": 108180,
               "status": "passed"
             },
-            "line": 108,
+            "line": 107,
             "name": "The following feature with asciidoc markup in comments:",
             "match": {
               "location": "EnrichmentSteps.The_following_feature_with_asciidoc_markup_in_comments(String)"
@@ -180,16 +180,16 @@
             "keyword": "Given ",
             "doc_string": {
               "content_type": "",
-              "line": 109,
+              "line": 108,
               "value": "Feature: Calculator\n\n  Scenario: Adding numbers\n   You can *asciidoc markup* in _feature_ #description#.\n\n    NOTE: This is a very important feature!\n\n    #{IMPORTANT: Asciidoc markup inside *steps* must be surrounded by *curly brackets*.}\n    Given I have numbers 1 and 2\n\n    # {NOTE: Steps comments are placed *before* each steps so this comment is for the *WHEN* step.}\n\n    When I sum the numbers\n    # {* this is a list of itens inside a feature step}\n    # {* there is no multiline comment in gherkin}\n    # {** second level list item}\n    Then I should have 3 as result\n"
             }
           },
           {
             "result": {
-              "duration": 34582697,
+              "duration": 93799134,
               "status": "passed"
             },
-            "line": 130,
+            "line": 129,
             "name": "I convert enriched feature json output using cukedoctor",
             "match": {
               "location": "EnrichmentSteps.I_convert_enriched_feature_json_output_using_cukedoctor()"
@@ -198,16 +198,16 @@
           },
           {
             "result": {
-              "duration": 155063,
+              "duration": 229766,
               "status": "passed"
             },
             "comments": [
               {
-                "line": 132,
+                "line": 131,
                 "value": "# cukedoctor-discrete"
               }
             ],
-            "line": 133,
+            "line": 132,
             "name": "Asciidoc markup on comments must be rendered in my documentation",
             "match": {
               "location": "EnrichmentSteps.Asciidoc_output_must_be_rendered_in_my_documentation(String)"
@@ -215,7 +215,7 @@
             "keyword": "Then ",
             "doc_string": {
               "content_type": "",
-              "line": 134,
+              "line": 133,
               "value": "[[Calculator, Calculator]]\n\u003d\u003d\u003d *Calculator*\n\n\u003d\u003d\u003d\u003d Scenario: Adding numbers\nYou can use *asciidoc markup* in _feature_ #description#.\n\nNOTE: This is a very important feature!\n\n****\nGiven ::\n\u003d\u003d\u003d\u003d\u003d\nI have numbers 1 and 2 icon:thumbs-up[role\u003d\"green\",title\u003d\"Passed\"] [small right]#(114ms)#\n\nIMPORTANT: Asciidoc markup inside *steps* must be surrounded by *curly brackets*.\n\n\u003d\u003d\u003d\u003d\u003d\nWhen ::\n\u003d\u003d\u003d\u003d\u003d\nI sum the numbers icon:thumbs-up[role\u003d\"green\",title\u003d\"Passed\"] [small right]#(000ms)#\n\nNOTE: Steps comments are placed *before* each steps so this comment is for the *WHEN* step.\n\n\u003d\u003d\u003d\u003d\u003d\nThen ::\n\u003d\u003d\u003d\u003d\u003d\nI should have 3 as result icon:thumbs-up[role\u003d\"green\",title\u003d\"Passed\"] [small right]#(001ms)#\n\n* this is a list of itens inside a feature step\n\n* there is no multiline comment in gherkin\n\n** second level list item\n\n\u003d\u003d\u003d\u003d\u003d\n****\n\n"
             }
           }
@@ -223,7 +223,7 @@
       }
     ],
     "name": "Enrich features",
-    "description": "\u003d\u003d\u003d\u003d\n[quote]\n____\nIn order to have awesome _living documentation_ +\nAs a bdd developer +\nI want to render asciidoc markup inside my features.\n----\n\u003d\u003d\u003d\u003d",
+    "description": "\u003d\u003d\u003d\u003d\n[quote]\n____\nIn order to have awesome _living documentation_ +\nAs a bdd developer +\nI want to render asciidoc markup inside my features.\n____\n\u003d\u003d\u003d\u003d",
     "id": "enrich-features",
     "keyword": "Feature",
     "uri": "com/github/cukedoctor/bdd/cukedoctor/enrichment.feature"
@@ -247,7 +247,7 @@
         "steps": [
           {
             "result": {
-              "duration": 585506,
+              "duration": 72611,
               "status": "passed"
             },
             "line": 13,
@@ -264,7 +264,7 @@
           },
           {
             "result": {
-              "duration": 58352657,
+              "duration": 36738829,
               "status": "passed"
             },
             "comments": [
@@ -323,7 +323,7 @@
           },
           {
             "result": {
-              "duration": 28544,
+              "duration": 45200,
               "status": "passed"
             },
             "line": 54,
@@ -335,7 +335,7 @@
           },
           {
             "result": {
-              "duration": 327433,
+              "duration": 447303,
               "status": "passed"
             },
             "comments": [
@@ -384,7 +384,7 @@
         "steps": [
           {
             "result": {
-              "duration": 84443,
+              "duration": 98657,
               "status": "passed"
             },
             "line": 14,
@@ -401,7 +401,7 @@
           },
           {
             "result": {
-              "duration": 15222245,
+              "duration": 32750943,
               "status": "passed"
             },
             "line": 28,
@@ -413,7 +413,7 @@
           },
           {
             "result": {
-              "duration": 108916,
+              "duration": 184166,
               "status": "passed"
             },
             "comments": [
@@ -446,7 +446,7 @@
         "steps": [
           {
             "result": {
-              "duration": 84822,
+              "duration": 74940,
               "status": "passed"
             },
             "comments": [
@@ -469,7 +469,7 @@
           },
           {
             "result": {
-              "duration": 36862344,
+              "duration": 43290310,
               "status": "passed"
             },
             "line": 79,
@@ -481,7 +481,7 @@
           },
           {
             "result": {
-              "duration": 94246,
+              "duration": 119630,
               "status": "passed"
             },
             "comments": [
@@ -506,7 +506,7 @@
       }
     ],
     "name": "Ordering",
-    "description": "\u003d\u003d\u003d\u003d\n[quote]\n____\nIn order to have features ordered in living documentation +\nAs a bdd developer +\nI want to control the order of features in my documentation\n----\n\u003d\u003d\u003d\u003d",
+    "description": "\u003d\u003d\u003d\u003d\n[quote]\n____\nIn order to have features ordered in living documentation +\nAs a bdd developer +\nI want to control the order of features in my documentation\n____\n\u003d\u003d\u003d\u003d",
     "id": "ordering",
     "keyword": "Feature",
     "uri": "com/github/cukedoctor/bdd/cukedoctor/ordering.feature"

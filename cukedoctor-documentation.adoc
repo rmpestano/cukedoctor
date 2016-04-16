@@ -44,7 +44,7 @@ include::/home/travis/build/rmpestano/cukedoctor/cukedoctor-converter/target/tes
 |0
 |0
 |3
-|02s 211ms
+|03s 463ms
 |[green]#*passed*#
 
 12+^|*<<Ordering>>*
@@ -58,7 +58,7 @@ include::/home/travis/build/rmpestano/cukedoctor/cukedoctor-converter/target/tes
 |0
 |0
 |6
-|052ms
+|076ms
 |[green]#*passed*#
 
 12+^|*<<Documentation-introduction-chapter>>*
@@ -72,7 +72,7 @@ include::/home/travis/build/rmpestano/cukedoctor/cukedoctor-converter/target/tes
 |0
 |0
 |4
-|059ms
+|037ms
 |[green]#*passed*#
 
 12+^|*<<Enrich-features>>*
@@ -86,10 +86,10 @@ include::/home/travis/build/rmpestano/cukedoctor/cukedoctor-converter/target/tes
 |0
 |0
 |6
-|085ms
+|139ms
 |[green]#*passed*#
 12+^|*Totals*
-|6|0|6|19|0|0|0|0|0|19 2+|02s 408ms
+|6|0|6|19|0|0|0|0|0|19 2+|03s 716ms
 |===
 
 == *Features*
@@ -104,7 +104,7 @@ ____
 In order to have awesome _living documentation_ +
 As a bdd developer +
 I want to use *Cukedoctor* to convert my cucumber test results into `readable` living documentation.
-----
+____
 ====
 ****
 
@@ -113,7 +113,7 @@ I want to use *Cukedoctor* to convert my cucumber test results into `readable` l
 ****
 Given ::
 =====
-The following two features: icon:thumbs-up[role="green",title="Passed"] [small right]#(706ms)#
+The following two features: icon:thumbs-up[role="green",title="Passed"] [small right]#(01s 766ms)#
 ----
 
 Feature: Feature1
@@ -132,7 +132,7 @@ Feature: Feature2
 =====
 When ::
 =====
-I convert their json test output using cukedoctor converter icon:thumbs-up[role="green",title="Passed"] [small right]#(01s 503ms)#
+I convert their json test output using cukedoctor converter icon:thumbs-up[role="green",title="Passed"] [small right]#(01s 696ms)#
 ******
 
 [discrete]
@@ -273,7 +273,7 @@ ____
 In order to have features ordered in living documentation +
 As a bdd developer +
 I want to control the order of features in my documentation
-----
+____
 ====
 ****
 
@@ -301,7 +301,7 @@ Feature: Feature2
 =====
 When ::
 =====
-I convert them using default order icon:thumbs-up[role="green",title="Passed"] [small right]#(015ms)#
+I convert them using default order icon:thumbs-up[role="green",title="Passed"] [small right]#(032ms)#
 =====
 Then ::
 =====
@@ -381,7 +381,7 @@ NOTE: Ordering is done using feature comment '*order:*'
 =====
 When ::
 =====
-I convert them using comment order icon:thumbs-up[role="green",title="Passed"] [small right]#(036ms)#
+I convert them using comment order icon:thumbs-up[role="green",title="Passed"] [small right]#(043ms)#
 =====
 Then ::
 =====
@@ -470,7 +470,7 @@ Feature: Feature2
 =====
 And ::
 =====
-The following asciidoc document is on your application classpath icon:thumbs-up[role="green",title="Passed"] [small right]#(058ms)#
+The following asciidoc document is on your application classpath icon:thumbs-up[role="green",title="Passed"] [small right]#(036ms)#
 ******
 
 [discrete]
@@ -645,7 +645,7 @@ ____
 In order to have awesome _living documentation_ +
 As a bdd developer +
 I want to render asciidoc markup inside my features.
-----
+____
 ====
 ****
 
@@ -693,7 +693,7 @@ Feature: Enrich feature
 =====
 When ::
 =====
-I convert docstring enriched json output using cukedoctor converter icon:thumbs-up[role="green",title="Passed"] [small right]#(050ms)#
+I convert docstring enriched json output using cukedoctor converter icon:thumbs-up[role="green",title="Passed"] [small right]#(044ms)#
 =====
 Then ::
 =====
@@ -806,7 +806,7 @@ Feature: Calculator
 =====
 When ::
 =====
-I convert enriched feature json output using cukedoctor icon:thumbs-up[role="green",title="Passed"] [small right]#(034ms)#
+I convert enriched feature json output using cukedoctor icon:thumbs-up[role="green",title="Passed"] [small right]#(093ms)#
 =====
 Then ::
 =====
