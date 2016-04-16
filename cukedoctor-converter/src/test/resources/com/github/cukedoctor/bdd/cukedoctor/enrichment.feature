@@ -1,13 +1,13 @@
 # order: 2
 Feature: Enrich features
+  ====
   [quote]
   ____
-  In order to have awesome _living documentation_
-
-  As a bdd developer
-
-  I want to render asciidoc markup inside my features
+  In order to have awesome _living documentation_ +
+  As a bdd developer +
+  I want to render asciidoc markup inside my features.
   ----
+  ====
 
   Scenario: DocSting enrichment
     Asciidoc markup can be used in feature *DocStrings*. To do so you need to enable it by using *[cukector-dicrete]* comment on the feature.

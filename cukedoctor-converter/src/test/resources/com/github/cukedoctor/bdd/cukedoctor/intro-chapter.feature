@@ -1,14 +1,13 @@
 # order: 3
 Feature: Documentation introduction chapter
+  ====
   [quote]
   ____
-  In order to have an introduction chapter in my documentation
-
-  As a bdd developer
-
-  I want to be able to provide an asciidoc based document which introduces my software
+  In order to have an introduction chapter in my documentation +
+  As a bdd developer +
+  I want to be able to provide an asciidoc based document which introduces my software.
   ____
-
+  ====
   Scenario: Introduction chapter in classpath
   
 	Given The following two features:
