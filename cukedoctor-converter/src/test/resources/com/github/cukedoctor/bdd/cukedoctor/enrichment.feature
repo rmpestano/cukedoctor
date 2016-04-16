@@ -6,9 +6,7 @@ Feature: Enrich features
   I want to render asciidoc markup inside my features
 
   Scenario: DocSting enrichment
-    Asciidoc markup can be used in feature *DocStrings*. To do so you need to enable it by using *# cukector-dicrete* comment on the feature.
-
-    IMPORTANT: You can place the `[discrete]` class manually in the docstring if you don't want to use ` # cukedoctor-discrete` comment.
+    Asciidoc markup can be used in feature *DocStrings*. To do so you need to enable it by using *[cukector-dicrete]* comment on the feature.
 
     Given The following two features:
 """
