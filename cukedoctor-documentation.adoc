@@ -44,7 +44,7 @@ include::/home/travis/build/rmpestano/cukedoctor/cukedoctor-converter/target/tes
 |0
 |0
 |3
-|03s 463ms
+|02s 661ms
 |[green]#*passed*#
 
 12+^|*<<Ordering>>*
@@ -58,21 +58,7 @@ include::/home/travis/build/rmpestano/cukedoctor/cukedoctor-converter/target/tes
 |0
 |0
 |6
-|076ms
-|[green]#*passed*#
-
-12+^|*<<Documentation-introduction-chapter>>*
-|1
-|0
-|1
-|4
-|0
-|0
-|0
-|0
-|0
-|4
-|037ms
+|097ms
 |[green]#*passed*#
 
 12+^|*<<Enrich-features>>*
@@ -86,10 +72,24 @@ include::/home/travis/build/rmpestano/cukedoctor/cukedoctor-converter/target/tes
 |0
 |0
 |6
-|139ms
+|087ms
+|[green]#*passed*#
+
+12+^|*<<Documentation-introduction-chapter>>*
+|1
+|0
+|1
+|4
+|0
+|0
+|0
+|0
+|0
+|4
+|039ms
 |[green]#*passed*#
 12+^|*Totals*
-|6|0|6|19|0|0|0|0|0|19 2+|03s 716ms
+|6|0|6|19|0|0|0|0|0|19 2+|02s 886ms
 |===
 
 == *Features*
@@ -113,7 +113,7 @@ ____
 ****
 Given ::
 =====
-The following two features: icon:thumbs-up[role="green",title="Passed"] [small right]#(01s 766ms)#
+The following two features: icon:thumbs-up[role="green",title="Passed"] [small right]#(01s 058ms)#
 ----
 
 Feature: Feature1
@@ -132,7 +132,7 @@ Feature: Feature2
 =====
 When ::
 =====
-I convert their json test output using cukedoctor converter icon:thumbs-up[role="green",title="Passed"] [small right]#(01s 696ms)#
+I convert their json test output using cukedoctor converter icon:thumbs-up[role="green",title="Passed"] [small right]#(01s 600ms)#
 ******
 
 [discrete]
@@ -301,7 +301,7 @@ Feature: Feature2
 =====
 When ::
 =====
-I convert them using default order icon:thumbs-up[role="green",title="Passed"] [small right]#(032ms)#
+I convert them using default order icon:thumbs-up[role="green",title="Passed"] [small right]#(044ms)#
 =====
 Then ::
 =====
@@ -381,7 +381,7 @@ NOTE: Ordering is done using feature comment '*order:*'
 =====
 When ::
 =====
-I convert them using comment order icon:thumbs-up[role="green",title="Passed"] [small right]#(043ms)#
+I convert them using comment order icon:thumbs-up[role="green",title="Passed"] [small right]#(052ms)#
 =====
 Then ::
 =====
@@ -432,6 +432,244 @@ scenario step icon:thumbs-up[role="green",title="Passed"] [small right]#(313ms)#
 =====
 ****
 
+[[Enrich-features, Enrich features]]
+=== *Enrich features*
+
+****
+====
+[quote]
+____
+In order to have awesome _living documentation_ +
+As a bdd developer +
+I want to render asciidoc markup inside my features.
+____
+====
+****
+
+==== Scenario: DocSting enrichment
+Asciidoc markup can be used in feature *DocStrings*. To do so you need to enable it by using *[cukector-dicrete]* comment on the feature.
+
+****
+Given ::
+=====
+The following two features: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+----
+
+Feature: Enrich feature
+
+  Scenario: Render source code
+
+    # cukedoctor-discrete
+    Given the following source code in docstrings
+"""
+  [source, java]
+  -----
+  public int sum(int x, int y){
+  int result = x + y;
+  return result; (1)
+  }
+  -----
+  <1> We can have callouts in living documentation
+"""
+
+  Scenario: Render table
+
+    # cukedoctor-discrete
+    Given the following table
+ """
+  |===
+
+  | Cell in column 1, row 1 | Cell in column 2, row 1
+  | Cell in column 1, row 2 | Cell in column 2, row 2
+  | Cell in column 1, row 3 | Cell in column 2, row 3
+
+  |===
+"""
+
+----
+=====
+When ::
+=====
+I convert docstring enriched json output using cukedoctor converter icon:thumbs-up[role="green",title="Passed"] [small right]#(046ms)#
+=====
+Then ::
+=====
+DocString asciidoc output must be rendered in my documentation icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+******
+
+[discrete]
+[[Discrete-class-feature, Discrete class feature]]
+[discrete]
+=== *Discrete class feature*
+[discrete]
+[discrete]
+==== Scenario: Render source code
+[discrete]
+[discrete]
+*****
+[discrete]
+Given ::
+======
+[discrete]
+the following source code icon:thumbs-up[role="green",title="Passed"] [small right]#(267ms)#
+[discrete]
+*******
+[discrete]
+[discrete]
+[discrete]
+[discrete]
+[source, java]
+-----
+public int sum(int x, int y){
+    int result = x + y;
+    return result; <1>
+}
+-----
+<1> We can have callouts in living documentation>
+[discrete]
+[discrete]
+[discrete]
+*******
+[discrete]
+======
+[discrete]
+*****
+[discrete]
+[discrete]
+==== Scenario: Render table
+[discrete]
+[discrete]
+*****
+[discrete]
+Given ::
+======
+[discrete]
+the following table icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+[discrete]
+*******
+[discrete]
+[discrete]
+[discrete]
+[discrete]
+|===
+| Cell in column 1, row 1 | Cell in column 2, row 1
+| Cell in column 1, row 2 | Cell in column 2, row 2
+| Cell in column 1, row 3 | Cell in column 2, row 3
+|===
+[discrete]
+[discrete]
+[discrete]
+*******
+[discrete]
+======
+[discrete]
+*****
+
+
+******
+
+=====
+****
+
+==== Scenario: Comments enrichment
+Asciidoc markup can be used in feature comments. To do so you need to surround asciidoc markup by *curly brackets*;.
+
+****
+Given ::
+=====
+The following feature with asciidoc markup in comments: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+----
+
+Feature: Calculator
+
+  Scenario: Adding numbers
+   You can *asciidoc markup* in _feature_ #description#.
+
+    NOTE: This is a very important feature!
+
+    #{IMPORTANT: Asciidoc markup inside *steps* must be surrounded by *curly brackets*.}
+    Given I have numbers 1 and 2
+
+    # {NOTE: Steps comments are placed *before* each steps so this comment is for the *WHEN* step.}
+
+    When I sum the numbers
+    # {* this is a list of itens inside a feature step}
+    # {* there is no multiline comment in gherkin}
+    # {** second level list item}
+    Then I should have 3 as result
+
+
+----
+=====
+When ::
+=====
+I convert enriched feature json output using cukedoctor icon:thumbs-up[role="green",title="Passed"] [small right]#(040ms)#
+=====
+Then ::
+=====
+Asciidoc markup on comments must be rendered in my documentation icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+******
+
+[discrete]
+[[Calculator, Calculator]]
+[discrete]
+=== *Calculator*
+[discrete]
+[discrete]
+==== Scenario: Adding numbers
+[discrete]
+You can use *asciidoc markup* in _feature_ #description#.
+[discrete]
+[discrete]
+NOTE: This is a very important feature!
+[discrete]
+[discrete]
+*****
+[discrete]
+Given ::
+======
+[discrete]
+I have numbers 1 and 2 icon:thumbs-up[role="green",title="Passed"] [small right]#(114ms)#
+[discrete]
+[discrete]
+IMPORTANT: Asciidoc markup inside *steps* must be surrounded by *curly brackets*.
+[discrete]
+======
+[discrete]
+When ::
+======
+[discrete]
+I sum the numbers icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+[discrete]
+[discrete]
+NOTE: Steps comments are placed *before* each steps so this comment is for the *WHEN* step.
+[discrete]
+======
+[discrete]
+Then ::
+======
+[discrete]
+I should have 3 as result icon:thumbs-up[role="green",title="Passed"] [small right]#(001ms)#
+[discrete]
+[discrete]
+* this is a list of itens inside a feature step
+[discrete]
+[discrete]
+* there is no multiline comment in gherkin
+[discrete]
+[discrete]
+** second level list item
+[discrete]
+======
+[discrete]
+*****
+
+
+******
+
+=====
+****
+
 [[Documentation-introduction-chapter, Documentation introduction chapter]]
 === *Documentation introduction chapter*
 
@@ -470,7 +708,7 @@ Feature: Feature2
 =====
 And ::
 =====
-The following asciidoc document is on your application classpath icon:thumbs-up[role="green",title="Passed"] [small right]#(036ms)#
+The following asciidoc document is on your application classpath icon:thumbs-up[role="green",title="Passed"] [small right]#(039ms)#
 ******
 
 [discrete]
@@ -625,244 +863,6 @@ Given ::
 ======
 [discrete]
 scenario step icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
-======
-[discrete]
-*****
-
-
-******
-
-=====
-****
-
-[[Enrich-features, Enrich features]]
-=== *Enrich features*
-
-****
-====
-[quote]
-____
-In order to have awesome _living documentation_ +
-As a bdd developer +
-I want to render asciidoc markup inside my features.
-____
-====
-****
-
-==== Scenario: DocSting enrichment
-Asciidoc markup can be used in feature *DocStrings*. To do so you need to enable it by using *[cukector-dicrete]* comment on the feature.
-
-****
-Given ::
-=====
-The following two features: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
-----
-
-Feature: Enrich feature
-
-  Scenario: Render source code
-
-    # cukedoctor-discrete
-    Given the following source code in docstrings
-"""
-  [source, java]
-  -----
-  public int sum(int x, int y){
-  int result = x + y;
-  return result; (1)
-  }
-  -----
-  <1> We can have callouts in living documentation
-"""
-
-  Scenario: Render table
-
-    # cukedoctor-discrete
-    Given the following table
- """
-  |===
-
-  | Cell in column 1, row 1 | Cell in column 2, row 1
-  | Cell in column 1, row 2 | Cell in column 2, row 2
-  | Cell in column 1, row 3 | Cell in column 2, row 3
-
-  |===
-"""
-
-----
-=====
-When ::
-=====
-I convert docstring enriched json output using cukedoctor converter icon:thumbs-up[role="green",title="Passed"] [small right]#(044ms)#
-=====
-Then ::
-=====
-DocString asciidoc output must be rendered in my documentation icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
-******
-
-[discrete]
-[[Discrete-class-feature, Discrete class feature]]
-[discrete]
-=== *Discrete class feature*
-[discrete]
-[discrete]
-==== Scenario: Render source code
-[discrete]
-[discrete]
-*****
-[discrete]
-Given ::
-======
-[discrete]
-the following source code icon:thumbs-up[role="green",title="Passed"] [small right]#(267ms)#
-[discrete]
-*******
-[discrete]
-[discrete]
-[discrete]
-[discrete]
-[source, java]
------
-public int sum(int x, int y){
-    int result = x + y;
-    return result; <1>
-}
------
-<1> We can have callouts in living documentation>
-[discrete]
-[discrete]
-[discrete]
-*******
-[discrete]
-======
-[discrete]
-*****
-[discrete]
-[discrete]
-==== Scenario: Render table
-[discrete]
-[discrete]
-*****
-[discrete]
-Given ::
-======
-[discrete]
-the following table icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
-[discrete]
-*******
-[discrete]
-[discrete]
-[discrete]
-[discrete]
-|===
-| Cell in column 1, row 1 | Cell in column 2, row 1
-| Cell in column 1, row 2 | Cell in column 2, row 2
-| Cell in column 1, row 3 | Cell in column 2, row 3
-|===
-[discrete]
-[discrete]
-[discrete]
-*******
-[discrete]
-======
-[discrete]
-*****
-
-
-******
-
-=====
-****
-
-==== Scenario: Comments enrichment
-Asciidoc markup can be used in feature comments. To do so you need to surround asciidoc markup by *curly brackets*;.
-
-****
-Given ::
-=====
-The following feature with asciidoc markup in comments: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
-----
-
-Feature: Calculator
-
-  Scenario: Adding numbers
-   You can *asciidoc markup* in _feature_ #description#.
-
-    NOTE: This is a very important feature!
-
-    #{IMPORTANT: Asciidoc markup inside *steps* must be surrounded by *curly brackets*.}
-    Given I have numbers 1 and 2
-
-    # {NOTE: Steps comments are placed *before* each steps so this comment is for the *WHEN* step.}
-
-    When I sum the numbers
-    # {* this is a list of itens inside a feature step}
-    # {* there is no multiline comment in gherkin}
-    # {** second level list item}
-    Then I should have 3 as result
-
-
-----
-=====
-When ::
-=====
-I convert enriched feature json output using cukedoctor icon:thumbs-up[role="green",title="Passed"] [small right]#(093ms)#
-=====
-Then ::
-=====
-Asciidoc markup on comments must be rendered in my documentation icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
-******
-
-[discrete]
-[[Calculator, Calculator]]
-[discrete]
-=== *Calculator*
-[discrete]
-[discrete]
-==== Scenario: Adding numbers
-[discrete]
-You can use *asciidoc markup* in _feature_ #description#.
-[discrete]
-[discrete]
-NOTE: This is a very important feature!
-[discrete]
-[discrete]
-*****
-[discrete]
-Given ::
-======
-[discrete]
-I have numbers 1 and 2 icon:thumbs-up[role="green",title="Passed"] [small right]#(114ms)#
-[discrete]
-[discrete]
-IMPORTANT: Asciidoc markup inside *steps* must be surrounded by *curly brackets*.
-[discrete]
-======
-[discrete]
-When ::
-======
-[discrete]
-I sum the numbers icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
-[discrete]
-[discrete]
-NOTE: Steps comments are placed *before* each steps so this comment is for the *WHEN* step.
-[discrete]
-======
-[discrete]
-Then ::
-======
-[discrete]
-I should have 3 as result icon:thumbs-up[role="green",title="Passed"] [small right]#(001ms)#
-[discrete]
-[discrete]
-* this is a list of itens inside a feature step
-[discrete]
-[discrete]
-* there is no multiline comment in gherkin
-[discrete]
-[discrete]
-** second level list item
-[discrete]
 ======
 [discrete]
 *****
