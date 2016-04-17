@@ -6,6 +6,7 @@ import static com.github.cukedoctor.util.Assert.notNull;
 import static com.github.cukedoctor.util.Constants.newLine;
 import static com.github.cukedoctor.util.Constants.Markup.bold;
 
+import java.util.Collections;
 import java.util.List;
 import java.util.ServiceLoader;
 
@@ -40,6 +41,7 @@ public class CukedoctorConverterImpl implements CukedoctorConverter {
 
 	public CukedoctorConverterImpl(List<Feature> features, DocumentAttributes attrs) {
 		this.features = features;
+		Collections.sort(this.features);
 		this.documentAttributes = attrs;
 		docBuilder = CukedoctorDocumentBuilder.Factory.newInstance();
 		i18n = I18nLoader.newInstance(features);

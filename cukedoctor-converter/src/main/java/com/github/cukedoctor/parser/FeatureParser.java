@@ -51,18 +51,10 @@ public class FeatureParser {
 		} catch (IOException e) {
 			log.log(Level.WARNING, "Could not read json file:" + json,e);
 		}
-		if(features != null){
-			sortFeatures(features);
-		}
 
 		return features;
 	}
 
-	private static void sortFeatures(List<Feature> features) {
-		if(features != null) {
-			Collections.sort(features);
-		}
-	}
 
 	/**
 	 *
@@ -78,7 +70,6 @@ public class FeatureParser {
 				features.addAll(result);
 			}
 		}
-		sortFeatures(features);
 		return features;
 	}
 
@@ -96,7 +87,6 @@ public class FeatureParser {
 				features.addAll(result);
 			}
 		}
-		sortFeatures(features);
 
 		return features;
 	}
