@@ -104,7 +104,7 @@ public class CukedoctorMojo extends AbstractMojo {
             System.setProperty("INTRO_CHAPTER_DIR",introChapterDir);
         }
         getLog().info("Searching cucumber features in path: " + startDir);
-        Set<Feature> featuresFound = new HashSet<>(FeatureParser.findAndParse(startDir));
+        List<Feature> featuresFound = FeatureParser.findAndParse(startDir);
         if (featuresFound == null || featuresFound.isEmpty()) {
             getLog().warn("No cucumber json files found in " + startDir);
             return;
@@ -129,8 +129,7 @@ public class CukedoctorMojo extends AbstractMojo {
             documentTitle = "Living Documentation";
         }
         documentAttributes.docTitle(documentTitle);
-        List<Feature> featuresList = new ArrayList<>(featuresFound);
-        CukedoctorConverter converter = Cukedoctor.instance(featuresList, documentAttributes);
+        CukedoctorConverter converter = Cukedoctor.instance(featuresFound, documentAttributes);
         String targetFile = "";
         if (outputFileName.contains(".")) {
             targetFile = outputFileName.substring(0, outputFileName.lastIndexOf(".")) + ".adoc";
@@ -154,7 +153,7 @@ public class CukedoctorMojo extends AbstractMojo {
                     backend(Format.pdf.name()).
                     toc(toc.name().toLowerCase()).
                     numbered(numbered);
-            converter = Cukedoctor.instance(featuresList, documentAttributes);
+            converter = Cukedoctor.instance(featuresFound, documentAttributes);
             converter.setFilename(pathToSave);//needed by docinfo, pdf-theme
             generatedFile = converter.renderDocumentation();
             adocFile = FileUtil.saveFile(pathToSave, generatedFile);
