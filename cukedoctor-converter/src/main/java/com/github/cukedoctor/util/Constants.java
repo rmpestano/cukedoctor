@@ -2,6 +2,7 @@ package com.github.cukedoctor.util;
 
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.text.DateFormat;
 
 /**
  * Created by pestano on 04/06/15.
@@ -16,6 +17,7 @@ public abstract class Constants {
 
 	public static final String STEPS_BLOCK_DELIMITER = System.getProperty("cukedoctor.stopwatch");
 	public static final String DISCRETE = "[discrete]";
+
 
 	public static String newLine() {
 		return System.getProperty("line.separator");
@@ -121,6 +123,14 @@ public abstract class Constants {
 
 		public static String backend(String value) {
 			return ":backend: " + value;
+		}
+
+		public static String revNumber(String value) {
+			return ":revnumber: " + value;
+		}
+
+		public static String revDate(String value) {
+			return ":revdate: " + value;
 		}
 
 		public static String docTitle(String value) {

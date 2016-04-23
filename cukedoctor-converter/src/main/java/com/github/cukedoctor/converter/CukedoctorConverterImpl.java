@@ -6,9 +6,7 @@ import static com.github.cukedoctor.util.Assert.notNull;
 import static com.github.cukedoctor.util.Constants.newLine;
 import static com.github.cukedoctor.util.Constants.Markup.bold;
 
-import java.util.Collections;
-import java.util.List;
-import java.util.ServiceLoader;
+import java.util.*;
 
 import com.github.cukedoctor.api.CukedoctorConverter;
 import com.github.cukedoctor.api.CukedoctorDocumentBuilder;
@@ -136,7 +134,8 @@ public class CukedoctorConverterImpl implements CukedoctorConverter {
 					.sectLink(documentAttributes.isSectLink())
 					.docInfo(documentAttributes.isDocInfo())
 					.sourceHighlighter(documentAttributes.getSourceHighlighter())
-					.tocLevels(documentAttributes.getTocLevels());
+					.tocLevels(documentAttributes.getTocLevels())
+					.revNumber(documentAttributes.getRevNumber());
 		}
 		return this;
 	}

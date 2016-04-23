@@ -20,6 +20,7 @@ public class DocumentAttributes {
 	private boolean docInfo = true;
 	private boolean pdfTheme = true;
 	private String sourceHighlighter = "highlightjs";
+	private String revNumber;
 
 	public DocumentAttributes docTitle(String docTitle) {
 		this.docTitle = docTitle;
@@ -87,6 +88,11 @@ public class DocumentAttributes {
 		return this;
 	}
 
+	public DocumentAttributes revNumber(String docVersion) {
+		this.revNumber = docVersion;
+		return this;
+	}
+
 
 	public String getBackend() {
 		return backend;
@@ -114,6 +120,10 @@ public class DocumentAttributes {
 
 	public String getSourceHighlighter() {
 		return sourceHighlighter;
+	}
+
+	public String getRevNumber() {
+		return revNumber;
 	}
 
 	public boolean isSectAnchors() {

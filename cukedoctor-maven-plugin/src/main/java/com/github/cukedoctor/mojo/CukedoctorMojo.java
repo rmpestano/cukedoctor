@@ -81,6 +81,9 @@ public class CukedoctorMojo extends AbstractMojo {
     @Parameter(defaultValue = "false", required = false)
     boolean disableFooter;
 
+    @Parameter(required = false)
+    String docVersion;
+
 
     @Component
     MavenProject project;
@@ -116,6 +119,7 @@ public class CukedoctorMojo extends AbstractMojo {
         DocumentAttributes documentAttributes = new DocumentAttributes().
                 backend(format.name().toLowerCase()).
                 toc(toc.name().toLowerCase()).
+                revNumber(docVersion).
                 numbered(numbered);
         if (format.equals(Format.pdf)) {
             documentAttributes.pdfTheme(true).docInfo(false);
@@ -152,6 +156,7 @@ public class CukedoctorMojo extends AbstractMojo {
             documentAttributes = new DocumentAttributes().
                     backend(Format.pdf.name()).
                     toc(toc.name().toLowerCase()).
+                    revNumber(docVersion).
                     numbered(numbered);
             converter = Cukedoctor.instance(featuresFound, documentAttributes);
             converter.setFilename(pathToSave);//needed by docinfo, pdf-theme

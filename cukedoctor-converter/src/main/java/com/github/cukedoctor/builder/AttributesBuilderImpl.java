@@ -4,6 +4,8 @@ import com.github.cukedoctor.api.builder.AttributesBuilder;
 import com.github.cukedoctor.util.Constants;
 import io.github.robwin.markup.builder.asciidoc.AsciiDocBuilder;
 
+import static com.github.cukedoctor.util.Assert.hasText;
+
 /**
  * Created by pestano on 17/02/16.
  */
@@ -91,4 +93,13 @@ public class AttributesBuilderImpl implements AttributesBuilder {
     public AsciiDocBuilder asciiDocBuilder(){
         return docBuilder;
     }
+
+    @Override
+    public AttributesBuilder revNumber(String value) {
+        if(hasText(value)){
+            docBuilder.textLine(Constants.Atributes.revNumber(value));
+        }
+        return this;
+    }
+
 }

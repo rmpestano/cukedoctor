@@ -118,8 +118,7 @@
         </profile>
 
         <profile>
-            <id>publish-docs</id>
-
+            <id>docs</id>
             <build>
                 <plugins>
                     <plugin>
@@ -134,6 +133,7 @@
                             <format>all</format>
                             <toc>center</toc>
                             <numbered>true</numbered>
+                            <docVersion>${project.parent.version}</docVersion>
                         </configuration>
                         <executions>
                             <execution>

@@ -20,7 +20,7 @@ before_script:
 script:
 - mvn clean install jacoco:report coveralls:report -Pcoverage
 - cd cukedoctor-converter && mvn compile exec:exec -Pperf
-- mvn -q cukedoctor:execute scm-publish:publish-scm -Ppublish-docs
+- mvn -q cukedoctor:execute scm-publish:publish-scm -Pdocs
 
 after_success:
 - cd .. && mvn clean install -Pfat-jar -DskipTests=true

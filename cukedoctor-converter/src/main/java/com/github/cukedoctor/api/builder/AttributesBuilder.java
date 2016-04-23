@@ -29,6 +29,8 @@ public interface AttributesBuilder {
 
     AttributesBuilder sourceHighlighter(String value);
 
+    AttributesBuilder revNumber(String value);
+
     AttributesBuilder tocLevels(String value);
 
 

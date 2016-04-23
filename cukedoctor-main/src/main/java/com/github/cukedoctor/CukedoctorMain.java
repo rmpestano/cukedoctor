@@ -41,6 +41,9 @@ public class CukedoctorMain {
 	@Parameter(names = "-numbered", description = "Section numbering. Default is false ", required = false)
 	private Boolean numbered;
 
+	@Parameter(names = "-docVersion", description = "Documentation version", required = false)
+	private String docVersion;
+
 	public String execute(String args[]) {
 		JCommander commandLine = null;
 		try {
@@ -106,6 +109,7 @@ public class CukedoctorMain {
 		DocumentAttributes documentAttributes = new DocumentAttributes().
 				backend(format).
 				toc(toc).
+				revNumber(docVersion).
 				numbered(numbered);
 
 		if(format.equalsIgnoreCase("pdf")){
