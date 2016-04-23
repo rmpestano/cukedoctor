@@ -84,6 +84,9 @@ public class CukedoctorMojo extends AbstractMojo {
     @Parameter(required = false)
     String docVersion;
 
+    @Parameter(defaultValue = "true", required = false)
+    boolean hardBreaks;
+
 
     @Component
     MavenProject project;
@@ -120,6 +123,7 @@ public class CukedoctorMojo extends AbstractMojo {
                 backend(format.name().toLowerCase()).
                 toc(toc.name().toLowerCase()).
                 revNumber(docVersion).
+                hardBreaks(hardBreaks).
                 numbered(numbered);
         if (format.equals(Format.pdf)) {
             documentAttributes.pdfTheme(true).docInfo(false);
@@ -157,6 +161,7 @@ public class CukedoctorMojo extends AbstractMojo {
                     backend(Format.pdf.name()).
                     toc(toc.name().toLowerCase()).
                     revNumber(docVersion).
+                    hardBreaks(hardBreaks).
                     numbered(numbered);
             converter = Cukedoctor.instance(featuresFound, documentAttributes);
             converter.setFilename(pathToSave);//needed by docinfo, pdf-theme

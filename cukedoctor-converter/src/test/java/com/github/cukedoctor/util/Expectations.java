@@ -119,7 +119,7 @@ public interface Expectations {
 			":sectlink:"+newLine() +
 			":docinfo:"+newLine() +
 			":source-highlighter: highlightjs" + newLine()+
-			":toclevels: 3"+newLine() +
+			":toclevels: 3\n:hardbreaks:"+newLine() +
 			""+newLine() +
 			"= *Living Documentation*"+newLine() +
 			""+newLine() +
@@ -200,7 +200,7 @@ public interface Expectations {
 			":sectanchors:"+newLine() +
 			":sectlink:"+newLine() +
 			":docinfo:"+newLine() +
-			":source-highlighter: highlightjs\n:toclevels: 3"+newLine() +
+			":source-highlighter: highlightjs\n:toclevels: 3\n:hardbreaks:"+newLine() +
 			""+newLine() +
 			"= *Living Documentation*"+newLine() +
 			""+newLine() +
@@ -358,7 +358,7 @@ public interface Expectations {
 			":sectanchors:"+newLine() +
 			":sectlink:"+newLine() +
 			":docinfo:"+newLine() +
-			":source-highlighter: highlightjs:toclevels: 3"+newLine() +
+			":source-highlighter: highlightjs:toclevels: 3\n:hardbreaks:"+newLine() +
 			""+newLine() +
 			"= *Doc Title*"+newLine() +
 			""+newLine() +
@@ -441,7 +441,7 @@ public interface Expectations {
 			":sectlink:"+newLine() +
 			":docinfo:"+newLine() +
 			":source-highlighter: highlightjs" + newLine()+
-			":toclevels: 3"+newLine() +
+			":toclevels: 3\n:hardbreaks:"+newLine() +
 			""+newLine() +
 			"= *Doc Title*"+newLine() +
 			""+newLine() +

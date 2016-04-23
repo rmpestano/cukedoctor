@@ -76,7 +76,7 @@ public class CustomRendererTest {
                 ":sectanchors:" + newLine() +
                 ":sectlink:" + newLine() +
                 ":docinfo:" + newLine() +
-                ":source-highlighter: highlightjs\n:toclevels: 3" + newLine() +
+                ":source-highlighter: highlightjs\n:toclevels: 3\n:hardbreaks:" + newLine() +
                 "" + newLine() +
                 "= *Living Documentation*" + newLine() +
                 "" + newLine() +

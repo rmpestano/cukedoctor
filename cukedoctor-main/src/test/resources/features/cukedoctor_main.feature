@@ -22,6 +22,7 @@ Feature: Cukedoctor Main
 :docinfo:
 :source-highlighter: highlightjs
 :toclevels: 3
+:hardbreaks:
 
 = *Documentation*
 
@@ -111,6 +112,7 @@ features/one_passing_one_failing.feature:10:in Given this step fails'
 :docinfo:
 :source-highlighter: highlightjs
 :toclevels: 3
+:hardbreaks:
 
 = *Documentation*
 

@@ -27,6 +27,8 @@ public interface AttributesBuilder {
 
     AttributesBuilder docInfo(boolean value);
 
+    AttributesBuilder hardBreaks(boolean value);
+
     AttributesBuilder sourceHighlighter(String value);
 
     AttributesBuilder revNumber(String value);

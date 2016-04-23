@@ -41,6 +41,9 @@ public class CukedoctorMain {
 	@Parameter(names = "-numbered", description = "Section numbering. Default is false ", required = false)
 	private Boolean numbered;
 
+	@Parameter(names = "-hardbreaks", description = "Sets asciidoctor hardbreaks attribute. Default is true ", required = false)
+	private Boolean hardBreaks;
+
 	@Parameter(names = "-docVersion", description = "Documentation version", required = false)
 	private String docVersion;
 
@@ -83,6 +86,10 @@ public class CukedoctorMain {
 			numbered = false;
 		}
 
+		if(hardBreaks == null){
+			hardBreaks = Boolean.TRUE;
+		}
+
 
 		System.out.println("Generating living documentation with args:");
 
@@ -110,6 +117,7 @@ public class CukedoctorMain {
 				backend(format).
 				toc(toc).
 				revNumber(docVersion).
+				hardBreaks(hardBreaks).
 				numbered(numbered);
 
 		if(format.equalsIgnoreCase("pdf")){

@@ -105,6 +105,10 @@ public abstract class Constants {
 			return numbered ? ":numbered:":":!numbered:";
 		}
 
+		public static String hardBreaks(boolean hardBreaks) {
+			return hardBreaks ? ":hardbreaks:":":!hardbreaks:";
+		}
+
 
 		public static String linkcss(boolean linkcss) {
 			return linkcss ? ":linkcss:":":!linkcss:";

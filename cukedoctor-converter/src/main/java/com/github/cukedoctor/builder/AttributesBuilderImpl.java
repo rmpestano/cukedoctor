@@ -78,6 +78,12 @@ public class AttributesBuilderImpl implements AttributesBuilder {
     }
 
     @Override
+    public AttributesBuilder hardBreaks(boolean value) {
+        docBuilder.textLine(Constants.Atributes.hardBreaks(value));
+        return this;
+    }
+
+    @Override
     public AttributesBuilder sourceHighlighter(String value) {
         docBuilder.textLine(Constants.Atributes.sourceHighlighter(value));
         return this;

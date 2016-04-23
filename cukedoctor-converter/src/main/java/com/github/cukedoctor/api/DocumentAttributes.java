@@ -21,6 +21,7 @@ public class DocumentAttributes {
 	private boolean pdfTheme = true;
 	private String sourceHighlighter = "highlightjs";
 	private String revNumber;
+	private boolean hardBreaks = true;
 
 	public DocumentAttributes docTitle(String docTitle) {
 		this.docTitle = docTitle;
@@ -93,6 +94,11 @@ public class DocumentAttributes {
 		return this;
 	}
 
+	public DocumentAttributes hardBreaks(boolean hardBreaks) {
+		this.hardBreaks = hardBreaks;
+		return this;
+	}
+
 
 	public String getBackend() {
 		return backend;
@@ -150,4 +156,7 @@ public class DocumentAttributes {
 		return pdfTheme;
 	}
 
+	public boolean isHardBreaks() {
+		return hardBreaks;
+	}
 }

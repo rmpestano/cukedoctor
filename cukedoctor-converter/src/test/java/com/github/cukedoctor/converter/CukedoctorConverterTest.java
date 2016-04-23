@@ -85,7 +85,7 @@ public class CukedoctorConverterTest {
 						":sectanchors:" + newLine() +
 						":sectlink:" + newLine() +
 						":docinfo:" + newLine() +
-						":source-highlighter: highlightjs\n:toclevels: 3"+newLine();
+						":source-highlighter: highlightjs\n:toclevels: 3\n:hardbreaks:"+newLine();
 
 
 		attrs.docTitle("Title");
@@ -111,7 +111,7 @@ public class CukedoctorConverterTest {
 				":sectanchors:" + newLine() +
 				":sectlink:" + newLine() +
 				":docinfo:" + newLine() +
-				":source-highlighter: highlightjs\n:toclevels: 3"+newLine();
+				":source-highlighter: highlightjs\n:toclevels: 3\n:hardbreaks:"+newLine();
 
 
 		String document = Cukedoctor.instance(features,new DocumentAttributes()).renderAttributes().
@@ -161,7 +161,37 @@ public class CukedoctorConverterTest {
 						":sectanchors:" + newLine() +
 						":sectlink:" + newLine() +
 						":docinfo:" + newLine() +
-						":source-highlighter: highlightjs\n:toclevels: 3"+newLine();
+						":source-highlighter: highlightjs\n:toclevels: 3\n:hardbreaks:"+newLine();
+
+		attrs.docTitle("Title");
+		String document = Cukedoctor.instance(features, attrs).renderAttributes().
+				getDocumentation().toString();
+		assertEquals(expected, document);
+	}
+
+	@Test
+	public void shouldRenderAttributesWithoutHardbreaks() {
+		List<Feature> features = new ArrayList<>();
+		features.add(FeatureBuilder.instance().id("id").name("name").build());
+
+		DocumentAttributes attrs = new DocumentAttributes();
+		attrs.toc("").backend("html5")
+				.docType("article").docTitle("Title")
+				.icons("font").numbered(false)
+				.hardBreaks(false)
+				.sectAnchors(true).sectLink(true);
+
+		String expected =
+				":backend: html5" + newLine() +
+						":doctitle: Title" + newLine() +
+						":doctype: article" + newLine() +
+						":icons: font" + newLine() +
+						":!numbered:" + newLine() +
+						":!linkcss:" + newLine() +
+						":sectanchors:" + newLine() +
+						":sectlink:" + newLine() +
+						":docinfo:" + newLine() +
+						":source-highlighter: highlightjs\n:toclevels: 3\n:!hardbreaks:"+newLine();
 
 		attrs.docTitle("Title");
 		String document = Cukedoctor.instance(features, attrs).renderAttributes().
@@ -193,7 +223,8 @@ public class CukedoctorConverterTest {
 						":sectlink:" + newLine() +
 						":docinfo:" + newLine() +
 						":source-highlighter: highlightjs" + newLine()+
-						":toclevels: 2"+newLine();
+						":toclevels: 2"+newLine() +
+						":hardbreaks:"+newLine();
 
 
 		attrs.docTitle("Title");
@@ -225,7 +256,7 @@ public class CukedoctorConverterTest {
 						":sectanchors:" + newLine() +
 						":sectlink:" + newLine() +
 						":docinfo:" + newLine() +
-						":source-highlighter: highlightjs\n:toclevels: 3"+newLine();
+						":source-highlighter: highlightjs\n:toclevels: 3\n:hardbreaks:"+newLine();
 
 
 		attrs.docTitle("Documentation Title");

@@ -135,7 +135,8 @@ public class CukedoctorConverterImpl implements CukedoctorConverter {
 					.docInfo(documentAttributes.isDocInfo())
 					.sourceHighlighter(documentAttributes.getSourceHighlighter())
 					.tocLevels(documentAttributes.getTocLevels())
-					.revNumber(documentAttributes.getRevNumber());
+					.revNumber(documentAttributes.getRevNumber())
+					.hardBreaks(documentAttributes.isHardBreaks());
 		}
 		return this;
 	}

@@ -43,7 +43,7 @@ public class CukedoctorFeatureRenderer extends AbstractBaseRenderer implements F
             docBuilder.append("minmax::", feature.getName().replaceAll(",", "").replaceAll(" ", "-")).append("[]").newLine();
         }
         if (hasText(feature.getDescription())) {
-            docBuilder.sideBarBlock(feature.getDescription().trim().replaceAll("\\\\", ""));
+            docBuilder.sideBarBlock(feature.getDescription().trim().replaceAll("\\\\", "").replaceAll("\\n", newLine()));
         }
 
         if(feature.hasScenarios()){
