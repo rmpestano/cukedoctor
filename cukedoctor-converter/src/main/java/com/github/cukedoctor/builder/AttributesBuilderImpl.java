@@ -98,6 +98,12 @@ public class AttributesBuilderImpl implements AttributesBuilder {
     public AttributesBuilder revNumber(String value) {
         if(hasText(value)){
             docBuilder.textLine(Constants.Atributes.revNumber(value));
+        } else{
+            //verify system property
+            String revNumberSysProp = System.getProperty("docVersion");
+            if(revNumberSysProp != null){
+                docBuilder.textLine(Constants.Atributes.revNumber(revNumberSysProp));
+            }
         }
         return this;
     }
