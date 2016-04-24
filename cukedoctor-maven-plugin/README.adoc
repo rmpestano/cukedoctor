@@ -18,7 +18,7 @@ Just declare the plugin in your _pom.xml_:
 <plugin>
     <groupId>com.github.cukedoctor</groupId>
     <artifactId>cukedoctor-maven-plugin</artifactId>
-    <version>1.0.0</version>
+    <version>1.0.2</version>
     <executions>
         <execution>
             <goals>
@@ -51,13 +51,14 @@ NOTE: *plugin* option replaced *format* option which was deprecated in newer cuc
 <plugin>
     <groupId>com.github.cukedoctor</groupId>
     <artifactId>cukedoctor-maven-plugin</artifactId>
-    <version>1.0.0</version>
+    <version>1.0.2</version>
          <configuration>
             <outputFileName>documentation</outputFileName> <1>
             <outputDir>docs</outputDir> <2>
             <format>pdf</format> <3>
             <toc>left</toc> <4>
             <numbered>true</numbered> <5>
+            <docVersion>${project.version}</docVersion> <6>
          </configuration>
         <executions>
             <execution>
@@ -74,6 +75,7 @@ NOTE: *plugin* option replaced *format* option which was deprecated in newer cuc
 <3> document format, default is html5
 <4> table of content position, default is right
 <5> section numbering, default is false
+<6> documentation version (http://asciidoctor.org/docs/user-manual/#revision-number-date-and-remark[asciidoctor revNumber^])
 
 [NOTE]
 ====
