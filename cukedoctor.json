@@ -18,7 +18,7 @@
         "steps": [
           {
             "result": {
-              "duration": 806304248,
+              "duration": 381063480,
               "status": "passed"
             },
             "line": 13,
@@ -35,7 +35,7 @@
           },
           {
             "result": {
-              "duration": 1458425444,
+              "duration": 1319559567,
               "status": "passed"
             },
             "comments": [
@@ -58,7 +58,7 @@
           },
           {
             "result": {
-              "duration": 1145266,
+              "duration": 1110457,
               "status": "passed"
             },
             "comments": [
@@ -83,7 +83,7 @@
       }
     ],
     "name": "Cukedoctor Converter",
-    "description": "\u003d\u003d\u003d\u003d\n[quote]\n____\nIn order to have awesome _living documentation_ +\nAs a bdd developer +\nI want to use *Cukedoctor* to convert my cucumber test results into `readable` living documentation.\n____\n\u003d\u003d\u003d\u003d",
+    "description": "\u003d\u003d\u003d\u003d\n[quote]\n____\nIn order to have awesome _living documentation_\nAs a bdd developer\nI want to use *Cukedoctor* to convert my cucumber test results into `readable` living documentation.\n____\n\u003d\u003d\u003d\u003d",
     "id": "cukedoctor-converter",
     "keyword": "Feature",
     "uri": "com/github/cukedoctor/bdd/cukedoctor/converter.feature"
@@ -107,7 +107,7 @@
         "steps": [
           {
             "result": {
-              "duration": 60306,
+              "duration": 60178,
               "status": "passed"
             },
             "line": 14,
@@ -124,7 +124,7 @@
           },
           {
             "result": {
-              "duration": 34838333,
+              "duration": 40888733,
               "status": "passed"
             },
             "line": 48,
@@ -136,7 +136,7 @@
           },
           {
             "result": {
-              "duration": 214449,
+              "duration": 115693,
               "status": "passed"
             },
             "comments": [
@@ -169,7 +169,7 @@
         "steps": [
           {
             "result": {
-              "duration": 65362,
+              "duration": 62960,
               "status": "passed"
             },
             "line": 107,
@@ -186,7 +186,7 @@
           },
           {
             "result": {
-              "duration": 45722029,
+              "duration": 24006534,
               "status": "passed"
             },
             "line": 129,
@@ -198,7 +198,7 @@
           },
           {
             "result": {
-              "duration": 239614,
+              "duration": 136257,
               "status": "passed"
             },
             "comments": [
@@ -223,7 +223,7 @@
       }
     ],
     "name": "Enrich features",
-    "description": "\u003d\u003d\u003d\u003d\n[quote]\n____\nIn order to have awesome _living documentation_ +\nAs a bdd developer +\nI want to render asciidoc markup inside my features.\n____\n\u003d\u003d\u003d\u003d",
+    "description": "\u003d\u003d\u003d\u003d\n[quote]\n____\nIn order to have awesome _living documentation_\nAs a bdd developer\nI want to render asciidoc markup inside my features.\n____\n\u003d\u003d\u003d\u003d",
     "id": "enrich-features",
     "keyword": "Feature",
     "uri": "com/github/cukedoctor/bdd/cukedoctor/enrichment.feature"
@@ -247,7 +247,7 @@
         "steps": [
           {
             "result": {
-              "duration": 53763,
+              "duration": 62704,
               "status": "passed"
             },
             "line": 13,
@@ -264,7 +264,7 @@
           },
           {
             "result": {
-              "duration": 46647891,
+              "duration": 27309622,
               "status": "passed"
             },
             "comments": [
@@ -323,7 +323,7 @@
           },
           {
             "result": {
-              "duration": 37186,
+              "duration": 18997,
               "status": "passed"
             },
             "line": 54,
@@ -335,7 +335,7 @@
           },
           {
             "result": {
-              "duration": 308091,
+              "duration": 221348,
               "status": "passed"
             },
             "comments": [
@@ -360,7 +360,7 @@
       }
     ],
     "name": "Documentation introduction chapter",
-    "description": "\u003d\u003d\u003d\u003d\n[quote]\n____\nIn order to have an introduction chapter in my documentation +\nAs a bdd developer +\nI want to be able to provide an asciidoc based document which introduces my software.\n____\n\u003d\u003d\u003d\u003d",
+    "description": "\u003d\u003d\u003d\u003d\n[quote]\n____\nIn order to have an introduction chapter in my documentation\nAs a bdd developer\nI want to be able to provide an asciidoc based document which introduces my software.\n____\n\u003d\u003d\u003d\u003d",
     "id": "documentation-introduction-chapter",
     "keyword": "Feature",
     "uri": "com/github/cukedoctor/bdd/cukedoctor/intro-chapter.feature"
@@ -384,7 +384,7 @@
         "steps": [
           {
             "result": {
-              "duration": 65955,
+              "duration": 52874,
               "status": "passed"
             },
             "line": 14,
@@ -401,7 +401,7 @@
           },
           {
             "result": {
-              "duration": 47213493,
+              "duration": 34405012,
               "status": "passed"
             },
             "line": 28,
@@ -413,7 +413,7 @@
           },
           {
             "result": {
-              "duration": 147242,
+              "duration": 114051,
               "status": "passed"
             },
             "comments": [
@@ -446,7 +446,7 @@
         "steps": [
           {
             "result": {
-              "duration": 68072,
+              "duration": 52590,
               "status": "passed"
             },
             "comments": [
@@ -469,7 +469,7 @@
           },
           {
             "result": {
-              "duration": 29085152,
+              "duration": 28981738,
               "status": "passed"
             },
             "line": 79,
@@ -481,7 +481,7 @@
           },
           {
             "result": {
-              "duration": 87137,
+              "duration": 62233,
               "status": "passed"
             },
             "comments": [
@@ -506,7 +506,7 @@
       }
     ],
     "name": "Ordering",
-    "description": "\u003d\u003d\u003d\u003d\n[quote]\n____\nIn order to have features ordered in living documentation +\nAs a bdd developer +\nI want to control the order of features in my documentation\n____\n\u003d\u003d\u003d\u003d",
+    "description": "\u003d\u003d\u003d\u003d\n[quote]\n____\nIn order to have features ordered in living documentation\nAs a bdd developer\nI want to control the order of features in my documentation\n____\n\u003d\u003d\u003d\u003d",
     "id": "ordering",
     "keyword": "Feature",
     "uri": "com/github/cukedoctor/bdd/cukedoctor/ordering.feature"
