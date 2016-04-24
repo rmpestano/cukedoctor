@@ -84,6 +84,8 @@ Will be converted by Cukedoctor (after tests execution) into the following docum
 
 image::cukedoctor-sample.png[]
 
+The feature file for the above sample can be https://github.com/rmpestano/dbunit-rules/blob/master/cdi/src/test/resources/features/core/core-seed-database.feature[found here^].
+
 Failing steps are rendered as follows:
 
 image::cukedoctor-sample-with-error.png[]
