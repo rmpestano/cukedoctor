@@ -3,8 +3,8 @@ Feature: Ordering
   ====
   [quote]
   ____
-  In order to have features ordered in living documentation +
-  As a bdd developer +
+  In order to have features ordered in living documentation
+  As a bdd developer
   I want to control the order of features in my documentation
   ____
   ====

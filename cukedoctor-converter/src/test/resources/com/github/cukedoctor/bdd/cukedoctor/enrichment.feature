@@ -3,8 +3,8 @@ Feature: Enrich features
   ====
   [quote]
   ____
-  In order to have awesome _living documentation_ +
-  As a bdd developer +
+  In order to have awesome _living documentation_
+  As a bdd developer
   I want to render asciidoc markup inside my features.
   ____
   ====

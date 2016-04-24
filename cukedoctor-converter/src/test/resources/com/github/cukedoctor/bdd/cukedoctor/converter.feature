@@ -3,8 +3,8 @@ Feature: Cukedoctor Converter
   ====
   [quote]
   ____
-  In order to have awesome _living documentation_ +
-  As a bdd developer +
+  In order to have awesome _living documentation_
+  As a bdd developer
   I want to use *Cukedoctor* to convert my cucumber test results into `readable` living documentation.
   ____
   ====

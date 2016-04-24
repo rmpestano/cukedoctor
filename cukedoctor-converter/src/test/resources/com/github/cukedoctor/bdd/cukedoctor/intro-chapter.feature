@@ -3,8 +3,8 @@ Feature: Documentation introduction chapter
   ====
   [quote]
   ____
-  In order to have an introduction chapter in my documentation +
-  As a bdd developer +
+  In order to have an introduction chapter in my documentation
+  As a bdd developer
   I want to be able to provide an asciidoc based document which introduces my software.
   ____
   ====
