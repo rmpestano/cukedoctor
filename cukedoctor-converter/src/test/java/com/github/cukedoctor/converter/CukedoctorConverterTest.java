@@ -1,20 +1,5 @@
 package com.github.cukedoctor.converter;
 
-import static com.github.cukedoctor.util.Constants.home;
-import static com.github.cukedoctor.util.Constants.newLine;
-import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
-
-import java.io.File;
-import java.util.ArrayList;
-import java.util.List;
-
-import org.junit.BeforeClass;
-import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.junit.runners.JUnit4;
-
 import com.github.cukedoctor.Cukedoctor;
 import com.github.cukedoctor.api.CukedoctorConverter;
 import com.github.cukedoctor.api.DocumentAttributes;
@@ -26,6 +11,19 @@ import com.github.cukedoctor.spi.SummaryRenderer;
 import com.github.cukedoctor.util.Expectations;
 import com.github.cukedoctor.util.FileUtil;
 import com.github.cukedoctor.util.builder.FeatureBuilder;
+import org.junit.BeforeClass;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.junit.runners.JUnit4;
+
+import java.io.File;
+import java.util.ArrayList;
+import java.util.List;
+
+import static com.github.cukedoctor.util.Constants.newLine;
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 
 /**
@@ -687,5 +685,25 @@ public class CukedoctorConverterTest {
 				"****"+newLine() +
 				"\n").replaceAll("\r", ""));
 	}
+
+
+	@Test
+	public void shouldRenderDocumentationForScenariosWithoutDescription() {
+		List<Feature> features = FeatureParser.parse(getClass().getResource("/json-output/scenario_without_description.json").getPath());
+
+
+		CukedoctorConverter converter = Cukedoctor.instance(features);
+		converter.setFilename("target/living_documentation.adoc");
+		String resultDoc =	converter.renderDocumentation();
+		assertThat(resultDoc).isNotNull().
+				containsOnlyOnce("= *Documentation*" + newLine()).
+				containsOnlyOnce("=== *Do something*" + newLine()).
+				containsOnlyOnce("==== Scenario: User browses to the site successfully" + newLine()).
+				containsOnlyOnce("User opens a browser").
+				containsOnlyOnce("|1|0|1|1|0|0|0|0|0|1 2+|000ms");
+
+		assertThat(resultDoc.replaceAll("\r", "")).isEqualTo(Expectations.DOCUMENTATION_WITH_SCENARIO_WITHOUT_DESCRIPTION.replaceAll("\r", ""));
+	}
+
 	
 }

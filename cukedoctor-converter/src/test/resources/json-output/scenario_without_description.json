@@ -1,0 +1,36 @@
+[
+  {
+    "description": "As a foo...",
+    "elements": [
+      {
+        "id": "user does something",
+        "keyword": "Scenario",
+        "line": 6,
+        "name": "User browses to the site successfully",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "name": "User opens a browser",
+            "result": {
+              "status": "passed",
+              "duration": 425101
+            },
+            "line": 9,
+            "match": {
+              "location": "/Users/tfnico/projects/project/src/test-web/steps/sampleEntry_steps.js:15"
+            }
+          }
+        ],
+        "tags": [],
+        "type": "scenario"
+      }
+    ],
+    "id": "user-does-something",
+    "keyword": "Feature",
+    "line": 1,
+    "name": "Do something",
+    "tags": [],
+    "uri": "/Users/tfnico/projects/project/src/test-web/gherkin/do_something.feature"
+  }
+]

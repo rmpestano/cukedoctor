@@ -90,7 +90,9 @@ public class CukedoctorScenarioRenderer extends AbstractBaseRenderer implements 
             docBuilder.append(renderScenarioTags(scenario, feature));
         }
 
-        docBuilder.textLine(scenario.getDescription().replaceAll("\\\\","")).newLine();
+        if(hasText(scenario.getDescription())){
+            docBuilder.textLine(scenario.getDescription().replaceAll("\\\\","")).newLine();
+        }
 
         if (scenario.hasExamples()) {
             docBuilder.append(renderScenarioExamples(scenario));

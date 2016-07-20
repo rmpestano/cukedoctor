@@ -514,4 +514,61 @@ public interface Expectations {
 			Constants.Markup.exampleBlock() + newLine() +
 			"****"+newLine() +
 			""+newLine();
+	String DOCUMENTATION_WITH_SCENARIO_WITHOUT_DESCRIPTION = "\n" +
+			"= *Documentation*\n" +
+			"\n" +
+			"include::D:/projetos/cukedoctor/cukedoctor-converter/target/test-classes/cukedoctor-intro.adoc[leveloffset=+1]\n" +
+			"\n" +
+			"== *Summary*\n" +
+			"[cols=\"12*^m\", options=\"header,footer\"]\n" +
+			"|===\n" +
+			"3+|Scenarios 7+|Steps 2+|Features: 1\n" +
+			"\n" +
+			"|[green]#*Passed*#\n" +
+			"|[red]#*Failed*#\n" +
+			"|Total\n" +
+			"|[green]#*Passed*#\n" +
+			"|[red]#*Failed*#\n" +
+			"|[purple]#*Skipped*#\n" +
+			"|[maroon]#*Pending*#\n" +
+			"|[yellow]#*Undefined*#\n" +
+			"|[blue]#*Missing*#\n" +
+			"|Total\n" +
+			"|Duration\n" +
+			"|Status\n" +
+			"\n" +
+			"12+^|*<<Do-something>>*\n" +
+			"|1\n" +
+			"|0\n" +
+			"|1\n" +
+			"|1\n" +
+			"|0\n" +
+			"|0\n" +
+			"|0\n" +
+			"|0\n" +
+			"|0\n" +
+			"|1\n" +
+			"|000ms\n" +
+			"|[green]#*passed*#\n" +
+			"12+^|*Totals*\n" +
+			"|1|0|1|1|0|0|0|0|0|1 2+|000ms\n" +
+			"|===\n" +
+			"\n" +
+			"== *Features*\n" +
+			"\n" +
+			"[[Do-something, Do something]]\n" +
+			"=== *Do something*\n" +
+			"\n" +
+			"****\n" +
+			"As a foo...\n" +
+			"****\n" +
+			"\n" +
+			"==== Scenario: User browses to the site successfully\n" +
+			"****\n" +
+			"Given ::\n" +
+			"=====\n" +
+			"User opens a browser icon:thumbs-up[role=\"green\",title=\"Passed\"] [small right]#(000ms)#\n" +
+			"=====\n" +
+			"****\n" +
+			"\n";
 }
