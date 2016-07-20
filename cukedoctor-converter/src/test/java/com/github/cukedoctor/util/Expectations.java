@@ -517,7 +517,7 @@ public interface Expectations {
 	String DOCUMENTATION_WITH_SCENARIO_WITHOUT_DESCRIPTION = "\n" +
 			"= *Documentation*\n" +
 			"\n" +
-			"include::D:/projetos/cukedoctor/cukedoctor-converter/target/test-classes/cukedoctor-intro.adoc[leveloffset=+1]\n" +
+			"include::"+home()+"cukedoctor-intro.adoc[leveloffset=+1]\n"+
 			"\n" +
 			"== *Summary*\n" +
 			"[cols=\"12*^m\", options=\"header,footer\"]\n" +
