@@ -36,62 +36,62 @@ include::/home/travis/build/rmpestano/cukedoctor/cukedoctor-converter/target/tes
 |Status
 
 12+^|*<<Cukedoctor-Converter>>*
+|1
 |0
 |1
-|1
-|2
-|1
+|3
+|0
 |0
 |0
 |0
 |0
 |3
-|02s 780ms
-|[red]#*failed*#
+|02s 351ms
+|[green]#*passed*#
 
 12+^|*<<Ordering>>*
+|2
 |0
 |2
-|2
-|4
-|2
+|6
+|0
 |0
 |0
 |0
 |0
 |6
-|083ms
-|[red]#*failed*#
+|050ms
+|[green]#*passed*#
 
 12+^|*<<Enrich-features>>*
-|1
-|1
 |2
-|5
-|1
+|0
+|2
+|6
+|0
 |0
 |0
 |0
 |0
 |6
-|132ms
-|[red]#*failed*#
+|094ms
+|[green]#*passed*#
 
 12+^|*<<Documentation-introduction-chapter>>*
+|1
 |0
 |1
-|1
-|3
-|1
+|4
+|0
 |0
 |0
 |0
 |0
 |4
-|042ms
-|[red]#*failed*#
+|046ms
+|[green]#*passed*#
 12+^|*Totals*
-|1|5|6|14|5|0|0|0|0|19 2+|03s 038ms
+|6|0|6|19|0|0|0|0|0|19 2+|02s 543ms
 |===
 
 == *Features*
@@ -110,11 +110,12 @@ ____
 ====
 ****
 
-==== Scenario: Convert features test output into documentation icon:thumbs-down[role="red",title="Failed"]
+==== Scenario: Convert features test output into documentation
+
 ****
 Given ::
 =====
-The following two features: icon:thumbs-up[role="green",title="Passed"] [small right]#(918ms)#
+The following two features: icon:thumbs-up[role="green",title="Passed"] [small right]#(940ms)#
 ----
 
 Feature: Feature1
@@ -133,7 +134,7 @@ Feature: Feature2
 =====
 When ::
 =====
-I convert their json test output using cukedoctor converter icon:thumbs-up[role="green",title="Passed"] [small right]#(01s 821ms)#
+I convert their json test output using cukedoctor converter icon:thumbs-up[role="green",title="Passed"] [small right]#(01s 410ms)#
 ******
 
 [discrete]
@@ -159,7 +160,7 @@ NOTE: *plugin* option replaced *format* option which was deprecated in newer cuc
 =====
 Then ::
 =====
-I should have awesome living documentation icon:thumbs-down[role="red",title="Failed"] [small right]#(039ms)#
+I should have awesome living documentation icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ******
 
 [discrete]
@@ -261,29 +262,6 @@ scenario step icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 
 ******
 
-IMPORTANT: org.junit.ComparisonFailure: expected:<... Scenario feature 1
-[
-****
-Given ::
-=====
-scenario step icon:thumbs-up[role="green",title="Passed"] [small right]#(647ms)#
-=====
-****
-
-[[Feature2, Feature2]]
-=== *Feature2*
-
-==== Scenario: Scenario feature 2
-]
-****
-Given ::
-=====...> but was:<... Scenario feature 1
-[****
-Given ::
-=====
-scenario step icon:thumbs-up[role="green",title="Passed"] [small right]...
-
-
 =====
 ****
 
@@ -301,7 +279,8 @@ ____
 ====
 ****
 
-==== Scenario: Default ordering icon:thumbs-down[role="red",title="Failed"]
+==== Scenario: Default ordering
+
 ****
 Given ::
 =====
@@ -324,11 +303,11 @@ Feature: Feature2
 =====
 When ::
 =====
-I convert them using default order icon:thumbs-up[role="green",title="Passed"] [small right]#(060ms)#
+I convert them using default order icon:thumbs-up[role="green",title="Passed"] [small right]#(022ms)#
 =====
 Then ::
 =====
-Features should be ordered by name in resulting documentation icon:thumbs-down[role="red",title="Failed"] [small right]#(000ms)#
+Features should be ordered by name in resulting documentation icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ******
 
 [discrete]
@@ -372,33 +351,11 @@ scenario step icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 
 ******
 
-IMPORTANT: org.junit.ComparisonFailure: expected:<... Scenario feature 1
-[
-****
-Given ::
-=====
-scenario step icon:thumbs-up[role="green",title="Passed"] [small right]#(647ms)#
 =====
 ****
 
-[[Feature2, Feature2]]
-=== *Feature2*
+==== Scenario: Custom ordering
 
-==== Scenario: Scenario feature 2
-]
-****
-Given ::
-=====...> but was:<... Scenario feature 1
-[****
-Given ::
-=====
-scenario step icon:thumbs-up[role="green",title="Passed"] [small right]...
-
-
-=====
-****
-
-==== Scenario: Custom ordering icon:thumbs-down[role="red",title="Failed"]
 ****
 Given ::
 =====
@@ -426,11 +383,11 @@ NOTE: Ordering is done using feature comment '*order:*'
 =====
 When ::
 =====
-I convert them using comment order icon:thumbs-up[role="green",title="Passed"] [small right]#(022ms)#
+I convert them using comment order icon:thumbs-up[role="green",title="Passed"] [small right]#(028ms)#
 =====
 Then ::
 =====
-Features should be ordered respecting order comment icon:thumbs-down[role="red",title="Failed"] [small right]#(000ms)#
+Features should be ordered respecting order comment icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ******
 
 [discrete]
@@ -474,29 +431,6 @@ scenario step icon:thumbs-up[role="green",title="Passed"] [small right]#(313ms)#
 
 ******
 
-IMPORTANT: org.junit.ComparisonFailure: expected:<... Scenario feature 2
-[
-****
-Given ::
-=====
-scenario step icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
-=====
-****
-
-[[Feature1, Feature1]]
-=== *Feature1*
-
-==== Scenario: Scenario feature 1
-]
-****
-Given ::
-=====...> but was:<... Scenario feature 2
-[****
-Given ::
-=====
-scenario step icon:thumbs-up[role="green",title="Passed"] [small right]...
-
-
 =====
 ****
 
@@ -514,7 +448,7 @@ ____
 ====
 ****
 
-==== Scenario: DocSting enrichment icon:thumbs-down[role="red",title="Failed"]
+==== Scenario: DocSting enrichment
 Asciidoc markup can be used in feature *DocStrings*. To do so you need to enable it by using *[cukector-dicrete]* comment on the feature.
 
 ****
@@ -558,11 +492,11 @@ Feature: Enrich feature
 =====
 When ::
 =====
-I convert docstring enriched json output using cukedoctor converter icon:thumbs-up[role="green",title="Passed"] [small right]#(057ms)#
+I convert docstring enriched json output using cukedoctor converter icon:thumbs-up[role="green",title="Passed"] [small right]#(046ms)#
 =====
 Then ::
 =====
-DocString asciidoc output must be rendered in my documentation icon:thumbs-down[role="red",title="Failed"] [small right]#(000ms)#
+DocString asciidoc output must be rendered in my documentation icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ******
 
 [discrete]
@@ -636,33 +570,6 @@ the following table icon:thumbs-up[role="green",title="Passed"] [small right]#(0
 
 ******
 
-IMPORTANT: org.junit.ComparisonFailure: expected:<... Render source code
-[
-****
-Given ::
-=====
-the following source code icon:thumbs-up[role="green",title="Passed"] [small right]#(267ms)#
-******
-
-[discrete]
-[source, java]
------
-public int sum(int x, int y){
-    int result = x + y;
-    return result; <1>
-}
------
-<1> We can have callouts in living documentation>
-
-
-******
-
-=====
-****
-
-==== Scenario: Render tabl...
-
-
 =====
 ****
 
@@ -698,7 +605,7 @@ Feature: Calculator
 =====
 When ::
 =====
-I convert enriched feature json output using cukedoctor icon:thumbs-up[role="green",title="Passed"] [small right]#(073ms)#
+I convert enriched feature json output using cukedoctor icon:thumbs-up[role="green",title="Passed"] [small right]#(047ms)#
 =====
 Then ::
 =====
@@ -779,7 +686,8 @@ ____
 ====
 ****
 
-==== Scenario: Introduction chapter in classpath icon:thumbs-down[role="red",title="Failed"]
+==== Scenario: Introduction chapter in classpath
+
 ****
 Given ::
 =====
@@ -802,7 +710,7 @@ Feature: Feature2
 =====
 And ::
 =====
-The following asciidoc document is on your application classpath icon:thumbs-up[role="green",title="Passed"] [small right]#(041ms)#
+The following asciidoc document is on your application classpath icon:thumbs-up[role="green",title="Passed"] [small right]#(045ms)#
 ******
 
 [discrete]
@@ -846,7 +754,7 @@ Bdd tests results are converted into documentation by Cukedoctor icon:thumbs-up[
 =====
 Then ::
 =====
-Resulting documentation should have the provided introduction chapter icon:thumbs-down[role="red",title="Failed"] [small right]#(000ms)#
+Resulting documentation should have the provided introduction chapter icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ******
 
 [discrete]
@@ -963,29 +871,6 @@ scenario step icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 
 
 ******
-
-IMPORTANT: org.junit.ComparisonFailure: expected:<... Scenario feature 1
-[
-****
-Given ::
-=====
-scenario step icon:thumbs-up[role="green",title="Passed"] [small right]#(647ms)#
-=====
-****
-
-[[Feature2, Feature2]]
-=== *Feature2*
-
-==== Scenario: Scenario feature 2
-]
-****
-Given ::
-=====...> but was:<... Scenario feature 1
-[****
-Given ::
-=====
-scenario step icon:thumbs-up[role="green",title="Passed"] [small right]...
-
 
 =====
 ****
