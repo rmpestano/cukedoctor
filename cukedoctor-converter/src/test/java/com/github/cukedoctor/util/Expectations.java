@@ -562,7 +562,7 @@ public interface Expectations {
 			"As a foo..."+newLine() +
 			"****"+newLine() +
 			""+newLine() +
-			"==== Scenario: User browses to the site successfully"+newLine() +
+			"==== Scenario: User browses to the site successfully"+newLine() + newLine() +
 			"****"+newLine() +
 			"Given ::"+newLine() +
 			"====="+newLine() +
