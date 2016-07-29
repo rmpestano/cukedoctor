@@ -1,5 +1,6 @@
 package com.github.cukedoctor.parser;
 
+import static com.github.cukedoctor.util.Constants.newLine;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
@@ -13,9 +14,12 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;
 
+import com.github.cukedoctor.Cukedoctor;
+import com.github.cukedoctor.api.CukedoctorConverter;
 import com.github.cukedoctor.api.model.Feature;
 import com.github.cukedoctor.api.model.Scenario;
 import com.github.cukedoctor.api.model.Step;
+import com.github.cukedoctor.util.Expectations;
 import com.github.cukedoctor.util.FileUtil;
 import com.github.cukedoctor.util.builder.FeatureBuilder;
 
@@ -139,6 +143,12 @@ public class FeatureParserTest {
 		List<Feature> features = FeatureParser.parse(filePath);
 		assertNull(features);
 	}
+	
+	@Test
+    public void shouldParseFeatureWithCommentsInScenariosExamples() {
+        List<Feature> features = FeatureParser.parse(getClass().getResource("/json-output/feature_with_comments_in_examples.json").getPath());
+        assertThat(features).isNotNull().hasSize(1);
+    }
 
 
 }

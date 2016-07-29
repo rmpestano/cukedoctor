@@ -5,7 +5,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 /**
  * Created by pestano on 21/06/15.
  */
-@JsonIgnoreProperties(value = {"description","keyword","line","id"})
+@JsonIgnoreProperties(value = {"description","keyword","line","id","comments"})
 public class Example {
 
 	private String name;
