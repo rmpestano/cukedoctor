@@ -10,7 +10,7 @@
 :docinfo:
 :source-highlighter: highlightjs
 :toclevels: 3
-:revnumber: 1.0.3
+:revnumber: 1.0.4-SNAPSHOT
 :hardbreaks:
 
 = *Living Documentation*
@@ -46,7 +46,7 @@ include::/home/travis/build/rmpestano/cukedoctor/cukedoctor-converter/target/tes
 |0
 |0
 |3
-|01s 696ms
+|01s 863ms
 |[green]#*passed*#
 
 12+^|*<<Ordering>>*
@@ -60,7 +60,7 @@ include::/home/travis/build/rmpestano/cukedoctor/cukedoctor-converter/target/tes
 |0
 |0
 |6
-|060ms
+|041ms
 |[green]#*passed*#
 
 12+^|*<<Enrich-features>>*
@@ -74,7 +74,7 @@ include::/home/travis/build/rmpestano/cukedoctor/cukedoctor-converter/target/tes
 |0
 |0
 |6
-|067ms
+|086ms
 |[green]#*passed*#
 
 12+^|*<<Documentation-introduction-chapter>>*
@@ -88,10 +88,10 @@ include::/home/travis/build/rmpestano/cukedoctor/cukedoctor-converter/target/tes
 |0
 |0
 |4
-|033ms
+|048ms
 |[green]#*passed*#
 12+^|*Totals*
-|6|0|6|19|0|0|0|0|0|19 2+|01s 858ms
+|6|0|6|19|0|0|0|0|0|19 2+|02s 039ms
 |===
 
 == *Features*
@@ -115,7 +115,7 @@ ____
 ****
 Given ::
 =====
-The following two features: icon:thumbs-up[role="green",title="Passed"] [small right]#(535ms)#
+The following two features: icon:thumbs-up[role="green",title="Passed"] [small right]#(572ms)#
 ----
 
 Feature: Feature1
@@ -134,7 +134,7 @@ Feature: Feature2
 =====
 When ::
 =====
-I convert their json test output using cukedoctor converter icon:thumbs-up[role="green",title="Passed"] [small right]#(01s 160ms)#
+I convert their json test output using cukedoctor converter icon:thumbs-up[role="green",title="Passed"] [small right]#(01s 289ms)#
 ******
 
 [discrete]
@@ -160,7 +160,7 @@ NOTE: *plugin* option replaced *format* option which was deprecated in newer cuc
 =====
 Then ::
 =====
-I should have awesome living documentation icon:thumbs-up[role="green",title="Passed"] [small right]#(001ms)#
+I should have awesome living documentation icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ******
 
 [discrete]
@@ -303,7 +303,7 @@ Feature: Feature2
 =====
 When ::
 =====
-I convert them using default order icon:thumbs-up[role="green",title="Passed"] [small right]#(030ms)#
+I convert them using default order icon:thumbs-up[role="green",title="Passed"] [small right]#(027ms)#
 =====
 Then ::
 =====
@@ -383,7 +383,7 @@ NOTE: Ordering is done using feature comment '*order:*'
 =====
 When ::
 =====
-I convert them using comment order icon:thumbs-up[role="green",title="Passed"] [small right]#(028ms)#
+I convert them using comment order icon:thumbs-up[role="green",title="Passed"] [small right]#(013ms)#
 =====
 Then ::
 =====
@@ -492,7 +492,7 @@ Feature: Enrich feature
 =====
 When ::
 =====
-I convert docstring enriched json output using cukedoctor converter icon:thumbs-up[role="green",title="Passed"] [small right]#(038ms)#
+I convert docstring enriched json output using cukedoctor converter icon:thumbs-up[role="green",title="Passed"] [small right]#(041ms)#
 =====
 Then ::
 =====
@@ -605,7 +605,7 @@ Feature: Calculator
 =====
 When ::
 =====
-I convert enriched feature json output using cukedoctor icon:thumbs-up[role="green",title="Passed"] [small right]#(029ms)#
+I convert enriched feature json output using cukedoctor icon:thumbs-up[role="green",title="Passed"] [small right]#(044ms)#
 =====
 Then ::
 =====
@@ -710,7 +710,7 @@ Feature: Feature2
 =====
 And ::
 =====
-The following asciidoc document is on your application classpath icon:thumbs-up[role="green",title="Passed"] [small right]#(033ms)#
+The following asciidoc document is on your application classpath icon:thumbs-up[role="green",title="Passed"] [small right]#(047ms)#
 ******
 
 [discrete]
