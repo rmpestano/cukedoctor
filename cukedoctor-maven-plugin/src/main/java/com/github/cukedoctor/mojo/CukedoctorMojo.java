@@ -99,7 +99,7 @@ public class CukedoctorMojo extends AbstractMojo {
 
     public void execute() throws MojoExecutionException, MojoFailureException {
         if(skip){
-            getLog().info("Skipping cukecdotor-maven-plugin");
+            getLog().info("Skipping cukedoctor-maven-plugin");
             return;
         }
         String startDir = null;

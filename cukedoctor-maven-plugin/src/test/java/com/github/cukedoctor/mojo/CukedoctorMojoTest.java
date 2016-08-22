@@ -234,7 +234,7 @@ public class CukedoctorMojoTest extends AbstractMojoTestCase {
         ByteArrayOutputStream outContent = new ByteArrayOutputStream();
         System.setOut(new PrintStream(outContent));
         mojo.execute();
-        outContent.toString();
+        assertThat(outContent.toString()).contains("Skipping cukedoctor-maven-plugin");
 
     }
 
