@@ -16,8 +16,6 @@ package com.github.cukedoctor.mojo;
  * limitations under the License.
  */
 
-import static com.github.cukedoctor.extension.CukedoctorExtensionRegistry.*;
-
 import com.github.cukedoctor.Cukedoctor;
 import com.github.cukedoctor.api.CukedoctorConverter;
 import com.github.cukedoctor.api.DocumentAttributes;
@@ -39,7 +37,9 @@ import org.asciidoctor.OptionsBuilder;
 import org.asciidoctor.SafeMode;
 
 import java.io.File;
-import java.util.*;
+import java.util.List;
+
+import static com.github.cukedoctor.extension.CukedoctorExtensionRegistry.FILTER_DISABLE_EXT_KEY;
 
 @Mojo(name = "execute",
         defaultPhase = LifecyclePhase.INSTALL)
@@ -87,6 +87,9 @@ public class CukedoctorMojo extends AbstractMojo {
     @Parameter(defaultValue = "true", required = false)
     boolean hardBreaks;
 
+    @Parameter(property = "cukedoctor.skip", defaultValue = "false")
+    private boolean skip;
+
 
     @Component
     MavenProject project;
@@ -95,6 +98,10 @@ public class CukedoctorMojo extends AbstractMojo {
 
 
     public void execute() throws MojoExecutionException, MojoFailureException {
+        if(skip){
+            getLog().info("Skipping cukecdotor-maven-plugin");
+            return;
+        }
         String startDir = null;
         if (featuresDir != null) {
             startDir = featuresDir;

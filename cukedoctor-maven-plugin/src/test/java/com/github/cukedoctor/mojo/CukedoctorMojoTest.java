@@ -1,16 +1,16 @@
 package com.github.cukedoctor.mojo;
 
-import static com.github.cukedoctor.extension.CukedoctorExtensionRegistry.*;
+import com.github.cukedoctor.util.FileUtil;
+import org.apache.maven.plugin.testing.AbstractMojoTestCase;
 
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.PrintStream;
+
+import static com.github.cukedoctor.extension.CukedoctorExtensionRegistry.FILTER_DISABLE_EXT_KEY;
 import static com.github.cukedoctor.mojo.FileUtil.loadTestFile;
 import static com.github.cukedoctor.mojo.FileUtil.readFileContent;
 import static org.assertj.core.api.Assertions.assertThat;
-
-import java.io.File;
-
-import org.apache.maven.plugin.testing.AbstractMojoTestCase;
-
-import com.github.cukedoctor.util.FileUtil;
 
 /**
  * Created by pestano on 27/06/15.
@@ -39,7 +39,7 @@ public class CukedoctorMojoTest extends AbstractMojoTestCase {
     /**
      * @throws Exception
      */
-    public void testHtmlDocs() throws Exception {
+    public void shouldGenerateHtmlDocs() throws Exception {
 
         CukedoctorMojo mojo = (CukedoctorMojo) lookupMojo("execute", getTestFile("src/test/resources/html-docs-pom.xml"));
 
@@ -63,7 +63,7 @@ public class CukedoctorMojoTest extends AbstractMojoTestCase {
     /**
      * @throws Exception
      */
-    public void testHtmlDocsWithoutFilterExtension() throws Exception {
+    public void shouldGenerateHtmlDocsWithoutFilterExtension() throws Exception {
 
         CukedoctorMojo mojo = (CukedoctorMojo) lookupMojo("execute", getTestFile("src/test/resources/html-docs-no-filter-pom.xml"));
 
@@ -87,7 +87,7 @@ public class CukedoctorMojoTest extends AbstractMojoTestCase {
     /**
      * @throws Exception
      */
-    public void testHtmlDocsWithoutThemeExtension() throws Exception {
+    public void shouldGenerateHtmlDocsWithoutThemeExtension() throws Exception {
 
         CukedoctorMojo mojo = (CukedoctorMojo) lookupMojo("execute", getTestFile("src/test/resources/html-docs-no-theme-pom.xml"));
 
@@ -115,7 +115,7 @@ public class CukedoctorMojoTest extends AbstractMojoTestCase {
   /**
    * @throws Exception
    */
-  public void testHtmlDocsWithoutFooterExtension() throws Exception {
+  public void shouldGenerateHtmlDocsWithoutFooterExtension() throws Exception {
 
     CukedoctorMojo mojo = (CukedoctorMojo) lookupMojo("execute", getTestFile("src/test/resources/html-docs-no-footer-pom.xml"));
 
@@ -140,7 +140,7 @@ public class CukedoctorMojoTest extends AbstractMojoTestCase {
   /**
    * @throws Exception
      */
-    public void testHtmlDocsWithoutExtensions() throws Exception {
+    public void shouldGenerateHtmlDocsWithoutExtensions() throws Exception {
 
         CukedoctorMojo mojo = (CukedoctorMojo) lookupMojo("execute", getTestFile("src/test/resources/html-docs-no-extension-pom.xml"));
 
@@ -165,7 +165,7 @@ public class CukedoctorMojoTest extends AbstractMojoTestCase {
     /**
      * @throws Exception
      */
-    public void testPdfDocs() throws Exception {
+    public void shouldGeneratePdfDocs() throws Exception {
 
         CukedoctorMojo mojo = (CukedoctorMojo) lookupMojo("execute", getTestFile("src/test/resources/pdf-docs-pom.xml"));
 
@@ -181,7 +181,7 @@ public class CukedoctorMojoTest extends AbstractMojoTestCase {
     /**
      * @throws Exception
      */
-    public void testHtmlDocsUsingFeaturesDir() throws Exception {
+    public void shouldGenerateHtmlDocsUsingFeaturesDir() throws Exception {
 
         CukedoctorMojo mojo = (CukedoctorMojo) lookupMojo("execute", getTestFile("src/test/resources/html-docs-with-features-dir-pom.xml"));
 
@@ -207,7 +207,7 @@ public class CukedoctorMojoTest extends AbstractMojoTestCase {
     /**
      * @throws Exception
      */
-    public void testAllDocs() throws Exception {
+    public void shouldGenerateAllDocs() throws Exception {
 
         CukedoctorMojo mojo = (CukedoctorMojo) lookupMojo("execute", getTestFile("src/test/resources/html-pdf-docs-pom.xml"));
 
@@ -225,6 +225,16 @@ public class CukedoctorMojoTest extends AbstractMojoTestCase {
                 contains("function themefy()");
         File htmlFile = FileUtil.loadFile(mojo.getDocumentationDir() + mojo.outputFileName + ".html");
         assertThat(htmlFile).exists().hasParent("target/docs");
+
+    }
+
+    public void shouldSkipDocsGeneration() throws Exception {
+        CukedoctorMojo mojo = (CukedoctorMojo) lookupMojo("execute", getTestFile("src/test/resources/skip-docs-pom.xml"));
+        assertNotNull(mojo);
+        ByteArrayOutputStream outContent = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(outContent));
+        mojo.execute();
+        outContent.toString();
 
     }
 
