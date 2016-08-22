@@ -39,7 +39,7 @@ public class CukedoctorMojoTest extends AbstractMojoTestCase {
     /**
      * @throws Exception
      */
-    public void shouldGenerateHtmlDocs() throws Exception {
+    public void testGenerateHtmlDocs() throws Exception {
 
         CukedoctorMojo mojo = (CukedoctorMojo) lookupMojo("execute", getTestFile("src/test/resources/html-docs-pom.xml"));
 
@@ -63,7 +63,7 @@ public class CukedoctorMojoTest extends AbstractMojoTestCase {
     /**
      * @throws Exception
      */
-    public void shouldGenerateHtmlDocsWithoutFilterExtension() throws Exception {
+    public void testGenerateHtmlDocsWithoutFilterExtension() throws Exception {
 
         CukedoctorMojo mojo = (CukedoctorMojo) lookupMojo("execute", getTestFile("src/test/resources/html-docs-no-filter-pom.xml"));
 
@@ -87,7 +87,7 @@ public class CukedoctorMojoTest extends AbstractMojoTestCase {
     /**
      * @throws Exception
      */
-    public void shouldGenerateHtmlDocsWithoutThemeExtension() throws Exception {
+    public void testGenerateHtmlDocsWithoutThemeExtension() throws Exception {
 
         CukedoctorMojo mojo = (CukedoctorMojo) lookupMojo("execute", getTestFile("src/test/resources/html-docs-no-theme-pom.xml"));
 
@@ -115,7 +115,7 @@ public class CukedoctorMojoTest extends AbstractMojoTestCase {
   /**
    * @throws Exception
    */
-  public void shouldGenerateHtmlDocsWithoutFooterExtension() throws Exception {
+  public void testGenerateHtmlDocsWithoutFooterExtension() throws Exception {
 
     CukedoctorMojo mojo = (CukedoctorMojo) lookupMojo("execute", getTestFile("src/test/resources/html-docs-no-footer-pom.xml"));
 
@@ -140,7 +140,7 @@ public class CukedoctorMojoTest extends AbstractMojoTestCase {
   /**
    * @throws Exception
      */
-    public void shouldGenerateHtmlDocsWithoutExtensions() throws Exception {
+    public void testGenerateHtmlDocsWithoutExtensions() throws Exception {
 
         CukedoctorMojo mojo = (CukedoctorMojo) lookupMojo("execute", getTestFile("src/test/resources/html-docs-no-extension-pom.xml"));
 
@@ -165,7 +165,7 @@ public class CukedoctorMojoTest extends AbstractMojoTestCase {
     /**
      * @throws Exception
      */
-    public void shouldGeneratePdfDocs() throws Exception {
+    public void testGeneratePdfDocs() throws Exception {
 
         CukedoctorMojo mojo = (CukedoctorMojo) lookupMojo("execute", getTestFile("src/test/resources/pdf-docs-pom.xml"));
 
@@ -181,7 +181,7 @@ public class CukedoctorMojoTest extends AbstractMojoTestCase {
     /**
      * @throws Exception
      */
-    public void shouldGenerateHtmlDocsUsingFeaturesDir() throws Exception {
+    public void testGenerateHtmlDocsUsingFeaturesDir() throws Exception {
 
         CukedoctorMojo mojo = (CukedoctorMojo) lookupMojo("execute", getTestFile("src/test/resources/html-docs-with-features-dir-pom.xml"));
 
@@ -207,7 +207,7 @@ public class CukedoctorMojoTest extends AbstractMojoTestCase {
     /**
      * @throws Exception
      */
-    public void shouldGenerateAllDocs() throws Exception {
+    public void testGenerateAllDocs() throws Exception {
 
         CukedoctorMojo mojo = (CukedoctorMojo) lookupMojo("execute", getTestFile("src/test/resources/html-pdf-docs-pom.xml"));
 
@@ -228,7 +228,7 @@ public class CukedoctorMojoTest extends AbstractMojoTestCase {
 
     }
 
-    public void shouldSkipDocsGeneration() throws Exception {
+    public void testSkipDocsGenerationTest() throws Exception {
         CukedoctorMojo mojo = (CukedoctorMojo) lookupMojo("execute", getTestFile("src/test/resources/skip-docs-pom.xml"));
         assertNotNull(mojo);
         ByteArrayOutputStream outContent = new ByteArrayOutputStream();
