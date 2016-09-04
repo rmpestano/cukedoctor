@@ -162,12 +162,12 @@ public class CukedoctorStepsRenderer extends AbstractBaseRenderer implements Ste
                        line.contains("====") || line.contains(Constants.Markup.listing())
                        || (line.startsWith("<") && line.endsWith(">"))
                        ){
-                       docBuilder.textLine(line.replaceAll("\\n", newLine()).replaceAll("#", "").
-                           replaceAll("\\{", "").
+                       docBuilder.textLine(line.replaceAll("\\n", newLine()).
+                           replaceAll("#\\{", "").replaceAll("# \\{", "").
                            replaceAll("}", ""));
                    } else{
-                       docBuilder.textLine(line.replaceAll("\\n", newLine()).replaceAll("#", "").
-                           replaceAll("\\{", newLine()).
+                       docBuilder.textLine(line.replaceAll("\\n", newLine()).
+                           replaceAll("#\\{", newLine()).replaceAll("# \\{", newLine()).
                            replaceAll("}", ""));
                    }
 
