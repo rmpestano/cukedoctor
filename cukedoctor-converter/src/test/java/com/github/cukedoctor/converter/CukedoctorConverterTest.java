@@ -558,16 +558,16 @@ public class CukedoctorConverterTest {
 				"=====" + newLine() +
 				"When ::" + newLine() + "=====" + newLine() +
 				"I sum the numbers icon:thumbs-up[role=\"green\",title=\"Passed\"] [small right]#(000ms)#" + newLine() +
-				" " + newLine() +
+				newLine() +
 				"NOTE: Steps comments are placed *before* each steps so this comment is for the *WHEN* step." + newLine() +
 				newLine() + "=====" + newLine() +
 				"Then ::" + newLine() + "=====" + newLine() +
 				"I should have 3 as result icon:thumbs-up[role=\"green\",title=\"Passed\"] [small right]#(001ms)#" + newLine() +
-				" " + newLine() +
+				newLine() +
 				"* this is a list of itens inside a feature step" + newLine() +
-				" " + newLine() +
+				newLine() +
 				"* there is no multiline comment in gherkin" + newLine() +
-				" " + newLine() +
+				newLine() +
 				"** second level list item" + newLine() +
 				newLine() + "=====" + newLine() +
 				"****" + newLine() + newLine()).replaceAll("\r", ""));
@@ -674,11 +674,11 @@ public class CukedoctorConverterTest {
 				"Then ::"+newLine() +
 				"====="+newLine() +
 				"I should have 3 as result icon:thumbs-up[role=\"green\",title=\"Passed\"] [small right]#(003ms)#"+newLine() +
-				" "+newLine() +
+				newLine() +
 				"* this is a list of itens inside a feature step"+newLine() +
-				" "+newLine() +
+				newLine() +
 				"* there is no multiline comment in gherkin"+newLine() +
-				" "+newLine() +
+				newLine() +
 				"** second level list item"+newLine() +
 				""+newLine() +
 				"====="+newLine() +
