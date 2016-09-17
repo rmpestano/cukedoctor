@@ -434,7 +434,7 @@ public class CukedoctorConverterTest {
 
 		assertThat(resultDoc).
 				doesNotContain("feature to skip").
-				isEqualTo("[[Feature-name, Feature name]]" + newLine() +
+				contains("[[Feature-name, Feature name]]" + newLine() +
 						"=== *Feature name*" + newLine() +
 						"" + newLine() +
 						"minmax::Feature-name[]" + newLine() +
@@ -510,6 +510,68 @@ public class CukedoctorConverterTest {
 	}
 
 	@Test
+	public void shouldRenderDocumentationWithoutFeaturesSection() {
+		try {
+			System.setProperty("HIDE_FEATURES_SECTION", "true");
+			List<Feature> features = FeatureParser.parse(onePassingOneFailing);
+			DocumentAttributes attrs = new DocumentAttributes();
+			attrs.toc("left").backend("html5")
+					.docType("book").docTitle("Living Documentation")
+					.icons("font").numbered(false)
+					.sectAnchors(true).sectLink(true);
+
+			CukedoctorConverter converter = Cukedoctor.instance(features, attrs);
+			converter.setFilename("/target/living_documentation.adoc");
+			String resultDoc = converter.renderDocumentation();
+
+			assertThat(resultDoc).isNotNull().
+					containsOnlyOnce(":doctype: book" + newLine()).
+					containsOnlyOnce(":toc: left" + newLine()).
+					containsOnlyOnce("= *Living Documentation*" + newLine()).
+					containsOnlyOnce("<<One-passing-scenario-one-failing-scenario>>").
+					containsOnlyOnce("|[red]#*failed*#").
+					contains("|010ms").
+					containsOnlyOnce("|1|1|2|1|1|0|0|0|0|2 2+|010ms");
+
+			FileUtil.saveFile("target/test-docs/doc_without_features_sect.adoc", resultDoc); //save to target/test-docs folder
+			assertThat(resultDoc.replaceAll("\r", "")).isEqualTo(Expectations.DOCUMENTATION_WITHOUT_FEATURES_SECTION.replaceAll("\r", ""));
+		}finally {
+			System.setProperty("HIDE_FEATURES_SECTION","false");
+		}
+	}
+
+	@Test
+	public void shouldRenderDocumentationWithoutFeaturesAndSummarySection() {
+		try {
+			System.setProperty("HIDE_FEATURES_SECTION", "true");
+			System.setProperty("HIDE_SUMMARY_SECTION", "true");
+			List<Feature> features = FeatureParser.parse(onePassingOneFailing);
+			DocumentAttributes attrs = new DocumentAttributes();
+			attrs.toc("left").backend("html5")
+					.docType("book").docTitle("Living Documentation")
+					.icons("font").numbered(false)
+					.sectAnchors(true).sectLink(true);
+
+			CukedoctorConverter converter = Cukedoctor.instance(features, attrs);
+			converter.setFilename("/target/living_documentation.adoc");
+			String resultDoc = converter.renderDocumentation();
+
+			assertThat(resultDoc).isNotNull().
+					containsOnlyOnce(":doctype: book" + newLine()).
+					containsOnlyOnce(":toc: left" + newLine()).
+					containsOnlyOnce("= *Living Documentation*" + newLine()).
+					doesNotContain("<<One-passing-scenario-one-failing-scenario>>");
+
+			FileUtil.saveFile("target/test-docs/doc_without_features_sect.adoc", resultDoc); //save to target/test-docs folder
+			assertThat(resultDoc.replaceAll("\r", "")).isEqualTo(Expectations.DOCUMENTATION_WITHOUT_FEATURES_AND_SUMMARY_SECTIONS.replaceAll("\r", ""));
+		}finally {
+			System.setProperty("HIDE_FEATURES_SECTION","false");
+			System.setProperty("HIDE_SUMMARY_SECTION","false");
+		}
+	}
+
+
+	@Test
 	public void shouldRenderFeatureDescriptionWithNewLines(){
 		List<Feature> features = FeatureParser.parse(FileUtil.findJsonFile("target/test-classes/json-output/sample.json"));
 		assertThat(features).hasSize(1);
@@ -541,7 +603,7 @@ public class CukedoctorConverterTest {
 		List<Feature> features = FeatureParser.parse(getClass().getResource("/json-output/enrichment/calc.json").getPath());
 		assertThat(features).isNotNull().hasSize(1);
 		String output = Cukedoctor.instance(features).renderFeatures(features).getDocumentation();
-		assertThat(output.replaceAll("\r", "")).isEqualTo(("[[Calculator, Calculator]]" + newLine() +
+		assertThat(output.replaceAll("\r", "")).contains(("[[Calculator, Calculator]]" + newLine() +
 				"=== *Calculator*" + newLine() +
 				newLine() +
 				"==== Scenario: Adding numbers" + newLine() +
@@ -578,7 +640,7 @@ public class CukedoctorConverterTest {
 		List<Feature> features = FeatureParser.parse(getClass().getResource("/com/github/cukedoctor/json-output/comment-with-listing.json").getPath());
 		assertThat(features).isNotNull().hasSize(1);
 		String output = Cukedoctor.instance(features).renderFeatures(features).getDocumentation();
-		assertThat(output.replaceAll("\r", "")).isEqualTo(("[[Enriched-feature, Enriched feature]]" + newLine() +
+		assertThat(output.replaceAll("\r", "")).contains(("[[Enriched-feature, Enriched feature]]" + newLine() +
 				"=== *Enriched feature*" + newLine() +
 				"" + newLine() +
 				"==== Scenario: Scenario with listing" + newLine() +
@@ -601,7 +663,7 @@ public class CukedoctorConverterTest {
 		List<Feature> features = FeatureParser.parse(getClass().getResource("/com/github/cukedoctor/json-output/comment-with-admonition-and-listing.json").getPath());
 		assertThat(features).isNotNull().hasSize(1);
 		String output = Cukedoctor.instance(features).renderFeatures(features).getDocumentation();
-		assertThat(output.replaceAll("\r", "")).isEqualTo(("[[Enriched-feature, Enriched feature]]" + newLine() +
+		assertThat(output.replaceAll("\r", "")).contains(("[[Enriched-feature, Enriched feature]]" + newLine() +
 				"=== *Enriched feature*" + newLine() +
 				"" + newLine() +
 				"==== Scenario: Scenario with admonition and  listing" + newLine() +
@@ -630,59 +692,59 @@ public class CukedoctorConverterTest {
 		List<Feature> features = FeatureParser.parse(getClass().getResource("/com/github/cukedoctor/json-output/calc-enriched.json").getPath());
 		assertThat(features).isNotNull().hasSize(1);
 		String output = Cukedoctor.instance(features).renderFeatures(features).getDocumentation();
-		assertThat(output.replaceAll("\r", "")).isEqualTo(("[[Calculator, Calculator]]"+newLine() +
-				"=== *Calculator*"+newLine() +
-				""+newLine() +
-				"==== Scenario: Adding numbers"+newLine() +
-				"You can *asciidoc markup* in _feature_ #description#."+newLine() +
-				""+newLine() +
-				"NOTE: This is a very important feature!"+newLine() +
-				""+newLine() +
-				"****"+newLine() +
-				"Given ::"+newLine() +
-				"====="+newLine() +
-				"I have numbers 1 and 2 icon:thumbs-up[role=\"green\",title=\"Passed\"] [small right]#(212ms)#"+newLine() +
-				""+newLine() +
-				"IMPORTANT: Asciidoc markup inside *steps* must be surrounded by *curly brackets*."+newLine() +
-				""+newLine() +
-				"====="+newLine() +
-				"When ::"+newLine() +
-				"====="+newLine() +
-				"I sum the numbers using the following java code: icon:thumbs-up[role=\"green\",title=\"Passed\"] [small right]#(001ms)#"+newLine() +
-				"******"+newLine() +
-				""+newLine() +
-				"[discrete]"+newLine() +
-				"[source,java]"+newLine() +
-				"----"+newLine() +
-				"    public class Calc {"+newLine() +
-				"      public long sum(int x, int y){"+newLine() +
-				"          return  x + y; //<1>"+newLine() +
-				"      }"+newLine() +
-				"  }"+newLine() +
-				"----"+newLine() +
-				"[discrete]"+newLine() +
-				"<1> This is an asciidoc call inside a feature."+newLine() +
-				""+newLine() +
-				""+newLine() +
-				"******"+newLine() +
-				""+newLine() +
-				"NOTE: You can use asciidoc in doc strings as well"+newLine() +
-				""+newLine() +
-				"TIP: Steps comments are placed *before* each steps"+newLine() +
-				""+newLine() +
-				"====="+newLine() +
-				"Then ::"+newLine() +
-				"====="+newLine() +
-				"I should have 3 as result icon:thumbs-up[role=\"green\",title=\"Passed\"] [small right]#(003ms)#"+newLine() +
+		assertThat(output.replaceAll("\r", "")).contains(("[[Calculator, Calculator]]" + newLine() +
+				"=== *Calculator*" + newLine() +
+				"" + newLine() +
+				"==== Scenario: Adding numbers" + newLine() +
+				"You can *asciidoc markup* in _feature_ #description#." + newLine() +
+				"" + newLine() +
+				"NOTE: This is a very important feature!" + newLine() +
+				"" + newLine() +
+				"****" + newLine() +
+				"Given ::" + newLine() +
+				"=====" + newLine() +
+				"I have numbers 1 and 2 icon:thumbs-up[role=\"green\",title=\"Passed\"] [small right]#(212ms)#" + newLine() +
+				"" + newLine() +
+				"IMPORTANT: Asciidoc markup inside *steps* must be surrounded by *curly brackets*." + newLine() +
+				"" + newLine() +
+				"=====" + newLine() +
+				"When ::" + newLine() +
+				"=====" + newLine() +
+				"I sum the numbers using the following java code: icon:thumbs-up[role=\"green\",title=\"Passed\"] [small right]#(001ms)#" + newLine() +
+				"******" + newLine() +
+				"" + newLine() +
+				"[discrete]" + newLine() +
+				"[source,java]" + newLine() +
+				"----" + newLine() +
+				"    public class Calc {" + newLine() +
+				"      public long sum(int x, int y){" + newLine() +
+				"          return  x + y; //<1>" + newLine() +
+				"      }" + newLine() +
+				"  }" + newLine() +
+				"----" + newLine() +
+				"[discrete]" + newLine() +
+				"<1> This is an asciidoc call inside a feature." + newLine() +
+				"" + newLine() +
+				"" + newLine() +
+				"******" + newLine() +
+				"" + newLine() +
+				"NOTE: You can use asciidoc in doc strings as well" + newLine() +
+				"" + newLine() +
+				"TIP: Steps comments are placed *before* each steps" + newLine() +
+				"" + newLine() +
+				"=====" + newLine() +
+				"Then ::" + newLine() +
+				"=====" + newLine() +
+				"I should have 3 as result icon:thumbs-up[role=\"green\",title=\"Passed\"] [small right]#(003ms)#" + newLine() +
 				newLine() +
-				"* this is a list of itens inside a feature step"+newLine() +
+				"* this is a list of itens inside a feature step" + newLine() +
 				newLine() +
-				"* there is no multiline comment in gherkin"+newLine() +
+				"* there is no multiline comment in gherkin" + newLine() +
 				newLine() +
-				"** second level list item"+newLine() +
-				""+newLine() +
-				"====="+newLine() +
-				"****"+newLine() +
+				"** second level list item" + newLine() +
+				"" + newLine() +
+				"=====" + newLine() +
+				"****" + newLine() +
 				"\n").replaceAll("\r", ""));
 	}
 

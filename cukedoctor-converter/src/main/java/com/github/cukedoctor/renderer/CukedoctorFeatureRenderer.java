@@ -1,10 +1,14 @@
 package com.github.cukedoctor.renderer;
 
+import com.github.cukedoctor.api.CukedoctorDocumentBuilder;
 import com.github.cukedoctor.api.model.Feature;
 import com.github.cukedoctor.api.model.Scenario;
+import com.github.cukedoctor.config.CukedoctorConfig;
 import com.github.cukedoctor.spi.FeatureRenderer;
 import com.github.cukedoctor.spi.ScenarioRenderer;
 
+import javax.xml.parsers.DocumentBuilder;
+import java.util.List;
 import java.util.ServiceLoader;
 import java.util.logging.Logger;
 
@@ -37,7 +41,11 @@ public class CukedoctorFeatureRenderer extends AbstractBaseRenderer implements F
             return "";
         }
         docBuilder.textLine(renderFeatureSectionId(feature));
-        docBuilder.sectionTitleLevel2((bold(feature.getName()))).newLine();
+        if(!CukedoctorConfig.hideFeaturesSection()) {//when feature section is not rendered we have to 'downgrade' other sections
+            docBuilder.sectionTitleLevel2((bold(feature.getName()))).newLine();
+        }else{
+            docBuilder.sectionTitleLevel1((bold(feature.getName()))).newLine();
+        }
         if (notNull(documentAttributes) && hasText(documentAttributes.getBackend()) && documentAttributes.getBackend().toLowerCase().contains("html")) {
             //used by minimax extension @see com.github.cukedoctor.extension.CukedoctorMinMaxExtension
             docBuilder.append("minmax::", feature.getName().replaceAll(",", "").replaceAll(" ", "-")).append("[]").newLine();
@@ -53,7 +61,19 @@ public class CukedoctorFeatureRenderer extends AbstractBaseRenderer implements F
         return docBuilder.toString();
     }
 
-    String renderFeatureScenarios(Feature feature) {
+    @Override
+    public String renderFeatures(List<Feature> features) {
+        CukedoctorDocumentBuilder parentBuilder = CukedoctorDocumentBuilder.Factory.newInstance();
+        if(!CukedoctorConfig.hideFeaturesSection()) {
+            parentBuilder.sectionTitleLevel1(bold(i18n.getMessage("title.features"))).newLine();
+        }
+        for (Feature feature : features) {
+            parentBuilder.append(renderFeature(feature));
+        }
+        return parentBuilder.toString();
+    }
+
+    protected String renderFeatureScenarios(Feature feature) {
         StringBuilder sb = new StringBuilder();
         for (Scenario scenario : feature.getScenarios()) {
             sb.append(renderFeatureScenario(scenario, feature));
@@ -62,7 +82,7 @@ public class CukedoctorFeatureRenderer extends AbstractBaseRenderer implements F
         return sb.toString();
     }
 
-    String renderFeatureSectionId(Feature feature) {
+    protected String renderFeatureSectionId(Feature feature) {
         if (isNull(feature) || not(hasText(feature.getName()))) {
             return "";
         }
@@ -71,7 +91,7 @@ public class CukedoctorFeatureRenderer extends AbstractBaseRenderer implements F
                 ", " + feature.getName() + "]]";
     }
 
-    String renderFeatureScenario(Scenario scenario, Feature feature){
+    protected String renderFeatureScenario(Scenario scenario, Feature feature){
         return scenarioRenderer.renderScenario(scenario,feature);
     }
 }

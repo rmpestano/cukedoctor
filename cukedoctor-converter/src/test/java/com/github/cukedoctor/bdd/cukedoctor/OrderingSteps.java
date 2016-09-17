@@ -37,7 +37,7 @@ public class OrderingSteps {
 
     @Then("^Features should be ordered by name in resulting documentation$")
     public void Features_should_be_ordered_by_name_in_resulting_documentation(String expected) throws Throwable {
-        assertThat(documentation.replaceAll("\r","")).isNotNull().isEqualTo(expected.replaceAll("\r",""));
+        assertThat(documentation.replaceAll("\r","")).isNotNull().contains(expected.replaceAll("\r",""));
         }
 
     @When("^I convert them using comment order$")
@@ -51,7 +51,7 @@ public class OrderingSteps {
 
     @Then("^Features should be ordered respecting order comment$")
     public void Features_should_be_ordered_respecting_order_comment(String expected) throws Throwable {
-        assertThat(documentation.replaceAll("\r","")).isNotNull().isEqualTo(expected.replaceAll("\r",""));
+        assertThat(documentation.replaceAll("\r","")).isNotNull().contains(expected.replaceAll("\r",""));
     }
 
 }

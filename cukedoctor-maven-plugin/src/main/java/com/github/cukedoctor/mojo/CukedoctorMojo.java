@@ -87,6 +87,14 @@ public class CukedoctorMojo extends AbstractMojo {
     @Parameter(defaultValue = "true", required = false)
     boolean hardBreaks;
 
+    @Parameter(defaultValue = "false", required = false)
+    boolean hideFeaturesSection;
+
+    @Parameter(defaultValue = "false", required = false)
+    boolean hideSummarySection;
+
+
+
     @Parameter(property = "cukedoctor.skip", defaultValue = "false")
     private boolean skip;
 
@@ -116,6 +124,11 @@ public class CukedoctorMojo extends AbstractMojo {
         if(introChapterDir != null){
             System.setProperty("INTRO_CHAPTER_DIR",introChapterDir);
         }
+
+        System.setProperty("HIDE_FEATURES_SECTION",Boolean.toString(hideFeaturesSection));
+
+        System.setProperty("HIDE_SUMMARY_SECTION",Boolean.toString(hideSummarySection));
+
         getLog().info("Searching cucumber features in path: " + startDir);
         List<Feature> featuresFound = FeatureParser.findAndParse(startDir);
         if (featuresFound == null || featuresFound.isEmpty()) {

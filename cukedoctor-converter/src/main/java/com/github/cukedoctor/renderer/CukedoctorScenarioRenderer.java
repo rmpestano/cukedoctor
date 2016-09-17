@@ -4,6 +4,7 @@ import com.github.cukedoctor.api.model.Feature;
 import com.github.cukedoctor.api.model.Scenario;
 import com.github.cukedoctor.api.model.Status;
 import com.github.cukedoctor.api.model.Step;
+import com.github.cukedoctor.config.CukedoctorConfig;
 import com.github.cukedoctor.spi.ExamplesRenderer;
 import com.github.cukedoctor.spi.ScenarioRenderer;
 import com.github.cukedoctor.spi.StepsRenderer;
@@ -14,7 +15,6 @@ import java.util.ServiceLoader;
 
 import static com.github.cukedoctor.util.Assert.hasText;
 import static com.github.cukedoctor.util.Assert.notNull;
-import static com.github.cukedoctor.util.Constants.newLine;
 
 /**
  * Created by pestano on 27/02/16.
@@ -27,8 +27,8 @@ public class CukedoctorScenarioRenderer extends AbstractBaseRenderer implements 
     ExamplesRenderer examplesRenderer;
 
     StepsRenderer stepsRenderer;
-    
-    
+
+
     public CukedoctorScenarioRenderer() {
         ServiceLoader<TagsRenderer> tagsRenderers = ServiceLoader.load(TagsRenderer.class);
         ServiceLoader<ExamplesRenderer> examplesRenderers = ServiceLoader.load(ExamplesRenderer.class);
@@ -62,38 +62,45 @@ public class CukedoctorScenarioRenderer extends AbstractBaseRenderer implements 
         if (scenario.hasIgnoreDocsTag()) {
             return "";
         }
-        
-        if(scenario.isBackground() && feature.isBackgroundRendered()){
+
+        if (scenario.isBackground() && feature.isBackgroundRendered()) {
             return "";
         }
-        
-        if(!feature.isBackgroundRendered() && scenario.isBackground()){
+
+        if (!feature.isBackgroundRendered() && scenario.isBackground()) {
             feature.setBackgroundRendered(true);
             StringBuilder backgroundTitle = new StringBuilder(scenario.getKeyword());
-            if(!Status.passed.equals(scenario.getStatus())){
+            if (!Status.passed.equals(scenario.getStatus())) {
                 backgroundTitle.append(" " + Status.getStatusIcon(Status.failed));
             }
-            docBuilder.sectionTitleLevel3(backgroundTitle.toString().replaceAll("\\\\",""));
+            if (!CukedoctorConfig.hideFeaturesSection()) {
+                docBuilder.sectionTitleLevel3(backgroundTitle.toString().replaceAll("\\\\", ""));
+            } else { //when feature section is not rendered we have to 'downgrade' other sections
+                docBuilder.sectionTitleLevel2(backgroundTitle.toString().replaceAll("\\\\", ""));
+            }
         }
 
         if (hasText(scenario.getName())) {
             StringBuilder scenarioTitle = new StringBuilder(scenario.getKeyword()).
                     append(": ").append(scenario.getName());
-            if(notNull(scenario.getStatus()) && !Status.passed.equals(scenario.getStatus())){
-                scenarioTitle.append(" "+Status.getStatusIcon(Status.failed));
+            if (notNull(scenario.getStatus()) && !Status.passed.equals(scenario.getStatus())) {
+                scenarioTitle.append(" " + Status.getStatusIcon(Status.failed));
+            }
+            if (!CukedoctorConfig.hideFeaturesSection()) {
+                docBuilder.sectionTitleLevel3(scenarioTitle.toString());
+            } else { //when feature section is not rendered we have to 'downgrade' other sections
+                docBuilder.sectionTitleLevel2(scenarioTitle.toString());
             }
 
-            docBuilder.sectionTitleLevel3(scenarioTitle.toString());
-
         }
-         
+
         if (feature.hasTags() || scenario.hasTags()) {
             docBuilder.append(renderScenarioTags(scenario, feature));
         }
 
-        if(hasText(scenario.getDescription())){
-            docBuilder.textLine(scenario.getDescription().replaceAll("\\\\","")).newLine();
-        }else{
+        if (hasText(scenario.getDescription())) {
+            docBuilder.textLine(scenario.getDescription().replaceAll("\\\\", "")).newLine();
+        } else {
             docBuilder.textLine("").newLine();
         }
 

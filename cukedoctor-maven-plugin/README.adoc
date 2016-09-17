@@ -129,6 +129,13 @@ mvn cukedoctor:execute
 |Flag to disable theme support
 |
 
+|hideSummarySection
+|When present, this flag hides 'Summary' section
+|
+
+|hideFeaturesSection
+|When present, this flag hides 'Features' section
+|
 
 |===
 

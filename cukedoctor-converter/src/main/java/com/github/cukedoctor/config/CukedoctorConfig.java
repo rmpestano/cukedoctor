@@ -13,6 +13,15 @@ public abstract class CukedoctorConfig {
     public static final String INTRO_CHAPTER_DIR = getProperty("INTRO_CHAPTER_DIR") == null ? Constants.baseDir : getProperty("INTRO_CHAPTER_DIR");
 
 
+	//lazy evaluation
+	public static Boolean hideSummarySection(){
+		return getProperty("HIDE_SUMMARY_SECTION") == null ? Boolean.FALSE : Boolean.valueOf(getProperty("HIDE_SUMMARY_SECTION"));
+	}
+
+	public static Boolean hideFeaturesSection(){
+		return getProperty("HIDE_FEATURES_SECTION") == null ? Boolean.FALSE : Boolean.valueOf(getProperty("HIDE_FEATURES_SECTION"));
+	}
+
 	private static <T> T getProperty(String property, Class<T> type) {
 		if(System.getProperty(property) == null){
 			return null;

@@ -93,8 +93,11 @@ public class CukedoctorConverterImpl implements CukedoctorConverter {
 		docBuilder.newLine();
 		docBuilder.documentTitle(bold(getDocumentationTitle()));
 		renderIntro();
-		renderSummary();
-		docBuilder.sectionTitleLevel1(bold(i18n.getMessage("title.features"))).newLine();
+		if(!CukedoctorConfig.hideSummarySection()){
+			renderSummary();
+		}else{
+			docBuilder.newLine();
+		}
 		renderFeatures(features);
 		//generateDocInfo();
 		//generatePdfTheme();
@@ -182,11 +185,8 @@ public class CukedoctorConverterImpl implements CukedoctorConverter {
 	}
 
 
-
 	public CukedoctorConverter renderFeatures(List<Feature> features) {
-		for (Feature feature : features) {
-			docBuilder.append(featureRenderer.renderFeature(feature));
-		}
+		docBuilder.append(featureRenderer.renderFeatures(features));
 		return this;
 	}
 

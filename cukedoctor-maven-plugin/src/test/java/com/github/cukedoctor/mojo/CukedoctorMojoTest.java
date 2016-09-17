@@ -11,6 +11,7 @@ import static com.github.cukedoctor.extension.CukedoctorExtensionRegistry.FILTER
 import static com.github.cukedoctor.mojo.FileUtil.loadTestFile;
 import static com.github.cukedoctor.mojo.FileUtil.readFileContent;
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.contentOf;
 
 /**
  * Created by pestano on 27/06/15.
@@ -110,6 +111,44 @@ public class CukedoctorMojoTest extends AbstractMojoTestCase {
                 contains("Eat cukes in lot").
                 doesNotContain("function themefy()").
                 doesNotContain("<div name=\"themes\" id=\"themes\"");
+    }
+
+    /**
+     * @throws Exception
+     */
+    public void testGenerateHtmlDocsWithoutFeaturesSection() throws Exception {
+
+        CukedoctorMojo mojo = (CukedoctorMojo) lookupMojo("execute", getTestFile("src/test/resources/html-docs-no-features-section-pom.xml"));
+
+        assertNotNull(mojo);
+        mojo.execute();
+        File file = FileUtil.loadFile(mojo.getDocumentationDir() + mojo.outputFileName + ".adoc");
+        assertThat(file).exists().hasParent("target/docs");
+        assertThat(contentOf(file)).
+                contains(":backend: html5").
+                contains(":toc: left").
+                contains(":numbered:").
+                contains("== *Summary*").
+                doesNotContain("== *Features*");
+    }
+
+    /**
+     * @throws Exception
+     */
+    public void testGenerateHtmlDocsWithoutSummarySection() throws Exception {
+
+        CukedoctorMojo mojo = (CukedoctorMojo) lookupMojo("execute", getTestFile("src/test/resources/html-docs-no-summary-section-pom.xml"));
+
+        assertNotNull(mojo);
+        mojo.execute();
+        File file = FileUtil.loadFile(mojo.getDocumentationDir() + mojo.outputFileName + ".adoc");
+        assertThat(file).exists().hasParent("target/docs");
+        assertThat(mojo.getGeneratedFile()).
+                contains(":backend: html5").
+                contains(":toc: left").
+                contains(":numbered:").
+                contains("== *Features*").
+                doesNotContain("== *Summary*");
     }
 
   /**

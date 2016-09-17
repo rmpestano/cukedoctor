@@ -22,7 +22,7 @@
         <dependency>
             <groupId>org.asciidoctor</groupId>
             <artifactId>asciidoctorj</artifactId>
-		 <scope>provided</scope>	
+		    <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>org.jsoup</groupId>

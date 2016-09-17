@@ -47,6 +47,13 @@ public class CukedoctorMain {
 	@Parameter(names = "-docVersion", description = "Documentation version", required = false)
 	private String docVersion;
 
+	@Parameter(names = "-hideFeaturesSection", description = "Hides the 'features' section. Default is false ", required = false)
+	private Boolean hideFeaturesSection;
+
+
+	@Parameter(names = "-hideSummarySection", description = "Hides the 'summary' section. Default is false ", required = false)
+	private Boolean hideSummarySection;
+
 	public String execute(String args[]) {
 		JCommander commandLine = null;
 		try {
@@ -162,6 +169,15 @@ public class CukedoctorMain {
 		if(outputName == null){
 			outputName = title.replaceAll(" ", "_");
 		}
+
+		if(hideFeaturesSection != null){
+			System.setProperty("HIDE_FEATURES_SECTION",Boolean.toString(hideFeaturesSection));
+		}
+
+		if(hideSummarySection != null){
+			System.setProperty("HIDE_SUMMARY_SECTION",Boolean.toString(hideSummarySection));
+		}
+
 		CukedoctorConverter converter = Cukedoctor.instance(features, attrs);
 		String doc = converter.renderDocumentation();
 		File adocFile = FileUtil.saveFile(outputName, doc);

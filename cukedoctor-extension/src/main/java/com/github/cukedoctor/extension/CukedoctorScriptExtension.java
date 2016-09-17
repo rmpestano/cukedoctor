@@ -15,6 +15,8 @@ import java.util.Map;
  */
 public class CukedoctorScriptExtension extends Postprocessor{
 
+    private static final Boolean HIDE_FEATURES_SECTION = System.getProperty("HIDE_FEATURES_SECTION") == null ? Boolean.FALSE : Boolean.valueOf(System.getProperty("HIDE_FEATURES_SECTION"));
+
     public CukedoctorScriptExtension(Map<String, Object> config) {
         super(config);
     }
@@ -92,7 +94,7 @@ public class CukedoctorScriptExtension extends Postprocessor{
         }
 
         private void addMinMaxScript(Element contentElement) {
-        String minMaxScript = "<script type=\"text/javascript\">\n" +
+        String minMaxScript = HIDE_FEATURES_SECTION ? getMinMaxScriptForDocWithoutFeaturesSection() : "<script type=\"text/javascript\">\n" +
                 "\tfunction showFeatureScenarios(featureId){\n" +
                 "\t\tvar element = document.getElementById(featureId).parentNode;\n" +
                 "\t\tfor (var i = 0; i < element.childNodes.length; i++) {\n" +
@@ -119,8 +121,50 @@ public class CukedoctorScriptExtension extends Postprocessor{
                 " \t}\n" +
                 "\n" +
                 "</script>";
+
         contentElement.after(minMaxScript);
     }
+
+        private String getMinMaxScriptForDocWithoutFeaturesSection(){
+                return "<script type=\"text/javascript\">\n" +
+                        "function showFeatureScenarios(featureId){\n" +
+                        "\t\tvar element = document.getElementById(featureId).parentNode;\n" +
+                        "\t\tfor (var i = 0; i < element.childNodes.length; i++) {\n" +
+                        "    \t\tif (element.childNodes[i].className == \"sectionbody\") {\n" +
+                        "\t\t     var secChild = element.childNodes[i];\t\n" +
+                        "\t\t     for (var j = 0; j < secChild.childNodes.length; j++) {\n" +
+                        "                             if(secChild.childNodes[j].className == \"sect2\" || secChild.childNodes[j].className == \"sectionbody\" ||  secChild.childNodes[j].className == \"fa fa-minus-square fa-fw\") {\n" +
+                        "\t      \t\t     secChild.childNodes[j].style.display = 'inline';\n" +
+                        "\t\t\t }\n" +
+                        "\t\t\tif (secChild.childNodes[j].className == \"sidebarblock\") {\n" +
+                        "      \t\t             secChild.childNodes[j].style.display = 'block';\n" +
+                        "    \t\t\t   }\n" +
+                        "\t\t\t}\t\n" +
+                        "    \t\t }\n" +
+                        "    \t\t\t\t\t        \n" +
+                        "\t\t}\n" +
+                        "\t\t \n" +
+                        " \t\tdocument.getElementById(featureId).children[0].click();\n" +
+                        "\t}\n" +
+                        "\n" +
+                        "\tfunction hideFeatureScenarios(featureId){\n" +
+                        "\t\tvar element = document.getElementById(featureId).parentNode;\n" +
+                        "\t\tfor (var i = 0; i < element.childNodes.length; i++) {\n" +
+                        "\t\tif (element.childNodes[i].className == \"sectionbody\") {\n" +
+                        "\t\t    var secChild = element.childNodes[i];\n" +
+                        "                     for (var j = 0; j < secChild.childNodes.length; j++) {\n" +
+                        "                             if(secChild.childNodes[j].className == \"sect2\" || secChild.childNodes[j].className == \"sectionbody\" || secChild.childNodes[j].className == \"sidebarblock\") {\n" +
+                        "\t      \t\t     secChild.childNodes[j].style.display = 'none';\n" +
+                        "\t\t\t }\n" +
+                        "\t\t\t}\n" +
+                        "                   }\t\n" +
+                        "     \n" +
+                        "\t\t}\n" +
+                        "\t   document.getElementById(featureId).children[0].click();\n" +
+                        " \t}" +
+                        "</script>";
+        }
+
 
     private void addSearchScript(Element contentElement) {
         String searchScripts = "<script type = \"text/javascript\" >\n" +
@@ -233,6 +277,10 @@ public class CukedoctorScriptExtension extends Postprocessor{
                 "\n" +
                 "}\n" +
                 "</script>";
+            if(HIDE_FEATURES_SECTION){
+                    searchScripts = searchScripts.replaceAll("sectlevel2","sectlevel1")
+                        .replaceAll("sect2","sect1").replaceAll("H3","H2");
+            }
         contentElement.after(searchScripts);
     }
 }

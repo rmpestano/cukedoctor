@@ -14,6 +14,7 @@ import java.io.PrintStream;
 
 import static com.github.cukedoctor.util.Constants.newLine;
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.contentOf;
 import static org.junit.Assert.assertTrue;
 
 /**
@@ -113,6 +114,62 @@ public class CukedoctorMainTest {
 		FileUtil.removeFile("Living-Documentation.html");
 	}
 
+	@Test
+	public void shouldCreateDocumentationWithoutFeaturesSection() throws IOException {
+	    new CukedoctorMain().execute(new String[]{
+				"-hideFeaturesSection", ""
+		});
+		System.out.flush();
+		String output = baos.toString();
+		assertThat(output).contains("Generating living documentation with args:" + newLine() +
+				"-f: html5" + newLine() +
+				"-p: " + newLine() +
+				"-t: Living Documentation" + newLine() +
+				"-o: Living-Documentation" + newLine());
+
+		baos.close();
+
+		File generatedFile = FileUtil.loadFile("Living-Documentation.html");
+		assertThat(generatedFile).exists();
+
+		assertThat(contentOf(generatedFile)).
+				contains("<strong>Summary</strong>").
+				doesNotContain("<strong>Features</strong>");
+
+
+		FileUtil.removeFile("Living-Documentation.adoc");
+		FileUtil.removeFile("Living-Documentation.html");
+		System.setProperty("HIDE_FEATURES_SECTION","false");
+		System.setProperty("HIDE_SUMMARY_SECTION","false");
+	}
+
+	@Test
+	public void shouldCreateDocumentationWithoutSummarySection() throws IOException {
+		 new CukedoctorMain().execute(new String[]{
+				"-hideSummarySection", ""
+		});
+		System.out.flush();
+		String output = baos.toString();
+		assertThat(output).contains("Generating living documentation with args:" + newLine() +
+				"-f: html5" + newLine() +
+				"-p: " + newLine() +
+				"-t: Living Documentation" + newLine() +
+				"-o: Living-Documentation" + newLine());
+
+		baos.close();
+		File generatedFile = FileUtil.loadFile("Living-Documentation.html");
+		assertThat(generatedFile).exists();
+
+		assertThat(contentOf(generatedFile)).
+				doesNotContain("<strong>Summary</strong>").
+				contains("<strong>Features</strong>");
+
+
+		FileUtil.removeFile("Living-Documentation.adoc");
+		FileUtil.removeFile("Living-Documentation.html");
+		System.setProperty("HIDE_FEATURES_SECTION","false");
+		System.setProperty("HIDE_SUMMARY_SECTION","false");
+	}
 
 	@Test
 	public void shouldRenderHtmlForOneFeature(){

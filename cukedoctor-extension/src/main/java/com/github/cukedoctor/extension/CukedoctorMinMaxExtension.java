@@ -1,7 +1,5 @@
 package com.github.cukedoctor.extension;
 
-import static com.github.cukedoctor.extension.CukedoctorExtensionRegistry.*;
-
 import org.asciidoctor.ast.AbstractBlock;
 import org.asciidoctor.extension.BlockMacroProcessor;
 
