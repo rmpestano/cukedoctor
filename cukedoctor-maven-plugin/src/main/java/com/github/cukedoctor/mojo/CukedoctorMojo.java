@@ -93,10 +93,6 @@ public class CukedoctorMojo extends AbstractMojo {
     @Parameter(defaultValue = "false", required = false)
     boolean hideSummarySection;
 
-    @Parameter(required = false)
-    String cucumberResultPaths;
-
-
     @Parameter(property = "cukedoctor.skip", defaultValue = "false")
     private boolean skip;
 

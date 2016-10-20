@@ -222,5 +222,46 @@ public class CukedoctorMainTest {
 
 	}
 
+	@Test
+	public void shouldRestrictSearchPath() throws IOException {
+		CukedoctorMain main = new CukedoctorMain();
+		System.out.flush();
+		main.execute(new String[]{
+				"-o", "\"target/document-one\"",
+				"-p", "\"target/test-classes/json-output/one_passing_one_failing.json\"",
+				"-t", "Living Documentation",
+				"-f", "html",
+				"-cucumberResultPaths", "/target/test-classes/json-output"
+
+		});
+		String output = baos.toString();
+
+		assertThat(output).contains("Found 4 feature(s)");
+
+
+	}
+
+	@Test
+	public void shouldNotFindFeaturesByRestrictSearchPath() throws IOException {
+		CukedoctorMain main = new CukedoctorMain();
+		System.out.flush();
+		main.execute(new String[]{
+				"-o", "\"target/document-one\"",
+				"-p", "\"target/test-classes/json-output/one_passing_one_failing.json\"",
+				"-t", "Living Documentation",
+				"-f", "html",
+				"-cucumberResultPaths", "/target/test-classes/features"
+
+		});
+		String output = baos.toString();
+
+		assertThat(output).contains("No features found");
+
+
+	}
+
+
+
+
 
 }
