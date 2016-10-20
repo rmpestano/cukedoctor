@@ -13,7 +13,9 @@ import org.asciidoctor.OptionsBuilder;
 import org.asciidoctor.SafeMode;
 
 import java.io.File;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.regex.Pattern;
 
 import static com.github.cukedoctor.util.Assert.hasText;
 
@@ -53,6 +55,18 @@ public class CukedoctorMain {
 
 	@Parameter(names = "-hideSummarySection", description = "Hides the 'summary' section. Default is false ", required = false)
 	private Boolean hideSummarySection;
+
+	@Parameter(names = "-cucumberResultPaths", description = "Restricts the search to a list of paths, The list is obtained by splitting cucumberResultPaths using File.pathSeparator", required = false)
+	private String cucumberResultPaths;
+
+
+	private static List<Feature> searchPathAndScan(String path) {
+		if (path.endsWith(".json")) {
+			return FeatureParser.parse(FileUtil.findJsonFile(path));
+		} else {
+			return FeatureParser.parse(FileUtil.findJsonFiles(path));
+		}
+	}
 
 	public String execute(String args[]) {
 		JCommander commandLine = null;
@@ -106,10 +120,17 @@ public class CukedoctorMain {
 		System.out.println("-o" + ": " + outputName);
 
 		List<Feature> features = null;
-		if (path.endsWith(".json")) {
-			features = FeatureParser.parse(FileUtil.findJsonFile(path));
+		if (cucumberResultPaths != null) {
+			features = new ArrayList<Feature>();
+			String[] resultPaths = cucumberResultPaths.split(Pattern.quote(File.pathSeparator));
+			for (String resultPath : resultPaths) {
+				List<Feature> tempList = searchPathAndScan(resultPath);
+				if (tempList != null) {
+					features.addAll(tempList);
+				}
+			}
 		} else {
-			features = FeatureParser.parse(FileUtil.findJsonFiles(path));
+			features = searchPathAndScan(path);
 		}
 
 		if (features == null || features.isEmpty()) {
