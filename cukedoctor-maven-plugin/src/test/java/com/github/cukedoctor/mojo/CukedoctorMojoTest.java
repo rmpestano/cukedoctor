@@ -1,5 +1,6 @@
 package com.github.cukedoctor.mojo;
 
+import com.github.cukedoctor.config.GlobalConfig;
 import com.github.cukedoctor.util.FileUtil;
 import org.apache.maven.plugin.testing.AbstractMojoTestCase;
 
@@ -118,18 +119,22 @@ public class CukedoctorMojoTest extends AbstractMojoTestCase {
      */
     public void testGenerateHtmlDocsWithoutFeaturesSection() throws Exception {
 
-        CukedoctorMojo mojo = (CukedoctorMojo) lookupMojo("execute", getTestFile("src/test/resources/html-docs-no-features-section-pom.xml"));
+        try {
+            CukedoctorMojo mojo = (CukedoctorMojo) lookupMojo("execute", getTestFile("src/test/resources/html-docs-no-features-section-pom.xml"));
 
-        assertNotNull(mojo);
-        mojo.execute();
-        File file = FileUtil.loadFile(mojo.getDocumentationDir() + mojo.outputFileName + ".adoc");
-        assertThat(file).exists().hasParent("target/docs");
-        assertThat(contentOf(file)).
-                contains(":backend: html5").
-                contains(":toc: left").
-                contains(":numbered:").
-                contains("== *Summary*").
-                doesNotContain("== *Features*");
+            assertNotNull(mojo);
+            mojo.execute();
+            File file = FileUtil.loadFile(mojo.getDocumentationDir() + mojo.outputFileName + ".adoc");
+            assertThat(file).exists().hasParent("target/docs");
+            assertThat(contentOf(file)).
+                    contains(":backend: html5").
+                    contains(":toc: left").
+                    contains(":numbered:").
+                    contains("== *Summary*").
+                    doesNotContain("== *Features*");
+        }finally {
+            System.setProperty("HIDE_FEATURES_SECTION", Boolean.toString(GlobalConfig.getInstance().isHideFeaturesSection()));
+        }
     }
 
     /**
@@ -137,19 +142,96 @@ public class CukedoctorMojoTest extends AbstractMojoTestCase {
      */
     public void testGenerateHtmlDocsWithoutSummarySection() throws Exception {
 
-        CukedoctorMojo mojo = (CukedoctorMojo) lookupMojo("execute", getTestFile("src/test/resources/html-docs-no-summary-section-pom.xml"));
+        try {
+            CukedoctorMojo mojo = (CukedoctorMojo) lookupMojo("execute", getTestFile("src/test/resources/html-docs-no-summary-section-pom.xml"));
 
-        assertNotNull(mojo);
-        mojo.execute();
-        File file = FileUtil.loadFile(mojo.getDocumentationDir() + mojo.outputFileName + ".adoc");
-        assertThat(file).exists().hasParent("target/docs");
-        assertThat(mojo.getGeneratedFile()).
-                contains(":backend: html5").
-                contains(":toc: left").
-                contains(":numbered:").
-                contains("== *Features*").
-                doesNotContain("== *Summary*");
+            assertNotNull(mojo);
+            mojo.execute();
+            File file = FileUtil.loadFile(mojo.getDocumentationDir() + mojo.outputFileName + ".adoc");
+            assertThat(file).exists().hasParent("target/docs");
+            assertThat(mojo.getGeneratedFile()).
+                    contains(":backend: html5").
+                    contains(":toc: left").
+                    contains(":numbered:").
+                    contains("== *Features*").
+                    doesNotContain("== *Summary*");
+        }finally {
+            System.setProperty("HIDE_SUMMARY_SECTION", Boolean.toString(GlobalConfig.getInstance().isHideSummarySection()));
+        }
     }
+
+    /**
+     * @throws Exception
+     */
+    public void testGenerateHtmlDocsWithoutScenarioKeyword() throws Exception {
+
+        try {
+            CukedoctorMojo mojo = (CukedoctorMojo) lookupMojo("execute", getTestFile("src/test/resources/html-docs-no-scenario-keyword-pom.xml"));
+
+            assertNotNull(mojo);
+            mojo.execute();
+            File file = FileUtil.loadFile(mojo.getDocumentationDir() + mojo.outputFileName + ".adoc");
+            assertThat(file).exists().hasParent("target/docs");
+            assertThat(mojo.getGeneratedFile()).
+                    contains(":backend: html5").
+                    contains(":toc: left").
+                    contains(":numbered:").
+                    contains("== *Features*").
+                    doesNotContain("=== Scenario: passing").
+                    contains("==== Passing");
+                    //[small]#tags: @a,@b#)
+        }finally {
+            System.setProperty("HIDE_SCENARIO_KEYWORD", Boolean.toString(GlobalConfig.getInstance().isHideScenarioKeyword()));
+        }
+    }
+
+
+    /**
+     * @throws Exception
+     */
+    public void testGenerateHtmlDocsWithoutTags() throws Exception {
+
+        try {
+            CukedoctorMojo mojo = (CukedoctorMojo) lookupMojo("execute", getTestFile("src/test/resources/html-docs-no-tags-pom.xml"));
+
+            assertNotNull(mojo);
+            mojo.execute();
+            File file = FileUtil.loadFile(mojo.getDocumentationDir() + mojo.outputFileName + ".adoc");
+            assertThat(file).exists().hasParent("target/docs");
+            assertThat(mojo.getGeneratedFile()).
+                    contains(":backend: html5").
+                    contains(":toc: left").
+                    contains(":numbered:").
+                    contains("== *Features*").
+                    doesNotContain("[small]#tags:");
+        }finally {
+            System.setProperty("HIDE_TAGS", Boolean.toString(GlobalConfig.getInstance().isHideTags()));
+        }
+    }
+
+    /**
+     * @throws Exception
+     */
+    public void testGenerateHtmlDocsWithoutStepTime() throws Exception {
+
+        try {
+            CukedoctorMojo mojo = (CukedoctorMojo) lookupMojo("execute", getTestFile("src/test/resources/html-docs-no-step-time-pom.xml"));
+
+            assertNotNull(mojo);
+            mojo.execute();
+            File file = FileUtil.loadFile(mojo.getDocumentationDir() + mojo.outputFileName + ".adoc");
+            assertThat(file).exists().hasParent("target/docs");
+            assertThat(mojo.getGeneratedFile()).
+                    contains(":backend: html5").
+                    contains(":toc: left").
+                    contains(":numbered:").
+                    contains("== *Features*").
+                    doesNotContain("[small right]#(001ms)#");
+        }finally {
+            System.setProperty("HIDE_STEP_TIME", Boolean.toString(GlobalConfig.getInstance().isHideStepTime()));
+        }
+    }
+
 
   /**
    * @throws Exception

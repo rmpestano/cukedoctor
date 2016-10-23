@@ -23,6 +23,8 @@ public class GlobalConfig {
 
     private boolean hideScenarioKeyword;
 
+    private boolean hideTags;
+
 
     private GlobalConfig() {
 
@@ -91,5 +93,13 @@ public class GlobalConfig {
 
     public void setHideScenarioKeyword(boolean hideScenarioKeyword) {
         this.hideScenarioKeyword = hideScenarioKeyword;
+    }
+
+    public boolean isHideTags() {
+        return hideTags;
+    }
+
+    public void setHideTags(boolean hideTags) {
+        this.hideTags = hideTags;
     }
 }

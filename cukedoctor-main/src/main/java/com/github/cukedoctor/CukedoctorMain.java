@@ -25,190 +25,210 @@ import static com.github.cukedoctor.util.Assert.hasText;
  */
 public class CukedoctorMain {
 
-	@Parameter(names = "-f", description = "Document format - supported html, pdf and all. Default is 'html'", required = false, echoInput = true)
-	private String format;
+    @Parameter(names = "-f", description = "Document format - supported html, pdf and all. Default is 'html'", required = false, echoInput = true)
+    private String format;
 
-	@Parameter(names = "-p", description = "Path to cucumber json output files (can be a directory or a file). Default is current directory", required = false)
-	private String path;
+    @Parameter(names = "-p", description = "Path to cucumber json output files (can be a directory or a file). Default is current directory", required = false)
+    private String path;
 
-	@Parameter(names = "-t", description = "Documentation title (first section). Default is 'Living Documentation'", required = false)
-	private String title;
+    @Parameter(names = "-t", description = "Documentation title (first section). Default is 'Living Documentation'", required = false)
+    private String title;
 
-	@Parameter(names = "-o", description = "File output name, can be a path eg: /home/doc which will result in doc.html|pdf in /home dir. Document title will be used if output name is not provided", required = false)
-	private String outputName;
+    @Parameter(names = "-o", description = "File output name, can be a path eg: /home/doc which will result in doc.html|pdf in /home dir. Document title will be used if output name is not provided", required = false)
+    private String outputName;
 
-	@Parameter(names = "-toc", description = "Table of contents position. Default is 'right' ", required = false)
-	private String toc;
+    @Parameter(names = "-toc", description = "Table of contents position. Default is 'right' ", required = false)
+    private String toc;
 
-	@Parameter(names = "-numbered", description = "Section numbering. Default is false ", required = false)
-	private Boolean numbered;
+    @Parameter(names = "-numbered", description = "Section numbering. Default is false ", required = false)
+    private Boolean numbered;
 
-	@Parameter(names = "-hardbreaks", description = "Sets asciidoctor hardbreaks attribute. Default is true ", required = false)
-	private Boolean hardBreaks;
+    @Parameter(names = "-hardbreaks", description = "Sets asciidoctor hardbreaks attribute. Default is true ", required = false)
+    private Boolean hardBreaks;
 
-	@Parameter(names = "-docVersion", description = "Documentation version", required = false)
-	private String docVersion;
+    @Parameter(names = "-docVersion", description = "Documentation version", required = false)
+    private String docVersion;
 
-	@Parameter(names = "-hideFeaturesSection", description = "Hides the 'features' section. Default is false ", required = false)
-	private Boolean hideFeaturesSection;
+    @Parameter(names = "-hideFeaturesSection", description = "Hides the 'features' section. Default is false ", required = false)
+    private Boolean hideFeaturesSection;
 
+    @Parameter(names = "-hideSummarySection", description = "Hides the 'summary' section. Default is false ", required = false)
+    private Boolean hideSummarySection;
 
-	@Parameter(names = "-hideSummarySection", description = "Hides the 'summary' section. Default is false ", required = false)
-	private Boolean hideSummarySection;
+    @Parameter(names = "-hideScenarioKeyword", description = "Hides the 'Scenario' keyword in scenario name. Default is false ", required = false)
+    private Boolean hideScenarioKeyword;
 
-	@Parameter(names = "-cucumberResultPaths", description = "Restricts the search to a list of paths, The list is obtained by splitting cucumberResultPaths using File.pathSeparator", required = false)
-	private String cucumberResultPaths;
+    @Parameter(names = "-hideStepTime", description = "Does not render step time. Default is false ", required = false)
+    private Boolean hideStepTime;
 
+    @Parameter(names = "-hideTags", description = "Does not render tags. Default is false ", required = false)
+    private Boolean hideTags;
 
-	private static List<Feature> searchPathAndScan(String path) {
-		if (path.endsWith(".json")) {
-			return FeatureParser.parse(FileUtil.findJsonFile(path));
-		} else {
-			return FeatureParser.parse(FileUtil.findJsonFiles(path));
-		}
-	}
-
-	public String execute(String args[]) {
-		JCommander commandLine = null;
-		try {
-			commandLine = new JCommander(this);
-			commandLine.parse(args);
-		} catch (ParameterException pe) {
-			commandLine.usage();
-			throw pe;
-		}
-
-		if(!hasText(title)){
-			title = "Living Documentation";
-		}
-
-		if (outputName == null) {
-			outputName = title.replaceAll(" ", "-");
-		}
-
-		if (format == null || (format.equals("html") && !format.equals("html5") && !format.equals("pdf")  && !format.equals("all"))) {
-			format = "html5";
-		}
-
-		if(!hasText(path)){
-			path = "";
-		}
+    @Parameter(names = "-cucumberResultPaths", description = "Restricts the search to a list of paths, The list is obtained by splitting cucumberResultPaths using File.pathSeparator", required = false)
+    private String cucumberResultPaths;
 
 
-		if(!hasText(outputName)){
-			outputName = "documentation";
-		}
+    private static List<Feature> searchPathAndScan(String path) {
+        if (path.endsWith(".json")) {
+            return FeatureParser.parse(FileUtil.findJsonFile(path));
+        } else {
+            return FeatureParser.parse(FileUtil.findJsonFiles(path));
+        }
+    }
 
-		if(!hasText(toc)){
-			toc = "right";
-		}
+    public String execute(String args[]) {
+        JCommander commandLine = null;
+        try {
+            commandLine = new JCommander(this);
+            commandLine.parse(args);
+        } catch (ParameterException pe) {
+            commandLine.usage();
+            throw pe;
+        }
 
-		if(numbered == null){
-			numbered = false;
-		}
+        if (!hasText(title)) {
+            title = "Living Documentation";
+        }
 
-		if(hardBreaks == null){
-			hardBreaks = Boolean.TRUE;
-		}
+        if (outputName == null) {
+            outputName = title.replaceAll(" ", "-");
+        }
 
+        if (format == null || (format.equals("html") && !format.equals("html5") && !format.equals("pdf") && !format.equals("all"))) {
+            format = "html5";
+        }
 
-		System.out.println("Generating living documentation with args:");
-
-		System.out.println("-f" + ": " + format);
-		System.out.println("-p" + ": " + path);
-		System.out.println("-t" + ": " + title);
-		System.out.println("-o" + ": " + outputName);
-
-		List<Feature> features = null;
-		if (cucumberResultPaths != null) {
-			features = new ArrayList<Feature>();
-			String[] resultPaths = cucumberResultPaths.split(Pattern.quote(File.pathSeparator));
-			for (String resultPath : resultPaths) {
-				List<Feature> tempList = searchPathAndScan(resultPath);
-				if (tempList != null) {
-					features.addAll(tempList);
-				}
-			}
-		} else {
-			features = searchPathAndScan(path);
-		}
-
-		if (features == null || features.isEmpty()) {
-			System.out.println("No features found in path:" + path);
-			return null;
-		} else {
-			System.out.println("Found " + features.size() + " feature(s)");
-		}
+        if (!hasText(path)) {
+            path = "";
+        }
 
 
-		DocumentAttributes documentAttributes = new DocumentAttributes().
-				backend(format).
-				toc(toc).
-				revNumber(docVersion).
-				hardBreaks(hardBreaks).
-				numbered(numbered);
+        if (!hasText(outputName)) {
+            outputName = "documentation";
+        }
 
-		if(format.equalsIgnoreCase("pdf")){
-			documentAttributes.pdfTheme(true).docInfo(false);
-		}else {
-			documentAttributes.docInfo(true).pdfTheme(false);
-		}
-		if (outputName.contains(".")) {
-			outputName = outputName.substring(0, outputName.lastIndexOf(".")) + ".adoc";
-		} else {
-			outputName = outputName + ".adoc";
-		}
-		documentAttributes.docTitle(title);
+        if (!hasText(toc)) {
+            toc = "right";
+        }
 
-		String resultDoc = null;
-		if("all".equals(format)){
-			documentAttributes.backend("html5");
-			resultDoc = this.execute(features, documentAttributes, outputName);
-			documentAttributes.backend("pdf");
-			this.execute(features, documentAttributes, outputName);
-		}else{
-			resultDoc = this.execute(features,documentAttributes,outputName);
-		}
-		return resultDoc;
-	}
+        if (numbered == null) {
+            numbered = false;
+        }
 
-	public static void main(String args[]) {
-		CukedoctorMain main = new CukedoctorMain();
-		main.execute(args);
-	}
+        if (hardBreaks == null) {
+            hardBreaks = Boolean.TRUE;
+        }
 
-	public String execute(List<Feature> features, DocumentAttributes attrs, String outputName){
-		if(title == null){
-			title = "Living Documentation";
-		}
-		if(attrs == null){
-			attrs = new DocumentAttributes().docTitle(title);
-		}
-		if(!hasText(attrs.getBackend())){
-			attrs.backend("html5");
-		}
-		if(outputName == null){
-			outputName = title.replaceAll(" ", "_");
-		}
 
-		if(hideFeaturesSection != null){
-			System.setProperty("HIDE_FEATURES_SECTION",Boolean.toString(hideFeaturesSection));
-		}
+        System.out.println("Generating living documentation with args:");
 
-		if(hideSummarySection != null){
-			System.setProperty("HIDE_SUMMARY_SECTION",Boolean.toString(hideSummarySection));
-		}
+        System.out.println("-f" + ": " + format);
+        System.out.println("-p" + ": " + path);
+        System.out.println("-t" + ": " + title);
+        System.out.println("-o" + ": " + outputName);
 
-		CukedoctorConverter converter = Cukedoctor.instance(features, attrs);
-		String doc = converter.renderDocumentation();
-		File adocFile = FileUtil.saveFile(outputName, doc);
-		Asciidoctor asciidoctor = Asciidoctor.Factory.create();
-		if(attrs.getBackend().equalsIgnoreCase("pdf")){
-			asciidoctor.unregisterAllExtensions();
-		}
-		asciidoctor.convertFile(adocFile, OptionsBuilder.options().backend(attrs.getBackend()).safe(SafeMode.UNSAFE).asMap());
-		asciidoctor.shutdown();
-		return doc;
-	}
+        List<Feature> features = null;
+        if (cucumberResultPaths != null) {
+            features = new ArrayList<Feature>();
+            String[] resultPaths = cucumberResultPaths.split(Pattern.quote(File.pathSeparator));
+            for (String resultPath : resultPaths) {
+                List<Feature> tempList = searchPathAndScan(resultPath);
+                if (tempList != null) {
+                    features.addAll(tempList);
+                }
+            }
+        } else {
+            features = searchPathAndScan(path);
+        }
+
+        if (features == null || features.isEmpty()) {
+            System.out.println("No features found in path:" + path);
+            return null;
+        } else {
+            System.out.println("Found " + features.size() + " feature(s)");
+        }
+
+
+        DocumentAttributes documentAttributes = new DocumentAttributes().
+                backend(format).
+                toc(toc).
+                revNumber(docVersion).
+                hardBreaks(hardBreaks).
+                numbered(numbered);
+
+        if (format.equalsIgnoreCase("pdf")) {
+            documentAttributes.pdfTheme(true).docInfo(false);
+        } else {
+            documentAttributes.docInfo(true).pdfTheme(false);
+        }
+        if (outputName.contains(".")) {
+            outputName = outputName.substring(0, outputName.lastIndexOf(".")) + ".adoc";
+        } else {
+            outputName = outputName + ".adoc";
+        }
+        documentAttributes.docTitle(title);
+
+        String resultDoc = null;
+        if ("all".equals(format)) {
+            documentAttributes.backend("html5");
+            resultDoc = this.execute(features, documentAttributes, outputName);
+            documentAttributes.backend("pdf");
+            this.execute(features, documentAttributes, outputName);
+        } else {
+            resultDoc = this.execute(features, documentAttributes, outputName);
+        }
+        return resultDoc;
+    }
+
+    public static void main(String args[]) {
+        CukedoctorMain main = new CukedoctorMain();
+        main.execute(args);
+    }
+
+    public String execute(List<Feature> features, DocumentAttributes attrs, String outputName) {
+        if (title == null) {
+            title = "Living Documentation";
+        }
+        if (attrs == null) {
+            attrs = new DocumentAttributes().docTitle(title);
+        }
+        if (!hasText(attrs.getBackend())) {
+            attrs.backend("html5");
+        }
+        if (outputName == null) {
+            outputName = title.replaceAll(" ", "_");
+        }
+
+        if (hideFeaturesSection != null) {
+            System.setProperty("HIDE_FEATURES_SECTION", Boolean.toString(hideFeaturesSection));
+        }
+
+        if (hideSummarySection != null) {
+            System.setProperty("HIDE_SUMMARY_SECTION", Boolean.toString(hideSummarySection));
+        }
+
+        if (hideScenarioKeyword != null) {
+            System.setProperty("HIDE_SCENARIO_KEYWORD", Boolean.toString(hideScenarioKeyword));
+        }
+
+        if (hideStepTime != null) {
+            System.setProperty("HIDE_STEP_TIME", Boolean.toString(hideStepTime));
+        }
+
+        if (hideTags != null) {
+            System.setProperty("HIDE_TAGS", Boolean.toString(hideTags));
+        }
+
+        CukedoctorConverter converter = Cukedoctor.instance(features, attrs);
+        String doc = converter.renderDocumentation();
+        File adocFile = FileUtil.saveFile(outputName, doc);
+        Asciidoctor asciidoctor = Asciidoctor.Factory.create();
+        if (attrs.getBackend().equalsIgnoreCase("pdf")) {
+            asciidoctor.unregisterAllExtensions();
+        }
+        asciidoctor.convertFile(adocFile, OptionsBuilder.options().backend(attrs.getBackend()).safe(SafeMode.UNSAFE).asMap());
+        asciidoctor.shutdown();
+        return doc;
+    }
 
 }

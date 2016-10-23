@@ -19,6 +19,7 @@ import com.github.cukedoctor.api.model.Result;
 import com.github.cukedoctor.api.model.Row;
 import com.github.cukedoctor.api.model.Status;
 import com.github.cukedoctor.api.model.Step;
+import com.github.cukedoctor.config.CukedoctorConfig;
 import com.github.cukedoctor.spi.StepsRenderer;
 import com.github.cukedoctor.util.Constants;
 import com.github.cukedoctor.util.Formatter;
@@ -37,7 +38,9 @@ public class CukedoctorStepsRenderer extends AbstractBaseRenderer implements Ste
             docBuilder.append(step.getKeyword(), "::", newLine());
             docBuilder.append(Constants.Markup.exampleBlock(),newLine());
             docBuilder.append(step.getName() + " ", Status.getStatusIcon(step.getStatus()));
-            docBuilder.append(renderStepTime(step.getResult()));
+            if(!CukedoctorConfig.hideStepTime()){
+                docBuilder.append(renderStepTime(step.getResult()));
+            }
 
             docBuilder.append(renderStepTable(step));
 

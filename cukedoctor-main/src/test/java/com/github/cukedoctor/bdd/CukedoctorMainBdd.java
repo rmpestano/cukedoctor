@@ -11,7 +11,4 @@ import org.junit.runner.RunWith;
 @CucumberOptions(features = "src/test/resources/features/cukedoctor_main.feature", format = {"json:target/cucumber.json"} )
 public class CukedoctorMainBdd {
 
-
-
-
 }

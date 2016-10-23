@@ -87,11 +87,20 @@ public class CukedoctorMojo extends AbstractMojo {
     @Parameter(defaultValue = "true", required = false)
     boolean hardBreaks;
 
-    @Parameter(defaultValue = "false", required = false)
-    boolean hideFeaturesSection;
+    @Parameter(required = false)
+    Boolean hideFeaturesSection;
 
-    @Parameter(defaultValue = "false", required = false)
-    boolean hideSummarySection;
+    @Parameter(required = false)
+    Boolean hideSummarySection;
+
+    @Parameter(required = false)
+    Boolean hideScenarioKeyword;
+
+    @Parameter(required = false)
+    Boolean hideStepTime;
+
+    @Parameter(required = false)
+    Boolean hideTags;
 
     @Parameter(property = "cukedoctor.skip", defaultValue = "false")
     private boolean skip;
@@ -104,7 +113,7 @@ public class CukedoctorMojo extends AbstractMojo {
 
 
     public void execute() throws MojoExecutionException, MojoFailureException {
-        if(skip){
+        if (skip) {
             getLog().info("Skipping cukedoctor-maven-plugin");
             return;
         }
@@ -119,13 +128,29 @@ public class CukedoctorMojo extends AbstractMojo {
                 startDir = project.getBasedir().getAbsolutePath();
             }
         }
-        if(introChapterDir != null){
-            System.setProperty("INTRO_CHAPTER_DIR",introChapterDir);
+        if (introChapterDir != null) {
+            System.setProperty("INTRO_CHAPTER_DIR", introChapterDir);
         }
 
-        System.setProperty("HIDE_FEATURES_SECTION",Boolean.toString(hideFeaturesSection));
+        if (hideFeaturesSection != null) {
+            System.setProperty("HIDE_FEATURES_SECTION", Boolean.toString(hideFeaturesSection));
+        }
 
-        System.setProperty("HIDE_SUMMARY_SECTION",Boolean.toString(hideSummarySection));
+        if (hideSummarySection != null) {
+            System.setProperty("HIDE_SUMMARY_SECTION", Boolean.toString(hideSummarySection));
+        }
+
+        if (hideScenarioKeyword != null) {
+            System.setProperty("HIDE_SCENARIO_KEYWORD", Boolean.toString(hideScenarioKeyword));
+        }
+
+        if (hideStepTime != null) {
+            System.setProperty("HIDE_STEP_TIME", Boolean.toString(hideStepTime));
+        }
+
+        if (hideTags != null) {
+            System.setProperty("HIDE_TAGS", Boolean.toString(hideTags));
+        }
 
         getLog().info("Searching cucumber features in path: " + startDir);
         List<Feature> featuresFound = FeatureParser.findAndParse(startDir);

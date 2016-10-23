@@ -5,6 +5,7 @@ import com.github.cukedoctor.api.CukedoctorConverter;
 import com.github.cukedoctor.api.DocumentAttributes;
 import com.github.cukedoctor.api.model.Feature;
 import com.github.cukedoctor.api.model.Tag;
+import com.github.cukedoctor.config.GlobalConfig;
 import com.github.cukedoctor.parser.FeatureParser;
 import com.github.cukedoctor.renderer.CukedoctorSummaryRenderer;
 import com.github.cukedoctor.spi.SummaryRenderer;
@@ -113,6 +114,30 @@ public class CukedoctorConverterTest {
 
 
 		String document = Cukedoctor.instance(features,new DocumentAttributes()).renderAttributes().
+				getDocumentation().toString();
+		assertEquals(expected,document);
+	}
+
+	@Test
+	public void shouldRenderAttributesUsingGlobalConfig() {
+		List<Feature> features = new ArrayList<>();
+		features.add(FeatureBuilder.instance().id("id").name("name").build());
+
+
+		String expected = ":toc: right" + newLine() +
+				":backend: html5" + newLine() +
+				":doctitle: Living Documentation" + newLine() +
+				":doctype: book" + newLine() +
+				":icons: font" + newLine() +
+				":!numbered:" + newLine() +
+				":!linkcss:" + newLine() +
+				":sectanchors:" + newLine() +
+				":sectlink:" + newLine() +
+				":docinfo:" + newLine() +
+				":source-highlighter: highlightjs\n:toclevels: 3\n:hardbreaks:"+newLine();
+
+
+		String document = Cukedoctor.instance(features, GlobalConfig.getInstance().getDocumentAttributes()).renderAttributes().
 				getDocumentation().toString();
 		assertEquals(expected,document);
 	}
@@ -435,19 +460,19 @@ public class CukedoctorConverterTest {
 		assertThat(resultDoc).
 				doesNotContain("feature to skip").
 				contains("[[Feature-name, Feature name]]" + newLine() +
-						"=== *Feature name*" + newLine() +
-						"" + newLine() +
-						"minmax::Feature-name[]" + newLine() +
-						"****" + newLine() +
-						"Feature description" + newLine() +
-						"****" + newLine() +
-						"" + newLine() +
-						"==== Scenario: scenario 1" + newLine() +
-						"description" + newLine() +
-						"" + newLine() +
-						"==== Scenario: scenario 2" + newLine() +
-						"description 2" + newLine() +
-						"" + newLine());
+                        "=== *Feature name*" + newLine() +
+                        "" + newLine() +
+                        "minmax::Feature-name[]" + newLine() +
+                        "****" + newLine() +
+                        "Feature description" + newLine() +
+                        "****" + newLine() +
+                        "" + newLine() +
+                        "==== Scenario: scenario 1" + newLine() +
+                        "description" + newLine() +
+                        "" + newLine() +
+                        "==== Scenario: scenario 2" + newLine() +
+                        "description 2" + newLine() +
+                        "" + newLine());
 	}
 
 
@@ -565,10 +590,85 @@ public class CukedoctorConverterTest {
 			FileUtil.saveFile("target/test-docs/doc_without_features_sect.adoc", resultDoc); //save to target/test-docs folder
 			assertThat(resultDoc.replaceAll("\r", "")).isEqualTo(Expectations.DOCUMENTATION_WITHOUT_FEATURES_AND_SUMMARY_SECTIONS.replaceAll("\r", ""));
 		}finally {
-			System.setProperty("HIDE_FEATURES_SECTION","false");
-			System.setProperty("HIDE_SUMMARY_SECTION","false");
+			System.setProperty("HIDE_FEATURES_SECTION",GlobalConfig.getInstance().isHideFeaturesSection()+"");
+			System.setProperty("HIDE_SUMMARY_SECTION",GlobalConfig.getInstance().isHideSummarySection()+"");
 		}
 	}
+
+	@Test
+	public void shouldRenderDocumentationWithoutScenarioKeyword() {
+		System.setProperty("HIDE_SCENARIO_KEYWORD", "true");
+		System.setProperty("HIDE_FEATURES_SECTION", "true");
+		System.setProperty("HIDE_SUMMARY_SECTION", "true");
+		try {
+			List<Feature> features = FeatureParser.parse(onePassingOneFailing);
+			DocumentAttributes attrs = new DocumentAttributes();
+			attrs.toc("left").backend("html5")
+					.docType("book").docTitle("Living Documentation")
+					.icons("font").numbered(false)
+					.sectAnchors(true).sectLink(true);
+
+			CukedoctorConverter converter = Cukedoctor.instance(features, attrs);
+			converter.setFilename("target/living_documentation.adoc");
+			String resultDoc = converter.renderDocumentation();
+			assertThat(resultDoc.replaceAll("\r", "")).isEqualTo(Expectations.DOCUMENTATION_WITHOUT_SCENARIO_KEYWORD.replaceAll("\r", ""));
+		}finally {
+			System.setProperty("HIDE_SCENARIO_KEYWORD",GlobalConfig.getInstance().isHideScenarioKeyword()+"");
+			System.setProperty("HIDE_FEATURES_SECTION",GlobalConfig.getInstance().isHideFeaturesSection()+"");
+			System.setProperty("HIDE_SUMMARY_SECTION",GlobalConfig.getInstance().isHideSummarySection()+"");
+		}
+	}
+
+	@Test
+	public void shouldRenderDocumentationWithoutStepTime() {
+		System.setProperty("HIDE_STEP_TIME", "true");
+		System.setProperty("HIDE_FEATURES_SECTION", "true");
+		System.setProperty("HIDE_SUMMARY_SECTION", "true");
+		try {
+			List<Feature> features = FeatureParser.parse(onePassingOneFailing);
+			DocumentAttributes attrs = new DocumentAttributes();
+			attrs.toc("left").backend("html5")
+					.docType("book").docTitle("Living Documentation")
+					.icons("font").numbered(false)
+					.sectAnchors(true).sectLink(true);
+
+			CukedoctorConverter converter = Cukedoctor.instance(features, attrs);
+			converter.setFilename("target/living_documentation.adoc");
+			String resultDoc = converter.renderDocumentation();
+			assertThat(resultDoc.replaceAll("\r", "")).isEqualTo(Expectations.DOCUMENTATION_WITHOUT_STEP_TIME.replaceAll("\r", ""));
+		}finally {
+			System.setProperty("HIDE_STEP_TIME",GlobalConfig.getInstance().isHideStepTime()+"");
+			System.setProperty("HIDE_FEATURES_SECTION",GlobalConfig.getInstance().isHideFeaturesSection()+"");
+			System.setProperty("HIDE_SUMMARY_SECTION",GlobalConfig.getInstance().isHideSummarySection()+"");
+		}
+	}
+
+    @Test
+    public void shouldRenderDocumentationWithoutTags() {
+        System.setProperty("HIDE_STEP_TIME", "true");
+        System.setProperty("HIDE_FEATURES_SECTION", "true");
+        System.setProperty("HIDE_SUMMARY_SECTION", "true");
+        System.setProperty("HIDE_TAGS", "true");
+        try {
+            List<Feature> features = FeatureParser.parse(onePassingOneFailing);
+            DocumentAttributes attrs = new DocumentAttributes();
+            attrs.toc("left").backend("html5")
+                    .docType("book").docTitle("Living Documentation")
+                    .icons("font").numbered(false)
+                    .sectAnchors(true).sectLink(true);
+
+            CukedoctorConverter converter = Cukedoctor.instance(features, attrs);
+            converter.setFilename("target/living_documentation.adoc");
+            String resultDoc = converter.renderDocumentation();
+            assertThat(resultDoc.replaceAll("\r", "")).isEqualTo(Expectations.DOCUMENTATION_WITHOUT_TAGS.replaceAll("\r", ""));
+        } finally {
+            System.setProperty("HIDE_STEP_TIME", GlobalConfig.getInstance().isHideStepTime() + "");
+            System.setProperty("HIDE_FEATURES_SECTION", GlobalConfig.getInstance().isHideFeaturesSection() + "");
+            System.setProperty("HIDE_SUMMARY_SECTION", GlobalConfig.getInstance().isHideSummarySection() + "");
+            System.setProperty("HIDE_TAGS", GlobalConfig.getInstance().isHideTags() + "");
+        }
+    }
+
 
 
 	@Test
@@ -767,5 +867,7 @@ public class CukedoctorConverterTest {
 		assertThat(resultDoc.replaceAll("\r", "")).isEqualTo(Expectations.DOCUMENTATION_WITH_SCENARIO_WITHOUT_DESCRIPTION.replaceAll("\r", ""));
 	}
 
-	
+
+
+
 }
