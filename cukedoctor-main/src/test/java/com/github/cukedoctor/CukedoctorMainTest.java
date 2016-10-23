@@ -213,6 +213,27 @@ public class CukedoctorMainTest {
     }
 
     @Test
+    public void shouldCreateDocumentationUsingCoderaySourceHighlighter() throws IOException {
+        try {
+            new CukedoctorMain().execute(new String[]{
+                    "-hideStepTime", "",
+                    "-sourceHighlighter", "coderay",
+                    "-p", "\"target/test-classes/json-output/one_passing_one_failing.json\""
+            });
+            File generatedFile = FileUtil.loadFile("Living-Documentation.adoc");
+            assertThat(generatedFile).exists();
+
+            assertThat(contentOf(generatedFile)).
+                    contains(":source-highlighter: coderay");
+
+        } finally {
+            FileUtil.removeFile("Living-Documentation.adoc");
+            FileUtil.removeFile("Living-Documentation.html");
+        }
+    }
+
+
+    @Test
     public void shouldCreateDocumentationWithoutTags() throws IOException {
         try {
             new CukedoctorMain().execute(new String[]{

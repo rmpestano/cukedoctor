@@ -6,6 +6,7 @@ import com.beust.jcommander.ParameterException;
 import com.github.cukedoctor.api.CukedoctorConverter;
 import com.github.cukedoctor.api.DocumentAttributes;
 import com.github.cukedoctor.api.model.Feature;
+import com.github.cukedoctor.config.GlobalConfig;
 import com.github.cukedoctor.parser.FeatureParser;
 import com.github.cukedoctor.util.FileUtil;
 import org.asciidoctor.Asciidoctor;
@@ -66,6 +67,10 @@ public class CukedoctorMain {
 
     @Parameter(names = "-cucumberResultPaths", description = "Restricts the search to a list of paths, The list is obtained by splitting cucumberResultPaths using File.pathSeparator", required = false)
     private String cucumberResultPaths;
+
+
+    @Parameter(names = "-sourceHighlighter", description = "Configures source highlighter. Default is highlightjs", required = false)
+    private String sourceHighlighter;
 
 
     private static List<Feature> searchPathAndScan(String path) {
@@ -149,7 +154,7 @@ public class CukedoctorMain {
         }
 
 
-        DocumentAttributes documentAttributes = new DocumentAttributes().
+        DocumentAttributes documentAttributes = GlobalConfig.newInstance().getDocumentAttributes().
                 backend(format).
                 toc(toc).
                 revNumber(docVersion).
@@ -161,6 +166,11 @@ public class CukedoctorMain {
         } else {
             documentAttributes.docInfo(true).pdfTheme(false);
         }
+
+        if(sourceHighlighter != null){
+            documentAttributes.sourceHighlighter(sourceHighlighter);
+        }
+
         if (outputName.contains(".")) {
             outputName = outputName.substring(0, outputName.lastIndexOf(".")) + ".adoc";
         } else {

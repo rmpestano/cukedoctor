@@ -20,6 +20,7 @@ import com.github.cukedoctor.Cukedoctor;
 import com.github.cukedoctor.api.CukedoctorConverter;
 import com.github.cukedoctor.api.DocumentAttributes;
 import com.github.cukedoctor.api.model.Feature;
+import com.github.cukedoctor.config.GlobalConfig;
 import com.github.cukedoctor.mojo.model.Format;
 import com.github.cukedoctor.mojo.model.Toc;
 import com.github.cukedoctor.parser.FeatureParser;
@@ -102,6 +103,10 @@ public class CukedoctorMojo extends AbstractMojo {
     @Parameter(required = false)
     Boolean hideTags;
 
+    @Parameter(required = false)
+    String sourceHighlighter;
+
+
     @Parameter(property = "cukedoctor.skip", defaultValue = "false")
     private boolean skip;
 
@@ -162,7 +167,7 @@ public class CukedoctorMojo extends AbstractMojo {
         }
 
         configExtensions();
-        DocumentAttributes documentAttributes = new DocumentAttributes().
+        DocumentAttributes documentAttributes = GlobalConfig.newInstance().getDocumentAttributes().
                 backend(format.name().toLowerCase()).
                 toc(toc.name().toLowerCase()).
                 revNumber(docVersion).
@@ -179,6 +184,11 @@ public class CukedoctorMojo extends AbstractMojo {
         if (documentTitle == null) {
             documentTitle = "Living Documentation";
         }
+
+        if(sourceHighlighter != null) {
+            documentAttributes.sourceHighlighter(sourceHighlighter);
+        }
+
         documentAttributes.docTitle(documentTitle);
         CukedoctorConverter converter = Cukedoctor.instance(featuresFound, documentAttributes);
         String targetFile = "";

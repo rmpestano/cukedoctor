@@ -302,6 +302,21 @@ public class CukedoctorMojoTest extends AbstractMojoTestCase {
     /**
      * @throws Exception
      */
+    public void testGenerateHtmlDocsWithCoderayAsSourceHighlighter() throws Exception {
+
+        CukedoctorMojo mojo = (CukedoctorMojo) lookupMojo("execute", getTestFile("src/test/resources/html-docs-source-highlighter-pom.xml"));
+
+        assertNotNull(mojo);
+        mojo.execute();
+        File file = FileUtil.loadFile(mojo.getDocumentationDir() + mojo.outputFileName + ".adoc");
+        assertThat(file).exists();
+        assertThat(contentOf(file)).
+                contains(":source-highlighter: coderay");
+    }
+
+    /**
+     * @throws Exception
+     */
     public void testGenerateHtmlDocsUsingFeaturesDir() throws Exception {
 
         CukedoctorMojo mojo = (CukedoctorMojo) lookupMojo("execute", getTestFile("src/test/resources/html-docs-with-features-dir-pom.xml"));
