@@ -120,7 +120,7 @@ public class CukedoctorConverterTest {
                 ":sectanchors:" + newLine() +
                 ":sectlink:" + newLine() +
                 ":docinfo:" + newLine() +
-                ":source-highlighter: highlightjs\n:toclevels: 3\n:hardbreaks:" + newLine();
+                ":source-highlighter: highlightjs" + newLine() +":toclevels: 3" + newLine() +":hardbreaks:" + newLine();
 
 
         String document = Cukedoctor.instance(features, new DocumentAttributes()).renderAttributes().
@@ -144,7 +144,7 @@ public class CukedoctorConverterTest {
                 ":sectanchors:" + newLine() +
                 ":sectlink:" + newLine() +
                 ":docinfo:" + newLine() +
-                ":source-highlighter: highlightjs\n:toclevels: 3\n:hardbreaks:" + newLine();
+                ":source-highlighter: highlightjs" + newLine() +":toclevels: 3" + newLine() +":hardbreaks:" + newLine();
 
 
         String document = Cukedoctor.instance(features, GlobalConfig.getInstance().getDocumentAttributes()).renderAttributes().

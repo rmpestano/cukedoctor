@@ -1,8 +1,6 @@
 package com.github.cukedoctor.api;
 
 
-import com.github.cukedoctor.config.GlobalConfig;
-
 /**
  * Created by pestano on 04/06/15.
  * Document overall configuration
