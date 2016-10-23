@@ -38,6 +38,11 @@ public class GlobalConfig {
         return instance;
     }
 
+    public static GlobalConfig newInstance() {
+
+        return createInstance();
+    }
+
     private static GlobalConfig createInstance() {
         GlobalConfig globalConfig = null;
 
