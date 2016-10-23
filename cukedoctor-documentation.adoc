@@ -46,7 +46,7 @@ include::/home/travis/build/rmpestano/cukedoctor/cukedoctor-converter/target/tes
 |0
 |0
 |3
-|05s 007ms
+|02s 624ms
 |[green]#*passed*#
 
 12+^|*<<Ordering>>*
@@ -60,7 +60,7 @@ include::/home/travis/build/rmpestano/cukedoctor/cukedoctor-converter/target/tes
 |0
 |0
 |6
-|066ms
+|091ms
 |[green]#*passed*#
 
 12+^|*<<Enrich-features>>*
@@ -74,7 +74,7 @@ include::/home/travis/build/rmpestano/cukedoctor/cukedoctor-converter/target/tes
 |0
 |0
 |6
-|147ms
+|154ms
 |[green]#*passed*#
 
 12+^|*<<Documentation-introduction-chapter>>*
@@ -88,10 +88,10 @@ include::/home/travis/build/rmpestano/cukedoctor/cukedoctor-converter/target/tes
 |0
 |0
 |4
-|069ms
+|040ms
 |[green]#*passed*#
 12+^|*Totals*
-|6|0|6|19|0|0|0|0|0|19 2+|05s 291ms
+|6|0|6|19|0|0|0|0|0|19 2+|02s 911ms
 |===
 
 == *Features*
@@ -115,7 +115,7 @@ ____
 ****
 Given ::
 =====
-The following two features: icon:thumbs-up[role="green",title="Passed"] [small right]#(03s 030ms)#
+The following two features: icon:thumbs-up[role="green",title="Passed"] [small right]#(836ms)#
 ----
 
 Feature: Feature1
@@ -134,7 +134,7 @@ Feature: Feature2
 =====
 When ::
 =====
-I convert their json test output using cukedoctor converter icon:thumbs-up[role="green",title="Passed"] [small right]#(01s 975ms)#
+I convert their json test output using cukedoctor converter icon:thumbs-up[role="green",title="Passed"] [small right]#(01s 786ms)#
 ******
 
 [discrete]
@@ -303,7 +303,7 @@ Feature: Feature2
 =====
 When ::
 =====
-I convert them using default order icon:thumbs-up[role="green",title="Passed"] [small right]#(037ms)#
+I convert them using default order icon:thumbs-up[role="green",title="Passed"] [small right]#(044ms)#
 =====
 Then ::
 =====
@@ -383,7 +383,7 @@ NOTE: Ordering is done using feature comment '*#order:*'
 =====
 When ::
 =====
-I convert them using comment order icon:thumbs-up[role="green",title="Passed"] [small right]#(028ms)#
+I convert them using comment order icon:thumbs-up[role="green",title="Passed"] [small right]#(046ms)#
 =====
 Then ::
 =====
@@ -454,7 +454,7 @@ Asciidoc markup can be used in feature *DocStrings*. To do so you need to enable
 ****
 Given ::
 =====
-The following two features: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+The following two features: icon:thumbs-up[role="green",title="Passed"] [small right]#(019ms)#
 ----
 
 Feature: Enrich feature
@@ -492,7 +492,7 @@ Feature: Enrich feature
 =====
 When ::
 =====
-I convert docstring enriched json output using cukedoctor converter icon:thumbs-up[role="green",title="Passed"] [small right]#(069ms)#
+I convert docstring enriched json output using cukedoctor converter icon:thumbs-up[role="green",title="Passed"] [small right]#(082ms)#
 =====
 Then ::
 =====
@@ -605,7 +605,7 @@ Feature: Calculator
 =====
 When ::
 =====
-I convert enriched feature json output using cukedoctor icon:thumbs-up[role="green",title="Passed"] [small right]#(076ms)#
+I convert enriched feature json output using cukedoctor icon:thumbs-up[role="green",title="Passed"] [small right]#(051ms)#
 =====
 Then ::
 =====
@@ -710,7 +710,7 @@ Feature: Feature2
 =====
 And ::
 =====
-The following asciidoc document is on your application classpath icon:thumbs-up[role="green",title="Passed"] [small right]#(069ms)#
+The following asciidoc document is on your application classpath icon:thumbs-up[role="green",title="Passed"] [small right]#(039ms)#
 ******
 
 [discrete]
