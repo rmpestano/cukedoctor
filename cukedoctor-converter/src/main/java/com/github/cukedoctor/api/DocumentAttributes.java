@@ -1,6 +1,8 @@
 package com.github.cukedoctor.api;
 
 
+import com.github.cukedoctor.config.GlobalConfig;
+
 /**
  * Created by pestano on 04/06/15.
  * Document overall configuration
@@ -23,10 +25,15 @@ public class DocumentAttributes {
 	private String revNumber;
 	private boolean hardBreaks = true;
 
+
+	public DocumentAttributes() {
+	}
+
 	public DocumentAttributes docTitle(String docTitle) {
 		this.docTitle = docTitle;
 		return this;
 	}
+
 
 	public DocumentAttributes backend(String backend) {
 		this.backend = backend;
@@ -158,5 +165,69 @@ public class DocumentAttributes {
 
 	public boolean isHardBreaks() {
 		return hardBreaks;
+	}
+
+
+	//setters needed by snakeyml
+
+
+	public void setDocTitle(String docTitle) {
+		this.docTitle = docTitle;
+	}
+
+	public void setBackend(String backend) {
+		this.backend = backend;
+	}
+
+	public void setDocType(String docType) {
+		this.docType = docType;
+	}
+
+	public void setToc(String toc) {
+		this.toc = toc;
+	}
+
+	public void setIcons(String icons) {
+		this.icons = icons;
+	}
+
+	public void setTocLevels(String tocLevels) {
+		this.tocLevels = tocLevels;
+	}
+
+	public void setLinkCss(boolean linkCss) {
+		this.linkCss = linkCss;
+	}
+
+	public void setSectAnchors(boolean sectAnchors) {
+		this.sectAnchors = sectAnchors;
+	}
+
+	public void setSectLink(boolean sectLink) {
+		this.sectLink = sectLink;
+	}
+
+	public void setNumbered(boolean numbered) {
+		this.numbered = numbered;
+	}
+
+	public void setDocInfo(boolean docInfo) {
+		this.docInfo = docInfo;
+	}
+
+	public void setPdfTheme(boolean pdfTheme) {
+		this.pdfTheme = pdfTheme;
+	}
+
+	public void setSourceHighlighter(String sourceHighlighter) {
+		this.sourceHighlighter = sourceHighlighter;
+	}
+
+	public void setRevNumber(String revNumber) {
+		this.revNumber = revNumber;
+	}
+
+	public void setHardBreaks(boolean hardBreaks) {
+		this.hardBreaks = hardBreaks;
 	}
 }

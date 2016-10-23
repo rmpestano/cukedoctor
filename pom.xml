@@ -63,6 +63,7 @@
         <asciidoctorj-pdf.version>1.5.0-alpha.11</asciidoctorj-pdf.version>
         <joda-time.version>2.9.2</joda-time.version>
         <cucumber.version>1.2.4</cucumber.version>
+        <snakeyaml.version>1.17</snakeyaml.version>
         <jacoco.version>0.7.6.201602180812</jacoco.version>
     </properties>
 
@@ -116,7 +117,11 @@
                 <artifactId>jackson-databind</artifactId>
                 <version>${jackson-core.version}</version>
             </dependency>
-
+            <dependency>
+                <groupId>org.yaml</groupId>
+                <artifactId>snakeyaml</artifactId>
+                <version>${snakeyaml.version}</version>
+            </dependency>
             <dependency>
                 <groupId>joda-time</groupId>
                 <artifactId>joda-time</artifactId>

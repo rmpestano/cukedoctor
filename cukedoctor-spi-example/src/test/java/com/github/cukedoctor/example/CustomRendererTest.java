@@ -5,6 +5,7 @@ import com.github.cukedoctor.CukedoctorMain;
 import com.github.cukedoctor.api.CukedoctorConverter;
 import com.github.cukedoctor.api.DocumentAttributes;
 import com.github.cukedoctor.api.model.Feature;
+import com.github.cukedoctor.config.GlobalConfig;
 import com.github.cukedoctor.parser.FeatureParser;
 import com.github.cukedoctor.util.Constants;
 import com.github.cukedoctor.util.FileUtil;
@@ -37,7 +38,7 @@ public class CustomRendererTest {
     public void shouldRenderCustomSummaryRenderer(){
         List<Feature> features = FeatureParser.parse(calcFeature);
 
-        DocumentAttributes attrs = new DocumentAttributes();
+        DocumentAttributes attrs = GlobalConfig.getInstance().getDocumentAttributes();
                 attrs.docTitle("Living Documentation")
                 .icons("font").numbered(false)
                 .sectAnchors(true).sectLink(true);
@@ -59,7 +60,7 @@ public class CustomRendererTest {
     public void shouldRenderDocumentationUsingCustomRenderers(){
         List<Feature> features = FeatureParser.parse(calcFeature);
 
-        DocumentAttributes attrs = new DocumentAttributes();
+        DocumentAttributes attrs = GlobalConfig.getInstance().getDocumentAttributes();
         attrs.docTitle("Living Documentation")
                 .icons("font").numbered(false)
                 .sectAnchors(true).sectLink(true);

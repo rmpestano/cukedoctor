@@ -1,0 +1,19 @@
+hideFeaturesSection: false
+hideSummarySection: false
+hideStepTime: false
+hideScenarioKeyword: false
+documentAttributes:
+  docTitle:  "Living Documentation"
+  backend: "html5"
+  docType: "book"
+  toc: "right"
+  icons: "font"
+  tocLevels: 3
+  linkCss: false
+  sectAnchors: true
+  sectLink: true
+  numbered: false
+  docInfo: true
+  pdfTheme: true
+  sourceHighlighter: "highlightjs"
+  hardBreaks: true

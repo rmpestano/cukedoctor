@@ -4,6 +4,7 @@ import com.github.cukedoctor.Cukedoctor;
 import com.github.cukedoctor.api.CukedoctorConverter;
 import com.github.cukedoctor.api.DocumentAttributes;
 import com.github.cukedoctor.api.model.*;
+import com.github.cukedoctor.config.GlobalConfig;
 import com.github.cukedoctor.parser.FeatureParser;
 import com.github.cukedoctor.spi.FeatureRenderer;
 import com.github.cukedoctor.spi.StepsRenderer;
@@ -269,7 +270,7 @@ public class RendererTest {
     @Test
     public void shouldRenderFeatureWithTableInSteps(){
         List<Feature> features = FeatureParser.parse(featureWithTableInStep);
-        CukedoctorConverter converter = Cukedoctor.instance(features,new DocumentAttributes().docTitle("Doc Title"));
+        CukedoctorConverter converter = Cukedoctor.instance(features, GlobalConfig.getInstance().getDocumentAttributes().docTitle("Doc Title"));
         String resultDoc = converter.renderDocumentation();
         assertThat(resultDoc.replaceAll("\r","")).isEqualTo(Expectations.FEATURE_WITH_STEP_TABLE_IN_PT_BR.replaceAll("\r",""));
     }

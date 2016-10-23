@@ -2,6 +2,7 @@ package com.github.cukedoctor.renderer;
 
 import com.github.cukedoctor.api.CukedoctorDocumentBuilder;
 import com.github.cukedoctor.api.DocumentAttributes;
+import com.github.cukedoctor.config.GlobalConfig;
 import com.github.cukedoctor.i18n.I18nLoader;
 
 /**
@@ -17,7 +18,7 @@ public abstract class AbstractBaseRenderer {
     public AbstractBaseRenderer() {
         i18n = I18nLoader.instance(null);
         docBuilder = CukedoctorDocumentBuilder.Factory.newInstance();
-        documentAttributes = new DocumentAttributes();
+        documentAttributes = GlobalConfig.getInstance().getDocumentAttributes();
     }
 
     public void setI18n(I18nLoader i18n) {
