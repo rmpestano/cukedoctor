@@ -156,17 +156,9 @@ public class CukedoctorMainTest {
 
         try {
             new CukedoctorMain().execute(new String[]{
-                    "-hideSummarySection", ""
+                    "-hideSummarySection", "",
+                    "-p", "\"target/test-classes/json-output/one_passing_one_failing.json\""
             });
-            System.out.flush();
-            String output = baos.toString();
-            assertThat(output).contains("Generating living documentation with args:" + newLine() +
-                    "-f: html5" + newLine() +
-                    "-p: " + newLine() +
-                    "-t: Living Documentation" + newLine() +
-                    "-o: Living-Documentation" + newLine());
-
-            baos.close();
             File generatedFile = FileUtil.loadFile("Living-Documentation.html");
             assertThat(generatedFile).exists();
 
@@ -184,17 +176,9 @@ public class CukedoctorMainTest {
     public void shouldCreateDocumentationWithoutScenarioKeyword() throws IOException {
         try {
             new CukedoctorMain().execute(new String[]{
-                    "-hideScenarioKeyword", ""
+                    "-hideScenarioKeyword", "",
+                    "-p", "\"target/test-classes/json-output/one_passing_one_failing.json\""
             });
-            System.out.flush();
-            String output = baos.toString();
-            assertThat(output).contains("Generating living documentation with args:" + newLine() +
-                    "-f: html5" + newLine() +
-                    "-p: " + newLine() +
-                    "-t: Living Documentation" + newLine() +
-                    "-o: Living-Documentation" + newLine());
-
-            baos.close();
             File generatedFile = FileUtil.loadFile("Living-Documentation.adoc");
             assertThat(generatedFile).exists();
 
@@ -213,17 +197,9 @@ public class CukedoctorMainTest {
     public void shouldCreateDocumentationWithoutStepTime() throws IOException {
         try {
             new CukedoctorMain().execute(new String[]{
-                    "-hideStepTime", ""
+                    "-hideStepTime", "",
+                    "-p", "\"target/test-classes/json-output/one_passing_one_failing.json\""
             });
-            System.out.flush();
-            String output = baos.toString();
-            assertThat(output).contains("Generating living documentation with args:" + newLine() +
-                    "-f: html5" + newLine() +
-                    "-p: " + newLine() +
-                    "-t: Living Documentation" + newLine() +
-                    "-o: Living-Documentation" + newLine());
-
-            baos.close();
             File generatedFile = FileUtil.loadFile("Living-Documentation.adoc");
             assertThat(generatedFile).exists();
 
@@ -240,17 +216,9 @@ public class CukedoctorMainTest {
     public void shouldCreateDocumentationWithoutTags() throws IOException {
         try {
             new CukedoctorMain().execute(new String[]{
-                    "-hideTags", ""
+                    "-hideTags", "",
+                    "-p", "\"target/test-classes/json-output/one_passing_one_failing.json\""
             });
-            System.out.flush();
-            String output = baos.toString();
-            assertThat(output).contains("Generating living documentation with args:" + newLine() +
-                    "-f: html5" + newLine() +
-                    "-p: " + newLine() +
-                    "-t: Living Documentation" + newLine() +
-                    "-o: Living-Documentation" + newLine());
-
-            baos.close();
             File generatedFile = FileUtil.loadFile("Living-Documentation.adoc");
             assertThat(generatedFile).exists();
 
