@@ -12,6 +12,7 @@ import com.github.cukedoctor.spi.SummaryRenderer;
 import com.github.cukedoctor.util.Expectations;
 import com.github.cukedoctor.util.FileUtil;
 import com.github.cukedoctor.util.builder.FeatureBuilder;
+import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -33,433 +34,439 @@ import static org.junit.Assert.assertTrue;
 @RunWith(JUnit4.class)
 public class CukedoctorConverterTest {
 
-	private static String onePassingOneFailing;
-	private static String embedDataDirectly;
-	private static String outline;
-	private static String invalidFeatureResult;
-
-	@BeforeClass
-	public static void loadFeatures() {
-		onePassingOneFailing = FileUtil.findJsonFile("target/test-classes/json-output/one_passing_one_failing.json");
-		embedDataDirectly = FileUtil.findJsonFile("target/test-classes/json-output/embed_data_directly.json");
-		outline = FileUtil.findJsonFile("target/test-classes/json-output/outline.json");
-		invalidFeatureResult = FileUtil.findJsonFile("target/test-classes/json-output/invalid_feature_result.json");
-	}
-
-
-	@Test//(expected = RuntimeException.class)
-	public void shouldFailToCreateDocumentationWithoutFeatures() {
-		String msg = null;
-		try {
-			Cukedoctor.instance(new ArrayList<Feature>());
-		} catch (RuntimeException re) {
-			msg = re.getMessage();
-		}
-
-		assertEquals("No features found", msg);
-	}
-
-
-	// renderAttributes() tests
-
-	@Test
-	public void shouldRenderAttributes() {
-		List<Feature> features = new ArrayList<>();
-		features.add(FeatureBuilder.instance().id("id").name("name").build());
-
-		DocumentAttributes attrs = new DocumentAttributes();
-		attrs.toc("right").backend("html5")
-				.docType("article").docTitle("Title")
-				.icons("font").numbered(false)
-				.sectAnchors(true).sectLink(true);
-
-		String expected =
-				":toc: right" + newLine() +
-						":backend: html5" + newLine() +
-						":doctitle: Title" + newLine() +
-						":doctype: article" + newLine() +
-						":icons: font" + newLine() +
-						":!numbered:" + newLine() +
-						":!linkcss:" + newLine() +
-						":sectanchors:" + newLine() +
-						":sectlink:" + newLine() +
-						":docinfo:" + newLine() +
-						":source-highlighter: highlightjs\n:toclevels: 3\n:hardbreaks:"+newLine();
-
-
-		attrs.docTitle("Title");
-		String document = Cukedoctor.instance(features, attrs).renderAttributes().
-				getDocumentation().toString();
-		assertEquals(expected,document);
-	}
-
-
-	@Test
-	public void shouldRenderAttributesUsingDefaultConfig() {
-		List<Feature> features = new ArrayList<>();
-		features.add(FeatureBuilder.instance().id("id").name("name").build());
-
-
-		String expected = ":toc: right" + newLine() +
-				":backend: html5" + newLine() +
-				":doctitle: Living Documentation" + newLine() +
-				":doctype: book" + newLine() +
-				":icons: font" + newLine() +
-				":!numbered:" + newLine() +
-				":!linkcss:" + newLine() +
-				":sectanchors:" + newLine() +
-				":sectlink:" + newLine() +
-				":docinfo:" + newLine() +
-				":source-highlighter: highlightjs\n:toclevels: 3\n:hardbreaks:"+newLine();
-
-
-		String document = Cukedoctor.instance(features,new DocumentAttributes()).renderAttributes().
-				getDocumentation().toString();
-		assertEquals(expected,document);
-	}
-
-	@Test
-	public void shouldRenderAttributesUsingGlobalConfig() {
-		List<Feature> features = new ArrayList<>();
-		features.add(FeatureBuilder.instance().id("id").name("name").build());
-
-
-		String expected = ":toc: right" + newLine() +
-				":backend: html5" + newLine() +
-				":doctitle: Living Documentation" + newLine() +
-				":doctype: book" + newLine() +
-				":icons: font" + newLine() +
-				":!numbered:" + newLine() +
-				":!linkcss:" + newLine() +
-				":sectanchors:" + newLine() +
-				":sectlink:" + newLine() +
-				":docinfo:" + newLine() +
-				":source-highlighter: highlightjs\n:toclevels: 3\n:hardbreaks:"+newLine();
-
-
-		String document = Cukedoctor.instance(features, GlobalConfig.getInstance().getDocumentAttributes()).renderAttributes().
-				getDocumentation().toString();
-		assertEquals(expected,document);
-	}
-
-	@Test
-	public void shouldNotRenderAttributesWhenNoDocAttrIsProvided() {
-		List<Feature> features = new ArrayList<>();
-		features.add(FeatureBuilder.instance().id("id").name("name").build());
-
-
-		String document = Cukedoctor.instance(features).renderAttributes().
-				getDocumentation().toString();
-		assertEquals("",document);
-	}
-
-	@Test
-	public void shouldNotRenderAttributesPassingNullDocAttrs() {
-		List<Feature> features = new ArrayList<>();
-		features.add(FeatureBuilder.instance().id("id").name("name").build());
-
-		String document = Cukedoctor.instance(features, null).renderAttributes().
-				getDocumentation().toString();
-		assertEquals("", document);
-	}
-
-	@Test
-	public void shouldRenderAttributesWithoutToc() {
-		List<Feature> features = new ArrayList<>();
-		features.add(FeatureBuilder.instance().id("id").name("name").build());
-
-		DocumentAttributes attrs = new DocumentAttributes();
-		attrs.toc("").backend("html5")
-				.docType("article").docTitle("Title")
-				.icons("font").numbered(false)
-				.sectAnchors(true).sectLink(true);
-
-		String expected =
-				":backend: html5" + newLine() +
-						":doctitle: Title" + newLine() +
-						":doctype: article" + newLine() +
-						":icons: font" + newLine() +
-						":!numbered:" + newLine() +
-						":!linkcss:" + newLine() +
-						":sectanchors:" + newLine() +
-						":sectlink:" + newLine() +
-						":docinfo:" + newLine() +
-						":source-highlighter: highlightjs\n:toclevels: 3\n:hardbreaks:"+newLine();
-
-		attrs.docTitle("Title");
-		String document = Cukedoctor.instance(features, attrs).renderAttributes().
-				getDocumentation().toString();
-		assertEquals(expected, document);
-	}
-
-	@Test
-	public void shouldRenderAttributesWithoutHardbreaks() {
-		List<Feature> features = new ArrayList<>();
-		features.add(FeatureBuilder.instance().id("id").name("name").build());
-
-		DocumentAttributes attrs = new DocumentAttributes();
-		attrs.toc("").backend("html5")
-				.docType("article").docTitle("Title")
-				.icons("font").numbered(false)
-				.hardBreaks(false)
-				.sectAnchors(true).sectLink(true);
-
-		String expected =
-				":backend: html5" + newLine() +
-						":doctitle: Title" + newLine() +
-						":doctype: article" + newLine() +
-						":icons: font" + newLine() +
-						":!numbered:" + newLine() +
-						":!linkcss:" + newLine() +
-						":sectanchors:" + newLine() +
-						":sectlink:" + newLine() +
-						":docinfo:" + newLine() +
-						":source-highlighter: highlightjs\n:toclevels: 3\n:!hardbreaks:"+newLine();
-
-		attrs.docTitle("Title");
-		String document = Cukedoctor.instance(features, attrs).renderAttributes().
-				getDocumentation().toString();
-		assertEquals(expected, document);
-	}
-
-	@Test
-	public void shouldRenderAttributesWithTocLevels2() {
-		List<Feature> features = new ArrayList<>();
-		features.add(FeatureBuilder.instance().id("id").name("name").build());
-
-		DocumentAttributes attrs = new DocumentAttributes();
-		attrs.toc("").backend("html5")
-				.docType("article").docTitle("Title")
-				.icons("font").numbered(false)
-				.sectAnchors(true).sectLink(true)
-				.tocLevels("2")
-				;
-
-		String expected =
-				":backend: html5" + newLine() +
-						":doctitle: Title" + newLine() +
-						":doctype: article" + newLine() +
-						":icons: font" + newLine() +
-						":!numbered:" + newLine() +
-						":!linkcss:" + newLine() +
-						":sectanchors:" + newLine() +
-						":sectlink:" + newLine() +
-						":docinfo:" + newLine() +
-						":source-highlighter: highlightjs" + newLine()+
-						":toclevels: 2"+newLine() +
-						":hardbreaks:"+newLine();
-
-
-		attrs.docTitle("Title");
-		String document = Cukedoctor.instance(features, attrs).renderAttributes().
-				getDocumentation().toString();
-		assertEquals(expected, document);
-	}
-
-	@Test
-	public void shouldUseDocumentationTitleAsDocTitleAttribute() {
-		List<Feature> features = new ArrayList<>();
-		features.add(FeatureBuilder.instance().id("id").name("name").build());
-
-		DocumentAttributes attrs = new DocumentAttributes();
-		attrs.toc("right").backend("html5")
-				.docType("book")
-				.linkCss(true)
-				.icons("font").numbered(false)
-				.sectAnchors(true).sectLink(true);
-
-		String expected =
-				":toc: right" + newLine() +
-						":backend: html5" + newLine() +
-						":doctitle: Documentation Title" + newLine() +
-						":doctype: book" + newLine() +
-						":icons: font" + newLine() +
-						":!numbered:" + newLine() +
-						":linkcss:" + newLine() +
-						":sectanchors:" + newLine() +
-						":sectlink:" + newLine() +
-						":docinfo:" + newLine() +
-						":source-highlighter: highlightjs\n:toclevels: 3\n:hardbreaks:"+newLine();
-
-
-		attrs.docTitle("Documentation Title");
-		String document = Cukedoctor.instance(features, attrs).renderAttributes().
-				getDocumentation().toString();
-		assertEquals(document, expected);
-	}
-
-
-
-	// renderSummary() tests
-
-	@Test
-	public void shouldRenderSummaryForOneFeature() {
-		List<Feature> features = FeatureParser.parse(onePassingOneFailing);
-		String resultDoc = Cukedoctor.instance(features, new DocumentAttributes().docTitle("Title")).renderSummary().getDocumentation().toString();
-		assertThat(resultDoc).isNotNull().
-				containsOnlyOnce("<<One-passing-scenario-one-failing-scenario>>").
-				containsOnlyOnce("|[red]#*failed*#").
-				contains("2+|010ms");
-
-		assertThat(resultDoc).isEqualTo(Expectations.SUMMARY_FOR_ONE_FEATURE);
-	}
-
-
-	@Test
-	public void shouldRenderSummaryForMultipleFeatures() {
-		List<Feature> features = FeatureParser.parse(onePassingOneFailing, embedDataDirectly, outline, invalidFeatureResult);
-		String resultDoc = Cukedoctor.instance(features, new DocumentAttributes().docTitle("Title")).renderSummary().getDocumentation().toString();
-		assertThat(resultDoc).isNotNull().
-				containsOnlyOnce("<<One-passing-scenario-one-failing-scenario>>").
-				containsOnlyOnce("<<An-embed-data-directly-feature>>").
-				containsOnlyOnce("<<An-outline-feature>>").
-				doesNotContain("<<invalid feature result>>").
-				contains("|[green]#*passed*#").
-				contains("|[red]#*failed*#").
-				containsOnlyOnce("2+|010ms");
-		assertThat(resultDoc).isEqualTo(Expectations.SUMMARY_FOR_MULTIPLE_FEATURES);
-	}
-
-	// renderTotalsRow() tests
-
-	@Test
-	public void shouldRenderTotalRowForOneFeature() {
-		List<Feature> features = FeatureParser.parse(onePassingOneFailing);
-		SummaryRenderer summaryRenderer = new CukedoctorSummaryRenderer();
-		assertThat(summaryRenderer.renderSummary(features)).isNotNull().
-				containsOnlyOnce("12+^|*Totals*").
-				contains("|1|1|2|1|1|0|0|0|0|2 2+|010ms");
-	}
-
-	@Test
-	public void shouldRenderTotalRowForMultipleFeature() {
-		List<Feature> features = FeatureParser.parse(onePassingOneFailing, embedDataDirectly, outline, invalidFeatureResult);
-		SummaryRenderer summaryRenderer = new CukedoctorSummaryRenderer();
-		assertThat(summaryRenderer.renderSummary(features)).isNotNull().
-				containsOnlyOnce("12+^|*Totals*").
-				contains("|4|1|5|4|1|0|0|0|0|5 2+|010ms");
-	}
-
-
-	@Test
-	public void shouldRenderDocinfo(){
-		final Feature feature = FeatureBuilder.instance().aFeatureWithTwoScenarios();
-		List<Feature> features = new ArrayList<>();
-		features.add(feature);
-		CukedoctorConverter converter = Cukedoctor.instance(features, new DocumentAttributes().docTitle("DocTitle"));
-		converter.setFilename("target/docinfo/document.adoc");
-		converter.generateDocInfo();
-		File docInfo = FileUtil.loadFile("target/docinfo/document-docinfo.html");
-		assertThat(docInfo).exists();
-		docInfo.delete();
-		File css = FileUtil.loadFile("target/docinfo/cukedoctor.css");
-		assertThat(css).exists();
-		css.delete();
-		File js = FileUtil.loadFile("target/docinfo/cukedoctor.js");
-		assertThat(js).exists();
-		js.delete();
-	}
-
-	@Test
-	public void shouldNotRenderDocinfo(){
-		final Feature feature = FeatureBuilder.instance().aFeatureWithTwoScenarios();
-		List<Feature> features = new ArrayList<>();
-		features.add(feature);
-		CukedoctorConverter converter = Cukedoctor.instance(features, new DocumentAttributes().
-				docTitle("Doc Title").docInfo(false));
-		converter.setFilename("/target/docinfo/document.adoc");
-		converter.generateDocInfo();
-		File docInfo = FileUtil.loadFile("/target/docinfo/document-docinfo.html");
-		assertThat(docInfo).doesNotExist();
-		File css = FileUtil.loadFile("/target/docinfo/cukedoctor.css");
-		assertThat(css).doesNotExist();
-		File js = FileUtil.loadFile("/target/docinfo/cukedoctor.js");
-		assertThat(js).doesNotExist();
-	}
-
-	@Test
-	public void shouldGeneratePdfTheme(){
-		final Feature feature = FeatureBuilder.instance().aFeatureWithTwoScenarios();
-		List<Feature> features = new ArrayList<>();
-		features.add(feature);
-		CukedoctorConverter converter = Cukedoctor.instance(features, new DocumentAttributes());
-		converter.setFilename("target/pdf/living documentation.adoc");
-		converter.generatePdfTheme();
-		File file = FileUtil.loadFile("target/pdf/living_documentation-theme.yml");
-		assertThat(file).exists();
-		assertTrue(file.delete());
-	}
-
-	@Test
-	public void shouldNotGeneratePdfTheme(){
-		final Feature feature = FeatureBuilder.instance().aFeatureWithTwoScenarios();
-		List<Feature> features = new ArrayList<>();
-		features.add(feature);
-		DocumentAttributes docAttrs = new DocumentAttributes().pdfTheme(false);
-		CukedoctorConverter converter = Cukedoctor.instance(features, docAttrs);
-		converter.setFilename("/target/pdf//living documentation.adoc");
-		converter.generatePdfTheme();
-		assertThat(FileUtil.loadFile("target/pdf/living_documentation-theme.yml")).doesNotExist();
-	}
-
-
-	@Test
-	public void shouldNotSetInvalidFilename(){
-		final Feature feature = FeatureBuilder.instance().aFeatureWithTwoScenarios();
-		List<Feature> features = new ArrayList<>();
-		features.add(feature);
-		CukedoctorConverter converter = Cukedoctor.instance(features, new DocumentAttributes().docTitle("Doc Title"));
-
-		converter.setFilename("test");
-		assertThat(converter.getFilename()).isEqualTo("test.adoc");
-		try{
-			converter.setFilename("test.txt");
-		}catch (RuntimeException re){
-			assertThat(re.getMessage()).isEqualTo("Invalid filename extension for file: test.txt. Valid formats are: ad, adoc, asciidoc and asc");
-		}
-
-		try{
-			converter.setFilename("test.doc");
-		}catch (RuntimeException re){
-			assertThat(re.getMessage()).isEqualTo("Invalid filename extension for file: test.doc. Valid formats are: ad, adoc, asciidoc and asc");
-		}
-
-		converter.setFilename("test.ad");
-		assertThat(converter.getFilename()).isEqualTo("test.ad");
-	}
-
-	@Test
-	public void shouldRenderDocinfoUsingDocTitleAsName(){
-		final Feature feature = FeatureBuilder.instance().aFeatureWithTwoScenarios();
-		List<Feature> features = new ArrayList<>();
-		features.add(feature);
-		CukedoctorConverter converter = Cukedoctor.instance(features,  new DocumentAttributes().docTitle("Doc Title"));
-		converter.setFilename("target/Doc_Title");
-		converter.generateDocInfo();
-		File savedFile = FileUtil.loadFile("target/Doc_Title-docinfo.html");
-		assertThat(savedFile).exists();
-		savedFile.delete();
-	}
-
-
-
-
-	@Test
-	public void shouldNotRenderFeatureWithSkipDocsTag(){
-		final Feature feature = FeatureBuilder.instance().aFeatureWithTwoScenarios();
-		final Feature featureToSkip = FeatureBuilder.instance().aFeatureWithTwoScenarios();
-		featureToSkip.getTags().add(new Tag("@skipDocs"));
-		featureToSkip.setName("feature to skip");
-		featureToSkip.setId("skippedFeature");
-		List<Feature> features = new ArrayList<>();
-		features.add(feature);
-		features.add(featureToSkip);
-		String resultDoc = Cukedoctor.instance(features, new DocumentAttributes()).
-				renderFeatures(features).getDocumentation().toString();
-
-		assertThat(resultDoc).
-				doesNotContain("feature to skip").
-				contains("[[Feature-name, Feature name]]" + newLine() +
+    private static String onePassingOneFailing;
+    private static String embedDataDirectly;
+    private static String outline;
+    private static String invalidFeatureResult;
+
+    @BeforeClass
+    public static void loadFeatures() {
+        onePassingOneFailing = FileUtil.findJsonFile("target/test-classes/json-output/one_passing_one_failing.json");
+        embedDataDirectly = FileUtil.findJsonFile("target/test-classes/json-output/embed_data_directly.json");
+        outline = FileUtil.findJsonFile("target/test-classes/json-output/outline.json");
+        invalidFeatureResult = FileUtil.findJsonFile("target/test-classes/json-output/invalid_feature_result.json");
+    }
+
+    @Before
+    public void initProperties() {
+        System.setProperty("HIDE_STEP_TIME", GlobalConfig.getInstance().isHideStepTime() + "");
+        System.setProperty("HIDE_FEATURES_SECTION", GlobalConfig.getInstance().isHideFeaturesSection() + "");
+        System.setProperty("HIDE_SUMMARY_SECTION", GlobalConfig.getInstance().isHideSummarySection() + "");
+        System.setProperty("HIDE_SCENARIO_KEYWORD", GlobalConfig.getInstance().isHideScenarioKeyword() + "");
+        System.setProperty("HIDE_TAGS", GlobalConfig.getInstance().isHideTags() + "");
+    }
+
+
+    @Test//(expected = RuntimeException.class)
+    public void shouldFailToCreateDocumentationWithoutFeatures() {
+        String msg = null;
+        try {
+            Cukedoctor.instance(new ArrayList<Feature>());
+        } catch (RuntimeException re) {
+            msg = re.getMessage();
+        }
+
+        assertEquals("No features found", msg);
+    }
+
+
+    // renderAttributes() tests
+
+    @Test
+    public void shouldRenderAttributes() {
+        List<Feature> features = new ArrayList<>();
+        features.add(FeatureBuilder.instance().id("id").name("name").build());
+
+        DocumentAttributes attrs = new DocumentAttributes();
+        attrs.toc("right").backend("html5")
+                .docType("article").docTitle("Title")
+                .icons("font").numbered(false)
+                .sectAnchors(true).sectLink(true);
+
+        String expected =
+                ":toc: right" + newLine() +
+                        ":backend: html5" + newLine() +
+                        ":doctitle: Title" + newLine() +
+                        ":doctype: article" + newLine() +
+                        ":icons: font" + newLine() +
+                        ":!numbered:" + newLine() +
+                        ":!linkcss:" + newLine() +
+                        ":sectanchors:" + newLine() +
+                        ":sectlink:" + newLine() +
+                        ":docinfo:" + newLine() +
+                        ":source-highlighter: highlightjs\n:toclevels: 3\n:hardbreaks:" + newLine();
+
+
+        attrs.docTitle("Title");
+        String document = Cukedoctor.instance(features, attrs).renderAttributes().
+                getDocumentation().toString();
+        assertEquals(expected, document);
+    }
+
+
+    @Test
+    public void shouldRenderAttributesUsingDefaultConfig() {
+        List<Feature> features = new ArrayList<>();
+        features.add(FeatureBuilder.instance().id("id").name("name").build());
+
+
+        String expected = ":toc: right" + newLine() +
+                ":backend: html5" + newLine() +
+                ":doctitle: Living Documentation" + newLine() +
+                ":doctype: book" + newLine() +
+                ":icons: font" + newLine() +
+                ":!numbered:" + newLine() +
+                ":!linkcss:" + newLine() +
+                ":sectanchors:" + newLine() +
+                ":sectlink:" + newLine() +
+                ":docinfo:" + newLine() +
+                ":source-highlighter: highlightjs\n:toclevels: 3\n:hardbreaks:" + newLine();
+
+
+        String document = Cukedoctor.instance(features, new DocumentAttributes()).renderAttributes().
+                getDocumentation().toString();
+        assertEquals(expected, document);
+    }
+
+    @Test
+    public void shouldRenderAttributesUsingGlobalConfig() {
+        List<Feature> features = new ArrayList<>();
+        features.add(FeatureBuilder.instance().id("id").name("name").build());
+
+
+        String expected = ":toc: right" + newLine() +
+                ":backend: html5" + newLine() +
+                ":doctitle: Living Documentation" + newLine() +
+                ":doctype: book" + newLine() +
+                ":icons: font" + newLine() +
+                ":!numbered:" + newLine() +
+                ":!linkcss:" + newLine() +
+                ":sectanchors:" + newLine() +
+                ":sectlink:" + newLine() +
+                ":docinfo:" + newLine() +
+                ":source-highlighter: highlightjs\n:toclevels: 3\n:hardbreaks:" + newLine();
+
+
+        String document = Cukedoctor.instance(features, GlobalConfig.getInstance().getDocumentAttributes()).renderAttributes().
+                getDocumentation().toString();
+        assertEquals(expected, document);
+    }
+
+    @Test
+    public void shouldNotRenderAttributesWhenNoDocAttrIsProvided() {
+        List<Feature> features = new ArrayList<>();
+        features.add(FeatureBuilder.instance().id("id").name("name").build());
+
+
+        String document = Cukedoctor.instance(features).renderAttributes().
+                getDocumentation().toString();
+        assertEquals("", document);
+    }
+
+    @Test
+    public void shouldNotRenderAttributesPassingNullDocAttrs() {
+        List<Feature> features = new ArrayList<>();
+        features.add(FeatureBuilder.instance().id("id").name("name").build());
+
+        String document = Cukedoctor.instance(features, null).renderAttributes().
+                getDocumentation().toString();
+        assertEquals("", document);
+    }
+
+    @Test
+    public void shouldRenderAttributesWithoutToc() {
+        List<Feature> features = new ArrayList<>();
+        features.add(FeatureBuilder.instance().id("id").name("name").build());
+
+        DocumentAttributes attrs = new DocumentAttributes();
+        attrs.toc("").backend("html5")
+                .docType("article").docTitle("Title")
+                .icons("font").numbered(false)
+                .sectAnchors(true).sectLink(true);
+
+        String expected =
+                ":backend: html5" + newLine() +
+                        ":doctitle: Title" + newLine() +
+                        ":doctype: article" + newLine() +
+                        ":icons: font" + newLine() +
+                        ":!numbered:" + newLine() +
+                        ":!linkcss:" + newLine() +
+                        ":sectanchors:" + newLine() +
+                        ":sectlink:" + newLine() +
+                        ":docinfo:" + newLine() +
+                        ":source-highlighter: highlightjs\n:toclevels: 3\n:hardbreaks:" + newLine();
+
+        attrs.docTitle("Title");
+        String document = Cukedoctor.instance(features, attrs).renderAttributes().
+                getDocumentation().toString();
+        assertEquals(expected, document);
+    }
+
+    @Test
+    public void shouldRenderAttributesWithoutHardbreaks() {
+        List<Feature> features = new ArrayList<>();
+        features.add(FeatureBuilder.instance().id("id").name("name").build());
+
+        DocumentAttributes attrs = new DocumentAttributes();
+        attrs.toc("").backend("html5")
+                .docType("article").docTitle("Title")
+                .icons("font").numbered(false)
+                .hardBreaks(false)
+                .sectAnchors(true).sectLink(true);
+
+        String expected =
+                ":backend: html5" + newLine() +
+                        ":doctitle: Title" + newLine() +
+                        ":doctype: article" + newLine() +
+                        ":icons: font" + newLine() +
+                        ":!numbered:" + newLine() +
+                        ":!linkcss:" + newLine() +
+                        ":sectanchors:" + newLine() +
+                        ":sectlink:" + newLine() +
+                        ":docinfo:" + newLine() +
+                        ":source-highlighter: highlightjs\n:toclevels: 3\n:!hardbreaks:" + newLine();
+
+        attrs.docTitle("Title");
+        String document = Cukedoctor.instance(features, attrs).renderAttributes().
+                getDocumentation().toString();
+        assertEquals(expected, document);
+    }
+
+    @Test
+    public void shouldRenderAttributesWithTocLevels2() {
+        List<Feature> features = new ArrayList<>();
+        features.add(FeatureBuilder.instance().id("id").name("name").build());
+
+        DocumentAttributes attrs = new DocumentAttributes();
+        attrs.toc("").backend("html5")
+                .docType("article").docTitle("Title")
+                .icons("font").numbered(false)
+                .sectAnchors(true).sectLink(true)
+                .tocLevels("2")
+        ;
+
+        String expected =
+                ":backend: html5" + newLine() +
+                        ":doctitle: Title" + newLine() +
+                        ":doctype: article" + newLine() +
+                        ":icons: font" + newLine() +
+                        ":!numbered:" + newLine() +
+                        ":!linkcss:" + newLine() +
+                        ":sectanchors:" + newLine() +
+                        ":sectlink:" + newLine() +
+                        ":docinfo:" + newLine() +
+                        ":source-highlighter: highlightjs" + newLine() +
+                        ":toclevels: 2" + newLine() +
+                        ":hardbreaks:" + newLine();
+
+
+        attrs.docTitle("Title");
+        String document = Cukedoctor.instance(features, attrs).renderAttributes().
+                getDocumentation().toString();
+        assertEquals(expected, document);
+    }
+
+    @Test
+    public void shouldUseDocumentationTitleAsDocTitleAttribute() {
+        List<Feature> features = new ArrayList<>();
+        features.add(FeatureBuilder.instance().id("id").name("name").build());
+
+        DocumentAttributes attrs = new DocumentAttributes();
+        attrs.toc("right").backend("html5")
+                .docType("book")
+                .linkCss(true)
+                .icons("font").numbered(false)
+                .sectAnchors(true).sectLink(true);
+
+        String expected =
+                ":toc: right" + newLine() +
+                        ":backend: html5" + newLine() +
+                        ":doctitle: Documentation Title" + newLine() +
+                        ":doctype: book" + newLine() +
+                        ":icons: font" + newLine() +
+                        ":!numbered:" + newLine() +
+                        ":linkcss:" + newLine() +
+                        ":sectanchors:" + newLine() +
+                        ":sectlink:" + newLine() +
+                        ":docinfo:" + newLine() +
+                        ":source-highlighter: highlightjs\n:toclevels: 3\n:hardbreaks:" + newLine();
+
+
+        attrs.docTitle("Documentation Title");
+        String document = Cukedoctor.instance(features, attrs).renderAttributes().
+                getDocumentation().toString();
+        assertEquals(document, expected);
+    }
+
+
+    // renderSummary() tests
+
+    @Test
+    public void shouldRenderSummaryForOneFeature() {
+        List<Feature> features = FeatureParser.parse(onePassingOneFailing);
+        String resultDoc = Cukedoctor.instance(features, new DocumentAttributes().docTitle("Title")).renderSummary().getDocumentation().toString();
+        assertThat(resultDoc).isNotNull().
+                containsOnlyOnce("<<One-passing-scenario-one-failing-scenario>>").
+                containsOnlyOnce("|[red]#*failed*#").
+                contains("2+|010ms");
+
+        assertThat(resultDoc).isEqualTo(Expectations.SUMMARY_FOR_ONE_FEATURE);
+    }
+
+
+    @Test
+    public void shouldRenderSummaryForMultipleFeatures() {
+        List<Feature> features = FeatureParser.parse(onePassingOneFailing, embedDataDirectly, outline, invalidFeatureResult);
+        String resultDoc = Cukedoctor.instance(features, new DocumentAttributes().docTitle("Title")).renderSummary().getDocumentation().toString();
+        assertThat(resultDoc).isNotNull().
+                containsOnlyOnce("<<One-passing-scenario-one-failing-scenario>>").
+                containsOnlyOnce("<<An-embed-data-directly-feature>>").
+                containsOnlyOnce("<<An-outline-feature>>").
+                doesNotContain("<<invalid feature result>>").
+                contains("|[green]#*passed*#").
+                contains("|[red]#*failed*#").
+                containsOnlyOnce("2+|010ms");
+        assertThat(resultDoc).isEqualTo(Expectations.SUMMARY_FOR_MULTIPLE_FEATURES);
+    }
+
+    // renderTotalsRow() tests
+
+    @Test
+    public void shouldRenderTotalRowForOneFeature() {
+        List<Feature> features = FeatureParser.parse(onePassingOneFailing);
+        SummaryRenderer summaryRenderer = new CukedoctorSummaryRenderer();
+        assertThat(summaryRenderer.renderSummary(features)).isNotNull().
+                containsOnlyOnce("12+^|*Totals*").
+                contains("|1|1|2|1|1|0|0|0|0|2 2+|010ms");
+    }
+
+    @Test
+    public void shouldRenderTotalRowForMultipleFeature() {
+        List<Feature> features = FeatureParser.parse(onePassingOneFailing, embedDataDirectly, outline, invalidFeatureResult);
+        SummaryRenderer summaryRenderer = new CukedoctorSummaryRenderer();
+        assertThat(summaryRenderer.renderSummary(features)).isNotNull().
+                containsOnlyOnce("12+^|*Totals*").
+                contains("|4|1|5|4|1|0|0|0|0|5 2+|010ms");
+    }
+
+
+    @Test
+    public void shouldRenderDocinfo() {
+        final Feature feature = FeatureBuilder.instance().aFeatureWithTwoScenarios();
+        List<Feature> features = new ArrayList<>();
+        features.add(feature);
+        CukedoctorConverter converter = Cukedoctor.instance(features, new DocumentAttributes().docTitle("DocTitle"));
+        converter.setFilename("target/docinfo/document.adoc");
+        converter.generateDocInfo();
+        File docInfo = FileUtil.loadFile("target/docinfo/document-docinfo.html");
+        assertThat(docInfo).exists();
+        docInfo.delete();
+        File css = FileUtil.loadFile("target/docinfo/cukedoctor.css");
+        assertThat(css).exists();
+        css.delete();
+        File js = FileUtil.loadFile("target/docinfo/cukedoctor.js");
+        assertThat(js).exists();
+        js.delete();
+    }
+
+    @Test
+    public void shouldNotRenderDocinfo() {
+        final Feature feature = FeatureBuilder.instance().aFeatureWithTwoScenarios();
+        List<Feature> features = new ArrayList<>();
+        features.add(feature);
+        CukedoctorConverter converter = Cukedoctor.instance(features, new DocumentAttributes().
+                docTitle("Doc Title").docInfo(false));
+        converter.setFilename("/target/docinfo/document.adoc");
+        converter.generateDocInfo();
+        File docInfo = FileUtil.loadFile("/target/docinfo/document-docinfo.html");
+        assertThat(docInfo).doesNotExist();
+        File css = FileUtil.loadFile("/target/docinfo/cukedoctor.css");
+        assertThat(css).doesNotExist();
+        File js = FileUtil.loadFile("/target/docinfo/cukedoctor.js");
+        assertThat(js).doesNotExist();
+    }
+
+    @Test
+    public void shouldGeneratePdfTheme() {
+        final Feature feature = FeatureBuilder.instance().aFeatureWithTwoScenarios();
+        List<Feature> features = new ArrayList<>();
+        features.add(feature);
+        CukedoctorConverter converter = Cukedoctor.instance(features, new DocumentAttributes());
+        converter.setFilename("target/pdf/living documentation.adoc");
+        converter.generatePdfTheme();
+        File file = FileUtil.loadFile("target/pdf/living_documentation-theme.yml");
+        assertThat(file).exists();
+        assertTrue(file.delete());
+    }
+
+    @Test
+    public void shouldNotGeneratePdfTheme() {
+        final Feature feature = FeatureBuilder.instance().aFeatureWithTwoScenarios();
+        List<Feature> features = new ArrayList<>();
+        features.add(feature);
+        DocumentAttributes docAttrs = new DocumentAttributes().pdfTheme(false);
+        CukedoctorConverter converter = Cukedoctor.instance(features, docAttrs);
+        converter.setFilename("/target/pdf//living documentation.adoc");
+        converter.generatePdfTheme();
+        assertThat(FileUtil.loadFile("target/pdf/living_documentation-theme.yml")).doesNotExist();
+    }
+
+
+    @Test
+    public void shouldNotSetInvalidFilename() {
+        final Feature feature = FeatureBuilder.instance().aFeatureWithTwoScenarios();
+        List<Feature> features = new ArrayList<>();
+        features.add(feature);
+        CukedoctorConverter converter = Cukedoctor.instance(features, new DocumentAttributes().docTitle("Doc Title"));
+
+        converter.setFilename("test");
+        assertThat(converter.getFilename()).isEqualTo("test.adoc");
+        try {
+            converter.setFilename("test.txt");
+        } catch (RuntimeException re) {
+            assertThat(re.getMessage()).isEqualTo("Invalid filename extension for file: test.txt. Valid formats are: ad, adoc, asciidoc and asc");
+        }
+
+        try {
+            converter.setFilename("test.doc");
+        } catch (RuntimeException re) {
+            assertThat(re.getMessage()).isEqualTo("Invalid filename extension for file: test.doc. Valid formats are: ad, adoc, asciidoc and asc");
+        }
+
+        converter.setFilename("test.ad");
+        assertThat(converter.getFilename()).isEqualTo("test.ad");
+    }
+
+    @Test
+    public void shouldRenderDocinfoUsingDocTitleAsName() {
+        final Feature feature = FeatureBuilder.instance().aFeatureWithTwoScenarios();
+        List<Feature> features = new ArrayList<>();
+        features.add(feature);
+        CukedoctorConverter converter = Cukedoctor.instance(features, new DocumentAttributes().docTitle("Doc Title"));
+        converter.setFilename("target/Doc_Title");
+        converter.generateDocInfo();
+        File savedFile = FileUtil.loadFile("target/Doc_Title-docinfo.html");
+        assertThat(savedFile).exists();
+        savedFile.delete();
+    }
+
+
+    @Test
+    public void shouldNotRenderFeatureWithSkipDocsTag() {
+        final Feature feature = FeatureBuilder.instance().aFeatureWithTwoScenarios();
+        final Feature featureToSkip = FeatureBuilder.instance().aFeatureWithTwoScenarios();
+        featureToSkip.getTags().add(new Tag("@skipDocs"));
+        featureToSkip.setName("feature to skip");
+        featureToSkip.setId("skippedFeature");
+        List<Feature> features = new ArrayList<>();
+        features.add(feature);
+        features.add(featureToSkip);
+        String resultDoc = Cukedoctor.instance(features, new DocumentAttributes()).
+                renderFeatures(features).getDocumentation().toString();
+
+        assertThat(resultDoc).
+                doesNotContain("feature to skip").
+                contains("[[Feature-name, Feature name]]" + newLine() +
                         "=== *Feature name*" + newLine() +
                         "" + newLine() +
                         "minmax::Feature-name[]" + newLine() +
@@ -473,175 +480,152 @@ public class CukedoctorConverterTest {
                         "==== Scenario: scenario 2" + newLine() +
                         "description 2" + newLine() +
                         "" + newLine());
-	}
+    }
 
 
+    @Test
+    public void shouldRenderDocumentationForOneFeature() {
+        List<Feature> features = FeatureParser.parse(onePassingOneFailing);
+        DocumentAttributes attrs = new DocumentAttributes();
+        attrs.toc("left").backend("html5")
+                .docType("book").docTitle("Living Documentation")
+                .icons("font").numbered(false)
+                .sectAnchors(true).sectLink(true);
 
+        CukedoctorConverter converter = Cukedoctor.instance(features, attrs);
+        converter.setFilename("/target/living_documentation.adoc");
+        String resultDoc = converter.renderDocumentation();
 
-	@Test
-	public void shouldRenderDocumentationForOneFeature() {
-		List<Feature> features = FeatureParser.parse(onePassingOneFailing);
-		DocumentAttributes attrs = new DocumentAttributes();
-		attrs.toc("left").backend("html5")
-				.docType("book").docTitle("Living Documentation")
-				.icons("font").numbered(false)
-				.sectAnchors(true).sectLink(true);
+        assertThat(resultDoc).isNotNull().
+                containsOnlyOnce(":doctype: book" + newLine()).
+                containsOnlyOnce(":toc: left" + newLine()).
+                containsOnlyOnce("= *Living Documentation*" + newLine()).
+                containsOnlyOnce("<<One-passing-scenario-one-failing-scenario>>").
+                containsOnlyOnce("|[red]#*failed*#").
+                contains("|010ms").
+                containsOnlyOnce("|1|1|2|1|1|0|0|0|0|2 2+|010ms");
 
-		CukedoctorConverter converter = Cukedoctor.instance(features, attrs);
-		converter.setFilename("/target/living_documentation.adoc");
-		String resultDoc =	converter.renderDocumentation();
+        FileUtil.saveFile("target/test-docs/doc_one_feature.adoc", resultDoc); //save to target/test-docs folder
+        assertThat(resultDoc.replaceAll("\r", "")).isEqualTo(Expectations.DOCUMENTATION_FOR_ONE_FEATURE.replaceAll("\r", ""));
+    }
 
-		assertThat(resultDoc).isNotNull().
-				containsOnlyOnce(":doctype: book" + newLine()).
-				containsOnlyOnce(":toc: left" + newLine()).
-				containsOnlyOnce("= *Living Documentation*" + newLine()).
-				containsOnlyOnce("<<One-passing-scenario-one-failing-scenario>>").
-				containsOnlyOnce("|[red]#*failed*#").
-				contains("|010ms").
-				containsOnlyOnce("|1|1|2|1|1|0|0|0|0|2 2+|010ms");
+    @Test
+    public void shouldRenderDocumentationForMultipleFeatures() {
+        List<Feature> features = FeatureParser.parse(onePassingOneFailing, embedDataDirectly, outline, invalidFeatureResult);
 
-		FileUtil.saveFile("target/test-docs/doc_one_feature.adoc", resultDoc); //save to target/test-docs folder
-		assertThat(resultDoc.replaceAll("\r", "")).isEqualTo(Expectations.DOCUMENTATION_FOR_ONE_FEATURE.replaceAll("\r", ""));
-	}
+        DocumentAttributes attrs = new DocumentAttributes();
+        attrs.toc("left").backend("html5")
+                .docType("book").docTitle("Living Documentation")
+                .icons("font").numbered(false)
+                .sectAnchors(true).sectLink(true);
 
-	@Test
-	public void shouldRenderDocumentationForMultipleFeatures() {
-		List<Feature> features = FeatureParser.parse(onePassingOneFailing, embedDataDirectly, outline, invalidFeatureResult);
+        CukedoctorConverter converter = Cukedoctor.instance(features, attrs);
+        converter.setFilename("target/living_documentation.adoc");
+        String resultDoc = converter.renderDocumentation();
+        assertThat(resultDoc).isNotNull().
+                containsOnlyOnce(":doctype: book" + newLine()).
+                containsOnlyOnce(":toc: left" + newLine()).
+                contains("= *Living Documentation*" + newLine()).
+                containsOnlyOnce("<<One-passing-scenario-one-failing-scenario>>").
+                containsOnlyOnce("<<An-embed-data-directly-feature>>").
+                containsOnlyOnce("<<An-outline-feature>>").
+                doesNotContain("<<invalid-feature-result*>>").
+                contains("|[green]#*passed*#").
+                containsOnlyOnce("|[red]#*failed*#").
+                contains("|010ms").
+                containsOnlyOnce("|4|1|5|4|1|0|0|0|0|5 2+|010ms");
 
-		DocumentAttributes attrs = new DocumentAttributes();
-		attrs.toc("left").backend("html5")
-				.docType("book").docTitle("Living Documentation")
-				.icons("font").numbered(false)
-				.sectAnchors(true).sectLink(true);
+        FileUtil.saveFile("target/test-docs/doc_multiple_feature.adoc", resultDoc); //save to target/test-docs folder
+        assertThat(resultDoc.replaceAll("\r", "")).isEqualTo(Expectations.DOCUMENTATION_FOR_MULTIPLE_FEATURES.replaceAll("\r", ""));
+    }
 
-		CukedoctorConverter converter = Cukedoctor.instance(features, attrs);
-		converter.setFilename("target/living_documentation.adoc");
-		String resultDoc =	converter.renderDocumentation();
-		assertThat(resultDoc).isNotNull().
-				containsOnlyOnce(":doctype: book" + newLine()).
-				containsOnlyOnce(":toc: left" + newLine()).
-				contains("= *Living Documentation*" + newLine()).
-				containsOnlyOnce("<<One-passing-scenario-one-failing-scenario>>").
-				containsOnlyOnce("<<An-embed-data-directly-feature>>").
-				containsOnlyOnce("<<An-outline-feature>>").
-				doesNotContain("<<invalid-feature-result*>>").
-				contains("|[green]#*passed*#").
-				containsOnlyOnce("|[red]#*failed*#").
-				contains("|010ms").
-				containsOnlyOnce("|4|1|5|4|1|0|0|0|0|5 2+|010ms");
+    @Test
+    public void shouldRenderDocumentationWithoutFeaturesSection() {
+        System.setProperty("HIDE_FEATURES_SECTION", "true");
+        List<Feature> features = FeatureParser.parse(onePassingOneFailing);
+        DocumentAttributes attrs = new DocumentAttributes();
+        attrs.toc("left").backend("html5")
+                .docType("book").docTitle("Living Documentation")
+                .icons("font").numbered(false)
+                .sectAnchors(true).sectLink(true);
 
-		FileUtil.saveFile("target/test-docs/doc_multiple_feature.adoc", resultDoc); //save to target/test-docs folder
-		assertThat(resultDoc.replaceAll("\r", "")).isEqualTo(Expectations.DOCUMENTATION_FOR_MULTIPLE_FEATURES.replaceAll("\r", ""));
-	}
+        CukedoctorConverter converter = Cukedoctor.instance(features, attrs);
+        converter.setFilename("/target/living_documentation.adoc");
+        String resultDoc = converter.renderDocumentation();
 
-	@Test
-	public void shouldRenderDocumentationWithoutFeaturesSection() {
-		try {
-			System.setProperty("HIDE_FEATURES_SECTION", "true");
-			List<Feature> features = FeatureParser.parse(onePassingOneFailing);
-			DocumentAttributes attrs = new DocumentAttributes();
-			attrs.toc("left").backend("html5")
-					.docType("book").docTitle("Living Documentation")
-					.icons("font").numbered(false)
-					.sectAnchors(true).sectLink(true);
+        assertThat(resultDoc).isNotNull().
+                containsOnlyOnce(":doctype: book" + newLine()).
+                containsOnlyOnce(":toc: left" + newLine()).
+                containsOnlyOnce("= *Living Documentation*" + newLine()).
+                containsOnlyOnce("<<One-passing-scenario-one-failing-scenario>>").
+                containsOnlyOnce("|[red]#*failed*#").
+                contains("|010ms").
+                containsOnlyOnce("|1|1|2|1|1|0|0|0|0|2 2+|010ms");
 
-			CukedoctorConverter converter = Cukedoctor.instance(features, attrs);
-			converter.setFilename("/target/living_documentation.adoc");
-			String resultDoc = converter.renderDocumentation();
+        FileUtil.saveFile("target/test-docs/doc_without_features_sect.adoc", resultDoc); //save to target/test-docs folder
+        assertThat(resultDoc.replaceAll("\r", "")).isEqualTo(Expectations.DOCUMENTATION_WITHOUT_FEATURES_SECTION.replaceAll("\r", ""));
+    }
 
-			assertThat(resultDoc).isNotNull().
-					containsOnlyOnce(":doctype: book" + newLine()).
-					containsOnlyOnce(":toc: left" + newLine()).
-					containsOnlyOnce("= *Living Documentation*" + newLine()).
-					containsOnlyOnce("<<One-passing-scenario-one-failing-scenario>>").
-					containsOnlyOnce("|[red]#*failed*#").
-					contains("|010ms").
-					containsOnlyOnce("|1|1|2|1|1|0|0|0|0|2 2+|010ms");
+    @Test
+    public void shouldRenderDocumentationWithoutFeaturesAndSummarySection() {
+        System.setProperty("HIDE_FEATURES_SECTION", "true");
+        System.setProperty("HIDE_SUMMARY_SECTION", "true");
+        List<Feature> features = FeatureParser.parse(onePassingOneFailing);
+        DocumentAttributes attrs = new DocumentAttributes();
+        attrs.toc("left").backend("html5")
+                .docType("book").docTitle("Living Documentation")
+                .icons("font").numbered(false)
+                .sectAnchors(true).sectLink(true);
 
-			FileUtil.saveFile("target/test-docs/doc_without_features_sect.adoc", resultDoc); //save to target/test-docs folder
-			assertThat(resultDoc.replaceAll("\r", "")).isEqualTo(Expectations.DOCUMENTATION_WITHOUT_FEATURES_SECTION.replaceAll("\r", ""));
-		}finally {
-			System.setProperty("HIDE_FEATURES_SECTION","false");
-		}
-	}
+        CukedoctorConverter converter = Cukedoctor.instance(features, attrs);
+        converter.setFilename("/target/living_documentation.adoc");
+        String resultDoc = converter.renderDocumentation();
 
-	@Test
-	public void shouldRenderDocumentationWithoutFeaturesAndSummarySection() {
-		try {
-			System.setProperty("HIDE_FEATURES_SECTION", "true");
-			System.setProperty("HIDE_SUMMARY_SECTION", "true");
-			List<Feature> features = FeatureParser.parse(onePassingOneFailing);
-			DocumentAttributes attrs = new DocumentAttributes();
-			attrs.toc("left").backend("html5")
-					.docType("book").docTitle("Living Documentation")
-					.icons("font").numbered(false)
-					.sectAnchors(true).sectLink(true);
+        assertThat(resultDoc).isNotNull().
+                containsOnlyOnce(":doctype: book" + newLine()).
+                containsOnlyOnce(":toc: left" + newLine()).
+                containsOnlyOnce("= *Living Documentation*" + newLine()).
+                doesNotContain("<<One-passing-scenario-one-failing-scenario>>");
 
-			CukedoctorConverter converter = Cukedoctor.instance(features, attrs);
-			converter.setFilename("/target/living_documentation.adoc");
-			String resultDoc = converter.renderDocumentation();
+        FileUtil.saveFile("target/test-docs/doc_without_features_sect.adoc", resultDoc); //save to target/test-docs folder
+        assertThat(resultDoc.replaceAll("\r", "")).isEqualTo(Expectations.DOCUMENTATION_WITHOUT_FEATURES_AND_SUMMARY_SECTIONS.replaceAll("\r", ""));
+    }
 
-			assertThat(resultDoc).isNotNull().
-					containsOnlyOnce(":doctype: book" + newLine()).
-					containsOnlyOnce(":toc: left" + newLine()).
-					containsOnlyOnce("= *Living Documentation*" + newLine()).
-					doesNotContain("<<One-passing-scenario-one-failing-scenario>>");
+    @Test
+    public void shouldRenderDocumentationWithoutScenarioKeyword() {
+        System.setProperty("HIDE_SCENARIO_KEYWORD", "true");
+        System.setProperty("HIDE_FEATURES_SECTION", "true");
+        System.setProperty("HIDE_SUMMARY_SECTION", "true");
+        List<Feature> features = FeatureParser.parse(onePassingOneFailing);
+        DocumentAttributes attrs = new DocumentAttributes();
+        attrs.toc("left").backend("html5")
+                .docType("book").docTitle("Living Documentation")
+                .icons("font").numbered(false)
+                .sectAnchors(true).sectLink(true);
 
-			FileUtil.saveFile("target/test-docs/doc_without_features_sect.adoc", resultDoc); //save to target/test-docs folder
-			assertThat(resultDoc.replaceAll("\r", "")).isEqualTo(Expectations.DOCUMENTATION_WITHOUT_FEATURES_AND_SUMMARY_SECTIONS.replaceAll("\r", ""));
-		}finally {
-			System.setProperty("HIDE_FEATURES_SECTION",GlobalConfig.getInstance().isHideFeaturesSection()+"");
-			System.setProperty("HIDE_SUMMARY_SECTION",GlobalConfig.getInstance().isHideSummarySection()+"");
-		}
-	}
+        CukedoctorConverter converter = Cukedoctor.instance(features, attrs);
+        converter.setFilename("target/living_documentation.adoc");
+        String resultDoc = converter.renderDocumentation();
+        assertThat(resultDoc.replaceAll("\r", "")).isEqualTo(Expectations.DOCUMENTATION_WITHOUT_SCENARIO_KEYWORD.replaceAll("\r", ""));
+    }
 
-	@Test
-	public void shouldRenderDocumentationWithoutScenarioKeyword() {
-		System.setProperty("HIDE_SCENARIO_KEYWORD", "true");
-		System.setProperty("HIDE_FEATURES_SECTION", "true");
-		System.setProperty("HIDE_SUMMARY_SECTION", "true");
-		try {
-			List<Feature> features = FeatureParser.parse(onePassingOneFailing);
-			DocumentAttributes attrs = new DocumentAttributes();
-			attrs.toc("left").backend("html5")
-					.docType("book").docTitle("Living Documentation")
-					.icons("font").numbered(false)
-					.sectAnchors(true).sectLink(true);
+    @Test
+    public void shouldRenderDocumentationWithoutStepTime() {
+        System.setProperty("HIDE_STEP_TIME", "true");
+        System.setProperty("HIDE_FEATURES_SECTION", "true");
+        System.setProperty("HIDE_SUMMARY_SECTION", "true");
+        List<Feature> features = FeatureParser.parse(onePassingOneFailing);
+        DocumentAttributes attrs = new DocumentAttributes();
+        attrs.toc("left").backend("html5")
+                .docType("book").docTitle("Living Documentation")
+                .icons("font").numbered(false)
+                .sectAnchors(true).sectLink(true);
 
-			CukedoctorConverter converter = Cukedoctor.instance(features, attrs);
-			converter.setFilename("target/living_documentation.adoc");
-			String resultDoc = converter.renderDocumentation();
-			assertThat(resultDoc.replaceAll("\r", "")).isEqualTo(Expectations.DOCUMENTATION_WITHOUT_SCENARIO_KEYWORD.replaceAll("\r", ""));
-		}finally {
-			System.setProperty("HIDE_SCENARIO_KEYWORD",GlobalConfig.getInstance().isHideScenarioKeyword()+"");
-			System.setProperty("HIDE_FEATURES_SECTION",GlobalConfig.getInstance().isHideFeaturesSection()+"");
-			System.setProperty("HIDE_SUMMARY_SECTION",GlobalConfig.getInstance().isHideSummarySection()+"");
-		}
-	}
-
-	@Test
-	public void shouldRenderDocumentationWithoutStepTime() {
-		System.setProperty("HIDE_STEP_TIME", "true");
-		System.setProperty("HIDE_FEATURES_SECTION", "true");
-		System.setProperty("HIDE_SUMMARY_SECTION", "true");
-		try {
-			List<Feature> features = FeatureParser.parse(onePassingOneFailing);
-			DocumentAttributes attrs = new DocumentAttributes();
-			attrs.toc("left").backend("html5")
-					.docType("book").docTitle("Living Documentation")
-					.icons("font").numbered(false)
-					.sectAnchors(true).sectLink(true);
-
-			CukedoctorConverter converter = Cukedoctor.instance(features, attrs);
-			converter.setFilename("target/living_documentation.adoc");
-			String resultDoc = converter.renderDocumentation();
-			assertThat(resultDoc.replaceAll("\r", "")).isEqualTo(Expectations.DOCUMENTATION_WITHOUT_STEP_TIME.replaceAll("\r", ""));
-		}finally {
-			System.setProperty("HIDE_STEP_TIME",GlobalConfig.getInstance().isHideStepTime()+"");
-			System.setProperty("HIDE_FEATURES_SECTION",GlobalConfig.getInstance().isHideFeaturesSection()+"");
-			System.setProperty("HIDE_SUMMARY_SECTION",GlobalConfig.getInstance().isHideSummarySection()+"");
-		}
-	}
+        CukedoctorConverter converter = Cukedoctor.instance(features, attrs);
+        converter.setFilename("target/living_documentation.adoc");
+        String resultDoc = converter.renderDocumentation();
+        assertThat(resultDoc.replaceAll("\r", "")).isEqualTo(Expectations.DOCUMENTATION_WITHOUT_STEP_TIME.replaceAll("\r", ""));
+    }
 
     @Test
     public void shouldRenderDocumentationWithoutTags() {
@@ -649,225 +633,215 @@ public class CukedoctorConverterTest {
         System.setProperty("HIDE_FEATURES_SECTION", "true");
         System.setProperty("HIDE_SUMMARY_SECTION", "true");
         System.setProperty("HIDE_TAGS", "true");
-        try {
-            List<Feature> features = FeatureParser.parse(onePassingOneFailing);
-            DocumentAttributes attrs = new DocumentAttributes();
-            attrs.toc("left").backend("html5")
-                    .docType("book").docTitle("Living Documentation")
-                    .icons("font").numbered(false)
-                    .sectAnchors(true).sectLink(true);
+        List<Feature> features = FeatureParser.parse(onePassingOneFailing);
+        DocumentAttributes attrs = new DocumentAttributes();
+        attrs.toc("left").backend("html5")
+                .docType("book").docTitle("Living Documentation")
+                .icons("font").numbered(false)
+                .sectAnchors(true).sectLink(true);
 
-            CukedoctorConverter converter = Cukedoctor.instance(features, attrs);
-            converter.setFilename("target/living_documentation.adoc");
-            String resultDoc = converter.renderDocumentation();
-            assertThat(resultDoc.replaceAll("\r", "")).isEqualTo(Expectations.DOCUMENTATION_WITHOUT_TAGS.replaceAll("\r", ""));
-        } finally {
-            System.setProperty("HIDE_STEP_TIME", GlobalConfig.getInstance().isHideStepTime() + "");
-            System.setProperty("HIDE_FEATURES_SECTION", GlobalConfig.getInstance().isHideFeaturesSection() + "");
-            System.setProperty("HIDE_SUMMARY_SECTION", GlobalConfig.getInstance().isHideSummarySection() + "");
-            System.setProperty("HIDE_TAGS", GlobalConfig.getInstance().isHideTags() + "");
-        }
+        CukedoctorConverter converter = Cukedoctor.instance(features, attrs);
+        converter.setFilename("target/living_documentation.adoc");
+        String resultDoc = converter.renderDocumentation();
+        assertThat(resultDoc.replaceAll("\r", "")).isEqualTo(Expectations.DOCUMENTATION_WITHOUT_TAGS.replaceAll("\r", ""));
     }
 
 
+    @Test
+    public void shouldRenderFeatureDescriptionWithNewLines() {
+        List<Feature> features = FeatureParser.parse(FileUtil.findJsonFile("target/test-classes/json-output/sample.json"));
+        assertThat(features).hasSize(1);
+        CukedoctorConverter converter = Cukedoctor.instance(features, new DocumentAttributes());
+        converter.setFilename("target/living_documentation.adoc");
+        String resultDoc = converter.renderDocumentation();
+        assertThat(resultDoc).contains("****" + newLine() +
+                "As a user " + newLine() +
+                "I want to do something " + newLine() +
+                "In order to achieve an important goal" + newLine() +
+                "****");
+        FileUtil.saveFile("target/sample.adoc", resultDoc);
+    }
 
-	@Test
-	public void shouldRenderFeatureDescriptionWithNewLines(){
-		List<Feature> features = FeatureParser.parse(FileUtil.findJsonFile("target/test-classes/json-output/sample.json"));
-		assertThat(features).hasSize(1);
-		CukedoctorConverter converter = Cukedoctor.instance(features, new DocumentAttributes());
-		converter.setFilename("target/living_documentation.adoc");
-		String resultDoc =	converter.renderDocumentation();
-		assertThat(resultDoc).contains("****" + newLine() +
-				"As a user " + newLine() +
-				"I want to do something " + newLine() +
-				"In order to achieve an important goal" + newLine() +
-				"****");
-		FileUtil.saveFile("target/sample.adoc", resultDoc);
-	}
+    @Test
+    public void shouldSaveDocumentationIntoDisk() {
+        List<Feature> features = FeatureParser.parse(onePassingOneFailing);
 
-	@Test
-	public void shouldSaveDocumentationIntoDisk(){
-		List<Feature> features = FeatureParser.parse(onePassingOneFailing);
+        CukedoctorConverter converter = Cukedoctor.instance(features, new DocumentAttributes());
+        converter.setFilename("target/generated-test-sources/living documentation.adoc");
 
-		CukedoctorConverter converter = Cukedoctor.instance(features, new DocumentAttributes());
-		converter.setFilename("target/generated-test-sources/living documentation.adoc");
-
-		converter.saveDocumentation();
-		assertThat(FileUtil.loadFile("target/generated-test-sources/living_documentation.adoc")).exists();
-	}
-
-
-	@Test
-	public void shouldEnrichFeature(){
-		List<Feature> features = FeatureParser.parse(getClass().getResource("/json-output/enrichment/calc.json").getPath());
-		assertThat(features).isNotNull().hasSize(1);
-		String output = Cukedoctor.instance(features).renderFeatures(features).getDocumentation();
-		assertThat(output.replaceAll("\r", "")).contains(("[[Calculator, Calculator]]" + newLine() +
-				"=== *Calculator*" + newLine() +
-				newLine() +
-				"==== Scenario: Adding numbers" + newLine() +
-				"You can use *asciidoc markup* in _feature_ #description#." + newLine() +
-				newLine() +
-				"NOTE: This is a very important feature!" + newLine() +
-				newLine() +
-				"****" + newLine() +
-				"Given ::" + newLine() + "=====" + newLine() +
-				"I have numbers 1 and 2 icon:thumbs-up[role=\"green\",title=\"Passed\"] [small right]#(114ms)#" + newLine() +
-				newLine() +
-				"IMPORTANT: Asciidoc markup inside *steps* must be surrounded by *curly brackets*." + newLine() +
-				newLine() +
-				"=====" + newLine() +
-				"When ::" + newLine() + "=====" + newLine() +
-				"I sum the numbers icon:thumbs-up[role=\"green\",title=\"Passed\"] [small right]#(000ms)#" + newLine() +
-				newLine() +
-				"NOTE: Steps comments are placed *before* each steps so this comment is for the *WHEN* step." + newLine() +
-				newLine() + "=====" + newLine() +
-				"Then ::" + newLine() + "=====" + newLine() +
-				"I should have 3 as result icon:thumbs-up[role=\"green\",title=\"Passed\"] [small right]#(001ms)#" + newLine() +
-				newLine() +
-				"* this is a list of itens inside a feature step" + newLine() +
-				newLine() +
-				"* there is no multiline comment in gherkin" + newLine() +
-				newLine() +
-				"** second level list item" + newLine() +
-				newLine() + "=====" + newLine() +
-				"****" + newLine() + newLine()).replaceAll("\r", ""));
-	}
-
-	@Test
-	public void shouldEnrichFeatureWithListing(){
-		List<Feature> features = FeatureParser.parse(getClass().getResource("/com/github/cukedoctor/json-output/comment-with-listing.json").getPath());
-		assertThat(features).isNotNull().hasSize(1);
-		String output = Cukedoctor.instance(features).renderFeatures(features).getDocumentation();
-		assertThat(output.replaceAll("\r", "")).contains(("[[Enriched-feature, Enriched feature]]" + newLine() +
-				"=== *Enriched feature*" + newLine() +
-				"" + newLine() +
-				"==== Scenario: Scenario with listing" + newLine() +
-				"You can use *asciidoc markup* using feature comments." + newLine() +
-				"" + newLine() +
-				"****" + newLine() +
-				"Given ::" + newLine() + "=====" + newLine() +
-				"I have listing in feature comments. icon:thumbs-up[role=\"green\",title=\"Passed\"] [small right]#(000ms)#" + newLine() +
-				"[source,java]" + newLine() +
-				"----" + newLine() +
-				"" + newLine() +
-				"System.setProperty(\"INTRO_CHAPTER_DIR\",\"/home/some/external/folder\");" + newLine() +
-				"----" + newLine() +
-				"" + newLine() + "=====" + newLine() +
-				"****" + newLine() + newLine()).replaceAll("\r", ""));
-	}
-
-	@Test
-	public void shouldEnrichFeatureWithListingWithinAdmonitionBlock(){
-		List<Feature> features = FeatureParser.parse(getClass().getResource("/com/github/cukedoctor/json-output/comment-with-admonition-and-listing.json").getPath());
-		assertThat(features).isNotNull().hasSize(1);
-		String output = Cukedoctor.instance(features).renderFeatures(features).getDocumentation();
-		assertThat(output.replaceAll("\r", "")).contains(("[[Enriched-feature, Enriched feature]]" + newLine() +
-				"=== *Enriched feature*" + newLine() +
-				"" + newLine() +
-				"==== Scenario: Scenario with admonition and  listing" + newLine() +
-				"You can use *asciidoc markup* using feature comments." + newLine() +
-				"" + newLine() +
-				"****" + newLine() +
-				"Given ::" + newLine() + "=====" + newLine() +
-				"I have admonition with a listing in feature comments. icon:thumbs-up[role=\"green\",title=\"Passed\"] [small right]#(032ms)#" + newLine() +
-				"" + newLine() +
-				"[TIP]" + newLine() +
-				"====" + newLine() +
-				"" + newLine() +
-				"This is a tip with source code inside" + newLine() +
-				"[source,java]" + newLine() +
-				"----" + newLine() +
-				"" + newLine() +
-				"System.setProperty(\"INTRO_CHAPTER_DIR\",\"/home/some/external/folder\");" + newLine() +
-				"----" + newLine() +
-				"====" + newLine() +
-				"" + newLine() + "=====" + newLine() +
-				"****" + newLine() + newLine()).replaceAll("\r", ""));
-	}
-
-	@Test
-	public void shouldEnrichFeatureWithCommentAndDocstring(){
-		List<Feature> features = FeatureParser.parse(getClass().getResource("/com/github/cukedoctor/json-output/calc-enriched.json").getPath());
-		assertThat(features).isNotNull().hasSize(1);
-		String output = Cukedoctor.instance(features).renderFeatures(features).getDocumentation();
-		assertThat(output.replaceAll("\r", "")).contains(("[[Calculator, Calculator]]" + newLine() +
-				"=== *Calculator*" + newLine() +
-				"" + newLine() +
-				"==== Scenario: Adding numbers" + newLine() +
-				"You can *asciidoc markup* in _feature_ #description#." + newLine() +
-				"" + newLine() +
-				"NOTE: This is a very important feature!" + newLine() +
-				"" + newLine() +
-				"****" + newLine() +
-				"Given ::" + newLine() +
-				"=====" + newLine() +
-				"I have numbers 1 and 2 icon:thumbs-up[role=\"green\",title=\"Passed\"] [small right]#(212ms)#" + newLine() +
-				"" + newLine() +
-				"IMPORTANT: Asciidoc markup inside *steps* must be surrounded by *curly brackets*." + newLine() +
-				"" + newLine() +
-				"=====" + newLine() +
-				"When ::" + newLine() +
-				"=====" + newLine() +
-				"I sum the numbers using the following java code: icon:thumbs-up[role=\"green\",title=\"Passed\"] [small right]#(001ms)#" + newLine() +
-				"******" + newLine() +
-				"" + newLine() +
-				"[discrete]" + newLine() +
-				"[source,java]" + newLine() +
-				"----" + newLine() +
-				"    public class Calc {" + newLine() +
-				"      public long sum(int x, int y){" + newLine() +
-				"          return  x + y; //<1>" + newLine() +
-				"      }" + newLine() +
-				"  }" + newLine() +
-				"----" + newLine() +
-				"[discrete]" + newLine() +
-				"<1> This is an asciidoc call inside a feature." + newLine() +
-				"" + newLine() +
-				"" + newLine() +
-				"******" + newLine() +
-				"" + newLine() +
-				"NOTE: You can use asciidoc in doc strings as well" + newLine() +
-				"" + newLine() +
-				"TIP: Steps comments are placed *before* each steps" + newLine() +
-				"" + newLine() +
-				"=====" + newLine() +
-				"Then ::" + newLine() +
-				"=====" + newLine() +
-				"I should have 3 as result icon:thumbs-up[role=\"green\",title=\"Passed\"] [small right]#(003ms)#" + newLine() +
-				newLine() +
-				"* this is a list of itens inside a feature step" + newLine() +
-				newLine() +
-				"* there is no multiline comment in gherkin" + newLine() +
-				newLine() +
-				"** second level list item" + newLine() +
-				"" + newLine() +
-				"=====" + newLine() +
-				"****" + newLine() +
-				"\n").replaceAll("\r", ""));
-	}
+        converter.saveDocumentation();
+        assertThat(FileUtil.loadFile("target/generated-test-sources/living_documentation.adoc")).exists();
+    }
 
 
-	@Test
-	public void shouldRenderDocumentationForScenariosWithoutDescription() {
-		List<Feature> features = FeatureParser.parse(getClass().getResource("/json-output/scenario_without_description.json").getPath());
+    @Test
+    public void shouldEnrichFeature() {
+        List<Feature> features = FeatureParser.parse(getClass().getResource("/json-output/enrichment/calc.json").getPath());
+        assertThat(features).isNotNull().hasSize(1);
+        String output = Cukedoctor.instance(features).renderFeatures(features).getDocumentation();
+        assertThat(output.replaceAll("\r", "")).contains(("[[Calculator, Calculator]]" + newLine() +
+                "=== *Calculator*" + newLine() +
+                newLine() +
+                "==== Scenario: Adding numbers" + newLine() +
+                "You can use *asciidoc markup* in _feature_ #description#." + newLine() +
+                newLine() +
+                "NOTE: This is a very important feature!" + newLine() +
+                newLine() +
+                "****" + newLine() +
+                "Given ::" + newLine() + "=====" + newLine() +
+                "I have numbers 1 and 2 icon:thumbs-up[role=\"green\",title=\"Passed\"] [small right]#(114ms)#" + newLine() +
+                newLine() +
+                "IMPORTANT: Asciidoc markup inside *steps* must be surrounded by *curly brackets*." + newLine() +
+                newLine() +
+                "=====" + newLine() +
+                "When ::" + newLine() + "=====" + newLine() +
+                "I sum the numbers icon:thumbs-up[role=\"green\",title=\"Passed\"] [small right]#(000ms)#" + newLine() +
+                newLine() +
+                "NOTE: Steps comments are placed *before* each steps so this comment is for the *WHEN* step." + newLine() +
+                newLine() + "=====" + newLine() +
+                "Then ::" + newLine() + "=====" + newLine() +
+                "I should have 3 as result icon:thumbs-up[role=\"green\",title=\"Passed\"] [small right]#(001ms)#" + newLine() +
+                newLine() +
+                "* this is a list of itens inside a feature step" + newLine() +
+                newLine() +
+                "* there is no multiline comment in gherkin" + newLine() +
+                newLine() +
+                "** second level list item" + newLine() +
+                newLine() + "=====" + newLine() +
+                "****" + newLine() + newLine()).replaceAll("\r", ""));
+    }
+
+    @Test
+    public void shouldEnrichFeatureWithListing() {
+        List<Feature> features = FeatureParser.parse(getClass().getResource("/com/github/cukedoctor/json-output/comment-with-listing.json").getPath());
+        assertThat(features).isNotNull().hasSize(1);
+        String output = Cukedoctor.instance(features).renderFeatures(features).getDocumentation();
+        assertThat(output.replaceAll("\r", "")).contains(("[[Enriched-feature, Enriched feature]]" + newLine() +
+                "=== *Enriched feature*" + newLine() +
+                "" + newLine() +
+                "==== Scenario: Scenario with listing" + newLine() +
+                "You can use *asciidoc markup* using feature comments." + newLine() +
+                "" + newLine() +
+                "****" + newLine() +
+                "Given ::" + newLine() + "=====" + newLine() +
+                "I have listing in feature comments. icon:thumbs-up[role=\"green\",title=\"Passed\"] [small right]#(000ms)#" + newLine() +
+                "[source,java]" + newLine() +
+                "----" + newLine() +
+                "" + newLine() +
+                "System.setProperty(\"INTRO_CHAPTER_DIR\",\"/home/some/external/folder\");" + newLine() +
+                "----" + newLine() +
+                "" + newLine() + "=====" + newLine() +
+                "****" + newLine() + newLine()).replaceAll("\r", ""));
+    }
+
+    @Test
+    public void shouldEnrichFeatureWithListingWithinAdmonitionBlock() {
+        List<Feature> features = FeatureParser.parse(getClass().getResource("/com/github/cukedoctor/json-output/comment-with-admonition-and-listing.json").getPath());
+        assertThat(features).isNotNull().hasSize(1);
+        String output = Cukedoctor.instance(features).renderFeatures(features).getDocumentation();
+        assertThat(output.replaceAll("\r", "")).contains(("[[Enriched-feature, Enriched feature]]" + newLine() +
+                "=== *Enriched feature*" + newLine() +
+                "" + newLine() +
+                "==== Scenario: Scenario with admonition and  listing" + newLine() +
+                "You can use *asciidoc markup* using feature comments." + newLine() +
+                "" + newLine() +
+                "****" + newLine() +
+                "Given ::" + newLine() + "=====" + newLine() +
+                "I have admonition with a listing in feature comments. icon:thumbs-up[role=\"green\",title=\"Passed\"] [small right]#(032ms)#" + newLine() +
+                "" + newLine() +
+                "[TIP]" + newLine() +
+                "====" + newLine() +
+                "" + newLine() +
+                "This is a tip with source code inside" + newLine() +
+                "[source,java]" + newLine() +
+                "----" + newLine() +
+                "" + newLine() +
+                "System.setProperty(\"INTRO_CHAPTER_DIR\",\"/home/some/external/folder\");" + newLine() +
+                "----" + newLine() +
+                "====" + newLine() +
+                "" + newLine() + "=====" + newLine() +
+                "****" + newLine() + newLine()).replaceAll("\r", ""));
+    }
+
+    @Test
+    public void shouldEnrichFeatureWithCommentAndDocstring() {
+        List<Feature> features = FeatureParser.parse(getClass().getResource("/com/github/cukedoctor/json-output/calc-enriched.json").getPath());
+        assertThat(features).isNotNull().hasSize(1);
+        String output = Cukedoctor.instance(features).renderFeatures(features).getDocumentation();
+        assertThat(output.replaceAll("\r", "")).contains(("[[Calculator, Calculator]]" + newLine() +
+                "=== *Calculator*" + newLine() +
+                "" + newLine() +
+                "==== Scenario: Adding numbers" + newLine() +
+                "You can *asciidoc markup* in _feature_ #description#." + newLine() +
+                "" + newLine() +
+                "NOTE: This is a very important feature!" + newLine() +
+                "" + newLine() +
+                "****" + newLine() +
+                "Given ::" + newLine() +
+                "=====" + newLine() +
+                "I have numbers 1 and 2 icon:thumbs-up[role=\"green\",title=\"Passed\"] [small right]#(212ms)#" + newLine() +
+                "" + newLine() +
+                "IMPORTANT: Asciidoc markup inside *steps* must be surrounded by *curly brackets*." + newLine() +
+                "" + newLine() +
+                "=====" + newLine() +
+                "When ::" + newLine() +
+                "=====" + newLine() +
+                "I sum the numbers using the following java code: icon:thumbs-up[role=\"green\",title=\"Passed\"] [small right]#(001ms)#" + newLine() +
+                "******" + newLine() +
+                "" + newLine() +
+                "[discrete]" + newLine() +
+                "[source,java]" + newLine() +
+                "----" + newLine() +
+                "    public class Calc {" + newLine() +
+                "      public long sum(int x, int y){" + newLine() +
+                "          return  x + y; //<1>" + newLine() +
+                "      }" + newLine() +
+                "  }" + newLine() +
+                "----" + newLine() +
+                "[discrete]" + newLine() +
+                "<1> This is an asciidoc call inside a feature." + newLine() +
+                "" + newLine() +
+                "" + newLine() +
+                "******" + newLine() +
+                "" + newLine() +
+                "NOTE: You can use asciidoc in doc strings as well" + newLine() +
+                "" + newLine() +
+                "TIP: Steps comments are placed *before* each steps" + newLine() +
+                "" + newLine() +
+                "=====" + newLine() +
+                "Then ::" + newLine() +
+                "=====" + newLine() +
+                "I should have 3 as result icon:thumbs-up[role=\"green\",title=\"Passed\"] [small right]#(003ms)#" + newLine() +
+                newLine() +
+                "* this is a list of itens inside a feature step" + newLine() +
+                newLine() +
+                "* there is no multiline comment in gherkin" + newLine() +
+                newLine() +
+                "** second level list item" + newLine() +
+                "" + newLine() +
+                "=====" + newLine() +
+                "****" + newLine() +
+                "\n").replaceAll("\r", ""));
+    }
 
 
-		CukedoctorConverter converter = Cukedoctor.instance(features);
-		converter.setFilename("target/living_documentation.adoc");
-		String resultDoc =	converter.renderDocumentation();
-		assertThat(resultDoc).isNotNull().
-				containsOnlyOnce("= *Documentation*" + newLine()).
-				containsOnlyOnce("=== *Do something*" + newLine()).
-				containsOnlyOnce("==== Scenario: User browses to the site successfully" + newLine()).
-				containsOnlyOnce("User opens a browser").
-				containsOnlyOnce("|1|0|1|1|0|0|0|0|0|1 2+|000ms");
-
-		assertThat(resultDoc.replaceAll("\r", "")).isEqualTo(Expectations.DOCUMENTATION_WITH_SCENARIO_WITHOUT_DESCRIPTION.replaceAll("\r", ""));
-	}
+    @Test
+    public void shouldRenderDocumentationForScenariosWithoutDescription() {
+        List<Feature> features = FeatureParser.parse(getClass().getResource("/json-output/scenario_without_description.json").getPath());
 
 
+        CukedoctorConverter converter = Cukedoctor.instance(features);
+        converter.setFilename("target/living_documentation.adoc");
+        String resultDoc = converter.renderDocumentation();
+        assertThat(resultDoc).isNotNull().
+                containsOnlyOnce("= *Documentation*" + newLine()).
+                containsOnlyOnce("=== *Do something*" + newLine()).
+                containsOnlyOnce("==== Scenario: User browses to the site successfully" + newLine()).
+                containsOnlyOnce("User opens a browser").
+                containsOnlyOnce("|1|0|1|1|0|0|0|0|0|1 2+|000ms");
+
+        assertThat(resultDoc.replaceAll("\r", "")).isEqualTo(Expectations.DOCUMENTATION_WITH_SCENARIO_WITHOUT_DESCRIPTION.replaceAll("\r", ""));
+    }
 
 
 }
