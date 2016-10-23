@@ -147,7 +147,7 @@ public class CukedoctorConverterTest {
                 ":source-highlighter: highlightjs" + newLine() +":toclevels: 3" + newLine() +":hardbreaks:" + newLine();
 
 
-        String document = Cukedoctor.instance(features, GlobalConfig.getInstance().getDocumentAttributes()).renderAttributes().
+        String document = Cukedoctor.instance(features, GlobalConfig.newInstance().getDocumentAttributes()).renderAttributes().
                 getDocumentation().toString();
         assertEquals(expected, document);
     }
