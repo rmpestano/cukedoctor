@@ -15,16 +15,7 @@ public class GlobalConfig {
 
     private DocumentAttributes documentAttributes;
 
-    private boolean hideFeaturesSection;
-
-    private boolean hideSummarySection;
-
-    private boolean hideStepTime;
-
-    private boolean hideScenarioKeyword;
-
-    private boolean hideTags;
-
+    private LayoutConfig layoutConfig;
 
     private GlobalConfig() {
 
@@ -59,23 +50,6 @@ public class GlobalConfig {
         return globalConfig;
     }
 
-
-    public boolean isHideSummarySection() {
-        return hideSummarySection;
-    }
-
-    public void setHideSummarySection(boolean hideSummarySection) {
-        this.hideSummarySection = hideSummarySection;
-    }
-
-    public boolean isHideFeaturesSection() {
-        return hideFeaturesSection;
-    }
-
-    public void setHideFeaturesSection(boolean hideFeaturesSection) {
-        this.hideFeaturesSection = hideFeaturesSection;
-    }
-
     public DocumentAttributes getDocumentAttributes() {
         return documentAttributes;
     }
@@ -84,27 +58,11 @@ public class GlobalConfig {
         this.documentAttributes = documentAttributes;
     }
 
-    public boolean isHideStepTime() {
-        return hideStepTime;
+    public LayoutConfig getLayoutConfig() {
+        return layoutConfig;
     }
 
-    public void setHideStepTime(boolean hideStepTime) {
-        this.hideStepTime = hideStepTime;
-    }
-
-    public boolean isHideScenarioKeyword() {
-        return hideScenarioKeyword;
-    }
-
-    public void setHideScenarioKeyword(boolean hideScenarioKeyword) {
-        this.hideScenarioKeyword = hideScenarioKeyword;
-    }
-
-    public boolean isHideTags() {
-        return hideTags;
-    }
-
-    public void setHideTags(boolean hideTags) {
-        this.hideTags = hideTags;
+    public void setLayoutConfig(LayoutConfig layoutConfig) {
+        this.layoutConfig = layoutConfig;
     }
 }

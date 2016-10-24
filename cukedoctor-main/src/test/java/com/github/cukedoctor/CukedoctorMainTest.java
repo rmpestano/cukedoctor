@@ -34,11 +34,11 @@ public class CukedoctorMainTest {
         newOut = new PrintStream(baos);
         defaultOut = System.out;
         System.setOut(newOut);
-        System.setProperty("HIDE_FEATURES_SECTION", Boolean.toString(GlobalConfig.getInstance().isHideFeaturesSection()));
-        System.setProperty("HIDE_SUMMARY_SECTION", Boolean.toString(GlobalConfig.getInstance().isHideSummarySection()));
-        System.setProperty("HIDE_SCENARIO_KEYWORD", Boolean.toString(GlobalConfig.getInstance().isHideScenarioKeyword()));
-        System.setProperty("HIDE_STEP_TIME", Boolean.toString(GlobalConfig.getInstance().isHideStepTime()));
-        System.setProperty("HIDE_TAGS", Boolean.toString(GlobalConfig.getInstance().isHideTags()));
+        System.setProperty("HIDE_FEATURES_SECTION", Boolean.toString(GlobalConfig.getInstance().getLayoutConfig().isHideFeaturesSection()));
+        System.setProperty("HIDE_SUMMARY_SECTION", Boolean.toString(GlobalConfig.getInstance().getLayoutConfig().isHideSummarySection()));
+        System.setProperty("HIDE_SCENARIO_KEYWORD", Boolean.toString(GlobalConfig.getInstance().getLayoutConfig().isHideScenarioKeyword()));
+        System.setProperty("HIDE_STEP_TIME", Boolean.toString(GlobalConfig.getInstance().getLayoutConfig().isHideStepTime()));
+        System.setProperty("HIDE_TAGS", Boolean.toString(GlobalConfig.getInstance().getLayoutConfig().isHideTags()));
 
     }
 

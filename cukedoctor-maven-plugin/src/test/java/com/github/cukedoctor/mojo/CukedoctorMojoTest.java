@@ -133,7 +133,7 @@ public class CukedoctorMojoTest extends AbstractMojoTestCase {
                     contains("== *Summary*").
                     doesNotContain("== *Features*");
         }finally {
-            System.setProperty("HIDE_FEATURES_SECTION", Boolean.toString(GlobalConfig.getInstance().isHideFeaturesSection()));
+            System.setProperty("HIDE_FEATURES_SECTION", Boolean.toString(GlobalConfig.getInstance().getLayoutConfig().isHideFeaturesSection()));
         }
     }
 
@@ -156,7 +156,7 @@ public class CukedoctorMojoTest extends AbstractMojoTestCase {
                     contains("== *Features*").
                     doesNotContain("== *Summary*");
         }finally {
-            System.setProperty("HIDE_SUMMARY_SECTION", Boolean.toString(GlobalConfig.getInstance().isHideSummarySection()));
+            System.setProperty("HIDE_SUMMARY_SECTION", Boolean.toString(GlobalConfig.getInstance().getLayoutConfig().isHideSummarySection()));
         }
     }
 
@@ -181,7 +181,7 @@ public class CukedoctorMojoTest extends AbstractMojoTestCase {
                     contains("==== Passing");
                     //[small]#tags: @a,@b#)
         }finally {
-            System.setProperty("HIDE_SCENARIO_KEYWORD", Boolean.toString(GlobalConfig.getInstance().isHideScenarioKeyword()));
+            System.setProperty("HIDE_SCENARIO_KEYWORD", Boolean.toString(GlobalConfig.getInstance().getLayoutConfig().isHideScenarioKeyword()));
         }
     }
 
@@ -205,7 +205,7 @@ public class CukedoctorMojoTest extends AbstractMojoTestCase {
                     contains("== *Features*").
                     doesNotContain("[small]#tags:");
         }finally {
-            System.setProperty("HIDE_TAGS", Boolean.toString(GlobalConfig.getInstance().isHideTags()));
+            System.setProperty("HIDE_TAGS", Boolean.toString(GlobalConfig.getInstance().getLayoutConfig().isHideTags()));
         }
     }
 
@@ -228,7 +228,7 @@ public class CukedoctorMojoTest extends AbstractMojoTestCase {
                     contains("== *Features*").
                     doesNotContain("[small right]#(001ms)#");
         }finally {
-            System.setProperty("HIDE_STEP_TIME", Boolean.toString(GlobalConfig.getInstance().isHideStepTime()));
+            System.setProperty("HIDE_STEP_TIME", Boolean.toString(GlobalConfig.getInstance().getLayoutConfig().isHideStepTime()));
         }
     }
 

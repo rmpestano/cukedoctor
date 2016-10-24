@@ -49,11 +49,11 @@ public class CukedoctorConverterTest {
 
     @Before
     public void initProperties() {
-        System.setProperty("HIDE_STEP_TIME", GlobalConfig.getInstance().isHideStepTime() + "");
-        System.setProperty("HIDE_FEATURES_SECTION", GlobalConfig.getInstance().isHideFeaturesSection() + "");
-        System.setProperty("HIDE_SUMMARY_SECTION", GlobalConfig.getInstance().isHideSummarySection() + "");
-        System.setProperty("HIDE_SCENARIO_KEYWORD", GlobalConfig.getInstance().isHideScenarioKeyword() + "");
-        System.setProperty("HIDE_TAGS", GlobalConfig.getInstance().isHideTags() + "");
+        System.setProperty("HIDE_STEP_TIME", GlobalConfig.getInstance().getLayoutConfig().isHideStepTime() + "");
+        System.setProperty("HIDE_FEATURES_SECTION", GlobalConfig.getInstance().getLayoutConfig().isHideFeaturesSection() + "");
+        System.setProperty("HIDE_SUMMARY_SECTION", GlobalConfig.getInstance().getLayoutConfig().isHideSummarySection() + "");
+        System.setProperty("HIDE_SCENARIO_KEYWORD", GlobalConfig.getInstance().getLayoutConfig().isHideScenarioKeyword() + "");
+        System.setProperty("HIDE_TAGS", GlobalConfig.getInstance().getLayoutConfig().isHideTags() + "");
     }
 
 

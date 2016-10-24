@@ -1,8 +1,9 @@
-hideFeaturesSection: false
-hideSummarySection: false
-hideStepTime: false
-hideScenarioKeyword: false
-hideTags: false
+layoutConfig:
+  hideFeaturesSection: false
+  hideSummarySection: false
+  hideStepTime: false
+  hideScenarioKeyword: false
+  hideTags: false
 documentAttributes:
   docTitle: "Living Documentation"
   backend: "html5"

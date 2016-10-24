@@ -4,7 +4,10 @@ import com.github.cukedoctor.util.Constants;
 
 /**
  * Created by pestano on 22/06/15.
+ * @deprecated use GlobalConfig
+ * @see GlobalConfig
  */
+@Deprecated
 public abstract class CukedoctorConfig {
 	public static final int ERROR_MESSAGE_SIZE = getProperty("ERROR_MESSAGE_SIZE",Integer.class) == null ? 400 : getProperty("ERROR_MESSAGE_SIZE",Integer.class);
 	public static final String DOCUMENT_TITLE= getProperty("DOCUMENT_TITLE") == null ? "Documentation" : getProperty("DOCUMENT_TITLE");
@@ -14,23 +17,23 @@ public abstract class CukedoctorConfig {
 
 	//lazy evaluation
 	public static Boolean hideSummarySection(){
-		return getProperty("HIDE_SUMMARY_SECTION") == null ? GlobalConfig.getInstance().isHideSummarySection() : Boolean.valueOf(getProperty("HIDE_SUMMARY_SECTION"));
+		return getProperty("HIDE_SUMMARY_SECTION") == null ? GlobalConfig.getInstance().getLayoutConfig().isHideSummarySection() : Boolean.valueOf(getProperty("HIDE_SUMMARY_SECTION"));
 	}
 
 	public static Boolean hideFeaturesSection(){
-		return getProperty("HIDE_FEATURES_SECTION") == null ? GlobalConfig.getInstance().isHideFeaturesSection() : Boolean.valueOf(getProperty("HIDE_FEATURES_SECTION"));
+		return getProperty("HIDE_FEATURES_SECTION") == null ? GlobalConfig.getInstance().getLayoutConfig().isHideFeaturesSection() : Boolean.valueOf(getProperty("HIDE_FEATURES_SECTION"));
 	}
 
 	public static Boolean hideStepTime(){
-		return getProperty("HIDE_STEP_TIME") == null ? GlobalConfig.getInstance().isHideStepTime() : Boolean.valueOf(getProperty("HIDE_STEP_TIME"));
+		return getProperty("HIDE_STEP_TIME") == null ? GlobalConfig.getInstance().getLayoutConfig().isHideStepTime() : Boolean.valueOf(getProperty("HIDE_STEP_TIME"));
 	}
 
 	public static Boolean hideScenarioKeyword(){
-		return getProperty("HIDE_SCENARIO_KEYWORD") == null ? GlobalConfig.getInstance().isHideScenarioKeyword() : Boolean.valueOf(getProperty("HIDE_SCENARIO_KEYWORD"));
+		return getProperty("HIDE_SCENARIO_KEYWORD") == null ? GlobalConfig.getInstance().getLayoutConfig().isHideScenarioKeyword() : Boolean.valueOf(getProperty("HIDE_SCENARIO_KEYWORD"));
 	}
 
 	public static Boolean hideTags(){
-		return getProperty("HIDE_TAGS") == null ? GlobalConfig.getInstance().isHideTags() : Boolean.valueOf(getProperty("HIDE_TAGS"));
+		return getProperty("HIDE_TAGS") == null ? GlobalConfig.getInstance().getLayoutConfig().isHideTags() : Boolean.valueOf(getProperty("HIDE_TAGS"));
 	}
 
 

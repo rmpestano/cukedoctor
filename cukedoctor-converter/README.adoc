@@ -13,11 +13,11 @@ This module is responsible for generating adoc files from .json cucumber executi
 public void shouldSaveDocumentationIntoDisk(){
 	List<String> pathToCucumberJsonFiles = FileUtil.findJsonFiles("target/test-classes/json-output/");
 	List<Feature> features = FeatureParser.parse(pathToCucumberJsonFiles);
-	DocumentAttributes attrs = new DocumentAttributes();
+	DocumentAttributes attrs = DefaultConfig.getInstance().getDocumentAttributes;
 	attrs.toc("left").backend("html5")
 			.docType("book")
 			.icons("font").numbered(false)
-		.sectAnchors(true).sectLink(true);
+		   .sectAnchors(true).sectLink(true);
 
 	CukedoctorConverter converter = Cukedoctor.instance(features, "Living Documentation", attrs);
 	converter.setFilename("/target/living_documentation.adoc");

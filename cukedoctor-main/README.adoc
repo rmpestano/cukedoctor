@@ -19,7 +19,8 @@ public void shouldRenderHtmlForOneFeature(){
 			"-t", "Living Documentation", <3>
 			"-f", "html", <4>
 			"-toc", "left", <5>
-                        "-numbering", "true" <6>
+            "-numbering", "true", <6>
+            "-sourceHighlighter"
 		});
 
 	File generatedFile = FileUtil.loadFile("target/document-one.html");
@@ -42,6 +43,8 @@ java -jar cukedoctor-main.jar
 		-o "target/document-one"
 		-p "target/test-classes/json-output/one_passing_one_failing.json"
 		-t "Living Documentation" -f html
+		-hideSummarySection
+		-hideScenarioKeyword
 ----
 
 === Maven exec plugin
@@ -81,12 +84,30 @@ You can disable https://github.com/rmpestano/cukedoctor/tree/master/cukedoctor-e
 
 ----
 java -jar -Dcukedoctor.disable.filter=123  -Dcukedoctor.disable.theme=abc
-		cukedoctor-main-1.0.2.jar
+		cukedoctor-main-1.0.6.jar
 		-p cucumber-output.json
 ----
 
-You can download Cukedoctor main https://bintray.com/artifact/download/rmpestano/cukedoctor/com/github/cukedoctor/cukedoctor-main/1.0.2/cukedoctor-main-1.0.2.jar[jar here^]
+You can download Cukedoctor main https://bintray.com/artifact/download/rmpestano/cukedoctor/com/github/cukedoctor/cukedoctor-main/1.0.6/cukedoctor-main-1.0.6.jar[jar here^]
 
-== Hide Features and Summary
+== Layout configuration
 
-You can hide 'Features' and 'Summary' sections, to do so just specify `-hideFeaturesSection` or `-hideSummarySection` parameters.
+Some pieces of documentation can be hidden via configuration.
+
+You can hide `Features` and `Summary` sections, as well as `scenario keyword` which prefixes each scenario and hide `tags` or `step time`. To do so just specify the following arg parameters respectively:
+
+----
+java -jar -Dcukedoctor.disable.filter=123  -Dcukedoctor.disable.theme=abc
+		cukedoctor-main-1.0.6.jar
+		-p cucumber-output.json
+		-hideFeaturesSection <1>
+		-hideSummarySection <2>
+		-hideScenarioKeyword <3>
+		-hideStepTime <4>
+		-hideTags <5>
+----
+<1> Removes `Features` section so each feature is a section instead of a sub section of `Features`;
+<2> Removes summary section
+<3> Removes `scenario` keyword which prefixes each scenario;
+<4> Removes step time calculation on each step;
+<5> Removes tags rendering;
