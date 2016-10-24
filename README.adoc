@@ -315,14 +315,14 @@ IMPORTANT: By default Cukedoctor will render DocStrings as http://asciidoctor.or
 Cukedoctor let you customize its generated documentation through Java service provider mechanism, see https://github.com/rmpestano/Cukedoctor/tree/master/Cukedoctor-spi-example[Cukedoctor-spi-example^] for example code.
 
 
-=== How it works
+==== How it works
 
 Cukedoctor documentation customization is done through https://docs.oracle.com/javase/tutorial/ext/basics/spi.html[Java service provider] mechanism.
 
 You just need to implement one of the interfaces in https://github.com/rmpestano/cukedoctor/tree/master/cukedoctor-converter/src/main/java/com/github/cukedoctor/spi[Cukedoctor SPI] and declare it in META-INF/services.
 
 
-=== Example
+==== Example
 
 Given this cucumber feature:
 
@@ -348,7 +348,7 @@ When we generate documentation using *default* cukedoctor renderers we got the f
 
 image::calc-original-output.png[]
 
-==== Customizing the summary section
+===== Customizing the summary section
 
 To customize summary one have to implement https://github.com/rmpestano/cukedoctor/blob/master/cukedoctor-converter/src/main/java/com/github/cukedoctor/spi/SummaryRenderer.java[SummaryRenderer interface]. Here is an example:
 
