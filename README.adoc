@@ -632,7 +632,7 @@ public void shouldRenderHtmlForOneFeature(){
 			"-f", "html", <4>
 			"-toc", "left", <5>
             "-numbering", "true", <6>
-            "-sourceHighlighter"
+            "-sourceHighlighter", "coderay" <7>
 		});
 
 	File generatedFile = FileUtil.loadFile("target/document-one.html");
@@ -645,6 +645,7 @@ public void shouldRenderHtmlForOneFeature(){
 <4> document format (Default is html)
 <5> table of contents position (Default is right)
 <6> Section numbering (Default is false)
+<7> Source highlighter (Default is highlightjs)
 
 ==== Command line
 
