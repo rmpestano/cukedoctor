@@ -640,7 +640,7 @@ public void shouldRenderHtmlForOneFeature(){
 	}
 ----
 <1> output file name (default is 'documentation')
-<2> path to cucumber json files or directory (default is current dir)
+<2> path to cucumber json files or directory (default is current dir - the search is recursive)
 <3> Document title (default is 'Living Documentation')
 <4> document format (Default is html)
 <5> table of contents position (Default is right)
