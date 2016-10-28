@@ -108,7 +108,7 @@ Just declare the plugin in your _pom.xml_:
 [source, xml]
 ----
   <dependency>
-       <groupId>com.github.Cukedoctor</groupId>
+       <groupId>com.github.cukedoctor</groupId>
        <artifactId>Cukedoctor-converter</artifactId>
        <version>1.0.6</version>
    </dependency>
@@ -126,7 +126,8 @@ public void shouldSaveDocumentationIntoDisk(){
 	attrs.toc("left").backend("html5")
 			.docType("book")
 			.icons("font").numbered(false)
-		   .sectAnchors(true).sectLink(true);
+			.sourceHighlighter("coderay")
+		    .sectAnchors(true).sectLink(true);
 
 	CukedoctorConverter converter = Cukedoctor.instance(features, "Living Documentation", attrs);
 	converter.setFilename("/target/living_documentation.adoc");
@@ -456,7 +457,7 @@ Just declare the plugin in your _pom.xml_:
 [source, xml]
 ----
 <plugin>
-    <groupId>com.github.Cukedoctor</groupId>
+    <groupId>com.github.cukedoctor</groupId>
     <artifactId>Cukedoctor-maven-plugin</artifactId>
     <version>1.0.6</version>
     <executions>
@@ -489,7 +490,7 @@ NOTE: *plugin* option replaced *format* option which was deprecated in newer cuc
 [source, xml]
 ----
 <plugin>
-    <groupId>com.github.Cukedoctor</groupId>
+    <groupId>com.github.cukedoctor</groupId>
     <artifactId>Cukedoctor-maven-plugin</artifactId>
     <version>1.0.6</version>
          <configuration>
@@ -677,7 +678,7 @@ You can use maven exec plugin, see example:
         <arguments>
             <argument>-classpath</argument>
             <classpath />
-            <argument>com.github.cukedoctor.CukedoctorMain</argument>
+            <argument>com.github.cukedoctor.cukedoctorMain</argument>
         </arguments>
     </configuration>
 </plugin>
