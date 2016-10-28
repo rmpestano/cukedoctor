@@ -43,13 +43,13 @@ ____
 
 == Sample
 
-image::Cukedoctor-sample.png[]
+image:cukedoctor-sample.png[]
 
 The feature file for the above sample can be https://github.com/database-rider/database-rider/blob/master/rider-core/src/test/resources/features/rider-core/core-seed-database.feature[found here^].
 
 Failing steps are rendered as follows:
 
-image::Cukedoctor-sample-with-error.png[]
+image:cukedoctor-sample-with-error.png[]
 
 
 
@@ -167,7 +167,7 @@ Introduction chapter can have subsections
 
 Here is rendered documentation:
 
-image::Cukedoctor-intro.png[]
+image:cukedoctor-intro.png[]
 
 
 === Internationalization
