@@ -105,7 +105,7 @@ Just declare the plugin in your _pom.xml_:
 [source, xml]
 ----
   <dependency>
-       <groupId>com.github.Cukedoctor</groupId>
+       <groupId>com.github.cukedoctor</groupId>
        <artifactId>Cukedoctor-converter</artifactId>
        <version>1.0.6</version>
    </dependency>
@@ -453,7 +453,7 @@ Just declare the plugin in your _pom.xml_:
 [source, xml]
 ----
 <plugin>
-    <groupId>com.github.Cukedoctor</groupId>
+    <groupId>com.github.cukedoctor</groupId>
     <artifactId>Cukedoctor-maven-plugin</artifactId>
     <version>1.0.6</version>
     <executions>
@@ -486,7 +486,7 @@ NOTE: *plugin* option replaced *format* option which was deprecated in newer cuc
 [source, xml]
 ----
 <plugin>
-    <groupId>com.github.Cukedoctor</groupId>
+    <groupId>com.github.cukedoctor</groupId>
     <artifactId>Cukedoctor-maven-plugin</artifactId>
     <version>1.0.6</version>
          <configuration>
@@ -674,7 +674,7 @@ You can use maven exec plugin, see example:
         <arguments>
             <argument>-classpath</argument>
             <classpath />
-            <argument>com.github.cukedoctor.CukedoctorMain</argument>
+            <argument>com.github.cukedoctor.cukedoctorMain</argument>
         </arguments>
     </configuration>
 </plugin>
