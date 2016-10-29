@@ -45,7 +45,7 @@ ____
 
 image:cukedoctor-sample.png[]
 
-The feature file for the above sample can be https://github.com/database-rider/database-rider/blob/master/rider-core/src/test/resources/features/rider-core/core-seed-database.feature[found here^].
+The feature file for the above sample can be https://github.com/database-rider/database-rider/blob/master/rider-core/src/test/resources/features/seeding/seeding-database.feature#L2[found here^].
 
 Failing steps are rendered as follows:
 
