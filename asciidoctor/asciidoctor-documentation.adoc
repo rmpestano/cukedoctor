@@ -1,4 +1,4 @@
-:toc: right
+:toc: center
 :backend: pdf
 :doctitle: asciidoctor-documentation
 :doctype: book
@@ -8,86 +8,12 @@
 :sectanchors:
 :sectlink:
 :docinfo:
+:source-highlighter: coderay
 :toclevels: 3
+:hardbreaks:
 
 = *asciidoctor-documentation*
 
-== *Summary*
-[cols="12*^m", options="header,footer"]
-|===
-3+|Scenarios 7+|Steps 2+|Features: 4
-
-|[green]#*Passed*#
-|[red]#*Failed*#
-|Total
-|[green]#*Passed*#
-|[red]#*Failed*#
-|[purple]#*Skipped*#
-|[maroon]#*Pending*#
-|[yellow]#*Undefined*#
-|[blue]#*Missing*#
-|Total
-|Duration
-|Status
-
-12+^|*<<Cross-References>>*
-|4
-|0
-|4
-|12
-|0
-|0
-|0
-|0
-|0
-|12
-|028ms
-|[green]#*passed*#
-
-12+^|*<<Open-Blocks>>*
-|5
-|0
-|5
-|15
-|0
-|0
-|0
-|0
-|0
-|15
-|043ms
-|[green]#*passed*#
-
-12+^|*<<Open-Blocks>>*
-|3
-|0
-|3
-|9
-|0
-|0
-|0
-|0
-|0
-|9
-|003ms
-|[green]#*passed*#
-
-12+^|*<<Text-Formatting>>*
-|3
-|0
-|3
-|9
-|0
-|0
-|0
-|0
-|0
-|9
-|003ms
-|[green]#*passed*#
-12+^|*Totals*
-|15|0|15|45|0|0|0|0|0|45 2+|079ms
-|===
 
 == *Features*
 
@@ -95,12 +21,12 @@
 === *Cross References*
 
 ****
-In order to create links to other sections +
-As a writer +
+In order to create links to other sections
+As a writer
 I want to be able to use a cross reference macro
 ****
 
-==== Scenario: Create a cross reference from an AsciiDoc cell to a section
+==== Create a cross reference from an AsciiDoc cell to a section
 
 ****
 Given ::
@@ -146,7 +72,7 @@ table.tableblock.frame-all.grid-all.spread
 =====
 ****
 
-==== Scenario: Create a cross reference using the target section title
+==== Create a cross reference using the target section title
 
 ****
 Given ::
@@ -186,7 +112,7 @@ the result should match the HTML structure icon:thumbs-up[role="green",title="Pa
 =====
 ****
 
-==== Scenario: Create a cross reference using the target reftext
+==== Create a cross reference using the target reftext
 
 ****
 Given ::
@@ -227,7 +153,7 @@ the result should match the HTML structure icon:thumbs-up[role="green",title="Pa
 =====
 ****
 
-==== Scenario: Create a cross reference using the formatted target title
+==== Create a cross reference using the formatted target title
 
 ****
 Given ::
@@ -275,12 +201,12 @@ the result should match the HTML structure icon:thumbs-up[role="green",title="Pa
 === *Open Blocks*
 
 ****
-In order to group content in a generic container +
-As a writer +
+In order to group content in a generic container
+As a writer
 I want to be able to wrap content in an open block
 ****
 
-==== Scenario: Render an open block that contains a paragraph to HTML
+==== Render an open block that contains a paragraph to HTML
 
 ****
 Given ::
@@ -315,7 +241,7 @@ the result should match the HTML source icon:thumbs-up[role="green",title="Passe
 =====
 ****
 
-==== Scenario: Render an open block that contains a paragraph to DocBook
+==== Render an open block that contains a paragraph to DocBook
 
 ****
 Given ::
@@ -344,7 +270,7 @@ the result should match the XML source icon:thumbs-up[role="green",title="Passed
 =====
 ****
 
-==== Scenario: Render an open block that contains a paragraph to HTML (alt)
+==== Render an open block that contains a paragraph to HTML (alt)
 
 ****
 Given ::
@@ -376,7 +302,7 @@ the result should match the HTML structure icon:thumbs-up[role="green",title="Pa
 =====
 ****
 
-==== Scenario: Render an open block that contains a paragraph to DocBook (alt)
+==== Render an open block that contains a paragraph to DocBook (alt)
 
 ****
 Given ::
@@ -405,7 +331,7 @@ simpara A paragraph in an open block.
 =====
 ****
 
-==== Scenario: Render an open block that contains a list to HTML
+==== Render an open block that contains a list to HTML
 
 ****
 Given ::
@@ -446,12 +372,12 @@ the result should match the HTML structure icon:thumbs-up[role="green",title="Pa
 === *Open Blocks*
 
 ****
-In order to pass content through unprocessed +
-As a writer +
+In order to pass content through unprocessed
+As a writer
 I want to be able to mark passthrough content using a pass block
 ****
 
-==== Scenario: Render a pass block without performing substitutions by default to HTML
+==== Render a pass block without performing substitutions by default to HTML
 
 ****
 Given ::
@@ -486,7 +412,7 @@ image:tiger.png[]
 =====
 ****
 
-==== Scenario: Render a pass block without performing substitutions by default to DocBook
+==== Render a pass block without performing substitutions by default to DocBook
 
 ****
 Given ::
@@ -521,7 +447,7 @@ image:tiger.png[]
 =====
 ****
 
-==== Scenario: Render a pass block performing explicit substitutions to HTML
+==== Render a pass block performing explicit substitutions to HTML
 
 ****
 Given ::
@@ -561,12 +487,12 @@ the result should match the HTML source icon:thumbs-up[role="green",title="Passe
 === *Text Formatting*
 
 ****
-In order to apply formatting to the text +
-As a writer +
+In order to apply formatting to the text
+As a writer
 I want to be able to markup inline text with formatting characters
 ****
 
-==== Scenario: Convert text that contains superscript and subscript characters
+==== Convert text that contains superscript and subscript characters
 
 ****
 Given ::
@@ -603,7 +529,7 @@ the 10<sup>th</sup> point has coordinate (x<sub>10</sub>, y<sub>10</sub>)</p>
 =====
 ****
 
-==== Scenario: Convert text that has ex-inline literal formatting
+==== Convert text that has ex-inline literal formatting
 
 ****
 Given ::
@@ -632,7 +558,7 @@ the result should match the HTML source icon:thumbs-up[role="green",title="Passe
 =====
 ****
 
-==== Scenario: Convert text that has ex-inline monospaced formatting
+==== Convert text that has ex-inline monospaced formatting
 
 ****
 Given ::

@@ -1,4 +1,4 @@
-:toc: right
+:toc: center
 :backend: pdf
 :doctitle: cucumber-documentation
 :doctype: book
@@ -8,982 +8,12 @@
 :sectanchors:
 :sectlink:
 :docinfo:
+:source-highlighter: coderay
 :toclevels: 3
+:hardbreaks:
 
 = *cucumber-documentation*
 
-== *Summary*
-[cols="12*^m", options="header,footer"]
-|===
-3+|Scenarios 7+|Steps 2+|Features: 68
-
-|[green]#*Passed*#
-|[red]#*Failed*#
-|Total
-|[green]#*Passed*#
-|[red]#*Failed*#
-|[purple]#*Skipped*#
-|[maroon]#*Pending*#
-|[yellow]#*Undefined*#
-|[blue]#*Missing*#
-|Total
-|Duration
-|Status
-
-12+^|*<<After-Hooks>>*
-|12
-|0
-|12
-|30
-|0
-|0
-|0
-|0
-|0
-|30
-|084ms
-|[green]#*passed*#
-
-12+^|*<<Alle-bruker-ikke-UTF-8>>*
-|1
-|0
-|1
-|2
-|0
-|0
-|0
-|0
-|0
-|2
-|000ms
-|[green]#*passed*#
-
-12+^|*<<Around-hooks>>*
-|6
-|0
-|6
-|30
-|0
-|0
-|0
-|0
-|0
-|30
-|03s 758ms
-|[green]#*passed*#
-
-12+^|*<<Background>>*
-|22
-|0
-|22
-|144
-|0
-|0
-|0
-|0
-|0
-|144
-|03s 064ms
-|[green]#*passed*#
-
-12+^|*<<Before-Hook>>*
-|2
-|0
-|2
-|8
-|0
-|0
-|0
-|0
-|0
-|8
-|045ms
-|[green]#*passed*#
-
-12+^|*<<Choosing-the-language-from-the-feature-file-header>>*
-|1
-|0
-|1
-|3
-|0
-|0
-|0
-|0
-|0
-|3
-|011ms
-|[green]#*passed*#
-
-12+^|*<<Cucumber---work-in-progress-switch>>*
-|10
-|0
-|10
-|31
-|0
-|0
-|0
-|0
-|0
-|31
-|03s 151ms
-|[green]#*passed*#
-
-12+^|*<<Custom-Formatter>>*
-|6
-|0
-|6
-|15
-|0
-|0
-|0
-|0
-|0
-|15
-|027ms
-|[green]#*passed*#
-
-12+^|*<<Custom-filter>>*
-|1
-|0
-|1
-|4
-|0
-|0
-|0
-|0
-|0
-|4
-|009ms
-|[green]#*passed*#
-
-12+^|*<<Debug-formatter>>*
-|2
-|0
-|2
-|5
-|0
-|0
-|0
-|0
-|0
-|5
-|008ms
-|[green]#*passed*#
-
-12+^|*<<Doc-strings>>*
-|2
-|0
-|2
-|8
-|0
-|0
-|0
-|0
-|0
-|8
-|021ms
-|[green]#*passed*#
-
-12+^|*<<Dry-Run>>*
-|3
-|0
-|3
-|11
-|0
-|0
-|0
-|0
-|0
-|11
-|046ms
-|[green]#*passed*#
-
-12+^|*<<ERB-configuration>>*
-|4
-|0
-|4
-|11
-|0
-|0
-|0
-|0
-|0
-|11
-|143ms
-|[green]#*passed*#
-
-12+^|*<<Exception-in-After-Block>>*
-|6
-|0
-|6
-|18
-|0
-|0
-|0
-|0
-|0
-|18
-|01s 243ms
-|[green]#*passed*#
-
-12+^|*<<Exception-in-AfterStep-Block>>*
-|4
-|0
-|4
-|12
-|0
-|0
-|0
-|0
-|0
-|12
-|047ms
-|[green]#*passed*#
-
-12+^|*<<Exception-in-Before-Block>>*
-|6
-|0
-|6
-|15
-|0
-|0
-|0
-|0
-|0
-|15
-|651ms
-|[green]#*passed*#
-
-12+^|*<<Exceptions-in-Around-Hooks>>*
-|2
-|0
-|2
-|10
-|0
-|0
-|0
-|0
-|0
-|10
-|021ms
-|[green]#*passed*#
-
-12+^|*<<Excluding-ruby-and-feature-files-from-runs>>*
-|1
-|0
-|1
-|11
-|0
-|0
-|0
-|0
-|0
-|11
-|008ms
-|[green]#*passed*#
-
-12+^|*<<Formatter-API:-Step-file-path-and-line-number-(Issue-#179)>>*
-|1
-|0
-|1
-|5
-|0
-|0
-|0
-|0
-|0
-|5
-|007ms
-|[green]#*passed*#
-
-12+^|*<<Getting-started>>*
-|2
-|0
-|2
-|8
-|0
-|0
-|0
-|0
-|0
-|8
-|616ms
-|[green]#*passed*#
-
-12+^|*<<HTML-output-formatter>>*
-|14
-|0
-|14
-|53
-|0
-|0
-|0
-|0
-|0
-|53
-|166ms
-|[green]#*passed*#
-
-12+^|*<<Handle-unexpected-response>>*
-|2
-|0
-|2
-|5
-|0
-|0
-|0
-|0
-|0
-|5
-|071ms
-|[green]#*passed*#
-
-12+^|*<<Hooks-execute-in-defined-order>>*
-|4
-|0
-|4
-|12
-|0
-|0
-|0
-|0
-|0
-|12
-|01s 217ms
-|[green]#*passed*#
-
-12+^|*<<Invoke-message>>*
-|12
-|0
-|12
-|37
-|0
-|0
-|0
-|0
-|0
-|37
-|02s 210ms
-|[green]#*passed*#
-
-12+^|*<<JSON-output-formatter>>*
-|18
-|0
-|18
-|102
-|0
-|0
-|0
-|0
-|0
-|102
-|05s 007ms
-|[green]#*passed*#
-
-12+^|*<<JUnit-output-formatter>>*
-|16
-|0
-|16
-|73
-|0
-|0
-|0
-|0
-|0
-|73
-|05s 387ms
-|[green]#*passed*#
-
-12+^|*<<Language-help>>*
-|2
-|0
-|2
-|4
-|0
-|0
-|0
-|0
-|0
-|4
-|014ms
-|[green]#*passed*#
-
-12+^|*<<List-step-defs-as-json>>*
-|4
-|0
-|4
-|8
-|0
-|0
-|0
-|0
-|0
-|8
-|01s 223ms
-|[green]#*passed*#
-
-12+^|*<<Loading-the-steps-users-expect>>*
-|1
-|0
-|1
-|4
-|0
-|0
-|0
-|0
-|0
-|4
-|007ms
-|[green]#*passed*#
-
-12+^|*<<Nested-Steps>>*
-|12
-|0
-|12
-|33
-|0
-|0
-|0
-|0
-|0
-|33
-|683ms
-|[green]#*passed*#
-
-12+^|*<<Nested-Steps-in-I18n>>*
-|2
-|0
-|2
-|5
-|0
-|0
-|0
-|0
-|0
-|5
-|014ms
-|[green]#*passed*#
-
-12+^|*<<Nested-Steps-with-either-table-or-doc-string>>*
-|6
-|0
-|6
-|15
-|0
-|0
-|0
-|0
-|0
-|15
-|033ms
-|[green]#*passed*#
-
-12+^|*<<One-line-step-definitions>>*
-|2
-|0
-|2
-|8
-|0
-|0
-|0
-|0
-|0
-|8
-|017ms
-|[green]#*passed*#
-
-12+^|*<<Post-Configuration-Hook-[#423]>>*
-|3
-|0
-|3
-|11
-|0
-|0
-|0
-|0
-|0
-|11
-|640ms
-|[green]#*passed*#
-
-12+^|*<<Pretty-formatter---Printing-messages>>*
-|4
-|0
-|4
-|13
-|0
-|0
-|0
-|0
-|0
-|13
-|549ms
-|[green]#*passed*#
-
-12+^|*<<Pretty-output-formatter>>*
-|6
-|0
-|6
-|15
-|0
-|0
-|0
-|0
-|0
-|15
-|054ms
-|[green]#*passed*#
-
-12+^|*<<Profiles>>*
-|22
-|0
-|22
-|77
-|0
-|0
-|0
-|0
-|0
-|77
-|127ms
-|[green]#*passed*#
-
-12+^|*<<Progress-output-formatter>>*
-|4
-|0
-|4
-|8
-|0
-|0
-|0
-|0
-|0
-|8
-|022ms
-|[green]#*passed*#
-
-12+^|*<<Rake-task>>*
-|10
-|0
-|10
-|27
-|0
-|0
-|0
-|0
-|0
-|27
-|05s 848ms
-|[green]#*passed*#
-
-12+^|*<<Raketask>>*
-|4
-|0
-|4
-|11
-|0
-|0
-|0
-|0
-|0
-|11
-|03s 824ms
-|[green]#*passed*#
-
-12+^|*<<Randomize>>*
-|4
-|0
-|4
-|9
-|0
-|0
-|0
-|0
-|0
-|9
-|713ms
-|[green]#*passed*#
-
-12+^|*<<Requiring-extra-step-files>>*
-|1
-|0
-|1
-|4
-|0
-|0
-|0
-|0
-|0
-|4
-|012ms
-|[green]#*passed*#
-
-12+^|*<<Rerun-formatter>>*
-|14
-|0
-|14
-|30
-|0
-|0
-|0
-|0
-|0
-|30
-|097ms
-|[green]#*passed*#
-
-12+^|*<<Run-Cli::Main-with-existing-Runtime>>*
-|1
-|0
-|1
-|5
-|0
-|0
-|0
-|0
-|0
-|5
-|615ms
-|[green]#*passed*#
-
-12+^|*<<Run-feature-elements-matching-a-name-with---name/-n>>*
-|8
-|0
-|8
-|20
-|0
-|0
-|0
-|0
-|0
-|20
-|050ms
-|[green]#*passed*#
-
-12+^|*<<Run-specific-scenarios>>*
-|6
-|0
-|6
-|13
-|0
-|0
-|0
-|0
-|0
-|13
-|026ms
-|[green]#*passed*#
-
-12+^|*<<Running-multiple-formatters>>*
-|6
-|0
-|6
-|12
-|0
-|0
-|0
-|0
-|0
-|12
-|01s 830ms
-|[green]#*passed*#
-
-12+^|*<<Scenario-outlines>>*
-|8
-|0
-|8
-|16
-|0
-|0
-|0
-|0
-|0
-|16
-|02s 431ms
-|[green]#*passed*#
-
-12+^|*<<Scenario-outlines---expand-option>>*
-|1
-|0
-|1
-|4
-|0
-|0
-|0
-|0
-|0
-|4
-|013ms
-|[green]#*passed*#
-
-12+^|*<<Set-up-a-default-load-path>>*
-|1
-|0
-|1
-|4
-|0
-|0
-|0
-|0
-|0
-|4
-|010ms
-|[green]#*passed*#
-
-12+^|*<<Showing-differences-to-expected-output>>*
-|1
-|0
-|1
-|4
-|0
-|0
-|0
-|0
-|0
-|4
-|023ms
-|[green]#*passed*#
-
-12+^|*<<Skip-Scenario>>*
-|2
-|0
-|2
-|10
-|0
-|0
-|0
-|0
-|0
-|10
-|023ms
-|[green]#*passed*#
-
-12+^|*<<Snippets>>*
-|2
-|0
-|2
-|6
-|0
-|0
-|0
-|0
-|0
-|6
-|017ms
-|[green]#*passed*#
-
-12+^|*<<Snippets-message>>*
-|2
-|0
-|2
-|7
-|0
-|0
-|0
-|0
-|0
-|7
-|914ms
-|[green]#*passed*#
-
-12+^|*<<State>>*
-|1
-|0
-|1
-|4
-|0
-|0
-|0
-|0
-|0
-|4
-|015ms
-|[green]#*passed*#
-
-12+^|*<<Step-matches-message>>*
-|6
-|0
-|6
-|16
-|0
-|0
-|0
-|0
-|0
-|16
-|112ms
-|[green]#*passed*#
-
-12+^|*<<Strict-mode>>*
-|6
-|0
-|6
-|14
-|0
-|0
-|0
-|0
-|0
-|14
-|046ms
-|[green]#*passed*#
-
-12+^|*<<Table-diffing>>*
-|1
-|0
-|1
-|4
-|0
-|0
-|0
-|0
-|0
-|4
-|016ms
-|[green]#*passed*#
-
-12+^|*<<Tag-logic>>*
-|14
-|0
-|14
-|21
-|0
-|0
-|0
-|0
-|0
-|21
-|051ms
-|[green]#*passed*#
-
-12+^|*<<Tagged-hooks>>*
-|7
-|0
-|7
-|20
-|0
-|0
-|0
-|0
-|0
-|20
-|054ms
-|[green]#*passed*#
-
-12+^|*<<Transforms>>*
-|4
-|0
-|4
-|10
-|0
-|0
-|0
-|0
-|0
-|10
-|023ms
-|[green]#*passed*#
-
-12+^|*<<Unicode-in-tables>>*
-|1
-|0
-|1
-|3
-|0
-|0
-|0
-|0
-|0
-|3
-|606ms
-|[green]#*passed*#
-
-12+^|*<<Usage-formatter>>*
-|6
-|0
-|6
-|12
-|0
-|0
-|0
-|0
-|0
-|12
-|060ms
-|[green]#*passed*#
-
-12+^|*<<Using-descriptions-to-give-features-context>>*
-|2
-|0
-|2
-|5
-|0
-|0
-|0
-|0
-|0
-|5
-|022ms
-|[green]#*passed*#
-
-12+^|*<<Using-star-notation-instead-of-Given/When/Then>>*
-|1
-|0
-|1
-|5
-|0
-|0
-|0
-|0
-|0
-|5
-|012ms
-|[green]#*passed*#
-
-12+^|*<<Wire-protocol-table-diffing>>*
-|8
-|0
-|8
-|21
-|0
-|0
-|0
-|0
-|0
-|21
-|02s 723ms
-|[green]#*passed*#
-
-12+^|*<<Wire-protocol-tags>>*
-|4
-|0
-|4
-|12
-|0
-|0
-|0
-|0
-|0
-|12
-|304ms
-|[green]#*passed*#
-
-12+^|*<<Wire-protocol-timeouts>>*
-|4
-|0
-|4
-|11
-|0
-|0
-|0
-|0
-|0
-|11
-|928ms
-|[green]#*passed*#
-12+^|*Totals*
-|364|0|364|1204|0|0|0|0|0|1204 2+|51s 856ms
-|===
 
 == *Features*
 
@@ -991,12 +21,12 @@
 === *After Hooks*
 
 ****
-After hooks can be used to clean up any state you've altered during your +
-scenario, or to check the status of the scenario and act accordingly. +
- +
-You can ask a scenario whether it has failed, for example. +
- +
-Mind you, even if it hasn't failed yet, you can still make the scenario +
+After hooks can be used to clean up any state you've altered during your
+scenario, or to check the status of the scenario and act accordingly.
+
+You can ask a scenario whether it has failed, for example.
+
+Mind you, even if it hasn't failed yet, you can still make the scenario
 fail if your After hook throws an error.
 ****
 
@@ -1009,7 +39,7 @@ the standard step definitions icon:thumbs-up[role="green",title="Passed"] [small
 =====
 ****
 
-==== Scenario Outline: Retreive the status of a scenario as a symbol
+==== Retreive the status of a scenario as a symbol
 
 ****
 Given ::
@@ -1044,7 +74,7 @@ the output should contain ":passed" icon:thumbs-up[role="green",title="Passed"] 
 =====
 ****
 
-==== Scenario Outline: Retreive the status of a scenario as a symbol
+==== Retreive the status of a scenario as a symbol
 
 ****
 Given ::
@@ -1079,7 +109,7 @@ the output should contain ":failed" icon:thumbs-up[role="green",title="Passed"] 
 =====
 ****
 
-==== Scenario Outline: Retreive the status of a scenario as a symbol
+==== Retreive the status of a scenario as a symbol
 
 ****
 Given ::
@@ -1114,7 +144,7 @@ the output should contain ":pending" icon:thumbs-up[role="green",title="Passed"]
 =====
 ****
 
-==== Scenario: Check the failed status of a scenario in a hook
+==== Check the failed status of a scenario in a hook
 
 ****
 Given ::
@@ -1156,7 +186,7 @@ eek
 =====
 ****
 
-==== Scenario: Make a scenario fail from an After hook
+==== Make a scenario fail from an After hook
 
 ****
 Given ::
@@ -1199,7 +229,7 @@ it should fail with: icon:thumbs-up[role="green",title="Passed"] [small right]#(
 =====
 ****
 
-==== Scenario: After hooks are executed in reverse order of definition
+==== After hooks are executed in reverse order of definition
 
 ****
 Given ::
@@ -1248,7 +278,7 @@ First
 [[Alle-bruker-ikke-UTF-8, Alle bruker ikke UTF-8]]
 === *Alle bruker ikke UTF-8*
 
-==== Scenario: Dette bør gå bra
+==== Dette bør gå bra
 
 ****
 Når ::
@@ -1265,12 +295,12 @@ skal de andre si "skål" icon:thumbs-up[role="green",title="Passed"] [small righ
 === *Around hooks*
 
 ****
-In order to support transactional scenarios for database libraries +
-that provide only a block syntax for transactions, Cucumber should +
+In order to support transactional scenarios for database libraries
+that provide only a block syntax for transactions, Cucumber should
 permit definition of Around hooks.
 ****
 
-==== Scenario: A single Around hook
+==== A single Around hook
 [small]#tags: @spawn,@spawn#
 
 
@@ -1331,7 +361,7 @@ Feature: Around hooks
 =====
 ****
 
-==== Scenario: Multiple Around hooks
+==== Multiple Around hooks
 [small]#tags: @spawn,@spawn#
 
 
@@ -1405,7 +435,7 @@ Feature: Around hooks
 =====
 ****
 
-==== Scenario: Mixing Around, Before, and After hooks
+==== Mixing Around, Before, and After hooks
 [small]#tags: @spawn,@spawn#
 
 
@@ -1480,7 +510,7 @@ Feature: Around hooks
 =====
 ****
 
-==== Scenario: Around hooks with tags
+==== Around hooks with tags
 [small]#tags: @spawn,@spawn#
 
 
@@ -1562,7 +592,7 @@ Feature: Around hooks
 =====
 ****
 
-==== Scenario: Around hooks with scenario outlines
+==== Around hooks with scenario outlines
 [small]#tags: @spawn,@spawn#
 
 
@@ -1633,7 +663,7 @@ Feature: Around hooks with scenario outlines
 =====
 ****
 
-==== Scenario: Around Hooks and the Custom World
+==== Around Hooks and the Custom World
 [small]#tags: @spawn,@spawn#
 
 
@@ -1694,15 +724,15 @@ it should pass icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)
 === *Background*
 
 ****
-Often you find that several scenarios in the same feature start with  +
-a common context. +
- +
-Cucumber provides a mechanism for this, by providing a `Background` keyword +
-where you can specify steps that should be run before each scenario in the +
-feature. Typically these will be `Given` steps, but you can use any steps +
-that you need to. +
- +
-**Hint:** if you find that some of the scenarios don't fit the background, +
+Often you find that several scenarios in the same feature start with 
+a common context.
+
+Cucumber provides a mechanism for this, by providing a `Background` keyword
+where you can specify steps that should be run before each scenario in the
+feature. Typically these will be `Given` steps, but you can use any steps
+that you need to.
+
+**Hint:** if you find that some of the scenarios don't fit the background,
 consider splitting them into a separate feature.
 ****
 
@@ -1959,7 +989,7 @@ end
 =====
 ****
 
-==== Scenario: run a specific scenario with a background
+==== run a specific scenario with a background
 
 ****
 When ::
@@ -1987,7 +1017,7 @@ Feature: Passing background sample
 =====
 ****
 
-==== Scenario: run a feature with a background that passes
+==== run a feature with a background that passes
 
 ****
 When ::
@@ -2018,7 +1048,7 @@ Feature: Passing background sample
 =====
 ****
 
-==== Scenario: run a feature with scenario outlines that has a background that passes
+==== run a feature with scenario outlines that has a background that passes
 
 ****
 When ::
@@ -2057,7 +1087,7 @@ Feature: Passing background with scenario outlines sample
 =====
 ****
 
-==== Scenario: run a feature with scenario outlines that has a background that passes
+==== run a feature with scenario outlines that has a background that passes
 
 ****
 When ::
@@ -2090,7 +1120,7 @@ Feature: Background tagged Before on Outline
 =====
 ****
 
-==== Scenario: run a feature with a background that fails
+==== run a feature with a background that fails
 [small]#tags: @spawn#
 
 
@@ -2131,7 +1161,7 @@ cucumber features/failing_background.feature:10
 =====
 ****
 
-==== Scenario: run a feature with scenario outlines that has a background that fails
+==== run a feature with scenario outlines that has a background that fails
 [small]#tags: @spawn#
 
 
@@ -2179,7 +1209,7 @@ cucumber features/scenario_outline_failing_background.feature:16
 =====
 ****
 
-==== Scenario: run a feature with a background that is pending
+==== run a feature with a background that is pending
 
 ****
 When ::
@@ -2213,7 +1243,7 @@ Feature: Pending background sample
 =====
 ****
 
-==== Scenario: background passes with first scenario but fails with second
+==== background passes with first scenario but fails with second
 [small]#tags: @spawn#
 
 
@@ -2254,7 +1284,7 @@ cucumber features/failing_background_after_success.feature:10
 =====
 ****
 
-==== Scenario: background passes with first outline scenario but fails with second
+==== background passes with first outline scenario but fails with second
 [small]#tags: @spawn#
 
 
@@ -2302,7 +1332,7 @@ cucumber features/failing_background_after_success_outline.feature:19
 =====
 ****
 
-==== Scenario: background passes with first outline scenario but fails with second (--expand)
+==== background passes with first outline scenario but fails with second (--expand)
 [small]#tags: @spawn#
 
 
@@ -2353,7 +1383,7 @@ cucumber features/failing_background_after_success_outline.feature:19
 =====
 ****
 
-==== Scenario: background with multline args
+==== background with multline args
 
 ****
 Given ::
@@ -2431,7 +1461,7 @@ Feature: Passing background with multiline args
 [[Before-Hook, Before Hook]]
 === *Before Hook*
 
-==== Scenario: Examine names of scenario and feature
+==== Examine names of scenario and feature
 
 ****
 Given ::
@@ -2481,7 +1511,7 @@ the output should contain: icon:thumbs-up[role="green",title="Passed"] [small ri
 =====
 ****
 
-==== Scenario: Examine names of scenario outline and feature
+==== Examine names of scenario outline and feature
 
 ****
 Given ::
@@ -2540,12 +1570,12 @@ the output should contain: icon:thumbs-up[role="green",title="Passed"] [small ri
 === *Choosing the language from the feature file header*
 
 ****
-In order to simplify command line and settings in IDEs, Cucumber picks +
-up the parser language from a `# language` comment at the beginning of +
+In order to simplify command line and settings in IDEs, Cucumber picks
+up the parser language from a `# language` comment at the beginning of
 any feature file. See the examples below for the exact syntax.
 ****
 
-==== Scenario: LOLCAT
+==== LOLCAT
 
 ****
 Given ::
@@ -2592,14 +1622,14 @@ OH HAI: STUFFING
 === *Cucumber --work-in-progress switch*
 
 ****
-In order to ensure that feature scenarios do not pass until they are expected to +
-Developers should be able to run cucumber in a mode that +
-          - will fail if any scenario passes completely +
+In order to ensure that feature scenarios do not pass until they are expected to
+Developers should be able to run cucumber in a mode that
+          - will fail if any scenario passes completely
           - will not fail otherwise
 ****
 
 ==== Background
-==== Background: A passing and a pending feature
+==== A passing and a pending feature
 [small]#tags: @spawn#
 
 
@@ -2649,7 +1679,7 @@ Feature: Not WIP
 =====
 ****
 
-==== Scenario: Pass with Failing Scenarios
+==== Pass with Failing Scenarios
 [small]#tags: @spawn,@spawn#
 
 
@@ -2696,7 +1726,7 @@ The --wip switch was used, so the failures were expected. All is good.
 =====
 ****
 
-==== Scenario: Pass with Undefined Scenarios
+==== Pass with Undefined Scenarios
 [small]#tags: @spawn,@spawn#
 
 
@@ -2733,7 +1763,7 @@ The --wip switch was used, so the failures were expected. All is good.
 =====
 ****
 
-==== Scenario: Pass with Undefined Scenarios
+==== Pass with Undefined Scenarios
 [small]#tags: @spawn,@spawn#
 
 
@@ -2773,7 +1803,7 @@ The --wip switch was used, so the failures were expected. All is good.
 =====
 ****
 
-==== Scenario: Fail with Passing Scenarios
+==== Fail with Passing Scenarios
 [small]#tags: @spawn,@spawn#
 
 
@@ -2814,7 +1844,7 @@ features/wip.feature:15:in `Scenario: Passing'
 =====
 ****
 
-==== Scenario: Fail with Passing Scenario Outline
+==== Fail with Passing Scenario Outline
 [small]#tags: @spawn,@spawn#
 
 
@@ -2881,7 +1911,7 @@ the standard step definitions icon:thumbs-up[role="green",title="Passed"] [small
 =====
 ****
 
-==== Scenario: Use the new API
+==== Use the new API
 
 ****
 Given ::
@@ -2923,7 +1953,7 @@ I'LL USE MY OWN
 =====
 ****
 
-==== Scenario: Use the legacy API
+==== Use the legacy API
 
 ****
 Given ::
@@ -2966,7 +1996,7 @@ I'LL USE MY OWN
 =====
 ****
 
-==== Scenario: Use both
+==== Use both
 You can use a specific shim to opt-in to both APIs at once.
 
 ****
@@ -3015,7 +2045,7 @@ I'LL USE MY OWN
 [[Custom-filter, Custom filter]]
 === *Custom filter*
 
-==== Scenario: Add a custom filter via AfterConfiguration hook
+==== Add a custom filter via AfterConfiguration hook
 
 ****
 Given ::
@@ -3065,8 +2095,8 @@ it should pass icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)
 === *Debug formatter*
 
 ****
-In order to help you easily visualise the listener API, you can use +
-the `debug` formatter that prints the calls to the listener as a +
+In order to help you easily visualise the listener API, you can use
+the `debug` formatter that prints the calls to the listener as a
 feature is run.
 ****
 
@@ -3079,7 +2109,7 @@ the standard step definitions icon:thumbs-up[role="green",title="Passed"] [small
 =====
 ****
 
-==== Scenario: title
+==== title
 
 ****
 Given ::
@@ -3141,37 +2171,37 @@ done
 === *Doc strings*
 
 ****
-If you need to specify information in a scenario that won't fit on a single line,  +
-you can use a DocString. +
- +
-A DocString follows a step, and starts and ends with three double quotes, like this: +
- +
-```gherkin +
-When I ask to reset my password +
-Then I should receive an email with: +
-  """ +
-  Dear bozo, +
-   +
-  Please click this link to reset your password +
-  """ +
-``` +
- +
-It's possible to annotate the DocString with the type of content it contains. This is used by +
-formatting tools like http://relishapp.com which will render the contents of the DocString +
-appropriately. You specify the content type after the triple quote, like this: +
- +
-```gherkin +
-Given there is some Ruby code: +
-  """ruby +
-  puts "hello world" +
-  """ +
-``` +
- +
-You can read the content type from the argument passed into your step definition, as shown +
+If you need to specify information in a scenario that won't fit on a single line, 
+you can use a DocString.
+
+A DocString follows a step, and starts and ends with three double quotes, like this:
+
+```gherkin
+When I ask to reset my password
+Then I should receive an email with:
+  """
+  Dear bozo,
+  
+  Please click this link to reset your password
+  """
+```
+
+It's possible to annotate the DocString with the type of content it contains. This is used by
+formatting tools like http://relishapp.com which will render the contents of the DocString
+appropriately. You specify the content type after the triple quote, like this:
+
+```gherkin
+Given there is some Ruby code:
+  """ruby
+  puts "hello world"
+  """
+```
+
+You can read the content type from the argument passed into your step definition, as shown
 in the example below.
 ****
 
-==== Scenario: Plain text Docstring
+==== Plain text Docstring
 
 ****
 Given ::
@@ -3216,7 +2246,7 @@ Three
 =====
 ****
 
-==== Scenario: DocString with interesting content type
+==== DocString with interesting content type
 
 ****
 Given ::
@@ -3261,13 +2291,13 @@ ruby
 === *Dry Run*
 
 ****
-Dry run gives you a way to quickly scan your features without actually running them. +
- +
-- Invokes formatters without executing the steps. +
+Dry run gives you a way to quickly scan your features without actually running them.
+
+- Invokes formatters without executing the steps.
 - This also omits the loading of your support/env.rb file if it exists.
 ****
 
-==== Scenario: With a failing step
+==== With a failing step
 
 ****
 Given ::
@@ -3307,7 +2337,7 @@ Feature: test
 =====
 ****
 
-==== Scenario: In strict mode
+==== In strict mode
 
 ****
 Given ::
@@ -3347,7 +2377,7 @@ Feature: test
 =====
 ****
 
-==== Scenario: In strict mode with an undefined step
+==== In strict mode with an undefined step
 
 ****
 Given ::
@@ -3389,8 +2419,8 @@ Feature: test
 === *ERB configuration*
 
 ****
-As a developer on server with multiple users +
-I want to be able to configure which port my wire server runs on +
+As a developer on server with multiple users
+I want to be able to configure which port my wire server runs on
 So that I can avoid port conflicts
 ****
 
@@ -3413,7 +2443,7 @@ Feature: High strung
 =====
 ****
 
-==== Scenario: ERB is used in the wire file which references an environment variable that is not set
+==== ERB is used in the wire file which references an environment variable that is not set
 [small]#tags: @wire,@wire#
 
 
@@ -3451,7 +2481,7 @@ U
 =====
 ****
 
-==== Scenario: ERB is used in the wire file which references an environment variable
+==== ERB is used in the wire file which references an environment variable
 [small]#tags: @wire,@wire#
 
 
@@ -3497,8 +2527,8 @@ U
 === *Exception in After Block*
 
 ****
-In order to use custom assertions at the end of each scenario +
-As a developer +
+In order to use custom assertions at the end of each scenario
+As a developer
 I want exceptions raised in After blocks to be handled gracefully and reported by the formatters
 ****
 
@@ -3536,7 +2566,7 @@ end
 =====
 ****
 
-==== Scenario: Handle Exception in standard scenario step and carry on
+==== Handle Exception in standard scenario step and carry on
 [small]#tags: @spawn#
 
 
@@ -3586,7 +2616,7 @@ cucumber features/naughty_step_in_scenario.feature:3 # Scenario: Naughty Step
 =====
 ****
 
-==== Scenario: Handle Exception in scenario outline table row and carry on
+==== Handle Exception in scenario outline table row and carry on
 [small]#tags: @spawn#
 
 
@@ -3649,7 +2679,7 @@ cucumber features/naughty_step_in_scenario_outline.feature:9
 =====
 ****
 
-==== Scenario: Handle Exception using the progress format
+==== Handle Exception using the progress format
 
 ****
 Given ::
@@ -3693,8 +2723,8 @@ cucumber features/naughty_step_in_scenario.feature:3 # Scenario: Naughty Step
 === *Exception in AfterStep Block*
 
 ****
-In order to use custom assertions at the end of each step +
-As a developer +
+In order to use custom assertions at the end of each step
+As a developer
 I want exceptions raised in AfterStep blocks to be handled gracefully and reported by the formatters
 ****
 
@@ -3732,7 +2762,7 @@ end
 =====
 ****
 
-==== Scenario: Handle Exception in standard scenario step and carry on
+==== Handle Exception in standard scenario step and carry on
 
 ****
 Given ::
@@ -3781,7 +2811,7 @@ cucumber features/naughty_step_in_scenario.feature:3 # Scenario: Naughty Step
 =====
 ****
 
-==== Scenario: Handle Exception in scenario outline table row and carry on
+==== Handle Exception in scenario outline table row and carry on
 
 ****
 Given ::
@@ -3848,8 +2878,8 @@ cucumber features/naughty_step_in_scenario_outline.feature:9 # Scenario Outline:
 === *Exception in Before Block*
 
 ****
-In order to know with confidence that my before blocks have run OK +
-As a developer +
+In order to know with confidence that my before blocks have run OK
+As a developer
 I want exceptions raised in Before blocks to be handled gracefully and reported by the formatters
 ****
 
@@ -3875,7 +2905,7 @@ end
 =====
 ****
 
-==== Scenario: Handle Exception in standard scenario step and carry on
+==== Handle Exception in standard scenario step and carry on
 [small]#tags: @spawn#
 
 
@@ -3919,7 +2949,7 @@ cucumber features/naughty_step_in_scenario.feature:3 # Scenario: Run a good step
 =====
 ****
 
-==== Scenario: Handle Exception in Before hook for Scenario with Background
+==== Handle Exception in Before hook for Scenario with Background
 
 ****
 Given ::
@@ -3968,7 +2998,7 @@ cucumber features/naughty_step_in_before.feature:6 # Scenario: Run a good step
 =====
 ****
 
-==== Scenario: Handle Exception using the progress format
+==== Handle Exception using the progress format
 
 ****
 Given ::
@@ -4009,20 +3039,20 @@ cucumber features/naughty_step_in_scenario.feature:3 # Scenario: Run a good step
 === *Exceptions in Around Hooks*
 
 ****
-Around hooks are awkward beasts to handle internally. +
- +
-Right now, if there's an error in your Around hook before you call `block.call`, +
-we won't even print the steps for the scenario. +
- +
-This is because that `block.call` invokes all the logic that would tell Cucumber's +
-UI about the steps in your scenario. If we never reach that code, we'll never be +
-told about them. +
- +
-There's another scenario to consider, where the exception occurs after the steps +
+Around hooks are awkward beasts to handle internally.
+
+Right now, if there's an error in your Around hook before you call `block.call`,
+we won't even print the steps for the scenario.
+
+This is because that `block.call` invokes all the logic that would tell Cucumber's
+UI about the steps in your scenario. If we never reach that code, we'll never be
+told about them.
+
+There's another scenario to consider, where the exception occurs after the steps
 have been run. How would we want to report in that case?
 ****
 
-==== Scenario: Exception before the test case is run
+==== Exception before the test case is run
 
 ****
 Given ::
@@ -4078,7 +3108,7 @@ cucumber features/test.feature:2
 =====
 ****
 
-==== Scenario: Exception after the test case is run
+==== Exception after the test case is run
 
 ****
 Given ::
@@ -4139,12 +3169,12 @@ cucumber features/test.feature:2
 === *Excluding ruby and feature files from runs*
 
 ****
-Developers are able to easily exclude files from cucumber runs +
-This is a nice feature to have in conjunction with profiles, so you can exclude +
+Developers are able to easily exclude files from cucumber runs
+This is a nice feature to have in conjunction with profiles, so you can exclude
 certain environment files from certain runs.
 ****
 
-==== Scenario: exclude ruby files
+==== exclude ruby files
 
 ****
 Given ::
@@ -4197,11 +3227,11 @@ And ::
 === *Formatter API: Step file path and line number (Issue #179)*
 
 ****
-To all reporter to understand location of current executing step let's fetch this information +
+To all reporter to understand location of current executing step let's fetch this information
 from step/step_invocation and pass to reporters
 ****
 
-==== Scenario: my own formatter
+==== my own formatter
 
 ****
 Given ::
@@ -4272,11 +3302,11 @@ step name event: features/f.feature:5
 === *Getting started*
 
 ****
-To get started, just open a command prompt in an empty directory and run  +
+To get started, just open a command prompt in an empty directory and run 
 `cucumber`. You'll be prompted for what to do next.
 ****
 
-==== Scenario: Run Cucumber in an empty directory
+==== Run Cucumber in an empty directory
 [small]#tags: @spawn#
 
 
@@ -4300,7 +3330,7 @@ No such file or directory - features. You can use `cucumber --init` to get start
 =====
 ****
 
-==== Scenario: Accidentally run Cucumber in a folder with Ruby files in it.
+==== Accidentally run Cucumber in a folder with Ruby files in it.
 
 ****
 Given ::
@@ -4400,7 +3430,7 @@ Feature: Feature with failing background step
 =====
 ****
 
-==== Scenario: an scenario outline, one undefined step, one random example, expand flag on
+==== an scenario outline, one undefined step, one random example, expand flag on
 
 ****
 When ::
@@ -4413,7 +3443,7 @@ it should pass icon:thumbs-up[role="green",title="Passed"] [small right]#(003ms)
 =====
 ****
 
-==== Scenario Outline: an scenario outline, one pending step
+==== an scenario outline, one pending step
 
 ****
 When ::
@@ -4444,7 +3474,7 @@ makeRed('scenario_1')
 =====
 ****
 
-==== Scenario Outline: an scenario outline, one pending step
+==== an scenario outline, one pending step
 
 ****
 When ::
@@ -4475,7 +3505,7 @@ makeRed('scenario_1')
 =====
 ****
 
-==== Scenario Outline: an scenario outline, one pending step
+==== an scenario outline, one pending step
 
 ****
 When ::
@@ -4506,7 +3536,7 @@ makeRed('scenario_1')
 =====
 ****
 
-==== Scenario Outline: an scenario outline, one pending step
+==== an scenario outline, one pending step
 
 ****
 When ::
@@ -4537,7 +3567,7 @@ makeRed('scenario_1')
 =====
 ****
 
-==== Scenario: when using a profile the html shouldn't include 'Using the default profile...'
+==== when using a profile the html shouldn't include 'Using the default profile...'
 
 ****
 And ::
@@ -4568,7 +3598,7 @@ Using the default profile...
 =====
 ****
 
-==== Scenario: a feature with a failing background step
+==== a feature with a failing background step
 
 ****
 When ::
@@ -4632,7 +3662,7 @@ port: 54321
 =====
 ****
 
-==== Scenario: Unexpected response
+==== Unexpected response
 [small]#tags: @wire,@wire#
 
 
@@ -4729,7 +3759,7 @@ Feature: All hooks execute in expected order
 =====
 ****
 
-==== Scenario: Around hooks cover background steps
+==== Around hooks cover background steps
 [small]#tags: @spawn,@spawn#
 
 
@@ -4749,7 +3779,7 @@ Event order: around_begin background_step scenario_step around_end
 =====
 ****
 
-==== Scenario: All hooks execute in expected order
+==== All hooks execute in expected order
 [small]#tags: @spawn,@spawn#
 
 
@@ -4773,20 +3803,20 @@ Event order: around_begin before background_step scenario_step after around_end
 === *Invoke message*
 
 ****
-Assuming a StepMatch was returned for a given step name, when it's time to +
-invoke that step definition, Cucumber will send an invoke message. +
- +
-The invoke message contains the ID of the step definition, as returned by +
-the wire server in response to the the step_matches call, along with the +
-arguments that were parsed from the step name during the same step_matches +
-call. +
- +
-The wire server will normally reply one of the following: +
- +
-* `success` +
-* `fail` +
-* `pending` - optionally takes a message argument +
- +
+Assuming a StepMatch was returned for a given step name, when it's time to
+invoke that step definition, Cucumber will send an invoke message.
+
+The invoke message contains the ID of the step definition, as returned by
+the wire server in response to the the step_matches call, along with the
+arguments that were parsed from the step name during the same step_matches
+call.
+
+The wire server will normally reply one of the following:
+
+* `success`
+* `fail`
+* `pending` - optionally takes a message argument
+
 This isn't quite the whole story: see also table_diffing.feature
 ****
 
@@ -4820,7 +3850,7 @@ port: 54321
 =====
 ****
 
-==== Scenario: Invoke a step definition which is pending
+==== Invoke a step definition which is pending
 [small]#tags: @wire,@wire,@spawn#
 
 
@@ -4853,7 +3883,7 @@ Feature: High strung
 =====
 ****
 
-==== Scenario: Invoke a step definition which passes
+==== Invoke a step definition which passes
 [small]#tags: @wire,@wire#
 
 
@@ -4881,7 +3911,7 @@ it should pass with: icon:thumbs-up[role="green",title="Passed"] [small right]#(
 =====
 ****
 
-==== Scenario: Invoke a step definition which fails
+==== Invoke a step definition which fails
 [small]#tags: @wire,@wire,@spawn#
 
 
@@ -4933,7 +3963,7 @@ cucumber features/wired.feature:2 # Scenario: Wired
 =====
 ****
 
-==== Scenario: Invoke a step definition which takes string arguments (and passes)
+==== Invoke a step definition which takes string arguments (and passes)
 [small]#tags: @wire,@wire#
 
 
@@ -4978,7 +4008,7 @@ it should pass with: icon:thumbs-up[role="green",title="Passed"] [small right]#(
 =====
 ****
 
-==== Scenario: Invoke a step definition which takes regular and table arguments (and passes)
+==== Invoke a step definition which takes regular and table arguments (and passes)
 [small]#tags: @wire,@wire#
 
 
@@ -5030,7 +4060,7 @@ it should pass with: icon:thumbs-up[role="green",title="Passed"] [small right]#(
 =====
 ****
 
-==== Scenario: Invoke a scenario outline step
+==== Invoke a scenario outline step
 [small]#tags: @wire,@wire#
 
 
@@ -5085,7 +4115,7 @@ the wire server should have received the following messages: icon:thumbs-up[role
 === *JSON output formatter*
 
 ****
-In order to simplify processing of Cucumber features and results +
+In order to simplify processing of Cucumber features and results
 Developers should be able to consume features as JSON
 ****
 
@@ -5236,7 +4266,7 @@ Feature:
 =====
 ****
 
-==== Scenario: one feature, one passing scenario, one failing scenario
+==== one feature, one passing scenario, one failing scenario
 [small]#tags: @spawn#
 
 
@@ -5339,7 +4369,7 @@ it should fail with JSON: icon:thumbs-up[role="green",title="Passed"] [small rig
 =====
 ****
 
-==== Scenario: one feature, one passing scenario, one failing scenario with prettyfied json
+==== one feature, one passing scenario, one failing scenario with prettyfied json
 [small]#tags: @spawn#
 
 
@@ -5442,7 +4472,7 @@ it should fail with JSON: icon:thumbs-up[role="green",title="Passed"] [small rig
 =====
 ****
 
-==== Scenario: DocString
+==== DocString
 [small]#tags: @spawn#
 
 
@@ -5527,7 +4557,7 @@ it should fail with JSON: icon:thumbs-up[role="green",title="Passed"] [small rig
 =====
 ****
 
-==== Scenario: embedding screenshot
+==== embedding screenshot
 [small]#tags: @spawn#
 
 
@@ -5587,7 +4617,7 @@ it should pass with JSON: icon:thumbs-up[role="green",title="Passed"] [small rig
 =====
 ****
 
-==== Scenario: scenario outline
+==== scenario outline
 [small]#tags: @spawn#
 
 
@@ -5686,7 +4716,7 @@ it should fail with JSON: icon:thumbs-up[role="green",title="Passed"] [small rig
 =====
 ****
 
-==== Scenario: print from step definition
+==== print from step definition
 
 ****
 When ::
@@ -5756,7 +4786,7 @@ it should pass with JSON: icon:thumbs-up[role="green",title="Passed"] [small rig
 =====
 ****
 
-==== Scenario: scenario outline expanded
+==== scenario outline expanded
 [small]#tags: @spawn#
 
 
@@ -5855,7 +4885,7 @@ it should fail with JSON: icon:thumbs-up[role="green",title="Passed"] [small rig
 =====
 ****
 
-==== Scenario: embedding data directly
+==== embedding data directly
 [small]#tags: @spawn#
 
 
@@ -5971,7 +5001,7 @@ it should pass with JSON: icon:thumbs-up[role="green",title="Passed"] [small rig
 =====
 ****
 
-==== Scenario: handle output from hooks
+==== handle output from hooks
 [small]#tags: @spawn#
 
 
@@ -6027,7 +5057,7 @@ it should pass icon:thumbs-up[role="green",title="Passed"] [small right]#(001ms)
 === *JUnit output formatter*
 
 ****
-In order for developers to create test reports with ant +
+In order for developers to create test reports with ant
 Cucumber should be able to output JUnit xml files
 ****
 
@@ -6121,7 +5151,7 @@ Feature: Scenario outlines
 =====
 ****
 
-==== Scenario: one feature, one passing scenario, one failing scenario
+==== one feature, one passing scenario, one failing scenario
 [small]#tags: @spawn,@spawn#
 
 
@@ -6175,7 +5205,7 @@ features/one_passing_one_failing.feature:7:in `Given this step fails']]>
 =====
 ****
 
-==== Scenario: one feature in a subdirectory, one passing scenario, one failing scenario
+==== one feature in a subdirectory, one passing scenario, one failing scenario
 [small]#tags: @spawn,@spawn#
 
 
@@ -6229,7 +5259,7 @@ features/some_subdirectory/one_passing_one_failing.feature:7:in `Given this step
 =====
 ****
 
-==== Scenario: pending and undefined steps are reported as skipped
+==== pending and undefined steps are reported as skipped
 [small]#tags: @spawn,@spawn#
 
 
@@ -6274,7 +5304,7 @@ the junit output file "tmp/TEST-features-pending.xml" should contain: icon:thumb
 =====
 ****
 
-==== Scenario: pending and undefined steps with strict option should fail
+==== pending and undefined steps with strict option should fail
 [small]#tags: @spawn,@spawn#
 
 
@@ -6338,7 +5368,7 @@ features/pending.feature:7:in `Given this step is undefined']]>
 =====
 ****
 
-==== Scenario: run all features
+==== run all features
 [small]#tags: @spawn,@spawn#
 
 
@@ -6361,7 +5391,7 @@ a file named "tmp/TEST-features-pending.xml" should exist icon:thumbs-up[role="g
 =====
 ****
 
-==== Scenario: show correct error message if no --out is passed
+==== show correct error message if no --out is passed
 [small]#tags: @spawn,@spawn#
 
 
@@ -6390,7 +5420,7 @@ You *must* specify --out DIR for the junit formatter
 =====
 ****
 
-==== Scenario: strict mode, one feature, one scenario outline, four examples: one passing, one failing, one pending, one undefined
+==== strict mode, one feature, one scenario outline, four examples: one passing, one failing, one pending, one undefined
 [small]#tags: @spawn,@spawn#
 
 
@@ -6484,7 +5514,7 @@ features/scenario_outline.feature:4:in `Given this step <type>']]>
 =====
 ****
 
-==== Scenario: strict mode with --expand option, one feature, one scenario outline, four examples: one passing, one failing, one pending, one undefined
+==== strict mode with --expand option, one feature, one scenario outline, four examples: one passing, one failing, one pending, one undefined
 [small]#tags: @spawn,@spawn#
 
 
@@ -6582,17 +5612,17 @@ features/scenario_outline.feature:4:in `Given this step <type>']]>
 === *Language help*
 
 ****
-It's possible to ask cucumber which keywords are used for any +
-particular language by running: +
- +
-`cucumber --i18n <language code> help` +
- +
-This will print a table showing all the different words we use for +
-that language, to allow you to easily write features in any language +
+It's possible to ask cucumber which keywords are used for any
+particular language by running:
+
+`cucumber --i18n <language code> help`
+
+This will print a table showing all the different words we use for
+that language, to allow you to easily write features in any language
 you choose.
 ****
 
-==== Scenario: Get help for Portuguese language
+==== Get help for Portuguese language
 [small]#tags: @needs-many-fonts,@needs-many-fonts#
 
 
@@ -6627,7 +5657,7 @@ it should pass with: icon:thumbs-up[role="green",title="Passed"] [small right]#(
 =====
 ****
 
-==== Scenario: List languages
+==== List languages
 [small]#tags: @needs-many-fonts,@needs-many-fonts#
 
 
@@ -6646,8 +5676,8 @@ cucumber lists all the supported languages icon:thumbs-up[role="green",title="Pa
 === *List step defs as json*
 
 ****
-In order to build tools on top of Cucumber +
-As a tool developer +
+In order to build tools on top of Cucumber
+As a tool developer
 I want to be able to query a features directory for all the step definitions it contains
 ****
 
@@ -6662,7 +5692,7 @@ a directory named "features" icon:thumbs-up[role="green",title="Passed"] [small 
 =====
 ****
 
-==== Scenario: Two Ruby step definitions, in the same file
+==== Two Ruby step definitions, in the same file
 [small]#tags: @spawn,@spawn#
 
 
@@ -6702,7 +5732,7 @@ it should pass with JSON: icon:thumbs-up[role="green",title="Passed"] [small rig
 =====
 ****
 
-==== Scenario: Non-default directory structure
+==== Non-default directory structure
 [small]#tags: @spawn,@spawn#
 
 
@@ -6747,8 +5777,8 @@ it should pass with JSON: icon:thumbs-up[role="green",title="Passed"] [small rig
 === *Loading the steps users expect*
 
 ****
-As a User +
-In order to run features in subdirectories without having to pass extra options +
+As a User
+In order to run features in subdirectories without having to pass extra options
 I want cucumber to load all step files
 ****
 
@@ -6823,7 +5853,7 @@ end
 =====
 ****
 
-==== Scenario: Use #steps to call several steps at once
+==== Use #steps to call several steps at once
 
 ****
 Given ::
@@ -6858,7 +5888,7 @@ turtle!
 =====
 ****
 
-==== Scenario: Use #step to call a single step
+==== Use #step to call a single step
 
 ****
 Given ::
@@ -6891,7 +5921,7 @@ turtle!
 =====
 ****
 
-==== Scenario: Use #steps to call a table
+==== Use #steps to call a table
 
 ****
 Given ::
@@ -6941,7 +5971,7 @@ Liouville
 =====
 ****
 
-==== Scenario: Use #steps to call a multi-line string
+==== Use #steps to call a multi-line string
 
 ****
 Given ::
@@ -6988,7 +6018,7 @@ Liouville
 =====
 ****
 
-==== Scenario: Backtrace doesn't skip nested steps
+==== Backtrace doesn't skip nested steps
 [small]#tags: @spawn#
 
 
@@ -7030,7 +6060,7 @@ cucumber features/test_feature_1.feature:2 # Scenario: Test Scenario 1
 =====
 ****
 
-==== Scenario: Undefined nested step
+==== Undefined nested step
 
 ****
 Given ::
@@ -7128,7 +6158,7 @@ end
 =====
 ****
 
-==== Scenario: Use #steps to call several steps at once
+==== Use #steps to call several steps at once
 
 ****
 Given ::
@@ -7181,7 +6211,7 @@ Given two turtles
 =====
 ****
 
-==== Scenario: Use #step with table
+==== Use #step with table
 
 ****
 Given ::
@@ -7230,7 +6260,7 @@ Liouville
 =====
 ****
 
-==== Scenario: Use #step with docstring
+==== Use #step with docstring
 
 ****
 Given ::
@@ -7270,7 +6300,7 @@ Sturm and Lioville
 =====
 ****
 
-==== Scenario: Use #step with docstring and content-type
+==== Use #step with docstring and content-type
 
 ****
 Given ::
@@ -7314,11 +6344,11 @@ math
 === *One line step definitions*
 
 ****
-Everybody knows you can do step definitions in Cucumber +
+Everybody knows you can do step definitions in Cucumber
 but did you know you can do this?
 ****
 
-==== Scenario: Call a method in World directly from a step def
+==== Call a method in World directly from a step def
 
 ****
 Given ::
@@ -7364,7 +6394,7 @@ it should pass icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)
 =====
 ****
 
-==== Scenario: Call a method on an actor in the World directly from a step def
+==== Call a method on an actor in the World directly from a step def
 
 ****
 Given ::
@@ -7420,12 +6450,12 @@ it should pass icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)
 === *Post Configuration Hook [#423]*
 
 ****
-In order to extend Cucumber +
-As a developer +
+In order to extend Cucumber
+As a developer
 I want to manipulate the Cucumber configuration after it has been created
 ****
 
-==== Scenario: Using options directly gets a deprecation warning
+==== Using options directly gets a deprecation warning
 [small]#tags: @spawn,@wip-jruby#
 
 
@@ -7456,7 +6486,7 @@ Deprecated
 =====
 ****
 
-==== Scenario: Changing the output format
+==== Changing the output format
 
 ****
 Given ::
@@ -7489,7 +6519,7 @@ html
 =====
 ****
 
-==== Scenario: feature directories read from configuration
+==== feature directories read from configuration
 
 ****
 Given ::
@@ -7526,10 +6556,10 @@ AfterConfiguration hook read feature directories: features
 === *Pretty formatter - Printing messages*
 
 ****
-When you want to print to Cucumber's output, just call `puts` from +
-a step definition. Cucumber will grab the output and print it via +
-the formatter that you're using. +
- +
+When you want to print to Cucumber's output, just call `puts` from
+a step definition. Cucumber will grab the output and print it via
+the formatter that you're using.
+
 Your message will be printed out after the step has run.
 ****
 
@@ -7622,7 +6652,7 @@ Feature: puts_world
 =====
 ****
 
-==== Scenario: Delayed messages feature
+==== Delayed messages feature
 [small]#tags: @spawn#
 
 
@@ -7687,7 +6717,7 @@ Feature:
 =====
 ****
 
-==== Scenario: Non-delayed messages feature (progress formatter)
+==== Non-delayed messages feature (progress formatter)
 
 ****
 When ::
@@ -7742,7 +6772,7 @@ Feature:
 =====
 ****
 
-==== Scenario: an scenario outline, one undefined step, one random example, expand flag on
+==== an scenario outline, one undefined step, one random example, expand flag on
 
 ****
 When ::
@@ -7755,7 +6785,7 @@ it should pass icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)
 =====
 ****
 
-==== Scenario: when using a profile the output should include 'Using the default profile...'
+==== when using a profile the output should include 'Using the default profile...'
 
 ****
 And ::
@@ -7786,7 +6816,7 @@ Using the default profile...
 =====
 ****
 
-==== Scenario: Hook output should be printed before hook exception
+==== Hook output should be printed before hook exception
 
 ****
 Given ::
@@ -7861,16 +6891,16 @@ cucumber features/test.feature:2
 === *Profiles*
 
 ****
-In order to save time and prevent carpal tunnel syndrome +
-Cucumber users can save and reuse commonly used cucumber flags in a 'cucumber.yml' file. +
-These named arguments are called profiles and the yml file should be in the root of your project. +
-Any cucumber argument is valid in a profile.  To see all the available flags type 'cucumber --help' +
-For more information about profiles please see the wiki: +
+In order to save time and prevent carpal tunnel syndrome
+Cucumber users can save and reuse commonly used cucumber flags in a 'cucumber.yml' file.
+These named arguments are called profiles and the yml file should be in the root of your project.
+Any cucumber argument is valid in a profile.  To see all the available flags type 'cucumber --help'
+For more information about profiles please see the wiki:
 http://wiki.github.com/cucumber/cucumber/cucumber.yml
 ****
 
 ==== Background
-==== Background: Basic App
+==== Basic App
 
 ****
 Given ::
@@ -7904,7 +6934,7 @@ super: features/sample.feature --require features/support/super_env.rb -v
 =====
 ****
 
-==== Scenario: Explicitly defining a profile to run
+==== Explicitly defining a profile to run
 
 ****
 When ::
@@ -7926,7 +6956,7 @@ exactly these files should be loaded: features/support/super_env.rb icon:thumbs-
 =====
 ****
 
-==== Scenario: Explicitly defining a profile defined in an ERB formatted file
+==== Explicitly defining a profile defined in an ERB formatted file
 
 ****
 Given ::
@@ -7958,7 +6988,7 @@ exactly these files should be loaded: features/support/super_env.rb icon:thumbs-
 =====
 ****
 
-==== Scenario: Defining multiple profiles to run
+==== Defining multiple profiles to run
 
 ****
 When ::
@@ -7980,7 +7010,7 @@ exactly these files should be loaded: features/support/env.rb, features/support/
 =====
 ****
 
-==== Scenario: Arguments passed in but no profile specified
+==== Arguments passed in but no profile specified
 
 ****
 When ::
@@ -7997,7 +7027,7 @@ exactly these files should be loaded: features/support/env.rb icon:thumbs-up[rol
 =====
 ****
 
-==== Scenario: Trying to use a missing profile
+==== Trying to use a missing profile
 
 ****
 When ::
@@ -8020,7 +7050,7 @@ Defined profiles in cucumber.yml:
 =====
 ****
 
-==== Scenario Outline: Disabling the default profile
+==== Disabling the default profile
 
 ****
 When ::
@@ -8042,7 +7072,7 @@ exactly these files should be loaded: features/support/env.rb, features/support/
 =====
 ****
 
-==== Scenario Outline: Disabling the default profile
+==== Disabling the default profile
 
 ****
 When ::
@@ -8064,7 +7094,7 @@ exactly these files should be loaded: features/support/env.rb, features/support/
 =====
 ****
 
-==== Scenario: Overriding the profile's features to run
+==== Overriding the profile's features to run
 
 ****
 Given ::
@@ -8086,7 +7116,7 @@ exactly these features should be ran: features/another.feature icon:thumbs-up[ro
 =====
 ****
 
-==== Scenario: Overriding the profile's formatter
+==== Overriding the profile's formatter
 You will most likely want to define a formatter in your default formatter.
 However, you often want to run your features with a different formatter
 yet still use the other the other arguments in the profile. Cucumber will
@@ -8118,7 +7148,7 @@ Feature: Sample
 =====
 ****
 
-==== Scenario Outline: Showing profiles when listing failing scenarios
+==== Showing profiles when listing failing scenarios
 
 ****
 Given ::
@@ -8140,7 +7170,7 @@ cucumber -p super features/sample.feature:2
 =====
 ****
 
-==== Scenario Outline: Showing profiles when listing failing scenarios
+==== Showing profiles when listing failing scenarios
 
 ****
 Given ::
@@ -8186,7 +7216,7 @@ Feature:
 =====
 ****
 
-==== Scenario: an scenario outline, one undefined step, one random example, expand flag on
+==== an scenario outline, one undefined step, one random example, expand flag on
 
 ****
 When ::
@@ -8199,7 +7229,7 @@ it should pass icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)
 =====
 ****
 
-==== Scenario: when using a profile the output should include 'Using the default profile...'
+==== when using a profile the output should include 'Using the default profile...'
 
 ****
 And ::
@@ -8234,8 +7264,8 @@ Using the default profile...
 === *Rake task*
 
 ****
-In order to ease the development process +
-As a developer and CI server administrator +
+In order to ease the development process
+As a developer and CI server administrator
 Cucumber features should be executable via Rake
 ****
 
@@ -8261,7 +7291,7 @@ Feature: Sample
 =====
 ****
 
-==== Scenario: rake task with a defined profile
+==== rake task with a defined profile
 [small]#tags: @spawn,@spawn#
 
 
@@ -8309,7 +7339,7 @@ Feature: Sample
 =====
 ****
 
-==== Scenario: rake task without a profile
+==== rake task without a profile
 [small]#tags: @spawn,@spawn#
 
 
@@ -8351,7 +7381,7 @@ Feature: Sample
 =====
 ****
 
-==== Scenario: rake task with a defined profile and cucumber_opts
+==== rake task with a defined profile and cucumber_opts
 [small]#tags: @spawn,@spawn#
 
 
@@ -8400,7 +7430,7 @@ Feature: Sample
 =====
 ****
 
-==== Scenario: respect requires
+==== respect requires
 [small]#tags: @spawn,@spawn#
 
 
@@ -8455,7 +7485,7 @@ the output should not contain: icon:thumbs-up[role="green",title="Passed"] [smal
 =====
 ****
 
-==== Scenario: feature files with spaces
+==== feature files with spaces
 [small]#tags: @spawn,@spawn#
 
 
@@ -8508,10 +7538,10 @@ Feature: The futures green
 === *Raketask*
 
 ****
-In order to use cucumber's rake task +
-As a Cuker +
-I do not want to see rake's backtraces when it fails +
-Also I want to get zero exit status code on failures +
+In order to use cucumber's rake task
+As a Cuker
+I do not want to see rake's backtraces when it fails
+Also I want to get zero exit status code on failures
 And non-zero exit status code when it pases
 ****
 
@@ -8560,7 +7590,7 @@ a file named "Rakefile" with: icon:thumbs-up[role="green",title="Passed"] [small
 =====
 ****
 
-==== Scenario: Passing feature
+==== Passing feature
 [small]#tags: @spawn,@spawn#
 
 
@@ -8575,7 +7605,7 @@ the exit status should be 0 icon:thumbs-up[role="green",title="Passed"] [small r
 =====
 ****
 
-==== Scenario: Failing feature
+==== Failing feature
 [small]#tags: @spawn,@spawn#
 
 
@@ -8598,13 +7628,13 @@ the output should not contain "rake aborted!" icon:thumbs-up[role="green",title=
 === *Randomize*
 
 ****
-Use the `--order random` switch to run scenarios in random order. +
- +
-This is especially helpful for detecting situations where you have state +
-leaking between scenarios, which can cause flickering or fragile tests. +
- +
-If you do find a randmon run that exposes dependencies between your tests, +
-you can reproduce that run by using the seed that's printed at the end of +
+Use the `--order random` switch to run scenarios in random order.
+
+This is especially helpful for detecting situations where you have state
+leaking between scenarios, which can cause flickering or fragile tests.
+
+If you do find a randmon run that exposes dependencies between your tests,
+you can reproduce that run by using the seed that's printed at the end of
 the test run.
 ****
 
@@ -8643,7 +7673,7 @@ end
 =====
 ****
 
-==== Scenario: Run scenarios in order
+==== Run scenarios in order
 
 ****
 When ::
@@ -8656,7 +7686,7 @@ it should pass icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)
 =====
 ****
 
-==== Scenario: Run scenarios randomized
+==== Run scenarios randomized
 [small]#tags: @spawn#
 
 
@@ -8734,19 +7764,19 @@ Feature: Sample
 === *Rerun formatter*
 
 ****
-The rerun formatter writes an output that's perfect for +
-passing to Cucumber when you want to rerun only the  +
-scenarios that prevented the exit code to be zero. +
- +
-You can save off the rerun output to a file by using it like this: +
- +
-`cucumber -f rerun --out .cucumber.rerun` +
- +
-Now you can pass that file's content to Cucumber to tell it +
-which scenarios to run: +
- +
-`cucumber \`cat .cucumber.rerun\`` +
- +
+The rerun formatter writes an output that's perfect for
+passing to Cucumber when you want to rerun only the 
+scenarios that prevented the exit code to be zero.
+
+You can save off the rerun output to a file by using it like this:
+
+`cucumber -f rerun --out .cucumber.rerun`
+
+Now you can pass that file's content to Cucumber to tell it
+which scenarios to run:
+
+`cucumber `cat .cucumber.rerun``
+
 This is useful when debugging in a large suite of features.
 ****
 
@@ -8759,7 +7789,7 @@ the standard step definitions icon:thumbs-up[role="green",title="Passed"] [small
 =====
 ****
 
-==== Scenario: Exit code is zero
+==== Exit code is zero
 
 ****
 Given ::
@@ -8791,7 +7821,7 @@ it should pass with exactly: icon:thumbs-up[role="green",title="Passed"] [small 
 =====
 ****
 
-==== Scenario: Exit code is zero in the dry-run mode
+==== Exit code is zero in the dry-run mode
 
 ****
 Given ::
@@ -8838,7 +7868,7 @@ it should pass with exactly: icon:thumbs-up[role="green",title="Passed"] [small 
 =====
 ****
 
-==== Scenario: Exit code is not zero, regular scenario
+==== Exit code is not zero, regular scenario
 
 ****
 Given ::
@@ -8890,7 +7920,7 @@ features/mixed.feature:3:6:9
 =====
 ****
 
-==== Scenario: Exit code is not zero, scenario outlines
+==== Exit code is not zero, scenario outlines
 For details see https://github.com/cucumber/cucumber/issues/57
 
 ****
@@ -8927,7 +7957,7 @@ features/one_passing_one_failing.feature:9
 =====
 ****
 
-==== Scenario: Exit code is not zero, failing background
+==== Exit code is not zero, failing background
 
 ****
 Given ::
@@ -8963,7 +7993,7 @@ features/failing_background.feature:6:9
 =====
 ****
 
-==== Scenario: Exit code is not zero, failing background with scenario outline
+==== Exit code is not zero, failing background with scenario outline
 
 ****
 Given ::
@@ -9001,7 +8031,7 @@ features/failing_background_outline.feature:11:12
 =====
 ****
 
-==== Scenario: Exit code is not zero, scenario outlines with expand
+==== Exit code is not zero, scenario outlines with expand
 For details see https://github.com/cucumber/cucumber/issues/503
 
 ****
@@ -9042,13 +8072,13 @@ features/one_passing_one_failing.feature:9
 === *Run Cli::Main with existing Runtime*
 
 ****
-This is the API that Spork uses. It creates an existing runtime then +
-calls load_programming_language('rb') on it to load the RbDsl. +
-When the process forks, Spork them passes the runtime to Cli::Main to  +
+This is the API that Spork uses. It creates an existing runtime then
+calls load_programming_language('rb') on it to load the RbDsl.
+When the process forks, Spork them passes the runtime to Cli::Main to 
 run it.
 ****
 
-==== Scenario: Run a single feature
+==== Run a single feature
 [small]#tags: @spawn,@spawn#
 
 
@@ -9100,8 +8130,8 @@ Given this step passes
 === *Run feature elements matching a name with --name/-n*
 
 ****
-The `--name NAME` option runs only scenarios which match a certain +
-name. The NAME can be a substring of the names of Features, Scenarios, +
+The `--name NAME` option runs only scenarios which match a certain
+name. The NAME can be a substring of the names of Features, Scenarios,
 Scenario Outlines or Example blocks.
 ****
 
@@ -9152,7 +8182,7 @@ Feature: outline
 =====
 ****
 
-==== Scenario: Matching Feature names
+==== Matching Feature names
 
 ****
 When ::
@@ -9179,7 +8209,7 @@ Feature: first feature
 =====
 ****
 
-==== Scenario: Matching Scenario names
+==== Matching Scenario names
 
 ****
 When ::
@@ -9208,7 +8238,7 @@ Feature: second
 =====
 ****
 
-==== Scenario: Matching Scenario Outline names
+==== Matching Scenario Outline names
 
 ****
 When ::
@@ -9237,7 +8267,7 @@ Feature: outline
 =====
 ****
 
-==== Scenario: Matching Example block names
+==== Matching Example block names
 
 ****
 When ::
@@ -9270,13 +8300,13 @@ Feature: outline
 === *Run specific scenarios*
 
 ****
-You can choose to run a specific scenario using the file:line format, +
-or you can pass in a file with a list of scenarios using @-notation. +
- +
-The line number can fall anywhere within the body of a scenario, including +
-steps, tags, comments, description, data tables or doc strings. +
- +
-For scenario outlines, if the line hits one example row, just that one +
+You can choose to run a specific scenario using the file:line format,
+or you can pass in a file with a list of scenarios using @-notation.
+
+The line number can fall anywhere within the body of a scenario, including
+steps, tags, comments, description, data tables or doc strings.
+
+For scenario outlines, if the line hits one example row, just that one
 will be run. Otherwise all examples in the table or outline will be run.
 ****
 
@@ -9289,7 +8319,7 @@ the standard step definitions icon:thumbs-up[role="green",title="Passed"] [small
 =====
 ****
 
-==== Scenario: Two scenarios, run just one of them
+==== Two scenarios, run just one of them
 
 ****
 Given ::
@@ -9329,7 +8359,7 @@ Feature:
 =====
 ****
 
-==== Scenario: Use @-notation to specify a file containing feature file list
+==== Use @-notation to specify a file containing feature file list
 
 ****
 Given ::
@@ -9373,7 +8403,7 @@ Feature: Sample
 =====
 ****
 
-==== Scenario: Specify order of scenarios
+==== Specify order of scenarios
 
 ****
 Given ::
@@ -9409,8 +8439,8 @@ F.
 === *Running multiple formatters*
 
 ****
-When running cucumber, you are able to using multiple different +
-formatters and redirect the output to text files. +
+When running cucumber, you are able to using multiple different
+formatters and redirect the output to text files.
 Two formatters cannot both print to the same file (or to STDOUT)
 ****
 
@@ -9437,7 +8467,7 @@ Feature: Lots of undefined
 =====
 ****
 
-==== Scenario: Multiple formatters and outputs
+==== Multiple formatters and outputs
 [small]#tags: @spawn,@spawn#
 
 
@@ -9485,7 +8515,7 @@ Feature: Lots of undefined
 =====
 ****
 
-==== Scenario: Two formatters to stdout
+==== Two formatters to stdout
 [small]#tags: @spawn,@spawn#
 
 
@@ -9505,7 +8535,7 @@ All but one formatter must use --out, only one can print to each stream (or STDO
 =====
 ****
 
-==== Scenario: Two formatters to stdout when using a profile
+==== Two formatters to stdout when using a profile
 [small]#tags: @spawn,@spawn#
 
 
@@ -9538,21 +8568,21 @@ All but one formatter must use --out, only one can print to each stream (or STDO
 === *Scenario outlines*
 
 ****
-Copying and pasting scenarios to use different values quickly +
-becomes tedious and repetitive. Scenario outlines allow us to more +
-concisely express these examples through the use of a template with +
-placeholders, using Scenario Outline, Examples with tables and < > +
-delimited parameters. +
- +
-The Scenario Outline steps provide a template which is never directly +
-run. A Scenario Outline is run once for each row in the Examples section +
-beneath it (not counting the first row). +
- +
-The way this works is via placeholders. Placeholders must be contained +
-within < > in the Scenario Outline's steps - see the examples below. +
- +
-**IMPORTANT:** Your step definitions will never have to match a +
-placeholder. They will need to match the values that will replace the +
+Copying and pasting scenarios to use different values quickly
+becomes tedious and repetitive. Scenario outlines allow us to more
+concisely express these examples through the use of a template with
+placeholders, using Scenario Outline, Examples with tables and < >
+delimited parameters.
+
+The Scenario Outline steps provide a template which is never directly
+run. A Scenario Outline is run once for each row in the Examples section
+beneath it (not counting the first row).
+
+The way this works is via placeholders. Placeholders must be contained
+within < > in the Scenario Outline's steps - see the examples below.
+
+**IMPORTANT:** Your step definitions will never have to match a
+placeholder. They will need to match the values that will replace the
 placeholder.
 ****
 
@@ -9596,7 +8626,7 @@ Given(/^failing without a table$/) { raise RuntimeError }
 =====
 ****
 
-==== Scenario: Run scenario outline with filtering on outline name
+==== Run scenario outline with filtering on outline name
 [small]#tags: @spawn,@spawn#
 
 
@@ -9642,7 +8672,7 @@ cucumber features/outline_sample.feature:12
 =====
 ****
 
-==== Scenario: Run scenario outline steps only
+==== Run scenario outline steps only
 [small]#tags: @spawn,@spawn#
 
 
@@ -9687,7 +8717,7 @@ cucumber features/outline_sample.feature:12
 =====
 ****
 
-==== Scenario: Run single failing scenario outline table row
+==== Run single failing scenario outline table row
 [small]#tags: @spawn,@spawn#
 
 
@@ -9726,7 +8756,7 @@ cucumber features/outline_sample.feature:12
 =====
 ****
 
-==== Scenario: Run all with progress formatter
+==== Run all with progress formatter
 [small]#tags: @spawn,@spawn#
 
 
@@ -9764,8 +8794,8 @@ cucumber features/outline_sample.feature:12
 === *Scenario outlines --expand option*
 
 ****
-In order to make it easier to write certain editor plugins and also +
-for some people to understand scenarios, Cucumber will expand examples +
+In order to make it easier to write certain editor plugins and also
+for some people to understand scenarios, Cucumber will expand examples
 in outlines if you add the `--expand` option when running them.
 ****
 
@@ -9832,11 +8862,11 @@ Feature:
 === *Set up a default load path*
 
 ****
-When you're developing a gem, it's convenient if your project's `lib` directory +
+When you're developing a gem, it's convenient if your project's `lib` directory
 is already in the load path. Cucumber does this for you.
 ****
 
-==== Scenario: ./lib is included in the $LOAD_PATH
+==== ./lib is included in the $LOAD_PATH
 
 ****
 Given ::
@@ -9872,13 +8902,13 @@ it should pass icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)
 === *Showing differences to expected output*
 
 ****
-Cucumber will helpfully show you the expectation error that your +
-testing library gives you, in the context of the failing scenario. +
-When using RSpec, for example, this will show the difference between +
+Cucumber will helpfully show you the expectation error that your
+testing library gives you, in the context of the failing scenario.
+When using RSpec, for example, this will show the difference between
 the expected and the actual output.
 ****
 
-==== Scenario: Run single failing scenario with default diff enabled
+==== Run single failing scenario with default diff enabled
 
 ****
 Given ::
@@ -9939,7 +8969,7 @@ cucumber features/failing_expectation.feature:3
 [[Skip-Scenario, Skip Scenario]]
 === *Skip Scenario*
 
-==== Scenario: With a passing step
+==== With a passing step
 
 ****
 Given ::
@@ -9992,7 +9022,7 @@ Feature: test
 =====
 ****
 
-==== Scenario: Use legacy API from a hook
+==== Use legacy API from a hook
 
 ****
 Given ::
@@ -10049,12 +9079,12 @@ Feature: test
 === *Snippets*
 
 ****
-Cucumber helpfully prints out any undefined step definitions as a code +
-snippet suggestion, which you can then paste into a step definitions +
+Cucumber helpfully prints out any undefined step definitions as a code
+snippet suggestion, which you can then paste into a step definitions
 file of your choosing.
 ****
 
-==== Scenario: Snippet for undefined step with a pystring
+==== Snippet for undefined step with a pystring
 
 ****
 Given ::
@@ -10103,7 +9133,7 @@ end
 =====
 ****
 
-==== Scenario: Snippet for undefined step with a step table
+==== Snippet for undefined step with a step table
 
 ****
 Given ::
@@ -10141,7 +9171,7 @@ end
 === *Snippets message*
 
 ****
-If a step doesn't match, Cucumber will ask the wire server to return a snippet of code for a +
+If a step doesn't match, Cucumber will ask the wire server to return a snippet of code for a
 step definition.
 ****
 
@@ -10175,7 +9205,7 @@ port: 54321
 =====
 ****
 
-==== Scenario: Wire server returns snippets for a step that didn't match
+==== Wire server returns snippets for a step that didn't match
 [small]#tags: @wire,@wire,@spawn#
 
 
@@ -10228,11 +9258,11 @@ baz
 === *State*
 
 ****
-You can pass state between step by setting instance variables, +
+You can pass state between step by setting instance variables,
 but those instance variables will be gone when the next scenario runs.
 ****
 
-==== Scenario: Set an ivar in one scenario, use it in the next step
+==== Set an ivar in one scenario, use it in the next step
 
 ****
 Given ::
@@ -10281,18 +9311,18 @@ it should pass icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)
 === *Step matches message*
 
 ****
-When the features have been parsed, Cucumber will send a `step_matches` +
-message to ask the wire server if it can match a step name. This happens for +
-each of the steps in each of the features. +
- +
-The wire server replies with an array of StepMatch objects. +
- +
-When each StepMatch is returned, it contains the following data: +
- +
-* `id` - identifier for the step definition to be used later when if it +
-needs to be invoked. The identifier can be any string value and +
-is simply used for the wire server's own reference. +
-* `args` - any argument values as captured by the wire end's own regular +
+When the features have been parsed, Cucumber will send a `step_matches`
+message to ask the wire server if it can match a step name. This happens for
+each of the steps in each of the features.
+
+The wire server replies with an array of StepMatch objects.
+
+When each StepMatch is returned, it contains the following data:
+
+* `id` - identifier for the step definition to be used later when if it
+needs to be invoked. The identifier can be any string value and
+is simply used for the wire server's own reference.
+* `args` - any argument values as captured by the wire end's own regular
 expression (or other argument matching) process.
 ****
 
@@ -10326,7 +9356,7 @@ port: 54321
 =====
 ****
 
-==== Scenario: Dry run finds no step match
+==== Dry run finds no step match
 [small]#tags: @wire,@wire#
 
 
@@ -10354,7 +9384,7 @@ U
 =====
 ****
 
-==== Scenario: Dry run finds a step match
+==== Dry run finds a step match
 [small]#tags: @wire,@wire#
 
 
@@ -10382,7 +9412,7 @@ it should pass with: icon:thumbs-up[role="green",title="Passed"] [small right]#(
 =====
 ****
 
-==== Scenario: Step matches returns details about the remote step definition
+==== Step matches returns details about the remote step definition
 [small]#tags: @wire,@wire#
 
 
@@ -10423,7 +9453,7 @@ the stderr should not contain anything icon:thumbs-up[role="green",title="Passed
 === *Strict mode*
 
 ****
-Using the `--strict` flag will cause cucumber to fail unless all the +
+Using the `--strict` flag will cause cucumber to fail unless all the
 step definitions have been defined.
 ****
 
@@ -10454,7 +9484,7 @@ Feature: Pending
 =====
 ****
 
-==== Scenario: Fail with --strict due to undefined step
+==== Fail with --strict due to undefined step
 
 ****
 When ::
@@ -10480,7 +9510,7 @@ Feature: Missing
 =====
 ****
 
-==== Scenario: Fail with --strict due to pending step
+==== Fail with --strict due to pending step
 
 ****
 Given ::
@@ -10511,7 +9541,7 @@ Feature: Pending
 =====
 ****
 
-==== Scenario: Succeed with --strict
+==== Succeed with --strict
 
 ****
 Given ::
@@ -10543,12 +9573,12 @@ Feature: Missing
 === *Table diffing*
 
 ****
-To allow you to more easily compare data in tables, you are able +
-to easily diff a table with expected data and see the diff in your +
+To allow you to more easily compare data in tables, you are able
+to easily diff a table with expected data and see the diff in your
 output.
 ****
 
-==== Scenario: Extra row
+==== Extra row
 
 ****
 Given ::
@@ -10618,8 +9648,8 @@ cucumber features/tables.feature:2 # Scenario: Extra row
 === *Tag logic*
 
 ****
-In order to conveniently run subsets of features +
-As a Cuker +
+In order to conveniently run subsets of features
+As a Cuker
 I want to select features using logical AND/OR of tags
 ****
 
@@ -10653,7 +9683,7 @@ Feature: Sample
 =====
 ****
 
-==== Scenario: ANDing tags
+==== ANDing tags
 
 ****
 When ::
@@ -10680,7 +9710,7 @@ Feature: Sample
 =====
 ****
 
-==== Scenario: ORing tags
+==== ORing tags
 
 ****
 When ::
@@ -10715,7 +9745,7 @@ Feature: Sample
 =====
 ****
 
-==== Scenario: Negative tags
+==== Negative tags
 
 ****
 When ::
@@ -10744,7 +9774,7 @@ Feature: Sample
 =====
 ****
 
-==== Scenario: Run with limited tag count, blowing it on scenario
+==== Run with limited tag count, blowing it on scenario
 
 ****
 When ::
@@ -10764,7 +9794,7 @@ it fails before running features with: icon:thumbs-up[role="green",title="Passed
 =====
 ****
 
-==== Scenario: Run with limited tag count, blowing it via feature inheritance
+==== Run with limited tag count, blowing it via feature inheritance
 
 ****
 When ::
@@ -10786,7 +9816,7 @@ it fails before running features with: icon:thumbs-up[role="green",title="Passed
 =====
 ****
 
-==== Scenario: Run with limited tag count using negative tag, blowing it via a tag that is not run
+==== Run with limited tag count using negative tag, blowing it via a tag that is not run
 
 ****
 When ::
@@ -10804,7 +9834,7 @@ it fails before running features with: icon:thumbs-up[role="green",title="Passed
 =====
 ****
 
-==== Scenario: Limiting with tags which do not exist in the features
+==== Limiting with tags which do not exist in the features
 Originally added to check [Lighthouse bug #464](https://rspec.lighthouseapp.com/projects/16211/tickets/464).
 
 ****
@@ -10868,7 +9898,7 @@ Feature: With and without hooks
 =====
 ****
 
-==== Scenario: omit tagged hook
+==== omit tagged hook
 
 ****
 When ::
@@ -10899,7 +9929,7 @@ cucumber features/f.feature:2 # Scenario: using hook
 =====
 ****
 
-==== Scenario: omit tagged hook
+==== omit tagged hook
 
 ****
 When ::
@@ -10926,7 +9956,7 @@ Feature: With and without hooks
 =====
 ****
 
-==== Scenario: Omit example hook
+==== Omit example hook
 
 ****
 When ::
@@ -10965,7 +9995,7 @@ cucumber features/f.feature:14 # Scenario Outline: omitting hook on specified ex
 === *Transforms*
 
 ****
-If you see certain phrases repeated over and over in your step definitions, you can +
+If you see certain phrases repeated over and over in your step definitions, you can
 use transforms to factor out that duplication, and make your step definitions simpler.
 ****
 
@@ -11002,7 +10032,7 @@ end
 =====
 ****
 
-==== Scenario: Basic Transform
+==== Basic Transform
 This is the most basic way to use a transform. Notice that the regular
 expression is pretty much duplicated.
 
@@ -11034,7 +10064,7 @@ it should pass icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)
 =====
 ****
 
-==== Scenario: Re-use Transform's Regular Expression
+==== Re-use Transform's Regular Expression
 If you keep a reference to the transform, you can use it in your
 regular expressions to avoid repeating the regular expression.
 
@@ -11070,8 +10100,8 @@ it should pass icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)
 === *Unicode in tables*
 
 ****
-You are free to use unicode in your tables: we've taken care to +
-ensure that the tables are properly aligned so that your output is as +
+You are free to use unicode in your tables: we've taken care to
+ensure that the tables are properly aligned so that your output is as
 readable as possible.
 ****
 
@@ -11121,7 +10151,7 @@ Feature: Featuring unicode
 === *Usage formatter*
 
 ****
-In order to see where step definitions are used +
+In order to see where step definitions are used
 Developers should be able to see a list of step definitions and their use
 ****
 
@@ -11165,7 +10195,7 @@ Given(/D/) { }
 =====
 ****
 
-==== Scenario: Run with --format usage
+==== Run with --format usage
 
 ****
 When ::
@@ -11201,7 +10231,7 @@ it should pass with exactly: icon:thumbs-up[role="green",title="Passed"] [small 
 =====
 ****
 
-==== Scenario: Run with --expand --format usage
+==== Run with --expand --format usage
 
 ****
 When ::
@@ -11237,7 +10267,7 @@ it should pass with exactly: icon:thumbs-up[role="green",title="Passed"] [small 
 =====
 ****
 
-==== Scenario: Run with --format stepdefs
+==== Run with --format stepdefs
 
 ****
 When ::
@@ -11269,16 +10299,16 @@ it should pass with exactly: icon:thumbs-up[role="green",title="Passed"] [small 
 === *Using descriptions to give features context*
 
 ****
-When writing your feature files its very helpful to use description +
-text at the beginning of the feature file, to write a preamble to the +
-feature describing clearly exactly what the feature does. +
- +
-You can also write descriptions attached to individual scenarios - see +
-the examples below for how this can be used. +
- +
-It's possible to have your descriptions run over more than one line, +
-and you can have blank lines too. As long as you don't start a line +
-with a Given, When, Then, Background:, Scenario: or similar, you're +
+When writing your feature files its very helpful to use description
+text at the beginning of the feature file, to write a preamble to the
+feature describing clearly exactly what the feature does.
+
+You can also write descriptions attached to individual scenarios - see
+the examples below for how this can be used.
+
+It's possible to have your descriptions run over more than one line,
+and you can have blank lines too. As long as you don't start a line
+with a Given, When, Then, Background:, Scenario: or similar, you're
 fine: otherwise Gherkin will start to pay attention.
 ****
 
@@ -11291,7 +10321,7 @@ the standard step definitions icon:thumbs-up[role="green",title="Passed"] [small
 =====
 ****
 
-==== Scenario: Everything with a description
+==== Everything with a description
 
 ****
 Given ::
@@ -11385,16 +10415,16 @@ Feature: descriptions everywhere
 === *Using star notation instead of Given/When/Then*
 
 ****
-Cucumber supports the star notation when writing features: instead of +
-using Given/When/Then, you can simply use a star rather like you would +
-use a bullet point. +
- +
-When you run the feature for the first time, you still get a nice +
-message showing you the code snippet you need to use to implement the +
+Cucumber supports the star notation when writing features: instead of
+using Given/When/Then, you can simply use a star rather like you would
+use a bullet point.
+
+When you run the feature for the first time, you still get a nice
+message showing you the code snippet you need to use to implement the
 step.
 ****
 
-==== Scenario: Use some *
+==== Use some *
 
 ****
 Given ::
@@ -11450,8 +10480,8 @@ end
 === *Wire protocol table diffing*
 
 ****
-In order to use the amazing functionality in the Cucumber table object +
-As a wire server +
+In order to use the amazing functionality in the Cucumber table object
+As a wire server
 I want to be able to ask for a table diff during a step definition invocation
 ****
 
@@ -11485,7 +10515,7 @@ port: 54321
 =====
 ****
 
-==== Scenario: Invoke a step definition tries to diff the table and fails
+==== Invoke a step definition tries to diff the table and fails
 [small]#tags: @wire,@wire,@spawn#
 
 
@@ -11527,7 +10557,7 @@ cucumber features/wired.feature:2 # Scenario: Wired
 =====
 ****
 
-==== Scenario: Invoke a step definition tries to diff the table and passes
+==== Invoke a step definition tries to diff the table and passes
 [small]#tags: @wire,@wire#
 
 
@@ -11555,7 +10585,7 @@ it should pass with: icon:thumbs-up[role="green",title="Passed"] [small right]#(
 =====
 ****
 
-==== Scenario: Invoke a step definition which successfully diffs a table but then fails
+==== Invoke a step definition which successfully diffs a table but then fails
 [small]#tags: @wire,@wire,@spawn#
 
 
@@ -11591,7 +10621,7 @@ cucumber features/wired.feature:2 # Scenario: Wired
 =====
 ****
 
-==== Scenario: Invoke a step definition which asks for an immediate diff that fails
+==== Invoke a step definition which asks for an immediate diff that fails
 [small]#tags: @wire,@wire,@spawn#
 
 
@@ -11635,7 +10665,7 @@ cucumber features/wired.feature:2 # Scenario: Wired
 === *Wire protocol tags*
 
 ****
-In order to use Before and After hooks in a wire server, we send tags with the  +
+In order to use Before and After hooks in a wire server, we send tags with the 
 scenario in the begin_scenario and end_scenario messages
 ****
 
@@ -11657,7 +10687,7 @@ port: 54321
 =====
 ****
 
-==== Scenario: Run a scenario
+==== Run a scenario
 [small]#tags: @wire,@wire#
 
 
@@ -11709,7 +10739,7 @@ Feature: Wired
 =====
 ****
 
-==== Scenario: Run a scenario outline example
+==== Run a scenario outline example
 [small]#tags: @wire,@wire#
 
 
@@ -11773,8 +10803,8 @@ Feature: Wired
 === *Wire protocol timeouts*
 
 ****
-We don't want Cucumber to hang forever on a wire server that's not even there, +
-but equally we need to give the user the flexibility to allow step definitions +
+We don't want Cucumber to hang forever on a wire server that's not even there,
+but equally we need to give the user the flexibility to allow step definitions
 to take a while to execute, if that's what they need.
 ****
 
@@ -11797,7 +10827,7 @@ Feature: Telegraphy
 =====
 ****
 
-==== Scenario: Try to talk to a server that's not there
+==== Try to talk to a server that's not there
 [small]#tags: @wire,@wire#
 
 
@@ -11828,7 +10858,7 @@ Unable to contact the wire server at localhost:54321
 =====
 ****
 
-==== Scenario: Invoke a step definition that takes longer than its timeout
+==== Invoke a step definition that takes longer than its timeout
 [small]#tags: @wire,@wire,@spawn#
 
 

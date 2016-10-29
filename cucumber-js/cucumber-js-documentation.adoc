@@ -1,4 +1,4 @@
-:toc: right
+:toc: center
 :backend: pdf
 :doctitle: cucumber-js-documentation
 :doctype: book
@@ -8,345 +8,19 @@
 :sectanchors:
 :sectlink:
 :docinfo:
+:source-highlighter: coderay
 :toclevels: 3
+:hardbreaks:
 
 = *cucumber-js-documentation*
 
-== *Summary*
-[cols="12*^m", options="header,footer"]
-|===
-3+|Scenarios 7+|Steps 2+|Features: 22
-
-|[green]#*Passed*#
-|[red]#*Failed*#
-|Total
-|[green]#*Passed*#
-|[red]#*Failed*#
-|[purple]#*Skipped*#
-|[maroon]#*Pending*#
-|[yellow]#*Undefined*#
-|[blue]#*Missing*#
-|Total
-|Duration
-|Status
-
-12+^|*<<Asynchronous-failing-steps>>*
-|1
-|1
-|2
-|5
-|0
-|2
-|0
-|1
-|0
-|8
-|019ms
-|[red]#*failed*#
-
-12+^|*<<Asynchronous-pending-steps>>*
-|1
-|0
-|1
-|6
-|0
-|0
-|0
-|0
-|0
-|6
-|013ms
-|[green]#*passed*#
-
-12+^|*<<Asynchronous-step-definition-callbacks>>*
-|1
-|0
-|1
-|4
-|0
-|0
-|0
-|0
-|0
-|4
-|061ms
-|[green]#*passed*#
-
-12+^|*<<Attachments>>*
-|7
-|0
-|7
-|35
-|0
-|0
-|0
-|0
-|0
-|35
-|01s 711ms
-|[green]#*passed*#
-
-12+^|*<<Background>>*
-|2
-|0
-|2
-|16
-|0
-|0
-|0
-|0
-|0
-|16
-|026ms
-|[green]#*passed*#
-
-12+^|*<<CoffeeScript-support>>*
-|0
-|1
-|1
-|0
-|0
-|3
-|0
-|1
-|0
-|4
-|000ms
-|[red]#*failed*#
-
-12+^|*<<Command-line-interface>>*
-|11
-|0
-|11
-|50
-|0
-|0
-|0
-|0
-|0
-|50
-|02s 464ms
-|[green]#*passed*#
-
-12+^|*<<Core-feature-elements-execution>>*
-|5
-|0
-|5
-|23
-|0
-|0
-|0
-|0
-|0
-|23
-|053ms
-|[green]#*passed*#
-
-12+^|*<<Data-Tables>>*
-|1
-|0
-|1
-|3
-|0
-|0
-|0
-|0
-|0
-|3
-|007ms
-|[green]#*passed*#
-
-12+^|*<<Environment-Hooks>>*
-|12
-|0
-|12
-|59
-|0
-|0
-|0
-|0
-|0
-|59
-|02s 906ms
-|[green]#*passed*#
-
-12+^|*<<JSON-Formatter>>*
-|26
-|0
-|26
-|104
-|0
-|0
-|0
-|0
-|0
-|104
-|07s 438ms
-|[green]#*passed*#
-
-12+^|*<<PogoScript-support>>*
-|0
-|1
-|1
-|0
-|0
-|3
-|0
-|1
-|0
-|4
-|000ms
-|[red]#*failed*#
-
-12+^|*<<Pretty-Formatter>>*
-|3
-|0
-|3
-|13
-|0
-|0
-|0
-|0
-|0
-|13
-|816ms
-|[green]#*passed*#
-
-12+^|*<<Scenario-Outlines-and-Examples>>*
-|4
-|0
-|4
-|31
-|0
-|0
-|0
-|0
-|0
-|31
-|050ms
-|[green]#*passed*#
-
-12+^|*<<Scenario-Statuses>>*
-|6
-|0
-|6
-|30
-|0
-|0
-|0
-|0
-|0
-|30
-|01s 707ms
-|[green]#*passed*#
-
-12+^|*<<Step-definition-callbacks>>*
-|1
-|3
-|4
-|4
-|0
-|6
-|0
-|6
-|0
-|16
-|010ms
-|[red]#*failed*#
-
-12+^|*<<Strict-mode>>*
-|5
-|1
-|6
-|23
-|0
-|0
-|0
-|0
-|1
-|24
-|01s 366ms
-|[red]#*failed*#
-
-12+^|*<<Summary-Formatter>>*
-|2
-|0
-|2
-|8
-|0
-|0
-|0
-|0
-|0
-|8
-|514ms
-|[green]#*passed*#
-
-12+^|*<<User-logs-into-the-system>>*
-|0
-|6
-|6
-|0
-|0
-|0
-|0
-|29
-|0
-|29
-|000ms
-|[red]#*failed*#
-
-12+^|*<<World-constructor-callback-with-object>>*
-|1
-|0
-|1
-|4
-|0
-|0
-|0
-|0
-|0
-|4
-|006ms
-|[green]#*passed*#
-
-12+^|*<<step-definition-snippets>>*
-|1
-|3
-|4
-|9
-|0
-|0
-|0
-|4
-|0
-|13
-|020ms
-|[red]#*failed*#
-
-12+^|*<<step-definitions-with-string-pattern>>*
-|2
-|1
-|3
-|13
-|0
-|0
-|0
-|1
-|0
-|14
-|012ms
-|[red]#*failed*#
-12+^|*Totals*
-|92|17|109|440|0|14|0|43|1|498 2+|19s 210ms
-|===
 
 == *Features*
 
 [[Asynchronous-failing-steps, Asynchronous failing steps]]
 === *Asynchronous failing steps*
 
-==== Scenario: see asynchronously failing scenarios
+==== see asynchronously failing scenarios
 
 ****
 Given ::
@@ -375,7 +49,7 @@ the scenario called "a failing scenario" is reported as failing icon:thumbs-up[r
 =====
 ****
 
-==== Scenario: see asynchronously failing scenarios with exception icon:thumbs-down[role="red",title="Failed"]
+==== see asynchronously failing scenarios with exception icon:thumbs-down[role="red",title="Failed"]
 [small]#tags: @untestable-on-self#
 
 
@@ -409,7 +83,7 @@ the scenario called "a failing scenario" is reported as failing icon:thumbs-down
 [[Asynchronous-pending-steps, Asynchronous pending steps]]
 === *Asynchronous pending steps*
 
-==== Scenario: Pending step means the scenario is pending
+==== Pending step means the scenario is pending
 
 ****
 Given ::
@@ -448,12 +122,12 @@ the step "the result is 9" is skipped icon:thumbs-up[role="green",title="Passed"
 === *Asynchronous step definition callbacks*
 
 ****
-In order to test asynchronous code +
-As a dev +
+In order to test asynchronous code
+As a dev
 I want step definitions to call back asynchronously
 ****
 
-==== Scenario: Execute feature with asynchronous step definition
+==== Execute feature with asynchronous step definition
 
 ****
 Given ::
@@ -485,7 +159,7 @@ the feature should have run successfully icon:thumbs-up[role="green",title="Pass
 [[Attachments, Attachments]]
 === *Attachments*
 
-==== Scenario: Attach a buffer
+==== Attach a buffer
 
 ****
 Given ::
@@ -589,7 +263,7 @@ it outputs this json: icon:thumbs-up[role="green",title="Passed"] [small right]#
 =====
 ****
 
-==== Scenario: Attach a stream
+==== Attach a stream
 
 ****
 Given ::
@@ -710,7 +384,7 @@ it outputs this json: icon:thumbs-up[role="green",title="Passed"] [small right]#
 =====
 ****
 
-==== Scenario: Attach from an around hook (pre scenario)
+==== Attach from an around hook (pre scenario)
 
 ****
 Given ::
@@ -826,7 +500,7 @@ it outputs this json: icon:thumbs-up[role="green",title="Passed"] [small right]#
 =====
 ****
 
-==== Scenario: Attach from an around hook (post scenario)
+==== Attach from an around hook (post scenario)
 
 ****
 Given ::
@@ -941,7 +615,7 @@ it outputs this json: icon:thumbs-up[role="green",title="Passed"] [small right]#
 =====
 ****
 
-==== Scenario: Attach from a before hook
+==== Attach from a before hook
 
 ****
 Given ::
@@ -1045,7 +719,7 @@ it outputs this json: icon:thumbs-up[role="green",title="Passed"] [small right]#
 =====
 ****
 
-==== Scenario: Attach from an after hook
+==== Attach from an after hook
 
 ****
 Given ::
@@ -1149,7 +823,7 @@ it outputs this json: icon:thumbs-up[role="green",title="Passed"] [small right]#
 =====
 ****
 
-==== Scenario: Attach from a step definition
+==== Attach from a step definition
 
 ****
 Given ::
@@ -1262,14 +936,14 @@ it outputs this json: icon:thumbs-up[role="green",title="Passed"] [small right]#
 === *Background*
 
 ****
-Background allows you to add some context to the scenarios in a +
-single feature. A Background is much like a scenario containing a +
-number of steps. The difference is when it is run. The background is +
-run before each of your scenarios but after any of your Before +
+Background allows you to add some context to the scenarios in a
+single feature. A Background is much like a scenario containing a
+number of steps. The difference is when it is run. The background is
+run before each of your scenarios but after any of your Before
 Hooks.
 ****
 
-==== Scenario: One scenario and a background
+==== One scenario and a background
 
 ****
 Given ::
@@ -1312,7 +986,7 @@ the step "a scenario step" passes icon:thumbs-up[role="green",title="Passed"] [s
 =====
 ****
 
-==== Scenario: Two scenarios and a background
+==== Two scenarios and a background
 
 ****
 Given ::
@@ -1370,12 +1044,12 @@ the step "a second scenario step" passes icon:thumbs-up[role="green",title="Pass
 === *CoffeeScript support*
 
 ****
-In order to use the JS dialect I'm most comfortable with +
-As a step definition implementor +
+In order to use the JS dialect I'm most comfortable with
+As a step definition implementor
 I want to use CoffeeScript for writing step definitions
 ****
 
-==== Scenario: CoffeeScript step definition icon:thumbs-down[role="red",title="Failed"]
+==== CoffeeScript step definition icon:thumbs-down[role="red",title="Failed"]
 
 ****
 Given ::
@@ -1400,12 +1074,12 @@ the mapping is run icon:thumbs-down[role="purple",title="Skipped"] [small right]
 === *Command line interface*
 
 ****
-In order to run cucumber in different contexts +
-As a person who wants to run features +
+In order to run cucumber in different contexts
+As a person who wants to run features
 I want to run Cucumber on the command line
 ****
 
-==== Scenario: run a single feature
+==== run a single feature
 
 ****
 Given ::
@@ -1454,7 +1128,7 @@ the exit status should be 0 icon:thumbs-up[role="green",title="Passed"] [small r
 =====
 ****
 
-==== Scenario: run a single scenario within feature
+==== run a single scenario within feature
 
 ****
 Given ::
@@ -1506,7 +1180,7 @@ the exit status should be 0 icon:thumbs-up[role="green",title="Passed"] [small r
 =====
 ****
 
-==== Scenario: run a single feature without step definitions
+==== run a single feature without step definitions
 
 ****
 Given ::
@@ -1549,7 +1223,7 @@ the exit status should be 0 icon:thumbs-up[role="green",title="Passed"] [small r
 =====
 ****
 
-==== Scenario: run feature with non-default step definitions file location specified (-r option)
+==== run feature with non-default step definitions file location specified (-r option)
 
 ****
 Given ::
@@ -1598,7 +1272,7 @@ the exit status should be 0 icon:thumbs-up[role="green",title="Passed"] [small r
 =====
 ****
 
-==== Scenario: run feature with step definitions in required directory (-r option)
+==== run feature with step definitions in required directory (-r option)
 
 ****
 Given ::
@@ -1647,7 +1321,7 @@ the exit status should be 0 icon:thumbs-up[role="green",title="Passed"] [small r
 =====
 ****
 
-==== Scenario: display Cucumber version
+==== display Cucumber version
 
 ****
 When ::
@@ -1664,7 +1338,7 @@ the exit status should be 0 icon:thumbs-up[role="green",title="Passed"] [small r
 =====
 ****
 
-==== Scenario: display help
+==== display help
 
 ****
 When ::
@@ -1681,7 +1355,7 @@ the exit status should be 0 icon:thumbs-up[role="green",title="Passed"] [small r
 =====
 ****
 
-==== Scenario: display help (short flag)
+==== display help (short flag)
 
 ****
 When ::
@@ -1698,7 +1372,7 @@ the exit status should be 0 icon:thumbs-up[role="green",title="Passed"] [small r
 =====
 ****
 
-==== Scenario: run a single failing feature
+==== run a single failing feature
 
 ****
 Given ::
@@ -1753,7 +1427,7 @@ the exit status should be 1 icon:thumbs-up[role="green",title="Passed"] [small r
 =====
 ****
 
-==== Scenario: run a single failing feature with an empty hooks file
+==== run a single failing feature with an empty hooks file
 
 ****
 Given ::
@@ -1812,7 +1486,7 @@ the exit status should be 1 icon:thumbs-up[role="green",title="Passed"] [small r
 =====
 ****
 
-==== Scenario: run a single failing feature with an AfterFeatures hook
+==== run a single failing feature with an AfterFeatures hook
 
 ****
 Given ::
@@ -1885,12 +1559,12 @@ the exit status should be 1 icon:thumbs-up[role="green",title="Passed"] [small r
 === *Core feature elements execution*
 
 ****
-In order to have automated acceptance tests +
-As a developer +
+In order to have automated acceptance tests
+As a developer
 I want Cucumber to run core feature elements
 ****
 
-==== Scenario: Simple flat steps
+==== Simple flat steps
 
 ****
 Given ::
@@ -1920,7 +1594,7 @@ the feature should have run successfully icon:thumbs-up[role="green",title="Pass
 =====
 ****
 
-==== Scenario: Given, When, Then, And and But steps
+==== Given, When, Then, And and But steps
 
 ****
 Given ::
@@ -1965,7 +1639,7 @@ the feature should have run successfully icon:thumbs-up[role="green",title="Pass
 =====
 ****
 
-==== Scenario: Step definition body is executed
+==== Step definition body is executed
 
 ****
 Given ::
@@ -2000,7 +1674,7 @@ the feature should have run successfully icon:thumbs-up[role="green",title="Pass
 =====
 ****
 
-==== Scenario: Steps accepting parameters
+==== Steps accepting parameters
 
 ****
 Given ::
@@ -2039,7 +1713,7 @@ the feature should have run successfully icon:thumbs-up[role="green",title="Pass
 =====
 ****
 
-==== Scenario: Steps accepting a DocString parameter
+==== Steps accepting a DocString parameter
 
 ****
 Given ::
@@ -2107,7 +1781,7 @@ the feature should have run successfully icon:thumbs-up[role="green",title="Pass
 [[Data-Tables, Data Tables]]
 === *Data Tables*
 
-==== Scenario: a data table can be read as a hash
+==== a data table can be read as a hash
 
 ****
 Given ::
@@ -2138,7 +1812,7 @@ the data table is converted to the following: icon:thumbs-up[role="green",title=
 [[Environment-Hooks, Environment Hooks]]
 === *Environment Hooks*
 
-==== Scenario: Tagged around hook with untagged scenario
+==== Tagged around hook with untagged scenario
 
 ****
 Given ::
@@ -2155,7 +1829,7 @@ the hook is not fired icon:thumbs-up[role="green",title="Passed"] [small right]#
 =====
 ****
 
-==== Scenario: Hooks are steps
+==== Hooks are steps
 
 ****
 Given ::
@@ -2289,7 +1963,7 @@ it outputs this json: icon:thumbs-up[role="green",title="Passed"] [small right]#
 =====
 ****
 
-==== Scenario: Failing around hook (pre scenario) fails the scenario
+==== Failing around hook (pre scenario) fails the scenario
 
 ****
 Given ::
@@ -2395,7 +2069,7 @@ it outputs this json: icon:thumbs-up[role="green",title="Passed"] [small right]#
 =====
 ****
 
-==== Scenario: Failing around hook (pre scenario) fails the scenario
+==== Failing around hook (pre scenario) fails the scenario
 
 ****
 Given ::
@@ -2501,7 +2175,7 @@ it outputs this json: icon:thumbs-up[role="green",title="Passed"] [small right]#
 =====
 ****
 
-==== Scenario: Failing around hook (post scenario) fails the scenario
+==== Failing around hook (post scenario) fails the scenario
 
 ****
 Given ::
@@ -2612,7 +2286,7 @@ it outputs this json: icon:thumbs-up[role="green",title="Passed"] [small right]#
 =====
 ****
 
-==== Scenario: Failing around hook (post scenario) fails the scenario
+==== Failing around hook (post scenario) fails the scenario
 
 ****
 Given ::
@@ -2723,7 +2397,7 @@ it outputs this json: icon:thumbs-up[role="green",title="Passed"] [small right]#
 =====
 ****
 
-==== Scenario: Failing before hook fails the scenario
+==== Failing before hook fails the scenario
 
 ****
 Given ::
@@ -2820,7 +2494,7 @@ it outputs this json: icon:thumbs-up[role="green",title="Passed"] [small right]#
 =====
 ****
 
-==== Scenario: Failing before hook fails the scenario
+==== Failing before hook fails the scenario
 
 ****
 Given ::
@@ -2917,7 +2591,7 @@ it outputs this json: icon:thumbs-up[role="green",title="Passed"] [small right]#
 =====
 ****
 
-==== Scenario: Failing after hook fails the scenario
+==== Failing after hook fails the scenario
 
 ****
 Given ::
@@ -3015,7 +2689,7 @@ it outputs this json: icon:thumbs-up[role="green",title="Passed"] [small right]#
 =====
 ****
 
-==== Scenario: Failing after hook fails the scenario
+==== Failing after hook fails the scenario
 
 ****
 Given ::
@@ -3113,7 +2787,7 @@ it outputs this json: icon:thumbs-up[role="green",title="Passed"] [small right]#
 =====
 ****
 
-==== Scenario: Hooks still execute after a failure
+==== Hooks still execute after a failure
 
 ****
 Given ::
@@ -3271,7 +2945,7 @@ it outputs this json: icon:thumbs-up[role="green",title="Passed"] [small right]#
 =====
 ****
 
-==== Scenario: World is this in hooks
+==== World is this in hooks
 
 ****
 Given ::
@@ -3454,11 +3128,11 @@ it outputs this json: icon:thumbs-up[role="green",title="Passed"] [small right]#
 === *JSON Formatter*
 
 ****
-In order to simplify processing of Cucumber features and results +
+In order to simplify processing of Cucumber features and results
 Developers should be able to consume features as JSON
 ****
 
-==== Scenario: output JSON for a feature with no scenarios
+==== output JSON for a feature with no scenarios
 
 ****
 Given ::
@@ -3494,7 +3168,7 @@ it outputs this json: icon:thumbs-up[role="green",title="Passed"] [small right]#
 =====
 ****
 
-==== Scenario: output JSON for a feature with one undefined scenario
+==== output JSON for a feature with one undefined scenario
 
 ****
 Given ::
@@ -3542,7 +3216,7 @@ it outputs this json: icon:thumbs-up[role="green",title="Passed"] [small right]#
 =====
 ****
 
-==== Scenario: output JSON for a feature with one scenario with one undefined step
+==== output JSON for a feature with one scenario with one undefined step
 
 ****
 Given ::
@@ -3603,7 +3277,7 @@ it outputs this json: icon:thumbs-up[role="green",title="Passed"] [small right]#
 =====
 ****
 
-==== Scenario: output JSON for a feature with one undefined step and subsequent defined steps which should be skipped
+==== output JSON for a feature with one undefined step and subsequent defined steps which should be skipped
 
 ****
 Given ::
@@ -3688,7 +3362,7 @@ it outputs this json: icon:thumbs-up[role="green",title="Passed"] [small right]#
 =====
 ****
 
-==== Scenario: output JSON for a feature with one scenario with one pending step
+==== output JSON for a feature with one scenario with one pending step
 
 ****
 Given ::
@@ -3759,7 +3433,7 @@ it outputs this json: icon:thumbs-up[role="green",title="Passed"] [small right]#
 =====
 ****
 
-==== Scenario: output JSON for a feature with one scenario with failing step
+==== output JSON for a feature with one scenario with failing step
 [small]#tags: @wip#
 
 
@@ -3836,7 +3510,7 @@ it outputs this json: icon:thumbs-up[role="green",title="Passed"] [small right]#
 =====
 ****
 
-==== Scenario: output JSON for a feature with one scenario with passing step
+==== output JSON for a feature with one scenario with passing step
 
 ****
 Given ::
@@ -3910,7 +3584,7 @@ it outputs this json: icon:thumbs-up[role="green",title="Passed"] [small right]#
 =====
 ****
 
-==== Scenario: output JSON for a scenario with a passing step followed by one that is pending and one that fails
+==== output JSON for a scenario with a passing step followed by one that is pending and one that fails
 
 ****
 Given ::
@@ -4005,7 +3679,7 @@ it outputs this json: icon:thumbs-up[role="green",title="Passed"] [small right]#
 =====
 ****
 
-==== Scenario: output JSON for a scenario with a pending step followed by one that passes and one that fails
+==== output JSON for a scenario with a pending step followed by one that passes and one that fails
 
 ****
 Given ::
@@ -4102,7 +3776,7 @@ it outputs this json: icon:thumbs-up[role="green",title="Passed"] [small right]#
 =====
 ****
 
-==== Scenario: output JSON for one feature, one passing scenario, one failing scenario
+==== output JSON for one feature, one passing scenario, one failing scenario
 
 ****
 Given ::
@@ -4201,7 +3875,7 @@ it outputs this json: icon:thumbs-up[role="green",title="Passed"] [small right]#
 =====
 ****
 
-==== Scenario: output JSON for multiple features
+==== output JSON for multiple features
 
 ****
 Given ::
@@ -4359,7 +4033,7 @@ it outputs this json: icon:thumbs-up[role="green",title="Passed"] [small right]#
 =====
 ****
 
-==== Scenario: output JSON for multiple features each with multiple scenarios
+==== output JSON for multiple features each with multiple scenarios
 
 ****
 Given ::
@@ -4655,7 +4329,7 @@ it outputs this json: icon:thumbs-up[role="green",title="Passed"] [small right]#
 =====
 ****
 
-==== Scenario: output JSON for a feature with a background
+==== output JSON for a feature with a background
 
 ****
 Given ::
@@ -4722,7 +4396,7 @@ it outputs this json: icon:thumbs-up[role="green",title="Passed"] [small right]#
 =====
 ****
 
-==== Scenario: output JSON for a feature with a failing background
+==== output JSON for a feature with a failing background
 
 Since the background step is re-evaluated for each scenario that
 is where the result of the step is currently recorded in the JSON
@@ -4797,7 +4471,7 @@ it outputs this json: icon:thumbs-up[role="green",title="Passed"] [small right]#
 =====
 ****
 
-==== Scenario: output JSON for a feature with a DocString
+==== output JSON for a feature with a DocString
 
 ****
 Given ::
@@ -4879,7 +4553,7 @@ it outputs this json: icon:thumbs-up[role="green",title="Passed"] [small right]#
 =====
 ****
 
-==== Scenario: output JSON for background step with a DocString
+==== output JSON for background step with a DocString
 
 ****
 Given ::
@@ -4954,7 +4628,7 @@ it outputs this json: icon:thumbs-up[role="green",title="Passed"] [small right]#
 =====
 ****
 
-==== Scenario: output JSON for a feature with tags
+==== output JSON for a feature with tags
 
 ****
 Given ::
@@ -5042,7 +4716,7 @@ it outputs this json: icon:thumbs-up[role="green",title="Passed"] [small right]#
 =====
 ****
 
-==== Scenario: output JSON for scenario with tags
+==== output JSON for scenario with tags
 
 ****
 Given ::
@@ -5130,7 +4804,7 @@ it outputs this json: icon:thumbs-up[role="green",title="Passed"] [small right]#
 =====
 ****
 
-==== Scenario: output JSON for a step with table
+==== output JSON for a step with table
 
 Rows do not appear to support line attribute yet.
 
@@ -5215,7 +4889,7 @@ it outputs this json: icon:thumbs-up[role="green",title="Passed"] [small right]#
 =====
 ****
 
-==== Scenario: output JSON for background with table
+==== output JSON for background with table
 
 Rows do not appear to support line attribute yet.
 
@@ -5294,7 +4968,7 @@ it outputs this json: icon:thumbs-up[role="green",title="Passed"] [small right]#
 =====
 ****
 
-==== Scenario: output JSON for a feature with one scenario outline with no examples tables
+==== output JSON for a feature with one scenario outline with no examples tables
 
 ****
 Given ::
@@ -5333,7 +5007,7 @@ it outputs this json: icon:thumbs-up[role="green",title="Passed"] [small right]#
 =====
 ****
 
-==== Scenario: output JSON for a feature with one scenario outline with an examples table with no rows
+==== output JSON for a feature with one scenario outline with an examples table with no rows
 
 ****
 Given ::
@@ -5375,7 +5049,7 @@ it outputs this json: icon:thumbs-up[role="green",title="Passed"] [small right]#
 =====
 ****
 
-==== Scenario: output JSON for a feature with one scenario outline with an examples table with two rows
+==== output JSON for a feature with one scenario outline with an examples table with two rows
 
 ****
 Given ::
@@ -5473,7 +5147,7 @@ it outputs this json: icon:thumbs-up[role="green",title="Passed"] [small right]#
 =====
 ****
 
-==== Scenario: output JSON for a feature with one scenario outline with an examples table with two rows and a background
+==== output JSON for a feature with one scenario outline with an examples table with two rows and a background
 
 ****
 Given ::
@@ -5577,7 +5251,7 @@ it outputs this json: icon:thumbs-up[role="green",title="Passed"] [small right]#
 =====
 ****
 
-==== Scenario: output JSON for a feature with one scenario outline with two examples tables
+==== output JSON for a feature with one scenario outline with two examples tables
 
 ****
 Given ::
@@ -5678,7 +5352,7 @@ it outputs this json: icon:thumbs-up[role="green",title="Passed"] [small right]#
 =====
 ****
 
-==== Scenario: output JSON for a feature with one scenario outline with an examples table with two rows and before, after and around hooks
+==== output JSON for a feature with one scenario outline with an examples table with two rows and before, after and around hooks
 
 ****
 Given ::
@@ -5877,12 +5551,12 @@ it outputs this json: icon:thumbs-up[role="green",title="Passed"] [small right]#
 === *PogoScript support*
 
 ****
-In order to use the JS dialect that totally rocks +
-As a step definition implementor +
+In order to use the JS dialect that totally rocks
+As a step definition implementor
 I want to use PogoScript for writing step definitions
 ****
 
-==== Scenario: PogoScript step definition icon:thumbs-down[role="red",title="Failed"]
+==== PogoScript step definition icon:thumbs-down[role="red",title="Failed"]
 
 ****
 Given ::
@@ -5907,11 +5581,11 @@ the mapping is run icon:thumbs-down[role="purple",title="Skipped"] [small right]
 === *Pretty Formatter*
 
 ****
-In order to visualize the tests in an a set of Cucumber features +
+In order to visualize the tests in an a set of Cucumber features
 Developers should be able to see prettified view of the scenarios that are being executed
 ****
 
-==== Scenario: Output pretty text for a feature with no scenarios
+==== Output pretty text for a feature with no scenarios
 
 ****
 Given ::
@@ -5943,7 +5617,7 @@ Feature: some feature
 =====
 ****
 
-==== Scenario: Pretty formatter hides around, before and after hooks
+==== Pretty formatter hides around, before and after hooks
 
 ****
 Given ::
@@ -6019,7 +5693,7 @@ Feature: some feature
 =====
 ****
 
-==== Scenario: Failing hook is reported as a failed step
+==== Failing hook is reported as a failed step
 
 ****
 Given ::
@@ -6097,7 +5771,7 @@ Failing scenarios:
 [[Scenario-Outlines-and-Examples, Scenario Outlines and Examples]]
 === *Scenario Outlines and Examples*
 
-==== Scenario: Basic outline
+==== Basic outline
 
 ****
 Given ::
@@ -6169,7 +5843,7 @@ the step "i get skipped" is skipped icon:thumbs-up[role="green",title="Passed"] 
 =====
 ****
 
-==== Scenario: Outline with table
+==== Outline with table
 
 ****
 Given ::
@@ -6207,7 +5881,7 @@ the received data table array equals the following: icon:thumbs-up[role="green",
 =====
 ****
 
-==== Scenario: Outline with doc string
+==== Outline with doc string
 
 ****
 Given ::
@@ -6248,7 +5922,7 @@ And there are some string
 =====
 ****
 
-==== Scenario: Several outlines
+==== Several outlines
 
 ****
 Given ::
@@ -6316,7 +5990,7 @@ the step "step d" passes icon:thumbs-up[role="green",title="Passed"] [small righ
 [[Scenario-Statuses, Scenario Statuses]]
 === *Scenario Statuses*
 
-==== Scenario: Check scenario statuses
+==== Check scenario statuses
 
 ****
 Given ::
@@ -6477,7 +6151,7 @@ it outputs this json: icon:thumbs-up[role="green",title="Passed"] [small right]#
 =====
 ****
 
-==== Scenario: Success status
+==== Success status
 
 ****
 Given ::
@@ -6587,7 +6261,7 @@ it outputs this json: icon:thumbs-up[role="green",title="Passed"] [small right]#
 =====
 ****
 
-==== Scenario: Failed status
+==== Failed status
 
 ****
 Given ::
@@ -6698,7 +6372,7 @@ it outputs this json: icon:thumbs-up[role="green",title="Passed"] [small right]#
 =====
 ****
 
-==== Scenario: Pending status
+==== Pending status
 
 ****
 Given ::
@@ -6807,7 +6481,7 @@ it outputs this json: icon:thumbs-up[role="green",title="Passed"] [small right]#
 =====
 ****
 
-==== Scenario: Undefined status
+==== Undefined status
 
 ****
 Given ::
@@ -6915,7 +6589,7 @@ it outputs this json: icon:thumbs-up[role="green",title="Passed"] [small right]#
 =====
 ****
 
-==== Scenario: Simultaneous statuses
+==== Simultaneous statuses
 
 ****
 Given ::
@@ -7049,7 +6723,7 @@ it outputs this json: icon:thumbs-up[role="green",title="Passed"] [small right]#
 [[Step-definition-callbacks, Step definition callbacks]]
 === *Step definition callbacks*
 
-==== Scenario: fail with single-parameter error (Node.js style)
+==== fail with single-parameter error (Node.js style)
 
 ****
 Given ::
@@ -7075,7 +6749,7 @@ the scenario fails icon:thumbs-up[role="green",title="Passed"] [small right]#(00
 =====
 ****
 
-==== Scenario: succeed with promise icon:thumbs-down[role="red",title="Failed"]
+==== succeed with promise icon:thumbs-down[role="red",title="Failed"]
 
 ****
 Given ::
@@ -7096,7 +6770,7 @@ the scenario passes icon:thumbs-down[role="purple",title="Skipped"] [small right
 =====
 ****
 
-==== Scenario: fail with promise icon:thumbs-down[role="red",title="Failed"]
+==== fail with promise icon:thumbs-down[role="red",title="Failed"]
 
 ****
 Given ::
@@ -7117,7 +6791,7 @@ the scenario fails icon:thumbs-down[role="purple",title="Skipped"] [small right]
 =====
 ****
 
-==== Scenario: succeed synchronously icon:thumbs-down[role="red",title="Failed"]
+==== succeed synchronously icon:thumbs-down[role="red",title="Failed"]
 
 ****
 Given ::
@@ -7142,7 +6816,7 @@ the scenario passes icon:thumbs-down[role="purple",title="Skipped"] [small right
 === *Strict mode*
 
 ****
-Using the `--strict` flag will cause cucumber to fail unless all the +
+Using the `--strict` flag will cause cucumber to fail unless all the
 step definitions have been defined.
 ****
 
@@ -7162,7 +6836,7 @@ Feature: Missing
 =====
 ****
 
-==== Scenario: Succeed scenario with implemented step with --strict
+==== Succeed scenario with implemented step with --strict
 
 ****
 Given ::
@@ -7211,7 +6885,7 @@ the exit status should be 0 icon:thumbs-up[role="green",title="Passed"] [small r
 =====
 ****
 
-==== Scenario: Fail scenario with undefined step with --strict
+==== Fail scenario with undefined step with --strict
 
 ****
 Given ::
@@ -7254,7 +6928,7 @@ the exit status should be 1 icon:thumbs-up[role="green",title="Passed"] [small r
 =====
 ****
 
-==== Scenario: Fail Scenario with pending step with --strict
+==== Fail Scenario with pending step with --strict
 
 ****
 Given ::
@@ -7302,7 +6976,7 @@ the exit status should be 1 icon:thumbs-up[role="green",title="Passed"] [small r
 =====
 ****
 
-==== Scenario: Fail scenario with undefined step with -S
+==== Fail scenario with undefined step with -S
 
 ****
 Given ::
@@ -7345,7 +7019,7 @@ the exit status should be 1 icon:thumbs-up[role="green",title="Passed"] [small r
 =====
 ****
 
-==== Scenario: Fail Scenario with pending step with -S
+==== Fail Scenario with pending step with -S
 
 ****
 Given ::
@@ -7397,11 +7071,11 @@ the exit status should be 1 icon:thumbs-up[role="green",title="Passed"] [small r
 === *Summary Formatter*
 
 ****
-In order to get a quick overview of Cucumber test run +
+In order to get a quick overview of Cucumber test run
 Developers should be able to see a high level summary of the scenarios that were executed
 ****
 
-==== Scenario: Output summary for a feature with no scenarios
+==== Output summary for a feature with no scenarios
 
 ****
 Given ::
@@ -7429,7 +7103,7 @@ it outputs this text: icon:thumbs-up[role="green",title="Passed"] [small right]#
 =====
 ****
 
-==== Scenario: Summary formatter hides around, before and after hooks
+==== Summary formatter hides around, before and after hooks
 
 ****
 Given ::
@@ -7501,12 +7175,12 @@ it outputs this text: icon:thumbs-up[role="green",title="Passed"] [small right]#
 === *User logs into the system*
 
 ****
-In order to be able to use eraNET components +
-As a user +
+In order to be able to use eraNET components
+As a user
 I want to log in to the system
 ****
 
-==== Scenario: Unlogged user sees welcome page with login icon:thumbs-down[role="red",title="Failed"]
+==== Unlogged user sees welcome page with login icon:thumbs-down[role="red",title="Failed"]
 
 ****
 Given ::
@@ -7531,7 +7205,7 @@ I should not see any username icon:thumbs-down[role="yellow",title="Undefined"] 
 =====
 ****
 
-==== Scenario: Minimal user sees welcome page with its username and logout icon:thumbs-down[role="red",title="Failed"]
+==== Minimal user sees welcome page with its username and logout icon:thumbs-down[role="red",title="Failed"]
 
 ****
 Given ::
@@ -7556,7 +7230,7 @@ I should see "Guest" as username icon:thumbs-down[role="yellow",title="Undefined
 =====
 ****
 
-==== Scenario: Unlogged user logs in icon:thumbs-down[role="red",title="Failed"]
+==== Unlogged user logs in icon:thumbs-down[role="red",title="Failed"]
 
 ****
 Given ::
@@ -7581,7 +7255,7 @@ I should be taken to login page icon:thumbs-down[role="yellow",title="Undefined"
 =====
 ****
 
-==== Scenario: Logged user logs out icon:thumbs-down[role="red",title="Failed"]
+==== Logged user logs out icon:thumbs-down[role="red",title="Failed"]
 
 ****
 Given ::
@@ -7606,7 +7280,7 @@ I should be taken to logout page icon:thumbs-down[role="yellow",title="Undefined
 =====
 ****
 
-==== Scenario: Disconnected user sees welcome page and reconnect option icon:thumbs-down[role="red",title="Failed"]
+==== Disconnected user sees welcome page and reconnect option icon:thumbs-down[role="red",title="Failed"]
 
 ****
 Given ::
@@ -7631,7 +7305,7 @@ I should not see any username icon:thumbs-down[role="yellow",title="Undefined"] 
 =====
 ****
 
-==== Scenario: User sees 'connecting' while connecting icon:thumbs-down[role="red",title="Failed"]
+==== User sees 'connecting' while connecting icon:thumbs-down[role="red",title="Failed"]
 
 ****
 Given ::
@@ -7656,25 +7330,25 @@ I should not see any username icon:thumbs-down[role="yellow",title="Undefined"] 
 === *World constructor callback with object*
 
 ****
-It is possible for the World constructor function to tell Cucumber +
-to use another object than itself as the World instance: +
- +
-  this.World = function WorldConstructor(callback) { +
-    var myCustomWorld = { dance: function() { /* ... */ } }; +
-    callback(myCustomWorld); // tell Cucumber to use myCustomWorld +
-                             // as the world object. +
-  }; +
- +
-If no parameter is passed to the callback, the WorldConstructor +
-instance will be used by Cucumber: +
- +
-  this.World = function WorldConstructor(callback) { +
-    var myCustomWorld = {}; +
-    callback(); // could have been written `callback(this);` +
+It is possible for the World constructor function to tell Cucumber
+to use another object than itself as the World instance:
+
+  this.World = function WorldConstructor(callback) {
+    var myCustomWorld = { dance: function() { /* ... */ } };
+    callback(myCustomWorld); // tell Cucumber to use myCustomWorld
+                             // as the world object.
+  };
+
+If no parameter is passed to the callback, the WorldConstructor
+instance will be used by Cucumber:
+
+  this.World = function WorldConstructor(callback) {
+    var myCustomWorld = {};
+    callback(); // could have been written `callback(this);`
   };
 ****
 
-==== Scenario: scenario calling function on explicit world instance
+==== scenario calling function on explicit world instance
 
 ****
 Given ::
@@ -7698,7 +7372,7 @@ the explicit World object function should have been called icon:thumbs-up[role="
 [[step-definition-snippets, step definition snippets]]
 === *step definition snippets*
 
-==== Scenario: escape regexp special characters icon:thumbs-down[role="red",title="Failed"]
+==== escape regexp special characters icon:thumbs-down[role="red",title="Failed"]
 
 ****
 Given ::
@@ -7725,7 +7399,7 @@ a "When" step definition snippet for /^I type \-\[\]\{\}\(\)\*\+\?\.\\\^\$\|\#\/
 =====
 ****
 
-==== Scenario: step matching groups icon:thumbs-down[role="red",title="Failed"]
+==== step matching groups icon:thumbs-down[role="red",title="Failed"]
 
 ****
 Given ::
@@ -7747,7 +7421,7 @@ a "Given" step definition snippet for /^I have (\d+) "([^"]*)" cucumbers$/ with 
 =====
 ****
 
-==== Scenario: multiple matching groups icon:thumbs-down[role="red",title="Failed"]
+==== multiple matching groups icon:thumbs-down[role="red",title="Failed"]
 
 ****
 Given ::
@@ -7769,7 +7443,7 @@ a "Given" step definition snippet for /^I have some "([^"]*)", "([^"]*)" and "([
 =====
 ****
 
-==== Scenario: outline steps with examples
+==== outline steps with examples
 
 ****
 Given ::
@@ -7795,11 +7469,11 @@ a "Given" example step definition snippet for /^I have "(.*)" cucumbers$/ with 1
 === *step definitions with string pattern*
 
 ****
-Some people don't like Regexps as step definition patterns. +
+Some people don't like Regexps as step definition patterns.
 Cucumber also supports string-based patterns.
 ****
 
-==== Scenario: step definition with string-based pattern
+==== step definition with string-based pattern
 
 ****
 Given ::
@@ -7820,7 +7494,7 @@ the mapping is run icon:thumbs-up[role="green",title="Passed"] [small right]#(00
 =====
 ****
 
-==== Scenario: step definition with string-based pattern and parameters
+==== step definition with string-based pattern and parameters
 
 ****
 Given ::
@@ -7845,7 +7519,7 @@ the mapping receives the arguments icon:thumbs-up[role="green",title="Passed"] [
 =====
 ****
 
-==== Scenario: step definition with string-based pattern and multiple parameters icon:thumbs-down[role="red",title="Failed"]
+==== step definition with string-based pattern and multiple parameters icon:thumbs-down[role="red",title="Failed"]
 
 ****
 Given ::

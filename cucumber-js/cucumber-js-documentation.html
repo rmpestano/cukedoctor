@@ -417,196 +417,286 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 .show-for-print{display:inherit!important}}
 </style> 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css"> 
+  <style>
+/* Stylesheet for CodeRay to match GitHub theme | MIT License | http://foundation.zurb.com */
+/*pre.CodeRay {background-color:#f7f7f8;}*/
+.CodeRay .line-numbers{border-right:1px solid #d8d8d8;padding:0 0.5em 0 .25em}
+.CodeRay span.line-numbers{display:inline-block;margin-right:.5em;color:rgba(0,0,0,.3)}
+.CodeRay .line-numbers strong{color:rgba(0,0,0,.4)}
+table.CodeRay{border-collapse:separate;border-spacing:0;margin-bottom:0;border:0;background:none}
+table.CodeRay td{vertical-align: top;line-height:1.45}
+table.CodeRay td.line-numbers{text-align:right}
+table.CodeRay td.line-numbers>pre{padding:0;color:rgba(0,0,0,.3)}
+table.CodeRay td.code{padding:0 0 0 .5em}
+table.CodeRay td.code>pre{padding:0}
+.CodeRay .debug{color:#fff !important;background:#000080 !important}
+.CodeRay .annotation{color:#007}
+.CodeRay .attribute-name{color:#000080}
+.CodeRay .attribute-value{color:#700}
+.CodeRay .binary{color:#509}
+.CodeRay .comment{color:#998;font-style:italic}
+.CodeRay .char{color:#04d}
+.CodeRay .char .content{color:#04d}
+.CodeRay .char .delimiter{color:#039}
+.CodeRay .class{color:#458;font-weight:bold}
+.CodeRay .complex{color:#a08}
+.CodeRay .constant,.CodeRay .predefined-constant{color:#008080}
+.CodeRay .color{color:#099}
+.CodeRay .class-variable{color:#369}
+.CodeRay .decorator{color:#b0b}
+.CodeRay .definition{color:#099}
+.CodeRay .delimiter{color:#000}
+.CodeRay .doc{color:#970}
+.CodeRay .doctype{color:#34b}
+.CodeRay .doc-string{color:#d42}
+.CodeRay .escape{color:#666}
+.CodeRay .entity{color:#800}
+.CodeRay .error{color:#808}
+.CodeRay .exception{color:inherit}
+.CodeRay .filename{color:#099}
+.CodeRay .function{color:#900;font-weight:bold}
+.CodeRay .global-variable{color:#008080}
+.CodeRay .hex{color:#058}
+.CodeRay .integer,.CodeRay .float{color:#099}
+.CodeRay .include{color:#555}
+.CodeRay .inline{color:#000}
+.CodeRay .inline .inline{background:#ccc}
+.CodeRay .inline .inline .inline{background:#bbb}
+.CodeRay .inline .inline-delimiter{color:#d14}
+.CodeRay .inline-delimiter{color:#d14}
+.CodeRay .important{color:#555;font-weight:bold}
+.CodeRay .interpreted{color:#b2b}
+.CodeRay .instance-variable{color:#008080}
+.CodeRay .label{color:#970}
+.CodeRay .local-variable{color:#963}
+.CodeRay .octal{color:#40e}
+.CodeRay .predefined{color:#369}
+.CodeRay .preprocessor{color:#579}
+.CodeRay .pseudo-class{color:#555}
+.CodeRay .directive{font-weight:bold}
+.CodeRay .type{font-weight:bold}
+.CodeRay .predefined-type{color:inherit}
+.CodeRay .reserved,.CodeRay .keyword {color:#000;font-weight:bold}
+.CodeRay .key{color:#808}
+.CodeRay .key .delimiter{color:#606}
+.CodeRay .key .char{color:#80f}
+.CodeRay .value{color:#088}
+.CodeRay .regexp .delimiter{color:#808}
+.CodeRay .regexp .content{color:#808}
+.CodeRay .regexp .modifier{color:#808}
+.CodeRay .regexp .char{color:#d14}
+.CodeRay .regexp .function{color:#404;font-weight:bold}
+.CodeRay .string{color:#d20}
+.CodeRay .string .string .string{background:#ffd0d0}
+.CodeRay .string .content{color:#d14}
+.CodeRay .string .char{color:#d14}
+.CodeRay .string .delimiter{color:#d14}
+.CodeRay .shell{color:#d14}
+.CodeRay .shell .delimiter{color:#d14}
+.CodeRay .symbol{color:#990073}
+.CodeRay .symbol .content{color:#a60}
+.CodeRay .symbol .delimiter{color:#630}
+.CodeRay .tag{color:#008080}
+.CodeRay .tag-special{color:#d70}
+.CodeRay .variable{color:#036}
+.CodeRay .insert{background:#afa}
+.CodeRay .delete{background:#faa}
+.CodeRay .change{color:#aaf;background:#007}
+.CodeRay .head{color:#f8f;background:#505}
+.CodeRay .insert .insert{color:#080}
+.CodeRay .delete .delete{color:#800}
+.CodeRay .change .change{color:#66f}
+.CodeRay .head .head{color:#f4f}
+</style> 
  </head> 
- <body class="book toc2 toc-right"> 
-  <div name="themes" id="themes" style="width:150px;font-size:10px;position:relative;top:0;right:0px"> 
+ <body class="book"> 
+  <div name="themes" id="themes" style="float:right;width:150px;font-size:10px;position:relative;top:0;right:0px"> 
    <b>Theme:&nbsp;</b> 
    <select style="width:100px;font-size:10px;" name="select" onchange="window.location.href = window.location.href.substring(0,window.location.href.indexOf('?')) + '?theme='+ this.value"> <option value="asciidoctor" selected>Asciidoctor</option> <option value="colony">Colony</option> <option value="foundation">Foundation</option> <option value="github">Github</option> <option value="iconic">Iconic</option> <option value="maker">Maker</option> <option value="rocket-panda">Rocket Panda</option> <option value="readthedocs">Read the Docs</option> <option value="rubygems">Rubygems</option> </select> 
   </div> 
   <div id="header"> 
    <h1>cucumber-js-documentation</h1> 
-   <div id="toc" class="toc2"> 
+   <div id="toc" class="toc"> 
     <div id="toctitle">
       Table of Contents 
     </div> 
     <ul class="sectlevel1"> 
-     <li><a href="#__strong_summary_strong"><strong>Summary</strong></a></li> 
      <li><a href="#__strong_features_strong"><strong>Features</strong></a> 
       <ul class="sectlevel2"> 
        <li><a href="#Asynchronous-failing-steps"><strong>Asynchronous failing steps</strong></a> 
         <ul class="sectlevel3"> 
-         <li><a href="#_scenario_see_asynchronously_failing_scenarios">Scenario: see asynchronously failing scenarios</a></li> 
-         <li><a href="#_scenario_see_asynchronously_failing_scenarios_with_exception_span_class_icon_red_i_class_fa_fa_thumbs_down_title_failed_i_span">Scenario: see asynchronously failing scenarios with exception <span class="icon red"><i class="fa fa-thumbs-down" title="Failed"></i></span></a></li> 
+         <li><a href="#_see_asynchronously_failing_scenarios">see asynchronously failing scenarios</a></li> 
+         <li><a href="#_see_asynchronously_failing_scenarios_with_exception_span_class_icon_red_i_class_fa_fa_thumbs_down_title_failed_i_span">see asynchronously failing scenarios with exception <span class="icon red"><i class="fa fa-thumbs-down" title="Failed"></i></span></a></li> 
         </ul> </li> 
        <li><a href="#Asynchronous-pending-steps"><strong>Asynchronous pending steps</strong></a> 
         <ul class="sectlevel3"> 
-         <li><a href="#_scenario_pending_step_means_the_scenario_is_pending">Scenario: Pending step means the scenario is pending</a></li> 
+         <li><a href="#_pending_step_means_the_scenario_is_pending">Pending step means the scenario is pending</a></li> 
         </ul> </li> 
        <li><a href="#Asynchronous-step-definition-callbacks"><strong>Asynchronous step definition callbacks</strong></a> 
         <ul class="sectlevel3"> 
-         <li><a href="#_scenario_execute_feature_with_asynchronous_step_definition">Scenario: Execute feature with asynchronous step definition</a></li> 
+         <li><a href="#_execute_feature_with_asynchronous_step_definition">Execute feature with asynchronous step definition</a></li> 
         </ul> </li> 
        <li><a href="#Attachments"><strong>Attachments</strong></a> 
         <ul class="sectlevel3"> 
-         <li><a href="#_scenario_attach_a_buffer">Scenario: Attach a buffer</a></li> 
-         <li><a href="#_scenario_attach_a_stream">Scenario: Attach a stream</a></li> 
-         <li><a href="#_scenario_attach_from_an_around_hook_pre_scenario">Scenario: Attach from an around hook (pre scenario)</a></li> 
-         <li><a href="#_scenario_attach_from_an_around_hook_post_scenario">Scenario: Attach from an around hook (post scenario)</a></li> 
-         <li><a href="#_scenario_attach_from_a_before_hook">Scenario: Attach from a before hook</a></li> 
-         <li><a href="#_scenario_attach_from_an_after_hook">Scenario: Attach from an after hook</a></li> 
-         <li><a href="#_scenario_attach_from_a_step_definition">Scenario: Attach from a step definition</a></li> 
+         <li><a href="#_attach_a_buffer">Attach a buffer</a></li> 
+         <li><a href="#_attach_a_stream">Attach a stream</a></li> 
+         <li><a href="#_attach_from_an_around_hook_pre_scenario">Attach from an around hook (pre scenario)</a></li> 
+         <li><a href="#_attach_from_an_around_hook_post_scenario">Attach from an around hook (post scenario)</a></li> 
+         <li><a href="#_attach_from_a_before_hook">Attach from a before hook</a></li> 
+         <li><a href="#_attach_from_an_after_hook">Attach from an after hook</a></li> 
+         <li><a href="#_attach_from_a_step_definition">Attach from a step definition</a></li> 
         </ul> </li> 
        <li><a href="#Background"><strong>Background</strong></a> 
         <ul class="sectlevel3"> 
-         <li><a href="#_scenario_one_scenario_and_a_background">Scenario: One scenario and a background</a></li> 
-         <li><a href="#_scenario_two_scenarios_and_a_background">Scenario: Two scenarios and a background</a></li> 
+         <li><a href="#_one_scenario_and_a_background">One scenario and a background</a></li> 
+         <li><a href="#_two_scenarios_and_a_background">Two scenarios and a background</a></li> 
         </ul> </li> 
        <li><a href="#CoffeeScript-support"><strong>CoffeeScript support</strong></a> 
         <ul class="sectlevel3"> 
-         <li><a href="#_scenario_coffeescript_step_definition_span_class_icon_red_i_class_fa_fa_thumbs_down_title_failed_i_span">Scenario: CoffeeScript step definition <span class="icon red"><i class="fa fa-thumbs-down" title="Failed"></i></span></a></li> 
+         <li><a href="#_coffeescript_step_definition_span_class_icon_red_i_class_fa_fa_thumbs_down_title_failed_i_span">CoffeeScript step definition <span class="icon red"><i class="fa fa-thumbs-down" title="Failed"></i></span></a></li> 
         </ul> </li> 
        <li><a href="#Command-line-interface"><strong>Command line interface</strong></a> 
         <ul class="sectlevel3"> 
-         <li><a href="#_scenario_run_a_single_feature">Scenario: run a single feature</a></li> 
-         <li><a href="#_scenario_run_a_single_scenario_within_feature">Scenario: run a single scenario within feature</a></li> 
-         <li><a href="#_scenario_run_a_single_feature_without_step_definitions">Scenario: run a single feature without step definitions</a></li> 
-         <li><a href="#_scenario_run_feature_with_non_default_step_definitions_file_location_specified_r_option">Scenario: run feature with non-default step definitions file location specified (-r option)</a></li> 
-         <li><a href="#_scenario_run_feature_with_step_definitions_in_required_directory_r_option">Scenario: run feature with step definitions in required directory (-r option)</a></li> 
-         <li><a href="#_scenario_display_cucumber_version">Scenario: display Cucumber version</a></li> 
-         <li><a href="#_scenario_display_help">Scenario: display help</a></li> 
-         <li><a href="#_scenario_display_help_short_flag">Scenario: display help (short flag)</a></li> 
-         <li><a href="#_scenario_run_a_single_failing_feature">Scenario: run a single failing feature</a></li> 
-         <li><a href="#_scenario_run_a_single_failing_feature_with_an_empty_hooks_file">Scenario: run a single failing feature with an empty hooks file</a></li> 
-         <li><a href="#_scenario_run_a_single_failing_feature_with_an_afterfeatures_hook">Scenario: run a single failing feature with an AfterFeatures hook</a></li> 
+         <li><a href="#_run_a_single_feature">run a single feature</a></li> 
+         <li><a href="#_run_a_single_scenario_within_feature">run a single scenario within feature</a></li> 
+         <li><a href="#_run_a_single_feature_without_step_definitions">run a single feature without step definitions</a></li> 
+         <li><a href="#_run_feature_with_non_default_step_definitions_file_location_specified_r_option">run feature with non-default step definitions file location specified (-r option)</a></li> 
+         <li><a href="#_run_feature_with_step_definitions_in_required_directory_r_option">run feature with step definitions in required directory (-r option)</a></li> 
+         <li><a href="#_display_cucumber_version">display Cucumber version</a></li> 
+         <li><a href="#_display_help">display help</a></li> 
+         <li><a href="#_display_help_short_flag">display help (short flag)</a></li> 
+         <li><a href="#_run_a_single_failing_feature">run a single failing feature</a></li> 
+         <li><a href="#_run_a_single_failing_feature_with_an_empty_hooks_file">run a single failing feature with an empty hooks file</a></li> 
+         <li><a href="#_run_a_single_failing_feature_with_an_afterfeatures_hook">run a single failing feature with an AfterFeatures hook</a></li> 
         </ul> </li> 
        <li><a href="#Core-feature-elements-execution"><strong>Core feature elements execution</strong></a> 
         <ul class="sectlevel3"> 
-         <li><a href="#_scenario_simple_flat_steps">Scenario: Simple flat steps</a></li> 
-         <li><a href="#_scenario_given_when_then_and_and_but_steps">Scenario: Given, When, Then, And and But steps</a></li> 
-         <li><a href="#_scenario_step_definition_body_is_executed">Scenario: Step definition body is executed</a></li> 
-         <li><a href="#_scenario_steps_accepting_parameters">Scenario: Steps accepting parameters</a></li> 
-         <li><a href="#_scenario_steps_accepting_a_docstring_parameter">Scenario: Steps accepting a DocString parameter</a></li> 
+         <li><a href="#_simple_flat_steps">Simple flat steps</a></li> 
+         <li><a href="#_given_when_then_and_and_but_steps">Given, When, Then, And and But steps</a></li> 
+         <li><a href="#_step_definition_body_is_executed">Step definition body is executed</a></li> 
+         <li><a href="#_steps_accepting_parameters">Steps accepting parameters</a></li> 
+         <li><a href="#_steps_accepting_a_docstring_parameter">Steps accepting a DocString parameter</a></li> 
         </ul> </li> 
        <li><a href="#Data-Tables"><strong>Data Tables</strong></a> 
         <ul class="sectlevel3"> 
-         <li><a href="#_scenario_a_data_table_can_be_read_as_a_hash">Scenario: a data table can be read as a hash</a></li> 
+         <li><a href="#_a_data_table_can_be_read_as_a_hash">a data table can be read as a hash</a></li> 
         </ul> </li> 
        <li><a href="#Environment-Hooks"><strong>Environment Hooks</strong></a> 
         <ul class="sectlevel3"> 
-         <li><a href="#_scenario_tagged_around_hook_with_untagged_scenario">Scenario: Tagged around hook with untagged scenario</a></li> 
-         <li><a href="#_scenario_hooks_are_steps">Scenario: Hooks are steps</a></li> 
-         <li><a href="#_scenario_failing_around_hook_pre_scenario_fails_the_scenario">Scenario: Failing around hook (pre scenario) fails the scenario</a></li> 
-         <li><a href="#_scenario_failing_around_hook_pre_scenario_fails_the_scenario_2">Scenario: Failing around hook (pre scenario) fails the scenario</a></li> 
-         <li><a href="#_scenario_failing_around_hook_post_scenario_fails_the_scenario">Scenario: Failing around hook (post scenario) fails the scenario</a></li> 
-         <li><a href="#_scenario_failing_around_hook_post_scenario_fails_the_scenario_2">Scenario: Failing around hook (post scenario) fails the scenario</a></li> 
-         <li><a href="#_scenario_failing_before_hook_fails_the_scenario">Scenario: Failing before hook fails the scenario</a></li> 
-         <li><a href="#_scenario_failing_before_hook_fails_the_scenario_2">Scenario: Failing before hook fails the scenario</a></li> 
-         <li><a href="#_scenario_failing_after_hook_fails_the_scenario">Scenario: Failing after hook fails the scenario</a></li> 
-         <li><a href="#_scenario_failing_after_hook_fails_the_scenario_2">Scenario: Failing after hook fails the scenario</a></li> 
-         <li><a href="#_scenario_hooks_still_execute_after_a_failure">Scenario: Hooks still execute after a failure</a></li> 
-         <li><a href="#_scenario_world_is_this_in_hooks">Scenario: World is this in hooks</a></li> 
+         <li><a href="#_tagged_around_hook_with_untagged_scenario">Tagged around hook with untagged scenario</a></li> 
+         <li><a href="#_hooks_are_steps">Hooks are steps</a></li> 
+         <li><a href="#_failing_around_hook_pre_scenario_fails_the_scenario">Failing around hook (pre scenario) fails the scenario</a></li> 
+         <li><a href="#_failing_around_hook_pre_scenario_fails_the_scenario_2">Failing around hook (pre scenario) fails the scenario</a></li> 
+         <li><a href="#_failing_around_hook_post_scenario_fails_the_scenario">Failing around hook (post scenario) fails the scenario</a></li> 
+         <li><a href="#_failing_around_hook_post_scenario_fails_the_scenario_2">Failing around hook (post scenario) fails the scenario</a></li> 
+         <li><a href="#_failing_before_hook_fails_the_scenario">Failing before hook fails the scenario</a></li> 
+         <li><a href="#_failing_before_hook_fails_the_scenario_2">Failing before hook fails the scenario</a></li> 
+         <li><a href="#_failing_after_hook_fails_the_scenario">Failing after hook fails the scenario</a></li> 
+         <li><a href="#_failing_after_hook_fails_the_scenario_2">Failing after hook fails the scenario</a></li> 
+         <li><a href="#_hooks_still_execute_after_a_failure">Hooks still execute after a failure</a></li> 
+         <li><a href="#_world_is_this_in_hooks">World is this in hooks</a></li> 
         </ul> </li> 
        <li><a href="#JSON-Formatter"><strong>JSON Formatter</strong></a> 
         <ul class="sectlevel3"> 
-         <li><a href="#_scenario_output_json_for_a_feature_with_no_scenarios">Scenario: output JSON for a feature with no scenarios</a></li> 
-         <li><a href="#_scenario_output_json_for_a_feature_with_one_undefined_scenario">Scenario: output JSON for a feature with one undefined scenario</a></li> 
-         <li><a href="#_scenario_output_json_for_a_feature_with_one_scenario_with_one_undefined_step">Scenario: output JSON for a feature with one scenario with one undefined step</a></li> 
-         <li><a href="#_scenario_output_json_for_a_feature_with_one_undefined_step_and_subsequent_defined_steps_which_should_be_skipped">Scenario: output JSON for a feature with one undefined step and subsequent defined steps which should be skipped</a></li> 
-         <li><a href="#_scenario_output_json_for_a_feature_with_one_scenario_with_one_pending_step">Scenario: output JSON for a feature with one scenario with one pending step</a></li> 
-         <li><a href="#_scenario_output_json_for_a_feature_with_one_scenario_with_failing_step">Scenario: output JSON for a feature with one scenario with failing step</a></li> 
-         <li><a href="#_scenario_output_json_for_a_feature_with_one_scenario_with_passing_step">Scenario: output JSON for a feature with one scenario with passing step</a></li> 
-         <li><a href="#_scenario_output_json_for_a_scenario_with_a_passing_step_followed_by_one_that_is_pending_and_one_that_fails">Scenario: output JSON for a scenario with a passing step followed by one that is pending and one that fails</a></li> 
-         <li><a href="#_scenario_output_json_for_a_scenario_with_a_pending_step_followed_by_one_that_passes_and_one_that_fails">Scenario: output JSON for a scenario with a pending step followed by one that passes and one that fails</a></li> 
-         <li><a href="#_scenario_output_json_for_one_feature_one_passing_scenario_one_failing_scenario">Scenario: output JSON for one feature, one passing scenario, one failing scenario</a></li> 
-         <li><a href="#_scenario_output_json_for_multiple_features">Scenario: output JSON for multiple features</a></li> 
-         <li><a href="#_scenario_output_json_for_multiple_features_each_with_multiple_scenarios">Scenario: output JSON for multiple features each with multiple scenarios</a></li> 
-         <li><a href="#_scenario_output_json_for_a_feature_with_a_background">Scenario: output JSON for a feature with a background</a></li> 
-         <li><a href="#_scenario_output_json_for_a_feature_with_a_failing_background">Scenario: output JSON for a feature with a failing background</a></li> 
-         <li><a href="#_scenario_output_json_for_a_feature_with_a_docstring">Scenario: output JSON for a feature with a DocString</a></li> 
-         <li><a href="#_scenario_output_json_for_background_step_with_a_docstring">Scenario: output JSON for background step with a DocString</a></li> 
-         <li><a href="#_scenario_output_json_for_a_feature_with_tags">Scenario: output JSON for a feature with tags</a></li> 
-         <li><a href="#_scenario_output_json_for_scenario_with_tags">Scenario: output JSON for scenario with tags</a></li> 
-         <li><a href="#_scenario_output_json_for_a_step_with_table">Scenario: output JSON for a step with table</a></li> 
-         <li><a href="#_scenario_output_json_for_background_with_table">Scenario: output JSON for background with table</a></li> 
-         <li><a href="#_scenario_output_json_for_a_feature_with_one_scenario_outline_with_no_examples_tables">Scenario: output JSON for a feature with one scenario outline with no examples tables</a></li> 
-         <li><a href="#_scenario_output_json_for_a_feature_with_one_scenario_outline_with_an_examples_table_with_no_rows">Scenario: output JSON for a feature with one scenario outline with an examples table with no rows</a></li> 
-         <li><a href="#_scenario_output_json_for_a_feature_with_one_scenario_outline_with_an_examples_table_with_two_rows">Scenario: output JSON for a feature with one scenario outline with an examples table with two rows</a></li> 
-         <li><a href="#_scenario_output_json_for_a_feature_with_one_scenario_outline_with_an_examples_table_with_two_rows_and_a_background">Scenario: output JSON for a feature with one scenario outline with an examples table with two rows and a background</a></li> 
-         <li><a href="#_scenario_output_json_for_a_feature_with_one_scenario_outline_with_two_examples_tables">Scenario: output JSON for a feature with one scenario outline with two examples tables</a></li> 
-         <li><a href="#_scenario_output_json_for_a_feature_with_one_scenario_outline_with_an_examples_table_with_two_rows_and_before_after_and_around_hooks">Scenario: output JSON for a feature with one scenario outline with an examples table with two rows and before, after and around hooks</a></li> 
+         <li><a href="#_output_json_for_a_feature_with_no_scenarios">output JSON for a feature with no scenarios</a></li> 
+         <li><a href="#_output_json_for_a_feature_with_one_undefined_scenario">output JSON for a feature with one undefined scenario</a></li> 
+         <li><a href="#_output_json_for_a_feature_with_one_scenario_with_one_undefined_step">output JSON for a feature with one scenario with one undefined step</a></li> 
+         <li><a href="#_output_json_for_a_feature_with_one_undefined_step_and_subsequent_defined_steps_which_should_be_skipped">output JSON for a feature with one undefined step and subsequent defined steps which should be skipped</a></li> 
+         <li><a href="#_output_json_for_a_feature_with_one_scenario_with_one_pending_step">output JSON for a feature with one scenario with one pending step</a></li> 
+         <li><a href="#_output_json_for_a_feature_with_one_scenario_with_failing_step">output JSON for a feature with one scenario with failing step</a></li> 
+         <li><a href="#_output_json_for_a_feature_with_one_scenario_with_passing_step">output JSON for a feature with one scenario with passing step</a></li> 
+         <li><a href="#_output_json_for_a_scenario_with_a_passing_step_followed_by_one_that_is_pending_and_one_that_fails">output JSON for a scenario with a passing step followed by one that is pending and one that fails</a></li> 
+         <li><a href="#_output_json_for_a_scenario_with_a_pending_step_followed_by_one_that_passes_and_one_that_fails">output JSON for a scenario with a pending step followed by one that passes and one that fails</a></li> 
+         <li><a href="#_output_json_for_one_feature_one_passing_scenario_one_failing_scenario">output JSON for one feature, one passing scenario, one failing scenario</a></li> 
+         <li><a href="#_output_json_for_multiple_features">output JSON for multiple features</a></li> 
+         <li><a href="#_output_json_for_multiple_features_each_with_multiple_scenarios">output JSON for multiple features each with multiple scenarios</a></li> 
+         <li><a href="#_output_json_for_a_feature_with_a_background">output JSON for a feature with a background</a></li> 
+         <li><a href="#_output_json_for_a_feature_with_a_failing_background">output JSON for a feature with a failing background</a></li> 
+         <li><a href="#_output_json_for_a_feature_with_a_docstring">output JSON for a feature with a DocString</a></li> 
+         <li><a href="#_output_json_for_background_step_with_a_docstring">output JSON for background step with a DocString</a></li> 
+         <li><a href="#_output_json_for_a_feature_with_tags">output JSON for a feature with tags</a></li> 
+         <li><a href="#_output_json_for_scenario_with_tags">output JSON for scenario with tags</a></li> 
+         <li><a href="#_output_json_for_a_step_with_table">output JSON for a step with table</a></li> 
+         <li><a href="#_output_json_for_background_with_table">output JSON for background with table</a></li> 
+         <li><a href="#_output_json_for_a_feature_with_one_scenario_outline_with_no_examples_tables">output JSON for a feature with one scenario outline with no examples tables</a></li> 
+         <li><a href="#_output_json_for_a_feature_with_one_scenario_outline_with_an_examples_table_with_no_rows">output JSON for a feature with one scenario outline with an examples table with no rows</a></li> 
+         <li><a href="#_output_json_for_a_feature_with_one_scenario_outline_with_an_examples_table_with_two_rows">output JSON for a feature with one scenario outline with an examples table with two rows</a></li> 
+         <li><a href="#_output_json_for_a_feature_with_one_scenario_outline_with_an_examples_table_with_two_rows_and_a_background">output JSON for a feature with one scenario outline with an examples table with two rows and a background</a></li> 
+         <li><a href="#_output_json_for_a_feature_with_one_scenario_outline_with_two_examples_tables">output JSON for a feature with one scenario outline with two examples tables</a></li> 
+         <li><a href="#_output_json_for_a_feature_with_one_scenario_outline_with_an_examples_table_with_two_rows_and_before_after_and_around_hooks">output JSON for a feature with one scenario outline with an examples table with two rows and before, after and around hooks</a></li> 
         </ul> </li> 
        <li><a href="#PogoScript-support"><strong>PogoScript support</strong></a> 
         <ul class="sectlevel3"> 
-         <li><a href="#_scenario_pogoscript_step_definition_span_class_icon_red_i_class_fa_fa_thumbs_down_title_failed_i_span">Scenario: PogoScript step definition <span class="icon red"><i class="fa fa-thumbs-down" title="Failed"></i></span></a></li> 
+         <li><a href="#_pogoscript_step_definition_span_class_icon_red_i_class_fa_fa_thumbs_down_title_failed_i_span">PogoScript step definition <span class="icon red"><i class="fa fa-thumbs-down" title="Failed"></i></span></a></li> 
         </ul> </li> 
        <li><a href="#Pretty-Formatter"><strong>Pretty Formatter</strong></a> 
         <ul class="sectlevel3"> 
-         <li><a href="#_scenario_output_pretty_text_for_a_feature_with_no_scenarios">Scenario: Output pretty text for a feature with no scenarios</a></li> 
-         <li><a href="#_scenario_pretty_formatter_hides_around_before_and_after_hooks">Scenario: Pretty formatter hides around, before and after hooks</a></li> 
-         <li><a href="#_scenario_failing_hook_is_reported_as_a_failed_step">Scenario: Failing hook is reported as a failed step</a></li> 
+         <li><a href="#_output_pretty_text_for_a_feature_with_no_scenarios">Output pretty text for a feature with no scenarios</a></li> 
+         <li><a href="#_pretty_formatter_hides_around_before_and_after_hooks">Pretty formatter hides around, before and after hooks</a></li> 
+         <li><a href="#_failing_hook_is_reported_as_a_failed_step">Failing hook is reported as a failed step</a></li> 
         </ul> </li> 
        <li><a href="#Scenario-Outlines-and-Examples"><strong>Scenario Outlines and Examples</strong></a> 
         <ul class="sectlevel3"> 
-         <li><a href="#_scenario_basic_outline">Scenario: Basic outline</a></li> 
-         <li><a href="#_scenario_outline_with_table">Scenario: Outline with table</a></li> 
-         <li><a href="#_scenario_outline_with_doc_string">Scenario: Outline with doc string</a></li> 
-         <li><a href="#_scenario_several_outlines">Scenario: Several outlines</a></li> 
+         <li><a href="#_basic_outline">Basic outline</a></li> 
+         <li><a href="#_outline_with_table">Outline with table</a></li> 
+         <li><a href="#_outline_with_doc_string">Outline with doc string</a></li> 
+         <li><a href="#_several_outlines">Several outlines</a></li> 
         </ul> </li> 
        <li><a href="#Scenario-Statuses"><strong>Scenario Statuses</strong></a> 
         <ul class="sectlevel3"> 
-         <li><a href="#_scenario_check_scenario_statuses">Scenario: Check scenario statuses</a></li> 
-         <li><a href="#_scenario_success_status">Scenario: Success status</a></li> 
-         <li><a href="#_scenario_failed_status">Scenario: Failed status</a></li> 
-         <li><a href="#_scenario_pending_status">Scenario: Pending status</a></li> 
-         <li><a href="#_scenario_undefined_status">Scenario: Undefined status</a></li> 
-         <li><a href="#_scenario_simultaneous_statuses">Scenario: Simultaneous statuses</a></li> 
+         <li><a href="#_check_scenario_statuses">Check scenario statuses</a></li> 
+         <li><a href="#_success_status">Success status</a></li> 
+         <li><a href="#_failed_status">Failed status</a></li> 
+         <li><a href="#_pending_status">Pending status</a></li> 
+         <li><a href="#_undefined_status">Undefined status</a></li> 
+         <li><a href="#_simultaneous_statuses">Simultaneous statuses</a></li> 
         </ul> </li> 
        <li><a href="#Step-definition-callbacks"><strong>Step definition callbacks</strong></a> 
         <ul class="sectlevel3"> 
-         <li><a href="#_scenario_fail_with_single_parameter_error_node_js_style">Scenario: fail with single-parameter error (Node.js style)</a></li> 
-         <li><a href="#_scenario_succeed_with_promise_span_class_icon_red_i_class_fa_fa_thumbs_down_title_failed_i_span">Scenario: succeed with promise <span class="icon red"><i class="fa fa-thumbs-down" title="Failed"></i></span></a></li> 
-         <li><a href="#_scenario_fail_with_promise_span_class_icon_red_i_class_fa_fa_thumbs_down_title_failed_i_span">Scenario: fail with promise <span class="icon red"><i class="fa fa-thumbs-down" title="Failed"></i></span></a></li> 
-         <li><a href="#_scenario_succeed_synchronously_span_class_icon_red_i_class_fa_fa_thumbs_down_title_failed_i_span">Scenario: succeed synchronously <span class="icon red"><i class="fa fa-thumbs-down" title="Failed"></i></span></a></li> 
+         <li><a href="#_fail_with_single_parameter_error_node_js_style">fail with single-parameter error (Node.js style)</a></li> 
+         <li><a href="#_succeed_with_promise_span_class_icon_red_i_class_fa_fa_thumbs_down_title_failed_i_span">succeed with promise <span class="icon red"><i class="fa fa-thumbs-down" title="Failed"></i></span></a></li> 
+         <li><a href="#_fail_with_promise_span_class_icon_red_i_class_fa_fa_thumbs_down_title_failed_i_span">fail with promise <span class="icon red"><i class="fa fa-thumbs-down" title="Failed"></i></span></a></li> 
+         <li><a href="#_succeed_synchronously_span_class_icon_red_i_class_fa_fa_thumbs_down_title_failed_i_span">succeed synchronously <span class="icon red"><i class="fa fa-thumbs-down" title="Failed"></i></span></a></li> 
         </ul> </li> 
        <li><a href="#Strict-mode"><strong>Strict mode</strong></a> 
         <ul class="sectlevel3"> 
          <li><a href="#_background_span_class_icon_red_i_class_fa_fa_thumbs_down_title_failed_i_span">Background <span class="icon red"><i class="fa fa-thumbs-down" title="Failed"></i></span></a></li> 
-         <li><a href="#_scenario_succeed_scenario_with_implemented_step_with_strict">Scenario: Succeed scenario with implemented step with --strict</a></li> 
-         <li><a href="#_scenario_fail_scenario_with_undefined_step_with_strict">Scenario: Fail scenario with undefined step with --strict</a></li> 
-         <li><a href="#_scenario_fail_scenario_with_pending_step_with_strict">Scenario: Fail Scenario with pending step with --strict</a></li> 
-         <li><a href="#_scenario_fail_scenario_with_undefined_step_with_s">Scenario: Fail scenario with undefined step with -S</a></li> 
-         <li><a href="#_scenario_fail_scenario_with_pending_step_with_s">Scenario: Fail Scenario with pending step with -S</a></li> 
+         <li><a href="#_succeed_scenario_with_implemented_step_with_strict">Succeed scenario with implemented step with --strict</a></li> 
+         <li><a href="#_fail_scenario_with_undefined_step_with_strict">Fail scenario with undefined step with --strict</a></li> 
+         <li><a href="#_fail_scenario_with_pending_step_with_strict">Fail Scenario with pending step with --strict</a></li> 
+         <li><a href="#_fail_scenario_with_undefined_step_with_s">Fail scenario with undefined step with -S</a></li> 
+         <li><a href="#_fail_scenario_with_pending_step_with_s">Fail Scenario with pending step with -S</a></li> 
         </ul> </li> 
        <li><a href="#Summary-Formatter"><strong>Summary Formatter</strong></a> 
         <ul class="sectlevel3"> 
-         <li><a href="#_scenario_output_summary_for_a_feature_with_no_scenarios">Scenario: Output summary for a feature with no scenarios</a></li> 
-         <li><a href="#_scenario_summary_formatter_hides_around_before_and_after_hooks">Scenario: Summary formatter hides around, before and after hooks</a></li> 
+         <li><a href="#_output_summary_for_a_feature_with_no_scenarios">Output summary for a feature with no scenarios</a></li> 
+         <li><a href="#_summary_formatter_hides_around_before_and_after_hooks">Summary formatter hides around, before and after hooks</a></li> 
         </ul> </li> 
        <li><a href="#User-logs-into-the-system"><strong>User logs into the system</strong></a> 
         <ul class="sectlevel3"> 
-         <li><a href="#_scenario_unlogged_user_sees_welcome_page_with_login_span_class_icon_red_i_class_fa_fa_thumbs_down_title_failed_i_span">Scenario: Unlogged user sees welcome page with login <span class="icon red"><i class="fa fa-thumbs-down" title="Failed"></i></span></a></li> 
-         <li><a href="#_scenario_minimal_user_sees_welcome_page_with_its_username_and_logout_span_class_icon_red_i_class_fa_fa_thumbs_down_title_failed_i_span">Scenario: Minimal user sees welcome page with its username and logout <span class="icon red"><i class="fa fa-thumbs-down" title="Failed"></i></span></a></li> 
-         <li><a href="#_scenario_unlogged_user_logs_in_span_class_icon_red_i_class_fa_fa_thumbs_down_title_failed_i_span">Scenario: Unlogged user logs in <span class="icon red"><i class="fa fa-thumbs-down" title="Failed"></i></span></a></li> 
-         <li><a href="#_scenario_logged_user_logs_out_span_class_icon_red_i_class_fa_fa_thumbs_down_title_failed_i_span">Scenario: Logged user logs out <span class="icon red"><i class="fa fa-thumbs-down" title="Failed"></i></span></a></li> 
-         <li><a href="#_scenario_disconnected_user_sees_welcome_page_and_reconnect_option_span_class_icon_red_i_class_fa_fa_thumbs_down_title_failed_i_span">Scenario: Disconnected user sees welcome page and reconnect option <span class="icon red"><i class="fa fa-thumbs-down" title="Failed"></i></span></a></li> 
-         <li><a href="#_scenario_user_sees_connecting_while_connecting_span_class_icon_red_i_class_fa_fa_thumbs_down_title_failed_i_span">Scenario: User sees 'connecting' while connecting <span class="icon red"><i class="fa fa-thumbs-down" title="Failed"></i></span></a></li> 
+         <li><a href="#_unlogged_user_sees_welcome_page_with_login_span_class_icon_red_i_class_fa_fa_thumbs_down_title_failed_i_span">Unlogged user sees welcome page with login <span class="icon red"><i class="fa fa-thumbs-down" title="Failed"></i></span></a></li> 
+         <li><a href="#_minimal_user_sees_welcome_page_with_its_username_and_logout_span_class_icon_red_i_class_fa_fa_thumbs_down_title_failed_i_span">Minimal user sees welcome page with its username and logout <span class="icon red"><i class="fa fa-thumbs-down" title="Failed"></i></span></a></li> 
+         <li><a href="#_unlogged_user_logs_in_span_class_icon_red_i_class_fa_fa_thumbs_down_title_failed_i_span">Unlogged user logs in <span class="icon red"><i class="fa fa-thumbs-down" title="Failed"></i></span></a></li> 
+         <li><a href="#_logged_user_logs_out_span_class_icon_red_i_class_fa_fa_thumbs_down_title_failed_i_span">Logged user logs out <span class="icon red"><i class="fa fa-thumbs-down" title="Failed"></i></span></a></li> 
+         <li><a href="#_disconnected_user_sees_welcome_page_and_reconnect_option_span_class_icon_red_i_class_fa_fa_thumbs_down_title_failed_i_span">Disconnected user sees welcome page and reconnect option <span class="icon red"><i class="fa fa-thumbs-down" title="Failed"></i></span></a></li> 
+         <li><a href="#_user_sees_connecting_while_connecting_span_class_icon_red_i_class_fa_fa_thumbs_down_title_failed_i_span">User sees 'connecting' while connecting <span class="icon red"><i class="fa fa-thumbs-down" title="Failed"></i></span></a></li> 
         </ul> </li> 
        <li><a href="#World-constructor-callback-with-object"><strong>World constructor callback with object</strong></a> 
         <ul class="sectlevel3"> 
-         <li><a href="#_scenario_scenario_calling_function_on_explicit_world_instance">Scenario: scenario calling function on explicit world instance</a></li> 
+         <li><a href="#_scenario_calling_function_on_explicit_world_instance">scenario calling function on explicit world instance</a></li> 
         </ul> </li> 
        <li><a href="#step-definition-snippets"><strong>step definition snippets</strong></a> 
         <ul class="sectlevel3"> 
-         <li><a href="#_scenario_escape_regexp_special_characters_span_class_icon_red_i_class_fa_fa_thumbs_down_title_failed_i_span">Scenario: escape regexp special characters <span class="icon red"><i class="fa fa-thumbs-down" title="Failed"></i></span></a></li> 
-         <li><a href="#_scenario_step_matching_groups_span_class_icon_red_i_class_fa_fa_thumbs_down_title_failed_i_span">Scenario: step matching groups <span class="icon red"><i class="fa fa-thumbs-down" title="Failed"></i></span></a></li> 
-         <li><a href="#_scenario_multiple_matching_groups_span_class_icon_red_i_class_fa_fa_thumbs_down_title_failed_i_span">Scenario: multiple matching groups <span class="icon red"><i class="fa fa-thumbs-down" title="Failed"></i></span></a></li> 
-         <li><a href="#_scenario_outline_steps_with_examples">Scenario: outline steps with examples</a></li> 
+         <li><a href="#_escape_regexp_special_characters_span_class_icon_red_i_class_fa_fa_thumbs_down_title_failed_i_span">escape regexp special characters <span class="icon red"><i class="fa fa-thumbs-down" title="Failed"></i></span></a></li> 
+         <li><a href="#_step_matching_groups_span_class_icon_red_i_class_fa_fa_thumbs_down_title_failed_i_span">step matching groups <span class="icon red"><i class="fa fa-thumbs-down" title="Failed"></i></span></a></li> 
+         <li><a href="#_multiple_matching_groups_span_class_icon_red_i_class_fa_fa_thumbs_down_title_failed_i_span">multiple matching groups <span class="icon red"><i class="fa fa-thumbs-down" title="Failed"></i></span></a></li> 
+         <li><a href="#_outline_steps_with_examples">outline steps with examples</a></li> 
         </ul> </li> 
        <li><a href="#step-definitions-with-string-pattern"><strong>step definitions with string pattern</strong></a> 
         <ul class="sectlevel3"> 
-         <li><a href="#_scenario_step_definition_with_string_based_pattern">Scenario: step definition with string-based pattern</a></li> 
-         <li><a href="#_scenario_step_definition_with_string_based_pattern_and_parameters">Scenario: step definition with string-based pattern and parameters</a></li> 
-         <li><a href="#_scenario_step_definition_with_string_based_pattern_and_multiple_parameters_span_class_icon_red_i_class_fa_fa_thumbs_down_title_failed_i_span">Scenario: step definition with string-based pattern and multiple parameters <span class="icon red"><i class="fa fa-thumbs-down" title="Failed"></i></span></a></li> 
+         <li><a href="#_step_definition_with_string_based_pattern">step definition with string-based pattern</a></li> 
+         <li><a href="#_step_definition_with_string_based_pattern_and_parameters">step definition with string-based pattern and parameters</a></li> 
+         <li><a href="#_step_definition_with_string_based_pattern_and_multiple_parameters_span_class_icon_red_i_class_fa_fa_thumbs_down_title_failed_i_span">step definition with string-based pattern and multiple parameters <span class="icon red"><i class="fa fa-thumbs-down" title="Failed"></i></span></a></li> 
         </ul> </li> 
       </ul> </li> 
     </ul> 
@@ -615,442 +705,6 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
   <div id="content"> 
    <span style="float:right"> <input value="Filter..." onclick="this.value=''" title="Filter features by title" onblur="searchFeature(this.value);"> </span> 
    <div class="sect1"> 
-    <h2 id="__strong_summary_strong"><a class="anchor" href="#__strong_summary_strong"></a><strong>Summary</strong></h2> 
-    <div class="sectionbody"> 
-     <table class="tableblock frame-all grid-all spread"> 
-      <colgroup> 
-       <col style="width: 8.3333%;"> 
-       <col style="width: 8.3333%;"> 
-       <col style="width: 8.3333%;"> 
-       <col style="width: 8.3333%;"> 
-       <col style="width: 8.3333%;"> 
-       <col style="width: 8.3333%;"> 
-       <col style="width: 8.3333%;"> 
-       <col style="width: 8.3333%;"> 
-       <col style="width: 8.3333%;"> 
-       <col style="width: 8.3333%;"> 
-       <col style="width: 8.3333%;"> 
-       <col style="width: 8.3337%;"> 
-      </colgroup> 
-      <thead> 
-       <tr> 
-        <th class="tableblock halign-center valign-top" colspan="3">Scenarios</th> 
-        <th class="tableblock halign-center valign-top" colspan="7">Steps</th> 
-        <th class="tableblock halign-center valign-top" colspan="2">Features: 22</th> 
-       </tr> 
-      </thead> 
-      <tfoot> 
-       <tr> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>92</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>17</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>109</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>440</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>0</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>14</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>0</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>43</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>1</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>498</code></p></td> 
-        <td class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><code>19s 210ms</code></p></td> 
-       </tr> 
-      </tfoot> 
-      <tbody> 
-       <tr> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code><span class="green"><strong>Passed</strong></span></code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code><span class="red"><strong>Failed</strong></span></code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>Total</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code><span class="green"><strong>Passed</strong></span></code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code><span class="red"><strong>Failed</strong></span></code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code><span class="purple"><strong>Skipped</strong></span></code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code><span class="maroon"><strong>Pending</strong></span></code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code><span class="yellow"><strong>Undefined</strong></span></code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code><span class="blue"><strong>Missing</strong></span></code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>Total</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>Duration</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>Status</code></p></td> 
-       </tr> 
-       <tr> 
-        <td class="tableblock halign-center valign-top" colspan="12"><p class="tableblock"><code><strong><a href="#Asynchronous-failing-steps">Asynchronous failing steps</a></strong></code></p></td> 
-       </tr> 
-       <tr> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>1</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>1</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>2</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>5</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>0</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>2</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>0</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>1</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>0</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>8</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>019ms</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code><span class="red"><strong>failed</strong></span></code></p></td> 
-       </tr> 
-       <tr> 
-        <td class="tableblock halign-center valign-top" colspan="12"><p class="tableblock"><code><strong><a href="#Asynchronous-pending-steps">Asynchronous pending steps</a></strong></code></p></td> 
-       </tr> 
-       <tr> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>1</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>0</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>1</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>6</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>0</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>0</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>0</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>0</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>0</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>6</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>013ms</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code><span class="green"><strong>passed</strong></span></code></p></td> 
-       </tr> 
-       <tr> 
-        <td class="tableblock halign-center valign-top" colspan="12"><p class="tableblock"><code><strong><a href="#Asynchronous-step-definition-callbacks">Asynchronous step definition callbacks</a></strong></code></p></td> 
-       </tr> 
-       <tr> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>1</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>0</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>1</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>4</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>0</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>0</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>0</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>0</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>0</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>4</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>061ms</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code><span class="green"><strong>passed</strong></span></code></p></td> 
-       </tr> 
-       <tr> 
-        <td class="tableblock halign-center valign-top" colspan="12"><p class="tableblock"><code><strong><a href="#Attachments">Attachments</a></strong></code></p></td> 
-       </tr> 
-       <tr> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>7</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>0</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>7</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>35</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>0</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>0</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>0</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>0</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>0</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>35</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>01s 711ms</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code><span class="green"><strong>passed</strong></span></code></p></td> 
-       </tr> 
-       <tr> 
-        <td class="tableblock halign-center valign-top" colspan="12"><p class="tableblock"><code><strong><a href="#Background">Background</a></strong></code></p></td> 
-       </tr> 
-       <tr> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>2</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>0</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>2</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>16</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>0</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>0</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>0</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>0</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>0</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>16</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>026ms</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code><span class="green"><strong>passed</strong></span></code></p></td> 
-       </tr> 
-       <tr> 
-        <td class="tableblock halign-center valign-top" colspan="12"><p class="tableblock"><code><strong><a href="#CoffeeScript-support">CoffeeScript support</a></strong></code></p></td> 
-       </tr> 
-       <tr> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>0</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>1</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>1</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>0</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>0</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>3</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>0</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>1</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>0</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>4</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>000ms</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code><span class="red"><strong>failed</strong></span></code></p></td> 
-       </tr> 
-       <tr> 
-        <td class="tableblock halign-center valign-top" colspan="12"><p class="tableblock"><code><strong><a href="#Command-line-interface">Command line interface</a></strong></code></p></td> 
-       </tr> 
-       <tr> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>11</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>0</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>11</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>50</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>0</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>0</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>0</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>0</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>0</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>50</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>02s 464ms</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code><span class="green"><strong>passed</strong></span></code></p></td> 
-       </tr> 
-       <tr> 
-        <td class="tableblock halign-center valign-top" colspan="12"><p class="tableblock"><code><strong><a href="#Core-feature-elements-execution">Core feature elements execution</a></strong></code></p></td> 
-       </tr> 
-       <tr> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>5</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>0</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>5</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>23</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>0</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>0</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>0</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>0</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>0</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>23</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>053ms</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code><span class="green"><strong>passed</strong></span></code></p></td> 
-       </tr> 
-       <tr> 
-        <td class="tableblock halign-center valign-top" colspan="12"><p class="tableblock"><code><strong><a href="#Data-Tables">Data Tables</a></strong></code></p></td> 
-       </tr> 
-       <tr> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>1</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>0</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>1</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>3</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>0</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>0</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>0</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>0</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>0</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>3</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>007ms</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code><span class="green"><strong>passed</strong></span></code></p></td> 
-       </tr> 
-       <tr> 
-        <td class="tableblock halign-center valign-top" colspan="12"><p class="tableblock"><code><strong><a href="#Environment-Hooks">Environment Hooks</a></strong></code></p></td> 
-       </tr> 
-       <tr> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>12</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>0</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>12</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>59</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>0</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>0</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>0</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>0</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>0</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>59</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>02s 906ms</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code><span class="green"><strong>passed</strong></span></code></p></td> 
-       </tr> 
-       <tr> 
-        <td class="tableblock halign-center valign-top" colspan="12"><p class="tableblock"><code><strong><a href="#JSON-Formatter">JSON Formatter</a></strong></code></p></td> 
-       </tr> 
-       <tr> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>26</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>0</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>26</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>104</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>0</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>0</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>0</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>0</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>0</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>104</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>07s 438ms</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code><span class="green"><strong>passed</strong></span></code></p></td> 
-       </tr> 
-       <tr> 
-        <td class="tableblock halign-center valign-top" colspan="12"><p class="tableblock"><code><strong><a href="#PogoScript-support">PogoScript support</a></strong></code></p></td> 
-       </tr> 
-       <tr> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>0</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>1</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>1</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>0</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>0</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>3</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>0</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>1</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>0</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>4</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>000ms</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code><span class="red"><strong>failed</strong></span></code></p></td> 
-       </tr> 
-       <tr> 
-        <td class="tableblock halign-center valign-top" colspan="12"><p class="tableblock"><code><strong><a href="#Pretty-Formatter">Pretty Formatter</a></strong></code></p></td> 
-       </tr> 
-       <tr> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>3</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>0</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>3</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>13</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>0</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>0</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>0</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>0</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>0</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>13</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>816ms</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code><span class="green"><strong>passed</strong></span></code></p></td> 
-       </tr> 
-       <tr> 
-        <td class="tableblock halign-center valign-top" colspan="12"><p class="tableblock"><code><strong><a href="#Scenario-Outlines-and-Examples">Scenario Outlines and Examples</a></strong></code></p></td> 
-       </tr> 
-       <tr> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>4</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>0</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>4</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>31</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>0</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>0</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>0</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>0</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>0</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>31</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>050ms</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code><span class="green"><strong>passed</strong></span></code></p></td> 
-       </tr> 
-       <tr> 
-        <td class="tableblock halign-center valign-top" colspan="12"><p class="tableblock"><code><strong><a href="#Scenario-Statuses">Scenario Statuses</a></strong></code></p></td> 
-       </tr> 
-       <tr> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>6</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>0</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>6</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>30</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>0</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>0</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>0</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>0</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>0</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>30</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>01s 707ms</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code><span class="green"><strong>passed</strong></span></code></p></td> 
-       </tr> 
-       <tr> 
-        <td class="tableblock halign-center valign-top" colspan="12"><p class="tableblock"><code><strong><a href="#Step-definition-callbacks">Step definition callbacks</a></strong></code></p></td> 
-       </tr> 
-       <tr> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>1</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>3</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>4</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>4</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>0</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>6</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>0</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>6</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>0</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>16</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>010ms</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code><span class="red"><strong>failed</strong></span></code></p></td> 
-       </tr> 
-       <tr> 
-        <td class="tableblock halign-center valign-top" colspan="12"><p class="tableblock"><code><strong><a href="#Strict-mode">Strict mode</a></strong></code></p></td> 
-       </tr> 
-       <tr> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>5</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>1</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>6</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>23</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>0</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>0</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>0</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>0</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>1</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>24</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>01s 366ms</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code><span class="red"><strong>failed</strong></span></code></p></td> 
-       </tr> 
-       <tr> 
-        <td class="tableblock halign-center valign-top" colspan="12"><p class="tableblock"><code><strong><a href="#Summary-Formatter">Summary Formatter</a></strong></code></p></td> 
-       </tr> 
-       <tr> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>2</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>0</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>2</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>8</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>0</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>0</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>0</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>0</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>0</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>8</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>514ms</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code><span class="green"><strong>passed</strong></span></code></p></td> 
-       </tr> 
-       <tr> 
-        <td class="tableblock halign-center valign-top" colspan="12"><p class="tableblock"><code><strong><a href="#User-logs-into-the-system">User logs into the system</a></strong></code></p></td> 
-       </tr> 
-       <tr> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>0</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>6</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>6</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>0</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>0</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>0</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>0</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>29</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>0</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>29</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>000ms</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code><span class="red"><strong>failed</strong></span></code></p></td> 
-       </tr> 
-       <tr> 
-        <td class="tableblock halign-center valign-top" colspan="12"><p class="tableblock"><code><strong><a href="#World-constructor-callback-with-object">World constructor callback with object</a></strong></code></p></td> 
-       </tr> 
-       <tr> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>1</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>0</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>1</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>4</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>0</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>0</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>0</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>0</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>0</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>4</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>006ms</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code><span class="green"><strong>passed</strong></span></code></p></td> 
-       </tr> 
-       <tr> 
-        <td class="tableblock halign-center valign-top" colspan="12"><p class="tableblock"><code><strong><a href="#step-definition-snippets">step definition snippets</a></strong></code></p></td> 
-       </tr> 
-       <tr> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>1</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>3</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>4</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>9</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>0</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>0</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>0</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>4</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>0</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>13</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>020ms</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code><span class="red"><strong>failed</strong></span></code></p></td> 
-       </tr> 
-       <tr> 
-        <td class="tableblock halign-center valign-top" colspan="12"><p class="tableblock"><code><strong><a href="#step-definitions-with-string-pattern">step definitions with string pattern</a></strong></code></p></td> 
-       </tr> 
-       <tr> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>2</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>1</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>3</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>13</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>0</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>0</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>0</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>1</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>0</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>14</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code>012ms</code></p></td> 
-        <td class="tableblock halign-center valign-top"><p class="tableblock"><code><span class="red"><strong>failed</strong></span></code></p></td> 
-       </tr> 
-       <tr> 
-        <td class="tableblock halign-center valign-top" colspan="12"><p class="tableblock"><code><strong>Totals</strong></code></p></td> 
-       </tr> 
-      </tbody> 
-     </table> 
-    </div> 
-   </div> 
-   <div class="sect1"> 
     <h2 id="__strong_features_strong"><a class="anchor" href="#__strong_features_strong"></a><strong>Features</strong></h2> 
     <div class="sectionbody"> 
      <div class="sect2"> 
@@ -1058,7 +712,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
       <span class="fa fa-minus-square fa-fw" style="cursor:pointer;float:right;margin-top:-30px" title="Minimize" onclick="hideFeatureScenarios('Asynchronous-failing-steps');document.getElementById('hidden-Asynchronous-failing-steps').style.display = 'inline';this.style.display = 'none'"> </span> 
       <span id="hidden-Asynchronous-failing-steps" class="fa fa-plus-square fa-fw" style="cursor:pointer;float:right;display:none;margin-top:-30px" title="Maximize feature" onclick="showFeatureScenarios('Asynchronous-failing-steps');this.style.display = 'none'"> </span> 
       <div class="sect3"> 
-       <h4 id="_scenario_see_asynchronously_failing_scenarios"><a class="anchor" href="#_scenario_see_asynchronously_failing_scenarios"></a>Scenario: see asynchronously failing scenarios</h4> 
+       <h4 id="_see_asynchronously_failing_scenarios"><a class="anchor" href="#_see_asynchronously_failing_scenarios"></a>see asynchronously failing scenarios</h4> 
        <div class="sidebarblock"> 
         <div class="content"> 
          <div class="dlist"> 
@@ -1129,7 +783,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
        </div> 
       </div> 
       <div class="sect3"> 
-       <h4 id="_scenario_see_asynchronously_failing_scenarios_with_exception_span_class_icon_red_i_class_fa_fa_thumbs_down_title_failed_i_span"><a class="anchor" href="#_scenario_see_asynchronously_failing_scenarios_with_exception_span_class_icon_red_i_class_fa_fa_thumbs_down_title_failed_i_span"></a>Scenario: see asynchronously failing scenarios with exception <span class="icon red"><i class="fa fa-thumbs-down" title="Failed"></i></span></h4> 
+       <h4 id="_see_asynchronously_failing_scenarios_with_exception_span_class_icon_red_i_class_fa_fa_thumbs_down_title_failed_i_span"><a class="anchor" href="#_see_asynchronously_failing_scenarios_with_exception_span_class_icon_red_i_class_fa_fa_thumbs_down_title_failed_i_span"></a>see asynchronously failing scenarios with exception <span class="icon red"><i class="fa fa-thumbs-down" title="Failed"></i></span></h4> 
        <div class="paragraph"> 
         <p><span class="small">tags: @untestable-on-self</span></p> 
        </div> 
@@ -1208,7 +862,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
       <span class="fa fa-minus-square fa-fw" style="cursor:pointer;float:right;margin-top:-30px" title="Minimize" onclick="hideFeatureScenarios('Asynchronous-pending-steps');document.getElementById('hidden-Asynchronous-pending-steps').style.display = 'inline';this.style.display = 'none'"> </span> 
       <span id="hidden-Asynchronous-pending-steps" class="fa fa-plus-square fa-fw" style="cursor:pointer;float:right;display:none;margin-top:-30px" title="Maximize feature" onclick="showFeatureScenarios('Asynchronous-pending-steps');this.style.display = 'none'"> </span> 
       <div class="sect3"> 
-       <h4 id="_scenario_pending_step_means_the_scenario_is_pending"><a class="anchor" href="#_scenario_pending_step_means_the_scenario_is_pending"></a>Scenario: Pending step means the scenario is pending</h4> 
+       <h4 id="_pending_step_means_the_scenario_is_pending"><a class="anchor" href="#_pending_step_means_the_scenario_is_pending"></a>Pending step means the scenario is pending</h4> 
        <div class="sidebarblock"> 
         <div class="content"> 
          <div class="dlist"> 
@@ -1317,7 +971,7 @@ Then the result is 9</pre>
        </div> 
       </div> 
       <div class="sect3"> 
-       <h4 id="_scenario_execute_feature_with_asynchronous_step_definition"><a class="anchor" href="#_scenario_execute_feature_with_asynchronous_step_definition"></a>Scenario: Execute feature with asynchronous step definition</h4> 
+       <h4 id="_execute_feature_with_asynchronous_step_definition"><a class="anchor" href="#_execute_feature_with_asynchronous_step_definition"></a>Execute feature with asynchronous step definition</h4> 
        <div class="sidebarblock"> 
         <div class="content"> 
          <div class="dlist"> 
@@ -1393,7 +1047,7 @@ Then the result is 9</pre>
       <span class="fa fa-minus-square fa-fw" style="cursor:pointer;float:right;margin-top:-30px" title="Minimize" onclick="hideFeatureScenarios('Attachments');document.getElementById('hidden-Attachments').style.display = 'inline';this.style.display = 'none'"> </span> 
       <span id="hidden-Attachments" class="fa fa-plus-square fa-fw" style="cursor:pointer;float:right;display:none;margin-top:-30px" title="Maximize feature" onclick="showFeatureScenarios('Attachments');this.style.display = 'none'"> </span> 
       <div class="sect3"> 
-       <h4 id="_scenario_attach_a_buffer"><a class="anchor" href="#_scenario_attach_a_buffer"></a>Scenario: Attach a buffer</h4> 
+       <h4 id="_attach_a_buffer"><a class="anchor" href="#_attach_a_buffer"></a>Attach a buffer</h4> 
        <div class="sidebarblock"> 
         <div class="content"> 
          <div class="dlist"> 
@@ -1549,7 +1203,7 @@ module.exports = hooks;</pre>
        </div> 
       </div> 
       <div class="sect3"> 
-       <h4 id="_scenario_attach_a_stream"><a class="anchor" href="#_scenario_attach_a_stream"></a>Scenario: Attach a stream</h4> 
+       <h4 id="_attach_a_stream"><a class="anchor" href="#_attach_a_stream"></a>Attach a stream</h4> 
        <div class="sidebarblock"> 
         <div class="content"> 
          <div class="dlist"> 
@@ -1722,7 +1376,7 @@ module.exports = hooks;</pre>
        </div> 
       </div> 
       <div class="sect3"> 
-       <h4 id="_scenario_attach_from_an_around_hook_pre_scenario"><a class="anchor" href="#_scenario_attach_from_an_around_hook_pre_scenario"></a>Scenario: Attach from an around hook (pre scenario)</h4> 
+       <h4 id="_attach_from_an_around_hook_pre_scenario"><a class="anchor" href="#_attach_from_an_around_hook_pre_scenario"></a>Attach from an around hook (pre scenario)</h4> 
        <div class="sidebarblock"> 
         <div class="content"> 
          <div class="dlist"> 
@@ -1890,7 +1544,7 @@ module.exports = hooks;</pre>
        </div> 
       </div> 
       <div class="sect3"> 
-       <h4 id="_scenario_attach_from_an_around_hook_post_scenario"><a class="anchor" href="#_scenario_attach_from_an_around_hook_post_scenario"></a>Scenario: Attach from an around hook (post scenario)</h4> 
+       <h4 id="_attach_from_an_around_hook_post_scenario"><a class="anchor" href="#_attach_from_an_around_hook_post_scenario"></a>Attach from an around hook (post scenario)</h4> 
        <div class="sidebarblock"> 
         <div class="content"> 
          <div class="dlist"> 
@@ -2057,7 +1711,7 @@ module.exports = hooks;</pre>
        </div> 
       </div> 
       <div class="sect3"> 
-       <h4 id="_scenario_attach_from_a_before_hook"><a class="anchor" href="#_scenario_attach_from_a_before_hook"></a>Scenario: Attach from a before hook</h4> 
+       <h4 id="_attach_from_a_before_hook"><a class="anchor" href="#_attach_from_a_before_hook"></a>Attach from a before hook</h4> 
        <div class="sidebarblock"> 
         <div class="content"> 
          <div class="dlist"> 
@@ -2213,7 +1867,7 @@ module.exports = hooks;</pre>
        </div> 
       </div> 
       <div class="sect3"> 
-       <h4 id="_scenario_attach_from_an_after_hook"><a class="anchor" href="#_scenario_attach_from_an_after_hook"></a>Scenario: Attach from an after hook</h4> 
+       <h4 id="_attach_from_an_after_hook"><a class="anchor" href="#_attach_from_an_after_hook"></a>Attach from an after hook</h4> 
        <div class="sidebarblock"> 
         <div class="content"> 
          <div class="dlist"> 
@@ -2369,7 +2023,7 @@ module.exports = hooks;</pre>
        </div> 
       </div> 
       <div class="sect3"> 
-       <h4 id="_scenario_attach_from_a_step_definition"><a class="anchor" href="#_scenario_attach_from_a_step_definition"></a>Scenario: Attach from a step definition</h4> 
+       <h4 id="_attach_from_a_step_definition"><a class="anchor" href="#_attach_from_a_step_definition"></a>Attach from a step definition</h4> 
        <div class="sidebarblock"> 
         <div class="content"> 
          <div class="dlist"> 
@@ -2542,7 +2196,7 @@ module.exports = hooks;</pre>
        </div> 
       </div> 
       <div class="sect3"> 
-       <h4 id="_scenario_one_scenario_and_a_background"><a class="anchor" href="#_scenario_one_scenario_and_a_background"></a>Scenario: One scenario and a background</h4> 
+       <h4 id="_one_scenario_and_a_background"><a class="anchor" href="#_one_scenario_and_a_background"></a>One scenario and a background</h4> 
        <div class="sidebarblock"> 
         <div class="content"> 
          <div class="dlist"> 
@@ -2657,7 +2311,7 @@ module.exports = hooks;</pre>
        </div> 
       </div> 
       <div class="sect3"> 
-       <h4 id="_scenario_two_scenarios_and_a_background"><a class="anchor" href="#_scenario_two_scenarios_and_a_background"></a>Scenario: Two scenarios and a background</h4> 
+       <h4 id="_two_scenarios_and_a_background"><a class="anchor" href="#_two_scenarios_and_a_background"></a>Two scenarios and a background</h4> 
        <div class="sidebarblock"> 
         <div class="content"> 
          <div class="dlist"> 
@@ -2815,7 +2469,7 @@ module.exports = hooks;</pre>
        </div> 
       </div> 
       <div class="sect3"> 
-       <h4 id="_scenario_coffeescript_step_definition_span_class_icon_red_i_class_fa_fa_thumbs_down_title_failed_i_span"><a class="anchor" href="#_scenario_coffeescript_step_definition_span_class_icon_red_i_class_fa_fa_thumbs_down_title_failed_i_span"></a>Scenario: CoffeeScript step definition <span class="icon red"><i class="fa fa-thumbs-down" title="Failed"></i></span></h4> 
+       <h4 id="_coffeescript_step_definition_span_class_icon_red_i_class_fa_fa_thumbs_down_title_failed_i_span"><a class="anchor" href="#_coffeescript_step_definition_span_class_icon_red_i_class_fa_fa_thumbs_down_title_failed_i_span"></a>CoffeeScript step definition <span class="icon red"><i class="fa fa-thumbs-down" title="Failed"></i></span></h4> 
        <div class="sidebarblock"> 
         <div class="content"> 
          <div class="dlist"> 
@@ -2890,7 +2544,7 @@ module.exports = hooks;</pre>
        </div> 
       </div> 
       <div class="sect3"> 
-       <h4 id="_scenario_run_a_single_feature"><a class="anchor" href="#_scenario_run_a_single_feature"></a>Scenario: run a single feature</h4> 
+       <h4 id="_run_a_single_feature"><a class="anchor" href="#_run_a_single_feature"></a>run a single feature</h4> 
        <div class="sidebarblock"> 
         <div class="content"> 
          <div class="dlist"> 
@@ -2990,7 +2644,7 @@ module.exports = cucumberSteps;</pre>
        </div> 
       </div> 
       <div class="sect3"> 
-       <h4 id="_scenario_run_a_single_scenario_within_feature"><a class="anchor" href="#_scenario_run_a_single_scenario_within_feature"></a>Scenario: run a single scenario within feature</h4> 
+       <h4 id="_run_a_single_scenario_within_feature"><a class="anchor" href="#_run_a_single_scenario_within_feature"></a>run a single scenario within feature</h4> 
        <div class="sidebarblock"> 
         <div class="content"> 
          <div class="dlist"> 
@@ -3093,7 +2747,7 @@ module.exports = cucumberSteps;</pre>
        </div> 
       </div> 
       <div class="sect3"> 
-       <h4 id="_scenario_run_a_single_feature_without_step_definitions"><a class="anchor" href="#_scenario_run_a_single_feature_without_step_definitions"></a>Scenario: run a single feature without step definitions</h4> 
+       <h4 id="_run_a_single_feature_without_step_definitions"><a class="anchor" href="#_run_a_single_feature_without_step_definitions"></a>run a single feature without step definitions</h4> 
        <div class="sidebarblock"> 
         <div class="content"> 
          <div class="dlist"> 
@@ -3178,7 +2832,7 @@ this.When(/^a step is undefined$/, function (callback) {
        </div> 
       </div> 
       <div class="sect3"> 
-       <h4 id="_scenario_run_feature_with_non_default_step_definitions_file_location_specified_r_option"><a class="anchor" href="#_scenario_run_feature_with_non_default_step_definitions_file_location_specified_r_option"></a>Scenario: run feature with non-default step definitions file location specified (-r option)</h4> 
+       <h4 id="_run_feature_with_non_default_step_definitions_file_location_specified_r_option"><a class="anchor" href="#_run_feature_with_non_default_step_definitions_file_location_specified_r_option"></a>run feature with non-default step definitions file location specified (-r option)</h4> 
        <div class="sidebarblock"> 
         <div class="content"> 
          <div class="dlist"> 
@@ -3278,7 +2932,7 @@ module.exports = cucumberSteps;</pre>
        </div> 
       </div> 
       <div class="sect3"> 
-       <h4 id="_scenario_run_feature_with_step_definitions_in_required_directory_r_option"><a class="anchor" href="#_scenario_run_feature_with_step_definitions_in_required_directory_r_option"></a>Scenario: run feature with step definitions in required directory (-r option)</h4> 
+       <h4 id="_run_feature_with_step_definitions_in_required_directory_r_option"><a class="anchor" href="#_run_feature_with_step_definitions_in_required_directory_r_option"></a>run feature with step definitions in required directory (-r option)</h4> 
        <div class="sidebarblock"> 
         <div class="content"> 
          <div class="dlist"> 
@@ -3378,7 +3032,7 @@ module.exports = cucumberSteps;</pre>
        </div> 
       </div> 
       <div class="sect3"> 
-       <h4 id="_scenario_display_cucumber_version"><a class="anchor" href="#_scenario_display_cucumber_version"></a>Scenario: display Cucumber version</h4> 
+       <h4 id="_display_cucumber_version"><a class="anchor" href="#_display_cucumber_version"></a>display Cucumber version</h4> 
        <div class="sidebarblock"> 
         <div class="content"> 
          <div class="dlist"> 
@@ -3427,7 +3081,7 @@ module.exports = cucumberSteps;</pre>
        </div> 
       </div> 
       <div class="sect3"> 
-       <h4 id="_scenario_display_help"><a class="anchor" href="#_scenario_display_help"></a>Scenario: display help</h4> 
+       <h4 id="_display_help"><a class="anchor" href="#_display_help"></a>display help</h4> 
        <div class="sidebarblock"> 
         <div class="content"> 
          <div class="dlist"> 
@@ -3476,7 +3130,7 @@ module.exports = cucumberSteps;</pre>
        </div> 
       </div> 
       <div class="sect3"> 
-       <h4 id="_scenario_display_help_short_flag"><a class="anchor" href="#_scenario_display_help_short_flag"></a>Scenario: display help (short flag)</h4> 
+       <h4 id="_display_help_short_flag"><a class="anchor" href="#_display_help_short_flag"></a>display help (short flag)</h4> 
        <div class="sidebarblock"> 
         <div class="content"> 
          <div class="dlist"> 
@@ -3525,7 +3179,7 @@ module.exports = cucumberSteps;</pre>
        </div> 
       </div> 
       <div class="sect3"> 
-       <h4 id="_scenario_run_a_single_failing_feature"><a class="anchor" href="#_scenario_run_a_single_failing_feature"></a>Scenario: run a single failing feature</h4> 
+       <h4 id="_run_a_single_failing_feature"><a class="anchor" href="#_run_a_single_failing_feature"></a>run a single failing feature</h4> 
        <div class="sidebarblock"> 
         <div class="content"> 
          <div class="dlist"> 
@@ -3632,7 +3286,7 @@ Failing scenarios:
        </div> 
       </div> 
       <div class="sect3"> 
-       <h4 id="_scenario_run_a_single_failing_feature_with_an_empty_hooks_file"><a class="anchor" href="#_scenario_run_a_single_failing_feature_with_an_empty_hooks_file"></a>Scenario: run a single failing feature with an empty hooks file</h4> 
+       <h4 id="_run_a_single_failing_feature_with_an_empty_hooks_file"><a class="anchor" href="#_run_a_single_failing_feature_with_an_empty_hooks_file"></a>run a single failing feature with an empty hooks file</h4> 
        <div class="sidebarblock"> 
         <div class="content"> 
          <div class="dlist"> 
@@ -3753,7 +3407,7 @@ Failing scenarios:
        </div> 
       </div> 
       <div class="sect3"> 
-       <h4 id="_scenario_run_a_single_failing_feature_with_an_afterfeatures_hook"><a class="anchor" href="#_scenario_run_a_single_failing_feature_with_an_afterfeatures_hook"></a>Scenario: run a single failing feature with an AfterFeatures hook</h4> 
+       <h4 id="_run_a_single_failing_feature_with_an_afterfeatures_hook"><a class="anchor" href="#_run_a_single_failing_feature_with_an_afterfeatures_hook"></a>run a single failing feature with an AfterFeatures hook</h4> 
        <div class="sidebarblock"> 
         <div class="content"> 
          <div class="dlist"> 
@@ -3896,7 +3550,7 @@ Failing scenarios:
        </div> 
       </div> 
       <div class="sect3"> 
-       <h4 id="_scenario_simple_flat_steps"><a class="anchor" href="#_scenario_simple_flat_steps"></a>Scenario: Simple flat steps</h4> 
+       <h4 id="_simple_flat_steps"><a class="anchor" href="#_simple_flat_steps"></a>Simple flat steps</h4> 
        <div class="sidebarblock"> 
         <div class="content"> 
          <div class="dlist"> 
@@ -3958,7 +3612,7 @@ Failing scenarios:
        </div> 
       </div> 
       <div class="sect3"> 
-       <h4 id="_scenario_given_when_then_and_and_but_steps"><a class="anchor" href="#_scenario_given_when_then_and_and_but_steps"></a>Scenario: Given, When, Then, And and But steps</h4> 
+       <h4 id="_given_when_then_and_and_but_steps"><a class="anchor" href="#_given_when_then_and_and_but_steps"></a>Given, When, Then, And and But steps</h4> 
        <div class="sidebarblock"> 
         <div class="content"> 
          <div class="dlist"> 
@@ -4055,7 +3709,7 @@ Failing scenarios:
        </div> 
       </div> 
       <div class="sect3"> 
-       <h4 id="_scenario_step_definition_body_is_executed"><a class="anchor" href="#_scenario_step_definition_body_is_executed"></a>Scenario: Step definition body is executed</h4> 
+       <h4 id="_step_definition_body_is_executed"><a class="anchor" href="#_step_definition_body_is_executed"></a>Step definition body is executed</h4> 
        <div class="sidebarblock"> 
         <div class="content"> 
          <div class="dlist"> 
@@ -4132,7 +3786,7 @@ Failing scenarios:
        </div> 
       </div> 
       <div class="sect3"> 
-       <h4 id="_scenario_steps_accepting_parameters"><a class="anchor" href="#_scenario_steps_accepting_parameters"></a>Scenario: Steps accepting parameters</h4> 
+       <h4 id="_steps_accepting_parameters"><a class="anchor" href="#_steps_accepting_parameters"></a>Steps accepting parameters</h4> 
        <div class="sidebarblock"> 
         <div class="content"> 
          <div class="dlist"> 
@@ -4223,7 +3877,7 @@ Failing scenarios:
        </div> 
       </div> 
       <div class="sect3"> 
-       <h4 id="_scenario_steps_accepting_a_docstring_parameter"><a class="anchor" href="#_scenario_steps_accepting_a_docstring_parameter"></a>Scenario: Steps accepting a DocString parameter</h4> 
+       <h4 id="_steps_accepting_a_docstring_parameter"><a class="anchor" href="#_steps_accepting_a_docstring_parameter"></a>Steps accepting a DocString parameter</h4> 
        <div class="sidebarblock"> 
         <div class="content"> 
          <div class="dlist"> 
@@ -4355,7 +4009,7 @@ Failing scenarios:
       <span class="fa fa-minus-square fa-fw" style="cursor:pointer;float:right;margin-top:-30px" title="Minimize" onclick="hideFeatureScenarios('Data-Tables');document.getElementById('hidden-Data-Tables').style.display = 'inline';this.style.display = 'none'"> </span> 
       <span id="hidden-Data-Tables" class="fa fa-plus-square fa-fw" style="cursor:pointer;float:right;display:none;margin-top:-30px" title="Maximize feature" onclick="showFeatureScenarios('Data-Tables');this.style.display = 'none'"> </span> 
       <div class="sect3"> 
-       <h4 id="_scenario_a_data_table_can_be_read_as_a_hash"><a class="anchor" href="#_scenario_a_data_table_can_be_read_as_a_hash"></a>Scenario: a data table can be read as a hash</h4> 
+       <h4 id="_a_data_table_can_be_read_as_a_hash"><a class="anchor" href="#_a_data_table_can_be_read_as_a_hash"></a>a data table can be read as a hash</h4> 
        <div class="sidebarblock"> 
         <div class="content"> 
          <div class="dlist"> 
@@ -4420,7 +4074,7 @@ Failing scenarios:
       <span class="fa fa-minus-square fa-fw" style="cursor:pointer;float:right;margin-top:-30px" title="Minimize" onclick="hideFeatureScenarios('Environment-Hooks');document.getElementById('hidden-Environment-Hooks').style.display = 'inline';this.style.display = 'none'"> </span> 
       <span id="hidden-Environment-Hooks" class="fa fa-plus-square fa-fw" style="cursor:pointer;float:right;display:none;margin-top:-30px" title="Maximize feature" onclick="showFeatureScenarios('Environment-Hooks');this.style.display = 'none'"> </span> 
       <div class="sect3"> 
-       <h4 id="_scenario_tagged_around_hook_with_untagged_scenario"><a class="anchor" href="#_scenario_tagged_around_hook_with_untagged_scenario"></a>Scenario: Tagged around hook with untagged scenario</h4> 
+       <h4 id="_tagged_around_hook_with_untagged_scenario"><a class="anchor" href="#_tagged_around_hook_with_untagged_scenario"></a>Tagged around hook with untagged scenario</h4> 
        <div class="sidebarblock"> 
         <div class="content"> 
          <div class="dlist"> 
@@ -4469,7 +4123,7 @@ Failing scenarios:
        </div> 
       </div> 
       <div class="sect3"> 
-       <h4 id="_scenario_hooks_are_steps"><a class="anchor" href="#_scenario_hooks_are_steps"></a>Scenario: Hooks are steps</h4> 
+       <h4 id="_hooks_are_steps"><a class="anchor" href="#_hooks_are_steps"></a>Hooks are steps</h4> 
        <div class="sidebarblock"> 
         <div class="content"> 
          <div class="dlist"> 
@@ -4655,7 +4309,7 @@ module.exports = hooks;</pre>
        </div> 
       </div> 
       <div class="sect3"> 
-       <h4 id="_scenario_failing_around_hook_pre_scenario_fails_the_scenario"><a class="anchor" href="#_scenario_failing_around_hook_pre_scenario_fails_the_scenario"></a>Scenario: Failing around hook (pre scenario) fails the scenario</h4> 
+       <h4 id="_failing_around_hook_pre_scenario_fails_the_scenario"><a class="anchor" href="#_failing_around_hook_pre_scenario_fails_the_scenario"></a>Failing around hook (pre scenario) fails the scenario</h4> 
        <div class="sidebarblock"> 
         <div class="content"> 
          <div class="dlist"> 
@@ -4813,7 +4467,7 @@ module.exports = hooks;</pre>
        </div> 
       </div> 
       <div class="sect3"> 
-       <h4 id="_scenario_failing_around_hook_pre_scenario_fails_the_scenario_2"><a class="anchor" href="#_scenario_failing_around_hook_pre_scenario_fails_the_scenario_2"></a>Scenario: Failing around hook (pre scenario) fails the scenario</h4> 
+       <h4 id="_failing_around_hook_pre_scenario_fails_the_scenario_2"><a class="anchor" href="#_failing_around_hook_pre_scenario_fails_the_scenario_2"></a>Failing around hook (pre scenario) fails the scenario</h4> 
        <div class="sidebarblock"> 
         <div class="content"> 
          <div class="dlist"> 
@@ -4971,7 +4625,7 @@ module.exports = hooks;</pre>
        </div> 
       </div> 
       <div class="sect3"> 
-       <h4 id="_scenario_failing_around_hook_post_scenario_fails_the_scenario"><a class="anchor" href="#_scenario_failing_around_hook_post_scenario_fails_the_scenario"></a>Scenario: Failing around hook (post scenario) fails the scenario</h4> 
+       <h4 id="_failing_around_hook_post_scenario_fails_the_scenario"><a class="anchor" href="#_failing_around_hook_post_scenario_fails_the_scenario"></a>Failing around hook (post scenario) fails the scenario</h4> 
        <div class="sidebarblock"> 
         <div class="content"> 
          <div class="dlist"> 
@@ -5134,7 +4788,7 @@ module.exports = hooks;</pre>
        </div> 
       </div> 
       <div class="sect3"> 
-       <h4 id="_scenario_failing_around_hook_post_scenario_fails_the_scenario_2"><a class="anchor" href="#_scenario_failing_around_hook_post_scenario_fails_the_scenario_2"></a>Scenario: Failing around hook (post scenario) fails the scenario</h4> 
+       <h4 id="_failing_around_hook_post_scenario_fails_the_scenario_2"><a class="anchor" href="#_failing_around_hook_post_scenario_fails_the_scenario_2"></a>Failing around hook (post scenario) fails the scenario</h4> 
        <div class="sidebarblock"> 
         <div class="content"> 
          <div class="dlist"> 
@@ -5297,7 +4951,7 @@ module.exports = hooks;</pre>
        </div> 
       </div> 
       <div class="sect3"> 
-       <h4 id="_scenario_failing_before_hook_fails_the_scenario"><a class="anchor" href="#_scenario_failing_before_hook_fails_the_scenario"></a>Scenario: Failing before hook fails the scenario</h4> 
+       <h4 id="_failing_before_hook_fails_the_scenario"><a class="anchor" href="#_failing_before_hook_fails_the_scenario"></a>Failing before hook fails the scenario</h4> 
        <div class="sidebarblock"> 
         <div class="content"> 
          <div class="dlist"> 
@@ -5446,7 +5100,7 @@ module.exports = hooks;</pre>
        </div> 
       </div> 
       <div class="sect3"> 
-       <h4 id="_scenario_failing_before_hook_fails_the_scenario_2"><a class="anchor" href="#_scenario_failing_before_hook_fails_the_scenario_2"></a>Scenario: Failing before hook fails the scenario</h4> 
+       <h4 id="_failing_before_hook_fails_the_scenario_2"><a class="anchor" href="#_failing_before_hook_fails_the_scenario_2"></a>Failing before hook fails the scenario</h4> 
        <div class="sidebarblock"> 
         <div class="content"> 
          <div class="dlist"> 
@@ -5595,7 +5249,7 @@ module.exports = hooks;</pre>
        </div> 
       </div> 
       <div class="sect3"> 
-       <h4 id="_scenario_failing_after_hook_fails_the_scenario"><a class="anchor" href="#_scenario_failing_after_hook_fails_the_scenario"></a>Scenario: Failing after hook fails the scenario</h4> 
+       <h4 id="_failing_after_hook_fails_the_scenario"><a class="anchor" href="#_failing_after_hook_fails_the_scenario"></a>Failing after hook fails the scenario</h4> 
        <div class="sidebarblock"> 
         <div class="content"> 
          <div class="dlist"> 
@@ -5745,7 +5399,7 @@ module.exports = hooks;</pre>
        </div> 
       </div> 
       <div class="sect3"> 
-       <h4 id="_scenario_failing_after_hook_fails_the_scenario_2"><a class="anchor" href="#_scenario_failing_after_hook_fails_the_scenario_2"></a>Scenario: Failing after hook fails the scenario</h4> 
+       <h4 id="_failing_after_hook_fails_the_scenario_2"><a class="anchor" href="#_failing_after_hook_fails_the_scenario_2"></a>Failing after hook fails the scenario</h4> 
        <div class="sidebarblock"> 
         <div class="content"> 
          <div class="dlist"> 
@@ -5895,7 +5549,7 @@ module.exports = hooks;</pre>
        </div> 
       </div> 
       <div class="sect3"> 
-       <h4 id="_scenario_hooks_still_execute_after_a_failure"><a class="anchor" href="#_scenario_hooks_still_execute_after_a_failure"></a>Scenario: Hooks still execute after a failure</h4> 
+       <h4 id="_hooks_still_execute_after_a_failure"><a class="anchor" href="#_hooks_still_execute_after_a_failure"></a>Hooks still execute after a failure</h4> 
        <div class="sidebarblock"> 
         <div class="content"> 
          <div class="dlist"> 
@@ -6105,7 +5759,7 @@ module.exports = hooks;</pre>
        </div> 
       </div> 
       <div class="sect3"> 
-       <h4 id="_scenario_world_is_this_in_hooks"><a class="anchor" href="#_scenario_world_is_this_in_hooks"></a>Scenario: World is this in hooks</h4> 
+       <h4 id="_world_is_this_in_hooks"><a class="anchor" href="#_world_is_this_in_hooks"></a>World is this in hooks</h4> 
        <div class="sidebarblock"> 
         <div class="content"> 
          <div class="dlist"> 
@@ -6358,7 +6012,7 @@ module.exports = hooks;</pre>
        </div> 
       </div> 
       <div class="sect3"> 
-       <h4 id="_scenario_output_json_for_a_feature_with_no_scenarios"><a class="anchor" href="#_scenario_output_json_for_a_feature_with_no_scenarios"></a>Scenario: output JSON for a feature with no scenarios</h4> 
+       <h4 id="_output_json_for_a_feature_with_no_scenarios"><a class="anchor" href="#_output_json_for_a_feature_with_no_scenarios"></a>output JSON for a feature with no scenarios</h4> 
        <div class="sidebarblock"> 
         <div class="content"> 
          <div class="dlist"> 
@@ -6426,7 +6080,7 @@ module.exports = hooks;</pre>
        </div> 
       </div> 
       <div class="sect3"> 
-       <h4 id="_scenario_output_json_for_a_feature_with_one_undefined_scenario"><a class="anchor" href="#_scenario_output_json_for_a_feature_with_one_undefined_scenario"></a>Scenario: output JSON for a feature with one undefined scenario</h4> 
+       <h4 id="_output_json_for_a_feature_with_one_undefined_scenario"><a class="anchor" href="#_output_json_for_a_feature_with_one_undefined_scenario"></a>output JSON for a feature with one undefined scenario</h4> 
        <div class="sidebarblock"> 
         <div class="content"> 
          <div class="dlist"> 
@@ -6506,7 +6160,7 @@ Scenario: I havn't done anything yet</pre>
        </div> 
       </div> 
       <div class="sect3"> 
-       <h4 id="_scenario_output_json_for_a_feature_with_one_scenario_with_one_undefined_step"><a class="anchor" href="#_scenario_output_json_for_a_feature_with_one_scenario_with_one_undefined_step"></a>Scenario: output JSON for a feature with one scenario with one undefined step</h4> 
+       <h4 id="_output_json_for_a_feature_with_one_scenario_with_one_undefined_step"><a class="anchor" href="#_output_json_for_a_feature_with_one_scenario_with_one_undefined_step"></a>output JSON for a feature with one scenario with one undefined step</h4> 
        <div class="sidebarblock"> 
         <div class="content"> 
          <div class="dlist"> 
@@ -6599,7 +6253,7 @@ Scenario: I've declared one step but not yet defined it
        </div> 
       </div> 
       <div class="sect3"> 
-       <h4 id="_scenario_output_json_for_a_feature_with_one_undefined_step_and_subsequent_defined_steps_which_should_be_skipped"><a class="anchor" href="#_scenario_output_json_for_a_feature_with_one_undefined_step_and_subsequent_defined_steps_which_should_be_skipped"></a>Scenario: output JSON for a feature with one undefined step and subsequent defined steps which should be skipped</h4> 
+       <h4 id="_output_json_for_a_feature_with_one_undefined_step_and_subsequent_defined_steps_which_should_be_skipped"><a class="anchor" href="#_output_json_for_a_feature_with_one_undefined_step_and_subsequent_defined_steps_which_should_be_skipped"></a>output JSON for a feature with one undefined step and subsequent defined steps which should be skipped</h4> 
        <div class="sidebarblock"> 
         <div class="content"> 
          <div class="dlist"> 
@@ -6725,7 +6379,7 @@ module.exports = cucumberSteps;</pre>
        </div> 
       </div> 
       <div class="sect3"> 
-       <h4 id="_scenario_output_json_for_a_feature_with_one_scenario_with_one_pending_step"><a class="anchor" href="#_scenario_output_json_for_a_feature_with_one_scenario_with_one_pending_step"></a>Scenario: output JSON for a feature with one scenario with one pending step</h4> 
+       <h4 id="_output_json_for_a_feature_with_one_scenario_with_one_pending_step"><a class="anchor" href="#_output_json_for_a_feature_with_one_scenario_with_one_pending_step"></a>output JSON for a feature with one scenario with one pending step</h4> 
        <div class="sidebarblock"> 
         <div class="content"> 
          <div class="dlist"> 
@@ -6838,7 +6492,7 @@ module.exports = cucumberSteps;</pre>
        </div> 
       </div> 
       <div class="sect3"> 
-       <h4 id="_scenario_output_json_for_a_feature_with_one_scenario_with_failing_step"><a class="anchor" href="#_scenario_output_json_for_a_feature_with_one_scenario_with_failing_step"></a>Scenario: output JSON for a feature with one scenario with failing step</h4> 
+       <h4 id="_output_json_for_a_feature_with_one_scenario_with_failing_step"><a class="anchor" href="#_output_json_for_a_feature_with_one_scenario_with_failing_step"></a>output JSON for a feature with one scenario with failing step</h4> 
        <div class="paragraph"> 
         <p><span class="small">tags: @wip</span></p> 
        </div> 
@@ -6958,7 +6612,7 @@ module.exports = cucumberSteps;</pre>
        </div> 
       </div> 
       <div class="sect3"> 
-       <h4 id="_scenario_output_json_for_a_feature_with_one_scenario_with_passing_step"><a class="anchor" href="#_scenario_output_json_for_a_feature_with_one_scenario_with_passing_step"></a>Scenario: output JSON for a feature with one scenario with passing step</h4> 
+       <h4 id="_output_json_for_a_feature_with_one_scenario_with_passing_step"><a class="anchor" href="#_output_json_for_a_feature_with_one_scenario_with_passing_step"></a>output JSON for a feature with one scenario with passing step</h4> 
        <div class="sidebarblock"> 
         <div class="content"> 
          <div class="dlist"> 
@@ -7074,7 +6728,7 @@ module.exports = cucumberSteps;</pre>
        </div> 
       </div> 
       <div class="sect3"> 
-       <h4 id="_scenario_output_json_for_a_scenario_with_a_passing_step_followed_by_one_that_is_pending_and_one_that_fails"><a class="anchor" href="#_scenario_output_json_for_a_scenario_with_a_passing_step_followed_by_one_that_is_pending_and_one_that_fails"></a>Scenario: output JSON for a scenario with a passing step followed by one that is pending and one that fails</h4> 
+       <h4 id="_output_json_for_a_scenario_with_a_passing_step_followed_by_one_that_is_pending_and_one_that_fails"><a class="anchor" href="#_output_json_for_a_scenario_with_a_passing_step_followed_by_one_that_is_pending_and_one_that_fails"></a>output JSON for a scenario with a passing step followed by one that is pending and one that fails</h4> 
        <div class="sidebarblock"> 
         <div class="content"> 
          <div class="dlist"> 
@@ -7211,7 +6865,7 @@ module.exports = cucumberSteps;</pre>
        </div> 
       </div> 
       <div class="sect3"> 
-       <h4 id="_scenario_output_json_for_a_scenario_with_a_pending_step_followed_by_one_that_passes_and_one_that_fails"><a class="anchor" href="#_scenario_output_json_for_a_scenario_with_a_pending_step_followed_by_one_that_passes_and_one_that_fails"></a>Scenario: output JSON for a scenario with a pending step followed by one that passes and one that fails</h4> 
+       <h4 id="_output_json_for_a_scenario_with_a_pending_step_followed_by_one_that_passes_and_one_that_fails"><a class="anchor" href="#_output_json_for_a_scenario_with_a_pending_step_followed_by_one_that_passes_and_one_that_fails"></a>output JSON for a scenario with a pending step followed by one that passes and one that fails</h4> 
        <div class="sidebarblock"> 
         <div class="content"> 
          <div class="dlist"> 
@@ -7350,7 +7004,7 @@ module.exports = cucumberSteps;</pre>
        </div> 
       </div> 
       <div class="sect3"> 
-       <h4 id="_scenario_output_json_for_one_feature_one_passing_scenario_one_failing_scenario"><a class="anchor" href="#_scenario_output_json_for_one_feature_one_passing_scenario_one_failing_scenario"></a>Scenario: output JSON for one feature, one passing scenario, one failing scenario</h4> 
+       <h4 id="_output_json_for_one_feature_one_passing_scenario_one_failing_scenario"><a class="anchor" href="#_output_json_for_one_feature_one_passing_scenario_one_failing_scenario"></a>output JSON for one feature, one passing scenario, one failing scenario</h4> 
        <div class="sidebarblock"> 
         <div class="content"> 
          <div class="dlist"> 
@@ -7491,7 +7145,7 @@ module.exports = cucumberSteps;</pre>
        </div> 
       </div> 
       <div class="sect3"> 
-       <h4 id="_scenario_output_json_for_multiple_features"><a class="anchor" href="#_scenario_output_json_for_multiple_features"></a>Scenario: output JSON for multiple features</h4> 
+       <h4 id="_output_json_for_multiple_features"><a class="anchor" href="#_output_json_for_multiple_features"></a>output JSON for multiple features</h4> 
        <div class="sidebarblock"> 
         <div class="content"> 
          <div class="dlist"> 
@@ -7711,7 +7365,7 @@ module.exports = cucumberSteps;</pre>
        </div> 
       </div> 
       <div class="sect3"> 
-       <h4 id="_scenario_output_json_for_multiple_features_each_with_multiple_scenarios"><a class="anchor" href="#_scenario_output_json_for_multiple_features_each_with_multiple_scenarios"></a>Scenario: output JSON for multiple features each with multiple scenarios</h4> 
+       <h4 id="_output_json_for_multiple_features_each_with_multiple_scenarios"><a class="anchor" href="#_output_json_for_multiple_features_each_with_multiple_scenarios"></a>output JSON for multiple features each with multiple scenarios</h4> 
        <div class="sidebarblock"> 
         <div class="content"> 
          <div class="dlist"> 
@@ -8069,7 +7723,7 @@ module.exports = cucumberSteps;</pre>
        </div> 
       </div> 
       <div class="sect3"> 
-       <h4 id="_scenario_output_json_for_a_feature_with_a_background"><a class="anchor" href="#_scenario_output_json_for_a_feature_with_a_background"></a>Scenario: output JSON for a feature with a background</h4> 
+       <h4 id="_output_json_for_a_feature_with_a_background"><a class="anchor" href="#_output_json_for_a_feature_with_a_background"></a>output JSON for a feature with a background</h4> 
        <div class="sidebarblock"> 
         <div class="content"> 
          <div class="dlist"> 
@@ -8178,12 +7832,12 @@ module.exports = cucumberSteps;</pre>
        </div> 
       </div> 
       <div class="sect3"> 
-       <h4 id="_scenario_output_json_for_a_feature_with_a_failing_background"><a class="anchor" href="#_scenario_output_json_for_a_feature_with_a_failing_background"></a>Scenario: output JSON for a feature with a failing background</h4> 
+       <h4 id="_output_json_for_a_feature_with_a_failing_background"><a class="anchor" href="#_output_json_for_a_feature_with_a_failing_background"></a>output JSON for a feature with a failing background</h4> 
        <div class="paragraph"> 
-        <p>Since the background step is re-evaluated for each scenario that is where the result of the step is currently recorded in the JSON output.</p> 
+        <p>Since the background step is re-evaluated for each scenario that<br> is where the result of the step is currently recorded in the JSON<br> output.</p> 
        </div> 
        <div class="paragraph"> 
-        <p>If the background is being re-evaluated for each scenario then it would be misleading to only output the result for the first time it was evaluated.</p> 
+        <p>If the background is being re-evaluated for each scenario then it<br> would be misleading to only output the result for the first time<br> it was evaluated.</p> 
        </div> 
        <div class="sidebarblock"> 
         <div class="content"> 
@@ -8293,7 +7947,7 @@ module.exports = cucumberSteps;</pre>
        </div> 
       </div> 
       <div class="sect3"> 
-       <h4 id="_scenario_output_json_for_a_feature_with_a_docstring"><a class="anchor" href="#_scenario_output_json_for_a_feature_with_a_docstring"></a>Scenario: output JSON for a feature with a DocString</h4> 
+       <h4 id="_output_json_for_a_feature_with_a_docstring"><a class="anchor" href="#_output_json_for_a_feature_with_a_docstring"></a>output JSON for a feature with a DocString</h4> 
        <div class="sidebarblock"> 
         <div class="content"> 
          <div class="dlist"> 
@@ -8417,7 +8071,7 @@ module.exports = cucumberSteps;</pre>
        </div> 
       </div> 
       <div class="sect3"> 
-       <h4 id="_scenario_output_json_for_background_step_with_a_docstring"><a class="anchor" href="#_scenario_output_json_for_background_step_with_a_docstring"></a>Scenario: output JSON for background step with a DocString</h4> 
+       <h4 id="_output_json_for_background_step_with_a_docstring"><a class="anchor" href="#_output_json_for_background_step_with_a_docstring"></a>output JSON for background step with a DocString</h4> 
        <div class="sidebarblock"> 
         <div class="content"> 
          <div class="dlist"> 
@@ -8534,7 +8188,7 @@ module.exports = cucumberSteps;</pre>
        </div> 
       </div> 
       <div class="sect3"> 
-       <h4 id="_scenario_output_json_for_a_feature_with_tags"><a class="anchor" href="#_scenario_output_json_for_a_feature_with_tags"></a>Scenario: output JSON for a feature with tags</h4> 
+       <h4 id="_output_json_for_a_feature_with_tags"><a class="anchor" href="#_output_json_for_a_feature_with_tags"></a>output JSON for a feature with tags</h4> 
        <div class="sidebarblock"> 
         <div class="content"> 
          <div class="dlist"> 
@@ -8664,7 +8318,7 @@ module.exports = cucumberSteps;</pre>
        </div> 
       </div> 
       <div class="sect3"> 
-       <h4 id="_scenario_output_json_for_scenario_with_tags"><a class="anchor" href="#_scenario_output_json_for_scenario_with_tags"></a>Scenario: output JSON for scenario with tags</h4> 
+       <h4 id="_output_json_for_scenario_with_tags"><a class="anchor" href="#_output_json_for_scenario_with_tags"></a>output JSON for scenario with tags</h4> 
        <div class="sidebarblock"> 
         <div class="content"> 
          <div class="dlist"> 
@@ -8794,7 +8448,7 @@ module.exports = cucumberSteps;</pre>
        </div> 
       </div> 
       <div class="sect3"> 
-       <h4 id="_scenario_output_json_for_a_step_with_table"><a class="anchor" href="#_scenario_output_json_for_a_step_with_table"></a>Scenario: output JSON for a step with table</h4> 
+       <h4 id="_output_json_for_a_step_with_table"><a class="anchor" href="#_output_json_for_a_step_with_table"></a>output JSON for a step with table</h4> 
        <div class="paragraph"> 
         <p>Rows do not appear to support line attribute yet.</p> 
        </div> 
@@ -8922,7 +8576,7 @@ module.exports = cucumberSteps;</pre>
        </div> 
       </div> 
       <div class="sect3"> 
-       <h4 id="_scenario_output_json_for_background_with_table"><a class="anchor" href="#_scenario_output_json_for_background_with_table"></a>Scenario: output JSON for background with table</h4> 
+       <h4 id="_output_json_for_background_with_table"><a class="anchor" href="#_output_json_for_background_with_table"></a>output JSON for background with table</h4> 
        <div class="paragraph"> 
         <p>Rows do not appear to support line attribute yet.</p> 
        </div> 
@@ -9044,7 +8698,7 @@ module.exports = cucumberSteps;</pre>
        </div> 
       </div> 
       <div class="sect3"> 
-       <h4 id="_scenario_output_json_for_a_feature_with_one_scenario_outline_with_no_examples_tables"><a class="anchor" href="#_scenario_output_json_for_a_feature_with_one_scenario_outline_with_no_examples_tables"></a>Scenario: output JSON for a feature with one scenario outline with no examples tables</h4> 
+       <h4 id="_output_json_for_a_feature_with_one_scenario_outline_with_no_examples_tables"><a class="anchor" href="#_output_json_for_a_feature_with_one_scenario_outline_with_no_examples_tables"></a>output JSON for a feature with one scenario outline with no examples tables</h4> 
        <div class="sidebarblock"> 
         <div class="content"> 
          <div class="dlist"> 
@@ -9115,7 +8769,7 @@ module.exports = cucumberSteps;</pre>
        </div> 
       </div> 
       <div class="sect3"> 
-       <h4 id="_scenario_output_json_for_a_feature_with_one_scenario_outline_with_an_examples_table_with_no_rows"><a class="anchor" href="#_scenario_output_json_for_a_feature_with_one_scenario_outline_with_an_examples_table_with_no_rows"></a>Scenario: output JSON for a feature with one scenario outline with an examples table with no rows</h4> 
+       <h4 id="_output_json_for_a_feature_with_one_scenario_outline_with_an_examples_table_with_no_rows"><a class="anchor" href="#_output_json_for_a_feature_with_one_scenario_outline_with_an_examples_table_with_no_rows"></a>output JSON for a feature with one scenario outline with an examples table with no rows</h4> 
        <div class="sidebarblock"> 
         <div class="content"> 
          <div class="dlist"> 
@@ -9189,7 +8843,7 @@ module.exports = cucumberSteps;</pre>
        </div> 
       </div> 
       <div class="sect3"> 
-       <h4 id="_scenario_output_json_for_a_feature_with_one_scenario_outline_with_an_examples_table_with_two_rows"><a class="anchor" href="#_scenario_output_json_for_a_feature_with_one_scenario_outline_with_an_examples_table_with_two_rows"></a>Scenario: output JSON for a feature with one scenario outline with an examples table with two rows</h4> 
+       <h4 id="_output_json_for_a_feature_with_one_scenario_outline_with_an_examples_table_with_two_rows"><a class="anchor" href="#_output_json_for_a_feature_with_one_scenario_outline_with_an_examples_table_with_two_rows"></a>output JSON for a feature with one scenario outline with an examples table with two rows</h4> 
        <div class="sidebarblock"> 
         <div class="content"> 
          <div class="dlist"> 
@@ -9329,7 +8983,7 @@ module.exports = cucumberSteps;</pre>
        </div> 
       </div> 
       <div class="sect3"> 
-       <h4 id="_scenario_output_json_for_a_feature_with_one_scenario_outline_with_an_examples_table_with_two_rows_and_a_background"><a class="anchor" href="#_scenario_output_json_for_a_feature_with_one_scenario_outline_with_an_examples_table_with_two_rows_and_a_background"></a>Scenario: output JSON for a feature with one scenario outline with an examples table with two rows and a background</h4> 
+       <h4 id="_output_json_for_a_feature_with_one_scenario_outline_with_an_examples_table_with_two_rows_and_a_background"><a class="anchor" href="#_output_json_for_a_feature_with_one_scenario_outline_with_an_examples_table_with_two_rows_and_a_background"></a>output JSON for a feature with one scenario outline with an examples table with two rows and a background</h4> 
        <div class="sidebarblock"> 
         <div class="content"> 
          <div class="dlist"> 
@@ -9475,7 +9129,7 @@ module.exports = cucumberSteps;</pre>
        </div> 
       </div> 
       <div class="sect3"> 
-       <h4 id="_scenario_output_json_for_a_feature_with_one_scenario_outline_with_two_examples_tables"><a class="anchor" href="#_scenario_output_json_for_a_feature_with_one_scenario_outline_with_two_examples_tables"></a>Scenario: output JSON for a feature with one scenario outline with two examples tables</h4> 
+       <h4 id="_output_json_for_a_feature_with_one_scenario_outline_with_two_examples_tables"><a class="anchor" href="#_output_json_for_a_feature_with_one_scenario_outline_with_two_examples_tables"></a>output JSON for a feature with one scenario outline with two examples tables</h4> 
        <div class="sidebarblock"> 
         <div class="content"> 
          <div class="dlist"> 
@@ -9618,7 +9272,7 @@ module.exports = cucumberSteps;</pre>
        </div> 
       </div> 
       <div class="sect3"> 
-       <h4 id="_scenario_output_json_for_a_feature_with_one_scenario_outline_with_an_examples_table_with_two_rows_and_before_after_and_around_hooks"><a class="anchor" href="#_scenario_output_json_for_a_feature_with_one_scenario_outline_with_an_examples_table_with_two_rows_and_before_after_and_around_hooks"></a>Scenario: output JSON for a feature with one scenario outline with an examples table with two rows and before, after and around hooks</h4> 
+       <h4 id="_output_json_for_a_feature_with_one_scenario_outline_with_an_examples_table_with_two_rows_and_before_after_and_around_hooks"><a class="anchor" href="#_output_json_for_a_feature_with_one_scenario_outline_with_an_examples_table_with_two_rows_and_before_after_and_around_hooks"></a>output JSON for a feature with one scenario outline with an examples table with two rows and before, after and around hooks</h4> 
        <div class="sidebarblock"> 
         <div class="content"> 
          <div class="dlist"> 
@@ -9877,7 +9531,7 @@ module.exports = hooks;</pre>
        </div> 
       </div> 
       <div class="sect3"> 
-       <h4 id="_scenario_pogoscript_step_definition_span_class_icon_red_i_class_fa_fa_thumbs_down_title_failed_i_span"><a class="anchor" href="#_scenario_pogoscript_step_definition_span_class_icon_red_i_class_fa_fa_thumbs_down_title_failed_i_span"></a>Scenario: PogoScript step definition <span class="icon red"><i class="fa fa-thumbs-down" title="Failed"></i></span></h4> 
+       <h4 id="_pogoscript_step_definition_span_class_icon_red_i_class_fa_fa_thumbs_down_title_failed_i_span"><a class="anchor" href="#_pogoscript_step_definition_span_class_icon_red_i_class_fa_fa_thumbs_down_title_failed_i_span"></a>PogoScript step definition <span class="icon red"><i class="fa fa-thumbs-down" title="Failed"></i></span></h4> 
        <div class="sidebarblock"> 
         <div class="content"> 
          <div class="dlist"> 
@@ -9952,7 +9606,7 @@ module.exports = hooks;</pre>
        </div> 
       </div> 
       <div class="sect3"> 
-       <h4 id="_scenario_output_pretty_text_for_a_feature_with_no_scenarios"><a class="anchor" href="#_scenario_output_pretty_text_for_a_feature_with_no_scenarios"></a>Scenario: Output pretty text for a feature with no scenarios</h4> 
+       <h4 id="_output_pretty_text_for_a_feature_with_no_scenarios"><a class="anchor" href="#_output_pretty_text_for_a_feature_with_no_scenarios"></a>Output pretty text for a feature with no scenarios</h4> 
        <div class="sidebarblock"> 
         <div class="content"> 
          <div class="dlist"> 
@@ -10016,7 +9670,7 @@ module.exports = hooks;</pre>
        </div> 
       </div> 
       <div class="sect3"> 
-       <h4 id="_scenario_pretty_formatter_hides_around_before_and_after_hooks"><a class="anchor" href="#_scenario_pretty_formatter_hides_around_before_and_after_hooks"></a>Scenario: Pretty formatter hides around, before and after hooks</h4> 
+       <h4 id="_pretty_formatter_hides_around_before_and_after_hooks"><a class="anchor" href="#_pretty_formatter_hides_around_before_and_after_hooks"></a>Pretty formatter hides around, before and after hooks</h4> 
        <div class="sidebarblock"> 
         <div class="content"> 
          <div class="dlist"> 
@@ -10144,7 +9798,7 @@ module.exports = hooks;</pre>
        </div> 
       </div> 
       <div class="sect3"> 
-       <h4 id="_scenario_failing_hook_is_reported_as_a_failed_step"><a class="anchor" href="#_scenario_failing_hook_is_reported_as_a_failed_step"></a>Scenario: Failing hook is reported as a failed step</h4> 
+       <h4 id="_failing_hook_is_reported_as_a_failed_step"><a class="anchor" href="#_failing_hook_is_reported_as_a_failed_step"></a>Failing hook is reported as a failed step</h4> 
        <div class="sidebarblock"> 
         <div class="content"> 
          <div class="dlist"> 
@@ -10276,7 +9930,7 @@ Failing scenarios:
       <span class="fa fa-minus-square fa-fw" style="cursor:pointer;float:right;margin-top:-30px" title="Minimize" onclick="hideFeatureScenarios('Scenario-Outlines-and-Examples');document.getElementById('hidden-Scenario-Outlines-and-Examples').style.display = 'inline';this.style.display = 'none'"> </span> 
       <span id="hidden-Scenario-Outlines-and-Examples" class="fa fa-plus-square fa-fw" style="cursor:pointer;float:right;display:none;margin-top:-30px" title="Maximize feature" onclick="showFeatureScenarios('Scenario-Outlines-and-Examples');this.style.display = 'none'"> </span> 
       <div class="sect3"> 
-       <h4 id="_scenario_basic_outline"><a class="anchor" href="#_scenario_basic_outline"></a>Scenario: Basic outline</h4> 
+       <h4 id="_basic_outline"><a class="anchor" href="#_basic_outline"></a>Basic outline</h4> 
        <div class="sidebarblock"> 
         <div class="content"> 
          <div class="dlist"> 
@@ -10480,7 +10134,7 @@ Failing scenarios:
        </div> 
       </div> 
       <div class="sect3"> 
-       <h4 id="_scenario_outline_with_table"><a class="anchor" href="#_scenario_outline_with_table"></a>Scenario: Outline with table</h4> 
+       <h4 id="_outline_with_table"><a class="anchor" href="#_outline_with_table"></a>Outline with table</h4> 
        <div class="sidebarblock"> 
         <div class="content"> 
          <div class="dlist"> 
@@ -10560,7 +10214,7 @@ Failing scenarios:
        </div> 
       </div> 
       <div class="sect3"> 
-       <h4 id="_scenario_outline_with_doc_string"><a class="anchor" href="#_scenario_outline_with_doc_string"></a>Scenario: Outline with doc string</h4> 
+       <h4 id="_outline_with_doc_string"><a class="anchor" href="#_outline_with_doc_string"></a>Outline with doc string</h4> 
        <div class="sidebarblock"> 
         <div class="content"> 
          <div class="dlist"> 
@@ -10643,7 +10297,7 @@ And there are some string</pre>
        </div> 
       </div> 
       <div class="sect3"> 
-       <h4 id="_scenario_several_outlines"><a class="anchor" href="#_scenario_several_outlines"></a>Scenario: Several outlines</h4> 
+       <h4 id="_several_outlines"><a class="anchor" href="#_several_outlines"></a>Several outlines</h4> 
        <div class="sidebarblock"> 
         <div class="content"> 
          <div class="dlist"> 
@@ -10815,7 +10469,7 @@ And there are some string</pre>
       <span class="fa fa-minus-square fa-fw" style="cursor:pointer;float:right;margin-top:-30px" title="Minimize" onclick="hideFeatureScenarios('Scenario-Statuses');document.getElementById('hidden-Scenario-Statuses').style.display = 'inline';this.style.display = 'none'"> </span> 
       <span id="hidden-Scenario-Statuses" class="fa fa-plus-square fa-fw" style="cursor:pointer;float:right;display:none;margin-top:-30px" title="Maximize feature" onclick="showFeatureScenarios('Scenario-Statuses');this.style.display = 'none'"> </span> 
       <div class="sect3"> 
-       <h4 id="_scenario_check_scenario_statuses"><a class="anchor" href="#_scenario_check_scenario_statuses"></a>Scenario: Check scenario statuses</h4> 
+       <h4 id="_check_scenario_statuses"><a class="anchor" href="#_check_scenario_statuses"></a>Check scenario statuses</h4> 
        <div class="sidebarblock"> 
         <div class="content"> 
          <div class="dlist"> 
@@ -11028,7 +10682,7 @@ module.exports = hooks;</pre>
        </div> 
       </div> 
       <div class="sect3"> 
-       <h4 id="_scenario_success_status"><a class="anchor" href="#_scenario_success_status"></a>Scenario: Success status</h4> 
+       <h4 id="_success_status"><a class="anchor" href="#_success_status"></a>Success status</h4> 
        <div class="sidebarblock"> 
         <div class="content"> 
          <div class="dlist"> 
@@ -11190,7 +10844,7 @@ module.exports = hooks;</pre>
        </div> 
       </div> 
       <div class="sect3"> 
-       <h4 id="_scenario_failed_status"><a class="anchor" href="#_scenario_failed_status"></a>Scenario: Failed status</h4> 
+       <h4 id="_failed_status"><a class="anchor" href="#_failed_status"></a>Failed status</h4> 
        <div class="sidebarblock"> 
         <div class="content"> 
          <div class="dlist"> 
@@ -11353,7 +11007,7 @@ module.exports = hooks;</pre>
        </div> 
       </div> 
       <div class="sect3"> 
-       <h4 id="_scenario_pending_status"><a class="anchor" href="#_scenario_pending_status"></a>Scenario: Pending status</h4> 
+       <h4 id="_pending_status"><a class="anchor" href="#_pending_status"></a>Pending status</h4> 
        <div class="sidebarblock"> 
         <div class="content"> 
          <div class="dlist"> 
@@ -11514,7 +11168,7 @@ module.exports = hooks;</pre>
        </div> 
       </div> 
       <div class="sect3"> 
-       <h4 id="_scenario_undefined_status"><a class="anchor" href="#_scenario_undefined_status"></a>Scenario: Undefined status</h4> 
+       <h4 id="_undefined_status"><a class="anchor" href="#_undefined_status"></a>Undefined status</h4> 
        <div class="sidebarblock"> 
         <div class="content"> 
          <div class="dlist"> 
@@ -11674,7 +11328,7 @@ module.exports = hooks;</pre>
        </div> 
       </div> 
       <div class="sect3"> 
-       <h4 id="_scenario_simultaneous_statuses"><a class="anchor" href="#_scenario_simultaneous_statuses"></a>Scenario: Simultaneous statuses</h4> 
+       <h4 id="_simultaneous_statuses"><a class="anchor" href="#_simultaneous_statuses"></a>Simultaneous statuses</h4> 
        <div class="sidebarblock"> 
         <div class="content"> 
          <div class="dlist"> 
@@ -11862,7 +11516,7 @@ module.exports = hooks;</pre>
       <span class="fa fa-minus-square fa-fw" style="cursor:pointer;float:right;margin-top:-30px" title="Minimize" onclick="hideFeatureScenarios('Step-definition-callbacks');document.getElementById('hidden-Step-definition-callbacks').style.display = 'inline';this.style.display = 'none'"> </span> 
       <span id="hidden-Step-definition-callbacks" class="fa fa-plus-square fa-fw" style="cursor:pointer;float:right;display:none;margin-top:-30px" title="Maximize feature" onclick="showFeatureScenarios('Step-definition-callbacks');this.style.display = 'none'"> </span> 
       <div class="sect3"> 
-       <h4 id="_scenario_fail_with_single_parameter_error_node_js_style"><a class="anchor" href="#_scenario_fail_with_single_parameter_error_node_js_style"></a>Scenario: fail with single-parameter error (Node.js style)</h4> 
+       <h4 id="_fail_with_single_parameter_error_node_js_style"><a class="anchor" href="#_fail_with_single_parameter_error_node_js_style"></a>fail with single-parameter error (Node.js style)</h4> 
        <div class="sidebarblock"> 
         <div class="content"> 
          <div class="dlist"> 
@@ -11930,7 +11584,7 @@ module.exports = hooks;</pre>
        </div> 
       </div> 
       <div class="sect3"> 
-       <h4 id="_scenario_succeed_with_promise_span_class_icon_red_i_class_fa_fa_thumbs_down_title_failed_i_span"><a class="anchor" href="#_scenario_succeed_with_promise_span_class_icon_red_i_class_fa_fa_thumbs_down_title_failed_i_span"></a>Scenario: succeed with promise <span class="icon red"><i class="fa fa-thumbs-down" title="Failed"></i></span></h4> 
+       <h4 id="_succeed_with_promise_span_class_icon_red_i_class_fa_fa_thumbs_down_title_failed_i_span"><a class="anchor" href="#_succeed_with_promise_span_class_icon_red_i_class_fa_fa_thumbs_down_title_failed_i_span"></a>succeed with promise <span class="icon red"><i class="fa fa-thumbs-down" title="Failed"></i></span></h4> 
        <div class="sidebarblock"> 
         <div class="content"> 
          <div class="dlist"> 
@@ -11993,7 +11647,7 @@ module.exports = hooks;</pre>
        </div> 
       </div> 
       <div class="sect3"> 
-       <h4 id="_scenario_fail_with_promise_span_class_icon_red_i_class_fa_fa_thumbs_down_title_failed_i_span"><a class="anchor" href="#_scenario_fail_with_promise_span_class_icon_red_i_class_fa_fa_thumbs_down_title_failed_i_span"></a>Scenario: fail with promise <span class="icon red"><i class="fa fa-thumbs-down" title="Failed"></i></span></h4> 
+       <h4 id="_fail_with_promise_span_class_icon_red_i_class_fa_fa_thumbs_down_title_failed_i_span"><a class="anchor" href="#_fail_with_promise_span_class_icon_red_i_class_fa_fa_thumbs_down_title_failed_i_span"></a>fail with promise <span class="icon red"><i class="fa fa-thumbs-down" title="Failed"></i></span></h4> 
        <div class="sidebarblock"> 
         <div class="content"> 
          <div class="dlist"> 
@@ -12056,7 +11710,7 @@ module.exports = hooks;</pre>
        </div> 
       </div> 
       <div class="sect3"> 
-       <h4 id="_scenario_succeed_synchronously_span_class_icon_red_i_class_fa_fa_thumbs_down_title_failed_i_span"><a class="anchor" href="#_scenario_succeed_synchronously_span_class_icon_red_i_class_fa_fa_thumbs_down_title_failed_i_span"></a>Scenario: succeed synchronously <span class="icon red"><i class="fa fa-thumbs-down" title="Failed"></i></span></h4> 
+       <h4 id="_succeed_synchronously_span_class_icon_red_i_class_fa_fa_thumbs_down_title_failed_i_span"><a class="anchor" href="#_succeed_synchronously_span_class_icon_red_i_class_fa_fa_thumbs_down_title_failed_i_span"></a>succeed synchronously <span class="icon red"><i class="fa fa-thumbs-down" title="Failed"></i></span></h4> 
        <div class="sidebarblock"> 
         <div class="content"> 
          <div class="dlist"> 
@@ -12159,7 +11813,7 @@ module.exports = hooks;</pre>
        </div> 
       </div> 
       <div class="sect3"> 
-       <h4 id="_scenario_succeed_scenario_with_implemented_step_with_strict"><a class="anchor" href="#_scenario_succeed_scenario_with_implemented_step_with_strict"></a>Scenario: Succeed scenario with implemented step with --strict</h4> 
+       <h4 id="_succeed_scenario_with_implemented_step_with_strict"><a class="anchor" href="#_succeed_scenario_with_implemented_step_with_strict"></a>Succeed scenario with implemented step with --strict</h4> 
        <div class="sidebarblock"> 
         <div class="content"> 
          <div class="dlist"> 
@@ -12259,7 +11913,7 @@ module.exports = cucumberSteps;</pre>
        </div> 
       </div> 
       <div class="sect3"> 
-       <h4 id="_scenario_fail_scenario_with_undefined_step_with_strict"><a class="anchor" href="#_scenario_fail_scenario_with_undefined_step_with_strict"></a>Scenario: Fail scenario with undefined step with --strict</h4> 
+       <h4 id="_fail_scenario_with_undefined_step_with_strict"><a class="anchor" href="#_fail_scenario_with_undefined_step_with_strict"></a>Fail scenario with undefined step with --strict</h4> 
        <div class="sidebarblock"> 
         <div class="content"> 
          <div class="dlist"> 
@@ -12344,7 +11998,7 @@ this.Given(/^this step passes$/, function (callback) {
        </div> 
       </div> 
       <div class="sect3"> 
-       <h4 id="_scenario_fail_scenario_with_pending_step_with_strict"><a class="anchor" href="#_scenario_fail_scenario_with_pending_step_with_strict"></a>Scenario: Fail Scenario with pending step with --strict</h4> 
+       <h4 id="_fail_scenario_with_pending_step_with_strict"><a class="anchor" href="#_fail_scenario_with_pending_step_with_strict"></a>Fail Scenario with pending step with --strict</h4> 
        <div class="sidebarblock"> 
         <div class="content"> 
          <div class="dlist"> 
@@ -12444,7 +12098,7 @@ module.exports = cucumberSteps;</pre>
        </div> 
       </div> 
       <div class="sect3"> 
-       <h4 id="_scenario_fail_scenario_with_undefined_step_with_s"><a class="anchor" href="#_scenario_fail_scenario_with_undefined_step_with_s"></a>Scenario: Fail scenario with undefined step with -S</h4> 
+       <h4 id="_fail_scenario_with_undefined_step_with_s"><a class="anchor" href="#_fail_scenario_with_undefined_step_with_s"></a>Fail scenario with undefined step with -S</h4> 
        <div class="sidebarblock"> 
         <div class="content"> 
          <div class="dlist"> 
@@ -12529,7 +12183,7 @@ this.Given(/^this step passes$/, function (callback) {
        </div> 
       </div> 
       <div class="sect3"> 
-       <h4 id="_scenario_fail_scenario_with_pending_step_with_s"><a class="anchor" href="#_scenario_fail_scenario_with_pending_step_with_s"></a>Scenario: Fail Scenario with pending step with -S</h4> 
+       <h4 id="_fail_scenario_with_pending_step_with_s"><a class="anchor" href="#_fail_scenario_with_pending_step_with_s"></a>Fail Scenario with pending step with -S</h4> 
        <div class="sidebarblock"> 
         <div class="content"> 
          <div class="dlist"> 
@@ -12641,7 +12295,7 @@ module.exports = cucumberSteps;</pre>
        </div> 
       </div> 
       <div class="sect3"> 
-       <h4 id="_scenario_output_summary_for_a_feature_with_no_scenarios"><a class="anchor" href="#_scenario_output_summary_for_a_feature_with_no_scenarios"></a>Scenario: Output summary for a feature with no scenarios</h4> 
+       <h4 id="_output_summary_for_a_feature_with_no_scenarios"><a class="anchor" href="#_output_summary_for_a_feature_with_no_scenarios"></a>Output summary for a feature with no scenarios</h4> 
        <div class="sidebarblock"> 
         <div class="content"> 
          <div class="dlist"> 
@@ -12701,7 +12355,7 @@ module.exports = cucumberSteps;</pre>
        </div> 
       </div> 
       <div class="sect3"> 
-       <h4 id="_scenario_summary_formatter_hides_around_before_and_after_hooks"><a class="anchor" href="#_scenario_summary_formatter_hides_around_before_and_after_hooks"></a>Scenario: Summary formatter hides around, before and after hooks</h4> 
+       <h4 id="_summary_formatter_hides_around_before_and_after_hooks"><a class="anchor" href="#_summary_formatter_hides_around_before_and_after_hooks"></a>Summary formatter hides around, before and after hooks</h4> 
        <div class="sidebarblock"> 
         <div class="content"> 
          <div class="dlist"> 
@@ -12833,7 +12487,7 @@ module.exports = hooks;</pre>
        </div> 
       </div> 
       <div class="sect3"> 
-       <h4 id="_scenario_unlogged_user_sees_welcome_page_with_login_span_class_icon_red_i_class_fa_fa_thumbs_down_title_failed_i_span"><a class="anchor" href="#_scenario_unlogged_user_sees_welcome_page_with_login_span_class_icon_red_i_class_fa_fa_thumbs_down_title_failed_i_span"></a>Scenario: Unlogged user sees welcome page with login <span class="icon red"><i class="fa fa-thumbs-down" title="Failed"></i></span></h4> 
+       <h4 id="_unlogged_user_sees_welcome_page_with_login_span_class_icon_red_i_class_fa_fa_thumbs_down_title_failed_i_span"><a class="anchor" href="#_unlogged_user_sees_welcome_page_with_login_span_class_icon_red_i_class_fa_fa_thumbs_down_title_failed_i_span"></a>Unlogged user sees welcome page with login <span class="icon red"><i class="fa fa-thumbs-down" title="Failed"></i></span></h4> 
        <div class="sidebarblock"> 
         <div class="content"> 
          <div class="dlist"> 
@@ -12910,7 +12564,7 @@ module.exports = hooks;</pre>
        </div> 
       </div> 
       <div class="sect3"> 
-       <h4 id="_scenario_minimal_user_sees_welcome_page_with_its_username_and_logout_span_class_icon_red_i_class_fa_fa_thumbs_down_title_failed_i_span"><a class="anchor" href="#_scenario_minimal_user_sees_welcome_page_with_its_username_and_logout_span_class_icon_red_i_class_fa_fa_thumbs_down_title_failed_i_span"></a>Scenario: Minimal user sees welcome page with its username and logout <span class="icon red"><i class="fa fa-thumbs-down" title="Failed"></i></span></h4> 
+       <h4 id="_minimal_user_sees_welcome_page_with_its_username_and_logout_span_class_icon_red_i_class_fa_fa_thumbs_down_title_failed_i_span"><a class="anchor" href="#_minimal_user_sees_welcome_page_with_its_username_and_logout_span_class_icon_red_i_class_fa_fa_thumbs_down_title_failed_i_span"></a>Minimal user sees welcome page with its username and logout <span class="icon red"><i class="fa fa-thumbs-down" title="Failed"></i></span></h4> 
        <div class="sidebarblock"> 
         <div class="content"> 
          <div class="dlist"> 
@@ -12987,7 +12641,7 @@ module.exports = hooks;</pre>
        </div> 
       </div> 
       <div class="sect3"> 
-       <h4 id="_scenario_unlogged_user_logs_in_span_class_icon_red_i_class_fa_fa_thumbs_down_title_failed_i_span"><a class="anchor" href="#_scenario_unlogged_user_logs_in_span_class_icon_red_i_class_fa_fa_thumbs_down_title_failed_i_span"></a>Scenario: Unlogged user logs in <span class="icon red"><i class="fa fa-thumbs-down" title="Failed"></i></span></h4> 
+       <h4 id="_unlogged_user_logs_in_span_class_icon_red_i_class_fa_fa_thumbs_down_title_failed_i_span"><a class="anchor" href="#_unlogged_user_logs_in_span_class_icon_red_i_class_fa_fa_thumbs_down_title_failed_i_span"></a>Unlogged user logs in <span class="icon red"><i class="fa fa-thumbs-down" title="Failed"></i></span></h4> 
        <div class="sidebarblock"> 
         <div class="content"> 
          <div class="dlist"> 
@@ -13064,7 +12718,7 @@ module.exports = hooks;</pre>
        </div> 
       </div> 
       <div class="sect3"> 
-       <h4 id="_scenario_logged_user_logs_out_span_class_icon_red_i_class_fa_fa_thumbs_down_title_failed_i_span"><a class="anchor" href="#_scenario_logged_user_logs_out_span_class_icon_red_i_class_fa_fa_thumbs_down_title_failed_i_span"></a>Scenario: Logged user logs out <span class="icon red"><i class="fa fa-thumbs-down" title="Failed"></i></span></h4> 
+       <h4 id="_logged_user_logs_out_span_class_icon_red_i_class_fa_fa_thumbs_down_title_failed_i_span"><a class="anchor" href="#_logged_user_logs_out_span_class_icon_red_i_class_fa_fa_thumbs_down_title_failed_i_span"></a>Logged user logs out <span class="icon red"><i class="fa fa-thumbs-down" title="Failed"></i></span></h4> 
        <div class="sidebarblock"> 
         <div class="content"> 
          <div class="dlist"> 
@@ -13141,7 +12795,7 @@ module.exports = hooks;</pre>
        </div> 
       </div> 
       <div class="sect3"> 
-       <h4 id="_scenario_disconnected_user_sees_welcome_page_and_reconnect_option_span_class_icon_red_i_class_fa_fa_thumbs_down_title_failed_i_span"><a class="anchor" href="#_scenario_disconnected_user_sees_welcome_page_and_reconnect_option_span_class_icon_red_i_class_fa_fa_thumbs_down_title_failed_i_span"></a>Scenario: Disconnected user sees welcome page and reconnect option <span class="icon red"><i class="fa fa-thumbs-down" title="Failed"></i></span></h4> 
+       <h4 id="_disconnected_user_sees_welcome_page_and_reconnect_option_span_class_icon_red_i_class_fa_fa_thumbs_down_title_failed_i_span"><a class="anchor" href="#_disconnected_user_sees_welcome_page_and_reconnect_option_span_class_icon_red_i_class_fa_fa_thumbs_down_title_failed_i_span"></a>Disconnected user sees welcome page and reconnect option <span class="icon red"><i class="fa fa-thumbs-down" title="Failed"></i></span></h4> 
        <div class="sidebarblock"> 
         <div class="content"> 
          <div class="dlist"> 
@@ -13218,7 +12872,7 @@ module.exports = hooks;</pre>
        </div> 
       </div> 
       <div class="sect3"> 
-       <h4 id="_scenario_user_sees_connecting_while_connecting_span_class_icon_red_i_class_fa_fa_thumbs_down_title_failed_i_span"><a class="anchor" href="#_scenario_user_sees_connecting_while_connecting_span_class_icon_red_i_class_fa_fa_thumbs_down_title_failed_i_span"></a>Scenario: User sees 'connecting' while connecting <span class="icon red"><i class="fa fa-thumbs-down" title="Failed"></i></span></h4> 
+       <h4 id="_user_sees_connecting_while_connecting_span_class_icon_red_i_class_fa_fa_thumbs_down_title_failed_i_span"><a class="anchor" href="#_user_sees_connecting_while_connecting_span_class_icon_red_i_class_fa_fa_thumbs_down_title_failed_i_span"></a>User sees 'connecting' while connecting <span class="icon red"><i class="fa fa-thumbs-down" title="Failed"></i></span></h4> 
        <div class="sidebarblock"> 
         <div class="content"> 
          <div class="dlist"> 
@@ -13288,12 +12942,32 @@ module.exports = hooks;</pre>
       <div class="sidebarblock"> 
        <div class="content"> 
         <div class="paragraph"> 
-         <p>It is possible for the World constructor function to tell Cucumber<br> to use another object than itself as the World instance:<br> <br> this.World = function WorldConstructor(callback) {<br> var myCustomWorld = { dance: function() { /* …​ */ } };<br> callback(myCustomWorld); // tell Cucumber to use myCustomWorld<br> // as the world object.<br> };<br> <br> If no parameter is passed to the callback, the WorldConstructor<br> instance will be used by Cucumber:<br> <br> this.World = function WorldConstructor(callback) {<br> var myCustomWorld = {};<br> callback(); // could have been written <code>callback(this);</code><br> };</p> 
+         <p>It is possible for the World constructor function to tell Cucumber<br> to use another object than itself as the World instance:</p> 
+        </div> 
+        <div class="literalblock"> 
+         <div class="content"> 
+          <pre>this.World = function WorldConstructor(callback) {
+  var myCustomWorld = { dance: function() { /* ... */ } };
+  callback(myCustomWorld); // tell Cucumber to use myCustomWorld
+                           // as the world object.
+};</pre> 
+         </div> 
+        </div> 
+        <div class="paragraph"> 
+         <p>If no parameter is passed to the callback, the WorldConstructor<br> instance will be used by Cucumber:</p> 
+        </div> 
+        <div class="literalblock"> 
+         <div class="content"> 
+          <pre>this.World = function WorldConstructor(callback) {
+  var myCustomWorld = {};
+  callback(); // could have been written `callback(this);`
+};</pre> 
+         </div> 
         </div> 
        </div> 
       </div> 
       <div class="sect3"> 
-       <h4 id="_scenario_scenario_calling_function_on_explicit_world_instance"><a class="anchor" href="#_scenario_scenario_calling_function_on_explicit_world_instance"></a>Scenario: scenario calling function on explicit world instance</h4> 
+       <h4 id="_scenario_calling_function_on_explicit_world_instance"><a class="anchor" href="#_scenario_calling_function_on_explicit_world_instance"></a>scenario calling function on explicit world instance</h4> 
        <div class="sidebarblock"> 
         <div class="content"> 
          <div class="dlist"> 
@@ -13361,7 +13035,7 @@ module.exports = hooks;</pre>
       <span class="fa fa-minus-square fa-fw" style="cursor:pointer;float:right;margin-top:-30px" title="Minimize" onclick="hideFeatureScenarios('step-definition-snippets');document.getElementById('hidden-step-definition-snippets').style.display = 'inline';this.style.display = 'none'"> </span> 
       <span id="hidden-step-definition-snippets" class="fa fa-plus-square fa-fw" style="cursor:pointer;float:right;display:none;margin-top:-30px" title="Maximize feature" onclick="showFeatureScenarios('step-definition-snippets');this.style.display = 'none'"> </span> 
       <div class="sect3"> 
-       <h4 id="_scenario_escape_regexp_special_characters_span_class_icon_red_i_class_fa_fa_thumbs_down_title_failed_i_span"><a class="anchor" href="#_scenario_escape_regexp_special_characters_span_class_icon_red_i_class_fa_fa_thumbs_down_title_failed_i_span"></a>Scenario: escape regexp special characters <span class="icon red"><i class="fa fa-thumbs-down" title="Failed"></i></span></h4> 
+       <h4 id="_escape_regexp_special_characters_span_class_icon_red_i_class_fa_fa_thumbs_down_title_failed_i_span"><a class="anchor" href="#_escape_regexp_special_characters_span_class_icon_red_i_class_fa_fa_thumbs_down_title_failed_i_span"></a>escape regexp special characters <span class="icon red"><i class="fa fa-thumbs-down" title="Failed"></i></span></h4> 
        <div class="sidebarblock"> 
         <div class="content"> 
          <div class="dlist"> 
@@ -13430,7 +13104,7 @@ When I type -[]{}()*+?.\^$|#/</pre>
        </div> 
       </div> 
       <div class="sect3"> 
-       <h4 id="_scenario_step_matching_groups_span_class_icon_red_i_class_fa_fa_thumbs_down_title_failed_i_span"><a class="anchor" href="#_scenario_step_matching_groups_span_class_icon_red_i_class_fa_fa_thumbs_down_title_failed_i_span"></a>Scenario: step matching groups <span class="icon red"><i class="fa fa-thumbs-down" title="Failed"></i></span></h4> 
+       <h4 id="_step_matching_groups_span_class_icon_red_i_class_fa_fa_thumbs_down_title_failed_i_span"><a class="anchor" href="#_step_matching_groups_span_class_icon_red_i_class_fa_fa_thumbs_down_title_failed_i_span"></a>step matching groups <span class="icon red"><i class="fa fa-thumbs-down" title="Failed"></i></span></h4> 
        <div class="sidebarblock"> 
         <div class="content"> 
          <div class="dlist"> 
@@ -13484,7 +13158,7 @@ When I type -[]{}()*+?.\^$|#/</pre>
        </div> 
       </div> 
       <div class="sect3"> 
-       <h4 id="_scenario_multiple_matching_groups_span_class_icon_red_i_class_fa_fa_thumbs_down_title_failed_i_span"><a class="anchor" href="#_scenario_multiple_matching_groups_span_class_icon_red_i_class_fa_fa_thumbs_down_title_failed_i_span"></a>Scenario: multiple matching groups <span class="icon red"><i class="fa fa-thumbs-down" title="Failed"></i></span></h4> 
+       <h4 id="_multiple_matching_groups_span_class_icon_red_i_class_fa_fa_thumbs_down_title_failed_i_span"><a class="anchor" href="#_multiple_matching_groups_span_class_icon_red_i_class_fa_fa_thumbs_down_title_failed_i_span"></a>multiple matching groups <span class="icon red"><i class="fa fa-thumbs-down" title="Failed"></i></span></h4> 
        <div class="sidebarblock"> 
         <div class="content"> 
          <div class="dlist"> 
@@ -13538,7 +13212,7 @@ When I type -[]{}()*+?.\^$|#/</pre>
        </div> 
       </div> 
       <div class="sect3"> 
-       <h4 id="_scenario_outline_steps_with_examples"><a class="anchor" href="#_scenario_outline_steps_with_examples"></a>Scenario: outline steps with examples</h4> 
+       <h4 id="_outline_steps_with_examples"><a class="anchor" href="#_outline_steps_with_examples"></a>outline steps with examples</h4> 
        <div class="sidebarblock"> 
         <div class="content"> 
          <div class="dlist"> 
@@ -13604,7 +13278,7 @@ When I type -[]{}()*+?.\^$|#/</pre>
        </div> 
       </div> 
       <div class="sect3"> 
-       <h4 id="_scenario_step_definition_with_string_based_pattern"><a class="anchor" href="#_scenario_step_definition_with_string_based_pattern"></a>Scenario: step definition with string-based pattern</h4> 
+       <h4 id="_step_definition_with_string_based_pattern"><a class="anchor" href="#_step_definition_with_string_based_pattern"></a>step definition with string-based pattern</h4> 
        <div class="sidebarblock"> 
         <div class="content"> 
          <div class="dlist"> 
@@ -13667,7 +13341,7 @@ When I type -[]{}()*+?.\^$|#/</pre>
        </div> 
       </div> 
       <div class="sect3"> 
-       <h4 id="_scenario_step_definition_with_string_based_pattern_and_parameters"><a class="anchor" href="#_scenario_step_definition_with_string_based_pattern_and_parameters"></a>Scenario: step definition with string-based pattern and parameters</h4> 
+       <h4 id="_step_definition_with_string_based_pattern_and_parameters"><a class="anchor" href="#_step_definition_with_string_based_pattern_and_parameters"></a>step definition with string-based pattern and parameters</h4> 
        <div class="sidebarblock"> 
         <div class="content"> 
          <div class="dlist"> 
@@ -13744,7 +13418,7 @@ When I type -[]{}()*+?.\^$|#/</pre>
        </div> 
       </div> 
       <div class="sect3"> 
-       <h4 id="_scenario_step_definition_with_string_based_pattern_and_multiple_parameters_span_class_icon_red_i_class_fa_fa_thumbs_down_title_failed_i_span"><a class="anchor" href="#_scenario_step_definition_with_string_based_pattern_and_multiple_parameters_span_class_icon_red_i_class_fa_fa_thumbs_down_title_failed_i_span"></a>Scenario: step definition with string-based pattern and multiple parameters <span class="icon red"><i class="fa fa-thumbs-down" title="Failed"></i></span></h4> 
+       <h4 id="_step_definition_with_string_based_pattern_and_multiple_parameters_span_class_icon_red_i_class_fa_fa_thumbs_down_title_failed_i_span"><a class="anchor" href="#_step_definition_with_string_based_pattern_and_multiple_parameters_span_class_icon_red_i_class_fa_fa_thumbs_down_title_failed_i_span"></a>step definition with string-based pattern and multiple parameters <span class="icon red"><i class="fa fa-thumbs-down" title="Failed"></i></span></h4> 
        <div class="sidebarblock"> 
         <div class="content"> 
          <div class="dlist"> 
@@ -13826,11 +13500,12 @@ When I type -[]{}()*+?.\^$|#/</pre>
   </div> 
   <div id="footer" style="color:gray;font-size:11px">
     Generated by 
-   <a href="https://github.com/rmpestano/cukedoctor" target="_blank"> Cukedoctor 1.0.0</a> - Mar 29, 2016 11:31:15 PM 
-   <span style="float:right;font-size:11px"> Execution time: 5.659 seconds</span> 
+   <a href="https://github.com/rmpestano/cukedoctor" target="_blank"> Cukedoctor 1.0.6</a> - 29/10/2016 10:02:38 
+   <span style="float:right;font-size:11px"> Execution time: 5.306 seconds</span> 
   </div> 
   <style>  
 
+#content:padding:0!important;
 .sidebarblock, .sectionbody, .content{
 overflow:auto!important;
 }
