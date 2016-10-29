@@ -313,7 +313,7 @@ IMPORTANT: By default Cukedoctor will render DocStrings as http://asciidoctor.or
 
 === *Stepless* documentation
 
-If you don't like the *Given* *When* *Then* BDD way of describing features, you can write the hole feature documentation (`using asciidoc`) in `feature and scenario description` *without writting any cucumber step*.
+If you don't like the *Given* *When* *Then* BDD way of describing features, you can write the hole feature documentation (`using asciidoc`) in `feature and scenario description` without writing any cucumber step.
 
 
 Here is an https://github.com/database-rider/database-rider/blob/4b12ebf6303c8866101d5bc078e62f5b0855d04a/rider-core/src/test/resources/features/export/dataset-export.feature#L2[example feature^] and https://database-rider.github.io/database-rider/latest/documentation.html#DataSet-export[resulting documentation^].
