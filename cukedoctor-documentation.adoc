@@ -17,82 +17,6 @@
 
 include::/home/travis/build/rmpestano/cukedoctor/cukedoctor-converter/target/test-classes/cukedoctor-intro.adoc[leveloffset=+1]
 
-== *Summary*
-[cols="12*^m", options="header,footer"]
-|===
-3+|Scenarios 7+|Steps 2+|Features: 4
-
-|[green]#*Passed*#
-|[red]#*Failed*#
-|Total
-|[green]#*Passed*#
-|[red]#*Failed*#
-|[purple]#*Skipped*#
-|[maroon]#*Pending*#
-|[yellow]#*Undefined*#
-|[blue]#*Missing*#
-|Total
-|Duration
-|Status
-
-12+^|*<<Cukedoctor-Converter>>*
-|1
-|0
-|1
-|3
-|0
-|0
-|0
-|0
-|0
-|3
-|03s 422ms
-|[green]#*passed*#
-
-12+^|*<<Ordering>>*
-|2
-|0
-|2
-|6
-|0
-|0
-|0
-|0
-|0
-|6
-|052ms
-|[green]#*passed*#
-
-12+^|*<<Enrich-features>>*
-|2
-|0
-|2
-|6
-|0
-|0
-|0
-|0
-|0
-|6
-|150ms
-|[green]#*passed*#
-
-12+^|*<<Documentation-introduction-chapter>>*
-|1
-|0
-|1
-|4
-|0
-|0
-|0
-|0
-|0
-|4
-|092ms
-|[green]#*passed*#
-12+^|*Totals*
-|6|0|6|19|0|0|0|0|0|19 2+|03s 718ms
-|===
 
 == *Features*
 
@@ -110,12 +34,12 @@ ____
 ====
 ****
 
-==== Scenario: Convert features test output into documentation
+==== Convert features test output into documentation
 
 ****
 Given ::
 =====
-The following two features: icon:thumbs-up[role="green",title="Passed"] [small right]#(01s 463ms)#
+The following two features: icon:thumbs-up[role="green",title="Passed"] [small right]#(830ms)#
 ----
 
 Feature: Feature1
@@ -134,7 +58,7 @@ Feature: Feature2
 =====
 When ::
 =====
-I convert their json test output using cukedoctor converter icon:thumbs-up[role="green",title="Passed"] [small right]#(01s 957ms)#
+I convert their json test output using cukedoctor converter icon:thumbs-up[role="green",title="Passed"] [small right]#(01s 892ms)#
 ******
 
 [discrete]
@@ -279,7 +203,7 @@ ____
 ====
 ****
 
-==== Scenario: Default ordering
+==== Default ordering
 
 ****
 Given ::
@@ -303,7 +227,7 @@ Feature: Feature2
 =====
 When ::
 =====
-I convert them using default order icon:thumbs-up[role="green",title="Passed"] [small right]#(021ms)#
+I convert them using default order icon:thumbs-up[role="green",title="Passed"] [small right]#(035ms)#
 =====
 Then ::
 =====
@@ -354,7 +278,7 @@ scenario step icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 =====
 ****
 
-==== Scenario: Custom ordering
+==== Custom ordering
 
 ****
 Given ::
@@ -383,7 +307,7 @@ NOTE: Ordering is done using feature comment '*#order:*'
 =====
 When ::
 =====
-I convert them using comment order icon:thumbs-up[role="green",title="Passed"] [small right]#(030ms)#
+I convert them using comment order icon:thumbs-up[role="green",title="Passed"] [small right]#(036ms)#
 =====
 Then ::
 =====
@@ -448,7 +372,7 @@ ____
 ====
 ****
 
-==== Scenario: DocSting enrichment
+==== DocSting enrichment
 Asciidoc markup can be used in feature *DocStrings*. To do so you need to enable it by using *[cukector-dicrete]* comment on the feature.
 
 ****
@@ -492,7 +416,7 @@ Feature: Enrich feature
 =====
 When ::
 =====
-I convert docstring enriched json output using cukedoctor converter icon:thumbs-up[role="green",title="Passed"] [small right]#(092ms)#
+I convert docstring enriched json output using cukedoctor converter icon:thumbs-up[role="green",title="Passed"] [small right]#(044ms)#
 =====
 Then ::
 =====
@@ -573,7 +497,7 @@ the following table icon:thumbs-up[role="green",title="Passed"] [small right]#(0
 =====
 ****
 
-==== Scenario: Comments enrichment
+==== Comments enrichment
 Asciidoc markup can be used in feature comments. To do so you need to surround asciidoc markup by *curly brackets*;.
 
 ****
@@ -605,7 +529,7 @@ Feature: Calculator
 =====
 When ::
 =====
-I convert enriched feature json output using cukedoctor icon:thumbs-up[role="green",title="Passed"] [small right]#(057ms)#
+I convert enriched feature json output using cukedoctor icon:thumbs-up[role="green",title="Passed"] [small right]#(040ms)#
 =====
 Then ::
 =====
@@ -686,7 +610,7 @@ ____
 ====
 ****
 
-==== Scenario: Introduction chapter in classpath
+==== Introduction chapter in classpath
 
 ****
 Given ::
@@ -710,7 +634,7 @@ Feature: Feature2
 =====
 And ::
 =====
-The following asciidoc document is on your application classpath icon:thumbs-up[role="green",title="Passed"] [small right]#(092ms)#
+The following asciidoc document is on your application classpath icon:thumbs-up[role="green",title="Passed"] [small right]#(040ms)#
 ******
 
 [discrete]
