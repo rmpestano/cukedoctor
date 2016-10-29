@@ -1,6 +1,6 @@
 :toc: right
 :backend: pdf
-:doctitle: CucumberJS Living Documentation
+:doctitle: cucumber-js-documentation
 :doctype: book
 :icons: font
 :!numbered:
@@ -10,7 +10,7 @@
 :docinfo:
 :toclevels: 3
 
-= *CucumberJS Living Documentation*
+= *cucumber-js-documentation*
 
 == *Summary*
 [cols="12*^m", options="header,footer"]
@@ -350,6 +350,7 @@
 
 ****
 Given ::
+=====
 the following feature: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -359,12 +360,19 @@ Feature: a feature
     Then the result is 9
 
 ----
+=====
 And ::
+=====
 the step "I divide 10 by 0" has a mapping asynchronously failing with the message "Divide by 0, uh?" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 When ::
+=====
 Cucumber runs the feature icon:thumbs-up[role="green",title="Passed"] [small right]#(019ms)#
+=====
 Then ::
+=====
 the scenario called "a failing scenario" is reported as failing icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 ****
 
 ==== Scenario: see asynchronously failing scenarios with exception icon:thumbs-down[role="red",title="Failed"]
@@ -373,6 +381,7 @@ the scenario called "a failing scenario" is reported as failing icon:thumbs-up[r
 
 ****
 Given ::
+=====
 the following feature: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -382,12 +391,19 @@ Feature: a feature
     Then the result is 9
 
 ----
+=====
 And ::
+=====
 the step "I divide 10 by 0" has a mapping asynchronously failing through an exception with the message "Divide by 0, uh?" icon:thumbs-down[role="yellow",title="Undefined"] [small right]#(000ms)#
+=====
 When ::
+=====
 Cucumber runs the feature icon:thumbs-down[role="purple",title="Skipped"] [small right]#(000ms)#
+=====
 Then ::
+=====
 the scenario called "a failing scenario" is reported as failing icon:thumbs-down[role="purple",title="Skipped"] [small right]#(000ms)#
+=====
 ****
 
 [[Asynchronous-pending-steps, Asynchronous pending steps]]
@@ -397,6 +413,7 @@ the scenario called "a failing scenario" is reported as failing icon:thumbs-down
 
 ****
 Given ::
+=====
 a scenario with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -404,16 +421,27 @@ When I add 4 and 5
 Then the result is 9
 
 ----
+=====
 And ::
+=====
 the step "I add 4 and 5" has an asynchronous pending mapping icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 the step "the result is 9" has a passing mapping icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 When ::
+=====
 Cucumber executes the scenario icon:thumbs-up[role="green",title="Passed"] [small right]#(013ms)#
+=====
 Then ::
+=====
 the scenario is pending icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 the step "the result is 9" is skipped icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 ****
 
 [[Asynchronous-step-definition-callbacks, Asynchronous step definition callbacks]]
@@ -429,10 +457,15 @@ I want step definitions to call back asynchronously
 
 ****
 Given ::
+=====
 a step definition matching /^an asynchronous step passes$/ calling back asynchronously after 50 milliseconds icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 a step definition matching /^a step passes$/ icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 When ::
+=====
 I run the following feature: icon:thumbs-up[role="green",title="Passed"] [small right]#(060ms)#
 ----
 
@@ -442,8 +475,11 @@ Feature: Asynchronous step definition body
     Then a step passes
 
 ----
+=====
 Then ::
+=====
 the feature should have run successfully icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 ****
 
 [[Attachments, Attachments]]
@@ -453,6 +489,7 @@ the feature should have run successfully icon:thumbs-up[role="green",title="Pass
 
 ****
 Given ::
+=====
 a file named "features/a.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(004ms)#
 ----
 
@@ -462,7 +499,9 @@ Scenario: I've declared one step and it is passing
     Given This step is passing
 
 ----
+=====
 And ::
+=====
 a file named "features/step_definitions/cucumber_steps.js" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(001ms)#
 ----
 
@@ -472,7 +511,9 @@ var cucumberSteps = function() {
 module.exports = cucumberSteps;
 
 ----
+=====
 And ::
+=====
 a file named "features/support/hooks.js" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(001ms)#
 ----
 
@@ -486,9 +527,13 @@ var hooks = function () {
 module.exports = hooks;
 
 ----
+=====
 When ::
+=====
 I run `cucumber.js -f json` icon:thumbs-up[role="green",title="Passed"] [small right]#(196ms)#
+=====
 Then ::
+=====
 it outputs this json: icon:thumbs-up[role="green",title="Passed"] [small right]#(002ms)#
 ----
 
@@ -541,12 +586,14 @@ it outputs this json: icon:thumbs-up[role="green",title="Passed"] [small right]#
 ]
 
 ----
+=====
 ****
 
 ==== Scenario: Attach a stream
 
 ****
 Given ::
+=====
 a file named "features/a.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(003ms)#
 ----
 
@@ -556,7 +603,9 @@ Scenario: I've declared one step and it is passing
     Given This step is passing
 
 ----
+=====
 And ::
+=====
 a file named "features/step_definitions/cucumber_steps.js" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(001ms)#
 ----
 
@@ -566,7 +615,9 @@ var cucumberSteps = function() {
 module.exports = cucumberSteps;
 
 ----
+=====
 And ::
+=====
 a file named "features/support/hooks.js" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(001ms)#
 ----
 
@@ -597,9 +648,13 @@ var hooks = function () {
 module.exports = hooks;
 
 ----
+=====
 When ::
+=====
 I run `cucumber.js -f json` icon:thumbs-up[role="green",title="Passed"] [small right]#(249ms)#
+=====
 Then ::
+=====
 it outputs this json: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -652,12 +707,14 @@ it outputs this json: icon:thumbs-up[role="green",title="Passed"] [small right]#
 ]
 
 ----
+=====
 ****
 
 ==== Scenario: Attach from an around hook (pre scenario)
 
 ****
 Given ::
+=====
 a file named "features/a.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(004ms)#
 ----
 
@@ -667,7 +724,9 @@ Scenario: I've declared one step and it is passing
     Given This step is passing
 
 ----
+=====
 And ::
+=====
 a file named "features/step_definitions/cucumber_steps.js" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(001ms)#
 ----
 
@@ -677,7 +736,9 @@ var cucumberSteps = function() {
 module.exports = cucumberSteps;
 
 ----
+=====
 And ::
+=====
 a file named "features/support/hooks.js" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(001ms)#
 ----
 
@@ -694,9 +755,13 @@ var hooks = function () {
 module.exports = hooks;
 
 ----
+=====
 When ::
+=====
 I run `cucumber.js -f json` icon:thumbs-up[role="green",title="Passed"] [small right]#(286ms)#
+=====
 Then ::
+=====
 it outputs this json: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -758,12 +823,14 @@ it outputs this json: icon:thumbs-up[role="green",title="Passed"] [small right]#
 ]
 
 ----
+=====
 ****
 
 ==== Scenario: Attach from an around hook (post scenario)
 
 ****
 Given ::
+=====
 a file named "features/a.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(004ms)#
 ----
 
@@ -773,7 +840,9 @@ Scenario: I've declared one step and it is passing
     Given This step is passing
 
 ----
+=====
 And ::
+=====
 a file named "features/step_definitions/cucumber_steps.js" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -783,7 +852,9 @@ var cucumberSteps = function() {
 module.exports = cucumberSteps;
 
 ----
+=====
 And ::
+=====
 a file named "features/support/hooks.js" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -799,9 +870,13 @@ var hooks = function () {
 module.exports = hooks;
 
 ----
+=====
 When ::
+=====
 I run `cucumber.js -f json` icon:thumbs-up[role="green",title="Passed"] [small right]#(258ms)#
+=====
 Then ::
+=====
 it outputs this json: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -863,12 +938,14 @@ it outputs this json: icon:thumbs-up[role="green",title="Passed"] [small right]#
 ]
 
 ----
+=====
 ****
 
 ==== Scenario: Attach from a before hook
 
 ****
 Given ::
+=====
 a file named "features/a.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(003ms)#
 ----
 
@@ -878,7 +955,9 @@ Scenario: I've declared one step and it is passing
     Given This step is passing
 
 ----
+=====
 And ::
+=====
 a file named "features/step_definitions/cucumber_steps.js" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -888,7 +967,9 @@ var cucumberSteps = function() {
 module.exports = cucumberSteps;
 
 ----
+=====
 And ::
+=====
 a file named "features/support/hooks.js" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -902,9 +983,13 @@ var hooks = function () {
 module.exports = hooks;
 
 ----
+=====
 When ::
+=====
 I run `cucumber.js -f json` icon:thumbs-up[role="green",title="Passed"] [small right]#(208ms)#
+=====
 Then ::
+=====
 it outputs this json: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -957,12 +1042,14 @@ it outputs this json: icon:thumbs-up[role="green",title="Passed"] [small right]#
 ]
 
 ----
+=====
 ****
 
 ==== Scenario: Attach from an after hook
 
 ****
 Given ::
+=====
 a file named "features/a.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(002ms)#
 ----
 
@@ -972,7 +1059,9 @@ Scenario: I've declared one step and it is passing
     Given This step is passing
 
 ----
+=====
 And ::
+=====
 a file named "features/step_definitions/cucumber_steps.js" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -982,7 +1071,9 @@ var cucumberSteps = function() {
 module.exports = cucumberSteps;
 
 ----
+=====
 And ::
+=====
 a file named "features/support/hooks.js" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -996,9 +1087,13 @@ var hooks = function () {
 module.exports = hooks;
 
 ----
+=====
 When ::
+=====
 I run `cucumber.js -f json` icon:thumbs-up[role="green",title="Passed"] [small right]#(247ms)#
+=====
 Then ::
+=====
 it outputs this json: icon:thumbs-up[role="green",title="Passed"] [small right]#(002ms)#
 ----
 
@@ -1051,12 +1146,14 @@ it outputs this json: icon:thumbs-up[role="green",title="Passed"] [small right]#
 ]
 
 ----
+=====
 ****
 
 ==== Scenario: Attach from a step definition
 
 ****
 Given ::
+=====
 a file named "features/a.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(004ms)#
 ----
 
@@ -1066,7 +1163,9 @@ Scenario: I've declared one step and it is passing
     Given This step is passing
 
 ----
+=====
 And ::
+=====
 a file named "features/step_definitions/cucumber_steps.js" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(001ms)#
 ----
 
@@ -1080,7 +1179,9 @@ var cucumberSteps = function() {
 module.exports = cucumberSteps;
 
 ----
+=====
 And ::
+=====
 a file named "features/support/hooks.js" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(001ms)#
 ----
 
@@ -1095,9 +1196,13 @@ var hooks = function () {
 module.exports = hooks;
 
 ----
+=====
 When ::
+=====
 I run `cucumber.js -f json` icon:thumbs-up[role="green",title="Passed"] [small right]#(215ms)#
+=====
 Then ::
+=====
 it outputs this json: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -1150,6 +1255,7 @@ it outputs this json: icon:thumbs-up[role="green",title="Passed"] [small right]#
 ]
 
 ----
+=====
 ****
 
 [[Background, Background]]
@@ -1167,6 +1273,7 @@ Hooks.
 
 ****
 Given ::
+=====
 the following feature: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -1178,24 +1285,38 @@ Feature: testing scenarios
     When a scenario step
 
 ----
+=====
 And ::
+=====
 the step "a background step" has a passing mapping icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 the step "a scenario step" has a passing mapping icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 When ::
+=====
 Cucumber runs the feature icon:thumbs-up[role="green",title="Passed"] [small right]#(009ms)#
+=====
 Then ::
+=====
 the feature passes icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 the step "a background step" passes icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 the step "a scenario step" passes icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 ****
 
 ==== Scenario: Two scenarios and a background
 
 ****
 Given ::
+=====
 the following feature: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -1210,22 +1331,39 @@ Feature: testing scenarios
     When a second scenario step
 
 ----
+=====
 And ::
+=====
 the step "a background step" has a passing mapping icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 the step "a scenario step" has a passing mapping icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 the step "a second scenario step" has a passing mapping icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 When ::
+=====
 Cucumber runs the feature icon:thumbs-up[role="green",title="Passed"] [small right]#(014ms)#
+=====
 Then ::
+=====
 the feature passes icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 the step "a background step" passes icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 the step "a scenario step" passes icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 the step "a second scenario step" passes icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 ****
 
 [[CoffeeScript-support, CoffeeScript support]]
@@ -1241,13 +1379,21 @@ I want to use CoffeeScript for writing step definitions
 
 ****
 Given ::
+=====
 a mapping written in CoffeeScript icon:thumbs-down[role="yellow",title="Undefined"] [small right]#(000ms)#
+=====
 When ::
+=====
 Cucumber executes a scenario using that mapping icon:thumbs-down[role="purple",title="Skipped"] [small right]#(000ms)#
+=====
 Then ::
+=====
 the feature passes icon:thumbs-down[role="purple",title="Skipped"] [small right]#(000ms)#
+=====
 And ::
+=====
 the mapping is run icon:thumbs-down[role="purple",title="Skipped"] [small right]#(000ms)#
+=====
 ****
 
 [[Command-line-interface, Command line interface]]
@@ -1263,6 +1409,7 @@ I want to run Cucumber on the command line
 
 ****
 Given ::
+=====
 a file named "features/a.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(003ms)#
 ----
 
@@ -1271,7 +1418,9 @@ Feature: some feature
     When a step is passing
 
 ----
+=====
 And ::
+=====
 a file named "features/step_definitions/cucumber_steps.js" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -1281,9 +1430,13 @@ var cucumberSteps = function() {
 module.exports = cucumberSteps;
 
 ----
+=====
 When ::
+=====
 I run `cucumber.js -f progress features/a.feature` icon:thumbs-up[role="green",title="Passed"] [small right]#(297ms)#
+=====
 Then ::
+=====
 it outputs this text: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -1294,14 +1447,18 @@ it outputs this text: icon:thumbs-up[role="green",title="Passed"] [small right]#
 
 
 ----
+=====
 And ::
+=====
 the exit status should be 0 icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 ****
 
 ==== Scenario: run a single scenario within feature
 
 ****
 Given ::
+=====
 a file named "features/a.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(003ms)#
 ----
 
@@ -1313,7 +1470,9 @@ Feature: some feature
     When a step does not exist
 
 ----
+=====
 And ::
+=====
 a file named "features/step_definitions/cucumber_steps.js" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -1323,9 +1482,13 @@ var cucumberSteps = function() {
 module.exports = cucumberSteps;
 
 ----
+=====
 When ::
+=====
 I run `cucumber.js -f progress features/a.feature:2` icon:thumbs-up[role="green",title="Passed"] [small right]#(296ms)#
+=====
 Then ::
+=====
 it outputs this text: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -1336,14 +1499,18 @@ it outputs this text: icon:thumbs-up[role="green",title="Passed"] [small right]#
 
 
 ----
+=====
 And ::
+=====
 the exit status should be 0 icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 ****
 
 ==== Scenario: run a single feature without step definitions
 
 ****
 Given ::
+=====
 a file named "features/a.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(001ms)#
 ----
 
@@ -1352,9 +1519,13 @@ Feature: some feature
     When a step is undefined
 
 ----
+=====
 When ::
+=====
 I run `cucumber.js -f progress features/a.feature` icon:thumbs-up[role="green",title="Passed"] [small right]#(189ms)#
+=====
 Then ::
+=====
 it outputs this text: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -1371,14 +1542,18 @@ this.When(/^a step is undefined$/, function (callback) {
 });
 
 ----
+=====
 And ::
+=====
 the exit status should be 0 icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 ****
 
 ==== Scenario: run feature with non-default step definitions file location specified (-r option)
 
 ****
 Given ::
+=====
 a file named "features/a.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(002ms)#
 ----
 
@@ -1387,7 +1562,9 @@ Feature: some feature
     When a step is passing
 
 ----
+=====
 And ::
+=====
 a file named "step_definitions/cucumber_steps.js" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -1397,9 +1574,13 @@ var cucumberSteps = function() {
 module.exports = cucumberSteps;
 
 ----
+=====
 When ::
+=====
 I run `cucumber.js -f progress features/a.feature -r step_definitions/cucumber_steps.js` icon:thumbs-up[role="green",title="Passed"] [small right]#(196ms)#
+=====
 Then ::
+=====
 it outputs this text: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -1410,14 +1591,18 @@ it outputs this text: icon:thumbs-up[role="green",title="Passed"] [small right]#
 
 
 ----
+=====
 And ::
+=====
 the exit status should be 0 icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 ****
 
 ==== Scenario: run feature with step definitions in required directory (-r option)
 
 ****
 Given ::
+=====
 a file named "features/a.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(003ms)#
 ----
 
@@ -1426,7 +1611,9 @@ Feature: some feature
     When a step is passing
 
 ----
+=====
 And ::
+=====
 a file named "step_definitions/cucumber_steps.js" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -1436,9 +1623,13 @@ var cucumberSteps = function() {
 module.exports = cucumberSteps;
 
 ----
+=====
 When ::
+=====
 I run `cucumber.js -f progress features/a.feature -r step_definitions` icon:thumbs-up[role="green",title="Passed"] [small right]#(285ms)#
+=====
 Then ::
+=====
 it outputs this text: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -1449,47 +1640,69 @@ it outputs this text: icon:thumbs-up[role="green",title="Passed"] [small right]#
 
 
 ----
+=====
 And ::
+=====
 the exit status should be 0 icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 ****
 
 ==== Scenario: display Cucumber version
 
 ****
 When ::
+=====
 I run `cucumber.js --version` icon:thumbs-up[role="green",title="Passed"] [small right]#(102ms)#
+=====
 Then ::
+=====
 I see the version of Cucumber icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 the exit status should be 0 icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 ****
 
 ==== Scenario: display help
 
 ****
 When ::
+=====
 I run `cucumber.js --help` icon:thumbs-up[role="green",title="Passed"] [small right]#(097ms)#
+=====
 Then ::
+=====
 I see the help of Cucumber icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 the exit status should be 0 icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 ****
 
 ==== Scenario: display help (short flag)
 
 ****
 When ::
+=====
 I run `cucumber.js -h` icon:thumbs-up[role="green",title="Passed"] [small right]#(196ms)#
+=====
 Then ::
+=====
 I see the help of Cucumber icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 the exit status should be 0 icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 ****
 
 ==== Scenario: run a single failing feature
 
 ****
 Given ::
+=====
 a file named "features/a.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(003ms)#
 ----
 
@@ -1498,7 +1711,9 @@ Feature: some feature
     When a step is failing
 
 ----
+=====
 And ::
+=====
 a file named "features/step_definitions/cucumber_steps.js" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -1508,9 +1723,13 @@ var cucumberSteps = function() {
 module.exports = cucumberSteps;
 
 ----
+=====
 When ::
+=====
 I run `cucumber.js -f progress features/a.feature` icon:thumbs-up[role="green",title="Passed"] [small right]#(296ms)#
+=====
 Then ::
+=====
 it outputs this text: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -1527,14 +1746,18 @@ Failing scenarios:
 1 step (1 failed)
 
 ----
+=====
 And ::
+=====
 the exit status should be 1 icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 ****
 
 ==== Scenario: run a single failing feature with an empty hooks file
 
 ****
 Given ::
+=====
 a file named "features/a.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(002ms)#
 ----
 
@@ -1543,7 +1766,9 @@ Feature: some feature
     When a step is failing
 
 ----
+=====
 And ::
+=====
 a file named "features/step_definitions/cucumber_steps.js" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(001ms)#
 ----
 
@@ -1553,11 +1778,17 @@ var cucumberSteps = function() {
 module.exports = cucumberSteps;
 
 ----
+=====
 And ::
+=====
 a file named "features/support/hooks.js" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(001ms)#
+=====
 When ::
+=====
 I run `cucumber.js -f progress features/a.feature` icon:thumbs-up[role="green",title="Passed"] [small right]#(199ms)#
+=====
 Then ::
+=====
 it outputs this text: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -1574,14 +1805,18 @@ Failing scenarios:
 1 step (1 failed)
 
 ----
+=====
 And ::
+=====
 the exit status should be 1 icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 ****
 
 ==== Scenario: run a single failing feature with an AfterFeatures hook
 
 ****
 Given ::
+=====
 a file named "features/a.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(004ms)#
 ----
 
@@ -1590,7 +1825,9 @@ Feature: some feature
     When a step is failing
 
 ----
+=====
 And ::
+=====
 a file named "features/step_definitions/cucumber_steps.js" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -1600,7 +1837,9 @@ var cucumberSteps = function() {
 module.exports = cucumberSteps;
 
 ----
+=====
 And ::
+=====
 a file named "features/support/hooks.js" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -1612,9 +1851,13 @@ var hooks = function() {
 module.exports = hooks;
 
 ----
+=====
 When ::
+=====
 I run `cucumber.js -f progress features/a.feature` icon:thumbs-up[role="green",title="Passed"] [small right]#(269ms)#
+=====
 Then ::
+=====
 it outputs this text: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -1631,8 +1874,11 @@ Failing scenarios:
 1 step (1 failed)
 
 ----
+=====
 And ::
+=====
 the exit status should be 1 icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 ****
 
 [[Core-feature-elements-execution, Core feature elements execution]]
@@ -1648,8 +1894,11 @@ I want Cucumber to run core feature elements
 
 ****
 Given ::
+=====
 a step definition matching /^a step passes$/ icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 When ::
+=====
 I run the following feature: icon:thumbs-up[role="green",title="Passed"] [small right]#(005ms)#
 ----
 
@@ -1664,20 +1913,30 @@ Feature: Simple flat steps
     Then a step passes
 
 ----
+=====
 Then ::
+=====
 the feature should have run successfully icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 ****
 
 ==== Scenario: Given, When, Then, And and But steps
 
 ****
 Given ::
+=====
 a "Given" step definition matching /^a "Given" step passes$/ icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 a "When" step definition matching /^a "When" step passes$/ icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 a "Then" step definition matching /^a "Then" step passes$/ icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 When ::
+=====
 I run the following feature: icon:thumbs-up[role="green",title="Passed"] [small right]#(011ms)#
 ----
 
@@ -1699,18 +1958,26 @@ Feature: Given, When, Then, And and But step execution
     But a "Then" step passes
 
 ----
+=====
 Then ::
+=====
 the feature should have run successfully icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 ****
 
 ==== Scenario: Step definition body is executed
 
 ****
 Given ::
+=====
 a step definition matching /^I call a watched step$/ counting its calls icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 a step definition matching /^the watched step should have been called (\d+) times?$/ checking the number of step calls icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 When ::
+=====
 I run the following feature: icon:thumbs-up[role="green",title="Passed"] [small right]#(017ms)#
 ----
 
@@ -1726,20 +1993,30 @@ Feature: Step definition body execution
     Then the watched step should have been called 3 times
 
 ----
+=====
 Then ::
+=====
 the feature should have run successfully icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 ****
 
 ==== Scenario: Steps accepting parameters
 
 ****
 Given ::
+=====
 a step definition matching /^I call a step with "(.*)"$/ recording its parameters icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 a step definition matching /^I call a step with "(.*)", "(.*)" and "(.*)"$/ recording its parameters icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 a step definition matching /^the (\d+)(?:st|nd|rd) received parameter should be "(.*)"$/ checking a recorded parameter icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 When ::
+=====
 I run the following feature: icon:thumbs-up[role="green",title="Passed"] [small right]#(006ms)#
 ----
 
@@ -1755,22 +2032,34 @@ Feature: Steps receiving parameters
     And the 3rd received parameter should be "three"
 
 ----
+=====
 Then ::
+=====
 the feature should have run successfully icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 ****
 
 ==== Scenario: Steps accepting a DocString parameter
 
 ****
 Given ::
+=====
 a step definition matching /^I call a step with the following text:$/ recording its parameters icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 a step definition matching /^I call a step with "(.*)" and the following text:$/ recording its parameters icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 a step definition matching /^the (\d+)(?:st|nd) received parameter should be "(.*)"$/ checking a recorded parameter icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 a step definition matching /^the (\d+)(?:nd) received parameter should be:$/ checking a recorded parameter icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 When ::
+=====
 I run the following feature: icon:thumbs-up[role="green",title="Passed"] [small right]#(010ms)#
 ----
 
@@ -1808,8 +2097,11 @@ Feature: Steps receiving a DocString parameter
       """
 
 ----
+=====
 Then ::
+=====
 the feature should have run successfully icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 ****
 
 [[Data-Tables, Data Tables]]
@@ -1819,6 +2111,7 @@ the feature should have run successfully icon:thumbs-up[role="green",title="Pass
 
 ****
 Given ::
+=====
 the following data table in a step: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -1826,15 +2119,20 @@ the following data table in a step: icon:thumbs-up[role="green",title="Passed"] 
 | Burr Gherkin | Cucumis anguria |
 
 ----
+=====
 When ::
+=====
 the data table is passed to a step mapping that converts it to a hash icon:thumbs-up[role="green",title="Passed"] [small right]#(006ms)#
+=====
 Then ::
+=====
 the data table is converted to the following: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
 { "Cucumber":"Cucumis sativus", "Burr Gherkin": "Cucumis anguria" }
 
 ----
+=====
 ****
 
 [[Environment-Hooks, Environment Hooks]]
@@ -1844,17 +2142,24 @@ the data table is converted to the following: icon:thumbs-up[role="green",title=
 
 ****
 Given ::
+=====
 an around hook tagged with "@foo" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 When ::
+=====
 Cucumber executes a scenario with no tags icon:thumbs-up[role="green",title="Passed"] [small right]#(004ms)#
+=====
 Then ::
+=====
 the hook is not fired icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 ****
 
 ==== Scenario: Hooks are steps
 
 ****
 Given ::
+=====
 a file named "features/a.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(002ms)#
 ----
 
@@ -1864,7 +2169,9 @@ Scenario: I've declared one step and it is passing
     Given This step is passing
 
 ----
+=====
 And ::
+=====
 a file named "features/step_definitions/cucumber_steps.js" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -1874,7 +2181,9 @@ var cucumberSteps = function() {
 module.exports = cucumberSteps;
 
 ----
+=====
 And ::
+=====
 a file named "features/support/hooks.js" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -1897,9 +2206,13 @@ var hooks = function () {
 module.exports = hooks;
 
 ----
+=====
 When ::
+=====
 I run `cucumber.js -f json` icon:thumbs-up[role="green",title="Passed"] [small right]#(301ms)#
+=====
 Then ::
+=====
 it outputs this json: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -1973,12 +2286,14 @@ it outputs this json: icon:thumbs-up[role="green",title="Passed"] [small right]#
 ]
 
 ----
+=====
 ****
 
 ==== Scenario: Failing around hook (pre scenario) fails the scenario
 
 ****
 Given ::
+=====
 a file named "features/a.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(005ms)#
 ----
 
@@ -1988,7 +2303,9 @@ Scenario: I've declared one step and it is passing
     Given This step is passing
 
 ----
+=====
 And ::
+=====
 a file named "features/step_definitions/cucumber_steps.js" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -1998,7 +2315,9 @@ var cucumberSteps = function() {
 module.exports = cucumberSteps;
 
 ----
+=====
 And ::
+=====
 a file named "features/support/hooks.js" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(001ms)#
 ----
 
@@ -2011,9 +2330,13 @@ var hooks = function () {
 module.exports = hooks;
 
 ----
+=====
 When ::
+=====
 I run `cucumber.js -f json` icon:thumbs-up[role="green",title="Passed"] [small right]#(302ms)#
+=====
 Then ::
+=====
 it outputs this json: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -2069,12 +2392,14 @@ it outputs this json: icon:thumbs-up[role="green",title="Passed"] [small right]#
 ]
 
 ----
+=====
 ****
 
 ==== Scenario: Failing around hook (pre scenario) fails the scenario
 
 ****
 Given ::
+=====
 a file named "features/a.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(005ms)#
 ----
 
@@ -2084,7 +2409,9 @@ Scenario: I've declared one step and it is passing
     Given This step is passing
 
 ----
+=====
 And ::
+=====
 a file named "features/step_definitions/cucumber_steps.js" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(001ms)#
 ----
 
@@ -2094,7 +2421,9 @@ var cucumberSteps = function() {
 module.exports = cucumberSteps;
 
 ----
+=====
 And ::
+=====
 a file named "features/support/hooks.js" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(001ms)#
 ----
 
@@ -2107,9 +2436,13 @@ var hooks = function () {
 module.exports = hooks;
 
 ----
+=====
 When ::
+=====
 I run `cucumber.js -f json` icon:thumbs-up[role="green",title="Passed"] [small right]#(300ms)#
+=====
 Then ::
+=====
 it outputs this json: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -2165,12 +2498,14 @@ it outputs this json: icon:thumbs-up[role="green",title="Passed"] [small right]#
 ]
 
 ----
+=====
 ****
 
 ==== Scenario: Failing around hook (post scenario) fails the scenario
 
 ****
 Given ::
+=====
 a file named "features/a.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(005ms)#
 ----
 
@@ -2180,7 +2515,9 @@ Scenario: I've declared one step and it is passing
     Given This step is passing
 
 ----
+=====
 And ::
+=====
 a file named "features/step_definitions/cucumber_steps.js" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(001ms)#
 ----
 
@@ -2190,7 +2527,9 @@ var cucumberSteps = function() {
 module.exports = cucumberSteps;
 
 ----
+=====
 And ::
+=====
 a file named "features/support/hooks.js" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -2207,9 +2546,13 @@ var hooks = function () {
 module.exports = hooks;
 
 ----
+=====
 When ::
+=====
 I run `cucumber.js -f json` icon:thumbs-up[role="green",title="Passed"] [small right]#(240ms)#
+=====
 Then ::
+=====
 it outputs this json: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -2266,12 +2609,14 @@ it outputs this json: icon:thumbs-up[role="green",title="Passed"] [small right]#
 ]
 
 ----
+=====
 ****
 
 ==== Scenario: Failing around hook (post scenario) fails the scenario
 
 ****
 Given ::
+=====
 a file named "features/a.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(005ms)#
 ----
 
@@ -2281,7 +2626,9 @@ Scenario: I've declared one step and it is passing
     Given This step is passing
 
 ----
+=====
 And ::
+=====
 a file named "features/step_definitions/cucumber_steps.js" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -2291,7 +2638,9 @@ var cucumberSteps = function() {
 module.exports = cucumberSteps;
 
 ----
+=====
 And ::
+=====
 a file named "features/support/hooks.js" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -2308,9 +2657,13 @@ var hooks = function () {
 module.exports = hooks;
 
 ----
+=====
 When ::
+=====
 I run `cucumber.js -f json` icon:thumbs-up[role="green",title="Passed"] [small right]#(249ms)#
+=====
 Then ::
+=====
 it outputs this json: icon:thumbs-up[role="green",title="Passed"] [small right]#(003ms)#
 ----
 
@@ -2367,12 +2720,14 @@ it outputs this json: icon:thumbs-up[role="green",title="Passed"] [small right]#
 ]
 
 ----
+=====
 ****
 
 ==== Scenario: Failing before hook fails the scenario
 
 ****
 Given ::
+=====
 a file named "features/a.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(005ms)#
 ----
 
@@ -2382,7 +2737,9 @@ Scenario: I've declared one step and it is passing
     Given This step is passing
 
 ----
+=====
 And ::
+=====
 a file named "features/step_definitions/cucumber_steps.js" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -2392,7 +2749,9 @@ var cucumberSteps = function() {
 module.exports = cucumberSteps;
 
 ----
+=====
 And ::
+=====
 a file named "features/support/hooks.js" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(001ms)#
 ----
 
@@ -2405,9 +2764,13 @@ var hooks = function () {
 module.exports = hooks;
 
 ----
+=====
 When ::
+=====
 I run `cucumber.js -f json` icon:thumbs-up[role="green",title="Passed"] [small right]#(236ms)#
+=====
 Then ::
+=====
 it outputs this json: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -2454,12 +2817,14 @@ it outputs this json: icon:thumbs-up[role="green",title="Passed"] [small right]#
 ]
 
 ----
+=====
 ****
 
 ==== Scenario: Failing before hook fails the scenario
 
 ****
 Given ::
+=====
 a file named "features/a.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(005ms)#
 ----
 
@@ -2469,7 +2834,9 @@ Scenario: I've declared one step and it is passing
     Given This step is passing
 
 ----
+=====
 And ::
+=====
 a file named "features/step_definitions/cucumber_steps.js" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(001ms)#
 ----
 
@@ -2479,7 +2846,9 @@ var cucumberSteps = function() {
 module.exports = cucumberSteps;
 
 ----
+=====
 And ::
+=====
 a file named "features/support/hooks.js" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(001ms)#
 ----
 
@@ -2492,9 +2861,13 @@ var hooks = function () {
 module.exports = hooks;
 
 ----
+=====
 When ::
+=====
 I run `cucumber.js -f json` icon:thumbs-up[role="green",title="Passed"] [small right]#(267ms)#
+=====
 Then ::
+=====
 it outputs this json: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -2541,12 +2914,14 @@ it outputs this json: icon:thumbs-up[role="green",title="Passed"] [small right]#
 ]
 
 ----
+=====
 ****
 
 ==== Scenario: Failing after hook fails the scenario
 
 ****
 Given ::
+=====
 a file named "features/a.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(005ms)#
 ----
 
@@ -2556,7 +2931,9 @@ Scenario: I've declared one step and it is passing
     Given This step is passing
 
 ----
+=====
 And ::
+=====
 a file named "features/step_definitions/cucumber_steps.js" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(001ms)#
 ----
 
@@ -2566,7 +2943,9 @@ var cucumberSteps = function() {
 module.exports = cucumberSteps;
 
 ----
+=====
 And ::
+=====
 a file named "features/support/hooks.js" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -2579,9 +2958,13 @@ var hooks = function () {
 module.exports = hooks;
 
 ----
+=====
 When ::
+=====
 I run `cucumber.js -f json` icon:thumbs-up[role="green",title="Passed"] [small right]#(200ms)#
+=====
 Then ::
+=====
 it outputs this json: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -2629,12 +3012,14 @@ it outputs this json: icon:thumbs-up[role="green",title="Passed"] [small right]#
 ]
 
 ----
+=====
 ****
 
 ==== Scenario: Failing after hook fails the scenario
 
 ****
 Given ::
+=====
 a file named "features/a.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(007ms)#
 ----
 
@@ -2644,7 +3029,9 @@ Scenario: I've declared one step and it is passing
     Given This step is passing
 
 ----
+=====
 And ::
+=====
 a file named "features/step_definitions/cucumber_steps.js" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(001ms)#
 ----
 
@@ -2654,7 +3041,9 @@ var cucumberSteps = function() {
 module.exports = cucumberSteps;
 
 ----
+=====
 And ::
+=====
 a file named "features/support/hooks.js" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -2667,9 +3056,13 @@ var hooks = function () {
 module.exports = hooks;
 
 ----
+=====
 When ::
+=====
 I run `cucumber.js -f json` icon:thumbs-up[role="green",title="Passed"] [small right]#(304ms)#
+=====
 Then ::
+=====
 it outputs this json: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -2717,12 +3110,14 @@ it outputs this json: icon:thumbs-up[role="green",title="Passed"] [small right]#
 ]
 
 ----
+=====
 ****
 
 ==== Scenario: Hooks still execute after a failure
 
 ****
 Given ::
+=====
 a file named "features/a.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(005ms)#
 ----
 
@@ -2732,7 +3127,9 @@ Scenario: I've declared one step and it is passing
     Given This step is passing
 
 ----
+=====
 And ::
+=====
 a file named "features/step_definitions/cucumber_steps.js" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(001ms)#
 ----
 
@@ -2742,7 +3139,9 @@ var cucumberSteps = function() {
 module.exports = cucumberSteps;
 
 ----
+=====
 And ::
+=====
 a file named "features/support/hooks.js" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -2771,9 +3170,13 @@ var hooks = function () {
 module.exports = hooks;
 
 ----
+=====
 When ::
+=====
 I run `cucumber.js -f json` icon:thumbs-up[role="green",title="Passed"] [small right]#(207ms)#
+=====
 Then ::
+=====
 it outputs this json: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -2865,12 +3268,14 @@ it outputs this json: icon:thumbs-up[role="green",title="Passed"] [small right]#
 ]
 
 ----
+=====
 ****
 
 ==== Scenario: World is this in hooks
 
 ****
 Given ::
+=====
 a file named "features/a.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(005ms)#
 ----
 
@@ -2880,7 +3285,9 @@ Scenario: I've declared one step and it is passing
     Given This step is passing
 
 ----
+=====
 And ::
+=====
 a file named "features/step_definitions/cucumber_steps.js" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -2890,7 +3297,9 @@ var cucumberSteps = function() {
 module.exports = cucumberSteps;
 
 ----
+=====
 And ::
+=====
 a file named "features/support/world.js" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(001ms)#
 ----
 
@@ -2905,7 +3314,9 @@ var WorldConstructor = function WorldConstructor(callback) {
 module.exports.World = WorldConstructor;
 
 ----
+=====
 And ::
+=====
 a file named "features/support/hooks.js" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(001ms)#
 ----
 
@@ -2956,9 +3367,13 @@ var hooks = function () {
 module.exports = hooks;
 
 ----
+=====
 When ::
+=====
 I run `cucumber.js -f json` icon:thumbs-up[role="green",title="Passed"] [small right]#(200ms)#
+=====
 Then ::
+=====
 it outputs this json: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -3032,6 +3447,7 @@ it outputs this json: icon:thumbs-up[role="green",title="Passed"] [small right]#
 ]
 
 ----
+=====
 ****
 
 [[JSON-Formatter, JSON Formatter]]
@@ -3046,15 +3462,20 @@ Developers should be able to consume features as JSON
 
 ****
 Given ::
+=====
 a file named "features/a.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(003ms)#
 ----
 
 Feature: some feature
 
 ----
+=====
 When ::
+=====
 I run `cucumber.js -f json` icon:thumbs-up[role="green",title="Passed"] [small right]#(282ms)#
+=====
 Then ::
+=====
 it outputs this json: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -3070,12 +3491,14 @@ it outputs this json: icon:thumbs-up[role="green",title="Passed"] [small right]#
 ]
 
 ----
+=====
 ****
 
 ==== Scenario: output JSON for a feature with one undefined scenario
 
 ****
 Given ::
+=====
 a file named "features/a.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(003ms)#
 ----
 
@@ -3084,9 +3507,13 @@ Feature: some feature
 Scenario: I havn't done anything yet
 
 ----
+=====
 When ::
+=====
 I run `cucumber.js -f json` icon:thumbs-up[role="green",title="Passed"] [small right]#(294ms)#
+=====
 Then ::
+=====
 it outputs this json: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -3112,12 +3539,14 @@ it outputs this json: icon:thumbs-up[role="green",title="Passed"] [small right]#
 ]
 
 ----
+=====
 ****
 
 ==== Scenario: output JSON for a feature with one scenario with one undefined step
 
 ****
 Given ::
+=====
 a file named "features/a.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(001ms)#
 ----
 
@@ -3127,9 +3556,13 @@ Scenario: I've declared one step but not yet defined it
     Given I have not defined this step
 
 ----
+=====
 When ::
+=====
 I run `cucumber.js -f json` icon:thumbs-up[role="green",title="Passed"] [small right]#(202ms)#
+=====
 Then ::
+=====
 it outputs this json: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -3167,12 +3600,14 @@ it outputs this json: icon:thumbs-up[role="green",title="Passed"] [small right]#
 ]
 
 ----
+=====
 ****
 
 ==== Scenario: output JSON for a feature with one undefined step and subsequent defined steps which should be skipped
 
 ****
 Given ::
+=====
 a file named "features/a.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(001ms)#
 ----
 
@@ -3184,7 +3619,9 @@ Scenario: One pending step and two following steps which will be skipped
 
 
 ----
+=====
 And ::
+=====
 a file named "features/step_definitions/cucumber_steps.js" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -3194,9 +3631,13 @@ var cucumberSteps = function() {
 module.exports = cucumberSteps;
 
 ----
+=====
 When ::
+=====
 I run `cucumber.js -f json` icon:thumbs-up[role="green",title="Passed"] [small right]#(307ms)#
+=====
 Then ::
+=====
 it outputs this json: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -3244,12 +3685,14 @@ it outputs this json: icon:thumbs-up[role="green",title="Passed"] [small right]#
 ]
 
 ----
+=====
 ****
 
 ==== Scenario: output JSON for a feature with one scenario with one pending step
 
 ****
 Given ::
+=====
 a file named "features/a.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(002ms)#
 ----
 
@@ -3259,7 +3702,9 @@ Scenario: I've declared one step which is pending
     Given This step is pending
 
 ----
+=====
 And ::
+=====
 a file named "features/step_definitions/cucumber_steps.js" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -3269,9 +3714,13 @@ var cucumberSteps = function() {
 module.exports = cucumberSteps;
 
 ----
+=====
 When ::
+=====
 I run `cucumber.js -f json` icon:thumbs-up[role="green",title="Passed"] [small right]#(218ms)#
+=====
 Then ::
+=====
 it outputs this json: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -3307,6 +3756,7 @@ it outputs this json: icon:thumbs-up[role="green",title="Passed"] [small right]#
 ]
 
 ----
+=====
 ****
 
 ==== Scenario: output JSON for a feature with one scenario with failing step
@@ -3315,6 +3765,7 @@ it outputs this json: icon:thumbs-up[role="green",title="Passed"] [small right]#
 
 ****
 Given ::
+=====
 a file named "features/a.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(003ms)#
 ----
 
@@ -3324,7 +3775,9 @@ Scenario: I've declared one step but it is failing
     Given This step is failing
 
 ----
+=====
 And ::
+=====
 a file named "features/step_definitions/cucumber_steps.js" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -3334,9 +3787,13 @@ var cucumberSteps = function() {
 module.exports = cucumberSteps;
 
 ----
+=====
 When ::
+=====
 I run `cucumber.js -f json` icon:thumbs-up[role="green",title="Passed"] [small right]#(214ms)#
+=====
 Then ::
+=====
 it outputs this json: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -3376,12 +3833,14 @@ it outputs this json: icon:thumbs-up[role="green",title="Passed"] [small right]#
 ]
 
 ----
+=====
 ****
 
 ==== Scenario: output JSON for a feature with one scenario with passing step
 
 ****
 Given ::
+=====
 a file named "features/a.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(012ms)#
 ----
 
@@ -3391,7 +3850,9 @@ Scenario: I've declared one step which passes
     Given This step is passing
 
 ----
+=====
 And ::
+=====
 a file named "features/step_definitions/cucumber_steps.js" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -3401,9 +3862,13 @@ var cucumberSteps = function() {
 module.exports = cucumberSteps;
 
 ----
+=====
 When ::
+=====
 I run `cucumber.js -f json` icon:thumbs-up[role="green",title="Passed"] [small right]#(301ms)#
+=====
 Then ::
+=====
 it outputs this json: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -3442,12 +3907,14 @@ it outputs this json: icon:thumbs-up[role="green",title="Passed"] [small right]#
 ]
 
 ----
+=====
 ****
 
 ==== Scenario: output JSON for a scenario with a passing step followed by one that is pending and one that fails
 
 ****
 Given ::
+=====
 a file named "features/a.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(004ms)#
 ----
 
@@ -3459,7 +3926,9 @@ Scenario: I've declared one step which is passing, one pending and one failing.
     And This step fails but will be skipped
 
 ----
+=====
 And ::
+=====
 a file named "features/step_definitions/cucumber_steps.js" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(001ms)#
 ----
 
@@ -3471,9 +3940,13 @@ var cucumberSteps = function() {
 module.exports = cucumberSteps;
 
 ----
+=====
 When ::
+=====
 I run `cucumber.js -f json` icon:thumbs-up[role="green",title="Passed"] [small right]#(298ms)#
+=====
 Then ::
+=====
 it outputs this json: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -3529,12 +4002,14 @@ it outputs this json: icon:thumbs-up[role="green",title="Passed"] [small right]#
 ]
 
 ----
+=====
 ****
 
 ==== Scenario: output JSON for a scenario with a pending step followed by one that passes and one that fails
 
 ****
 Given ::
+=====
 a file named "features/a.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(004ms)#
 ----
 
@@ -3546,7 +4021,9 @@ Scenario: I've declared one step which is passing, one pending and one failing.
     And This step fails but will be skipped
 
 ----
+=====
 And ::
+=====
 a file named "features/step_definitions/cucumber_steps.js" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(001ms)#
 ----
 
@@ -3558,9 +4035,13 @@ var cucumberSteps = function() {
 module.exports = cucumberSteps;
 
 ----
+=====
 When ::
+=====
 I run `cucumber.js -f json` icon:thumbs-up[role="green",title="Passed"] [small right]#(287ms)#
+=====
 Then ::
+=====
 it outputs this json: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -3618,12 +4099,14 @@ it outputs this json: icon:thumbs-up[role="green",title="Passed"] [small right]#
 ]
 
 ----
+=====
 ****
 
 ==== Scenario: output JSON for one feature, one passing scenario, one failing scenario
 
 ****
 Given ::
+=====
 a file named "features/a.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(004ms)#
 ----
 
@@ -3635,7 +4118,9 @@ Scenario: This one fails
   Given This step is failing
 
 ----
+=====
 And ::
+=====
 a file named "features/step_definitions/cucumber_steps.js" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(001ms)#
 ----
 
@@ -3646,9 +4131,13 @@ var cucumberSteps = function() {
 module.exports = cucumberSteps;
 
 ----
+=====
 When ::
+=====
 I run `cucumber.js -f json` icon:thumbs-up[role="green",title="Passed"] [small right]#(321ms)#
+=====
 Then ::
+=====
 it outputs this json: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -3709,12 +4198,14 @@ it outputs this json: icon:thumbs-up[role="green",title="Passed"] [small right]#
 ]
 
 ----
+=====
 ****
 
 ==== Scenario: output JSON for multiple features
 
 ****
 Given ::
+=====
 a file named "features/a.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(003ms)#
 ----
 
@@ -3724,7 +4215,9 @@ Scenario: This is the first feature
     Given This step is passing
 
 ----
+=====
 And ::
+=====
 a file named "features/b.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(001ms)#
 ----
 
@@ -3734,7 +4227,9 @@ Scenario: This is the second feature
     Given This step is passing
 
 ----
+=====
 And ::
+=====
 a file named "features/c.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(001ms)#
 ----
 
@@ -3744,7 +4239,9 @@ Scenario: This is the third feature
     Given This step is passing
 
 ----
+=====
 And ::
+=====
 a file named "features/step_definitions/cucumber_steps.js" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(001ms)#
 ----
 
@@ -3754,9 +4251,13 @@ var cucumberSteps = function() {
 module.exports = cucumberSteps;
 
 ----
+=====
 When ::
+=====
 I run `cucumber.js -f json features/a.feature features/b.feature features/c.feature` icon:thumbs-up[role="green",title="Passed"] [small right]#(290ms)#
+=====
 Then ::
+=====
 it outputs this json: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -3855,12 +4356,14 @@ it outputs this json: icon:thumbs-up[role="green",title="Passed"] [small right]#
 ]
 
 ----
+=====
 ****
 
 ==== Scenario: output JSON for multiple features each with multiple scenarios
 
 ****
 Given ::
+=====
 a file named "features/a.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(004ms)#
 ----
 
@@ -3876,7 +4379,9 @@ Scenario: This is the feature a scenario three
     Given This step is passing
 
 ----
+=====
 And ::
+=====
 a file named "features/b.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(001ms)#
 ----
 
@@ -3892,7 +4397,9 @@ Scenario: This is the feature b scenario three
     Given This step is passing
 
 ----
+=====
 And ::
+=====
 a file named "features/c.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(001ms)#
 ----
 
@@ -3908,7 +4415,9 @@ Scenario: This is the feature c scenario three
     Given This step is passing
 
 ----
+=====
 And ::
+=====
 a file named "features/step_definitions/cucumber_steps.js" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -3918,9 +4427,13 @@ var cucumberSteps = function() {
 module.exports = cucumberSteps;
 
 ----
+=====
 When ::
+=====
 I run `cucumber.js -f json features/a.feature features/b.feature features/c.feature` icon:thumbs-up[role="green",title="Passed"] [small right]#(320ms)#
+=====
 Then ::
+=====
 it outputs this json: icon:thumbs-up[role="green",title="Passed"] [small right]#(003ms)#
 ----
 
@@ -4139,12 +4652,14 @@ it outputs this json: icon:thumbs-up[role="green",title="Passed"] [small right]#
 ]
 
 ----
+=====
 ****
 
 ==== Scenario: output JSON for a feature with a background
 
 ****
 Given ::
+=====
 a file named "features/a.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(005ms)#
 ----
 
@@ -4154,7 +4669,9 @@ Background:
   Given This applies to all scenarios
 
 ----
+=====
 And ::
+=====
 a file named "features/step_definitions/cucumber_steps.js" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(001ms)#
 ----
 
@@ -4164,9 +4681,13 @@ var cucumberSteps = function() {
 module.exports = cucumberSteps;
 
 ----
+=====
 When ::
+=====
 I run `cucumber.js -f json` icon:thumbs-up[role="green",title="Passed"] [small right]#(294ms)#
+=====
 Then ::
+=====
 it outputs this json: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -4198,6 +4719,7 @@ it outputs this json: icon:thumbs-up[role="green",title="Passed"] [small right]#
 ]
 
 ----
+=====
 ****
 
 ==== Scenario: output JSON for a feature with a failing background
@@ -4212,6 +4734,7 @@ it was evaluated.
 
 ****
 Given ::
+=====
 a file named "features/a.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(003ms)#
 ----
 
@@ -4221,7 +4744,9 @@ Background:
     Given This applies to all scenarios but fails
 
 ----
+=====
 And ::
+=====
 a file named "features/step_definitions/cucumber_steps.js" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -4231,9 +4756,13 @@ var cucumberSteps = function() {
 module.exports = cucumberSteps;
 
 ----
+=====
 When ::
+=====
 I run `cucumber.js -f json` icon:thumbs-up[role="green",title="Passed"] [small right]#(289ms)#
+=====
 Then ::
+=====
 it outputs this json: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -4265,12 +4794,14 @@ it outputs this json: icon:thumbs-up[role="green",title="Passed"] [small right]#
 ]
 
 ----
+=====
 ****
 
 ==== Scenario: output JSON for a feature with a DocString
 
 ****
 Given ::
+=====
 a file named "features/a.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(003ms)#
 ----
 
@@ -4283,7 +4814,9 @@ Scenario: Scenario with DocString
   """
 
 ----
+=====
 And ::
+=====
 a file named "features/step_definitions/cucumber_steps.js" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -4293,9 +4826,13 @@ var cucumberSteps = function() {
 module.exports = cucumberSteps;
 
 ----
+=====
 When ::
+=====
 I run `cucumber.js -f json` icon:thumbs-up[role="green",title="Passed"] [small right]#(273ms)#
+=====
 Then ::
+=====
 it outputs this json: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -4339,12 +4876,14 @@ it outputs this json: icon:thumbs-up[role="green",title="Passed"] [small right]#
 ]
 
 ----
+=====
 ****
 
 ==== Scenario: output JSON for background step with a DocString
 
 ****
 Given ::
+=====
 a file named "features/a.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(003ms)#
 ----
 
@@ -4357,7 +4896,9 @@ Background: Background with DocString
   """
 
 ----
+=====
 And ::
+=====
 a file named "features/step_definitions/cucumber_steps.js" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -4367,9 +4908,13 @@ var cucumberSteps = function() {
 module.exports = cucumberSteps;
 
 ----
+=====
 When ::
+=====
 I run `cucumber.js -f json` icon:thumbs-up[role="green",title="Passed"] [small right]#(279ms)#
+=====
 Then ::
+=====
 it outputs this json: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -4406,12 +4951,14 @@ it outputs this json: icon:thumbs-up[role="green",title="Passed"] [small right]#
 ]
 
 ----
+=====
 ****
 
 ==== Scenario: output JSON for a feature with tags
 
 ****
 Given ::
+=====
 a file named "features/a.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(003ms)#
 ----
 
@@ -4422,7 +4969,9 @@ Scenario: This scenario has no tags
     Given This step is passing
 
 ----
+=====
 And ::
+=====
 a file named "features/step_definitions/cucumber_steps.js" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(001ms)#
 ----
 
@@ -4432,9 +4981,13 @@ var cucumberSteps = function() {
 module.exports = cucumberSteps;
 
 ----
+=====
 When ::
+=====
 I run `cucumber.js -f json` icon:thumbs-up[role="green",title="Passed"] [small right]#(303ms)#
+=====
 Then ::
+=====
 it outputs this json: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -4486,12 +5039,14 @@ it outputs this json: icon:thumbs-up[role="green",title="Passed"] [small right]#
 ]
 
 ----
+=====
 ****
 
 ==== Scenario: output JSON for scenario with tags
 
 ****
 Given ::
+=====
 a file named "features/a.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(003ms)#
 ----
 
@@ -4502,7 +5057,9 @@ Scenario: This scenario has tags
     Given This step is passing
 
 ----
+=====
 And ::
+=====
 a file named "features/step_definitions/cucumber_steps.js" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(001ms)#
 ----
 
@@ -4512,9 +5069,13 @@ var cucumberSteps = function() {
 module.exports = cucumberSteps;
 
 ----
+=====
 When ::
+=====
 I run `cucumber.js -f json` icon:thumbs-up[role="green",title="Passed"] [small right]#(305ms)#
+=====
 Then ::
+=====
 it outputs this json: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -4566,6 +5127,7 @@ it outputs this json: icon:thumbs-up[role="green",title="Passed"] [small right]#
 ]
 
 ----
+=====
 ****
 
 ==== Scenario: output JSON for a step with table
@@ -4574,6 +5136,7 @@ Rows do not appear to support line attribute yet.
 
 ****
 Given ::
+=====
 a file named "features/a.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(003ms)#
 ----
 
@@ -4587,7 +5150,9 @@ Scenario: This scenario contains a step with a table
     |!    |~    |@    |
 
 ----
+=====
 And ::
+=====
 a file named "features/step_definitions/cucumber_steps.js" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(001ms)#
 ----
 
@@ -4597,9 +5162,13 @@ var cucumberSteps = function() {
 module.exports = cucumberSteps;
 
 ----
+=====
 When ::
+=====
 I run `cucumber.js -f json` icon:thumbs-up[role="green",title="Passed"] [small right]#(262ms)#
+=====
 Then ::
+=====
 it outputs this json: icon:thumbs-up[role="green",title="Passed"] [small right]#(002ms)#
 ----
 
@@ -4643,6 +5212,7 @@ it outputs this json: icon:thumbs-up[role="green",title="Passed"] [small right]#
 ]
 
 ----
+=====
 ****
 
 ==== Scenario: output JSON for background with table
@@ -4651,6 +5221,7 @@ Rows do not appear to support line attribute yet.
 
 ****
 Given ::
+=====
 a file named "features/a.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(003ms)#
 ----
 
@@ -4664,7 +5235,9 @@ Background:
     |!    |~    |@    |
 
 ----
+=====
 And ::
+=====
 a file named "features/step_definitions/cucumber_steps.js" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -4674,9 +5247,13 @@ var cucumberSteps = function() {
 module.exports = cucumberSteps;
 
 ----
+=====
 When ::
+=====
 I run `cucumber.js -f json` icon:thumbs-up[role="green",title="Passed"] [small right]#(202ms)#
+=====
 Then ::
+=====
 it outputs this json: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -4714,12 +5291,14 @@ it outputs this json: icon:thumbs-up[role="green",title="Passed"] [small right]#
 ]
 
 ----
+=====
 ****
 
 ==== Scenario: output JSON for a feature with one scenario outline with no examples tables
 
 ****
 Given ::
+=====
 a file named "features/a.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(003ms)#
 ----
 
@@ -4729,9 +5308,13 @@ Feature: some feature
     Given This <instance> step is passing
 
 ----
+=====
 When ::
+=====
 I run `cucumber.js -f json` icon:thumbs-up[role="green",title="Passed"] [small right]#(301ms)#
+=====
 Then ::
+=====
 it outputs this json: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -4747,12 +5330,14 @@ it outputs this json: icon:thumbs-up[role="green",title="Passed"] [small right]#
 ]
 
 ----
+=====
 ****
 
 ==== Scenario: output JSON for a feature with one scenario outline with an examples table with no rows
 
 ****
 Given ::
+=====
 a file named "features/a.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(003ms)#
 ----
 
@@ -4765,9 +5350,13 @@ Feature: some feature
     | instance |
 
 ----
+=====
 When ::
+=====
 I run `cucumber.js -f json` icon:thumbs-up[role="green",title="Passed"] [small right]#(303ms)#
+=====
 Then ::
+=====
 it outputs this json: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -4783,12 +5372,14 @@ it outputs this json: icon:thumbs-up[role="green",title="Passed"] [small right]#
 ]
 
 ----
+=====
 ****
 
 ==== Scenario: output JSON for a feature with one scenario outline with an examples table with two rows
 
 ****
 Given ::
+=====
 a file named "features/a.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(003ms)#
 ----
 
@@ -4803,7 +5394,9 @@ Feature: some feature
     | second   |
 
 ----
+=====
 And ::
+=====
 a file named "features/step_definitions/cucumber_steps.js" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -4813,9 +5406,13 @@ var cucumberSteps = function() {
 module.exports = cucumberSteps;
 
 ----
+=====
 When ::
+=====
 I run `cucumber.js -f json` icon:thumbs-up[role="green",title="Passed"] [small right]#(309ms)#
+=====
 Then ::
+=====
 it outputs this json: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -4873,12 +5470,14 @@ it outputs this json: icon:thumbs-up[role="green",title="Passed"] [small right]#
 ]
 
 ----
+=====
 ****
 
 ==== Scenario: output JSON for a feature with one scenario outline with an examples table with two rows and a background
 
 ****
 Given ::
+=====
 a file named "features/a.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(003ms)#
 ----
 
@@ -4894,7 +5493,9 @@ Feature: some feature
     | first    |
 
 ----
+=====
 And ::
+=====
 a file named "features/step_definitions/cucumber_steps.js" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -4905,9 +5506,13 @@ var cucumberSteps = function() {
 module.exports = cucumberSteps;
 
 ----
+=====
 When ::
+=====
 I run `cucumber.js -f json` icon:thumbs-up[role="green",title="Passed"] [small right]#(247ms)#
+=====
 Then ::
+=====
 it outputs this json: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -4969,12 +5574,14 @@ it outputs this json: icon:thumbs-up[role="green",title="Passed"] [small right]#
 ]
 
 ----
+=====
 ****
 
 ==== Scenario: output JSON for a feature with one scenario outline with two examples tables
 
 ****
 Given ::
+=====
 a file named "features/a.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(002ms)#
 ----
 
@@ -4992,7 +5599,9 @@ Feature: some feature
     | second   |
 
 ----
+=====
 And ::
+=====
 a file named "features/step_definitions/cucumber_steps.js" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -5002,9 +5611,13 @@ var cucumberSteps = function() {
 module.exports = cucumberSteps;
 
 ----
+=====
 When ::
+=====
 I run `cucumber.js -f json` icon:thumbs-up[role="green",title="Passed"] [small right]#(306ms)#
+=====
 Then ::
+=====
 it outputs this json: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -5062,12 +5675,14 @@ it outputs this json: icon:thumbs-up[role="green",title="Passed"] [small right]#
 ]
 
 ----
+=====
 ****
 
 ==== Scenario: output JSON for a feature with one scenario outline with an examples table with two rows and before, after and around hooks
 
 ****
 Given ::
+=====
 a file named "features/a.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(003ms)#
 ----
 
@@ -5082,7 +5697,9 @@ Feature: some feature
     | second   |
 
 ----
+=====
 And ::
+=====
 a file named "features/step_definitions/cucumber_steps.js" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(001ms)#
 ----
 
@@ -5092,7 +5709,9 @@ var cucumberSteps = function() {
 module.exports = cucumberSteps;
 
 ----
+=====
 And ::
+=====
 a file named "features/support/hooks.js" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -5115,9 +5734,13 @@ var hooks = function () {
 module.exports = hooks;
 
 ----
+=====
 When ::
+=====
 I run `cucumber.js -f json` icon:thumbs-up[role="green",title="Passed"] [small right]#(268ms)#
+=====
 Then ::
+=====
 it outputs this json: icon:thumbs-up[role="green",title="Passed"] [small right]#(002ms)#
 ----
 
@@ -5247,6 +5870,7 @@ it outputs this json: icon:thumbs-up[role="green",title="Passed"] [small right]#
 ]
 
 ----
+=====
 ****
 
 [[PogoScript-support, PogoScript support]]
@@ -5262,13 +5886,21 @@ I want to use PogoScript for writing step definitions
 
 ****
 Given ::
+=====
 a mapping written in PogoScript icon:thumbs-down[role="yellow",title="Undefined"] [small right]#(000ms)#
+=====
 When ::
+=====
 Cucumber executes a scenario using that mapping icon:thumbs-down[role="purple",title="Skipped"] [small right]#(000ms)#
+=====
 Then ::
+=====
 the feature passes icon:thumbs-down[role="purple",title="Skipped"] [small right]#(000ms)#
+=====
 And ::
+=====
 the mapping is run icon:thumbs-down[role="purple",title="Skipped"] [small right]#(000ms)#
+=====
 ****
 
 [[Pretty-Formatter, Pretty Formatter]]
@@ -5283,15 +5915,20 @@ Developers should be able to see prettified view of the scenarios that are being
 
 ****
 Given ::
+=====
 a file named "features/a.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(002ms)#
 ----
 
 Feature: some feature
 
 ----
+=====
 When ::
+=====
 I run `cucumber.js -f pretty` icon:thumbs-up[role="green",title="Passed"] [small right]#(299ms)#
+=====
 Then ::
+=====
 it outputs this text: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -5303,12 +5940,14 @@ Feature: some feature
 0 steps
 
 ----
+=====
 ****
 
 ==== Scenario: Pretty formatter hides around, before and after hooks
 
 ****
 Given ::
+=====
 a file named "features/a.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(003ms)#
 ----
 
@@ -5318,7 +5957,9 @@ Scenario: I've declared one step which passes
     Given This step is passing
 
 ----
+=====
 And ::
+=====
 a file named "features/step_definitions/cucumber_steps.js" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(001ms)#
 ----
 
@@ -5328,7 +5969,9 @@ var cucumberSteps = function() {
 module.exports = cucumberSteps;
 
 ----
+=====
 And ::
+=====
 a file named "features/support/hooks.js" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -5351,9 +5994,13 @@ var hooks = function () {
 module.exports = hooks;
 
 ----
+=====
 When ::
+=====
 I run `cucumber.js -f pretty` icon:thumbs-up[role="green",title="Passed"] [small right]#(306ms)#
+=====
 Then ::
+=====
 it outputs this text: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -5369,12 +6016,14 @@ Feature: some feature
 1 step (1 passed)
 
 ----
+=====
 ****
 
 ==== Scenario: Failing hook is reported as a failed step
 
 ****
 Given ::
+=====
 a file named "features/a.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(004ms)#
 ----
 
@@ -5384,7 +6033,9 @@ Scenario: I've declared one step and it is passing
     Given This step is passing
 
 ----
+=====
 And ::
+=====
 a file named "features/step_definitions/cucumber_steps.js" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(001ms)#
 ----
 
@@ -5394,7 +6045,9 @@ var cucumberSteps = function() {
 module.exports = cucumberSteps;
 
 ----
+=====
 And ::
+=====
 a file named "features/support/hooks.js" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -5407,9 +6060,13 @@ var hooks = function () {
 module.exports = hooks;
 
 ----
+=====
 When ::
+=====
 I run `cucumber.js -f pretty` icon:thumbs-up[role="green",title="Passed"] [small right]#(196ms)#
+=====
 Then ::
+=====
 it outputs this text: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -5434,6 +6091,7 @@ Failing scenarios:
 2 steps (1 failed, 1 skipped)
 
 ----
+=====
 ****
 
 [[Scenario-Outlines-and-Examples, Scenario Outlines and Examples]]
@@ -5443,6 +6101,7 @@ Failing scenarios:
 
 ****
 Given ::
+=====
 the following feature: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -5459,36 +6118,62 @@ Feature: testing scenarios
     | failing | skipped |
 
 ----
+=====
 And ::
+=====
 the step "a background step" has a passing mapping icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 the step "a passing step" has a passing mapping icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 the step "a failing step" has a failing mapping icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 the step "i get passed" has a passing mapping icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 the step "i get skipped" has a passing mapping icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 When ::
+=====
 Cucumber runs the feature icon:thumbs-up[role="green",title="Passed"] [small right]#(027ms)#
+=====
 Then ::
+=====
 the scenario called "A failing step is followed by skipped steps" is reported as failing icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 the step "a background step" passes icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 the step "a passing step" passes icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 the step "a failing step" passes icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 the step "i get passed" passes icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 the step "i get skipped" is skipped icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 ****
 
 ==== Scenario: Outline with table
 
 ****
 Given ::
+=====
 the following feature: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -5502,23 +6187,31 @@ Feature: testing scenarios
     | 1       | 2       |
 
 ----
+=====
 And ::
+=====
 the step "a table step:" has a passing mapping that receives a data table icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 When ::
+=====
 Cucumber runs the feature icon:thumbs-up[role="green",title="Passed"] [small right]#(006ms)#
+=====
 Then ::
+=====
 the received data table array equals the following: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
 [["first","second"],["1","2"]]
 
 ----
+=====
 ****
 
 ==== Scenario: Outline with doc string
 
 ****
 Given ::
+=====
 the following feature: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -5534,11 +6227,17 @@ Feature: testing scenarios
     | first   | some   |
 
 ----
+=====
 And ::
+=====
 the step "a doc string step:" has a passing mapping that receives a doc string icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 When ::
+=====
 Cucumber runs the feature icon:thumbs-up[role="green",title="Passed"] [small right]#(005ms)#
+=====
 Then ::
+=====
 the received doc string equals the following: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -5546,12 +6245,14 @@ I am doc string in first example
 And there are some string
 
 ----
+=====
 ****
 
 ==== Scenario: Several outlines
 
 ****
 Given ::
+=====
 the following feature: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -5573,24 +6274,43 @@ Feature: testing scenarios
     | d  |
 
 ----
+=====
 And ::
+=====
 the step "step a" has a passing mapping icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 the step "step b" has a passing mapping icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 the step "step c" has a passing mapping icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 the step "step d" has a passing mapping icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 When ::
+=====
 Cucumber runs the feature icon:thumbs-up[role="green",title="Passed"] [small right]#(009ms)#
+=====
 Then ::
+=====
 the step "step a" passes icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 the step "step b" passes icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 the step "step c" passes icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 the step "step d" passes icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 ****
 
 [[Scenario-Statuses, Scenario Statuses]]
@@ -5600,6 +6320,7 @@ the step "step d" passes icon:thumbs-up[role="green",title="Passed"] [small righ
 
 ****
 Given ::
+=====
 a file named "features/a.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(004ms)#
 ----
 
@@ -5609,7 +6330,9 @@ Scenario: I've declared one step and it is passing
     Given This step is passing
 
 ----
+=====
 And ::
+=====
 a file named "features/step_definitions/cucumber_steps.js" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -5619,7 +6342,9 @@ var cucumberSteps = function() {
 module.exports = cucumberSteps;
 
 ----
+=====
 And ::
+=====
 a file named "features/support/hooks.js" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -5669,9 +6394,13 @@ var hooks = function () {
 module.exports = hooks;
 
 ----
+=====
 When ::
+=====
 I run `cucumber.js -f json` icon:thumbs-up[role="green",title="Passed"] [small right]#(295ms)#
+=====
 Then ::
+=====
 it outputs this json: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -5745,12 +6474,14 @@ it outputs this json: icon:thumbs-up[role="green",title="Passed"] [small right]#
 ]
 
 ----
+=====
 ****
 
 ==== Scenario: Success status
 
 ****
 Given ::
+=====
 a file named "features/a.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(004ms)#
 ----
 
@@ -5760,7 +6491,9 @@ Scenario: I've declared one step and it is passing
     Given This step is passing
 
 ----
+=====
 And ::
+=====
 a file named "features/step_definitions/cucumber_steps.js" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(001ms)#
 ----
 
@@ -5770,7 +6503,9 @@ var cucumberSteps = function() {
 module.exports = cucumberSteps;
 
 ----
+=====
 And ::
+=====
 a file named "features/support/hooks.js" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(001ms)#
 ----
 
@@ -5796,9 +6531,13 @@ var hooks = function () {
 module.exports = hooks;
 
 ----
+=====
 When ::
+=====
 I run `cucumber.js -f json` icon:thumbs-up[role="green",title="Passed"] [small right]#(289ms)#
+=====
 Then ::
+=====
 it outputs this json: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -5845,12 +6584,14 @@ it outputs this json: icon:thumbs-up[role="green",title="Passed"] [small right]#
 ]
 
 ----
+=====
 ****
 
 ==== Scenario: Failed status
 
 ****
 Given ::
+=====
 a file named "features/a.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(003ms)#
 ----
 
@@ -5860,7 +6601,9 @@ Scenario: I've declared one step and it is failing
     Given This step is failing
 
 ----
+=====
 And ::
+=====
 a file named "features/step_definitions/cucumber_steps.js" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -5870,7 +6613,9 @@ var cucumberSteps = function() {
 module.exports = cucumberSteps;
 
 ----
+=====
 And ::
+=====
 a file named "features/support/hooks.js" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -5896,9 +6641,13 @@ var hooks = function () {
 module.exports = hooks;
 
 ----
+=====
 When ::
+=====
 I run `cucumber.js -f json` icon:thumbs-up[role="green",title="Passed"] [small right]#(189ms)#
+=====
 Then ::
+=====
 it outputs this json: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -5946,12 +6695,14 @@ it outputs this json: icon:thumbs-up[role="green",title="Passed"] [small right]#
 ]
 
 ----
+=====
 ****
 
 ==== Scenario: Pending status
 
 ****
 Given ::
+=====
 a file named "features/a.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(004ms)#
 ----
 
@@ -5961,7 +6712,9 @@ Scenario: I've declared one step and it is pending
     Given This step is pending
 
 ----
+=====
 And ::
+=====
 a file named "features/step_definitions/cucumber_steps.js" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -5971,7 +6724,9 @@ var cucumberSteps = function() {
 module.exports = cucumberSteps;
 
 ----
+=====
 And ::
+=====
 a file named "features/support/hooks.js" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(001ms)#
 ----
 
@@ -5997,9 +6752,13 @@ var hooks = function () {
 module.exports = hooks;
 
 ----
+=====
 When ::
+=====
 I run `cucumber.js -f json` icon:thumbs-up[role="green",title="Passed"] [small right]#(295ms)#
+=====
 Then ::
+=====
 it outputs this json: icon:thumbs-up[role="green",title="Passed"] [small right]#(001ms)#
 ----
 
@@ -6045,12 +6804,14 @@ it outputs this json: icon:thumbs-up[role="green",title="Passed"] [small right]#
 ]
 
 ----
+=====
 ****
 
 ==== Scenario: Undefined status
 
 ****
 Given ::
+=====
 a file named "features/a.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(005ms)#
 ----
 
@@ -6060,7 +6821,9 @@ Scenario: I've declared one step and it is undefined
     Given This step is undefined
 
 ----
+=====
 And ::
+=====
 a file named "features/step_definitions/cucumber_steps.js" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(001ms)#
 ----
 
@@ -6069,7 +6832,9 @@ var cucumberSteps = function() {
 module.exports = cucumberSteps;
 
 ----
+=====
 And ::
+=====
 a file named "features/support/hooks.js" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(001ms)#
 ----
 
@@ -6095,9 +6860,13 @@ var hooks = function () {
 module.exports = hooks;
 
 ----
+=====
 When ::
+=====
 I run `cucumber.js -f json` icon:thumbs-up[role="green",title="Passed"] [small right]#(296ms)#
+=====
 Then ::
+=====
 it outputs this json: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -6143,12 +6912,14 @@ it outputs this json: icon:thumbs-up[role="green",title="Passed"] [small right]#
 ]
 
 ----
+=====
 ****
 
 ==== Scenario: Simultaneous statuses
 
 ****
 Given ::
+=====
 a file named "features/a.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(004ms)#
 ----
 
@@ -6159,7 +6930,9 @@ Scenario: I've declared one step and it is undefined
     And This step is undefined
 
 ----
+=====
 And ::
+=====
 a file named "features/step_definitions/cucumber_steps.js" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(001ms)#
 ----
 
@@ -6169,7 +6942,9 @@ var cucumberSteps = function() {
 module.exports = cucumberSteps;
 
 ----
+=====
 And ::
+=====
 a file named "features/support/hooks.js" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -6197,9 +6972,13 @@ var hooks = function () {
 module.exports = hooks;
 
 ----
+=====
 When ::
+=====
 I run `cucumber.js -f json` icon:thumbs-up[role="green",title="Passed"] [small right]#(299ms)#
+=====
 Then ::
+=====
 it outputs this json: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -6264,6 +7043,7 @@ it outputs this json: icon:thumbs-up[role="green",title="Passed"] [small right]#
 ]
 
 ----
+=====
 ****
 
 [[Step-definition-callbacks, Step definition callbacks]]
@@ -6273,57 +7053,89 @@ it outputs this json: icon:thumbs-up[role="green",title="Passed"] [small right]#
 
 ****
 Given ::
+=====
 a scenario with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
 When I divide 10 by 0
 
 ----
+=====
 And ::
+=====
 the step "I divide 10 by 0" has a mapping failing via a Node-like error construct icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 When ::
+=====
 Cucumber executes the scenario icon:thumbs-up[role="green",title="Passed"] [small right]#(009ms)#
+=====
 Then ::
+=====
 the scenario fails icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 ****
 
 ==== Scenario: succeed with promise icon:thumbs-down[role="red",title="Failed"]
 
 ****
 Given ::
+=====
 a promise-based mapping icon:thumbs-down[role="yellow",title="Undefined"] [small right]#(000ms)#
+=====
 When ::
+=====
 Cucumber executes that mapping icon:thumbs-down[role="yellow",title="Undefined"] [small right]#(000ms)#
+=====
 Then ::
+=====
 the mapping is run icon:thumbs-down[role="purple",title="Skipped"] [small right]#(000ms)#
+=====
 And ::
+=====
 the scenario passes icon:thumbs-down[role="purple",title="Skipped"] [small right]#(000ms)#
+=====
 ****
 
 ==== Scenario: fail with promise icon:thumbs-down[role="red",title="Failed"]
 
 ****
 Given ::
+=====
 a failing promise-based mapping icon:thumbs-down[role="yellow",title="Undefined"] [small right]#(000ms)#
+=====
 When ::
+=====
 Cucumber executes that mapping icon:thumbs-down[role="yellow",title="Undefined"] [small right]#(000ms)#
+=====
 Then ::
+=====
 the mapping is run icon:thumbs-down[role="purple",title="Skipped"] [small right]#(000ms)#
+=====
 And ::
+=====
 the scenario fails icon:thumbs-down[role="purple",title="Skipped"] [small right]#(000ms)#
+=====
 ****
 
 ==== Scenario: succeed synchronously icon:thumbs-down[role="red",title="Failed"]
 
 ****
 Given ::
+=====
 a passing synchronous mapping icon:thumbs-down[role="yellow",title="Undefined"] [small right]#(000ms)#
+=====
 When ::
+=====
 Cucumber executes that mapping icon:thumbs-down[role="yellow",title="Undefined"] [small right]#(000ms)#
+=====
 Then ::
+=====
 the mapping is run icon:thumbs-down[role="purple",title="Skipped"] [small right]#(000ms)#
+=====
 And ::
+=====
 the scenario passes icon:thumbs-down[role="purple",title="Skipped"] [small right]#(000ms)#
+=====
 ****
 
 [[Strict-mode, Strict mode]]
@@ -6338,6 +7150,7 @@ step definitions have been defined.
 
 ****
 Given ::
+=====
 a file named "features/a.feature" with: icon:thumbs-down[role="blue",title="Missing"]
 ----
 
@@ -6346,12 +7159,14 @@ Feature: Missing
     Given this step passes
 
 ----
+=====
 ****
 
 ==== Scenario: Succeed scenario with implemented step with --strict
 
 ****
 Given ::
+=====
 a file named "features/a.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(003ms)#
 ----
 
@@ -6360,7 +7175,9 @@ Feature: Missing
     Given this step passes
 
 ----
+=====
 Given ::
+=====
 a file named "features/step_definitions/cucumber_steps.js" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -6370,9 +7187,13 @@ var cucumberSteps = function() {
 module.exports = cucumberSteps;
 
 ----
+=====
 When ::
+=====
 I run `cucumber.js -f progress features/a.feature --strict` icon:thumbs-up[role="green",title="Passed"] [small right]#(292ms)#
+=====
 Then ::
+=====
 it outputs this text: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -6383,14 +7204,18 @@ it outputs this text: icon:thumbs-up[role="green",title="Passed"] [small right]#
 
 
 ----
+=====
 And ::
+=====
 the exit status should be 0 icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 ****
 
 ==== Scenario: Fail scenario with undefined step with --strict
 
 ****
 Given ::
+=====
 a file named "features/a.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(003ms)#
 ----
 
@@ -6399,9 +7224,13 @@ Feature: Missing
     Given this step passes
 
 ----
+=====
 When ::
+=====
 I run `cucumber.js -f progress features/a.feature --strict` icon:thumbs-up[role="green",title="Passed"] [small right]#(292ms)#
+=====
 Then ::
+=====
 it outputs this text: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -6418,14 +7247,18 @@ this.Given(/^this step passes$/, function (callback) {
 });
 
 ----
+=====
 And ::
+=====
 the exit status should be 1 icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 ****
 
 ==== Scenario: Fail Scenario with pending step with --strict
 
 ****
 Given ::
+=====
 a file named "features/a.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(003ms)#
 ----
 
@@ -6434,7 +7267,9 @@ Feature: Missing
     Given this step passes
 
 ----
+=====
 Given ::
+=====
 a file named "features/step_definitions/cucumber_steps.js" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(001ms)#
 ----
 
@@ -6444,9 +7279,13 @@ var cucumberSteps = function() {
 module.exports = cucumberSteps;
 
 ----
+=====
 When ::
+=====
 I run `cucumber.js -f progress features/a.feature --strict` icon:thumbs-up[role="green",title="Passed"] [small right]#(214ms)#
+=====
 Then ::
+=====
 it outputs this text: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -6456,14 +7295,18 @@ P
 1 step (1 pending)
 
 ----
+=====
 And ::
+=====
 the exit status should be 1 icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 ****
 
 ==== Scenario: Fail scenario with undefined step with -S
 
 ****
 Given ::
+=====
 a file named "features/a.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(003ms)#
 ----
 
@@ -6472,9 +7315,13 @@ Feature: Missing
     Given this step passes
 
 ----
+=====
 When ::
+=====
 I run `cucumber.js -f progress features/a.feature -S` icon:thumbs-up[role="green",title="Passed"] [small right]#(244ms)#
+=====
 Then ::
+=====
 it outputs this text: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -6491,14 +7338,18 @@ this.Given(/^this step passes$/, function (callback) {
 });
 
 ----
+=====
 And ::
+=====
 the exit status should be 1 icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 ****
 
 ==== Scenario: Fail Scenario with pending step with -S
 
 ****
 Given ::
+=====
 a file named "features/a.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(002ms)#
 ----
 
@@ -6507,7 +7358,9 @@ Feature: Missing
     Given this step passes
 
 ----
+=====
 Given ::
+=====
 a file named "features/step_definitions/cucumber_steps.js" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(001ms)#
 ----
 
@@ -6517,9 +7370,13 @@ var cucumberSteps = function() {
 module.exports = cucumberSteps;
 
 ----
+=====
 When ::
+=====
 I run `cucumber.js -f progress features/a.feature -S` icon:thumbs-up[role="green",title="Passed"] [small right]#(301ms)#
+=====
 Then ::
+=====
 it outputs this text: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -6529,8 +7386,11 @@ P
 1 step (1 pending)
 
 ----
+=====
 And ::
+=====
 the exit status should be 1 icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 ****
 
 [[Summary-Formatter, Summary Formatter]]
@@ -6545,15 +7405,20 @@ Developers should be able to see a high level summary of the scenarios that were
 
 ****
 Given ::
+=====
 a file named "features/a.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(003ms)#
 ----
 
 Feature: some feature
 
 ----
+=====
 When ::
+=====
 I run `cucumber.js -f summary` icon:thumbs-up[role="green",title="Passed"] [small right]#(213ms)#
+=====
 Then ::
+=====
 it outputs this text: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -6561,12 +7426,14 @@ it outputs this text: icon:thumbs-up[role="green",title="Passed"] [small right]#
 0 steps
 
 ----
+=====
 ****
 
 ==== Scenario: Summary formatter hides around, before and after hooks
 
 ****
 Given ::
+=====
 a file named "features/a.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(002ms)#
 ----
 
@@ -6576,7 +7443,9 @@ Scenario: I've declared one step which passes
     Given This step is passing
 
 ----
+=====
 And ::
+=====
 a file named "features/step_definitions/cucumber_steps.js" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(001ms)#
 ----
 
@@ -6586,7 +7455,9 @@ var cucumberSteps = function() {
 module.exports = cucumberSteps;
 
 ----
+=====
 And ::
+=====
 a file named "features/support/hooks.js" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(001ms)#
 ----
 
@@ -6609,9 +7480,13 @@ var hooks = function () {
 module.exports = hooks;
 
 ----
+=====
 When ::
+=====
 I run `cucumber.js -f summary` icon:thumbs-up[role="green",title="Passed"] [small right]#(291ms)#
+=====
 Then ::
+=====
 it outputs this text: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -6619,6 +7494,7 @@ it outputs this text: icon:thumbs-up[role="green",title="Passed"] [small right]#
 1 step (1 passed)
 
 ----
+=====
 ****
 
 [[User-logs-into-the-system, User logs into the system]]
@@ -6634,88 +7510,146 @@ I want to log in to the system
 
 ****
 Given ::
+=====
 I have not logged or have logged out before icon:thumbs-down[role="yellow",title="Undefined"] [small right]#(000ms)#
+=====
 When ::
+=====
 I visit initial page icon:thumbs-down[role="yellow",title="Undefined"] [small right]#(000ms)#
+=====
 Then ::
+=====
 Default app should be loaded icon:thumbs-down[role="yellow",title="Undefined"] [small right]#(000ms)#
+=====
 And ::
+=====
 I should see login request icon:thumbs-down[role="yellow",title="Undefined"] [small right]#(000ms)#
+=====
 And ::
+=====
 I should not see any username icon:thumbs-down[role="yellow",title="Undefined"] [small right]#(000ms)#
+=====
 ****
 
 ==== Scenario: Minimal user sees welcome page with its username and logout icon:thumbs-down[role="red",title="Failed"]
 
 ****
 Given ::
+=====
 I have logged as guest named "Guest" icon:thumbs-down[role="yellow",title="Undefined"] [small right]#(000ms)#
+=====
 When ::
+=====
 I visit initial page icon:thumbs-down[role="yellow",title="Undefined"] [small right]#(000ms)#
+=====
 Then ::
+=====
 Default app should be loaded icon:thumbs-down[role="yellow",title="Undefined"] [small right]#(000ms)#
+=====
 And ::
+=====
 I should see logout request icon:thumbs-down[role="yellow",title="Undefined"] [small right]#(000ms)#
+=====
 And ::
+=====
 I should see "Guest" as username icon:thumbs-down[role="yellow",title="Undefined"] [small right]#(000ms)#
+=====
 ****
 
 ==== Scenario: Unlogged user logs in icon:thumbs-down[role="red",title="Failed"]
 
 ****
 Given ::
+=====
 I have not logged or have logged out before icon:thumbs-down[role="yellow",title="Undefined"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have visited initial page icon:thumbs-down[role="yellow",title="Undefined"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have seen login request icon:thumbs-down[role="yellow",title="Undefined"] [small right]#(000ms)#
+=====
 When ::
+=====
 I ask to log in icon:thumbs-down[role="yellow",title="Undefined"] [small right]#(000ms)#
+=====
 Then ::
+=====
 I should be taken to login page icon:thumbs-down[role="yellow",title="Undefined"] [small right]#(000ms)#
+=====
 ****
 
 ==== Scenario: Logged user logs out icon:thumbs-down[role="red",title="Failed"]
 
 ****
 Given ::
+=====
 I have logged as guest named "Guest" icon:thumbs-down[role="yellow",title="Undefined"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have visited initial page icon:thumbs-down[role="yellow",title="Undefined"] [small right]#(000ms)#
+=====
 And ::
+=====
 I have seen logout request icon:thumbs-down[role="yellow",title="Undefined"] [small right]#(000ms)#
+=====
 When ::
+=====
 I ask to log out icon:thumbs-down[role="yellow",title="Undefined"] [small right]#(000ms)#
+=====
 Then ::
+=====
 I should be taken to logout page icon:thumbs-down[role="yellow",title="Undefined"] [small right]#(000ms)#
+=====
 ****
 
 ==== Scenario: Disconnected user sees welcome page and reconnect option icon:thumbs-down[role="red",title="Failed"]
 
 ****
 Given ::
+=====
 I have had a broken connection with api site icon:thumbs-down[role="yellow",title="Undefined"] [small right]#(000ms)#
+=====
 When ::
+=====
 I visit initial page icon:thumbs-down[role="yellow",title="Undefined"] [small right]#(000ms)#
+=====
 Then ::
+=====
 Default app should be loaded icon:thumbs-down[role="yellow",title="Undefined"] [small right]#(000ms)#
+=====
 And ::
+=====
 I should see reconnect request icon:thumbs-down[role="yellow",title="Undefined"] [small right]#(000ms)#
+=====
 And ::
+=====
 I should not see any username icon:thumbs-down[role="yellow",title="Undefined"] [small right]#(000ms)#
+=====
 ****
 
 ==== Scenario: User sees 'connecting' while connecting icon:thumbs-down[role="red",title="Failed"]
 
 ****
 Given ::
+=====
 I have had lagging api site icon:thumbs-down[role="yellow",title="Undefined"] [small right]#(000ms)#
+=====
 When ::
+=====
 I visit initial page icon:thumbs-down[role="yellow",title="Undefined"] [small right]#(000ms)#
+=====
 Then ::
+=====
 I should see connecting message icon:thumbs-down[role="yellow",title="Undefined"] [small right]#(000ms)#
+=====
 And ::
+=====
 I should not see any username icon:thumbs-down[role="yellow",title="Undefined"] [small right]#(000ms)#
+=====
 ****
 
 [[World-constructor-callback-with-object, World constructor callback with object]]
@@ -6744,13 +7678,21 @@ instance will be used by Cucumber: +
 
 ****
 Given ::
+=====
 a custom World constructor calling back with an explicit object icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 When ::
+=====
 Cucumber executes a scenario that calls a function on the explicit World object icon:thumbs-up[role="green",title="Passed"] [small right]#(005ms)#
+=====
 Then ::
+=====
 the feature passes icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 the explicit World object function should have been called icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 ****
 
 [[step-definition-snippets, step definition snippets]]
@@ -6760,6 +7702,7 @@ the explicit World object function should have been called icon:thumbs-up[role="
 
 ****
 Given ::
+=====
 a scenario with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -6767,60 +7710,85 @@ Given I am a happy veggie \o/
 When I type -[]{}()*+?.\^$|#/
 
 ----
+=====
 When ::
+=====
 Cucumber executes the scenario icon:thumbs-up[role="green",title="Passed"] [small right]#(006ms)#
+=====
 Then ::
+=====
 a "Given" step definition snippet for /^I am a happy veggie \\o\/$/ is suggested icon:thumbs-down[role="yellow",title="Undefined"] [small right]#(000ms)#
+=====
 Then ::
+=====
 a "When" step definition snippet for /^I type \-\[\]\{\}\(\)\*\+\?\.\\\^\$\|\#\/$/ is suggested icon:thumbs-down[role="yellow",title="Undefined"] [small right]#(000ms)#
+=====
 ****
 
 ==== Scenario: step matching groups icon:thumbs-down[role="red",title="Failed"]
 
 ****
 Given ::
+=====
 a scenario with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
 Given I have 5 "kekiri" cucumbers
 
 ----
+=====
 When ::
+=====
 Cucumber executes the scenario icon:thumbs-up[role="green",title="Passed"] [small right]#(004ms)#
+=====
 Then ::
+=====
 a "Given" step definition snippet for /^I have (\d+) "([^"]*)" cucumbers$/ with 2 parameters is suggested icon:thumbs-down[role="yellow",title="Undefined"] [small right]#(000ms)#
+=====
 ****
 
 ==== Scenario: multiple matching groups icon:thumbs-down[role="red",title="Failed"]
 
 ****
 Given ::
+=====
 a scenario with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
 Given I have some "hekiri", "wild" and "regular" cucumbers
 
 ----
+=====
 When ::
+=====
 Cucumber executes the scenario icon:thumbs-up[role="green",title="Passed"] [small right]#(004ms)#
+=====
 Then ::
+=====
 a "Given" step definition snippet for /^I have some "([^"]*)", "([^"]*)" and "([^"]*)" cucumbers$/ with 3 parameters is suggested icon:thumbs-down[role="yellow",title="Undefined"] [small right]#(000ms)#
+=====
 ****
 
 ==== Scenario: outline steps with examples
 
 ****
 Given ::
+=====
 a scenario with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
 Given I have <some> cucumbers
 
 ----
+=====
 When ::
+=====
 Cucumber executes the scenario icon:thumbs-up[role="green",title="Passed"] [small right]#(005ms)#
+=====
 Then ::
+=====
 a "Given" example step definition snippet for /^I have "(.*)" cucumbers$/ with 1 parameters is suggested icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 ****
 
 [[step-definitions-with-string-pattern, step definitions with string pattern]]
@@ -6835,42 +7803,70 @@ Cucumber also supports string-based patterns.
 
 ****
 Given ::
+=====
 a mapping with a string-based pattern icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 When ::
+=====
 Cucumber executes a scenario using that mapping icon:thumbs-up[role="green",title="Passed"] [small right]#(004ms)#
+=====
 Then ::
+=====
 the feature passes icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 the mapping is run icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 ****
 
 ==== Scenario: step definition with string-based pattern and parameters
 
 ****
 Given ::
+=====
 a mapping with a string-based pattern and parameters icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 When ::
+=====
 Cucumber executes a scenario that passes arguments to that mapping icon:thumbs-up[role="green",title="Passed"] [small right]#(003ms)#
+=====
 Then ::
+=====
 the feature passes icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 the mapping is run icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 the mapping receives the arguments icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 ****
 
 ==== Scenario: step definition with string-based pattern and multiple parameters icon:thumbs-down[role="red",title="Failed"]
 
 ****
 Given ::
+=====
 a mapping with a string-based pattern and multiple parameters icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 When ::
+=====
 Cucumber executes a scenario that passes multiple arguments to that mapping icon:thumbs-up[role="green",title="Passed"] [small right]#(003ms)#
+=====
 Then ::
+=====
 the feature passes icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 the mapping is run icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 the mapping receives the multipple arguments icon:thumbs-down[role="yellow",title="Undefined"] [small right]#(000ms)#
+=====
 ****
 

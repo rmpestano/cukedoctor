@@ -1,6 +1,6 @@
 :toc: right
 :backend: pdf
-:doctitle: Cucumber Living Documentation
+:doctitle: cucumber-documentation
 :doctype: book
 :icons: font
 :!numbered:
@@ -10,7 +10,7 @@
 :docinfo:
 :toclevels: 3
 
-= *Cucumber Living Documentation*
+= *cucumber-documentation*
 
 == *Summary*
 [cols="12*^m", options="header,footer"]
@@ -1004,13 +1004,16 @@ fail if your After hook throws an error.
 
 ****
 Given ::
+=====
 the standard step definitions icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 ****
 
 ==== Scenario Outline: Retreive the status of a scenario as a symbol
 
 ****
 Given ::
+=====
 a file named "features/support/debug_hook.rb" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -1019,7 +1022,9 @@ After do |scenario|
 end
 
 ----
+=====
 And ::
+=====
 a file named "features/result.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -1028,16 +1033,22 @@ Feature:
     Given this step passes
 
 ----
+=====
 When ::
+=====
 I run `cucumber -f progress` icon:thumbs-up[role="green",title="Passed"] [small right]#(015ms)#
+=====
 Then ::
+=====
 the output should contain ":passed" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 ****
 
 ==== Scenario Outline: Retreive the status of a scenario as a symbol
 
 ****
 Given ::
+=====
 a file named "features/support/debug_hook.rb" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -1046,7 +1057,9 @@ After do |scenario|
 end
 
 ----
+=====
 And ::
+=====
 a file named "features/result.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -1055,16 +1068,22 @@ Feature:
     Given this step fails
 
 ----
+=====
 When ::
+=====
 I run `cucumber -f progress` icon:thumbs-up[role="green",title="Passed"] [small right]#(015ms)#
+=====
 Then ::
+=====
 the output should contain ":failed" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 ****
 
 ==== Scenario Outline: Retreive the status of a scenario as a symbol
 
 ****
 Given ::
+=====
 a file named "features/support/debug_hook.rb" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -1073,7 +1092,9 @@ After do |scenario|
 end
 
 ----
+=====
 And ::
+=====
 a file named "features/result.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -1082,16 +1103,22 @@ Feature:
     Given this step is pending
 
 ----
+=====
 When ::
+=====
 I run `cucumber -f progress` icon:thumbs-up[role="green",title="Passed"] [small right]#(013ms)#
+=====
 Then ::
+=====
 the output should contain ":pending" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 ****
 
 ==== Scenario: Check the failed status of a scenario in a hook
 
 ****
 Given ::
+=====
 a file named "features/support/debug_hook.rb" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -1102,7 +1129,9 @@ After do |scenario|
 end
 
 ----
+=====
 And ::
+=====
 a file named "features/fail.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -1111,21 +1140,27 @@ Feature:
     Given this step fails
 
 ----
+=====
 When ::
+=====
 I run `cucumber -f progress` icon:thumbs-up[role="green",title="Passed"] [small right]#(012ms)#
+=====
 Then ::
+=====
 the output should contain: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
 eek
 
 ----
+=====
 ****
 
 ==== Scenario: Make a scenario fail from an After hook
 
 ****
 Given ::
+=====
 a file named "features/support/bad_hook.rb" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -1134,7 +1169,9 @@ After do
 end
 
 ----
+=====
 And ::
+=====
 a file named "features/pass.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -1143,9 +1180,13 @@ Feature:
     Given this step passes
 
 ----
+=====
 When ::
+=====
 I run `cucumber -f pretty` icon:thumbs-up[role="green",title="Passed"] [small right]#(011ms)#
+=====
 Then ::
+=====
 it should fail with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -1155,12 +1196,14 @@ it should fail with: icon:thumbs-up[role="green",title="Passed"] [small right]#(
       ./features/support/bad_hook.rb:2:in `After'
 
 ----
+=====
 ****
 
 ==== Scenario: After hooks are executed in reverse order of definition
 
 ****
 Given ::
+=====
 a file named "features/support/hooks.rb" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -1173,7 +1216,9 @@ After do
 end
 
 ----
+=====
 And ::
+=====
 a file named "features/pass.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -1182,9 +1227,13 @@ Feature:
     Given this step passes
 
 ----
+=====
 When ::
+=====
 I run `cucumber -f progress` icon:thumbs-up[role="green",title="Passed"] [small right]#(007ms)#
+=====
 Then ::
+=====
 the output should contain: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -1193,6 +1242,7 @@ Second
 First
 
 ----
+=====
 ****
 
 [[Alle-bruker-ikke-UTF-8, Alle bruker ikke UTF-8]]
@@ -1202,9 +1252,13 @@ First
 
 ****
 Når ::
+=====
 jeg drikker en "øl" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 Så ::
+=====
 skal de andre si "skål" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 ****
 
 [[Around-hooks, Around hooks]]
@@ -1222,6 +1276,7 @@ permit definition of Around hooks.
 
 ****
 Given ::
+=====
 a file named "features/step_definitions/steps.rb" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -1230,7 +1285,9 @@ Then /^the hook is called$/ do
 end
 
 ----
+=====
 And ::
+=====
 a file named "features/support/hooks.rb" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -1240,7 +1297,9 @@ Around do |scenario, block|
 end
 
 ----
+=====
 And ::
+=====
 a file named "features/f.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -1249,9 +1308,13 @@ Feature: Around hooks
     Then the hook is called
 
 ----
+=====
 When ::
+=====
 I run `cucumber features/f.feature` icon:thumbs-up[role="green",title="Passed"] [small right]#(605ms)#
+=====
 Then ::
+=====
 it should pass with: icon:thumbs-up[role="green",title="Passed"] [small right]#(001ms)#
 ----
 
@@ -1265,6 +1328,7 @@ Feature: Around hooks
 
 
 ----
+=====
 ****
 
 ==== Scenario: Multiple Around hooks
@@ -1273,6 +1337,7 @@ Feature: Around hooks
 
 ****
 Given ::
+=====
 a file named "features/step_definitions/steps.rb" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(001ms)#
 ----
 
@@ -1281,7 +1346,9 @@ Then /^the hooks are called in the correct order$/ do
 end
 
 ----
+=====
 And ::
+=====
 a file named "features/support/hooks.rb" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -1304,7 +1371,9 @@ Around do |scenario, block|
 end
 
 ----
+=====
 And ::
+=====
 a file named "features/f.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -1313,9 +1382,13 @@ Feature: Around hooks
     Then the hooks are called in the correct order
 
 ----
+=====
 When ::
+=====
 I run `cucumber features/f.feature` icon:thumbs-up[role="green",title="Passed"] [small right]#(607ms)#
+=====
 Then ::
+=====
 it should pass with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -1329,6 +1402,7 @@ Feature: Around hooks
 
 
 ----
+=====
 ****
 
 ==== Scenario: Mixing Around, Before, and After hooks
@@ -1337,6 +1411,7 @@ Feature: Around hooks
 
 ****
 Given ::
+=====
 a file named "features/step_definitions/steps.rb" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -1345,7 +1420,9 @@ Then /^the Around hook is called around Before and After hooks$/ do
 end
 
 ----
+=====
 And ::
+=====
 a file named "features/support/hooks.rb" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -1369,7 +1446,9 @@ After do |scenario|
 end
 
 ----
+=====
 And ::
+=====
 a file named "features/f.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -1378,9 +1457,13 @@ Feature: Around hooks
     Then the Around hook is called around Before and After hooks
 
 ----
+=====
 When ::
+=====
 I run `cucumber features/f.feature` icon:thumbs-up[role="green",title="Passed"] [small right]#(607ms)#
+=====
 Then ::
+=====
 it should pass with: icon:thumbs-up[role="green",title="Passed"] [small right]#(001ms)#
 ----
 
@@ -1394,6 +1477,7 @@ Feature: Around hooks
 
 
 ----
+=====
 ****
 
 ==== Scenario: Around hooks with tags
@@ -1402,6 +1486,7 @@ Feature: Around hooks
 
 ****
 Given ::
+=====
 a file named "features/step_definitions/steps.rb" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -1410,7 +1495,9 @@ Then /^the Around hooks with matching tags are called$/ do
 end
 
 ----
+=====
 And ::
+=====
 a file named "features/support/hooks.rb" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -1439,7 +1526,9 @@ Around('@two') do |scenario, block|
 end
 
 ----
+=====
 And ::
+=====
 a file named "features/f.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -1449,9 +1538,13 @@ Feature: Around hooks
     Then the Around hooks with matching tags are called
 
 ----
+=====
 When ::
+=====
 I run `cucumber -q -t @one features/f.feature` icon:thumbs-up[role="green",title="Passed"] [small right]#(708ms)#
+=====
 Then ::
+=====
 it should pass with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -1466,6 +1559,7 @@ Feature: Around hooks
 
 
 ----
+=====
 ****
 
 ==== Scenario: Around hooks with scenario outlines
@@ -1474,6 +1568,7 @@ Feature: Around hooks
 
 ****
 Given ::
+=====
 a file named "features/step_definitions/steps.rb" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -1482,7 +1577,9 @@ Then /^the hook is called$/ do
 end
 
 ----
+=====
 And ::
+=====
 a file named "features/support/hooks.rb" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -1492,7 +1589,9 @@ Around do |scenario, block|
 end
 
 ----
+=====
 And ::
+=====
 a file named "features/f.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -1506,9 +1605,13 @@ Feature: Around hooks with scenario outlines
       | two    |
 
 ----
+=====
 When ::
+=====
 I run `cucumber features/f.feature` icon:thumbs-up[role="green",title="Passed"] [small right]#(607ms)#
+=====
 Then ::
+=====
 it should pass with: icon:thumbs-up[role="green",title="Passed"] [small right]#(001ms)#
 ----
 
@@ -1527,6 +1630,7 @@ Feature: Around hooks with scenario outlines
 
 
 ----
+=====
 ****
 
 ==== Scenario: Around Hooks and the Custom World
@@ -1535,6 +1639,7 @@ Feature: Around hooks with scenario outlines
 
 ****
 Given ::
+=====
 a file named "features/step_definitions/steps.rb" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -1548,7 +1653,9 @@ Then /^what$/ do
 end
 
 ----
+=====
 And ::
+=====
 a file named "features/support/hooks.rb" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -1558,7 +1665,9 @@ Around do |scenario, block|
 end
 
 ----
+=====
 And ::
+=====
 a file named "features/f.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -1570,10 +1679,15 @@ Feature: Around hooks
     Then what
 
 ----
+=====
 When ::
+=====
 I run `cucumber features/f.feature` icon:thumbs-up[role="green",title="Passed"] [small right]#(608ms)#
+=====
 Then ::
+=====
 it should pass icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 ****
 
 [[Background, Background]]
@@ -1596,6 +1710,7 @@ consider splitting them into a separate feature.
 
 ****
 Given ::
+=====
 a file named "features/passing_background.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -1611,7 +1726,9 @@ Feature: Passing background sample
     Then I should have '10' cukes
 
 ----
+=====
 And ::
+=====
 a file named "features/scenario_outline_passing_background.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -1633,7 +1750,9 @@ Feature: Passing background with scenario outlines sample
       | 10  |
 
 ----
+=====
 And ::
+=====
 a file named "features/background_tagged_before_on_outline.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -1651,7 +1770,9 @@ Feature: Background tagged Before on Outline
       | 888   |
 
 ----
+=====
 And ::
+=====
 a file named "features/failing_background.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -1668,7 +1789,9 @@ Feature: Failing background sample
     Then I should have '10' cukes
 
 ----
+=====
 And ::
+=====
 a file named "features/scenario_outline_failing_background.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -1690,7 +1813,9 @@ Feature: Failing background with scenario outlines sample
       | 10  |
 
 ----
+=====
 And ::
+=====
 a file named "features/pending_background.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -1706,7 +1831,9 @@ Feature: Pending background sample
     Then I should have '10' cukes
 
 ----
+=====
 And ::
+=====
 a file named "features/failing_background_after_success.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -1723,7 +1850,9 @@ Feature: Failing background after previously successful background sample
     Then I should have '10' global cukes
 
 ----
+=====
 And ::
+=====
 a file named "features/failing_background_after_success_outline.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -1749,7 +1878,9 @@ Feature: Failing background after previously successful background sample
 
 
 ----
+=====
 And ::
+=====
 a file named "features/multiline_args_background.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -1786,9 +1917,13 @@ Feature: Passing background with multiline args
       """
 
 ----
+=====
 And ::
+=====
 the standard step definitions icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 a file named "features/step_definitions/cuke_steps.rb" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -1821,14 +1956,18 @@ After('@background_tagged_before_on_outline') do
 end
 
 ----
+=====
 ****
 
 ==== Scenario: run a specific scenario with a background
 
 ****
 When ::
+=====
 I run `cucumber -q features/passing_background.feature:9` icon:thumbs-up[role="green",title="Passed"] [small right]#(013ms)#
+=====
 Then ::
+=====
 it should pass with exactly: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -1845,14 +1984,18 @@ Feature: Passing background sample
 
 
 ----
+=====
 ****
 
 ==== Scenario: run a feature with a background that passes
 
 ****
 When ::
+=====
 I run `cucumber -q features/passing_background.feature` icon:thumbs-up[role="green",title="Passed"] [small right]#(014ms)#
+=====
 Then ::
+=====
 it should pass with exactly: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -1872,14 +2015,18 @@ Feature: Passing background sample
 
 
 ----
+=====
 ****
 
 ==== Scenario: run a feature with scenario outlines that has a background that passes
 
 ****
 When ::
+=====
 I run `cucumber -q features/scenario_outline_passing_background.feature` icon:thumbs-up[role="green",title="Passed"] [small right]#(012ms)#
+=====
 Then ::
+=====
 it should pass with exactly: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -1907,14 +2054,18 @@ Feature: Passing background with scenario outlines sample
 
 
 ----
+=====
 ****
 
 ==== Scenario: run a feature with scenario outlines that has a background that passes
 
 ****
 When ::
+=====
 I run `cucumber -q features/background_tagged_before_on_outline.feature` icon:thumbs-up[role="green",title="Passed"] [small right]#(009ms)#
+=====
 Then ::
+=====
 it should pass with exactly: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -1936,6 +2087,7 @@ Feature: Background tagged Before on Outline
 
 
 ----
+=====
 ****
 
 ==== Scenario: run a feature with a background that fails
@@ -1944,8 +2096,11 @@ Feature: Background tagged Before on Outline
 
 ****
 When ::
+=====
 I run `cucumber -q features/failing_background.feature` icon:thumbs-up[role="green",title="Passed"] [small right]#(505ms)#
+=====
 Then ::
+=====
 it should fail with exactly: icon:thumbs-up[role="green",title="Passed"] [small right]#(001ms)#
 ----
 
@@ -1973,6 +2128,7 @@ cucumber features/failing_background.feature:10
 
 
 ----
+=====
 ****
 
 ==== Scenario: run a feature with scenario outlines that has a background that fails
@@ -1981,8 +2137,11 @@ cucumber features/failing_background.feature:10
 
 ****
 When ::
+=====
 I run `cucumber -q features/scenario_outline_failing_background.feature` icon:thumbs-up[role="green",title="Passed"] [small right]#(605ms)#
+=====
 Then ::
+=====
 it should fail with exactly: icon:thumbs-up[role="green",title="Passed"] [small right]#(001ms)#
 ----
 
@@ -2017,14 +2176,18 @@ cucumber features/scenario_outline_failing_background.feature:16
 
 
 ----
+=====
 ****
 
 ==== Scenario: run a feature with a background that is pending
 
 ****
 When ::
+=====
 I run `cucumber -q features/pending_background.feature` icon:thumbs-up[role="green",title="Passed"] [small right]#(024ms)#
+=====
 Then ::
+=====
 it should pass with exactly: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -2047,6 +2210,7 @@ Feature: Pending background sample
 
 
 ----
+=====
 ****
 
 ==== Scenario: background passes with first scenario but fails with second
@@ -2055,8 +2219,11 @@ Feature: Pending background sample
 
 ****
 When ::
+=====
 I run `cucumber -q features/failing_background_after_success.feature` icon:thumbs-up[role="green",title="Passed"] [small right]#(605ms)#
+=====
 Then ::
+=====
 it should fail with exactly: icon:thumbs-up[role="green",title="Passed"] [small right]#(001ms)#
 ----
 
@@ -2084,6 +2251,7 @@ cucumber features/failing_background_after_success.feature:10
 
 
 ----
+=====
 ****
 
 ==== Scenario: background passes with first outline scenario but fails with second
@@ -2092,8 +2260,11 @@ cucumber features/failing_background_after_success.feature:10
 
 ****
 When ::
+=====
 I run `cucumber -q features/failing_background_after_success_outline.feature` icon:thumbs-up[role="green",title="Passed"] [small right]#(605ms)#
+=====
 Then ::
+=====
 it should fail with exactly: icon:thumbs-up[role="green",title="Passed"] [small right]#(001ms)#
 ----
 
@@ -2128,6 +2299,7 @@ cucumber features/failing_background_after_success_outline.feature:19
 
 
 ----
+=====
 ****
 
 ==== Scenario: background passes with first outline scenario but fails with second (--expand)
@@ -2136,8 +2308,11 @@ cucumber features/failing_background_after_success_outline.feature:19
 
 ****
 When ::
+=====
 I run `cucumber -x -q features/failing_background_after_success_outline.feature` icon:thumbs-up[role="green",title="Passed"] [small right]#(606ms)#
+=====
 Then ::
+=====
 it should fail with exactly: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -2175,12 +2350,14 @@ cucumber features/failing_background_after_success_outline.feature:19
 
 
 ----
+=====
 ****
 
 ==== Scenario: background with multline args
 
 ****
 Given ::
+=====
 a file named "features/step_definitions/steps.rb" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -2201,9 +2378,13 @@ Then /^the multiline string should be$/ do |string| x=1
 end
 
 ----
+=====
 When ::
+=====
 I run `cucumber -q features/multiline_args_background.feature` icon:thumbs-up[role="green",title="Passed"] [small right]#(025ms)#
+=====
 Then ::
+=====
 it should pass with exactly: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -2244,6 +2425,7 @@ Feature: Passing background with multiline args
 
 
 ----
+=====
 ****
 
 [[Before-Hook, Before Hook]]
@@ -2253,6 +2435,7 @@ Feature: Passing background with multiline args
 
 ****
 Given ::
+=====
 a file named "features/foo.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -2262,7 +2445,9 @@ Feature: Feature name
     Given a step
 
 ----
+=====
 And ::
+=====
 a file named "features/support/hook.rb" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -2277,9 +2462,13 @@ Before do |scenario|
 end
 
 ----
+=====
 When ::
+=====
 I run `cucumber` icon:thumbs-up[role="green",title="Passed"] [small right]#(028ms)#
+=====
 Then ::
+=====
 the output should contain: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -2289,12 +2478,14 @@ the output should contain: icon:thumbs-up[role="green",title="Passed"] [small ri
 
 
 ----
+=====
 ****
 
 ==== Scenario: Examine names of scenario outline and feature
 
 ****
 Given ::
+=====
 a file named "features/foo.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -2308,7 +2499,9 @@ Feature: Feature name
       | step          |
 
 ----
+=====
 And ::
+=====
 a file named "features/support/hook.rb" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -2323,9 +2516,13 @@ Before do |scenario|
 end
 
 ----
+=====
 When ::
+=====
 I run `cucumber` icon:thumbs-up[role="green",title="Passed"] [small right]#(015ms)#
+=====
 Then ::
+=====
 the output should contain: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -2336,6 +2533,7 @@ the output should contain: icon:thumbs-up[role="green",title="Passed"] [small ri
 
 
 ----
+=====
 ****
 
 [[Choosing-the-language-from-the-feature-file-header, Choosing the language from the feature file header]]
@@ -2351,6 +2549,7 @@ any feature file. See the examples below for the exact syntax.
 
 ****
 Given ::
+=====
 a file named "features/lolcat.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -2362,9 +2561,13 @@ OH HAI: STUFFING
     DEN KTHXBAI
 
 ----
+=====
 When ::
+=====
 I run `cucumber -i features/lolcat.feature -q` icon:thumbs-up[role="green",title="Passed"] [small right]#(010ms)#
+=====
 Then ::
+=====
 it should pass with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -2382,6 +2585,7 @@ OH HAI: STUFFING
 
 
 ----
+=====
 ****
 
 [[Cucumber---work-in-progress-switch, Cucumber --work-in-progress switch]]
@@ -2401,8 +2605,11 @@ Developers should be able to run cucumber in a mode that +
 
 ****
 Given ::
+=====
 the standard step definitions icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 a file named "features/wip.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -2424,7 +2631,9 @@ Feature: WIP
     Given this step passes
 
 ----
+=====
 And ::
+=====
 a file named "features/passing_outline.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -2437,6 +2646,7 @@ Feature: Not WIP
       | passes |
 
 ----
+=====
 ****
 
 ==== Scenario: Pass with Failing Scenarios
@@ -2445,10 +2655,15 @@ Feature: Not WIP
 
 ****
 When ::
+=====
 I run `cucumber -q -w -t @failing features/wip.feature` icon:thumbs-up[role="green",title="Passed"] [small right]#(606ms)#
+=====
 Then ::
+=====
 the stderr should not contain anything icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 Then ::
+=====
 it should pass with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -2468,7 +2683,9 @@ cucumber features/wip.feature:3
 1 step (1 failed)
 
 ----
+=====
 And ::
+=====
 the output should contain: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -2476,6 +2693,7 @@ The --wip switch was used, so the failures were expected. All is good.
 
 
 ----
+=====
 ****
 
 ==== Scenario: Pass with Undefined Scenarios
@@ -2484,8 +2702,11 @@ The --wip switch was used, so the failures were expected. All is good.
 
 ****
 When ::
+=====
 I run `cucumber -q -w -t @undefined features/wip.feature` icon:thumbs-up[role="green",title="Passed"] [small right]#(608ms)#
+=====
 Then ::
+=====
 it should pass with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -2499,7 +2720,9 @@ Feature: WIP
 1 step (1 undefined)
 
 ----
+=====
 And ::
+=====
 the output should contain: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -2507,6 +2730,7 @@ The --wip switch was used, so the failures were expected. All is good.
 
 
 ----
+=====
 ****
 
 ==== Scenario: Pass with Undefined Scenarios
@@ -2515,8 +2739,11 @@ The --wip switch was used, so the failures were expected. All is good.
 
 ****
 When ::
+=====
 I run `cucumber -q -w -t @pending features/wip.feature` icon:thumbs-up[role="green",title="Passed"] [small right]#(606ms)#
+=====
 Then ::
+=====
 it should pass with: icon:thumbs-up[role="green",title="Passed"] [small right]#(001ms)#
 ----
 
@@ -2533,7 +2760,9 @@ Feature: WIP
 1 step (1 pending)
 
 ----
+=====
 And ::
+=====
 the output should contain: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -2541,6 +2770,7 @@ The --wip switch was used, so the failures were expected. All is good.
 
 
 ----
+=====
 ****
 
 ==== Scenario: Fail with Passing Scenarios
@@ -2549,8 +2779,11 @@ The --wip switch was used, so the failures were expected. All is good.
 
 ****
 When ::
+=====
 I run `cucumber -q -w -t @passing features/wip.feature` icon:thumbs-up[role="green",title="Passed"] [small right]#(607ms)#
+=====
 Then ::
+=====
 it should fail with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -2564,7 +2797,9 @@ Feature: WIP
 1 step (1 passed)
 
 ----
+=====
 And ::
+=====
 the output should contain: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -2576,6 +2811,7 @@ features/wip.feature:15:in `Scenario: Passing'
 
 
 ----
+=====
 ****
 
 ==== Scenario: Fail with Passing Scenario Outline
@@ -2584,8 +2820,11 @@ features/wip.feature:15:in `Scenario: Passing'
 
 ****
 When ::
+=====
 I run `cucumber -q -w features/passing_outline.feature` icon:thumbs-up[role="green",title="Passed"] [small right]#(707ms)#
+=====
 Then ::
+=====
 it should fail with: icon:thumbs-up[role="green",title="Passed"] [small right]#(001ms)#
 ----
 
@@ -2602,7 +2841,9 @@ Feature: Not WIP
 1 step (1 passed)
 
 ----
+=====
 And ::
+=====
 the output should contain: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -2614,6 +2855,7 @@ features/passing_outline.feature:7:in `Scenario Outline: Passing, Examples (#1)'
 
 
 ----
+=====
 ****
 
 [[Custom-Formatter, Custom Formatter]]
@@ -2623,6 +2865,7 @@ features/passing_outline.feature:7:in `Scenario Outline: Passing, Examples (#1)'
 
 ****
 Given ::
+=====
 a file named "features/f.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -2631,14 +2874,18 @@ Feature: I'll use my own
     Given this step passes
 
 ----
+=====
 And ::
+=====
 the standard step definitions icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 ****
 
 ==== Scenario: Use the new API
 
 ****
 Given ::
+=====
 a file named "features/support/custom_formatter.rb" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -2658,9 +2905,13 @@ module MyCustom
 end
 
 ----
+=====
 When ::
+=====
 I run `cucumber features/f.feature --format MyCustom::Formatter` icon:thumbs-up[role="green",title="Passed"] [small right]#(009ms)#
+=====
 Then ::
+=====
 it should pass with exactly: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -2669,12 +2920,14 @@ I'LL USE MY OWN
 
 
 ----
+=====
 ****
 
 ==== Scenario: Use the legacy API
 
 ****
 Given ::
+=====
 a file named "features/support/custom_legacy_formatter.rb" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -2695,9 +2948,13 @@ module MyCustom
 end
 
 ----
+=====
 When ::
+=====
 I run `cucumber features/f.feature --format MyCustom::LegacyFormatter` icon:thumbs-up[role="green",title="Passed"] [small right]#(008ms)#
+=====
 Then ::
+=====
 it should pass with exactly: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -2706,6 +2963,7 @@ I'LL USE MY OWN
 
 
 ----
+=====
 ****
 
 ==== Scenario: Use both
@@ -2713,6 +2971,7 @@ You can use a specific shim to opt-in to both APIs at once.
 
 ****
 Given ::
+=====
 a file named "features/support/custom_mixed_formatter.rb" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -2735,9 +2994,13 @@ module MyCustom
 end
 
 ----
+=====
 When ::
+=====
 I run `cucumber features/f.feature --format MyCustom::MixedFormatter` icon:thumbs-up[role="green",title="Passed"] [small right]#(007ms)#
+=====
 Then ::
+=====
 it should pass with exactly: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -2746,6 +3009,7 @@ I'LL USE MY OWN
 
 
 ----
+=====
 ****
 
 [[Custom-filter, Custom filter]]
@@ -2755,6 +3019,7 @@ I'LL USE MY OWN
 
 ****
 Given ::
+=====
 a file named "features/test.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -2763,7 +3028,9 @@ Feature:
     Given my special step
 
 ----
+=====
 And ::
+=====
 a file named "features/support/my_filter.rb" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -2783,10 +3050,15 @@ AfterConfiguration do |config|
 end
 
 ----
+=====
 When ::
+=====
 I run `cucumber --strict` icon:thumbs-up[role="green",title="Passed"] [small right]#(009ms)#
+=====
 Then ::
+=====
 it should pass icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 ****
 
 [[Debug-formatter, Debug formatter]]
@@ -2802,13 +3074,16 @@ feature is run.
 
 ****
 Given ::
+=====
 the standard step definitions icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 ****
 
 ==== Scenario: title
 
 ****
 Given ::
+=====
 a file named "features/test.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -2817,11 +3092,17 @@ Feature:
     Given this step passes
 
 ----
+=====
 When ::
+=====
 I run `cucumber -f debug` icon:thumbs-up[role="green",title="Passed"] [small right]#(007ms)#
+=====
 Then ::
+=====
 the stderr should not contain anything icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 Then ::
+=====
 it should pass with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -2853,6 +3134,7 @@ after_features
 done
 
 ----
+=====
 ****
 
 [[Doc-strings, Doc strings]]
@@ -2893,6 +3175,7 @@ in the example below.
 
 ****
 Given ::
+=====
 a scenario with a step that looks like this: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -2904,7 +3187,9 @@ Given I have a lot to say:
  """
 
 ----
+=====
 And ::
+=====
 a step definition that looks like this: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -2913,9 +3198,13 @@ Given /say/ do |text|
 end
 
 ----
+=====
 When ::
+=====
 I run the feature with the progress formatter icon:thumbs-up[role="green",title="Passed"] [small right]#(010ms)#
+=====
 Then ::
+=====
 the output should contain: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -2924,12 +3213,14 @@ Two
 Three
 
 ----
+=====
 ****
 
 ==== Scenario: DocString with interesting content type
 
 ****
 Given ::
+=====
 a scenario with a step that looks like this: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -2939,7 +3230,9 @@ Given I have some code for you:
  """
 
 ----
+=====
 And ::
+=====
 a step definition that looks like this: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -2948,15 +3241,20 @@ Given /code/ do |text|
 end
 
 ----
+=====
 When ::
+=====
 I run the feature with the progress formatter icon:thumbs-up[role="green",title="Passed"] [small right]#(008ms)#
+=====
 Then ::
+=====
 the output should contain: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
 ruby
 
 ----
+=====
 ****
 
 [[Dry-Run, Dry Run]]
@@ -2973,6 +3271,7 @@ Dry run gives you a way to quickly scan your features without actually running t
 
 ****
 Given ::
+=====
 a file named "features/test.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -2981,11 +3280,17 @@ Feature: test
     Given this step fails
 
 ----
+=====
 And ::
+=====
 the standard step definitions icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 When ::
+=====
 I run `cucumber --dry-run` icon:thumbs-up[role="green",title="Passed"] [small right]#(020ms)#
+=====
 Then ::
+=====
 it should pass with exactly: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -2999,12 +3304,14 @@ Feature: test
 
 
 ----
+=====
 ****
 
 ==== Scenario: In strict mode
 
 ****
 Given ::
+=====
 a file named "features/test.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -3013,11 +3320,17 @@ Feature: test
     Given this step fails
 
 ----
+=====
 And ::
+=====
 the standard step definitions icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 When ::
+=====
 I run `cucumber --dry-run --strict` icon:thumbs-up[role="green",title="Passed"] [small right]#(013ms)#
+=====
 Then ::
+=====
 it should pass with exactly: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -3031,12 +3344,14 @@ Feature: test
 
 
 ----
+=====
 ****
 
 ==== Scenario: In strict mode with an undefined step
 
 ****
 Given ::
+=====
 a file named "features/test.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -3045,9 +3360,13 @@ Feature: test
     Given this step is undefined
 
 ----
+=====
 When ::
+=====
 I run `cucumber --dry-run --strict` icon:thumbs-up[role="green",title="Passed"] [small right]#(009ms)#
+=====
 Then ::
+=====
 it should fail with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -3063,6 +3382,7 @@ Feature: test
 
 
 ----
+=====
 ****
 
 [[ERB-configuration, ERB configuration]]
@@ -3080,6 +3400,7 @@ So that I can avoid port conflicts
 
 ****
 Given ::
+=====
 a file named "features/wired.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -3089,6 +3410,7 @@ Feature: High strung
 
 
 ----
+=====
 ****
 
 ==== Scenario: ERB is used in the wire file which references an environment variable that is not set
@@ -3097,6 +3419,7 @@ Feature: High strung
 
 ****
 Given ::
+=====
 a file named "features/step_definitions/server.wire" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -3104,11 +3427,17 @@ host: localhost
 port: <%= ENV['PORT'] || 12345 %>
 
 ----
+=====
 And ::
+=====
 there is a wire server running on port 12345 which understands the following protocol: icon:thumbs-up[role="green",title="Passed"] [small right]#(002ms)#
+=====
 When ::
+=====
 I run `cucumber --dry-run --no-snippets -f progress` icon:thumbs-up[role="green",title="Passed"] [small right]#(073ms)#
+=====
 Then ::
+=====
 it should pass with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -3119,6 +3448,7 @@ U
 
 
 ----
+=====
 ****
 
 ==== Scenario: ERB is used in the wire file which references an environment variable
@@ -3127,8 +3457,11 @@ U
 
 ****
 Given ::
+=====
 I have environment variable PORT set to "16816" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 a file named "features/step_definitions/server.wire" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -3136,11 +3469,17 @@ host: localhost
 port: <%= ENV['PORT'] || 12345 %>
 
 ----
+=====
 And ::
+=====
 there is a wire server running on port 16816 which understands the following protocol: icon:thumbs-up[role="green",title="Passed"] [small right]#(002ms)#
+=====
 When ::
+=====
 I run `cucumber --dry-run --no-snippets -f progress` icon:thumbs-up[role="green",title="Passed"] [small right]#(061ms)#
+=====
 Then ::
+=====
 it should pass with: icon:thumbs-up[role="green",title="Passed"] [small right]#(001ms)#
 ----
 
@@ -3151,6 +3490,7 @@ U
 
 
 ----
+=====
 ****
 
 [[Exception-in-After-Block, Exception in After Block]]
@@ -3166,8 +3506,11 @@ I want exceptions raised in After blocks to be handled gracefully and reported b
 
 ****
 Given ::
+=====
 the standard step definitions icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 a file named "features/step_definitions/naughty_steps.rb" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -3176,7 +3519,9 @@ Given /^this step does something naughty$/ do x=1
 end
 
 ----
+=====
 And ::
+=====
 a file named "features/support/env.rb" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -3188,6 +3533,7 @@ After do
 end
 
 ----
+=====
 ****
 
 ==== Scenario: Handle Exception in standard scenario step and carry on
@@ -3196,6 +3542,7 @@ end
 
 ****
 Given ::
+=====
 a file named "features/naughty_step_in_scenario.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -3208,9 +3555,13 @@ Feature: Sample
     Given this step passes
 
 ----
+=====
 When ::
+=====
 I run `cucumber features` icon:thumbs-up[role="green",title="Passed"] [small right]#(604ms)#
+=====
 Then ::
+=====
 it should fail with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -3232,6 +3583,7 @@ cucumber features/naughty_step_in_scenario.feature:3 # Scenario: Naughty Step
 
 
 ----
+=====
 ****
 
 ==== Scenario: Handle Exception in scenario outline table row and carry on
@@ -3240,6 +3592,7 @@ cucumber features/naughty_step_in_scenario.feature:3 # Scenario: Naughty Step
 
 ****
 Given ::
+=====
 a file named "features/naughty_step_in_scenario_outline.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -3259,9 +3612,13 @@ Feature: Sample
 
 
 ----
+=====
 When ::
+=====
 I run `cucumber features -q` icon:thumbs-up[role="green",title="Passed"] [small right]#(606ms)#
+=====
 Then ::
+=====
 it should fail with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -3289,12 +3646,14 @@ cucumber features/naughty_step_in_scenario_outline.feature:9
 
 
 ----
+=====
 ****
 
 ==== Scenario: Handle Exception using the progress format
 
 ****
 Given ::
+=====
 a file named "features/naughty_step_in_scenario.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -3307,9 +3666,13 @@ Feature: Sample
     Given this step passes
 
 ----
+=====
 When ::
+=====
 I run `cucumber features --format progress` icon:thumbs-up[role="green",title="Passed"] [small right]#(026ms)#
+=====
 Then ::
+=====
 it should fail with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -3323,6 +3686,7 @@ cucumber features/naughty_step_in_scenario.feature:3 # Scenario: Naughty Step
 
 
 ----
+=====
 ****
 
 [[Exception-in-AfterStep-Block, Exception in AfterStep Block]]
@@ -3338,8 +3702,11 @@ I want exceptions raised in AfterStep blocks to be handled gracefully and report
 
 ****
 Given ::
+=====
 the standard step definitions icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 a file named "features/step_definitions/naughty_steps.rb" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -3348,7 +3715,9 @@ Given /^this step does something naughty$/ do x=1
 end
 
 ----
+=====
 And ::
+=====
 a file named "features/support/env.rb" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -3360,12 +3729,14 @@ AfterStep do
 end
 
 ----
+=====
 ****
 
 ==== Scenario: Handle Exception in standard scenario step and carry on
 
 ****
 Given ::
+=====
 a file named "features/naughty_step_in_scenario.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -3378,9 +3749,13 @@ Feature: Sample
     Given this step passes
 
 ----
+=====
 When ::
+=====
 I run `cucumber features` icon:thumbs-up[role="green",title="Passed"] [small right]#(021ms)#
+=====
 Then ::
+=====
 it should fail with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -3403,12 +3778,14 @@ cucumber features/naughty_step_in_scenario.feature:3 # Scenario: Naughty Step
 
 
 ----
+=====
 ****
 
 ==== Scenario: Handle Exception in scenario outline table row and carry on
 
 ****
 Given ::
+=====
 a file named "features/naughty_step_in_scenario_outline.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -3428,9 +3805,13 @@ Feature: Sample
 
 
 ----
+=====
 When ::
+=====
 I run `cucumber features` icon:thumbs-up[role="green",title="Passed"] [small right]#(022ms)#
+=====
 Then ::
+=====
 it should fail with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -3460,6 +3841,7 @@ cucumber features/naughty_step_in_scenario_outline.feature:9 # Scenario Outline:
 
 
 ----
+=====
 ****
 
 [[Exception-in-Before-Block, Exception in Before Block]]
@@ -3475,8 +3857,11 @@ I want exceptions raised in Before blocks to be handled gracefully and reported 
 
 ****
 Given ::
+=====
 the standard step definitions icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 a file named "features/support/env.rb" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -3487,6 +3872,7 @@ Before do
 end
 
 ----
+=====
 ****
 
 ==== Scenario: Handle Exception in standard scenario step and carry on
@@ -3495,6 +3881,7 @@ end
 
 ****
 Given ::
+=====
 a file named "features/naughty_step_in_scenario.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -3504,9 +3891,13 @@ Feature: Sample
     Given this step passes
 
 ----
+=====
 When ::
+=====
 I run `cucumber features` icon:thumbs-up[role="green",title="Passed"] [small right]#(605ms)#
+=====
 Then ::
+=====
 it should fail with: icon:thumbs-up[role="green",title="Passed"] [small right]#(001ms)#
 ----
 
@@ -3525,12 +3916,14 @@ cucumber features/naughty_step_in_scenario.feature:3 # Scenario: Run a good step
 
 
 ----
+=====
 ****
 
 ==== Scenario: Handle Exception in Before hook for Scenario with Background
 
 ****
 Given ::
+=====
 a file named "features/naughty_step_in_before.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -3543,9 +3936,13 @@ Feature: Sample
     Given this step passes
 
 ----
+=====
 When ::
+=====
 I run `cucumber features` icon:thumbs-up[role="green",title="Passed"] [small right]#(023ms)#
+=====
 Then ::
+=====
 it should fail with exactly: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -3568,12 +3965,14 @@ cucumber features/naughty_step_in_before.feature:6 # Scenario: Run a good step
 
 
 ----
+=====
 ****
 
 ==== Scenario: Handle Exception using the progress format
 
 ****
 Given ::
+=====
 a file named "features/naughty_step_in_scenario.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -3583,9 +3982,13 @@ Feature: Sample
     Given this step passes
 
 ----
+=====
 When ::
+=====
 I run `cucumber features --format progress` icon:thumbs-up[role="green",title="Passed"] [small right]#(016ms)#
+=====
 Then ::
+=====
 it should fail with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -3599,6 +4002,7 @@ cucumber features/naughty_step_in_scenario.feature:3 # Scenario: Run a good step
 
 
 ----
+=====
 ****
 
 [[Exceptions-in-Around-Hooks, Exceptions in Around Hooks]]
@@ -3622,8 +4026,11 @@ have been run. How would we want to report in that case?
 
 ****
 Given ::
+=====
 the standard step definitions icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 a file named "features/support/env.rb" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -3633,7 +4040,9 @@ Around do |scenario, block|
 end
 
 ----
+=====
 And ::
+=====
 a file named "features/test.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -3642,9 +4051,13 @@ Feature:
     Given this step passes
 
 ----
+=====
 When ::
+=====
 I run `cucumber -q` icon:thumbs-up[role="green",title="Passed"] [small right]#(010ms)#
+=====
 Then ::
+=====
 it should fail with exactly: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -3662,14 +4075,18 @@ cucumber features/test.feature:2
 
 
 ----
+=====
 ****
 
 ==== Scenario: Exception after the test case is run
 
 ****
 Given ::
+=====
 the standard step definitions icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 a file named "features/support/env.rb" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -3679,7 +4096,9 @@ Around do |scenario, block|
 end
 
 ----
+=====
 And ::
+=====
 a file named "features/test.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -3688,9 +4107,13 @@ Feature:
     Given this step passes
 
 ----
+=====
 When ::
+=====
 I run `cucumber -q` icon:thumbs-up[role="green",title="Passed"] [small right]#(009ms)#
+=====
 Then ::
+=====
 it should fail with exactly: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -3709,6 +4132,7 @@ cucumber features/test.feature:2
 
 
 ----
+=====
 ****
 
 [[Excluding-ruby-and-feature-files-from-runs, Excluding ruby and feature files from runs]]
@@ -3724,27 +4148,49 @@ certain environment files from certain runs.
 
 ****
 Given ::
+=====
 an empty file named "features/support/dont_require_me.rb" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 an empty file named "features/step_definitions/fooz.rb" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 an empty file named "features/step_definitions/foof.rb" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 an empty file named "features/step_definitions/foot.rb" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 an empty file named "features/support/require_me.rb" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 When ::
+=====
 I run `cucumber features -q --verbose --exclude features/support/dont --exclude foo[zf]` icon:thumbs-up[role="green",title="Passed"] [small right]#(007ms)#
+=====
 Then ::
+=====
 "features/support/require_me.rb" should be required icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 "features/step_definitions/foot.rb" should be required icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 "features/support/dont_require_me.rb" should not be required icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 "features/step_definitions/foof.rb" should not be required icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 "features/step_definitions/fooz.rb" should not be required icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 ****
 
 [[Formatter-API:-Step-file-path-and-line-number-(Issue-#179), Formatter API: Step file path and line number (Issue #179)]]
@@ -3759,6 +4205,7 @@ from step/step_invocation and pass to reporters
 
 ****
 Given ::
+=====
 a file named "features/f.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -3769,14 +4216,18 @@ Feature: I'll use my own
     Given step at line 5
 
 ----
+=====
 And ::
+=====
 a file named "features/step_definitions/steps.rb" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
 Given(/^step at line (.*)$/) {|line| }
 
 ----
+=====
 And ::
+=====
 a file named "features/support/jb/formatter.rb" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -3797,9 +4248,13 @@ module Jb
 end
 
 ----
+=====
 When ::
+=====
 I run `cucumber features/f.feature --format Jb::Formatter` icon:thumbs-up[role="green",title="Passed"] [small right]#(006ms)#
+=====
 Then ::
+=====
 it should pass with exactly: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -3810,6 +4265,7 @@ step name event: features/f.feature:5
 
 
 ----
+=====
 ****
 
 [[Getting-started, Getting started]]
@@ -3826,35 +4282,50 @@ To get started, just open a command prompt in an empty directory and run  +
 
 ****
 Given ::
+=====
 a directory without standard Cucumber project directory structure icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 When ::
+=====
 I run `cucumber` icon:thumbs-up[role="green",title="Passed"] [small right]#(605ms)#
+=====
 Then ::
+=====
 it should fail with: icon:thumbs-up[role="green",title="Passed"] [small right]#(001ms)#
 ----
 
 No such file or directory - features. You can use `cucumber --init` to get started.
 
 ----
+=====
 ****
 
 ==== Scenario: Accidentally run Cucumber in a folder with Ruby files in it.
 
 ****
 Given ::
+=====
 a directory without standard Cucumber project directory structure icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 a file named "should_not_load.rb" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
 puts 'this will not be shown'
 
 ----
+=====
 When ::
+=====
 I run `cucumber` icon:thumbs-up[role="green",title="Passed"] [small right]#(007ms)#
+=====
 Then ::
+=====
 the exit status should be 2 icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 the output should not contain: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -3862,6 +4333,7 @@ this will not be shown
 
 
 ----
+=====
 ****
 
 [[HTML-output-formatter, HTML output formatter]]
@@ -3871,8 +4343,11 @@ this will not be shown
 
 ****
 Given ::
+=====
 the standard step definitions icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 a file named "features/scenario_outline_with_undefined_steps.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -3886,7 +4361,9 @@ Feature:
     |bar|
 
 ----
+=====
 And ::
+=====
 a file named "features/scenario_outline_with_pending_step.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -3904,7 +4381,9 @@ Feature: Outline
       | three   |
 
 ----
+=====
 And ::
+=====
 a file named "features/failing_background_step.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -3918,151 +4397,202 @@ Feature: Feature with failing background step
     Then I should see something
 
 ----
+=====
 ****
 
 ==== Scenario: an scenario outline, one undefined step, one random example, expand flag on
 
 ****
 When ::
+=====
 I run `cucumber features/scenario_outline_with_undefined_steps.feature --format html --expand ` icon:thumbs-up[role="green",title="Passed"] [small right]#(020ms)#
+=====
 Then ::
+=====
 it should pass icon:thumbs-up[role="green",title="Passed"] [small right]#(003ms)#
+=====
 ****
 
 ==== Scenario Outline: an scenario outline, one pending step
 
 ****
 When ::
+=====
 I run `cucumber features/scenario_outline_with_pending_step.feature --format html --expand` icon:thumbs-up[role="green",title="Passed"] [small right]#(025ms)#
+=====
 Then ::
+=====
 it should pass icon:thumbs-up[role="green",title="Passed"] [small right]#(003ms)#
+=====
 And ::
+=====
 the output should contain: icon:thumbs-up[role="green",title="Passed"] [small right]#(004ms)#
 ----
 
 makeYellow('scenario_1')
 
 ----
+=====
 And ::
+=====
 the output should not contain: icon:thumbs-up[role="green",title="Passed"] [small right]#(004ms)#
 ----
 
 makeRed('scenario_1')
 
 ----
+=====
 ****
 
 ==== Scenario Outline: an scenario outline, one pending step
 
 ****
 When ::
+=====
 I run `cucumber features/scenario_outline_with_pending_step.feature --format html ` icon:thumbs-up[role="green",title="Passed"] [small right]#(019ms)#
+=====
 Then ::
+=====
 it should pass icon:thumbs-up[role="green",title="Passed"] [small right]#(002ms)#
+=====
 And ::
+=====
 the output should contain: icon:thumbs-up[role="green",title="Passed"] [small right]#(003ms)#
 ----
 
 makeYellow('scenario_1')
 
 ----
+=====
 And ::
+=====
 the output should not contain: icon:thumbs-up[role="green",title="Passed"] [small right]#(004ms)#
 ----
 
 makeRed('scenario_1')
 
 ----
+=====
 ****
 
 ==== Scenario Outline: an scenario outline, one pending step
 
 ****
 When ::
+=====
 I run `cucumber features/scenario_outline_with_undefined_steps.feature --format html --expand` icon:thumbs-up[role="green",title="Passed"] [small right]#(007ms)#
+=====
 Then ::
+=====
 it should pass icon:thumbs-up[role="green",title="Passed"] [small right]#(002ms)#
+=====
 And ::
+=====
 the output should contain: icon:thumbs-up[role="green",title="Passed"] [small right]#(003ms)#
 ----
 
 makeYellow('scenario_1')
 
 ----
+=====
 And ::
+=====
 the output should not contain: icon:thumbs-up[role="green",title="Passed"] [small right]#(003ms)#
 ----
 
 makeRed('scenario_1')
 
 ----
+=====
 ****
 
 ==== Scenario Outline: an scenario outline, one pending step
 
 ****
 When ::
+=====
 I run `cucumber features/scenario_outline_with_undefined_steps.feature --format html ` icon:thumbs-up[role="green",title="Passed"] [small right]#(009ms)#
+=====
 Then ::
+=====
 it should pass icon:thumbs-up[role="green",title="Passed"] [small right]#(002ms)#
+=====
 And ::
+=====
 the output should contain: icon:thumbs-up[role="green",title="Passed"] [small right]#(003ms)#
 ----
 
 makeYellow('scenario_1')
 
 ----
+=====
 And ::
+=====
 the output should not contain: icon:thumbs-up[role="green",title="Passed"] [small right]#(003ms)#
 ----
 
 makeRed('scenario_1')
 
 ----
+=====
 ****
 
 ==== Scenario: when using a profile the html shouldn't include 'Using the default profile...'
 
 ****
 And ::
+=====
 a file named "cucumber.yml" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
   default: -r features
 
 ----
+=====
 When ::
+=====
 I run `cucumber features/scenario_outline_with_undefined_steps.feature --profile default --format html` icon:thumbs-up[role="green",title="Passed"] [small right]#(009ms)#
+=====
 Then ::
+=====
 it should pass icon:thumbs-up[role="green",title="Passed"] [small right]#(002ms)#
+=====
 And ::
+=====
 the output should not contain: icon:thumbs-up[role="green",title="Passed"] [small right]#(003ms)#
 ----
 
 Using the default profile...
 
 ----
+=====
 ****
 
 ==== Scenario: a feature with a failing background step
 
 ****
 When ::
+=====
 I run `cucumber features/failing_background_step.feature --format html` icon:thumbs-up[role="green",title="Passed"] [small right]#(010ms)#
+=====
 Then ::
+=====
 the output should not contain: icon:thumbs-up[role="green",title="Passed"] [small right]#(003ms)#
 ----
 
 makeRed('scenario_0')
 
 ----
+=====
 And ::
+=====
 the output should contain: icon:thumbs-up[role="green",title="Passed"] [small right]#(003ms)#
 ----
 
 makeRed('background_0')
 
 ----
+=====
 ****
 
 [[Handle-unexpected-response, Handle unexpected response]]
@@ -4078,6 +4608,7 @@ When the server sends us back a message we don't understand, this is how Cucumbe
 
 ****
 Given ::
+=====
 a file named "features/wired.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -4087,7 +4618,9 @@ Feature: High strung
 
 
 ----
+=====
 And ::
+=====
 a file named "features/step_definitions/some_remote_place.wire" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -4096,6 +4629,7 @@ port: 54321
 
 
 ----
+=====
 ****
 
 ==== Scenario: Unexpected response
@@ -4104,16 +4638,22 @@ port: 54321
 
 ****
 Given ::
+=====
 there is a wire server running on port 54321 which understands the following protocol: icon:thumbs-up[role="green",title="Passed"] [small right]#(002ms)#
+=====
 When ::
+=====
 I run `cucumber -f pretty` icon:thumbs-up[role="green",title="Passed"] [small right]#(068ms)#
+=====
 Then ::
+=====
 the output should contain: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
 undefined method `handle_yikes'
 
 ----
+=====
 ****
 
 [[Hooks-execute-in-defined-order, Hooks execute in defined order]]
@@ -4125,6 +4665,7 @@ undefined method `handle_yikes'
 
 ****
 Given ::
+=====
 a file named "features/step_definitions/steps.rb" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -4132,7 +4673,9 @@ Given /^background step$/ do; $EventOrder.push(:background_step) end
 Given /^scenario step$/ do; $EventOrder.push(:scenario_step) end
 
 ----
+=====
 And ::
+=====
 a file named "features/support/hooks.rb" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -4153,7 +4696,9 @@ at_exit {
 }
 
 ----
+=====
 And ::
+=====
 a file named "features/around_hook_covers_background.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -4165,7 +4710,9 @@ Feature: Around hooks cover background steps
     Given scenario step
 
 ----
+=====
 And ::
+=====
 a file named "features/all_hook_order.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -4179,6 +4726,7 @@ Feature: All hooks execute in expected order
     Given scenario step
 
 ----
+=====
 ****
 
 ==== Scenario: Around hooks cover background steps
@@ -4187,14 +4735,18 @@ Feature: All hooks execute in expected order
 
 ****
 When ::
+=====
 I run `cucumber -o /dev/null features/around_hook_covers_background.feature` icon:thumbs-up[role="green",title="Passed"] [small right]#(606ms)#
+=====
 Then ::
+=====
 the output should contain: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
 Event order: around_begin background_step scenario_step around_end
 
 ----
+=====
 ****
 
 ==== Scenario: All hooks execute in expected order
@@ -4203,14 +4755,18 @@ Event order: around_begin background_step scenario_step around_end
 
 ****
 When ::
+=====
 I run `cucumber -o /dev/null features/all_hook_order.feature` icon:thumbs-up[role="green",title="Passed"] [small right]#(606ms)#
+=====
 Then ::
+=====
 the output should contain: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
 Event order: around_begin before background_step scenario_step after around_end
 
 ----
+=====
 ****
 
 [[Invoke-message, Invoke message]]
@@ -4240,6 +4796,7 @@ This isn't quite the whole story: see also table_diffing.feature
 
 ****
 Given ::
+=====
 a file named "features/wired.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -4249,7 +4806,9 @@ Feature: High strung
 
 
 ----
+=====
 And ::
+=====
 a file named "features/step_definitions/some_remote_place.wire" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -4258,6 +4817,7 @@ port: 54321
 
 
 ----
+=====
 ****
 
 ==== Scenario: Invoke a step definition which is pending
@@ -4266,10 +4826,15 @@ port: 54321
 
 ****
 Given ::
+=====
 there is a wire server running on port 54321 which understands the following protocol: icon:thumbs-up[role="green",title="Passed"] [small right]#(001ms)#
+=====
 When ::
+=====
 I run `cucumber -f pretty -q` icon:thumbs-up[role="green",title="Passed"] [small right]#(806ms)#
+=====
 And ::
+=====
 it should pass with: icon:thumbs-up[role="green",title="Passed"] [small right]#(001ms)#
 ----
 
@@ -4285,6 +4850,7 @@ Feature: High strung
 
 
 ----
+=====
 ****
 
 ==== Scenario: Invoke a step definition which passes
@@ -4293,10 +4859,15 @@ Feature: High strung
 
 ****
 Given ::
+=====
 there is a wire server running on port 54321 which understands the following protocol: icon:thumbs-up[role="green",title="Passed"] [small right]#(002ms)#
+=====
 When ::
+=====
 I run `cucumber -f progress` icon:thumbs-up[role="green",title="Passed"] [small right]#(140ms)#
+=====
 And ::
+=====
 it should pass with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -4307,6 +4878,7 @@ it should pass with: icon:thumbs-up[role="green",title="Passed"] [small right]#(
 
 
 ----
+=====
 ****
 
 ==== Scenario: Invoke a step definition which fails
@@ -4327,12 +4899,19 @@ See the specs for Cucumber::WireSupport::WireException for more details
 
 ****
 Given ::
+=====
 there is a wire server running on port 54321 which understands the following protocol: icon:thumbs-up[role="green",title="Passed"] [small right]#(002ms)#
+=====
 When ::
+=====
 I run `cucumber -f progress` icon:thumbs-up[role="green",title="Passed"] [small right]#(808ms)#
+=====
 Then ::
+=====
 the stderr should not contain anything icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 it should fail with: icon:thumbs-up[role="green",title="Passed"] [small right]#(001ms)#
 ----
 
@@ -4351,6 +4930,7 @@ cucumber features/wired.feature:2 # Scenario: Wired
 
 
 ----
+=====
 ****
 
 ==== Scenario: Invoke a step definition which takes string arguments (and passes)
@@ -4372,12 +4952,19 @@ The argument values are then sent back by Cucumber in the `invoke` message.
 
 ****
 Given ::
+=====
 there is a wire server running on port 54321 which understands the following protocol: icon:thumbs-up[role="green",title="Passed"] [small right]#(002ms)#
+=====
 When ::
+=====
 I run `cucumber -f progress` icon:thumbs-up[role="green",title="Passed"] [small right]#(141ms)#
+=====
 Then ::
+=====
 the stderr should not contain anything icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 it should pass with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -4388,6 +4975,7 @@ it should pass with: icon:thumbs-up[role="green",title="Passed"] [small right]#(
 
 
 ----
+=====
 ****
 
 ==== Scenario: Invoke a step definition which takes regular and table arguments (and passes)
@@ -4402,6 +4990,7 @@ captures the "we're" and the other takes the table.
 
 ****
 Given ::
+=====
 a file named "features/wired_on_tables.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -4413,13 +5002,21 @@ Feature: High strung
       | happy |
 
 ----
+=====
 And ::
+=====
 there is a wire server running on port 54321 which understands the following protocol: icon:thumbs-up[role="green",title="Passed"] [small right]#(002ms)#
+=====
 When ::
+=====
 I run `cucumber -f progress features/wired_on_tables.feature` icon:thumbs-up[role="green",title="Passed"] [small right]#(139ms)#
+=====
 Then ::
+=====
 the stderr should not contain anything icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 it should pass with: icon:thumbs-up[role="green",title="Passed"] [small right]#(001ms)#
 ----
 
@@ -4430,6 +5027,7 @@ it should pass with: icon:thumbs-up[role="green",title="Passed"] [small right]#(
 
 
 ----
+=====
 ****
 
 ==== Scenario: Invoke a scenario outline step
@@ -4438,6 +5036,7 @@ it should pass with: icon:thumbs-up[role="green",title="Passed"] [small right]#(
 
 ****
 Given ::
+=====
 a file named "features/wired_in_an_outline.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -4450,13 +5049,21 @@ Feature:
       | wired |
 
 ----
+=====
 And ::
+=====
 there is a wire server running on port 54321 which understands the following protocol: icon:thumbs-up[role="green",title="Passed"] [small right]#(002ms)#
+=====
 When ::
+=====
 I run `cucumber -f progress features/wired_in_an_outline.feature` icon:thumbs-up[role="green",title="Passed"] [small right]#(146ms)#
+=====
 Then ::
+=====
 the stderr should not contain anything icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 it should pass with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -4467,8 +5074,11 @@ it should pass with: icon:thumbs-up[role="green",title="Passed"] [small right]#(
 
 
 ----
+=====
 And ::
+=====
 the wire server should have received the following messages: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 ****
 
 [[JSON-output-formatter, JSON output formatter]]
@@ -4483,8 +5093,11 @@ Developers should be able to consume features as JSON
 
 ****
 Given ::
+=====
 the standard step definitions icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 a file named "features/one_passing_one_failing.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -4500,7 +5113,9 @@ Feature: One passing scenario, one failing scenario
     Given this step fails
 
 ----
+=====
 And ::
+=====
 a file named "features/step_definitions/json_steps.rb" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -4519,7 +5134,9 @@ Given /^I embed data directly/ do
 end
 
 ----
+=====
 And ::
+=====
 a file named "features/embed.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -4530,7 +5147,9 @@ Feature: A screenshot feature
 
 
 ----
+=====
 And ::
+=====
 a file named "features/outline.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -4549,7 +5168,9 @@ Feature: An outline feature
       | passes |
 
 ----
+=====
 And ::
+=====
 a file named "features/print_from_step_definition.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -4561,7 +5182,9 @@ Feature: A print from step definition feature
 
 
 ----
+=====
 And ::
+=====
 a file named "features/print_from_step_definition.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -4573,7 +5196,9 @@ Feature: A print from step definition feature
 
 
 ----
+=====
 And ::
+=====
 a file named "features/embed_data_directly.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -4592,7 +5217,9 @@ Examples:
 
 
 ----
+=====
 And ::
+=====
 a file named "features/out_scenario_out_scenario_outline.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -4606,6 +5233,7 @@ Feature:
     | passes |
 
 ----
+=====
 ****
 
 ==== Scenario: one feature, one passing scenario, one failing scenario
@@ -4614,8 +5242,11 @@ Feature:
 
 ****
 When ::
+=====
 I run `cucumber --format json features/one_passing_one_failing.feature` icon:thumbs-up[role="green",title="Passed"] [small right]#(605ms)#
+=====
 Then ::
+=====
 it should fail with JSON: icon:thumbs-up[role="green",title="Passed"] [small right]#(001ms)#
 ----
 
@@ -4705,6 +5336,7 @@ it should fail with JSON: icon:thumbs-up[role="green",title="Passed"] [small rig
 
 
 ----
+=====
 ****
 
 ==== Scenario: one feature, one passing scenario, one failing scenario with prettyfied json
@@ -4713,8 +5345,11 @@ it should fail with JSON: icon:thumbs-up[role="green",title="Passed"] [small rig
 
 ****
 When ::
+=====
 I run `cucumber --format json_pretty features/one_passing_one_failing.feature` icon:thumbs-up[role="green",title="Passed"] [small right]#(505ms)#
+=====
 Then ::
+=====
 it should fail with JSON: icon:thumbs-up[role="green",title="Passed"] [small right]#(002ms)#
 ----
 
@@ -4804,6 +5439,7 @@ it should fail with JSON: icon:thumbs-up[role="green",title="Passed"] [small rig
 
 
 ----
+=====
 ****
 
 ==== Scenario: DocString
@@ -4812,6 +5448,7 @@ it should fail with JSON: icon:thumbs-up[role="green",title="Passed"] [small rig
 
 ****
 Given ::
+=====
 a file named "features/doc_string.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -4824,7 +5461,9 @@ Feature: A DocString feature
       """
 
 ----
+=====
 And ::
+=====
 a file named "features/step_definitions/steps.rb" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -4833,9 +5472,13 @@ Then /I should fail with/ do |s|
 end
 
 ----
+=====
 When ::
+=====
 I run `cucumber --format json features/doc_string.feature` icon:thumbs-up[role="green",title="Passed"] [small right]#(605ms)#
+=====
 Then ::
+=====
 it should fail with JSON: icon:thumbs-up[role="green",title="Passed"] [small right]#(001ms)#
 ----
 
@@ -4881,6 +5524,7 @@ it should fail with JSON: icon:thumbs-up[role="green",title="Passed"] [small rig
 ]
 
 ----
+=====
 ****
 
 ==== Scenario: embedding screenshot
@@ -4889,8 +5533,11 @@ it should fail with JSON: icon:thumbs-up[role="green",title="Passed"] [small rig
 
 ****
 When ::
+=====
 I run `cucumber -b --format json features/embed.feature` icon:thumbs-up[role="green",title="Passed"] [small right]#(606ms)#
+=====
 Then ::
+=====
 it should pass with JSON: icon:thumbs-up[role="green",title="Passed"] [small right]#(001ms)#
 ----
 
@@ -4937,6 +5584,7 @@ it should pass with JSON: icon:thumbs-up[role="green",title="Passed"] [small rig
 
 
 ----
+=====
 ****
 
 ==== Scenario: scenario outline
@@ -4945,8 +5593,11 @@ it should pass with JSON: icon:thumbs-up[role="green",title="Passed"] [small rig
 
 ****
 When ::
+=====
 I run `cucumber --format json features/outline.feature` icon:thumbs-up[role="green",title="Passed"] [small right]#(606ms)#
+=====
 Then ::
+=====
 it should fail with JSON: icon:thumbs-up[role="green",title="Passed"] [small right]#(002ms)#
 ----
 
@@ -5032,14 +5683,18 @@ it should fail with JSON: icon:thumbs-up[role="green",title="Passed"] [small rig
 
 
 ----
+=====
 ****
 
 ==== Scenario: print from step definition
 
 ****
 When ::
+=====
 I run `cucumber --format json features/print_from_step_definition.feature` icon:thumbs-up[role="green",title="Passed"] [small right]#(013ms)#
+=====
 Then ::
+=====
 it should pass with JSON: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -5098,6 +5753,7 @@ it should pass with JSON: icon:thumbs-up[role="green",title="Passed"] [small rig
 
 
 ----
+=====
 ****
 
 ==== Scenario: scenario outline expanded
@@ -5106,8 +5762,11 @@ it should pass with JSON: icon:thumbs-up[role="green",title="Passed"] [small rig
 
 ****
 When ::
+=====
 I run `cucumber --expand --format json features/outline.feature` icon:thumbs-up[role="green",title="Passed"] [small right]#(707ms)#
+=====
 Then ::
+=====
 it should fail with JSON: icon:thumbs-up[role="green",title="Passed"] [small right]#(002ms)#
 ----
 
@@ -5193,6 +5852,7 @@ it should fail with JSON: icon:thumbs-up[role="green",title="Passed"] [small rig
 
 
 ----
+=====
 ****
 
 ==== Scenario: embedding data directly
@@ -5201,8 +5861,11 @@ it should fail with JSON: icon:thumbs-up[role="green",title="Passed"] [small rig
 
 ****
 When ::
+=====
 I run `cucumber -b --format json -x features/embed_data_directly.feature` icon:thumbs-up[role="green",title="Passed"] [small right]#(607ms)#
+=====
 Then ::
+=====
 it should pass with JSON: icon:thumbs-up[role="green",title="Passed"] [small right]#(002ms)#
 ----
 
@@ -5305,6 +5968,7 @@ it should pass with JSON: icon:thumbs-up[role="green",title="Passed"] [small rig
 
 
 ----
+=====
 ****
 
 ==== Scenario: handle output from hooks
@@ -5313,6 +5977,7 @@ it should pass with JSON: icon:thumbs-up[role="green",title="Passed"] [small rig
 
 ****
 Given ::
+=====
 a file named "features/step_definitions/output_steps.rb" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -5347,10 +6012,15 @@ After do
 end
 
 ----
+=====
 When ::
+=====
 I run `cucumber --format json features/out_scenario_out_scenario_outline.feature` icon:thumbs-up[role="green",title="Passed"] [small right]#(707ms)#
+=====
 Then ::
+=====
 it should pass icon:thumbs-up[role="green",title="Passed"] [small right]#(001ms)#
+=====
 ****
 
 [[JUnit-output-formatter, JUnit output formatter]]
@@ -5367,8 +6037,11 @@ Cucumber should be able to output JUnit xml files
 
 ****
 Given ::
+=====
 the standard step definitions icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 a file named "features/one_passing_one_failing.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -5381,7 +6054,9 @@ Feature: One passing scenario, one failing scenario
     Given this step fails
 
 ----
+=====
 And ::
+=====
 a file named "features/some_subdirectory/one_passing_one_failing.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -5394,7 +6069,9 @@ Feature: Subdirectory - One passing scenario, one failing scenario
     Given this step fails
 
 ----
+=====
 And ::
+=====
 a file named "features/pending.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -5407,7 +6084,9 @@ Feature: Pending step
     Given this step is undefined
 
 ----
+=====
 And ::
+=====
 a file named "features/pending.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -5420,7 +6099,9 @@ Feature: Pending step
     Given this step is undefined
 
 ----
+=====
 And ::
+=====
 a file named "features/scenario_outline.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -5437,6 +6118,7 @@ Feature: Scenario outlines
       | is undefined |
 
 ----
+=====
 ****
 
 ==== Scenario: one feature, one passing scenario, one failing scenario
@@ -5445,10 +6127,15 @@ Feature: Scenario outlines
 
 ****
 When ::
+=====
 I run `cucumber --format junit --out tmp/ features/one_passing_one_failing.feature` icon:thumbs-up[role="green",title="Passed"] [small right]#(706ms)#
+=====
 Then ::
+=====
 it should fail with: icon:thumbs-up[role="green",title="Passed"] [small right]#(001ms)#
+=====
 And ::
+=====
 the junit output file "tmp/TEST-features-one_passing_one_failing.xml" should contain: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -5485,6 +6172,7 @@ features/one_passing_one_failing.feature:7:in `Given this step fails']]>
 
 
 ----
+=====
 ****
 
 ==== Scenario: one feature in a subdirectory, one passing scenario, one failing scenario
@@ -5493,10 +6181,15 @@ features/one_passing_one_failing.feature:7:in `Given this step fails']]>
 
 ****
 When ::
+=====
 I run `cucumber --format junit --out tmp/ features/some_subdirectory/one_passing_one_failing.feature --require features` icon:thumbs-up[role="green",title="Passed"] [small right]#(607ms)#
+=====
 Then ::
+=====
 it should fail with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 the junit output file "tmp/TEST-features-some_subdirectory-one_passing_one_failing.xml" should contain: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -5533,6 +6226,7 @@ features/some_subdirectory/one_passing_one_failing.feature:7:in `Given this step
 
 
 ----
+=====
 ****
 
 ==== Scenario: pending and undefined steps are reported as skipped
@@ -5541,10 +6235,15 @@ features/some_subdirectory/one_passing_one_failing.feature:7:in `Given this step
 
 ****
 When ::
+=====
 I run `cucumber --format junit --out tmp/ features/pending.feature` icon:thumbs-up[role="green",title="Passed"] [small right]#(606ms)#
+=====
 Then ::
+=====
 it should pass with: icon:thumbs-up[role="green",title="Passed"] [small right]#(001ms)#
+=====
 And ::
+=====
 the junit output file "tmp/TEST-features-pending.xml" should contain: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -5572,6 +6271,7 @@ the junit output file "tmp/TEST-features-pending.xml" should contain: icon:thumb
 
 
 ----
+=====
 ****
 
 ==== Scenario: pending and undefined steps with strict option should fail
@@ -5580,10 +6280,15 @@ the junit output file "tmp/TEST-features-pending.xml" should contain: icon:thumb
 
 ****
 When ::
+=====
 I run `cucumber --format junit --out tmp/ features/pending.feature --strict` icon:thumbs-up[role="green",title="Passed"] [small right]#(706ms)#
+=====
 Then ::
+=====
 it should fail with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 the junit output file "tmp/TEST-features-pending.xml" should contain: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -5630,6 +6335,7 @@ features/pending.feature:7:in `Given this step is undefined']]>
 
 
 ----
+=====
 ****
 
 ==== Scenario: run all features
@@ -5638,13 +6344,21 @@ features/pending.feature:7:in `Given this step is undefined']]>
 
 ****
 When ::
+=====
 I run `cucumber --format junit --out tmp/ features` icon:thumbs-up[role="green",title="Passed"] [small right]#(707ms)#
+=====
 Then ::
+=====
 it should fail with: icon:thumbs-up[role="green",title="Passed"] [small right]#(001ms)#
+=====
 And ::
+=====
 a file named "tmp/TEST-features-one_passing_one_failing.xml" should exist icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 a file named "tmp/TEST-features-pending.xml" should exist icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 ****
 
 ==== Scenario: show correct error message if no --out is passed
@@ -5653,21 +6367,27 @@ a file named "tmp/TEST-features-pending.xml" should exist icon:thumbs-up[role="g
 
 ****
 When ::
+=====
 I run `cucumber --format junit features` icon:thumbs-up[role="green",title="Passed"] [small right]#(607ms)#
+=====
 Then ::
+=====
 the stderr should not contain: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
 can't convert .* into String \(TypeError\)
 
 ----
+=====
 And ::
+=====
 the stderr should contain: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
 You *must* specify --out DIR for the junit formatter
 
 ----
+=====
 ****
 
 ==== Scenario: strict mode, one feature, one scenario outline, four examples: one passing, one failing, one pending, one undefined
@@ -5676,10 +6396,15 @@ You *must* specify --out DIR for the junit formatter
 
 ****
 When ::
+=====
 I run `cucumber --strict --format junit --out tmp/ features/scenario_outline.feature` icon:thumbs-up[role="green",title="Passed"] [small right]#(707ms)#
+=====
 Then ::
+=====
 it should fail with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 the junit output file "tmp/TEST-features-scenario_outline.xml" should contain: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -5756,6 +6481,7 @@ features/scenario_outline.feature:4:in `Given this step <type>']]>
 
 
 ----
+=====
 ****
 
 ==== Scenario: strict mode with --expand option, one feature, one scenario outline, four examples: one passing, one failing, one pending, one undefined
@@ -5764,10 +6490,15 @@ features/scenario_outline.feature:4:in `Given this step <type>']]>
 
 ****
 When ::
+=====
 I run `cucumber --strict --expand --format junit --out tmp/ features/scenario_outline.feature` icon:thumbs-up[role="green",title="Passed"] [small right]#(706ms)#
+=====
 Then ::
+=====
 it should fail with exactly: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 the junit output file "tmp/TEST-features-scenario_outline.xml" should contain: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -5844,6 +6575,7 @@ features/scenario_outline.feature:4:in `Given this step <type>']]>
 
 
 ----
+=====
 ****
 
 [[Language-help, Language help]]
@@ -5866,8 +6598,11 @@ you choose.
 
 ****
 When ::
+=====
 I run `cucumber --i18n pt help` icon:thumbs-up[role="green",title="Passed"] [small right]#(007ms)#
+=====
 Then ::
+=====
 it should pass with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -5889,6 +6624,7 @@ it should pass with: icon:thumbs-up[role="green",title="Passed"] [small right]#(
 
 
 ----
+=====
 ****
 
 ==== Scenario: List languages
@@ -5897,9 +6633,13 @@ it should pass with: icon:thumbs-up[role="green",title="Passed"] [small right]#(
 
 ****
 When ::
+=====
 I run `cucumber --i18n help` icon:thumbs-up[role="green",title="Passed"] [small right]#(006ms)#
+=====
 Then ::
+=====
 cucumber lists all the supported languages icon:thumbs-up[role="green",title="Passed"] [small right]#(001ms)#
+=====
 ****
 
 [[List-step-defs-as-json, List step defs as json]]
@@ -5917,7 +6657,9 @@ I want to be able to query a features directory for all the step definitions it 
 
 ****
 Given ::
+=====
 a directory named "features" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 ****
 
 ==== Scenario: Two Ruby step definitions, in the same file
@@ -5926,6 +6668,7 @@ a directory named "features" icon:thumbs-up[role="green",title="Passed"] [small 
 
 ****
 Given ::
+=====
 a file named "features/step_definitions/steps.rb" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -5933,7 +6676,9 @@ Given(/foo/i)  { }
 Given(/b.r/xm) { }
 
 ----
+=====
 When ::
+=====
 I run the following Ruby code: icon:thumbs-up[role="green",title="Passed"] [small right]#(610ms)#
 ----
 
@@ -5942,7 +6687,9 @@ puts Cucumber::StepDefinitions.new.to_json
 
 
 ----
+=====
 Then ::
+=====
 it should pass with JSON: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -5952,6 +6699,7 @@ it should pass with JSON: icon:thumbs-up[role="green",title="Passed"] [small rig
 ]
 
 ----
+=====
 ****
 
 ==== Scenario: Non-default directory structure
@@ -5960,6 +6708,7 @@ it should pass with JSON: icon:thumbs-up[role="green",title="Passed"] [small rig
 
 ****
 Given ::
+=====
 a file named "my_weird/place/steps.rb" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -5967,7 +6716,9 @@ Given(/foo/)  { }
 Given(/b.r/x) { }
 
 ----
+=====
 When ::
+=====
 I run the following Ruby code: icon:thumbs-up[role="green",title="Passed"] [small right]#(608ms)#
 ----
 
@@ -5976,7 +6727,9 @@ puts Cucumber::StepDefinitions.new(:autoload_code_paths => ['my_weird']).to_json
 
 
 ----
+=====
 Then ::
+=====
 it should pass with JSON: icon:thumbs-up[role="green",title="Passed"] [small right]#(001ms)#
 ----
 
@@ -5987,6 +6740,7 @@ it should pass with JSON: icon:thumbs-up[role="green",title="Passed"] [small rig
 
 
 ----
+=====
 ****
 
 [[Loading-the-steps-users-expect, Loading the steps users expect]]
@@ -6001,6 +6755,7 @@ I want cucumber to load all step files
 
 ****
 Given ::
+=====
 a file named "features/nesting/test.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -6009,16 +6764,22 @@ Feature: Feature in Subdirectory
     Given not found in subdirectory
 
 ----
+=====
 And ::
+=====
 a file named "features/step_definitions/steps_no_in_subdirectory.rb" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
 Given(/^not found in subdirectory$/) { }
 
 ----
+=====
 When ::
+=====
 I run `cucumber -q features/nesting/test.feature` icon:thumbs-up[role="green",title="Passed"] [small right]#(006ms)#
+=====
 Then ::
+=====
 it should pass with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -6031,6 +6792,7 @@ Feature: Feature in Subdirectory
 1 step (1 passed)
 
 ----
+=====
 ****
 
 [[Nested-Steps, Nested Steps]]
@@ -6040,13 +6802,16 @@ Feature: Feature in Subdirectory
 
 ****
 Given ::
+=====
 a scenario with a step that looks like this: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
 Given two turtles
 
 ----
+=====
 And ::
+=====
 a step definition that looks like this: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -6055,12 +6820,14 @@ Given /a turtle/ do
 end
 
 ----
+=====
 ****
 
 ==== Scenario: Use #steps to call several steps at once
 
 ****
 Given ::
+=====
 a step definition that looks like this: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -6072,9 +6839,13 @@ Given /two turtles/ do
 end
 
 ----
+=====
 When ::
+=====
 I run the feature with the progress formatter icon:thumbs-up[role="green",title="Passed"] [small right]#(012ms)#
+=====
 Then ::
+=====
 the output should contain: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -6084,12 +6855,14 @@ turtle!
 
 
 ----
+=====
 ****
 
 ==== Scenario: Use #step to call a single step
 
 ****
 Given ::
+=====
 a step definition that looks like this: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -6099,9 +6872,13 @@ Given /two turtles/ do
 end
 
 ----
+=====
 When ::
+=====
 I run the feature with the progress formatter icon:thumbs-up[role="green",title="Passed"] [small right]#(007ms)#
+=====
 Then ::
+=====
 the output should contain: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -6111,12 +6888,14 @@ turtle!
 
 
 ----
+=====
 ****
 
 ==== Scenario: Use #steps to call a table
 
 ****
 Given ::
+=====
 a step definition that looks like this: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -6127,7 +6906,9 @@ Given /turtles:/ do |table|
 end
 
 ----
+=====
 And ::
+=====
 a step definition that looks like this: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -6141,9 +6922,13 @@ Given /two turtles/ do
 end
 
 ----
+=====
 When ::
+=====
 I run the feature with the progress formatter icon:thumbs-up[role="green",title="Passed"] [small right]#(008ms)#
+=====
 Then ::
+=====
 the output should contain: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -6153,12 +6938,14 @@ Liouville
 
 
 ----
+=====
 ****
 
 ==== Scenario: Use #steps to call a multi-line string
 
 ****
 Given ::
+=====
 a step definition that looks like this: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -6173,7 +6960,9 @@ a step definition that looks like this: icon:thumbs-up[role="green",title="Passe
   end
 
 ----
+=====
 And ::
+=====
 a step definition that looks like this: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -6182,9 +6971,13 @@ Given /turtles:/ do |string|
 end
 
 ----
+=====
 When ::
+=====
 I run the feature with the progress formatter icon:thumbs-up[role="green",title="Passed"] [small right]#(007ms)#
+=====
 Then ::
+=====
 the output should contain: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -6192,6 +6985,7 @@ Sturm
 Liouville
 
 ----
+=====
 ****
 
 ==== Scenario: Backtrace doesn't skip nested steps
@@ -6200,6 +6994,7 @@ Liouville
 
 ****
 Given ::
+=====
 a step definition that looks like this: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -6210,9 +7005,13 @@ end
 When(/I have a couple turtles/) { raise 'error' }
 
 ----
+=====
 When ::
+=====
 I run the feature with the progress formatter icon:thumbs-up[role="green",title="Passed"] [small right]#(607ms)#
+=====
 Then ::
+=====
 it should fail with: icon:thumbs-up[role="green",title="Passed"] [small right]#(001ms)#
 ----
 
@@ -6228,12 +7027,14 @@ cucumber features/test_feature_1.feature:2 # Scenario: Test Scenario 1
 1 step (1 failed)
 
 ----
+=====
 ****
 
 ==== Scenario: Undefined nested step
 
 ****
 Given ::
+=====
 a file named "features/call_undefined_step_from_step_def.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -6246,7 +7047,9 @@ Feature: Calling undefined step
     Given a step that calls a step that calls an undefined step
 
 ----
+=====
 And ::
+=====
 a file named "features/step_definitions/steps.rb" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -6259,9 +7062,13 @@ Given /^a step that calls a step that calls an undefined step$/ do
 end
 
 ----
+=====
 When ::
+=====
 I run `cucumber -q features/call_undefined_step_from_step_def.feature` icon:thumbs-up[role="green",title="Passed"] [small right]#(032ms)#
+=====
 Then ::
+=====
 it should fail with exactly: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -6289,6 +7096,7 @@ cucumber features/call_undefined_step_from_step_def.feature:6
 
 
 ----
+=====
 ****
 
 [[Nested-Steps-in-I18n, Nested Steps in I18n]]
@@ -6298,13 +7106,16 @@ cucumber features/call_undefined_step_from_step_def.feature:6
 
 ****
 Given ::
+=====
 a scenario with a step that looks like this in japanese: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
 前提 two turtles
 
 ----
+=====
 And ::
+=====
 a step definition that looks like this: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -6314,12 +7125,14 @@ a step definition that looks like this: icon:thumbs-up[role="green",title="Passe
 end
 
 ----
+=====
 ****
 
 ==== Scenario: Use #steps to call several steps at once
 
 ****
 Given ::
+=====
 a step definition that looks like this: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -6332,9 +7145,13 @@ a step definition that looks like this: icon:thumbs-up[role="green",title="Passe
 end
 
 ----
+=====
 When ::
+=====
 I run the feature with the progress formatter icon:thumbs-up[role="green",title="Passed"] [small right]#(013ms)#
+=====
 Then ::
+=====
 the output should contain: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -6344,6 +7161,7 @@ turtle!
 
 
 ----
+=====
 ****
 
 [[Nested-Steps-with-either-table-or-doc-string, Nested Steps with either table or doc string]]
@@ -6353,18 +7171,21 @@ turtle!
 
 ****
 Given ::
+=====
 a scenario with a step that looks like this: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
 Given two turtles
 
 ----
+=====
 ****
 
 ==== Scenario: Use #step with table
 
 ****
 Given ::
+=====
 a step definition that looks like this: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -6375,7 +7196,9 @@ Given /turtles:/ do |table|
 end
 
 ----
+=====
 And ::
+=====
 a step definition that looks like this: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -6388,9 +7211,13 @@ Given /two turtles/ do
 end
 
 ----
+=====
 When ::
+=====
 I run the feature with the progress formatter icon:thumbs-up[role="green",title="Passed"] [small right]#(010ms)#
+=====
 Then ::
+=====
 the output should contain: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -6400,12 +7227,14 @@ Liouville
 
 
 ----
+=====
 ****
 
 ==== Scenario: Use #step with docstring
 
 ****
 Given ::
+=====
 a step definition that looks like this: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -6414,7 +7243,9 @@ Given /two turtles/ do
 end
 
 ----
+=====
 And ::
+=====
 a step definition that looks like this: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -6423,21 +7254,27 @@ Given /turtles:/ do |text|
 end
 
 ----
+=====
 When ::
+=====
 I run the feature with the progress formatter icon:thumbs-up[role="green",title="Passed"] [small right]#(009ms)#
+=====
 Then ::
+=====
 the output should contain: icon:thumbs-up[role="green",title="Passed"] [small right]#(002ms)#
 ----
 
 Sturm and Lioville
 
 ----
+=====
 ****
 
 ==== Scenario: Use #step with docstring and content-type
 
 ****
 Given ::
+=====
 a step definition that looks like this: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -6446,7 +7283,9 @@ Given /two turtles/ do
 end
 
 ----
+=====
 And ::
+=====
 a step definition that looks like this: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -6455,15 +7294,20 @@ Given /turtles:/ do |text|
 end
 
 ----
+=====
 When ::
+=====
 I run the feature with the progress formatter icon:thumbs-up[role="green",title="Passed"] [small right]#(008ms)#
+=====
 Then ::
+=====
 the output should contain: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
 math
 
 ----
+=====
 ****
 
 [[One-line-step-definitions, One line step definitions]]
@@ -6478,6 +7322,7 @@ but did you know you can do this?
 
 ****
 Given ::
+=====
 a file named "features/step_definitions/steps.rb" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -6496,7 +7341,9 @@ When /I do the action/, :do_action
 Then /The action should be done/, :assert_done
 
 ----
+=====
 And ::
+=====
 a file named "features/action.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -6506,16 +7353,22 @@ Feature:
     Then the action should be done
 
 ----
+=====
 When ::
+=====
 I run `cucumber` icon:thumbs-up[role="green",title="Passed"] [small right]#(008ms)#
+=====
 Then ::
+=====
 it should pass icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 ****
 
 ==== Scenario: Call a method on an actor in the World directly from a step def
 
 ****
 Given ::
+=====
 a file named "features/step_definitions/steps.rb" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -6540,7 +7393,9 @@ When /I do the action to the thing/, :do_action, :on => lambda { thing }
 Then /The thing should be done/, :assert_done, :on => lambda { thing }
 
 ----
+=====
 And ::
+=====
 a file named "features/action.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -6550,10 +7405,15 @@ Feature:
     Then the thing should be done
 
 ----
+=====
 When ::
+=====
 I run `cucumber` icon:thumbs-up[role="green",title="Passed"] [small right]#(008ms)#
+=====
 Then ::
+=====
 it should pass icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 ****
 
 [[Post-Configuration-Hook-[#423], Post Configuration Hook [#423]]]
@@ -6571,6 +7431,7 @@ I want to manipulate the Cucumber configuration after it has been created
 
 ****
 Given ::
+=====
 a file named "features/support/env.rb" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -6579,21 +7440,27 @@ AfterConfiguration do |config|
 end
 
 ----
+=====
 When ::
+=====
 I run `cucumber features` icon:thumbs-up[role="green",title="Passed"] [small right]#(605ms)#
+=====
 Then ::
+=====
 the stderr should contain: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
 Deprecated
 
 ----
+=====
 ****
 
 ==== Scenario: Changing the output format
 
 ****
 Given ::
+=====
 a file named "features/support/env.rb" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -6602,23 +7469,31 @@ AfterConfiguration do |config|
 end
 
 ----
+=====
 When ::
+=====
 I run `cucumber features` icon:thumbs-up[role="green",title="Passed"] [small right]#(016ms)#
+=====
 Then ::
+=====
 the stderr should not contain anything icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 the output should contain: icon:thumbs-up[role="green",title="Passed"] [small right]#(008ms)#
 ----
 
 html
 
 ----
+=====
 ****
 
 ==== Scenario: feature directories read from configuration
 
 ****
 Given ::
+=====
 a file named "features/support/env.rb" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -6627,17 +7502,24 @@ AfterConfiguration do |config|
 end
 
 ----
+=====
 When ::
+=====
 I run `cucumber features` icon:thumbs-up[role="green",title="Passed"] [small right]#(006ms)#
+=====
 Then ::
+=====
 the stderr should not contain anything icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 the output should contain: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
 AfterConfiguration hook read feature directories: features
 
 ----
+=====
 ****
 
 [[Pretty-formatter---Printing-messages, Pretty formatter - Printing messages]]
@@ -6655,8 +7537,11 @@ Your message will be printed out after the step has run.
 
 ****
 Given ::
+=====
 the standard step definitions icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 a file named "features/step_definitions/puts_steps.rb" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -6685,7 +7570,9 @@ Given /^I puts the world$/ do
 end
 
 ----
+=====
 And ::
+=====
 a file named "features/f.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -6721,7 +7608,9 @@ Feature:
       | 2    | anno2 | pass   |
 
 ----
+=====
 And ::
+=====
 a file named "features/puts_world.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -6730,6 +7619,7 @@ Feature: puts_world
     Given I puts the world
 
 ----
+=====
 ****
 
 ==== Scenario: Delayed messages feature
@@ -6738,10 +7628,15 @@ Feature: puts_world
 
 ****
 When ::
+=====
 I run `cucumber --quiet --format pretty features/f.feature` icon:thumbs-up[role="green",title="Passed"] [small right]#(505ms)#
+=====
 Then ::
+=====
 the stderr should not contain anything icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 the output should contain: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -6789,14 +7684,18 @@ Feature:
       | 2    | anno2 | pass   |  Line: 2: anno2
 
 ----
+=====
 ****
 
 ==== Scenario: Non-delayed messages feature (progress formatter)
 
 ****
 When ::
+=====
 I run `cucumber --format progress features/f.feature` icon:thumbs-up[role="green",title="Passed"] [small right]#(040ms)#
+=====
 Then ::
+=====
 the output should contain: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -6816,6 +7715,7 @@ Line: 2: anno2
 .
 
 ----
+=====
 ****
 
 [[Pretty-output-formatter, Pretty output formatter]]
@@ -6825,6 +7725,7 @@ Line: 2: anno2
 
 ****
 Given ::
+=====
 a file named "features/scenario_outline_with_undefined_steps.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -6838,46 +7739,62 @@ Feature:
     |bar|
 
 ----
+=====
 ****
 
 ==== Scenario: an scenario outline, one undefined step, one random example, expand flag on
 
 ****
 When ::
+=====
 I run `cucumber features/scenario_outline_with_undefined_steps.feature --format pretty --expand ` icon:thumbs-up[role="green",title="Passed"] [small right]#(017ms)#
+=====
 Then ::
+=====
 it should pass icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 ****
 
 ==== Scenario: when using a profile the output should include 'Using the default profile...'
 
 ****
 And ::
+=====
 a file named "cucumber.yml" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
   default: -r features
 
 ----
+=====
 When ::
+=====
 I run `cucumber --profile default --format pretty` icon:thumbs-up[role="green",title="Passed"] [small right]#(018ms)#
+=====
 Then ::
+=====
 it should pass icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 the output should contain: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
 Using the default profile...
 
 ----
+=====
 ****
 
 ==== Scenario: Hook output should be printed before hook exception
 
 ****
 Given ::
+=====
 the standard step definitions icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 a file named "features/test.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -6886,7 +7803,9 @@ Feature:
     Given this step passes
 
 ----
+=====
 And ::
+=====
 a file named "features/step_definitions/output_steps.rb" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -6904,11 +7823,17 @@ raise "error"
 end
 
 ----
+=====
 When ::
+=====
 I run `cucumber -q -f pretty features/test.feature` icon:thumbs-up[role="green",title="Passed"] [small right]#(015ms)#
+=====
 Then ::
+=====
 the stderr should not contain anything icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 Then ::
+=====
 it should fail with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -6929,6 +7854,7 @@ cucumber features/test.feature:2
 1 step (1 passed)
 
 ----
+=====
 ****
 
 [[Profiles, Profiles]]
@@ -6948,6 +7874,7 @@ http://wiki.github.com/cucumber/cucumber/cucumber.yml
 
 ****
 Given ::
+=====
 a file named "features/sample.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -6956,11 +7883,17 @@ Feature: Sample
     Given this step raises an error
 
 ----
+=====
 And ::
+=====
 an empty file named "features/support/env.rb" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 an empty file named "features/support/super_env.rb" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 the following profiles are defined: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -6968,28 +7901,36 @@ default: features/sample.feature --require features/support/env.rb -v
 super: features/sample.feature --require features/support/super_env.rb -v
 
 ----
+=====
 ****
 
 ==== Scenario: Explicitly defining a profile to run
 
 ****
 When ::
+=====
 I run `cucumber features/sample.feature --profile super` icon:thumbs-up[role="green",title="Passed"] [small right]#(014ms)#
+=====
 Then ::
+=====
 the output should contain: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
 Using the super profile...
 
 ----
+=====
 And ::
+=====
 exactly these files should be loaded: features/support/super_env.rb icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 ****
 
 ==== Scenario: Explicitly defining a profile defined in an ERB formatted file
 
 ****
 Given ::
+=====
 the following profiles are defined: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -6997,52 +7938,74 @@ the following profiles are defined: icon:thumbs-up[role="green",title="Passed"] 
 super: <%= "features/sample.feature #{requires} -v" %>
 
 ----
+=====
 When ::
+=====
 I run `cucumber features/sample.feature --profile super` icon:thumbs-up[role="green",title="Passed"] [small right]#(013ms)#
+=====
 Then ::
+=====
 the output should contain: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
 Using the super profile...
 
 ----
+=====
 And ::
+=====
 exactly these files should be loaded: features/support/super_env.rb icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 ****
 
 ==== Scenario: Defining multiple profiles to run
 
 ****
 When ::
+=====
 I run `cucumber features/sample.feature --profile default --profile super` icon:thumbs-up[role="green",title="Passed"] [small right]#(013ms)#
+=====
 Then ::
+=====
 the output should contain: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
 Using the default and super profiles...
 
 ----
+=====
 And ::
+=====
 exactly these files should be loaded: features/support/env.rb, features/support/super_env.rb icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 ****
 
 ==== Scenario: Arguments passed in but no profile specified
 
 ****
 When ::
+=====
 I run `cucumber -v` icon:thumbs-up[role="green",title="Passed"] [small right]#(009ms)#
+=====
 Then ::
+=====
 the default profile should be used icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 exactly these files should be loaded: features/support/env.rb icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 ****
 
 ==== Scenario: Trying to use a missing profile
 
 ****
 When ::
+=====
 I run `cucumber -p foo` icon:thumbs-up[role="green",title="Passed"] [small right]#(004ms)#
+=====
 Then ::
+=====
 the stderr should contain: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -7054,54 +8017,73 @@ Defined profiles in cucumber.yml:
 
 
 ----
+=====
 ****
 
 ==== Scenario Outline: Disabling the default profile
 
 ****
 When ::
+=====
 I run `cucumber -v features/ -P` icon:thumbs-up[role="green",title="Passed"] [small right]#(006ms)#
+=====
 Then ::
+=====
 the output should contain: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
 Disabling profiles...
 
 ----
+=====
 And ::
+=====
 exactly these files should be loaded: features/support/env.rb, features/support/super_env.rb icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 ****
 
 ==== Scenario Outline: Disabling the default profile
 
 ****
 When ::
+=====
 I run `cucumber -v features/ --no-profile` icon:thumbs-up[role="green",title="Passed"] [small right]#(006ms)#
+=====
 Then ::
+=====
 the output should contain: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
 Disabling profiles...
 
 ----
+=====
 And ::
+=====
 exactly these files should be loaded: features/support/env.rb, features/support/super_env.rb icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 ****
 
 ==== Scenario: Overriding the profile's features to run
 
 ****
 Given ::
+=====
 a file named "features/another.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
 Feature: Just this one should be ran
 
 ----
+=====
 When ::
+=====
 I run `cucumber -p default features/another.feature` icon:thumbs-up[role="green",title="Passed"] [small right]#(007ms)#
+=====
 Then ::
+=====
 exactly these features should be ran: features/another.feature icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 ****
 
 ==== Scenario: Overriding the profile's formatter
@@ -7113,53 +8095,71 @@ command line and override the one in the profile.
 
 ****
 Given ::
+=====
 the following profiles are defined: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
 default: features/sample.feature --require features/support/env.rb -v --format profile
 
 ----
+=====
 When ::
+=====
 I run `cucumber features --format pretty` icon:thumbs-up[role="green",title="Passed"] [small right]#(008ms)#
+=====
 Then ::
+=====
 the output should contain: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
 Feature: Sample
 
 ----
+=====
 ****
 
 ==== Scenario Outline: Showing profiles when listing failing scenarios
 
 ****
 Given ::
+=====
 the standard step definitions icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 When ::
+=====
 I run `cucumber -q -p super -p default -f pretty features/sample.feature --require features/step_definitions/steps.rb` icon:thumbs-up[role="green",title="Passed"] [small right]#(015ms)#
+=====
 Then ::
+=====
 it should fail with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
 cucumber -p super features/sample.feature:2
 
 ----
+=====
 ****
 
 ==== Scenario Outline: Showing profiles when listing failing scenarios
 
 ****
 Given ::
+=====
 the standard step definitions icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 When ::
+=====
 I run `cucumber -q -p super -p default -f progress features/sample.feature --require features/step_definitions/steps.rb` icon:thumbs-up[role="green",title="Passed"] [small right]#(016ms)#
+=====
 Then ::
+=====
 it should fail with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
 cucumber -p super features/sample.feature:2
 
 ----
+=====
 ****
 
 [[Progress-output-formatter, Progress output formatter]]
@@ -7169,6 +8169,7 @@ cucumber -p super features/sample.feature:2
 
 ****
 Given ::
+=====
 a file named "features/scenario_outline_with_undefined_steps.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -7182,38 +8183,51 @@ Feature:
     |bar|
 
 ----
+=====
 ****
 
 ==== Scenario: an scenario outline, one undefined step, one random example, expand flag on
 
 ****
 When ::
+=====
 I run `cucumber features/scenario_outline_with_undefined_steps.feature --format progress --expand ` icon:thumbs-up[role="green",title="Passed"] [small right]#(009ms)#
+=====
 Then ::
+=====
 it should pass icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 ****
 
 ==== Scenario: when using a profile the output should include 'Using the default profile...'
 
 ****
 And ::
+=====
 a file named "cucumber.yml" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
   default: -r features
 
 ----
+=====
 When ::
+=====
 I run `cucumber --profile default --format progress` icon:thumbs-up[role="green",title="Passed"] [small right]#(012ms)#
+=====
 Then ::
+=====
 it should pass icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 the output should contain: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
 Using the default profile...
 
 ----
+=====
 ****
 
 [[Rake-task, Rake task]]
@@ -7231,6 +8245,7 @@ Cucumber features should be executable via Rake
 
 ****
 And ::
+=====
 a file named "features/missing_step_definitions.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -7243,6 +8258,7 @@ Feature: Sample
     Given I don't want this ran
 
 ----
+=====
 ****
 
 ==== Scenario: rake task with a defined profile
@@ -7251,13 +8267,16 @@ Feature: Sample
 
 ****
 Given ::
+=====
 the following profile is defined: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
 foo: --quiet --no-color features/missing_step_definitions.feature:3
 
 ----
+=====
 And ::
+=====
 a file named "Rakefile" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -7268,9 +8287,13 @@ Cucumber::Rake::Task.new do |t|
 end
 
 ----
+=====
 When ::
+=====
 I run `rake cucumber` icon:thumbs-up[role="green",title="Passed"] [small right]#(01s 206ms)#
+=====
 Then ::
+=====
 it should pass with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -7283,6 +8306,7 @@ Feature: Sample
 1 step (1 undefined)
 
 ----
+=====
 ****
 
 ==== Scenario: rake task without a profile
@@ -7291,6 +8315,7 @@ Feature: Sample
 
 ****
 Given ::
+=====
 a file named "Rakefile" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -7301,9 +8326,13 @@ Cucumber::Rake::Task.new do |t|
 end
 
 ----
+=====
 When ::
+=====
 I run `rake cucumber` icon:thumbs-up[role="green",title="Passed"] [small right]#(01s 207ms)#
+=====
 Then ::
+=====
 it should pass with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -7319,6 +8348,7 @@ Feature: Sample
 2 steps (2 undefined)
 
 ----
+=====
 ****
 
 ==== Scenario: rake task with a defined profile and cucumber_opts
@@ -7327,13 +8357,16 @@ Feature: Sample
 
 ****
 Given ::
+=====
 the following profile is defined: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
 bar: ['features/missing_step_definitions.feature:3']
 
 ----
+=====
 And ::
+=====
 a file named "Rakefile" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -7345,9 +8378,13 @@ Cucumber::Rake::Task.new do |t|
 end
 
 ----
+=====
 When ::
+=====
 I run `rake cucumber` icon:thumbs-up[role="green",title="Passed"] [small right]#(01s 207ms)#
+=====
 Then ::
+=====
 it should pass with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -7360,6 +8397,7 @@ Feature: Sample
 1 step (1 undefined)
 
 ----
+=====
 ****
 
 ==== Scenario: respect requires
@@ -7368,17 +8406,24 @@ Feature: Sample
 
 ****
 Given ::
+=====
 an empty file named "features/support/env.rb" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 an empty file named "features/support/dont_require_me.rb" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 the following profile is defined: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
 no_bomb: features/missing_step_definitions.feature:3 --require features/support/env.rb --verbose
 
 ----
+=====
 And ::
+=====
 a file named "Rakefile" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -7390,17 +8435,24 @@ Cucumber::Rake::Task.new do |t|
 end
 
 ----
+=====
 When ::
+=====
 I run `rake cucumber` icon:thumbs-up[role="green",title="Passed"] [small right]#(01s 106ms)#
+=====
 Then ::
+=====
 it should pass icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 the output should not contain: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
   * features/support/dont_require_me.rb
 
 ----
+=====
 ****
 
 ==== Scenario: feature files with spaces
@@ -7409,6 +8461,7 @@ the output should not contain: icon:thumbs-up[role="green",title="Passed"] [smal
 
 ****
 Given ::
+=====
 a file named "features/spaces are nasty.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -7418,7 +8471,9 @@ Feature: The futures green
     Given this is missing
 
 ----
+=====
 And ::
+=====
 a file named "Rakefile" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -7429,9 +8484,13 @@ Cucumber::Rake::Task.new do |t|
 end
 
 ----
+=====
 When ::
+=====
 I run `rake cucumber` icon:thumbs-up[role="green",title="Passed"] [small right]#(01s 108ms)#
+=====
 Then ::
+=====
 it should pass with: icon:thumbs-up[role="green",title="Passed"] [small right]#(001ms)#
 ----
 
@@ -7442,6 +8501,7 @@ Feature: The futures green
 
 
 ----
+=====
 ****
 
 [[Raketask, Raketask]]
@@ -7461,8 +8521,11 @@ And non-zero exit status code when it pases
 
 ****
 Given ::
+=====
 the standard step definitions icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 Given ::
+=====
 a file named "features/passing_and_failing.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -7475,7 +8538,9 @@ Feature: Sample
     Given this step raises an error
 
 ----
+=====
 Given ::
+=====
 a file named "Rakefile" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -7492,6 +8557,7 @@ a file named "Rakefile" with: icon:thumbs-up[role="green",title="Passed"] [small
   end
 
 ----
+=====
 ****
 
 ==== Scenario: Passing feature
@@ -7500,9 +8566,13 @@ a file named "Rakefile" with: icon:thumbs-up[role="green",title="Passed"] [small
 
 ****
 When ::
+=====
 I run `bundle exec rake pass` icon:thumbs-up[role="green",title="Passed"] [small right]#(01s 608ms)#
+=====
 Then ::
+=====
 the exit status should be 0 icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 ****
 
 ==== Scenario: Failing feature
@@ -7511,11 +8581,17 @@ the exit status should be 0 icon:thumbs-up[role="green",title="Passed"] [small r
 
 ****
 When ::
+=====
 I run `bundle exec rake fail` icon:thumbs-up[role="green",title="Passed"] [small right]#(02s 210ms)#
+=====
 Then ::
+=====
 the exit status should be 1 icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 But ::
+=====
 the output should not contain "rake aborted!" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 ****
 
 [[Randomize, Randomize]]
@@ -7536,6 +8612,7 @@ the test run.
 
 ****
 Given ::
+=====
 a file named "features/bad_practice.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -7548,7 +8625,9 @@ Feature: Bad practice
     When I depend on the state
 
 ----
+=====
 And ::
+=====
 a file named "features/step_definitions/steps.rb" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -7561,15 +8640,20 @@ Given(/^I depend on the state$/) do
 end
 
 ----
+=====
 ****
 
 ==== Scenario: Run scenarios in order
 
 ****
 When ::
+=====
 I run `cucumber` icon:thumbs-up[role="green",title="Passed"] [small right]#(006ms)#
+=====
 Then ::
+=====
 it should pass icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 ****
 
 ==== Scenario: Run scenarios randomized
@@ -7578,16 +8662,22 @@ it should pass icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)
 
 ****
 When ::
+=====
 I run `cucumber --order random:41515` icon:thumbs-up[role="green",title="Passed"] [small right]#(705ms)#
+=====
 Then ::
+=====
 it should fail icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 the stdout should contain: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
 Randomized with seed 41515
 
 ----
+=====
 ****
 
 [[Requiring-extra-step-files, Requiring extra step files]]
@@ -7600,6 +8690,7 @@ Cucumber allows you to require extra files using the `-r` option.
 
 ****
 Given ::
+=====
 a file named "features/test.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -7608,16 +8699,22 @@ Feature: Sample
     Given found in extra file
 
 ----
+=====
 And ::
+=====
 a file named "tmp/extras.rb" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
 Given(/^found in extra file$/) { }
 
 ----
+=====
 When ::
+=====
 I run `cucumber -q -r tmp/extras.rb features/test.feature` icon:thumbs-up[role="green",title="Passed"] [small right]#(011ms)#
+=====
 Then ::
+=====
 it should pass with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -7630,6 +8727,7 @@ Feature: Sample
 1 step (1 passed)
 
 ----
+=====
 ****
 
 [[Rerun-formatter, Rerun formatter]]
@@ -7656,13 +8754,16 @@ This is useful when debugging in a large suite of features.
 
 ****
 Given ::
+=====
 the standard step definitions icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 ****
 
 ==== Scenario: Exit code is zero
 
 ****
 Given ::
+=====
 a file named "features/mixed.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -7679,16 +8780,22 @@ Feature: Mixed
 
 
 ----
+=====
 When ::
+=====
 I run `cucumber -f rerun` icon:thumbs-up[role="green",title="Passed"] [small right]#(013ms)#
+=====
 Then ::
+=====
 it should pass with exactly: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 ****
 
 ==== Scenario: Exit code is zero in the dry-run mode
 
 ****
 Given ::
+=====
 a file named "features/mixed.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -7708,7 +8815,9 @@ Feature: Mixed
 
 
 ----
+=====
 And ::
+=====
 a file named "features/all_good.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -7718,16 +8827,22 @@ Feature: All good
     Given this step passes
 
 ----
+=====
 When ::
+=====
 I run `cucumber -f rerun --dry-run` icon:thumbs-up[role="green",title="Passed"] [small right]#(016ms)#
+=====
 Then ::
+=====
 it should pass with exactly: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 ****
 
 ==== Scenario: Exit code is not zero, regular scenario
 
 ****
 Given ::
+=====
 a file named "features/mixed.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -7747,7 +8862,9 @@ Feature: Mixed
 
 
 ----
+=====
 And ::
+=====
 a file named "features/all_good.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -7757,15 +8874,20 @@ Feature: All good
     Given this step passes
 
 ----
+=====
 When ::
+=====
 I run `cucumber -f rerun --strict` icon:thumbs-up[role="green",title="Passed"] [small right]#(016ms)#
+=====
 Then ::
+=====
 it should fail with exactly: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
 features/mixed.feature:3:6:9
 
 ----
+=====
 ****
 
 ==== Scenario: Exit code is not zero, scenario outlines
@@ -7773,6 +8895,7 @@ For details see https://github.com/cucumber/cucumber/issues/57
 
 ****
 Given ::
+=====
 a file named "features/one_passing_one_failing.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -7788,21 +8911,27 @@ Feature: One passing example, one failing example
 
 
 ----
+=====
 When ::
+=====
 I run `cucumber -f rerun` icon:thumbs-up[role="green",title="Passed"] [small right]#(010ms)#
+=====
 Then ::
+=====
 it should fail with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
 features/one_passing_one_failing.feature:9
 
 ----
+=====
 ****
 
 ==== Scenario: Exit code is not zero, failing background
 
 ****
 Given ::
+=====
 a file named "features/failing_background.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -7818,21 +8947,27 @@ Feature: Failing background sample
     Then this step passes
 
 ----
+=====
 When ::
+=====
 I run `cucumber -f rerun` icon:thumbs-up[role="green",title="Passed"] [small right]#(012ms)#
+=====
 Then ::
+=====
 it should fail with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
 features/failing_background.feature:6:9
 
 ----
+=====
 ****
 
 ==== Scenario: Exit code is not zero, failing background with scenario outline
 
 ****
 Given ::
+=====
 a file named "features/failing_background_outline.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -7850,15 +8985,20 @@ Feature: Failing background sample with scenario outline
     | passes |
 
 ----
+=====
 When ::
+=====
 I run `cucumber features/failing_background_outline.feature -r features -f rerun` icon:thumbs-up[role="green",title="Passed"] [small right]#(011ms)#
+=====
 Then ::
+=====
 it should fail with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
 features/failing_background_outline.feature:11:12
 
 ----
+=====
 ****
 
 ==== Scenario: Exit code is not zero, scenario outlines with expand
@@ -7866,6 +9006,7 @@ For details see https://github.com/cucumber/cucumber/issues/503
 
 ****
 Given ::
+=====
 a file named "features/one_passing_one_failing.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -7881,15 +9022,20 @@ a file named "features/one_passing_one_failing.feature" with: icon:thumbs-up[rol
 
 
 ----
+=====
 When ::
+=====
 I run `cucumber --expand -f rerun` icon:thumbs-up[role="green",title="Passed"] [small right]#(012ms)#
+=====
 Then ::
+=====
 it should fail with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
 features/one_passing_one_failing.feature:9
 
 ----
+=====
 ****
 
 [[Run-Cli::Main-with-existing-Runtime, Run Cli::Main with existing Runtime]]
@@ -7908,8 +9054,11 @@ run it.
 
 ****
 Given ::
+=====
 the standard step definitions icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 Given ::
+=====
 a file named "features/success.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -7918,7 +9067,9 @@ Feature:
     Given this step passes
 
 ----
+=====
 When ::
+=====
 I run the following Ruby code: icon:thumbs-up[role="green",title="Passed"] [small right]#(607ms)#
 ----
 
@@ -7929,15 +9080,20 @@ Cucumber::Cli::Main.new([]).execute!(runtime)
 
 
 ----
+=====
 Then ::
+=====
 it should pass icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 the output should contain: icon:thumbs-up[role="green",title="Passed"] [small right]#(005ms)#
 ----
 
 Given this step passes
 
 ----
+=====
 ****
 
 [[Run-feature-elements-matching-a-name-with---name/-n, Run feature elements matching a name with --name/-n]]
@@ -7953,6 +9109,7 @@ Scenario Outlines or Example blocks.
 
 ****
 Given ::
+=====
 a file named "features/first.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -7963,7 +9120,9 @@ Feature: first feature
     Given missing
 
 ----
+=====
 Given ::
+=====
 a file named "features/second.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -7974,7 +9133,9 @@ Feature: second
     Given missing
 
 ----
+=====
 Given ::
+=====
 a file named "features/outline.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -7988,14 +9149,18 @@ Feature: outline
       | b    |
 
 ----
+=====
 ****
 
 ==== Scenario: Matching Feature names
 
 ****
 When ::
+=====
 I run `cucumber -q --name feature` icon:thumbs-up[role="green",title="Passed"] [small right]#(012ms)#
+=====
 Then ::
+=====
 it should pass with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -8011,14 +9176,18 @@ Feature: first feature
 2 steps (2 undefined)
 
 ----
+=====
 ****
 
 ==== Scenario: Matching Scenario names
 
 ****
 When ::
+=====
 I run `cucumber -q --name foo` icon:thumbs-up[role="green",title="Passed"] [small right]#(011ms)#
+=====
 Then ::
+=====
 it should pass with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -8036,14 +9205,18 @@ Feature: second
 2 steps (2 undefined)
 
 ----
+=====
 ****
 
 ==== Scenario: Matching Scenario Outline names
 
 ****
 When ::
+=====
 I run `cucumber -q --name baz` icon:thumbs-up[role="green",title="Passed"] [small right]#(012ms)#
+=====
 Then ::
+=====
 it should pass with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -8061,14 +9234,18 @@ Feature: outline
 2 steps (2 undefined)
 
 ----
+=====
 ****
 
 ==== Scenario: Matching Example block names
 
 ****
 When ::
+=====
 I run `cucumber -q --name quux` icon:thumbs-up[role="green",title="Passed"] [small right]#(010ms)#
+=====
 Then ::
+=====
 it should pass with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -8086,6 +9263,7 @@ Feature: outline
 2 steps (2 undefined)
 
 ----
+=====
 ****
 
 [[Run-specific-scenarios, Run specific scenarios]]
@@ -8106,13 +9284,16 @@ will be run. Otherwise all examples in the table or outline will be run.
 
 ****
 Given ::
+=====
 the standard step definitions icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 ****
 
 ==== Scenario: Two scenarios, run just one of them
 
 ****
 Given ::
+=====
 a file named "features/test.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -8125,9 +9306,13 @@ Feature:
     Given this step passes
 
 ----
+=====
 When ::
+=====
 I run `cucumber features/test.feature:7 --format pretty --quiet` icon:thumbs-up[role="green",title="Passed"] [small right]#(008ms)#
+=====
 Then ::
+=====
 it should pass with exactly: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -8141,12 +9326,14 @@ Feature:
 
 
 ----
+=====
 ****
 
 ==== Scenario: Use @-notation to specify a file containing feature file list
 
 ****
 Given ::
+=====
 a file named "features/test.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -8155,16 +9342,22 @@ Feature: Sample
     Given this step passes
 
 ----
+=====
 And ::
+=====
 a file named "list-of-features.txt" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
 features/test.feature:2
 
 ----
+=====
 When ::
+=====
 I run `cucumber -q @list-of-features.txt` icon:thumbs-up[role="green",title="Passed"] [small right]#(006ms)#
+=====
 Then ::
+=====
 it should pass with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -8177,12 +9370,14 @@ Feature: Sample
 1 step (1 passed)
 
 ----
+=====
 ****
 
 ==== Scenario: Specify order of scenarios
 
 ****
 Given ::
+=====
 a file named "features/test.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -8194,15 +9389,20 @@ Feature:
     Given this step fails
 
 ----
+=====
 When ::
+=====
 I run `cucumber features/test.feature:5 features/test.feature:3 -f progress` icon:thumbs-up[role="green",title="Passed"] [small right]#(009ms)#
+=====
 Then ::
+=====
 it should fail with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
 F.
 
 ----
+=====
 ****
 
 [[Running-multiple-formatters, Running multiple formatters]]
@@ -8220,6 +9420,7 @@ Two formatters cannot both print to the same file (or to STDOUT)
 
 ****
 Given ::
+=====
 a file named "features/test.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -8233,6 +9434,7 @@ Feature: Lots of undefined
     And there is world peace
 
 ----
+=====
 ****
 
 ==== Scenario: Multiple formatters and outputs
@@ -8241,10 +9443,15 @@ Feature: Lots of undefined
 
 ****
 When ::
+=====
 I run `cucumber --no-color --format progress --out progress.txt --format pretty --out pretty.txt --no-source --dry-run --no-snippets features/test.feature` icon:thumbs-up[role="green",title="Passed"] [small right]#(606ms)#
+=====
 Then ::
+=====
 the stderr should not contain anything icon:thumbs-up[role="green",title="Passed"] [small right]#(006ms)#
+=====
 Then ::
+=====
 the file "progress.txt" should contain: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -8255,7 +9462,9 @@ UUUUU
 
 
 ----
+=====
 And ::
+=====
 the file "pretty.txt" should contain: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -8273,6 +9482,7 @@ Feature: Lots of undefined
 
 
 ----
+=====
 ****
 
 ==== Scenario: Two formatters to stdout
@@ -8281,14 +9491,18 @@ Feature: Lots of undefined
 
 ****
 When ::
+=====
 I run `cucumber -f progress -f pretty features/test.feature` icon:thumbs-up[role="green",title="Passed"] [small right]#(607ms)#
+=====
 Then ::
+=====
 it should fail with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
 All but one formatter must use --out, only one can print to each stream (or STDOUT) (RuntimeError)
 
 ----
+=====
 ****
 
 ==== Scenario: Two formatters to stdout when using a profile
@@ -8297,21 +9511,27 @@ All but one formatter must use --out, only one can print to each stream (or STDO
 
 ****
 Given ::
+=====
 the following profiles are defined: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
 default: -q
 
 ----
+=====
 When ::
+=====
 I run `cucumber -f progress -f pretty features/test.feature` icon:thumbs-up[role="green",title="Passed"] [small right]#(606ms)#
+=====
 Then ::
+=====
 it should fail with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
 All but one formatter must use --out, only one can print to each stream (or STDOUT) (RuntimeError)
 
 ----
+=====
 ****
 
 [[Scenario-outlines, Scenario outlines]]
@@ -8342,6 +9562,7 @@ placeholder.
 
 ****
 Given ::
+=====
 a file named "features/outline_sample.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -8362,7 +9583,9 @@ Examples:Only passing
     | passing  | passing     |
 
 ----
+=====
 And ::
+=====
 a file named "features/step_definitions/steps.rb" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -8370,6 +9593,7 @@ Given(/^passing without a table$/) { }
 Given(/^failing without a table$/) { raise RuntimeError }
 
 ----
+=====
 ****
 
 ==== Scenario: Run scenario outline with filtering on outline name
@@ -8378,8 +9602,11 @@ Given(/^failing without a table$/) { raise RuntimeError }
 
 ****
 When ::
+=====
 I run `cucumber -q features/outline_sample.feature` icon:thumbs-up[role="green",title="Passed"] [small right]#(706ms)#
+=====
 Then ::
+=====
 it should fail with: icon:thumbs-up[role="green",title="Passed"] [small right]#(001ms)#
 ----
 
@@ -8412,6 +9639,7 @@ cucumber features/outline_sample.feature:12
 8 steps (1 failed, 2 skipped, 1 undefined, 4 passed)
 
 ----
+=====
 ****
 
 ==== Scenario: Run scenario outline steps only
@@ -8420,8 +9648,11 @@ cucumber features/outline_sample.feature:12
 
 ****
 When ::
+=====
 I run `cucumber -q features/outline_sample.feature:7` icon:thumbs-up[role="green",title="Passed"] [small right]#(607ms)#
+=====
 Then ::
+=====
 it should fail with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -8453,6 +9684,7 @@ cucumber features/outline_sample.feature:12
 
 
 ----
+=====
 ****
 
 ==== Scenario: Run single failing scenario outline table row
@@ -8461,8 +9693,11 @@ cucumber features/outline_sample.feature:12
 
 ****
 When ::
+=====
 I run `cucumber -q features/outline_sample.feature:12` icon:thumbs-up[role="green",title="Passed"] [small right]#(504ms)#
+=====
 Then ::
+=====
 it should fail with: icon:thumbs-up[role="green",title="Passed"] [small right]#(001ms)#
 ----
 
@@ -8488,6 +9723,7 @@ cucumber features/outline_sample.feature:12
 
 
 ----
+=====
 ****
 
 ==== Scenario: Run all with progress formatter
@@ -8496,8 +9732,11 @@ cucumber features/outline_sample.feature:12
 
 ****
 When ::
+=====
 I run `cucumber -q --format progress features/outline_sample.feature` icon:thumbs-up[role="green",title="Passed"] [small right]#(606ms)#
+=====
 Then ::
+=====
 it should fail with exactly: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -8518,6 +9757,7 @@ cucumber features/outline_sample.feature:12
 
 
 ----
+=====
 ****
 
 [[Scenario-outlines---expand-option, Scenario outlines --expand option]]
@@ -8532,6 +9772,7 @@ in outlines if you add the `--expand` option when running them.
 
 ****
 Given ::
+=====
 a file named "features/test.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -8547,11 +9788,17 @@ Feature:
     | red  | blue  | wrong   |
 
 ----
+=====
 When ::
+=====
 I run `cucumber -i -q --expand` icon:thumbs-up[role="green",title="Passed"] [small right]#(013ms)#
+=====
 Then ::
+=====
 the stderr should not contain anything icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 it should pass with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -8578,6 +9825,7 @@ Feature:
 6 steps (6 undefined)
 
 ----
+=====
 ****
 
 [[Set-up-a-default-load-path, Set up a default load path]]
@@ -8592,13 +9840,16 @@ is already in the load path. Cucumber does this for you.
 
 ****
 Given ::
+=====
 a file named "features/support/env.rb" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
 require 'something'
 
 ----
+=====
 And ::
+=====
 a file named "lib/something.rb" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -8606,10 +9857,15 @@ class Something
 end
 
 ----
+=====
 When ::
+=====
 I run `cucumber` icon:thumbs-up[role="green",title="Passed"] [small right]#(009ms)#
+=====
 Then ::
+=====
 it should pass icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 ****
 
 [[Showing-differences-to-expected-output, Showing differences to expected output]]
@@ -8626,6 +9882,7 @@ the expected and the actual output.
 
 ****
 Given ::
+=====
 a file named "features/failing_expectation.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -8635,7 +9892,9 @@ Feature: Failing expectation
     Given failing expectation
 
 ----
+=====
 And ::
+=====
 a file named "features/step_definitions/steps.rb" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -8644,9 +9903,13 @@ Given /^failing expectation$/ do x=1
 end
 
 ----
+=====
 When ::
+=====
 I run `cucumber -q features/failing_expectation.feature` icon:thumbs-up[role="green",title="Passed"] [small right]#(022ms)#
+=====
 Then ::
+=====
 it should fail with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -8670,6 +9933,7 @@ cucumber features/failing_expectation.feature:3
 1 step (1 failed)
 
 ----
+=====
 ****
 
 [[Skip-Scenario, Skip Scenario]]
@@ -8679,6 +9943,7 @@ cucumber features/failing_expectation.feature:3
 
 ****
 Given ::
+=====
 a file named "features/test.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -8688,9 +9953,13 @@ Feature: test
     And this step passes
 
 ----
+=====
 And ::
+=====
 the standard step definitions icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 a file named "features/step_definitions/skippy.rb" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -8699,9 +9968,13 @@ Given /skip/ do
 end
 
 ----
+=====
 When ::
+=====
 I run `cucumber -q` icon:thumbs-up[role="green",title="Passed"] [small right]#(011ms)#
+=====
 Then ::
+=====
 it should pass with exactly: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -8716,12 +9989,14 @@ Feature: test
 
 
 ----
+=====
 ****
 
 ==== Scenario: Use legacy API from a hook
 
 ****
 Given ::
+=====
 a file named "features/test.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -8731,9 +10006,13 @@ Feature: test
     And this step passes
 
 ----
+=====
 And ::
+=====
 the standard step definitions icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 a file named "features/support/hook.rb" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -8742,9 +10021,13 @@ Before do |scenario|
 end
 
 ----
+=====
 When ::
+=====
 I run `cucumber -q` icon:thumbs-up[role="green",title="Passed"] [small right]#(011ms)#
+=====
 Then ::
+=====
 it should pass with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -8759,6 +10042,7 @@ Feature: test
 
 
 ----
+=====
 ****
 
 [[Snippets, Snippets]]
@@ -8774,6 +10058,7 @@ file of your choosing.
 
 ****
 Given ::
+=====
 a file named "features/undefined_steps.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -8788,9 +10073,13 @@ Scenario: pystring
   Then a simple then step
 
 ----
+=====
 When ::
+=====
 I run `cucumber features/undefined_steps.feature -s` icon:thumbs-up[role="green",title="Passed"] [small right]#(009ms)#
+=====
 Then ::
+=====
 the output should contain: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -8811,12 +10100,14 @@ Then(/^a simple then step$/) do
 end
 
 ----
+=====
 ****
 
 ==== Scenario: Snippet for undefined step with a step table
 
 ****
 Given ::
+=====
 a file named "features/undefined_steps.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -8827,9 +10118,13 @@ Scenario: table
     |example|
 
 ----
+=====
 When ::
+=====
 I run `cucumber features/undefined_steps.feature -s` icon:thumbs-up[role="green",title="Passed"] [small right]#(007ms)#
+=====
 Then ::
+=====
 the output should contain: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -8839,6 +10134,7 @@ Given(/^a table$/) do |table|
 end
 
 ----
+=====
 ****
 
 [[Snippets-message, Snippets message]]
@@ -8855,6 +10151,7 @@ step definition.
 
 ****
 Given ::
+=====
 a file named "features/wired.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -8864,7 +10161,9 @@ Feature: High strung
 
 
 ----
+=====
 And ::
+=====
 a file named "features/step_definitions/some_remote_place.wire" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -8873,6 +10172,7 @@ port: 54321
 
 
 ----
+=====
 ****
 
 ==== Scenario: Wire server returns snippets for a step that didn't match
@@ -8881,12 +10181,19 @@ port: 54321
 
 ****
 Given ::
+=====
 there is a wire server running on port 54321 which understands the following protocol: icon:thumbs-up[role="green",title="Passed"] [small right]#(002ms)#
+=====
 When ::
+=====
 I run `cucumber -f pretty` icon:thumbs-up[role="green",title="Passed"] [small right]#(908ms)#
+=====
 Then ::
+=====
 the stderr should not contain anything icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 it should pass with: icon:thumbs-up[role="green",title="Passed"] [small right]#(001ms)#
 ----
 
@@ -8899,7 +10206,9 @@ Feature: High strung
 1 step (1 undefined)
 
 ----
+=====
 And ::
+=====
 the output should contain: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -8912,6 +10221,7 @@ baz
 
 
 ----
+=====
 ****
 
 [[State, State]]
@@ -8926,6 +10236,7 @@ but those instance variables will be gone when the next scenario runs.
 
 ****
 Given ::
+=====
 a file named "features/test.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -8938,7 +10249,9 @@ Feature:
     Then @flag should be nil
 
 ----
+=====
 And ::
+=====
 a file named "features/step_definitions/steps.rb" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -8953,10 +10266,15 @@ Then /flag should be nil/ do
 end
 
 ----
+=====
 When ::
+=====
 I run `cucumber` icon:thumbs-up[role="green",title="Passed"] [small right]#(014ms)#
+=====
 Then ::
+=====
 it should pass icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 ****
 
 [[Step-matches-message, Step matches message]]
@@ -8984,6 +10302,7 @@ expression (or other argument matching) process.
 
 ****
 Given ::
+=====
 a file named "features/wired.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -8993,7 +10312,9 @@ Feature: High strung
 
 
 ----
+=====
 And ::
+=====
 a file named "features/step_definitions/some_remote_place.wire" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -9002,6 +10323,7 @@ port: 54321
 
 
 ----
+=====
 ****
 
 ==== Scenario: Dry run finds no step match
@@ -9010,10 +10332,15 @@ port: 54321
 
 ****
 Given ::
+=====
 there is a wire server running on port 54321 which understands the following protocol: icon:thumbs-up[role="green",title="Passed"] [small right]#(002ms)#
+=====
 When ::
+=====
 I run `cucumber --dry-run --no-snippets -f progress` icon:thumbs-up[role="green",title="Passed"] [small right]#(061ms)#
+=====
 And ::
+=====
 it should pass with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -9024,6 +10351,7 @@ U
 
 
 ----
+=====
 ****
 
 ==== Scenario: Dry run finds a step match
@@ -9032,10 +10360,15 @@ U
 
 ****
 Given ::
+=====
 there is a wire server running on port 54321 which understands the following protocol: icon:thumbs-up[role="green",title="Passed"] [small right]#(002ms)#
+=====
 When ::
+=====
 I run `cucumber --dry-run -f progress` icon:thumbs-up[role="green",title="Passed"] [small right]#(024ms)#
+=====
 And ::
+=====
 it should pass with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -9046,6 +10379,7 @@ it should pass with: icon:thumbs-up[role="green",title="Passed"] [small right]#(
 
 
 ----
+=====
 ****
 
 ==== Scenario: Step matches returns details about the remote step definition
@@ -9057,10 +10391,15 @@ regexp string which will be used by some formatters.
 
 ****
 Given ::
+=====
 there is a wire server running on port 54321 which understands the following protocol: icon:thumbs-up[role="green",title="Passed"] [small right]#(001ms)#
+=====
 When ::
+=====
 I run `cucumber -f stepdefs --dry-run` icon:thumbs-up[role="green",title="Passed"] [small right]#(015ms)#
+=====
 Then ::
+=====
 it should pass with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -9073,8 +10412,11 @@ we.*   # MyApp.MyClass:123
 
 
 ----
+=====
 And ::
+=====
 the stderr should not contain anything icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 ****
 
 [[Strict-mode, Strict mode]]
@@ -9089,6 +10431,7 @@ step definitions have been defined.
 
 ****
 Given ::
+=====
 a file named "features/missing.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -9097,7 +10440,9 @@ Feature: Missing
     Given this step passes
 
 ----
+=====
 And ::
+=====
 a file named "features/pending.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -9106,14 +10451,18 @@ Feature: Pending
     Given this step is pending
 
 ----
+=====
 ****
 
 ==== Scenario: Fail with --strict due to undefined step
 
 ****
 When ::
+=====
 I run `cucumber -q features/missing.feature --strict` icon:thumbs-up[role="green",title="Passed"] [small right]#(016ms)#
+=====
 Then ::
+=====
 it should fail with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -9128,16 +10477,22 @@ Feature: Missing
 1 step (1 undefined)
 
 ----
+=====
 ****
 
 ==== Scenario: Fail with --strict due to pending step
 
 ****
 Given ::
+=====
 the standard step definitions icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 When ::
+=====
 I run `cucumber -q features/pending.feature --strict` icon:thumbs-up[role="green",title="Passed"] [small right]#(015ms)#
+=====
 Then ::
+=====
 it should fail with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -9153,16 +10508,22 @@ Feature: Pending
 1 step (1 pending)
 
 ----
+=====
 ****
 
 ==== Scenario: Succeed with --strict
 
 ****
 Given ::
+=====
 the standard step definitions icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 When ::
+=====
 I run `cucumber -q features/missing.feature --strict` icon:thumbs-up[role="green",title="Passed"] [small right]#(010ms)#
+=====
 Then ::
+=====
 it should pass with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -9175,6 +10536,7 @@ Feature: Missing
 1 step (1 passed)
 
 ----
+=====
 ****
 
 [[Table-diffing, Table diffing]]
@@ -9190,6 +10552,7 @@ output.
 
 ****
 Given ::
+=====
 a file named "features/tables.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -9200,7 +10563,9 @@ Feature: Tables
       | a | b |
 
 ----
+=====
 And ::
+=====
 a file named "features/step_definitions/steps.rb" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -9212,9 +10577,13 @@ Then /the table should be:/ do |expected| x=1
 end
 
 ----
+=====
 When ::
+=====
 I run `cucumber features/tables.feature` icon:thumbs-up[role="green",title="Passed"] [small right]#(015ms)#
+=====
 Then ::
+=====
 it should fail with exactly: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -9242,6 +10611,7 @@ cucumber features/tables.feature:2 # Scenario: Extra row
 
 
 ----
+=====
 ****
 
 [[Tag-logic, Tag logic]]
@@ -9257,6 +10627,7 @@ I want to select features using logical AND/OR of tags
 
 ****
 Given ::
+=====
 a file named "features/test.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -9279,14 +10650,18 @@ Feature: Sample
   Scenario: And yet another Example
 
 ----
+=====
 ****
 
 ==== Scenario: ANDing tags
 
 ****
 When ::
+=====
 I run `cucumber -q -t @one -t @three features/test.feature` icon:thumbs-up[role="green",title="Passed"] [small right]#(008ms)#
+=====
 Then ::
+=====
 it should pass with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -9302,14 +10677,18 @@ Feature: Sample
 
 
 ----
+=====
 ****
 
 ==== Scenario: ORing tags
 
 ****
 When ::
+=====
 I run `cucumber -q -t @one,@three features/test.feature` icon:thumbs-up[role="green",title="Passed"] [small right]#(010ms)#
+=====
 Then ::
+=====
 it should pass with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -9333,14 +10712,18 @@ Feature: Sample
 
 
 ----
+=====
 ****
 
 ==== Scenario: Negative tags
 
 ****
 When ::
+=====
 I run `cucumber -q -t ~@three features/test.feature` icon:thumbs-up[role="green",title="Passed"] [small right]#(008ms)#
+=====
 Then ::
+=====
 it should pass with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -9358,14 +10741,18 @@ Feature: Sample
 1 step (1 undefined)
 
 ----
+=====
 ****
 
 ==== Scenario: Run with limited tag count, blowing it on scenario
 
 ****
 When ::
+=====
 I run `cucumber -q --no-source --tags @one:1 features/test.feature` icon:thumbs-up[role="green",title="Passed"] [small right]#(005ms)#
+=====
 Then ::
+=====
 it fails before running features with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -9374,14 +10761,18 @@ it fails before running features with: icon:thumbs-up[role="green",title="Passed
   features/test.feature:9
 
 ----
+=====
 ****
 
 ==== Scenario: Run with limited tag count, blowing it via feature inheritance
 
 ****
 When ::
+=====
 I run `cucumber -q --no-source --tags @feature:1 features/test.feature` icon:thumbs-up[role="green",title="Passed"] [small right]#(005ms)#
+=====
 Then ::
+=====
 it fails before running features with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -9392,20 +10783,25 @@ it fails before running features with: icon:thumbs-up[role="green",title="Passed
   features/test.feature:17
 
 ----
+=====
 ****
 
 ==== Scenario: Run with limited tag count using negative tag, blowing it via a tag that is not run
 
 ****
 When ::
+=====
 I run `cucumber -q --no-source --tags ~@one:1 features/test.feature` icon:thumbs-up[role="green",title="Passed"] [small right]#(004ms)#
+=====
 Then ::
+=====
 it fails before running features with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
 @one occurred 2 times, but the limit was set to 1
 
 ----
+=====
 ****
 
 ==== Scenario: Limiting with tags which do not exist in the features
@@ -9413,9 +10809,13 @@ Originally added to check [Lighthouse bug #464](https://rspec.lighthouseapp.com/
 
 ****
 When ::
+=====
 I run `cucumber -q -t @i_dont_exist features/test.feature` icon:thumbs-up[role="green",title="Passed"] [small right]#(004ms)#
+=====
 Then ::
+=====
 it should pass icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 ****
 
 [[Tagged-hooks, Tagged hooks]]
@@ -9425,8 +10825,11 @@ it should pass icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)
 
 ****
 Given ::
+=====
 the standard step definitions icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 a file named "features/support/hooks.rb" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -9435,7 +10838,9 @@ Before('~@no-boom') do
 end
 
 ----
+=====
 And ::
+=====
 a file named "features/f.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -9460,14 +10865,18 @@ Feature: With and without hooks
     | Also Irrelevant |
 
 ----
+=====
 ****
 
 ==== Scenario: omit tagged hook
 
 ****
 When ::
+=====
 I run `cucumber features/f.feature:2` icon:thumbs-up[role="green",title="Passed"] [small right]#(016ms)#
+=====
 Then ::
+=====
 it should fail with exactly: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -9487,14 +10896,18 @@ cucumber features/f.feature:2 # Scenario: using hook
 
 
 ----
+=====
 ****
 
 ==== Scenario: omit tagged hook
 
 ****
 When ::
+=====
 I run `cucumber features/f.feature:6` icon:thumbs-up[role="green",title="Passed"] [small right]#(010ms)#
+=====
 Then ::
+=====
 it should pass with exactly: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -9510,14 +10923,18 @@ Feature: With and without hooks
 
 
 ----
+=====
 ****
 
 ==== Scenario: Omit example hook
 
 ****
 When ::
+=====
 I run `cucumber features/f.feature:12` icon:thumbs-up[role="green",title="Passed"] [small right]#(013ms)#
+=====
 Then ::
+=====
 it should fail with exactly: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -9541,6 +10958,7 @@ cucumber features/f.feature:14 # Scenario Outline: omitting hook on specified ex
 
 
 ----
+=====
 ****
 
 [[Transforms, Transforms]]
@@ -9557,6 +10975,7 @@ We also have a Person class that we need to be able to build.
 
 ****
 Given ::
+=====
 a file named "features/foo.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -9565,7 +10984,9 @@ Feature:
     Given a Person aged 15 with blonde hair
 
 ----
+=====
 And ::
+=====
 a file named "features/support/person.rb" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -9578,6 +10999,7 @@ class Person
 end
 
 ----
+=====
 ****
 
 ==== Scenario: Basic Transform
@@ -9586,6 +11008,7 @@ expression is pretty much duplicated.
 
 ****
 And ::
+=====
 a file named "features/step_definitions/steps.rb" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -9600,10 +11023,15 @@ Given /^(a Person aged \d+) with blonde hair$/ do |person|
 end
 
 ----
+=====
 When ::
+=====
 I run `cucumber features/foo.feature` icon:thumbs-up[role="green",title="Passed"] [small right]#(009ms)#
+=====
 Then ::
+=====
 it should pass icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 ****
 
 ==== Scenario: Re-use Transform's Regular Expression
@@ -9612,6 +11040,7 @@ regular expressions to avoid repeating the regular expression.
 
 ****
 And ::
+=====
 a file named "features/step_definitions/steps.rb" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -9626,10 +11055,15 @@ Given /^(#{A_PERSON}) with blonde hair$/ do |person|
 end
 
 ----
+=====
 When ::
+=====
 I run `cucumber features/foo.feature` icon:thumbs-up[role="green",title="Passed"] [small right]#(012ms)#
+=====
 Then ::
+=====
 it should pass icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 ****
 
 [[Unicode-in-tables, Unicode in tables]]
@@ -9646,6 +11080,7 @@ readable as possible.
 
 ****
 Given ::
+=====
 a file named "features/unicode.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -9657,9 +11092,13 @@ Feature: Featuring unicode
       | Bruno | æøå |
 
 ----
+=====
 When ::
+=====
 I run `cucumber -q --dry-run features/unicode.feature` icon:thumbs-up[role="green",title="Passed"] [small right]#(605ms)#
+=====
 Then ::
+=====
 it should pass with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -9675,6 +11114,7 @@ Feature: Featuring unicode
 
 
 ----
+=====
 ****
 
 [[Usage-formatter, Usage formatter]]
@@ -9689,6 +11129,7 @@ Developers should be able to see a list of step definitions and their use
 
 ****
 Given ::
+=====
 a file named "features/f.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -9709,7 +11150,9 @@ Feature: F
     Given C
 
 ----
+=====
 And ::
+=====
 a file named "features/step_definitions/steps.rb" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -9719,14 +11162,18 @@ Given(/C/) { }
 Given(/D/) { }
 
 ----
+=====
 ****
 
 ==== Scenario: Run with --format usage
 
 ****
 When ::
+=====
 I run `cucumber -f usage --dry-run` icon:thumbs-up[role="green",title="Passed"] [small right]#(015ms)#
+=====
 Then ::
+=====
 it should pass with exactly: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -9751,14 +11198,18 @@ it should pass with exactly: icon:thumbs-up[role="green",title="Passed"] [small 
 
 
 ----
+=====
 ****
 
 ==== Scenario: Run with --expand --format usage
 
 ****
 When ::
+=====
 I run `cucumber -x -f usage --dry-run` icon:thumbs-up[role="green",title="Passed"] [small right]#(018ms)#
+=====
 Then ::
+=====
 it should pass with exactly: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -9783,14 +11234,18 @@ it should pass with exactly: icon:thumbs-up[role="green",title="Passed"] [small 
 
 
 ----
+=====
 ****
 
 ==== Scenario: Run with --format stepdefs
 
 ****
 When ::
+=====
 I run `cucumber -f stepdefs --dry-run` icon:thumbs-up[role="green",title="Passed"] [small right]#(024ms)#
+=====
 Then ::
+=====
 it should pass with exactly: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -9807,6 +11262,7 @@ it should pass with exactly: icon:thumbs-up[role="green",title="Passed"] [small 
 
 
 ----
+=====
 ****
 
 [[Using-descriptions-to-give-features-context, Using descriptions to give features context]]
@@ -9830,13 +11286,16 @@ fine: otherwise Gherkin will start to pay attention.
 
 ****
 Given ::
+=====
 the standard step definitions icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 ****
 
 ==== Scenario: Everything with a description
 
 ****
 Given ::
+=====
 a file named "features/test.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -9872,11 +11331,17 @@ Feature: descriptions everywhere
       | passes |
 
 ----
+=====
 When ::
+=====
 I run `cucumber -q` icon:thumbs-up[role="green",title="Passed"] [small right]#(021ms)#
+=====
 Then ::
+=====
 the stderr should not contain anything icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 Then ::
+=====
 it should pass with exactly: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -9913,6 +11378,7 @@ Feature: descriptions everywhere
 
 
 ----
+=====
 ****
 
 [[Using-star-notation-instead-of-Given/When/Then, Using star notation instead of Given/When/Then]]
@@ -9932,6 +11398,7 @@ step.
 
 ****
 Given ::
+=====
 a file named "features/f.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -9940,11 +11407,17 @@ Feature: Star-notation feature
     * I have some cukes
 
 ----
+=====
 When ::
+=====
 I run `cucumber features/f.feature` icon:thumbs-up[role="green",title="Passed"] [small right]#(010ms)#
+=====
 Then ::
+=====
 the stderr should not contain anything icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 it should pass with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -9957,7 +11430,9 @@ Feature: Star-notation feature
 1 step (1 undefined)
 
 ----
+=====
 And ::
+=====
 it should pass with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -9968,6 +11443,7 @@ Given(/^I have some cukes$/) do
 end
 
 ----
+=====
 ****
 
 [[Wire-protocol-table-diffing, Wire protocol table diffing]]
@@ -9985,6 +11461,7 @@ I want to be able to ask for a table diff during a step definition invocation
 
 ****
 Given ::
+=====
 a file named "features/wired.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -9994,7 +11471,9 @@ Feature: Hello
 
 
 ----
+=====
 And ::
+=====
 a file named "features/step_definitions/some_remote_place.wire" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -10003,6 +11482,7 @@ port: 54321
 
 
 ----
+=====
 ****
 
 ==== Scenario: Invoke a step definition tries to diff the table and fails
@@ -10011,12 +11491,19 @@ port: 54321
 
 ****
 Given ::
+=====
 there is a wire server running on port 54321 which understands the following protocol: icon:thumbs-up[role="green",title="Passed"] [small right]#(001ms)#
+=====
 When ::
+=====
 I run `cucumber -f progress --backtrace` icon:thumbs-up[role="green",title="Passed"] [small right]#(807ms)#
+=====
 Then ::
+=====
 the stderr should not contain anything icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 it should fail with: icon:thumbs-up[role="green",title="Passed"] [small right]#(001ms)#
 ----
 
@@ -10037,6 +11524,7 @@ cucumber features/wired.feature:2 # Scenario: Wired
 
 
 ----
+=====
 ****
 
 ==== Scenario: Invoke a step definition tries to diff the table and passes
@@ -10045,10 +11533,15 @@ cucumber features/wired.feature:2 # Scenario: Wired
 
 ****
 Given ::
+=====
 there is a wire server running on port 54321 which understands the following protocol: icon:thumbs-up[role="green",title="Passed"] [small right]#(002ms)#
+=====
 When ::
+=====
 I run `cucumber -f progress` icon:thumbs-up[role="green",title="Passed"] [small right]#(181ms)#
+=====
 Then ::
+=====
 it should pass with: icon:thumbs-up[role="green",title="Passed"] [small right]#(001ms)#
 ----
 
@@ -10059,6 +11552,7 @@ it should pass with: icon:thumbs-up[role="green",title="Passed"] [small right]#(
 
 
 ----
+=====
 ****
 
 ==== Scenario: Invoke a step definition which successfully diffs a table but then fails
@@ -10067,10 +11561,15 @@ it should pass with: icon:thumbs-up[role="green",title="Passed"] [small right]#(
 
 ****
 Given ::
+=====
 there is a wire server running on port 54321 which understands the following protocol: icon:thumbs-up[role="green",title="Passed"] [small right]#(002ms)#
+=====
 When ::
+=====
 I run `cucumber -f progress` icon:thumbs-up[role="green",title="Passed"] [small right]#(908ms)#
+=====
 Then ::
+=====
 it should fail with: icon:thumbs-up[role="green",title="Passed"] [small right]#(001ms)#
 ----
 
@@ -10089,6 +11588,7 @@ cucumber features/wired.feature:2 # Scenario: Wired
 
 
 ----
+=====
 ****
 
 ==== Scenario: Invoke a step definition which asks for an immediate diff that fails
@@ -10097,10 +11597,15 @@ cucumber features/wired.feature:2 # Scenario: Wired
 
 ****
 Given ::
+=====
 there is a wire server running on port 54321 which understands the following protocol: icon:thumbs-up[role="green",title="Passed"] [small right]#(002ms)#
+=====
 When ::
+=====
 I run `cucumber -f progress` icon:thumbs-up[role="green",title="Passed"] [small right]#(808ms)#
+=====
 And ::
+=====
 it should fail with exactly: icon:thumbs-up[role="green",title="Passed"] [small right]#(001ms)#
 ----
 
@@ -10123,6 +11628,7 @@ cucumber features/wired.feature:2 # Scenario: Wired
 
 
 ----
+=====
 ****
 
 [[Wire-protocol-tags, Wire protocol tags]]
@@ -10139,6 +11645,7 @@ scenario in the begin_scenario and end_scenario messages
 
 ****
 And ::
+=====
 a file named "features/step_definitions/some_remote_place.wire" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -10147,6 +11654,7 @@ port: 54321
 
 
 ----
+=====
 ****
 
 ==== Scenario: Run a scenario
@@ -10155,6 +11663,7 @@ port: 54321
 
 ****
 Given ::
+=====
 a file named "features/wired.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -10167,13 +11676,21 @@ a file named "features/wired.feature" with: icon:thumbs-up[role="green",title="P
 
 
 ----
+=====
 And ::
+=====
 there is a wire server running on port 54321 which understands the following protocol: icon:thumbs-up[role="green",title="Passed"] [small right]#(002ms)#
+=====
 When ::
+=====
 I run `cucumber -f pretty -q` icon:thumbs-up[role="green",title="Passed"] [small right]#(145ms)#
+=====
 Then ::
+=====
 the stderr should not contain anything icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 it should pass with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -10189,6 +11706,7 @@ Feature: Wired
 
 
 ----
+=====
 ****
 
 ==== Scenario: Run a scenario outline example
@@ -10197,6 +11715,7 @@ Feature: Wired
 
 ****
 Given ::
+=====
 a file named "features/wired.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -10213,13 +11732,21 @@ a file named "features/wired.feature" with: icon:thumbs-up[role="green",title="P
 
 
 ----
+=====
 And ::
+=====
 there is a wire server running on port 54321 which understands the following protocol: icon:thumbs-up[role="green",title="Passed"] [small right]#(002ms)#
+=====
 When ::
+=====
 I run `cucumber -f pretty -q` icon:thumbs-up[role="green",title="Passed"] [small right]#(147ms)#
+=====
 Then ::
+=====
 the stderr should not contain anything icon:thumbs-up[role="green",title="Passed"] [small right]#(001ms)#
+=====
 And ::
+=====
 it should pass with: icon:thumbs-up[role="green",title="Passed"] [small right]#(001ms)#
 ----
 
@@ -10239,6 +11766,7 @@ Feature: Wired
 
 
 ----
+=====
 ****
 
 [[Wire-protocol-timeouts, Wire protocol timeouts]]
@@ -10256,6 +11784,7 @@ to take a while to execute, if that's what they need.
 
 ****
 And ::
+=====
 a file named "features/wired.feature" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -10265,6 +11794,7 @@ Feature: Telegraphy
 
 
 ----
+=====
 ****
 
 ==== Scenario: Try to talk to a server that's not there
@@ -10273,6 +11803,7 @@ Feature: Telegraphy
 
 ****
 Given ::
+=====
 a file named "features/step_definitions/some_remote_place.wire" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(001ms)#
 ----
 
@@ -10281,15 +11812,20 @@ port: 54321
 
 
 ----
+=====
 When ::
+=====
 I run `cucumber -f progress` icon:thumbs-up[role="green",title="Passed"] [small right]#(012ms)#
+=====
 Then ::
+=====
 the stderr should contain: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
 Unable to contact the wire server at localhost:54321
 
 ----
+=====
 ****
 
 ==== Scenario: Invoke a step definition that takes longer than its timeout
@@ -10298,6 +11834,7 @@ Unable to contact the wire server at localhost:54321
 
 ****
 Given ::
+=====
 a file named "features/step_definitions/some_remote_place.wire" with: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -10308,15 +11845,25 @@ timeout:
 
 
 ----
+=====
 And ::
+=====
 there is a wire server on port 54321 which understands the following protocol: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 the wire server takes 0.2 seconds to respond to the invoke message icon:thumbs-up[role="green",title="Passed"] [small right]#(002ms)#
+=====
 When ::
+=====
 I run `cucumber -f pretty` icon:thumbs-up[role="green",title="Passed"] [small right]#(908ms)#
+=====
 Then ::
+=====
 the stderr should not contain anything icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
 And ::
+=====
 it should fail with: icon:thumbs-up[role="green",title="Passed"] [small right]#(001ms)#
 ----
 
@@ -10335,5 +11882,6 @@ cucumber features/wired.feature:2 # Scenario: Wired
 
 
 ----
+=====
 ****
 
