@@ -6,6 +6,7 @@
 :sectanchors:
 :sectlink:
 :numbered:
+:imagesdir: img
 
 [quote]
 ____
