@@ -132,7 +132,7 @@ public void shouldSaveDocumentationIntoDisk(){
 			.docType("book")
 			.icons("font").numbered(false)
 			.sourceHighlighter("coderay")
-			.title("Documentation Title")
+			.docTitle("Documentation Title")
 		    .sectAnchors(true).sectLink(true);
 
 	CukedoctorConverter converter = Cukedoctor.instance(features, attrs);
