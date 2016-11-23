@@ -132,9 +132,10 @@ public void shouldSaveDocumentationIntoDisk(){
 			.docType("book")
 			.icons("font").numbered(false)
 			.sourceHighlighter("coderay")
+			.title("Documentation Title")
 		    .sectAnchors(true).sectLink(true);
 
-	CukedoctorConverter converter = Cukedoctor.instance(features, "Living Documentation", attrs);
+	CukedoctorConverter converter = Cukedoctor.instance(features, attrs);
 	converter.setFilename("/target/living_documentation.adoc");
 
 	converter.saveDocumentation();
