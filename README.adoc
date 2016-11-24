@@ -566,6 +566,14 @@ mvn cukedoctor:execute
 |Generated documetation format. Possible values: pdf, html, all
 |html
 
+|docVersion
+|Documentarion version
+|
+
+|sourceHighlighter
+|highlighter for source code rendering
+|highlightjs (coderay is also supported)
+
 |toc
 |Table of contents position
 |right
@@ -573,6 +581,10 @@ mvn cukedoctor:execute
 |numbered
 |Section numbering
 |true
+
+|featuresDir
+|Directory to start searching (recursively) for cucumber json output  
+|project root directory
 
 |disableFilter
 |Flag to disable filter
