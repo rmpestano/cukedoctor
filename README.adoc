@@ -136,10 +136,10 @@ public void shouldSaveDocumentationIntoDisk(){
 		    .sectAnchors(true).sectLink(true);
 
 	CukedoctorConverter converter = Cukedoctor.instance(features, attrs);
-	converter.setFilename("/target/living_documentation.adoc");
+	converter.setFilename("target/living_documentation.adoc");
 
 	converter.saveDocumentation();
-	assertThat(FileUtil.loadFile("/target/living_documentation.adoc")).exists();
+	assertThat(FileUtil.loadFile("target/living_documentation.adoc")).exists();
 }
 ----
 
