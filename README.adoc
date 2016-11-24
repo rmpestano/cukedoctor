@@ -114,7 +114,7 @@ Just declare the plugin in your _pom.xml_:
 ----
   <dependency>
        <groupId>com.github.cukedoctor</groupId>
-       <artifactId>Cukedoctor-converter</artifactId>
+       <artifactId>cukedoctor-converter</artifactId>
        <version>1.0.6</version>
    </dependency>
 ----
@@ -158,9 +158,9 @@ NOTE: *plugin* option replaced *format* option which was deprecated in newer cuc
 
 === Introduction Chapter
 
-You can add a custom introduction chapter to your living documentations by placing a file named *Cukedoctor-intro.adoc* anywhere on your classpath.
+You can add a custom introduction chapter to your living documentations by placing a file named *cukedoctor-intro.adoc* anywhere on your classpath.
 
-The content of the file will be placed between Documentation title and summary section. Here's an example of Cukedoctor-intro.adoc:
+The content of the file will be placed between Documentation title and summary section. Here's an example of cukedoctor-intro.adoc:
 
 ----
 = *This is a sample introduction chapter*
@@ -192,7 +192,7 @@ Another way of internationalization is to provide a custom bundle.
 
 If you do so Cukedoctor will ignore feature language and will use provided resource bundle.
 
-The name of the file must be *Cukedoctor.properties* and can be anywhere in your classpath.
+The name of the file must be *cukedoctor.properties* and can be anywhere in your classpath.
 
 Here are the key values you must provide to customize your documentation:
 
@@ -286,7 +286,7 @@ Feature: Discrete class feature
 
   Scenario: Render source code
 
-    # Cukedoctor-discrete
+    # cukedoctor-discrete
     Given the following source code
     """
 [source, java]
@@ -301,7 +301,7 @@ public int sum(int x, int y){
 
   Scenario: Render table
 
-    # Cukedoctor-discrete
+    # cukedoctor-discrete
     Given the following table
     """
 |====
@@ -318,7 +318,7 @@ The docstrings will be rendered as follows:
 
 image::discrete.png[]
 
-IMPORTANT: By default Cukedoctor will render DocStrings as http://asciidoctor.org/docs/user-manual/\#listing-blocks[asciidoc listing^]. To enable this feature use *# Cukedoctor-discrete* comment.
+IMPORTANT: By default Cukedoctor will render DocStrings as http://asciidoctor.org/docs/user-manual/\#listing-blocks[asciidoc listing^]. To enable this feature use *# cukedoctor-discrete* comment.
 
 === *"Stepless"* documentation
 
@@ -474,7 +474,7 @@ Just declare the plugin in your _pom.xml_:
 ----
 <plugin>
     <groupId>com.github.cukedoctor</groupId>
-    <artifactId>Cukedoctor-maven-plugin</artifactId>
+    <artifactId>cukedoctor-maven-plugin</artifactId>
     <version>1.0.6</version>
     <executions>
         <execution>
@@ -507,7 +507,7 @@ NOTE: *plugin* option replaced *format* option which was deprecated in newer cuc
 ----
 <plugin>
     <groupId>com.github.cukedoctor</groupId>
-    <artifactId>Cukedoctor-maven-plugin</artifactId>
+    <artifactId>cukedoctor-maven-plugin</artifactId>
     <version>1.0.6</version>
          <configuration>
             <outputFileName>documentation</outputFileName> <1>
@@ -528,7 +528,7 @@ NOTE: *plugin* option replaced *format* option which was deprecated in newer cuc
 </plugin>
 ----
 <1> documentation filename
-<2> directory name (relative to /target) to generate documetation (default is _Cukedoctor_)
+<2> directory name (relative to /target) to generate documetation (default is _cukedoctor_)
 <3> document format, default is html5
 <4> table of content position, default is right
 <5> section numbering, default is false
@@ -539,7 +539,7 @@ NOTE: *plugin* option replaced *format* option which was deprecated in newer cuc
 You can also execute the plugin without building the project but make sure you already have cucumber json files in build dir.
 
 ----
-mvn Cukedoctor:execute
+mvn cukedoctor:execute
 ----
 ======
 
@@ -813,7 +813,7 @@ Cukedoctor brings Living documentation to Jenkins via https://wiki.jenkins-ci.or
 
 == Distribution
 
-Cukedoctor is available at https://bintray.com/rmpestano/cukedoctor[Bintray] and at http://search.maven.org/#search%7Cga%7C1%7CCukedoctor[Maven central^].
+Cukedoctor is available at https://bintray.com/rmpestano/cukedoctor[Bintray] and at http://search.maven.org/#search%7Cga%7C1%7Ccukedoctor[Maven central^].
 
 *Snapshots* are available at https://oss.sonatype.org/content/repositories/snapshots/com/github/cukedoctor/[maven central^] and published on each _successful_ commit&build on travis.
 
