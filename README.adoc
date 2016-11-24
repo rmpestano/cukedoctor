@@ -127,7 +127,7 @@ Just declare the plugin in your _pom.xml_:
 public void shouldSaveDocumentationIntoDisk(){
 	List<String> pathToCucumberJsonFiles = FileUtil.findJsonFiles("target/test-classes/json-output/");
 	List<Feature> features = FeatureParser.parse(pathToCucumberJsonFiles);
-	DocumentAttributes attrs = DefaultConfig.getInstance().getDocumentAttributes;
+	DocumentAttributes attrs = GlobalConfig.getInstance().getDocumentAttributes;
 	attrs.toc("left").backend("html5")
 			.docType("book")
 			.icons("font").numbered(false)
