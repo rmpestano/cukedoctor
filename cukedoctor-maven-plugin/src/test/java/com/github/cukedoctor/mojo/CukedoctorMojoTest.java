@@ -364,6 +364,25 @@ public class CukedoctorMojoTest extends AbstractMojoTestCase {
 
     }
 
+    /**
+     * @throws Exception
+     */
+    public void testGenerateAllDocsWithNoDefaultTitleInPdf() throws Exception {
+
+        CukedoctorMojo mojo = (CukedoctorMojo) lookupMojo("execute", getTestFile("src/test/resources/html-pdf-title-docs-pom.xml"));
+
+        assertNotNull(mojo);
+        mojo.execute();
+        File pdfFile = FileUtil.loadFile(mojo.getDocumentationDir() + mojo.outputFileName + ".pdf");
+        assertThat(pdfFile).exists().hasParent("target/docs");
+        assertThat(mojo.getGeneratedFile()).
+                contains(":doctitle: Title");
+
+        File htmlFile = FileUtil.loadFile(mojo.getDocumentationDir() + mojo.outputFileName + ".html");
+        assertThat(htmlFile).exists().hasParent("target/docs");
+
+    }
+
     public void testSkipDocsGenerationTest() throws Exception {
         CukedoctorMojo mojo = (CukedoctorMojo) lookupMojo("execute", getTestFile("src/test/resources/skip-docs-pom.xml"));
         assertNotNull(mojo);

@@ -216,6 +216,7 @@ public class CukedoctorMojo extends AbstractMojo {
                     revNumber(docVersion).
                     hardBreaks(hardBreaks).
                     numbered(numbered);
+            documentAttributes.docTitle(documentTitle);
             converter = Cukedoctor.instance(featuresFound, documentAttributes);
             converter.setFilename(pathToSave);//needed by docinfo, pdf-theme
             generatedFile = converter.renderDocumentation();
