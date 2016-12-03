@@ -1,6 +1,6 @@
 :toc: center
 :backend: pdf
-:doctitle: Living Documentation
+:doctitle: Cukedoctor Documentation
 :doctype: book
 :icons: font
 :numbered:
@@ -13,7 +13,7 @@
 :revnumber: 1.0.7-SNAPSHOT
 :hardbreaks:
 
-= *Living Documentation*
+= *Cukedoctor Documentation*
 
 include::/home/travis/build/rmpestano/cukedoctor/cukedoctor-converter/target/test-classes/cukedoctor-intro.adoc[leveloffset=+1]
 
@@ -39,7 +39,7 @@ ____
 ****
 Given ::
 =====
-The following two features: icon:thumbs-up[role="green",title="Passed"] [small right]#(317ms)#
+The following two features: icon:thumbs-up[role="green",title="Passed"] [small right]#(263ms)#
 ----
 
 Feature: Feature1
@@ -58,7 +58,7 @@ Feature: Feature2
 =====
 When ::
 =====
-I convert their json test output using cukedoctor converter icon:thumbs-up[role="green",title="Passed"] [small right]#(01s 090ms)#
+I convert their json test output using cukedoctor converter icon:thumbs-up[role="green",title="Passed"] [small right]#(778ms)#
 ******
 
 [discrete]
@@ -227,7 +227,7 @@ Feature: Feature2
 =====
 When ::
 =====
-I convert them using default order icon:thumbs-up[role="green",title="Passed"] [small right]#(020ms)#
+I convert them using default order icon:thumbs-up[role="green",title="Passed"] [small right]#(021ms)#
 =====
 Then ::
 =====
@@ -307,7 +307,7 @@ NOTE: Ordering is done using feature comment '*#order:*'
 =====
 When ::
 =====
-I convert them using comment order icon:thumbs-up[role="green",title="Passed"] [small right]#(024ms)#
+I convert them using comment order icon:thumbs-up[role="green",title="Passed"] [small right]#(025ms)#
 =====
 Then ::
 =====
@@ -378,7 +378,7 @@ Asciidoc markup can be used in feature *DocStrings*. To do so you need to enable
 ****
 Given ::
 =====
-The following two features: icon:thumbs-up[role="green",title="Passed"] [small right]#(001ms)#
+The following two features: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
 Feature: Enrich feature
@@ -416,7 +416,7 @@ Feature: Enrich feature
 =====
 When ::
 =====
-I convert docstring enriched json output using cukedoctor converter icon:thumbs-up[role="green",title="Passed"] [small right]#(037ms)#
+I convert docstring enriched json output using cukedoctor converter icon:thumbs-up[role="green",title="Passed"] [small right]#(039ms)#
 =====
 Then ::
 =====
@@ -529,7 +529,7 @@ Feature: Calculator
 =====
 When ::
 =====
-I convert enriched feature json output using cukedoctor icon:thumbs-up[role="green",title="Passed"] [small right]#(033ms)#
+I convert enriched feature json output using cukedoctor icon:thumbs-up[role="green",title="Passed"] [small right]#(029ms)#
 =====
 Then ::
 =====
@@ -634,7 +634,7 @@ Feature: Feature2
 =====
 And ::
 =====
-The following asciidoc document is on your application classpath icon:thumbs-up[role="green",title="Passed"] [small right]#(034ms)#
+The following asciidoc document is on your application classpath icon:thumbs-up[role="green",title="Passed"] [small right]#(030ms)#
 ******
 
 [discrete]
