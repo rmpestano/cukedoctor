@@ -218,7 +218,7 @@ result.missing = Missing
 ----
 
 ==== Supported locales
-Cukdoctor currently supports the following locales *en*, *es* and *pt*.
+Cukdoctor currently supports the following locales *en*, *es*, *fr*, *ge* and *pt*.
 
 Here are the https://github.com/rmpestano/cukedoctor/tree/master/cukedoctor-converter/src/main/resources[supported locales^]
 
