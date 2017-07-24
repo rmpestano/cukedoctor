@@ -582,20 +582,24 @@ mvn cukedoctor:execute
 |Section numbering
 |true
 
+|allowUriRead
+|Allow include content be referenced by an URI.
+|false
+
 |featuresDir
 |Directory to start searching (recursively) for cucumber json output  
 |project root directory
 
 |disableFilter
-|Flag to disable filter
+|When present, this flag disables features filtering 
 |
 
 |disableMinimizable
-|Flag to disable minimizable feature sections
+|When present, this flag disables minimizable feature sections
 |
 
 |disableTheme
-|Flag to disable theme support
+|When present, this flag disables theme support
 |
 
 |hideSummarySection

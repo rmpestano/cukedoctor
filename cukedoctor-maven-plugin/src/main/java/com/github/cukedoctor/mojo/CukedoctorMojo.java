@@ -108,7 +108,7 @@ public class CukedoctorMojo extends AbstractMojo {
     String sourceHighlighter;
 
     @Parameter(defaultValue = "false", required = false)
-    boolean allowUriRead;
+    Boolean allowUriRead;
 
     @Parameter(property = "cukedoctor.skip", defaultValue = "false")
     private boolean skip;
@@ -261,7 +261,7 @@ public class CukedoctorMojo extends AbstractMojo {
         ob = OptionsBuilder.options().backend(documentAttributes.getBackend());
         ob.safe(SafeMode.UNSAFE);
 
-        if (allowUriRead) {
+        if (allowUriRead != null && allowUriRead) {
             Attributes attr = new Attributes();
             attr.setAllowUriRead(true);
             ob.attributes(attr);
