@@ -41,6 +41,7 @@ import java.io.File;
 import java.util.List;
 
 import static com.github.cukedoctor.extension.CukedoctorExtensionRegistry.FILTER_DISABLE_EXT_KEY;
+import org.asciidoctor.Attributes;
 
 @Mojo(name = "execute",
         defaultPhase = LifecyclePhase.INSTALL)
@@ -106,6 +107,8 @@ public class CukedoctorMojo extends AbstractMojo {
     @Parameter(required = false)
     String sourceHighlighter;
 
+    @Parameter(defaultValue = "false", required = false)
+    boolean allowUriRead;
 
     @Parameter(property = "cukedoctor.skip", defaultValue = "false")
     private boolean skip;
@@ -253,10 +256,22 @@ public class CukedoctorMojo extends AbstractMojo {
     }
 
     private void generateDocumentation(DocumentAttributes documentAttributes, File adocFile, Asciidoctor asciidoctor) {
+        
+        OptionsBuilder ob;
+        ob = OptionsBuilder.options().backend(documentAttributes.getBackend());
+        ob.safe(SafeMode.UNSAFE);
+
+        if (allowUriRead) {
+            Attributes attr = new Attributes();
+            attr.setAllowUriRead(true);
+            ob.attributes(attr);
+        }
+
+        
         if ("pdf".equals(documentAttributes.getBackend())) {
             asciidoctor.unregisterAllExtensions();
         }
-        asciidoctor.convertFile(adocFile, OptionsBuilder.options().backend(documentAttributes.getBackend()).safe(SafeMode.UNSAFE).asMap());
+        asciidoctor.convertFile(adocFile, ob);
         //remove auxiliary files
         if ("pdf".equals(documentAttributes.getBackend())) {
             FileUtil.removeFile(adocFile.getParent() + "/" + outputFileName + "-theme.yml");
