@@ -62,7 +62,7 @@ public class I18nLoader extends ResourceBundle.Control{
             lang = "en";
         }
         if (lang != null && bundle == null) {
-            InputStream stream = getBundleFromTargetTestFolder(Constants.baseDir);
+            InputStream stream = getBundleFromTargetTestFolder(Constants.BASE_DIR);
             if(stream == null){
                 String bundleName = toBundleName("/i18n/cukedoctor", Locale.forLanguageTag(lang));
                 String resourceName = toResourceName(bundleName, "properties");

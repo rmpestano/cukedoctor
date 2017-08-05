@@ -330,16 +330,38 @@ Here is an https://github.com/database-rider/database-rider/blob/4b12ebf6303c886
 
 NOTE: Not automated doesn't mean you didn't discussed the feature and it's scenarios.
 
+
 === Customizing your Living Documentation
 
-Cukedoctor let you customize its generated documentation through Java service provider mechanism, see https://github.com/rmpestano/cukedoctor/tree/master/cukedoctor-spi-example[Cukedoctor-spi-example^] for example code.
+There are two ways to customize Cukedoctor generated documentation. The first one is via `custom css` and `custom pdf theme`, the second one is via `Cukedoctor SPI`.
+
+==== Custom css and pdf theme
+
+You can provide a `custom css` by creating a file named *cukedoctor.css*, so for example you can override default style using css selectors:
+
+.cukedoctor.css
+----
+body #toctitle {
+    color: green;
+}
+
+body.book {
+    background: #444;
+}
+----
 
 
-==== How it works
+By default Cukedoctor you search for the custom css into classpath but you can provide any path via system property named `CUKEDOCTOR_CSS_DIR`.
 
-Cukedoctor documentation customization is done through https://docs.oracle.com/javase/tutorial/ext/basics/spi.html[Java service provider] mechanism.
+PDF customization works the same way, if Cukedoctor finds a file named *cukedoctor-pdf.yml* it will apply the theme. By default Cukedoctor you search for the custom pdf theme into classpath but you can provide any path via system property named `CUKEDOCTOR_PDF_THEME_DIR`.
 
-You just need to implement one of the interfaces in https://github.com/rmpestano/cukedoctor/tree/master/cukedoctor-converter/src/main/java/com/github/cukedoctor/spi[Cukedoctor SPI] and declare it in META-INF/services.
+NOTE: Use https://github.com/asciidoctor/asciidoctor-pdf/blob/master/docs/theming-guide.adoc[Asciidoctor PDF theming guide^] as reference for creating your custom theme.
+
+==== Cukedoctor SPI
+
+Cukedoctor SPI is backed by https://docs.oracle.com/javase/tutorial/ext/basics/spi.html[Java service provider] mechanism.
+
+You just need to implement one of the interfaces in https://github.com/rmpestano/cukedoctor/tree/master/cukedoctor-converter/src/main/java/com/github/cukedoctor/spi[Cukedoctor SPI] and declare it in META-INF/services. See https://github.com/rmpestano/cukedoctor/tree/master/cukedoctor-spi-example[Cukedoctor-spi-example^] for full example code
 
 
 ==== Example

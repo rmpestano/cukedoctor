@@ -10,12 +10,11 @@ import java.text.DateFormat;
 public abstract class Constants {
 
 	public static final String SKIP_DOCS = "@skipDocs";
-	public static final String baseDir =  Files.exists(Paths.get("target")) ? Paths.get("target").toString() :
+	public static final String BASE_DIR =  Files.exists(Paths.get("target")) ? Paths.get("target").toString() :
 			Files.exists(Paths.get("bin")) ? Paths.get("bin").toString() : Paths.get("").toString();
 
 	public static final String STOP_WATCH = "cukedoctor.stopwatch";
 
-	public static final String STEPS_BLOCK_DELIMITER = System.getProperty("cukedoctor.stopwatch");
 	public static final String DISCRETE = "[discrete]";
 
 

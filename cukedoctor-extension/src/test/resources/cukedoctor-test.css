@@ -1,0 +1,7 @@
+body #toctitle {
+    color: green;
+}
+
+body.book {
+    background: #444;
+}

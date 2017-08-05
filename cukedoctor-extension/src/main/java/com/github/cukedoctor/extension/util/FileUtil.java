@@ -4,10 +4,11 @@ package com.github.cukedoctor.extension.util;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.IOUtils;
 
-import java.io.File;
-import java.io.IOException;
-import java.io.InputStream;
-import java.nio.file.Paths;
+import java.io.*;
+import java.nio.file.*;
+import java.nio.file.attribute.BasicFileAttributes;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.regex.Pattern;
@@ -48,7 +49,7 @@ public class FileUtil {
             }
             File file = new File(fullyQualifiedName);
             file.createNewFile();
-            FileUtils.write(file, data,"UTF-8");
+            FileUtils.write(file, data, "UTF-8");
             log.info("Wrote: " + file.getAbsolutePath());
             return file;
         } catch (IOException e) {
@@ -95,6 +96,100 @@ public class FileUtil {
         }
         return null;
 
+
+    }
+
+    public static List<String> findFiles(String startDir, final String sulfix) {
+        return findFiles(startDir, sulfix, false);
+    }
+
+    public static List<String> findFiles(String startDir, final String sulfix, final boolean singleResult) {
+        final List<String> absolutePaths = new ArrayList<>();
+        if (startDir == null) {
+            startDir = "";
+        }
+
+        Path startPath = Paths.get(startDir);
+
+        if (!Files.exists(startPath)) {
+            if (startDir.startsWith("/")) {// try to find using relative paths
+                startDir = startDir.substring(1);
+                startPath = Paths.get(startDir);
+            }
+        }
+
+        if (!Files.exists(startPath)) {
+            startPath = Paths.get("");
+        }
+
+        try {
+            Files.walkFileTree(Paths.get(startDir), new SimpleFileVisitor<Path>() {
+                @Override
+                public FileVisitResult visitFile(final Path file, final BasicFileAttributes attrs) throws IOException {
+                    final String fileName = file.getFileName().toString();
+                    if (fileName.endsWith(sulfix)) {
+                        absolutePaths.add(file.toAbsolutePath().toString());
+                        if (singleResult) {
+                            return FileVisitResult.TERMINATE;
+                        }
+                    }
+                    if (attrs.isDirectory()) {
+                        return super.visitFile(file, attrs);
+                    } else {
+                        return FileVisitResult.SKIP_SUBTREE;
+                    }
+                }
+            });
+        } catch (IOException e) {
+            log.log(Level.WARNING, "Problems scanning " + sulfix + " files in path:" + startDir, e);
+        }
+        return absolutePaths;
+    }
+
+    /**
+     * @param source resource from classpath
+     * @param dest dest path
+     * @return copied file
+     */
+    public static File copyFileFromClassPath(String source, String dest) {
+        if (source != null && dest != null) {
+            try {
+                InputStream in = FileUtil.class.getResourceAsStream(source);
+                return saveFile(dest, IOUtils.toString(in));
+            } catch (IOException e) {
+                log.log(Level.SEVERE, "Could not copy source file: " + source + " to dest file: " + dest, e);
+            }
+        }
+        return null;
+
+
+    }
+
+    public static String readFileContent(File target) {
+        StringBuilder content = new StringBuilder();
+        try {
+
+            InputStream openStream = new FileInputStream(target);
+            BufferedReader bufferedReader = new BufferedReader(
+                    new InputStreamReader(openStream));
+            String line = null;
+            while ((line = bufferedReader.readLine()) != null) {
+                content.append(line);
+            }
+            bufferedReader.close();
+
+        } catch (Exception e) {
+        }
+        return content.toString();
+    }
+
+    public static File loadTestFile(String fileName) {
+        return new File(Paths.get("").toAbsolutePath().toString() + "/target/test-classes/" + fileName);
+    }
+
+    public static String removeSpecialChars(String content) {
+
+        return content.replaceAll(" ","").replaceAll("\n","").replaceAll("\t","");
 
     }
 }

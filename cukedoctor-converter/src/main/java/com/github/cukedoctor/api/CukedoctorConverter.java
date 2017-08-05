@@ -49,9 +49,9 @@ public interface CukedoctorConverter {
 	String getFilename();
 
 
-	CukedoctorConverter addCustomPdfTheme();
-
 	CukedoctorConverter addCustomCss();
+
+	CukedoctorConverter addCustomPdfTheme();
 
 	/**
 	 * saves the documentation into disk using {@link CukedoctorConverter#getFilename()}  as name (also path). Note that

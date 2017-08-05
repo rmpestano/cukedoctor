@@ -9,8 +9,8 @@ import org.junit.runners.JUnit4;
 
 import java.io.*;
 
-import static com.github.cukedoctor.extension.FileUtil.loadTestFile;
-import static com.github.cukedoctor.extension.FileUtil.readFileContent;
+import static com.github.cukedoctor.extension.util.FileUtil.loadTestFile;
+import static com.github.cukedoctor.extension.util.FileUtil.readFileContent;
 import static org.assertj.core.api.Assertions.assertThat;
 
 /**

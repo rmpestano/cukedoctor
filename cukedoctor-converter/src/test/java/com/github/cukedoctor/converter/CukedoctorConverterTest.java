@@ -350,7 +350,6 @@ public class CukedoctorConverterTest {
                 contains("|4|1|5|4|1|0|0|0|0|5 2+|010ms");
     }
 
-
     @Test
     public void shouldGeneratePdfTheme() {
         final Feature feature = FeatureBuilder.instance().aFeatureWithTwoScenarios();
