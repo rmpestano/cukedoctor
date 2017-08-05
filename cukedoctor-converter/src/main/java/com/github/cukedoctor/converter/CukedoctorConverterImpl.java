@@ -158,7 +158,6 @@ public class CukedoctorConverterImpl implements CukedoctorConverter {
 			if(hasElements(files)){
 				String themePath = files.get(0);
 				themePath = themePath.replaceAll("\\\\","/");
-				FileUtil.copyFile(Paths.get(themePath).toAbsolutePath().toString(), pdfThemeName);
 				documentAttributes.pdfStyle(themePath);
 			}
 		}
