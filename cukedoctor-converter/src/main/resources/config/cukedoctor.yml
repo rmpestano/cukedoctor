@@ -16,6 +16,6 @@ documentAttributes:
   sectLink: true
   numbered: false
   docInfo: true
-  pdfTheme: true
+  pdfStyle:
   sourceHighlighter: "highlightjs"
   hardBreaks: true

@@ -35,6 +35,7 @@ public interface AttributesBuilder {
 
     AttributesBuilder tocLevels(String value);
 
+    AttributesBuilder pdfStyle(String value);
 
     AsciiDocBuilder asciiDocBuilder();
 }

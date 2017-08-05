@@ -4,6 +4,7 @@ import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.IOUtils;
 
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.nio.file.*;
@@ -164,11 +165,41 @@ public class FileUtil {
         return fileToRemove.delete();
     }
 
-    public static File copyFile(String source, String dest) {
-
+    /**
+     * @param source resource from classpath
+     * @param dest dest path
+     * @return copied file
+     */
+    public static File copyFileFromClassPath(String source, String dest) {
         if (source != null && dest != null) {
             try {
                 InputStream in = FileUtil.class.getResourceAsStream(source);
+                return saveFile(dest, IOUtils.toString(in));
+            } catch (IOException e) {
+                log.log(Level.SEVERE, "Could not copy source file: " + source + " to dest file: " + dest, e);
+            }
+        }
+        return null;
+
+
+    }
+
+
+    /**
+     * @param source file path
+     * @param dest dest path
+     * @return copied file
+     */
+    public static File copyFile(String source, String dest) {
+
+        if (source != null && dest != null) {
+            File sourcefile = new File(source);
+            if(!sourcefile.exists()) {
+                log.warning(String.format("File %s not found.",sourcefile.getAbsolutePath()));
+                return null;
+            }
+            try {
+                InputStream in = new FileInputStream(source);
                 return saveFile(dest, IOUtils.toString(in));
             } catch (IOException e) {
                 log.log(Level.SEVERE, "Could not copy source file: " + source + " to dest file: " + dest, e);

@@ -152,6 +152,10 @@ public abstract class Constants {
 		public static String sourceHighlighter(String value) {
 			return ":source-highlighter: " + value;
 		}
+
+		public static String pdfStyle(String value) {
+			return ":pdf-style: " + value;
+		}
 	}
 
 }

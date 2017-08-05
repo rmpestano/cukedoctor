@@ -1,11 +1,12 @@
 package com.github.cukedoctor.converter;
 
-import static com.github.cukedoctor.util.Assert.contains;
+import static com.github.cukedoctor.util.Assert.hasElements;
 import static com.github.cukedoctor.util.Assert.hasText;
 import static com.github.cukedoctor.util.Assert.notNull;
 import static com.github.cukedoctor.util.Constants.newLine;
 import static com.github.cukedoctor.util.Constants.Markup.bold;
 
+import java.nio.file.Paths;
 import java.util.*;
 
 import com.github.cukedoctor.api.CukedoctorConverter;
@@ -13,6 +14,7 @@ import com.github.cukedoctor.api.CukedoctorDocumentBuilder;
 import com.github.cukedoctor.api.DocumentAttributes;
 import com.github.cukedoctor.api.model.Feature;
 import com.github.cukedoctor.config.CukedoctorConfig;
+import com.github.cukedoctor.config.GlobalConfig;
 import com.github.cukedoctor.i18n.I18nLoader;
 import com.github.cukedoctor.renderer.CukedoctorFeatureRenderer;
 import com.github.cukedoctor.renderer.CukedoctorSummaryRenderer;
@@ -89,6 +91,7 @@ public class CukedoctorConverterImpl implements CukedoctorConverter {
 	public synchronized String renderDocumentation() {
 		System.setProperty(Constants.STOP_WATCH,String.valueOf(System.currentTimeMillis()));
 		docBuilder = CukedoctorDocumentBuilder.Factory.newInstance();
+		addCustomPdfTheme();//needs to be added before renderAttributes because it adds pdf-style doc attr
 		renderAttributes();
 		docBuilder.newLine();
 		docBuilder.documentTitle(bold(getDocumentationTitle()));
@@ -99,8 +102,6 @@ public class CukedoctorConverterImpl implements CukedoctorConverter {
 			docBuilder.newLine();
 		}
 		renderFeatures(features);
-		//generateDocInfo();
-		//generatePdfTheme();
 
 		return docBuilder.toString();
 	}
@@ -109,7 +110,7 @@ public class CukedoctorConverterImpl implements CukedoctorConverter {
 		List<String> files = FileUtil.findFiles(CukedoctorConfig.INTRO_CHAPTER_DIR, "cukedoctor-intro.adoc",true);
 		if(files != null && !files.isEmpty()){
 			String introPath = files.get(0);
-			 introPath = introPath.replaceAll("\\\\","/");
+			introPath = introPath.replaceAll("\\\\","/");
 			docBuilder.append("include::", introPath, "[leveloffset=+1]", newLine(), newLine());
 		}
 	}
@@ -140,35 +141,32 @@ public class CukedoctorConverterImpl implements CukedoctorConverter {
 					.tocLevels(documentAttributes.getTocLevels())
 					.revNumber(documentAttributes.getRevNumber())
 					.hardBreaks(documentAttributes.isHardBreaks());
-		}
-		return this;
-	}
-
-	public CukedoctorConverter generateDocInfo() {
-		if (notNull(documentAttributes) && documentAttributes.isDocInfo()) {
-			//name must be filename-docinfo.html
-			String docInfoName = filename.substring(0, filename.lastIndexOf(".")) + "-docinfo.html";
-			FileUtil.copyFile("/docinfo.html", docInfoName);
-			//docinfo depends on cukedoctor.js and cukedoctor.css
-			//save js and css file in same dir as docinfo
-			String basePath = "";
-			if (contains(filename, "/")) {
-				basePath = filename.substring(0, filename.lastIndexOf("/"));
+			if(hasText(documentAttributes.getPdfStyle())) {
+				docBuilder.attributes().pdfStyle(documentAttributes.getPdfStyle());
 			}
-			FileUtil.copyFile("/cukedoctor.js", basePath + "/cukedoctor.js");
-			FileUtil.copyFile("/cukedoctor.css", basePath + "/cukedoctor.css");
-
 		}
-
 		return this;
 	}
 
-	public CukedoctorConverter generatePdfTheme() {
-		if (notNull(documentAttributes) && documentAttributes.isPdfTheme()) {
+
+	public CukedoctorConverter addCustomPdfTheme() {
+		if (notNull(documentAttributes) && documentAttributes.getBackend() != null && documentAttributes.getBackend().equalsIgnoreCase("pdf")) {
 			//name must be filename-theme.yml
-			String pdfThemeName = filename.substring(0, filename.lastIndexOf(".")) + "-theme.yml";
-			FileUtil.copyFile("/theme.yml", pdfThemeName);
+			String pdfThemeName = "cukedoctor-pdf.yml";
+			//search theme.yml
+			List<String> files = FileUtil.findFiles(CukedoctorConfig.CUKEDOCTOR_PDF_THEME_DIR, pdfThemeName, true);
+			if(hasElements(files)){
+				String themePath = files.get(0);
+				themePath = themePath.replaceAll("\\\\","/");
+				FileUtil.copyFile(Paths.get(themePath).toAbsolutePath().toString(), pdfThemeName);
+				documentAttributes.pdfStyle(themePath);
+			}
 		}
+		return this;
+	}
+
+	@Override
+	public CukedoctorConverter addCustomCss() {
 		return this;
 	}
 

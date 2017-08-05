@@ -24,9 +24,11 @@ public class CukedoctorStyleExtension extends Postprocessor{
         if (document.basebackend("html")) {
             org.jsoup.nodes.Document doc = Jsoup.parse(output, "UTF-8");
 
-            Element contentElement = doc.getElementById("footer");
+
             if (System.getProperty(STYLE_DISABLE_EXT_KEY) == null) {
-                addStyleClass(contentElement);
+                Element contentElement = doc.getElementById("footer");
+                addFooterStyle(contentElement);
+                addCukedoctorCss(document);
             }
 
             return doc.html();
@@ -36,10 +38,15 @@ public class CukedoctorStyleExtension extends Postprocessor{
         }
     }
 
-    private void addStyleClass(Element contentElement) {
+    private void addFooterStyle(Element contentElement) {
         String styleClass = " <style>  \n" + "\n" + "#content:padding:0!important;\n" + ".sidebarblock, .sectionbody, .content{\n" + "overflow:auto!important;\n" + "}\n";
 
         contentElement.after(styleClass);
+    }
+
+    private void addCukedoctorCss(Document document) {
+
+
     }
 
 

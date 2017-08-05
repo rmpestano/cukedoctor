@@ -1,5 +1,5 @@
  page:
-  background_color: ffffff
+  background_color: 444
   layout: landscape
   # NOTE multiply inches by 72 to get pt values
   #margin: [0.5 * 72, 0.67 * 72, 0.67 * 72, 0.67 * 72]
@@ -8,7 +8,7 @@
   size: Letter
 base:
   # color as hex string (leading # is optional)
-  font_color: 000000
+  font_color: red
   # color as RGB array
   #font_color: [51, 51, 51]
   # color as CMYK array (approximated)
@@ -43,7 +43,7 @@ base:
 vertical_rhythm: $base_line_height_length
 horizontal_rhythm: $base_line_height_length
 link:
-  font_color: 428bca
+  font_color: #fff
 # literal is currently used for inline monospaced in prose and table cells
 literal:
   font_color: b12146

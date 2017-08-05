@@ -176,13 +176,6 @@ public class CukedoctorMojo extends AbstractMojo {
                 revNumber(docVersion).
                 hardBreaks(hardBreaks).
                 numbered(numbered);
-        if (format.equals(Format.pdf)) {
-            documentAttributes.pdfTheme(true).docInfo(false);
-        } else {
-            documentAttributes.docInfo(true).
-                    backend(Format.html5.name()).
-                    pdfTheme(false);
-        }
 
         if (documentTitle == null) {
             documentTitle = "Living Documentation";

@@ -96,6 +96,12 @@ public class AttributesBuilderImpl implements AttributesBuilder {
     }
 
     @Override
+    public AttributesBuilder pdfStyle(String value) {
+        docBuilder.textLine(Constants.Atributes.pdfStyle(value));
+        return this;
+    }
+
+    @Override
     public AsciiDocBuilder asciiDocBuilder(){
         return docBuilder;
     }
@@ -113,5 +119,7 @@ public class AttributesBuilderImpl implements AttributesBuilder {
         }
         return this;
     }
+
+
 
 }

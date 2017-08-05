@@ -163,12 +163,6 @@ public class CukedoctorMain {
                 hardBreaks(hardBreaks).
                 numbered(numbered);
 
-        if (format.equalsIgnoreCase("pdf")) {
-            documentAttributes.pdfTheme(true).docInfo(false);
-        } else {
-            documentAttributes.docInfo(true).pdfTheme(false);
-        }
-
         if(sourceHighlighter != null){
             documentAttributes.sourceHighlighter(sourceHighlighter);
         }

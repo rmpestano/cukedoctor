@@ -19,6 +19,7 @@ import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;
 
 import java.io.File;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -351,66 +352,59 @@ public class CukedoctorConverterTest {
 
 
     @Test
-    public void shouldRenderDocinfo() {
-        final Feature feature = FeatureBuilder.instance().aFeatureWithTwoScenarios();
-        List<Feature> features = new ArrayList<>();
-        features.add(feature);
-        CukedoctorConverter converter = Cukedoctor.instance(features, new DocumentAttributes().docTitle("DocTitle"));
-        converter.setFilename("target/docinfo/document.adoc");
-        converter.generateDocInfo();
-        File docInfo = FileUtil.loadFile("target/docinfo/document-docinfo.html");
-        assertThat(docInfo).exists();
-        docInfo.delete();
-        File css = FileUtil.loadFile("target/docinfo/cukedoctor.css");
-        assertThat(css).exists();
-        css.delete();
-        File js = FileUtil.loadFile("target/docinfo/cukedoctor.js");
-        assertThat(js).exists();
-        js.delete();
-    }
-
-    @Test
-    public void shouldNotRenderDocinfo() {
-        final Feature feature = FeatureBuilder.instance().aFeatureWithTwoScenarios();
-        List<Feature> features = new ArrayList<>();
-        features.add(feature);
-        CukedoctorConverter converter = Cukedoctor.instance(features, new DocumentAttributes().
-                docTitle("Doc Title").docInfo(false));
-        converter.setFilename("/target/docinfo/document.adoc");
-        converter.generateDocInfo();
-        File docInfo = FileUtil.loadFile("/target/docinfo/document-docinfo.html");
-        assertThat(docInfo).doesNotExist();
-        File css = FileUtil.loadFile("/target/docinfo/cukedoctor.css");
-        assertThat(css).doesNotExist();
-        File js = FileUtil.loadFile("/target/docinfo/cukedoctor.js");
-        assertThat(js).doesNotExist();
-    }
-
-    @Test
     public void shouldGeneratePdfTheme() {
         final Feature feature = FeatureBuilder.instance().aFeatureWithTwoScenarios();
         List<Feature> features = new ArrayList<>();
         features.add(feature);
-        CukedoctorConverter converter = Cukedoctor.instance(features, new DocumentAttributes());
+        CukedoctorConverter converter = Cukedoctor.instance(features, new DocumentAttributes().backend("pdf"));
         converter.setFilename("target/pdf/living documentation.adoc");
-        converter.generatePdfTheme();
-        File file = FileUtil.loadFile("target/pdf/living_documentation-theme.yml");
+        String pdfStylePath = Paths.get("").toAbsolutePath() + "/target/pdf/cukedoctor-pdf.yml";
+        FileUtil.copyFileFromClassPath("/cukedoctor-pdf-test.yml", pdfStylePath);
+        converter.addCustomPdfTheme();
+        String expected = ":toc: right"+newLine() +
+                        ":backend: pdf"+newLine() +
+                        ":doctitle: Living Documentation"+newLine() +
+                        ":doctype: book"+newLine() +
+                        ":icons: font"+newLine() +
+                        ":!numbered:"+newLine() +
+                        ":!linkcss:"+newLine() +
+                        ":sectanchors:"+newLine() +
+                        ":sectlink:"+newLine() +
+                        ":docinfo:"+newLine() +
+                        ":source-highlighter: highlightjs"+newLine() +
+                        ":toclevels: 3"+newLine() +
+                        ":hardbreaks:"+newLine() +
+                        ":pdf-style: " + pdfStylePath + newLine();
+
+        String doc = converter.renderAttributes().getDocumentation();
+        assertThat(expected).isEqualTo(doc);
+        File file = FileUtil.loadFile("target/pdf/cukedoctor-pdf.yml");
         assertThat(file).exists();
         assertTrue(file.delete());
     }
 
+
     @Test
-    public void shouldNotGeneratePdfTheme() {
+    public void shouldNotGeneratePdfThemeWithoutPdfStyleFile() {
         final Feature feature = FeatureBuilder.instance().aFeatureWithTwoScenarios();
         List<Feature> features = new ArrayList<>();
         features.add(feature);
-        DocumentAttributes docAttrs = new DocumentAttributes().pdfTheme(false);
-        CukedoctorConverter converter = Cukedoctor.instance(features, docAttrs);
+        CukedoctorConverter converter = Cukedoctor.instance(features,new DocumentAttributes().backend("pdf"));
         converter.setFilename("/target/pdf//living documentation.adoc");
-        converter.generatePdfTheme();
-        assertThat(FileUtil.loadFile("target/pdf/living_documentation-theme.yml")).doesNotExist();
+        converter.addCustomPdfTheme();
+        assertThat(FileUtil.loadFile("target/pdf/cukedoctor-pdf.yml")).doesNotExist();
     }
 
+    @Test
+    public void shouldNotGeneratePdfThemeForHtmlBackend() {
+        final Feature feature = FeatureBuilder.instance().aFeatureWithTwoScenarios();
+        List<Feature> features = new ArrayList<>();
+        features.add(feature);
+        CukedoctorConverter converter = Cukedoctor.instance(features,new DocumentAttributes().backend("html"));
+        converter.setFilename("/target/pdf//living documentation.adoc");
+        converter.addCustomPdfTheme();
+        assertThat(FileUtil.loadFile("target/pdf/cukedoctor-pdf.yml")).doesNotExist();
+    }
 
     @Test
     public void shouldNotSetInvalidFilename() {
@@ -437,18 +431,6 @@ public class CukedoctorConverterTest {
         assertThat(converter.getFilename()).isEqualTo("test.ad");
     }
 
-    @Test
-    public void shouldRenderDocinfoUsingDocTitleAsName() {
-        final Feature feature = FeatureBuilder.instance().aFeatureWithTwoScenarios();
-        List<Feature> features = new ArrayList<>();
-        features.add(feature);
-        CukedoctorConverter converter = Cukedoctor.instance(features, new DocumentAttributes().docTitle("Doc Title"));
-        converter.setFilename("target/Doc_Title");
-        converter.generateDocInfo();
-        File savedFile = FileUtil.loadFile("target/Doc_Title-docinfo.html");
-        assertThat(savedFile).exists();
-        savedFile.delete();
-    }
 
 
     @Test

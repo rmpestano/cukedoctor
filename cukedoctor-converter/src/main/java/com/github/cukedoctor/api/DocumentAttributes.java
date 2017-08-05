@@ -18,10 +18,10 @@ public class DocumentAttributes {
 	private boolean sectLink = true;
 	private boolean numbered = false;
 	private boolean docInfo = true;
-	private boolean pdfTheme = true;
 	private String sourceHighlighter = "highlightjs";
 	private String revNumber;
 	private boolean hardBreaks = true;
+	private String pdfStyle;
 
 
 	public DocumentAttributes() {
@@ -84,10 +84,6 @@ public class DocumentAttributes {
 		return this;
 	}
 
-	public DocumentAttributes pdfTheme(boolean pdfTheme) {
-		this.pdfTheme = pdfTheme;
-		return this;
-	}
 
 	public DocumentAttributes sourceHighlighter(String sourceHighlighter) {
 		this.sourceHighlighter = sourceHighlighter;
@@ -104,6 +100,10 @@ public class DocumentAttributes {
 		return this;
 	}
 
+	public DocumentAttributes pdfStyle(String pdfStyle) {
+		this.pdfStyle = pdfStyle;
+		return this;
+	}
 
 	public String getBackend() {
 		return backend;
@@ -137,6 +137,10 @@ public class DocumentAttributes {
 		return revNumber;
 	}
 
+	public String getPdfStyle() {
+		return pdfStyle;
+	}
+
 	public boolean isSectAnchors() {
 		return sectAnchors;
 	}
@@ -157,10 +161,6 @@ public class DocumentAttributes {
 		return docInfo;
 	}
 
-	public boolean isPdfTheme() {
-		return pdfTheme;
-	}
-
 	public boolean isHardBreaks() {
 		return hardBreaks;
 	}
@@ -168,6 +168,10 @@ public class DocumentAttributes {
 
 	//setters needed by snakeyml
 
+
+	public void setPdfStyle(String pdfStyle) {
+		this.pdfStyle = pdfStyle;
+	}
 
 	public void setDocTitle(String docTitle) {
 		this.docTitle = docTitle;
@@ -211,10 +215,6 @@ public class DocumentAttributes {
 
 	public void setDocInfo(boolean docInfo) {
 		this.docInfo = docInfo;
-	}
-
-	public void setPdfTheme(boolean pdfTheme) {
-		this.pdfTheme = pdfTheme;
 	}
 
 	public void setSourceHighlighter(String sourceHighlighter) {
