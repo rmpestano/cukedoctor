@@ -10,6 +10,7 @@ import com.github.cukedoctor.config.GlobalConfig;
 import com.github.cukedoctor.parser.FeatureParser;
 import com.github.cukedoctor.util.FileUtil;
 import org.asciidoctor.Asciidoctor;
+import org.asciidoctor.Attributes;
 import org.asciidoctor.OptionsBuilder;
 import org.asciidoctor.SafeMode;
 
@@ -68,10 +69,11 @@ public class CukedoctorMain {
     @Parameter(names = "-cucumberResultPaths", description = "Restricts the search to a list of paths, The list is obtained by splitting cucumberResultPaths using File.pathSeparator", required = false)
     private String cucumberResultPaths;
 
-
     @Parameter(names = "-sourceHighlighter", description = "Configures source highlighter. Default is highlightjs", required = false)
     private String sourceHighlighter;
 
+    @Parameter(names = "-allowUriRead", description = "Allow include content be referenced by an URI. Default is false", required = false)
+    private Boolean allowUriRead;
 
     private static List<Feature> searchPathAndScan(String path) {
         if (path.endsWith(".json")) {
@@ -236,7 +238,18 @@ public class CukedoctorMain {
         if (attrs.getBackend().equalsIgnoreCase("pdf")) {
             asciidoctor.unregisterAllExtensions();
         }
-        asciidoctor.convertFile(adocFile, OptionsBuilder.options().backend(attrs.getBackend()).safe(SafeMode.UNSAFE).asMap());
+        
+        OptionsBuilder ob;
+        ob = OptionsBuilder.options().backend(attrs.getBackend());
+        ob.safe(SafeMode.UNSAFE);
+
+        if (allowUriRead != null && allowUriRead) {
+            Attributes attr = new Attributes();
+            attr.setAllowUriRead(true);
+            ob.attributes(attr);
+        }
+        
+        asciidoctor.convertFile(adocFile, ob.asMap());
         asciidoctor.shutdown();
         return doc;
     }
