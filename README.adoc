@@ -684,7 +684,7 @@ public void shouldRenderHtmlForOneFeature(){
 			"-t", "Living Documentation", <3>
 			"-f", "html", <4>
 			"-toc", "left", <5>
-            "-numbered", "true", <6>
+            "-numbered", <6>
             "-sourceHighlighter", "coderay" <7>
 		});
 
@@ -697,7 +697,7 @@ public void shouldRenderHtmlForOneFeature(){
 <3> Document title (default is 'Living Documentation')
 <4> document format (Default is html)
 <5> table of contents position (Default is right)
-<6> Section numbering (Default is false)
+<6> Section numbering (Default is false). Note that for boolean values you must not pass the value, only parameter name is required
 <7> Source highlighter (Default is highlightjs)
 
 ==== Command line
@@ -708,7 +708,9 @@ Using in command line, the above test should be something like:
 java -jar cukedoctor-main.jar
 		-o "target/document-one"
 		-p "target/test-classes/json-output/one_passing_one_failing.json"
-		-t "Living Documentation" -f html
+		-t "Living Documentation"
+		-f html
+		-numbered
 		-hideSummarySection
 		-hideScenarioKeyword
 ----
