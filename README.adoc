@@ -787,8 +787,7 @@ In order to customize generated documentation you can provide <<Custom css and p
 
 ----
 java -jar -D CUKEDOCTOR_CUSTOMIZATION_DIR=/home/custom
-           cukedoctor-main-1.0.6.jar
-		  -p cucumber-output.json
+        cukedoctor-main-1.0.6.jar
 
 ----
 
