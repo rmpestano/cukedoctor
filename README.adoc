@@ -684,7 +684,7 @@ public void shouldRenderHtmlForOneFeature(){
 			"-t", "Living Documentation", <3>
 			"-f", "html", <4>
 			"-toc", "left", <5>
-            "-numbering", "true", <6>
+            "-numbered", "true", <6>
             "-sourceHighlighter", "coderay" <7>
 		});
 
