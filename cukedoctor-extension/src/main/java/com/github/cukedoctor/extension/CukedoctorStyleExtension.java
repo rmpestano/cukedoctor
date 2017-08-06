@@ -30,7 +30,7 @@ public class CukedoctorStyleExtension extends Postprocessor {
     public static final String BASE_DIR =  Files.exists(Paths.get("target")) ? Paths.get("target").toString() :
             Files.exists(Paths.get("bin")) ? Paths.get("bin").toString() : Paths.get("").toString();
 
-    public static final String CUKEDOCTOR_CSS_DIR = getProperty("CUKEDOCTOR_CSS_DIR") == null ? BASE_DIR : getProperty("CUKEDOCTOR_CSS_DIR");
+    public static final String CUKEDOCTOR_CUSTOMIZATION_DIR = getProperty("CUKEDOCTOR_CUSTOMIZATION_DIR") == null ? BASE_DIR : getProperty("CUKEDOCTOR_CUSTOMIZATION_DIR");
 
 
     public CukedoctorStyleExtension(Map<String, Object> config) {
@@ -63,7 +63,7 @@ public class CukedoctorStyleExtension extends Postprocessor {
     }
 
     private void addCukedoctorCss(org.jsoup.nodes.Document document) {
-        List<String> files = FileUtil.findFiles(CUKEDOCTOR_CSS_DIR, "cukedoctor.css", true);
+        List<String> files = FileUtil.findFiles(CUKEDOCTOR_CUSTOMIZATION_DIR, "cukedoctor.css", true);
         if(files != null && !files.isEmpty()) {
             String themePath = files.get(0);
             themePath = themePath.replaceAll("\\\\","/");

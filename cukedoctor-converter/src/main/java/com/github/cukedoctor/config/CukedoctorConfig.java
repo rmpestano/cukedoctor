@@ -10,8 +10,8 @@ public abstract class CukedoctorConfig {
 	public static final String DOCUMENT_TITLE= getProperty("DOCUMENT_TITLE") == null ? "Documentation" : getProperty("DOCUMENT_TITLE");
 	//base dir to search for intro chapter cukedoctor-intro.adoc file
     public static final String INTRO_CHAPTER_DIR = getProperty("INTRO_CHAPTER_DIR") == null ? Constants.BASE_DIR : getProperty("INTRO_CHAPTER_DIR");
-	//base dir to search for cukedoctor.css file
-	public static final String CUKEDOCTOR_PDF_THEME_DIR = getProperty("CUKEDOCTOR_PDF_THEME_DIR") == null ? Constants.BASE_DIR : getProperty("CUKEDOCTOR_PDF_THEME_DIR");
+	//base dir to search for cukedoctor.css and pdf theme files
+	public static final String CUKEDOCTOR_CUSTOMIZATION_DIR = getProperty("CUKEDOCTOR_CUSTOMIZATION_DIR") == null ? Constants.BASE_DIR : getProperty("CUKEDOCTOR_CUSTOMIZATION_DIR");
 
 
 	//lazy evaluation

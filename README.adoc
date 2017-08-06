@@ -351,17 +351,15 @@ body.book {
 ----
 
 
-By default Cukedoctor you search for the custom css into classpath but you can provide any path via system property named `CUKEDOCTOR_CSS_DIR`.
+By default Cukedoctor will search (recursively) for the custom css in current directory but you can provide any path via system property named `CUKEDOCTOR_CUSTOMIZATION_DIR`.
 
-PDF customization works the same way, if Cukedoctor finds a file named *cukedoctor-pdf.yml* it will apply the theme. By default Cukedoctor you search for the custom pdf theme into classpath but you can provide any path via system property named `CUKEDOCTOR_PDF_THEME_DIR`.
+PDF customization works the same way, if Cukedoctor finds a file named *cukedoctor-pdf.yml* it will apply the theme. By default Cukedoctor will search (recursively) for the custom pdf theme in current directory but you can provide any path via system property named `CUKEDOCTOR_CUSTOMIZATION_DIR`.
 
 NOTE: Use https://github.com/asciidoctor/asciidoctor-pdf/blob/master/docs/theming-guide.adoc[Asciidoctor PDF theming guide^] as reference for creating your custom theme.
 
 ==== Cukedoctor SPI
 
-Cukedoctor SPI is backed by https://docs.oracle.com/javase/tutorial/ext/basics/spi.html[Java service provider] mechanism.
-
-You just need to implement one of the interfaces in https://github.com/rmpestano/cukedoctor/tree/master/cukedoctor-converter/src/main/java/com/github/cukedoctor/spi[Cukedoctor SPI] and declare it in META-INF/services. See https://github.com/rmpestano/cukedoctor/tree/master/cukedoctor-spi-example[Cukedoctor-spi-example^] for full example code
+Cukedoctor SPI is backed by https://docs.oracle.com/javase/tutorial/ext/basics/spi.html[Java service provider] mechanism. You just need to implement one of the interfaces in https://github.com/rmpestano/cukedoctor/tree/master/cukedoctor-converter/src/main/java/com/github/cukedoctor/spi[Cukedoctor SPI] and declare it in META-INF/services. See https://github.com/rmpestano/cukedoctor/tree/master/cukedoctor-spi-example[Cukedoctor-spi-example^] for full example code
 
 
 ==== Example
@@ -783,7 +781,18 @@ java -jar -Dcukedoctor.disable.filter=123  -Dcukedoctor.disable.theme=abc
 <4> Removes step time calculation on each step;
 <5> Removes tags rendering;
 
+=== Custom css and pdf theme
 
+In order to customize generated documentation you can provide <<Custom css and pdf theme,  custom css and pdf theme>>. To do so you can provide cukedoctor.css and cukedoctor-pdf.yml in a directory, for example `/home/custom` and then pass it as system properties to cukedoctor:
+
+----
+java -jar -D CUKEDOCTOR_CUSTOMIZATION_DIR=/home/custom
+           cukedoctor-main-1.0.6.jar
+		  -p cucumber-output.json
+
+----
+
+NOTE: By default Cukedoctor will use current directory to search for custom css and pdf theme.
 
 == Extension
 

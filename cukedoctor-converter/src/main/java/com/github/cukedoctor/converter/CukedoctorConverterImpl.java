@@ -6,7 +6,6 @@ import static com.github.cukedoctor.util.Assert.notNull;
 import static com.github.cukedoctor.util.Constants.newLine;
 import static com.github.cukedoctor.util.Constants.Markup.bold;
 
-import java.nio.file.Paths;
 import java.util.*;
 
 import com.github.cukedoctor.api.CukedoctorConverter;
@@ -14,7 +13,6 @@ import com.github.cukedoctor.api.CukedoctorDocumentBuilder;
 import com.github.cukedoctor.api.DocumentAttributes;
 import com.github.cukedoctor.api.model.Feature;
 import com.github.cukedoctor.config.CukedoctorConfig;
-import com.github.cukedoctor.config.GlobalConfig;
 import com.github.cukedoctor.i18n.I18nLoader;
 import com.github.cukedoctor.renderer.CukedoctorFeatureRenderer;
 import com.github.cukedoctor.renderer.CukedoctorSummaryRenderer;
@@ -154,7 +152,7 @@ public class CukedoctorConverterImpl implements CukedoctorConverter {
 			//name must be filename-theme.yml
 			String pdfThemeName = "cukedoctor-pdf.yml";
 			//search theme.yml
-			List<String> files = FileUtil.findFiles(CukedoctorConfig.CUKEDOCTOR_PDF_THEME_DIR, pdfThemeName, true);
+			List<String> files = FileUtil.findFiles(CukedoctorConfig.CUKEDOCTOR_CUSTOMIZATION_DIR, pdfThemeName, true);
 			if(hasElements(files)){
 				String themePath = files.get(0);
 				themePath = themePath.replaceAll("\\\\","/");
