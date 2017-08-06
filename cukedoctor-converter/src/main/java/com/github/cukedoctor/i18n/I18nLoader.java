@@ -62,7 +62,7 @@ public class I18nLoader extends ResourceBundle.Control{
             lang = "en";
         }
         if (lang != null && bundle == null) {
-            InputStream stream = getBundleFromTargetTestFolder(Constants.BASE_DIR);
+            InputStream stream = findCukedoctorProperties(Constants.BASE_DIR);
             if(stream == null){
                 String bundleName = toBundleName("/i18n/cukedoctor", Locale.forLanguageTag(lang));
                 String resourceName = toResourceName(bundleName, "properties");
@@ -93,13 +93,10 @@ public class I18nLoader extends ResourceBundle.Control{
     }
 
     /**
-     * looks for a file named cukedoctor.properties in target/test-classes
+     * looks for a file named cukedoctor.properties using @baseDir as starting point
      *
-     * client applications just need to have src/test/resources/cukedoctor.properties
-     *
-     * @return
      */
-    private InputStream getBundleFromTargetTestFolder(String baseDir) {
+    private InputStream findCukedoctorProperties(String baseDir) {
         List<String> files = FileUtil.findFiles(baseDir,"cukedoctor.properties",true);
         if(files != null && !files.isEmpty()){
             String path = files.get(0);

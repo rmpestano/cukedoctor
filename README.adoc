@@ -713,6 +713,23 @@ java -jar cukedoctor-main.jar
 		-hideScenarioKeyword
 ----
 
+[TIP]
+======
+you can just use:
+
+----
+java -jar cukedoctor-main.jar
+----
+
+and rely on default parameters which are:
+
+* f: html5
+* p: current directory
+* t: Living Documentation
+* o: Living-Documentation
+
+======
+
 ==== Maven exec plugin
 
 You can use maven exec plugin, see example:
@@ -753,6 +770,8 @@ java -jar -Dcukedoctor.disable.filter=123  -Dcukedoctor.disable.theme=abc
 		cukedoctor-main-1.0.6.jar
 		-p cucumber-output.json
 ----
+
+IMPORTANT: `-D` args must be declared *before* cukedoctor-main-1.0.6.jar otherwise they will be used as parameters for Cukedoctor and won't be recognized.
 
 You can download Cukedoctor main https://bintray.com/artifact/download/rmpestano/cukedoctor/com/github/cukedoctor/cukedoctor-main/1.0.6/cukedoctor-main-1.0.6.jar[jar here^]
 
