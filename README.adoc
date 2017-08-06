@@ -332,7 +332,7 @@ NOTE: Not automated doesn't mean you didn't discussed the feature and it's scena
 
 There are two ways to customize Cukedoctor generated documentation. The first one is via `custom css` and `custom pdf theme`, the second one is via `Cukedoctor SPI`.
 
-==== Custom css and pdf theme
+==== Custom css and pdf theme (since 1.0.7)
 
 You can provide a `custom css` by creating a file named *cukedoctor.css*, so for example you can override default style using css selectors:
 
@@ -778,13 +778,13 @@ java -jar -Dcukedoctor.disable.filter=123  -Dcukedoctor.disable.theme=abc
 <4> Removes step time calculation on each step;
 <5> Removes tags rendering;
 
-=== Custom css and pdf theme
+=== Custom css and pdf theme (since 1.0.7)
 
 In order to customize generated documentation you can provide <<Custom css and pdf theme,  custom css and pdf theme>>. To do so you can provide cukedoctor.css and cukedoctor-pdf.yml in a directory, for example `/home/custom` and then pass it as system properties to cukedoctor:
 
 ----
 java -jar -D CUKEDOCTOR_CUSTOMIZATION_DIR=/home/custom
-        cukedoctor-main-1.0.6.jar
+        cukedoctor-main-1.0.7.jar
 
 ----
 
