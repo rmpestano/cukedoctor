@@ -1,4 +1,4 @@
-= Cukedoctor
+= Cukedoctor (read this page in asciidoc here: https://goo.gl/Yp3NiU)
 :page-layout: base
 :toc: preamble
 :source-language: java
