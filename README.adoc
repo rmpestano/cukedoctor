@@ -1,4 +1,4 @@
-= Cukedoctor (read this page in asciidoc here: https://goo.gl/Yp3NiU)
+= Cukedoctor
 :page-layout: base
 :toc: preamble
 :source-language: java
@@ -28,6 +28,12 @@ image:https://maven-badges.herokuapp.com/maven-central/com.github.cukedoctor/cuk
 image:https://www.versioneye.com/user/projects/55d3328a265ff6002200029f/badge.svg?style=flat[Dependency Status, link=https://www.versioneye.com/user/projects/55d3328a265ff6002200029f/]
 
 BDD living documentation using http://cukes.info/[Cucumber] and http://asciidoctor.org[Asciidoctor] based on Cucumber http://www.relishapp.com/cucumber/cucumber/docs/formatters/json-output-formatter[JSON execution output].
+
+++++
+<div style="font-size:10px!important;width:100%">
+<a href="https://goo.gl/Yp3NiU" style="float:right!important" target="_blank">Read this page in asciidoc for better reading experience</a>
+</div>
+++++
 
 == Narrative
 
