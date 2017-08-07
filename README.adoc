@@ -7,6 +7,7 @@
 :sectanchors:
 :sectlink:
 :numbered:
+:hardbreaks:
 :imagesdir: img
 :doctype: book
 :tip-caption: :bulb:
@@ -29,11 +30,12 @@ image:https://www.versioneye.com/user/projects/55d3328a265ff6002200029f/badge.sv
 
 BDD living documentation using http://cukes.info/[Cucumber] and http://asciidoctor.org[Asciidoctor] based on Cucumber http://www.relishapp.com/cucumber/cucumber/docs/formatters/json-output-formatter[JSON execution output].
 
+
 ++++
-<div style="font-size:10px!important;width:100%">
-<a href="https://goo.gl/Yp3NiU" style="float:right!important" target="_blank">Read this page in asciidoc for better reading experience</a>
-</div>
+<a href="https://goo.gl/Yp3NiU" style="font-size:10px;float:right" target="_blank">Read this page in asciidoc for better reading experience</a>
 ++++
+
+ 
 
 == Narrative
 
