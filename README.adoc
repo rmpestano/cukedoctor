@@ -360,7 +360,7 @@ There are two ways to customize Cukedoctor generated documentation. The first on
 
 You can provide a `custom css` by creating a file named *cukedoctor.css*, so for example you can override default style using css selectors:
 
-.cukedoctor.css
+.src/test/resources/cukedoctor.css
 ----
 body #toctitle {
     color: green;
