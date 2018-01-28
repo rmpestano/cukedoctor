@@ -65,6 +65,7 @@
         <cucumber.version>1.2.4</cucumber.version>
         <snakeyaml.version>1.17</snakeyaml.version>
         <jacoco.version>0.7.6.201602180812</jacoco.version>
+        <jruby.version>9.1.12.0</jruby.version>
     </properties>
 
 
@@ -131,14 +132,29 @@
                 <groupId>org.asciidoctor</groupId>
                 <artifactId>asciidoctorj-pdf</artifactId>
                 <version>${asciidoctorj-pdf.version}</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>org.jruby</groupId>
+                        <artifactId>jruby-complete</artifactId>
+                    </exclusion>
+                </exclusions>
             </dependency>
             <dependency>
                 <groupId>org.asciidoctor</groupId>
                 <artifactId>asciidoctorj</artifactId>
                 <version>${asciidoctorj.version}</version>
-                <scope>compile</scope>
+                <exclusions>
+                    <exclusion>
+                        <groupId>org.jruby</groupId>
+                        <artifactId>jruby-complete</artifactId>
+                    </exclusion>
+                </exclusions>
             </dependency>
-
+            <dependency>
+                <groupId>org.jruby</groupId>
+                <artifactId>jruby-complete</artifactId>
+                <version>${jruby.version}</version>
+            </dependency>
             <dependency>
                 <groupId>io.github.robwin</groupId>
                 <artifactId>markup-document-builder</artifactId>

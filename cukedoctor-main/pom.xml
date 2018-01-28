@@ -27,6 +27,10 @@
             <artifactId>asciidoctorj</artifactId>
         </dependency>
         <dependency>
+            <groupId>org.jruby</groupId>
+            <artifactId>jruby-complete</artifactId>
+        </dependency>
+        <dependency>
             <groupId>com.beust</groupId>
             <artifactId>jcommander</artifactId>
             <version>1.48</version>
