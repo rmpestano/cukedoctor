@@ -23,6 +23,8 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 
+import static com.github.cukedoctor.extension.CukedoctorExtensionRegistry.DISABLE_ALL_EXT_KEY;
+import static com.github.cukedoctor.extension.CukedoctorExtensionRegistry.MINMAX_DISABLE_EXT_KEY;
 import static com.github.cukedoctor.util.Constants.newLine;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.Assert.assertEquals;
@@ -121,7 +123,7 @@ public class CukedoctorConverterTest {
                 ":sectanchors:" + newLine() +
                 ":sectlink:" + newLine() +
                 ":docinfo:" + newLine() +
-                ":source-highlighter: highlightjs" + newLine() +":toclevels: 3" + newLine() +":hardbreaks:" + newLine();
+                ":source-highlighter: highlightjs" + newLine() + ":toclevels: 3" + newLine() + ":hardbreaks:" + newLine();
 
 
         String document = Cukedoctor.instance(features, new DocumentAttributes()).renderAttributes().
@@ -145,7 +147,7 @@ public class CukedoctorConverterTest {
                 ":sectanchors:" + newLine() +
                 ":sectlink:" + newLine() +
                 ":docinfo:" + newLine() +
-                ":source-highlighter: highlightjs" + newLine() +":toclevels: 3" + newLine() +":hardbreaks:" + newLine();
+                ":source-highlighter: highlightjs" + newLine() + ":toclevels: 3" + newLine() + ":hardbreaks:" + newLine();
 
 
         String document = Cukedoctor.instance(features, GlobalConfig.newInstance().getDocumentAttributes()).renderAttributes().
@@ -360,20 +362,20 @@ public class CukedoctorConverterTest {
         String pdfStylePath = Paths.get("").toAbsolutePath() + "/target/pdf/cukedoctor-pdf.yml";
         FileUtil.copyFileFromClassPath("/cukedoctor-pdf-test.yml", pdfStylePath);
         converter.addCustomPdfTheme();
-        String expected = ":toc: right"+newLine() +
-                        ":backend: pdf"+newLine() +
-                        ":doctitle: Living Documentation"+newLine() +
-                        ":doctype: book"+newLine() +
-                        ":icons: font"+newLine() +
-                        ":!numbered:"+newLine() +
-                        ":!linkcss:"+newLine() +
-                        ":sectanchors:"+newLine() +
-                        ":sectlink:"+newLine() +
-                        ":docinfo:"+newLine() +
-                        ":source-highlighter: highlightjs"+newLine() +
-                        ":toclevels: 3"+newLine() +
-                        ":hardbreaks:"+newLine() +
-                        ":pdf-style: " + pdfStylePath + newLine();
+        String expected = ":toc: right" + newLine() +
+                ":backend: pdf" + newLine() +
+                ":doctitle: Living Documentation" + newLine() +
+                ":doctype: book" + newLine() +
+                ":icons: font" + newLine() +
+                ":!numbered:" + newLine() +
+                ":!linkcss:" + newLine() +
+                ":sectanchors:" + newLine() +
+                ":sectlink:" + newLine() +
+                ":docinfo:" + newLine() +
+                ":source-highlighter: highlightjs" + newLine() +
+                ":toclevels: 3" + newLine() +
+                ":hardbreaks:" + newLine() +
+                ":pdf-style: " + pdfStylePath + newLine();
 
         String doc = converter.renderAttributes().getDocumentation();
         assertThat(expected).isEqualTo(doc);
@@ -388,7 +390,7 @@ public class CukedoctorConverterTest {
         final Feature feature = FeatureBuilder.instance().aFeatureWithTwoScenarios();
         List<Feature> features = new ArrayList<>();
         features.add(feature);
-        CukedoctorConverter converter = Cukedoctor.instance(features,new DocumentAttributes().backend("pdf"));
+        CukedoctorConverter converter = Cukedoctor.instance(features, new DocumentAttributes().backend("pdf"));
         converter.setFilename("/target/pdf//living documentation.adoc");
         converter.addCustomPdfTheme();
         assertThat(FileUtil.loadFile("target/pdf/cukedoctor-pdf.yml")).doesNotExist();
@@ -399,7 +401,7 @@ public class CukedoctorConverterTest {
         final Feature feature = FeatureBuilder.instance().aFeatureWithTwoScenarios();
         List<Feature> features = new ArrayList<>();
         features.add(feature);
-        CukedoctorConverter converter = Cukedoctor.instance(features,new DocumentAttributes().backend("html"));
+        CukedoctorConverter converter = Cukedoctor.instance(features, new DocumentAttributes().backend("html"));
         converter.setFilename("/target/pdf//living documentation.adoc");
         converter.addCustomPdfTheme();
         assertThat(FileUtil.loadFile("target/pdf/cukedoctor-pdf.yml")).doesNotExist();
@@ -429,7 +431,6 @@ public class CukedoctorConverterTest {
         converter.setFilename("test.ad");
         assertThat(converter.getFilename()).isEqualTo("test.ad");
     }
-
 
 
     @Test
@@ -822,6 +823,35 @@ public class CukedoctorConverterTest {
                 containsOnlyOnce("|1|0|1|1|0|0|0|0|0|1 2+|000ms");
 
         assertThat(resultDoc.replaceAll("\r", "")).isEqualTo(Expectations.DOCUMENTATION_WITH_SCENARIO_WITHOUT_DESCRIPTION.replaceAll("\r", ""));
+    }
+
+    @Test
+    public void shouldNotWriteMinmaxMacroWhenExtensionIsDisabled() {
+        System.setProperty(MINMAX_DISABLE_EXT_KEY,"true");
+        List<Feature> features = FeatureParser.parse(onePassingOneFailing);
+        String resultDoc = Cukedoctor.instance(features, new DocumentAttributes().docTitle("Title")).renderDocumentation();
+        assertThat(resultDoc).isNotNull().
+                doesNotContain("minmax");
+        System.clearProperty(MINMAX_DISABLE_EXT_KEY);
+    }
+
+    @Test
+    public void shouldNotWriteMinmaxMacroWhenAllExtensionsAreDisabled() {
+        System.setProperty(DISABLE_ALL_EXT_KEY,"true");
+        List<Feature> features = FeatureParser.parse(onePassingOneFailing);
+        String resultDoc = Cukedoctor.instance(features, new DocumentAttributes().docTitle("Title")).renderDocumentation();
+        assertThat(resultDoc).isNotNull().
+                doesNotContain("minmax");
+        System.clearProperty(DISABLE_ALL_EXT_KEY);
+    }
+
+    @Test
+    public void shouldWriteMinmaxMacroWhenExtensionIsEnabled() {
+        System.clearProperty(MINMAX_DISABLE_EXT_KEY);
+        List<Feature> features = FeatureParser.parse(onePassingOneFailing);
+        String resultDoc = Cukedoctor.instance(features, new DocumentAttributes().docTitle("Title")).renderDocumentation();
+        assertThat(resultDoc).isNotNull().
+                contains("minmax");
     }
 
 

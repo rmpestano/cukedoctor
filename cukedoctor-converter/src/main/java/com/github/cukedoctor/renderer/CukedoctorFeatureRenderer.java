@@ -12,6 +12,7 @@ import java.util.List;
 import java.util.ServiceLoader;
 import java.util.logging.Logger;
 
+import static com.github.cukedoctor.extension.CukedoctorExtensionRegistry.MINMAX_DISABLE_EXT_KEY;
 import static com.github.cukedoctor.util.Assert.*;
 import static com.github.cukedoctor.util.Constants.Markup.bold;
 import static com.github.cukedoctor.util.Constants.newLine;
@@ -46,7 +47,8 @@ public class CukedoctorFeatureRenderer extends AbstractBaseRenderer implements F
         }else{
             docBuilder.sectionTitleLevel1((bold(feature.getName()))).newLine();
         }
-        if (notNull(documentAttributes) && hasText(documentAttributes.getBackend()) && documentAttributes.getBackend().toLowerCase().contains("html")) {
+        if (notNull(documentAttributes) && hasText(documentAttributes.getBackend())
+                && documentAttributes.getBackend().toLowerCase().contains("html") && !CukedoctorConfig.isDisableMinMaxExtension()) {
             //used by minimax extension @see com.github.cukedoctor.extension.CukedoctorMinMaxExtension
             docBuilder.append("minmax::", feature.getName().replaceAll(",", "").replaceAll(" ", "-")).append("[]").newLine();
         }

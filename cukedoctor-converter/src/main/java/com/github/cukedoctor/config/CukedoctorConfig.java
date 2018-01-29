@@ -2,6 +2,9 @@ package com.github.cukedoctor.config;
 
 import com.github.cukedoctor.util.Constants;
 
+import static com.github.cukedoctor.extension.CukedoctorExtensionRegistry.DISABLE_ALL_EXT_KEY;
+import static com.github.cukedoctor.extension.CukedoctorExtensionRegistry.MINMAX_DISABLE_EXT_KEY;
+
 /**
  * Created by pestano on 22/06/15.
  */
@@ -50,4 +53,7 @@ public abstract class CukedoctorConfig {
 		return System.getProperty(property);
 	}
 
+	public static boolean isDisableMinMaxExtension() {
+		return System.getProperty(MINMAX_DISABLE_EXT_KEY) != null || System.getProperty(DISABLE_ALL_EXT_KEY) != null;
+	}
 }
