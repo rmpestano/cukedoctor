@@ -5,7 +5,7 @@
     <parent>
         <artifactId>cukedoctor</artifactId>
         <groupId>com.github.cukedoctor</groupId>
-        <version>1.0.9</version>
+        <version>1.0.10-SNAPSHOT</version>
     </parent>
 
     <artifactId>cukedoctor-main</artifactId>
