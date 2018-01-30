@@ -39,7 +39,7 @@ ____
 ****
 Given ::
 =====
-The following two features: icon:thumbs-up[role="green",title="Passed"] [small right]#(315ms)#
+The following two features: icon:thumbs-up[role="green",title="Passed"] [small right]#(354ms)#
 ----
 
 Feature: Feature1
@@ -58,7 +58,7 @@ Feature: Feature2
 =====
 When ::
 =====
-I convert their json test output using cukedoctor converter icon:thumbs-up[role="green",title="Passed"] [small right]#(01s 020ms)#
+I convert their json test output using cukedoctor converter icon:thumbs-up[role="green",title="Passed"] [small right]#(01s 069ms)#
 ******
 
 [discrete]
@@ -227,7 +227,7 @@ Feature: Feature2
 =====
 When ::
 =====
-I convert them using default order icon:thumbs-up[role="green",title="Passed"] [small right]#(038ms)#
+I convert them using default order icon:thumbs-up[role="green",title="Passed"] [small right]#(030ms)#
 =====
 Then ::
 =====
@@ -307,7 +307,7 @@ NOTE: Ordering is done using feature comment '*#order:*'
 =====
 When ::
 =====
-I convert them using comment order icon:thumbs-up[role="green",title="Passed"] [small right]#(045ms)#
+I convert them using comment order icon:thumbs-up[role="green",title="Passed"] [small right]#(024ms)#
 =====
 Then ::
 =====
@@ -416,7 +416,7 @@ Feature: Enrich feature
 =====
 When ::
 =====
-I convert docstring enriched json output using cukedoctor converter icon:thumbs-up[role="green",title="Passed"] [small right]#(051ms)#
+I convert docstring enriched json output using cukedoctor converter icon:thumbs-up[role="green",title="Passed"] [small right]#(052ms)#
 =====
 Then ::
 =====
@@ -529,7 +529,7 @@ Feature: Calculator
 =====
 When ::
 =====
-I convert enriched feature json output using cukedoctor icon:thumbs-up[role="green",title="Passed"] [small right]#(060ms)#
+I convert enriched feature json output using cukedoctor icon:thumbs-up[role="green",title="Passed"] [small right]#(077ms)#
 =====
 Then ::
 =====
@@ -634,7 +634,7 @@ Feature: Feature2
 =====
 And ::
 =====
-The following asciidoc document is on your application classpath icon:thumbs-up[role="green",title="Passed"] [small right]#(027ms)#
+The following asciidoc document is on your application classpath icon:thumbs-up[role="green",title="Passed"] [small right]#(042ms)#
 ******
 
 [discrete]
