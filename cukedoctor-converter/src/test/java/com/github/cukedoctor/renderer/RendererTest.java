@@ -341,7 +341,9 @@ public class RendererTest {
         assertThat(resultDoc).isEqualTo("[[Feature-name, Feature name]]"+newLine() +
                 "=== *Feature name*"+newLine() +
                 ""+newLine() +
-                "minmax::Feature-name[]"+newLine() +
+                "ifndef::backend-pdf[]"+newLine() +
+			    "minmax::Feature-name[]"+newLine() +
+			    "endif::[]"+newLine() +
                 "****"+newLine() +
                 "Feature description"+newLine() +
                 "****"+newLine() +

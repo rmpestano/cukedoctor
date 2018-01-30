@@ -50,7 +50,9 @@ public class CukedoctorFeatureRenderer extends AbstractBaseRenderer implements F
         if (notNull(documentAttributes) && hasText(documentAttributes.getBackend())
                 && documentAttributes.getBackend().toLowerCase().contains("html") && !CukedoctorConfig.isDisableMinMaxExtension()) {
             //used by minimax extension @see com.github.cukedoctor.extension.CukedoctorMinMaxExtension
+            docBuilder.append("ifndef::backend-pdf[]").append(newLine());
             docBuilder.append("minmax::", feature.getName().replaceAll(",", "").replaceAll(" ", "-")).append("[]").newLine();
+            docBuilder.append("endif::[]").append(newLine());
         }
         if (hasText(feature.getDescription())) {
             docBuilder.sideBarBlock(feature.getDescription().trim().replaceAll("\\\\", "").replaceAll("\\n", newLine()));

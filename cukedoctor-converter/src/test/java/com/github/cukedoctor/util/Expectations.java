@@ -164,7 +164,9 @@ public interface Expectations {
 			"[[One-passing-scenario-one-failing-scenario, One passing scenario, one failing scenario]]"+newLine() +
 			"=== *One passing scenario, one failing scenario*"+newLine() +
 			""+newLine() +
+			"ifndef::backend-pdf[]"+newLine() +
 			"minmax::One-passing-scenario-one-failing-scenario[]"+newLine() +
+			"endif::[]"+newLine() +
 			"==== Scenario: Passing"+newLine() +
 			"[small]#tags: @a,@b#"+newLine() +
 			""+newLine() +
@@ -244,7 +246,9 @@ public interface Expectations {
 			"[[One-passing-scenario-one-failing-scenario, One passing scenario, one failing scenario]]"+newLine() +
 			"== *One passing scenario, one failing scenario*"+newLine() +
 			""+newLine() +
+			"ifndef::backend-pdf[]"+newLine() +
 			"minmax::One-passing-scenario-one-failing-scenario[]"+newLine() +
+			"endif::[]"+newLine() +
 			"=== Scenario: Passing"+newLine() +
 			"[small]#tags: @a,@b#"+newLine() +
 			""+newLine() +
@@ -280,25 +284,30 @@ public interface Expectations {
 			":sectanchors:"+newLine() +
 			":sectlink:"+newLine() +
 			":docinfo:"+newLine() +
-			":source-highlighter: highlightjs" + newLine()+
-			":toclevels: 3"+newLine() +":hardbreaks:"+newLine() +
+			":source-highlighter: highlightjs"+newLine() +
+			":toclevels: 3"+newLine() +
+			":hardbreaks:"+newLine() +
 			""+newLine() +
 			"= *Living Documentation*"+newLine() +
 			""+newLine() +
-			"include::"+home()+"cukedoctor-intro.adoc[leveloffset=+1]"+newLine() + newLine() +
+			"include::/home/PROCERGS.REDERS/rafael-pestano/projetos/cukedoctor/cukedoctor-converter/target/test-classes/cukedoctor-intro.adoc[leveloffset=+1]"+newLine() +
+			""+newLine() +
 			""+newLine() +
 			"[[One-passing-scenario-one-failing-scenario, One passing scenario, one failing scenario]]"+newLine() +
 			"== *One passing scenario, one failing scenario*"+newLine() +
 			""+newLine() +
+			"ifndef::backend-pdf[]"+newLine() +
 			"minmax::One-passing-scenario-one-failing-scenario[]"+newLine() +
+			"endif::[]"+newLine() +
 			"=== Scenario: Passing"+newLine() +
 			"[small]#tags: @a,@b#"+newLine() +
 			""+newLine() +
 			""+newLine() +
 			"****"+newLine() +
-			"Given ::"+newLine() + "=====" +newLine() +
+			"Given ::"+newLine() +
+			"====="+newLine() +
 			"this step passes icon:thumbs-up[role=\"green\",title=\"Passed\"] [small right]#(001ms)#"+newLine() +
-			"=====" +newLine() +
+			"====="+newLine() +
 			"****"+newLine() +
 			""+newLine() +
 			"=== Scenario: Failing icon:thumbs-down[role=\"red\",title=\"Failed\"]"+newLine() +
@@ -306,13 +315,14 @@ public interface Expectations {
 			""+newLine() +
 			""+newLine() +
 			"****"+newLine() +
-			"Given ::"+newLine() + "=====" +newLine() +
+			"Given ::"+newLine() +
+			"====="+newLine() +
 			"this step fails icon:thumbs-down[role=\"red\",title=\"Failed\"] [small right]#(008ms)#"+newLine() +
 			""+newLine() +
 			"IMPORTANT:  (RuntimeError)"+newLine() +
 			"./features/step_definitions/steps.rb:4:in /^this step fails$/'"+newLine() +
 			"features/one_passing_one_failing.feature:10:in Given this step fails'"+newLine() +
-			"=====" +newLine() +
+			"====="+newLine() +
 			"****"+newLine() +
 			""+newLine();
 
@@ -336,7 +346,9 @@ public interface Expectations {
 			"[[One-passing-scenario-one-failing-scenario, One passing scenario, one failing scenario]]"+newLine() +
 			"== *One passing scenario, one failing scenario*"+newLine() +
 			""+newLine() +
+			"ifndef::backend-pdf[]"+newLine() +
 			"minmax::One-passing-scenario-one-failing-scenario[]"+newLine() +
+			"endif::[]"+newLine() +
 			"=== Passing"+newLine() +
 			"[small]#tags: @a,@b#"+newLine() +
 			""+newLine() +
@@ -382,7 +394,9 @@ public interface Expectations {
 			"[[One-passing-scenario-one-failing-scenario, One passing scenario, one failing scenario]]"+newLine() +
 			"== *One passing scenario, one failing scenario*"+newLine() +
 			""+newLine() +
+			"ifndef::backend-pdf[]"+newLine() +
 			"minmax::One-passing-scenario-one-failing-scenario[]"+newLine() +
+			"endif::[]"+newLine() +
 			"=== Scenario: Passing"+newLine() +
 			"[small]#tags: @a,@b#"+newLine() +
 			""+newLine() +
@@ -428,7 +442,9 @@ public interface Expectations {
 			"[[One-passing-scenario-one-failing-scenario, One passing scenario, one failing scenario]]"+newLine() +
 			"== *One passing scenario, one failing scenario*"+newLine() +
 			""+newLine() +
+			"ifndef::backend-pdf[]"+newLine() +
 			"minmax::One-passing-scenario-one-failing-scenario[]"+newLine() +
+			"endif::[]"+newLine() +
 			"=== Scenario: Passing"+newLine() +
 			""+newLine() +
 			"****"+newLine() +
@@ -461,11 +477,14 @@ public interface Expectations {
 			":sectanchors:"+newLine() +
 			":sectlink:"+newLine() +
 			":docinfo:"+newLine() +
-			":source-highlighter: highlightjs\n:toclevels: 3\n:hardbreaks:"+newLine() +
+			":source-highlighter: highlightjs"+newLine() +
+			":toclevels: 3"+newLine() +
+			":hardbreaks:"+newLine() +
 			""+newLine() +
 			"= *Living Documentation*"+newLine() +
 			""+newLine() +
-			"include::"+home()+"cukedoctor-intro.adoc[leveloffset=+1]"+newLine() + newLine() +
+			"include::/home/PROCERGS.REDERS/rafael-pestano/projetos/cukedoctor/cukedoctor-converter/target/test-classes/cukedoctor-intro.adoc[leveloffset=+1]"+newLine() +
+			""+newLine() +
 			"== *Summary*"+newLine() +
 			"[cols=\"12*^m\", options=\"header,footer\"]"+newLine() +
 			"|==="+newLine() +
@@ -534,34 +553,41 @@ public interface Expectations {
 			"[[An-embed-data-directly-feature, An embed data directly feature]]"+newLine() +
 			"=== *An embed data directly feature*"+newLine() +
 			""+newLine() +
+			"ifndef::backend-pdf[]"+newLine() +
 			"minmax::An-embed-data-directly-feature[]"+newLine() +
+			"endif::[]"+newLine() +
 			"==== Scenario: scenario 1"+newLine() +
 			""+newLine() +
 			"****"+newLine() +
-			"Given ::"+newLine() + "=====" +newLine() +
+			"Given ::"+newLine() +
+			"====="+newLine() +
 			"I embed data directly icon:thumbs-up[role=\"green\",title=\"Passed\"] [small right]#(000ms)#"+newLine() +
-			"=====" +newLine() +
+			"====="+newLine() +
 			"****"+newLine() +
 			""+newLine() +
 			"==== Scenario Outline: scenario 2"+newLine() +
 			""+newLine() +
 			"****"+newLine() +
-			"Given ::"+newLine() + "=====" +newLine() +
+			"Given ::"+newLine() +
+			"====="+newLine() +
 			"I embed data directly icon:thumbs-up[role=\"green\",title=\"Passed\"] [small right]#(000ms)#"+newLine() +
-			"=====" +newLine() +
+			"====="+newLine() +
 			"****"+newLine() +
 			""+newLine() +
 			""+newLine() +
 			"****"+newLine() +
-			"Given ::"+newLine() + "=====" +newLine() +
+			"Given ::"+newLine() +
+			"====="+newLine() +
 			"I embed data directly icon:thumbs-up[role=\"green\",title=\"Passed\"] [small right]#(000ms)#"+newLine() +
-			"=====" +newLine() +
+			"====="+newLine() +
 			"****"+newLine() +
 			""+newLine() +
 			"[[An-outline-feature, An outline feature]]"+newLine() +
 			"=== *An outline feature*"+newLine() +
 			""+newLine() +
+			"ifndef::backend-pdf[]"+newLine() +
 			"minmax::An-outline-feature[]"+newLine() +
+			"endif::[]"+newLine() +
 			"==== Scenario Outline: outline icon:thumbs-down[role=\"red\",title=\"Failed\"]"+newLine() +
 			""+newLine() +
 			""+newLine() +
@@ -583,15 +609,18 @@ public interface Expectations {
 			"[[One-passing-scenario-one-failing-scenario, One passing scenario, one failing scenario]]"+newLine() +
 			"=== *One passing scenario, one failing scenario*"+newLine() +
 			""+newLine() +
+			"ifndef::backend-pdf[]"+newLine() +
 			"minmax::One-passing-scenario-one-failing-scenario[]"+newLine() +
+			"endif::[]"+newLine() +
 			"==== Scenario: Passing"+newLine() +
 			"[small]#tags: @a,@b#"+newLine() +
 			""+newLine() +
 			""+newLine() +
 			"****"+newLine() +
-			"Given ::"+newLine() + Constants.Markup.exampleBlock() + newLine() +
+			"Given ::"+newLine() +
+			"====="+newLine() +
 			"this step passes icon:thumbs-up[role=\"green\",title=\"Passed\"] [small right]#(001ms)#"+newLine() +
-			"=====" +newLine() +
+			"====="+newLine() +
 			"****"+newLine() +
 			""+newLine() +
 			"==== Scenario: Failing icon:thumbs-down[role=\"red\",title=\"Failed\"]"+newLine() +
@@ -599,13 +628,14 @@ public interface Expectations {
 			""+newLine() +
 			""+newLine() +
 			"****"+newLine() +
-			"Given ::"+newLine() + Constants.Markup.exampleBlock() + newLine() +
+			"Given ::"+newLine() +
+			"====="+newLine() +
 			"this step fails icon:thumbs-down[role=\"red\",title=\"Failed\"] [small right]#(008ms)#"+newLine() +
 			""+newLine() +
 			"IMPORTANT:  (RuntimeError)"+newLine() +
 			"./features/step_definitions/steps.rb:4:in /^this step fails$/'"+newLine() +
 			"features/one_passing_one_failing.feature:10:in Given this step fails'"+newLine() +
-			"=====" +newLine() +
+			"====="+newLine() +
 			"****"+newLine() +
 			""+newLine();
 
@@ -747,7 +777,9 @@ public interface Expectations {
 			"[[Search, Search]]"+newLine() +
 			"=== *Search*"+newLine() +
 			""+newLine() +
+			"ifndef::backend-pdf[]"+newLine() +
 			"minmax::Search[]"+newLine() +
+			"endif::[]"+newLine() +
 			"==== Cenario: Find messages by content"+newLine() +
 			"[small]#tags: @txn#"+newLine() +
 			""+newLine() +

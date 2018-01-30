@@ -66,7 +66,9 @@ Feature: Cukedoctor Main
 [[One-passing-scenario-one-failing-scenario, One passing scenario, one failing scenario]]
 === *One passing scenario, one failing scenario*
 
+ifndef::backend-pdf[]
 minmax::One-passing-scenario-one-failing-scenario[]
+endif::[]
 ==== Scenario: Passing
 [small]#tags: @a,@b#
 
@@ -198,7 +200,9 @@ features/one_passing_one_failing.feature:10:in Given this step fails'
 [[An-embed-data-directly-feature, An embed data directly feature]]
 === *An embed data directly feature*
 
+ifndef::backend-pdf[]
 minmax::An-embed-data-directly-feature[]
+endif::[]
 ==== Scenario: scenario 1
 ****
 Given ::
@@ -225,7 +229,9 @@ I embed data directly icon:thumbs-up[role="green",title="Passed"] [small right]#
 [[An-outline-feature, An outline feature]]
 === *An outline feature*
 
+ifndef::backend-pdf[]
 minmax::An-outline-feature[]
+endif::[]
 ==== Scenario Outline: outline icon:thumbs-down[role="red",title="Failed"]
 
 .examples1
@@ -246,7 +252,9 @@ minmax::An-outline-feature[]
 [[One-passing-scenario-one-failing-scenario, One passing scenario, one failing scenario]]
 === *One passing scenario, one failing scenario*
 
+ifndef::backend-pdf[]
 minmax::One-passing-scenario-one-failing-scenario[]
+endif::[]
 ==== Scenario: Passing
 [small]#tags: @a,@b#
 
@@ -274,7 +282,9 @@ features/one_passing_one_failing.feature:10:in Given this step fails'
 [[Sample-test, Sample test]]
 === *Sample test*
 
+ifndef::backend-pdf[]
 minmax::Sample-test[]
+endif::[]
 ****
 As a user
 

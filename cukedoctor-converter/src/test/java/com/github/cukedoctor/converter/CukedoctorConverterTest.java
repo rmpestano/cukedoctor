@@ -451,7 +451,9 @@ public class CukedoctorConverterTest {
                 contains("[[Feature-name, Feature name]]" + newLine() +
                         "=== *Feature name*" + newLine() +
                         "" + newLine() +
+                        "ifndef::backend-pdf[]" + newLine() +
                         "minmax::Feature-name[]" + newLine() +
+                        "endif::[]"+ newLine() +
                         "****" + newLine() +
                         "Feature description" + newLine() +
                         "****" + newLine() +
