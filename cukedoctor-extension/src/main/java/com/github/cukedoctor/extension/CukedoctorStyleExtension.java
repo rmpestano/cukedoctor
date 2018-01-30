@@ -57,7 +57,7 @@ public class CukedoctorStyleExtension extends Postprocessor {
     }
 
     private void addFooterStyle(Element contentElement) {
-        String styleClass = " <style>  \n" + "\n" + "#content:padding:0!important;\n" + ".sidebarblock, .sectionbody, .content{\n" + "overflow:auto!important;\n" + "}\n";
+        String styleClass = " <style>  \n" + "\n" + "#content:padding:0!important;\n" + ".sidebarblock, .sectionbody, .content{\n" + "overflow:auto!important;\n" + "}\ndiv.sidebarblock {overflow-y:hidden;overflow-x:auto}";
 
         contentElement.after(styleClass);
     }
