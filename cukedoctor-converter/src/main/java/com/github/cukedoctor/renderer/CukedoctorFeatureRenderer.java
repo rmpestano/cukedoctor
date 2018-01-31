@@ -47,12 +47,15 @@ public class CukedoctorFeatureRenderer extends AbstractBaseRenderer implements F
         }else{
             docBuilder.sectionTitleLevel1((bold(feature.getName()))).newLine();
         }
-        if (notNull(documentAttributes) && hasText(documentAttributes.getBackend())
-                && documentAttributes.getBackend().toLowerCase().contains("html") && !CukedoctorConfig.isDisableMinMaxExtension()) {
-            //used by minimax extension @see com.github.cukedoctor.extension.CukedoctorMinMaxExtension
-            docBuilder.append("ifndef::backend-pdf[]").append(newLine());
-            docBuilder.append("minmax::", feature.getName().replaceAll(",", "").replaceAll(" ", "-")).append("[]").newLine();
-            docBuilder.append("endif::[]").append(newLine());
+        if (notNull(documentAttributes) && hasText(documentAttributes.getBackend())) {
+            String backend = documentAttributes.getBackend();
+            if((backend.toLowerCase().contains("html") ||  backend.toLowerCase().contains("all")) && !CukedoctorConfig.isDisableMinMaxExtension()) {
+                //used by minimax extension @see com.github.cukedoctor.extension.CukedoctorMinMaxExtension
+                docBuilder.append("ifndef::backend-pdf[]").append(newLine());
+                docBuilder.append("minmax::", feature.getName().replaceAll(",", "").replaceAll(" ", "-")).append("[]").newLine();
+                docBuilder.append("endif::[]").append(newLine());
+            }
+
         }
         if (hasText(feature.getDescription())) {
             docBuilder.sideBarBlock(feature.getDescription().trim().replaceAll("\\\\", "").replaceAll("\\n", newLine()));

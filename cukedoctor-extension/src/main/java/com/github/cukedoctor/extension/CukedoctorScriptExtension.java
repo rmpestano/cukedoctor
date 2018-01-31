@@ -13,7 +13,7 @@ import java.util.Map;
  * Created by pestano on 20/07/15.
  * adds javascript functions to html documentation
  */
-public class CukedoctorScriptExtension extends Postprocessor{
+public class CukedoctorScriptExtension extends Postprocessor {
 
     private static final Boolean HIDE_FEATURES_SECTION = System.getProperty("HIDE_FEATURES_SECTION") == null ? Boolean.FALSE : Boolean.valueOf(System.getProperty("HIDE_FEATURES_SECTION"));
 
@@ -23,77 +23,80 @@ public class CukedoctorScriptExtension extends Postprocessor{
 
     @Override
     public String process(Document document, String output) {
-        if(document.basebackend("html") ){
+        if (document.isBasebackend("html")) {
             org.jsoup.nodes.Document doc = Jsoup.parse(output, "UTF-8");
 
             Element contentElement = doc.getElementById("footer");
-                if(System.getProperty(FILTER_DISABLE_EXT_KEY) == null) {
-                        addSearchScript(contentElement);
-                }
-                if(System.getProperty(MINMAX_DISABLE_EXT_KEY) == null){
-                        addMinMaxScript(contentElement);
-                }
-                if(System.getProperty(THEME_DISABLE_EXT_KEY) == null){
-                        addThemeScript(contentElement);
-                }
+            if (contentElement == null) {
+                return output;
+            }
+            if (System.getProperty(FILTER_DISABLE_EXT_KEY) == null) {
+                addSearchScript(contentElement);
+            }
+            if (System.getProperty(MINMAX_DISABLE_EXT_KEY) == null) {
+                addMinMaxScript(contentElement);
+            }
+            if (System.getProperty(THEME_DISABLE_EXT_KEY) == null) {
+                addThemeScript(contentElement);
+            }
             return doc.html();
 
-        }else{
+        } else {
             return output;
         }
     }
 
-        private void addThemeScript(Element contentElement) {
-             String themeScript = " <script type=\"text/javascript\">  \n" +
-                     "\n" +
-                     "document.addEventListener(\"DOMContentLoaded\", function(event) { \n" +
-                     "  themefy();\n" +
-                     "});\n"+
-                     "\tfunction themefy() {\n" +
-                     " \t\t\t\t\t\tvar theme = getThemeFromQueryParameters() || 'asciidoctor';\n" +
-                     " \t\t\t\t\t\tvar themeLink = document.createElement('link');\n" +
-                     "\t\t\t\t\t if('asciidoctor' !== theme) {" +
-                     " \t\t\t\t\t\tthemeLink.rel = 'stylesheet';\n" +
-                     " \t\t\t\t\t\tthemeLink.id = 'asciidoctor-style';\n" +
-                     " \t\t\t\t\t\tthemeLink.href = 'themes/' + theme + '.css';\n" +
-                     " \t\t\t\t\t\t document.head.appendChild(themeLink);\n" +
-                     "\t\t\t\t }" +
-                     "}\n" +
-                     "\n" +
-                     "\n" +
-                     "\tfunction getThemeFromQueryParameters() {\n" +
-                     "\t\tvar query = location.search.substr(1);\n" +
-                     "\t\tvar result = 'asciidoctor';\n" +
-                     "\tquery.split(\"&\").forEach(function (part) {\n" +
-                     "\t\t\t\t// part can be empty\n" +
-                     "\t\t\t\tif (part) {\n" +
-                     "\t\t\t\t\tvar item = part.split(\"=\");\n" +
-                     "\t\t\t\t\tvar key = item[0];\n" +
-                     "\t\t\t\tvar value = item[1];\n" +
-                     "\t\t\t\tif (typeof value !== 'undefined') {\n" +
-                     "\t\t\t\t\t\tif(key == 'theme'){\n" +
-                     "\t\t\t\t\t\t\t\tresult = value;\n" +
-                     "\t\t\t\t\t\t\t\t}\n" +
-                     "\t\t\t}\n" +
-                     "\t\t}\n" +
-                     " \t});\n" +
-                     "\tif(!result){\n" +
-                     "\t\tresult = 'asciidoctor';\n" +
-                     "\t\t\n\t}\n"+
-                     "\tdocument.getElementById('themes').value = result;  \n" +
-                     "\tvar els = document.querySelector('select[name=\"select\"] option[value=\"' + result + '\"]');  \n" +
-                     "\tif(els){\n" +
-                     "    els.selected = true;\n" +
-                     "\t}"+
-                     "\treturn result;\n" +
-                     "}\n" +
-                     " \n" +
-                     "</script>      ";
+    private void addThemeScript(Element contentElement) {
+        String themeScript = " <script type=\"text/javascript\">  \n" +
+                "\n" +
+                "document.addEventListener(\"DOMContentLoaded\", function(event) { \n" +
+                "  themefy();\n" +
+                "});\n" +
+                "\tfunction themefy() {\n" +
+                " \t\t\t\t\t\tvar theme = getThemeFromQueryParameters() || 'asciidoctor';\n" +
+                " \t\t\t\t\t\tvar themeLink = document.createElement('link');\n" +
+                "\t\t\t\t\t if('asciidoctor' !== theme) {" +
+                " \t\t\t\t\t\tthemeLink.rel = 'stylesheet';\n" +
+                " \t\t\t\t\t\tthemeLink.id = 'asciidoctor-style';\n" +
+                " \t\t\t\t\t\tthemeLink.href = 'themes/' + theme + '.css';\n" +
+                " \t\t\t\t\t\t document.head.appendChild(themeLink);\n" +
+                "\t\t\t\t }" +
+                "}\n" +
+                "\n" +
+                "\n" +
+                "\tfunction getThemeFromQueryParameters() {\n" +
+                "\t\tvar query = location.search.substr(1);\n" +
+                "\t\tvar result = 'asciidoctor';\n" +
+                "\tquery.split(\"&\").forEach(function (part) {\n" +
+                "\t\t\t\t// part can be empty\n" +
+                "\t\t\t\tif (part) {\n" +
+                "\t\t\t\t\tvar item = part.split(\"=\");\n" +
+                "\t\t\t\t\tvar key = item[0];\n" +
+                "\t\t\t\tvar value = item[1];\n" +
+                "\t\t\t\tif (typeof value !== 'undefined') {\n" +
+                "\t\t\t\t\t\tif(key == 'theme'){\n" +
+                "\t\t\t\t\t\t\t\tresult = value;\n" +
+                "\t\t\t\t\t\t\t\t}\n" +
+                "\t\t\t}\n" +
+                "\t\t}\n" +
+                " \t});\n" +
+                "\tif(!result){\n" +
+                "\t\tresult = 'asciidoctor';\n" +
+                "\t\t\n\t}\n" +
+                "\tdocument.getElementById('themes').value = result;  \n" +
+                "\tvar els = document.querySelector('select[name=\"select\"] option[value=\"' + result + '\"]');  \n" +
+                "\tif(els){\n" +
+                "    els.selected = true;\n" +
+                "\t}" +
+                "\treturn result;\n" +
+                "}\n" +
+                " \n" +
+                "</script>      ";
 
-                contentElement.after(themeScript);
-        }
+        contentElement.after(themeScript);
+    }
 
-        private void addMinMaxScript(Element contentElement) {
+    private void addMinMaxScript(Element contentElement) {
         String minMaxScript = HIDE_FEATURES_SECTION ? getMinMaxScriptForDocWithoutFeaturesSection() : "<script type=\"text/javascript\">\n" +
                 "\tfunction showFeatureScenarios(featureId){\n" +
                 "\t\tvar element = document.getElementById(featureId).parentNode;\n" +
@@ -125,45 +128,45 @@ public class CukedoctorScriptExtension extends Postprocessor{
         contentElement.after(minMaxScript);
     }
 
-        private String getMinMaxScriptForDocWithoutFeaturesSection(){
-                return "<script type=\"text/javascript\">\n" +
-                        "function showFeatureScenarios(featureId){\n" +
-                        "\t\tvar element = document.getElementById(featureId).parentNode;\n" +
-                        "\t\tfor (var i = 0; i < element.childNodes.length; i++) {\n" +
-                        "    \t\tif (element.childNodes[i].className == \"sectionbody\") {\n" +
-                        "\t\t     var secChild = element.childNodes[i];\t\n" +
-                        "\t\t     for (var j = 0; j < secChild.childNodes.length; j++) {\n" +
-                        "                             if(secChild.childNodes[j].className == \"sect2\" || secChild.childNodes[j].className == \"sectionbody\" ||  secChild.childNodes[j].className == \"fa fa-minus-square fa-fw\") {\n" +
-                        "\t      \t\t     secChild.childNodes[j].style.display = 'inline';\n" +
-                        "\t\t\t }\n" +
-                        "\t\t\tif (secChild.childNodes[j].className == \"sidebarblock\") {\n" +
-                        "      \t\t             secChild.childNodes[j].style.display = 'block';\n" +
-                        "    \t\t\t   }\n" +
-                        "\t\t\t}\t\n" +
-                        "    \t\t }\n" +
-                        "    \t\t\t\t\t        \n" +
-                        "\t\t}\n" +
-                        "\t\t \n" +
-                        " \t\tdocument.getElementById(featureId).children[0].click();\n" +
-                        "\t}\n" +
-                        "\n" +
-                        "\tfunction hideFeatureScenarios(featureId){\n" +
-                        "\t\tvar element = document.getElementById(featureId).parentNode;\n" +
-                        "\t\tfor (var i = 0; i < element.childNodes.length; i++) {\n" +
-                        "\t\tif (element.childNodes[i].className == \"sectionbody\") {\n" +
-                        "\t\t    var secChild = element.childNodes[i];\n" +
-                        "                     for (var j = 0; j < secChild.childNodes.length; j++) {\n" +
-                        "                             if(secChild.childNodes[j].className == \"sect2\" || secChild.childNodes[j].className == \"sectionbody\" || secChild.childNodes[j].className == \"sidebarblock\") {\n" +
-                        "\t      \t\t     secChild.childNodes[j].style.display = 'none';\n" +
-                        "\t\t\t }\n" +
-                        "\t\t\t}\n" +
-                        "                   }\t\n" +
-                        "     \n" +
-                        "\t\t}\n" +
-                        "\t   document.getElementById(featureId).children[0].click();\n" +
-                        " \t}" +
-                        "</script>";
-        }
+    private String getMinMaxScriptForDocWithoutFeaturesSection() {
+        return "<script type=\"text/javascript\">\n" +
+                "function showFeatureScenarios(featureId){\n" +
+                "\t\tvar element = document.getElementById(featureId).parentNode;\n" +
+                "\t\tfor (var i = 0; i < element.childNodes.length; i++) {\n" +
+                "    \t\tif (element.childNodes[i].className == \"sectionbody\") {\n" +
+                "\t\t     var secChild = element.childNodes[i];\t\n" +
+                "\t\t     for (var j = 0; j < secChild.childNodes.length; j++) {\n" +
+                "                             if(secChild.childNodes[j].className == \"sect2\" || secChild.childNodes[j].className == \"sectionbody\" ||  secChild.childNodes[j].className == \"fa fa-minus-square fa-fw\") {\n" +
+                "\t      \t\t     secChild.childNodes[j].style.display = 'inline';\n" +
+                "\t\t\t }\n" +
+                "\t\t\tif (secChild.childNodes[j].className == \"sidebarblock\") {\n" +
+                "      \t\t             secChild.childNodes[j].style.display = 'block';\n" +
+                "    \t\t\t   }\n" +
+                "\t\t\t}\t\n" +
+                "    \t\t }\n" +
+                "    \t\t\t\t\t        \n" +
+                "\t\t}\n" +
+                "\t\t \n" +
+                " \t\tdocument.getElementById(featureId).children[0].click();\n" +
+                "\t}\n" +
+                "\n" +
+                "\tfunction hideFeatureScenarios(featureId){\n" +
+                "\t\tvar element = document.getElementById(featureId).parentNode;\n" +
+                "\t\tfor (var i = 0; i < element.childNodes.length; i++) {\n" +
+                "\t\tif (element.childNodes[i].className == \"sectionbody\") {\n" +
+                "\t\t    var secChild = element.childNodes[i];\n" +
+                "                     for (var j = 0; j < secChild.childNodes.length; j++) {\n" +
+                "                             if(secChild.childNodes[j].className == \"sect2\" || secChild.childNodes[j].className == \"sectionbody\" || secChild.childNodes[j].className == \"sidebarblock\") {\n" +
+                "\t      \t\t     secChild.childNodes[j].style.display = 'none';\n" +
+                "\t\t\t }\n" +
+                "\t\t\t}\n" +
+                "                   }\t\n" +
+                "     \n" +
+                "\t\t}\n" +
+                "\t   document.getElementById(featureId).children[0].click();\n" +
+                " \t}" +
+                "</script>";
+    }
 
 
     private void addSearchScript(Element contentElement) {
@@ -277,10 +280,10 @@ public class CukedoctorScriptExtension extends Postprocessor{
                 "\n" +
                 "}\n" +
                 "</script>";
-            if(HIDE_FEATURES_SECTION){
-                    searchScripts = searchScripts.replaceAll("sectlevel2","sectlevel1")
-                        .replaceAll("sect2","sect1").replaceAll("H3","H2");
-            }
+        if (HIDE_FEATURES_SECTION) {
+            searchScripts = searchScripts.replaceAll("sectlevel2", "sectlevel1")
+                    .replaceAll("sect2", "sect1").replaceAll("H3", "H2");
+        }
         contentElement.after(searchScripts);
     }
 }

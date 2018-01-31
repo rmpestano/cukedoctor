@@ -1,9 +1,12 @@
 package com.github.cukedoctor.extension;
 
 import org.asciidoctor.Asciidoctor;
+import org.asciidoctor.extension.ExtensionGroup;
 import org.asciidoctor.extension.spi.ExtensionRegistry;
 
 public class CukedoctorExtensionRegistry implements ExtensionRegistry {
+
+	public static final String CUKEDOCTOR_EXTENSION_GROUP_NAME = "com.github.cukedoctor";
 
 	public static final String DISABLE_ALL_EXT_KEY = "cukedoctor.disable-extensions";
 	public static final String FILTER_DISABLE_EXT_KEY = "cukedoctor.disable.filter";
@@ -18,24 +21,29 @@ public class CukedoctorExtensionRegistry implements ExtensionRegistry {
 		if(System.getProperty(DISABLE_ALL_EXT_KEY) != null) {
 			return;
 		}
-		asciidoctor.javaExtensionRegistry().postprocessor(CukedoctorScriptExtension.class);
+
+	    ExtensionGroup cukedoctorExtensionGroup = asciidoctor.createGroup(CUKEDOCTOR_EXTENSION_GROUP_NAME);
+		cukedoctorExtensionGroup.postprocessor(CukedoctorScriptExtension.class);
+
 		if(System.getProperty(FILTER_DISABLE_EXT_KEY) == null){
-			asciidoctor.javaExtensionRegistry().postprocessor(CukedoctorFilterExtension.class);
+			cukedoctorExtensionGroup.postprocessor(CukedoctorFilterExtension.class);
 		}
 		if(System.getProperty(MINMAX_DISABLE_EXT_KEY) == null){
-			asciidoctor.javaExtensionRegistry().blockMacro("minmax", CukedoctorMinMaxExtension.class);
+			cukedoctorExtensionGroup.blockMacro("minmax", CukedoctorMinMaxExtension.class);
 		}
 
 		if(System.getProperty(THEME_DISABLE_EXT_KEY) == null){
-			asciidoctor.javaExtensionRegistry().postprocessor(CukedoctorThemeExtension.class);
+			cukedoctorExtensionGroup.postprocessor(CukedoctorThemeExtension.class);
 		}
 
 		if(System.getProperty(FOOTER_DISABLE_EXT_KEY) == null){
-			asciidoctor.javaExtensionRegistry().postprocessor(CukedoctorFooterExtension.class);
+			cukedoctorExtensionGroup.postprocessor(CukedoctorFooterExtension.class);
 		}
 		if(System.getProperty(STYLE_DISABLE_EXT_KEY) == null){
-			asciidoctor.javaExtensionRegistry().postprocessor(CukedoctorStyleExtension.class);
+			cukedoctorExtensionGroup.postprocessor(CukedoctorStyleExtension.class);
 		}
+
+		cukedoctorExtensionGroup.register();
 
 	}
 

@@ -40,8 +40,10 @@ import org.asciidoctor.SafeMode;
 import java.io.File;
 import java.util.List;
 
+import static com.github.cukedoctor.extension.CukedoctorExtensionRegistry.CUKEDOCTOR_EXTENSION_GROUP_NAME;
 import static com.github.cukedoctor.extension.CukedoctorExtensionRegistry.FILTER_DISABLE_EXT_KEY;
 import org.asciidoctor.Attributes;
+import org.asciidoctor.extension.ExtensionGroup;
 
 @Mojo(name = "execute",
         defaultPhase = LifecyclePhase.INSTALL)
@@ -260,9 +262,9 @@ public class CukedoctorMojo extends AbstractMojo {
             ob.attributes(attr);
         }
 
-        
+        ExtensionGroup cukedoctorExtensionGroup = asciidoctor.createGroup(CUKEDOCTOR_EXTENSION_GROUP_NAME);
         if ("pdf".equals(documentAttributes.getBackend())) {
-            asciidoctor.unregisterAllExtensions();
+            cukedoctorExtensionGroup.unregister();
         }
         asciidoctor.convertFile(adocFile, ob);
         //remove auxiliary files

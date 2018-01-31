@@ -13,12 +13,14 @@ import org.asciidoctor.Asciidoctor;
 import org.asciidoctor.Attributes;
 import org.asciidoctor.OptionsBuilder;
 import org.asciidoctor.SafeMode;
+import org.asciidoctor.extension.ExtensionGroup;
 
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Pattern;
 
+import static com.github.cukedoctor.extension.CukedoctorExtensionRegistry.CUKEDOCTOR_EXTENSION_GROUP_NAME;
 import static com.github.cukedoctor.util.Assert.hasText;
 
 /**
@@ -229,8 +231,9 @@ public class CukedoctorMain {
         String doc = converter.renderDocumentation();
         File adocFile = FileUtil.saveFile(outputName, doc);
         Asciidoctor asciidoctor = Asciidoctor.Factory.create();
+        ExtensionGroup cukedoctorExtensionGroup = asciidoctor.createGroup(CUKEDOCTOR_EXTENSION_GROUP_NAME);
         if (attrs.getBackend().equalsIgnoreCase("pdf")) {
-            asciidoctor.unregisterAllExtensions();
+            cukedoctorExtensionGroup.unregister();
         }
         
         OptionsBuilder ob;
