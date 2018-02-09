@@ -290,8 +290,7 @@ public interface Expectations {
 			""+newLine() +
 			"= *Living Documentation*"+newLine() +
 			""+newLine() +
-			"include::/home/PROCERGS.REDERS/rafael-pestano/projetos/cukedoctor/cukedoctor-converter/target/test-classes/cukedoctor-intro.adoc[leveloffset=+1]"+newLine() +
-			""+newLine() +
+			"include::"+home()+"cukedoctor-intro.adoc[leveloffset=+1]"+newLine() + newLine() +
 			""+newLine() +
 			"[[One-passing-scenario-one-failing-scenario, One passing scenario, one failing scenario]]"+newLine() +
 			"== *One passing scenario, one failing scenario*"+newLine() +
@@ -483,8 +482,7 @@ public interface Expectations {
 			""+newLine() +
 			"= *Living Documentation*"+newLine() +
 			""+newLine() +
-			"include::/home/PROCERGS.REDERS/rafael-pestano/projetos/cukedoctor/cukedoctor-converter/target/test-classes/cukedoctor-intro.adoc[leveloffset=+1]"+newLine() +
-			""+newLine() +
+			"include::"+home()+"cukedoctor-intro.adoc[leveloffset=+1]"+newLine() + newLine() +
 			"== *Summary*"+newLine() +
 			"[cols=\"12*^m\", options=\"header,footer\"]"+newLine() +
 			"|==="+newLine() +
@@ -617,8 +615,7 @@ public interface Expectations {
 			""+newLine() +
 			""+newLine() +
 			"****"+newLine() +
-			"Given ::"+newLine() +
-			"====="+newLine() +
+			"Given ::"+newLine() + Constants.Markup.exampleBlock() + newLine() +
 			"this step passes icon:thumbs-up[role=\"green\",title=\"Passed\"] [small right]#(001ms)#"+newLine() +
 			"====="+newLine() +
 			"****"+newLine() +
@@ -628,8 +625,7 @@ public interface Expectations {
 			""+newLine() +
 			""+newLine() +
 			"****"+newLine() +
-			"Given ::"+newLine() +
-			"====="+newLine() +
+			"Given ::"+newLine() + Constants.Markup.exampleBlock() + newLine() +
 			"this step fails icon:thumbs-down[role=\"red\",title=\"Failed\"] [small right]#(008ms)#"+newLine() +
 			""+newLine() +
 			"IMPORTANT:  (RuntimeError)"+newLine() +
