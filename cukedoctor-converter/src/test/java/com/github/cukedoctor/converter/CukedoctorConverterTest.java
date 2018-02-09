@@ -332,6 +332,17 @@ public class CukedoctorConverterTest {
         assertThat(resultDoc).isEqualTo(Expectations.SUMMARY_FOR_MULTIPLE_FEATURES);
     }
 
+
+    @Test
+    public void shouldRenderSummaryForFeatureWithBackground() {
+        List<Feature> features = FeatureParser.parse(getClass().getResource("/json-output/feature_with_background.json").getPath());
+        String resultDoc = Cukedoctor.instance(features, new DocumentAttributes().docTitle("Title")).renderSummary().getDocumentation().toString();
+        assertThat(resultDoc).isNotNull().
+                containsOnlyOnce("<<A-feature-with-background>>").
+                contains("*Totals*" + newLine() +
+                        "|2|0|2|4|0|0|0|0|0|3");
+    }
+
     // renderTotalsRow() tests
 
     @Test
