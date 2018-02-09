@@ -42,9 +42,9 @@ public interface CukedoctorConverter {
 	 * set output file name without extension (should always be .adoc or other asciidoc compatible extensions)
 	 * If no filename is set then Documentation title (first H1 section) will be used as filename (underline will be used to remove spaces)
 	 * The filename is used mainly for asciidoc docinfo creation.
-	 * @param filename
+	 * @param filename name to be set
 	 *
-	 * @return @return underlying Converter instance
+	 * @return underlying Converter instance
 	 */
 	CukedoctorConverter setFilename(String filename);
 
@@ -57,8 +57,8 @@ public interface CukedoctorConverter {
 	CukedoctorConverter addCustomPdfTheme();
 
 	/**
-	 * saves the documentation into disk using {@link CukedoctorConverter#getFilename()}  as name (also path). Note that
-	 * {@link CukedoctorConverter#renderDocumentation()} will be called and used as content to save the file.
+	 * Saves the documentation into disk using {@link CukedoctorConverter#getFilename()}  as name (also path). Note that
+	 * @see CukedoctorConverter#renderDocumentation() will be called and used as content to save the file.
 	 * @return underlying Converter instance
 	 */
 	CukedoctorConverter saveDocumentation();

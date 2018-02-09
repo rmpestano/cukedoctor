@@ -14,6 +14,7 @@ public class Assert implements Serializable {
   }
 
   /**
+   * @param object to assert
    * @return TRUE assertion when given objects is not null, FALSE otherwise
    */
   public static boolean notNull(Object object) {
@@ -22,6 +23,7 @@ public class Assert implements Serializable {
   }
 
   /**
+   * @param object to assert
    * @return TRUE assertion when given objects is null, FALSE otherwise
    */
   public static boolean isNull(Object object) {
@@ -30,7 +32,8 @@ public class Assert implements Serializable {
   }
 
   /**
-   * just negates the assertion
+   * @param assertion expression to be negated
+   * @return just negates the assertion
    */
   public static boolean not(boolean assertion) {
 
@@ -38,6 +41,7 @@ public class Assert implements Serializable {
   }
 
   /**
+   * @param text to assert
    * @return TRUE when given text has any character, FALSE otherwise
    */
   public static boolean hasText(String text) {
@@ -48,6 +52,8 @@ public class Assert implements Serializable {
   }
 
   /**
+   * @param textToSearch complete text
+   * @param substring text to search in textToSearch param
    * @return TRUE when given text contains the given substring, FALSE
    * otherwise
    */
@@ -59,6 +65,7 @@ public class Assert implements Serializable {
   }
 
   /**
+   * @param array list to check emptiness
    * @return TRUE when given array has elements; that is, it must not be
    * {@code null} and must have at least one element. FALSE otherwise
    */
@@ -75,6 +82,7 @@ public class Assert implements Serializable {
   }
 
   /**
+   * @param collection collection to check emptiness
    * @return TRUE when given collection has elements; that is, it must not be
    * {@code null} and must have at least one element. @return  FALSE otherwise
    */
@@ -87,7 +95,8 @@ public class Assert implements Serializable {
   }
 
   /**
-   * TRUE when given array has at least one not null element;  FALSE
+   * @param array to check elements
+   * @return TRUE when given array has at least one not null element;  FALSE
    * otherwise
    */
   public static boolean hasElements(Object[] array) {
@@ -103,7 +112,8 @@ public class Assert implements Serializable {
   }
 
   /**
-   * TRUE when given array has at least one not null element;  FALSE
+   * @param array to check elements
+   * @return TRUE when given array has at least one not null element;  FALSE
    * otherwise
    */
   public static boolean hasElements(Collection array) {
@@ -120,6 +130,7 @@ public class Assert implements Serializable {
 
 
   /**
+   * @param map to check emptiness
    * @return TRUE if given Map has entries; that is, it must not be {@code null}
    * and must have at least one entry. Queue FALSE otherwise
    */

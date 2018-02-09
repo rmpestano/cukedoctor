@@ -141,7 +141,7 @@ public class Feature implements Comparable<Feature> {
 
 
     /**
-     * @deprecated use {@link Feature#getScenarioResults#getNumberOfScenarios()}
+     * @deprecated use {@link Feature#getScenarioResults()}
      * @return total number of scenarios
      */
       @Deprecated
