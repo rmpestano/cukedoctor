@@ -1,7 +1,5 @@
 package com.github.cukedoctor.api.model;
 
-import com.github.cukedoctor.api.model.Feature;
-
 import java.util.List;
 
 /**

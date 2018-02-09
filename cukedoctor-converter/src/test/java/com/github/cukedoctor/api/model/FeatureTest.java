@@ -1,6 +1,5 @@
 package com.github.cukedoctor.api.model;
 
-import com.github.cukedoctor.Cukedoctor;
 import com.github.cukedoctor.util.builder.FeatureBuilder;
 import com.github.cukedoctor.util.builder.ScenarioBuilder;
 import com.github.cukedoctor.util.builder.StepBuilder;
@@ -9,10 +8,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import static org.assertj.core.api.Assertions.*;
+import static org.assertj.core.api.Assertions.assertThat;
 
 /**
  * Created by pestano on 06/06/15.
