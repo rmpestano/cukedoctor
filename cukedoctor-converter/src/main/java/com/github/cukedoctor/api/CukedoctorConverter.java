@@ -17,7 +17,8 @@ public interface CukedoctorConverter {
 	String getDocumentation();
 
 	/**
-	 * creates a string representation of the current document in Asciidoctor format
+	 * @return a string representation of the current document in Asciidoctor format
+	 *
 	 */
 	String renderDocumentation();
 
@@ -30,7 +31,7 @@ public interface CukedoctorConverter {
 	CukedoctorConverter renderAttributes();
 
 	/**
-	 * Document overall summary which gathers information about all features like
+	 * @return document overall summary which gathers information about all features like
 	 * number of steps, execution time, total passed scenarios and so on
 	 */
 	CukedoctorConverter renderSummary();
@@ -42,6 +43,8 @@ public interface CukedoctorConverter {
 	 * If no filename is set then Documentation title (first H1 section) will be used as filename (underline will be used to remove spaces)
 	 * The filename is used mainly for asciidoc docinfo creation.
 	 * @param filename
+	 *
+	 * @return @return underlying Converter instance
 	 */
 	CukedoctorConverter setFilename(String filename);
 
@@ -56,6 +59,7 @@ public interface CukedoctorConverter {
 	/**
 	 * saves the documentation into disk using {@link CukedoctorConverter#getFilename()}  as name (also path). Note that
 	 * {@link CukedoctorConverter#renderDocumentation()} will be called and used as content to save the file.
+	 * @return underlying Converter instance
 	 */
 	CukedoctorConverter saveDocumentation();
 

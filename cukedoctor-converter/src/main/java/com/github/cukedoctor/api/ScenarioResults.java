@@ -32,7 +32,7 @@ public class ScenarioResults {
 		return failedScenarios;
 	}
 
-	public Object getNumberOfScenarios() {
+	public Integer getNumberOfScenarios() {
 		return getNumberOfScenariosFailed() + getNumberOfScenariosPassed();
 	}
 }

@@ -45,7 +45,6 @@ public class Feature implements Comparable<Feature> {
 
     }
 
-
     public String getId() {
         return id;
     }
@@ -141,6 +140,11 @@ public class Feature implements Comparable<Feature> {
     }
 
 
+    /**
+     * @deprecated use {@link Feature#getScenarioResults#getNumberOfScenarios()}
+     * @return total number of scenarios
+     */
+      @Deprecated
     public Integer getNumberOfScenarios() {
         Integer result = 0;
         if (scenarios != null) {
@@ -201,15 +205,7 @@ public class Feature implements Comparable<Feature> {
 
     public void initScenarios() {
         if (elements != null) {
-            boolean isBackgroundAdded = false; //scenario background is created for each scenario, add it only for the first time
             for (Scenario element : elements) {
-                if (element.isBackground()) {
-                    if (isBackgroundAdded) {
-                        continue;
-                    } else {
-                        isBackgroundAdded = true;
-                    }
-                }
                 scenarios.add(element);
             }
         }
@@ -249,6 +245,9 @@ public class Feature implements Comparable<Feature> {
     }
 
     private void calculateScenarioStats(List<Scenario> passedScenarios, List<Scenario> failedScenarios, Scenario element) {
+        if(element.isBackground()) {
+            return;//background scenarios are not considered as scenrario
+        }
         if (element.getStatus() == Status.passed) {
             passedScenarios.add(element);
         } else if (element.getStatus() == Status.failed) {

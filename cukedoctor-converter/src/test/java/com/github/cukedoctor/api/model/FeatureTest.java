@@ -67,7 +67,7 @@ public class FeatureTest {
 	@Test
 	public void shouldProcessSteps() {
 		feature.processSteps();
-		assertThat(feature.getNumberOfScenarios()).isEqualTo(4);
+		assertThat(feature.getScenarioResults().getNumberOfScenarios()).isEqualTo(4);
 		assertThat(feature.getNumberOfSteps()).isEqualTo(7); //2 steps in scenario 1 and 3 in scenario 2
 		assertThat(feature.getStatus()).isEqualTo(Status.failed);
 		assertThat(feature.getStepResults().getTotalDuration()).isEqualTo(5000000L);

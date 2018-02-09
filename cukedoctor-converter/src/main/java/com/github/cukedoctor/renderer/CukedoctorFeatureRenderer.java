@@ -7,12 +7,9 @@ import com.github.cukedoctor.config.CukedoctorConfig;
 import com.github.cukedoctor.spi.FeatureRenderer;
 import com.github.cukedoctor.spi.ScenarioRenderer;
 
-import javax.xml.parsers.DocumentBuilder;
 import java.util.List;
 import java.util.ServiceLoader;
-import java.util.logging.Logger;
 
-import static com.github.cukedoctor.extension.CukedoctorExtensionRegistry.MINMAX_DISABLE_EXT_KEY;
 import static com.github.cukedoctor.util.Assert.*;
 import static com.github.cukedoctor.util.Constants.Markup.bold;
 import static com.github.cukedoctor.util.Constants.newLine;

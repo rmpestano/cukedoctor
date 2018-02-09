@@ -32,7 +32,7 @@ public class ScenarioTotalizations {
     public void addFeatureTotals(Feature feature){
         totalPassedScenarios += feature.getScenarioResults().getNumberOfScenariosPassed();
         totalFailedScenarios += feature.getScenarioResults().getNumberOfScenariosFailed();
-        totalScenarios += feature.getNumberOfScenarios();
+        totalScenarios += feature.getScenarioResults().getNumberOfScenarios();
         totalPassedSteps += feature.getStepResults().getNumberOfPasses();
         totalFailedSteps += feature.getStepResults().getNumberOfFailures();
         totalSkippedSteps += feature.getStepResults().getNumberOfSkipped();
