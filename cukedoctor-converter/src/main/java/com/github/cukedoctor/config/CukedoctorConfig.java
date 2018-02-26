@@ -38,6 +38,10 @@ public abstract class CukedoctorConfig {
 		return getProperty("HIDE_TAGS") == null ? GlobalConfig.getInstance().getLayoutConfig().isHideTags() : Boolean.valueOf(getProperty("HIDE_TAGS"));
 	}
 
+	public static String getIntroChapterPathRelative() {
+		return getProperty("INTRO_CHAPTER_RELATIVE_PATH");
+	}
+
 
 	private static <T> T getProperty(String property, Class<T> type) {
 		if(System.getProperty(property) == null){

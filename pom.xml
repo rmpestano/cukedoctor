@@ -65,7 +65,7 @@
         <cucumber.version>1.2.4</cucumber.version>
         <snakeyaml.version>1.17</snakeyaml.version>
         <jacoco.version>0.7.6.201602180812</jacoco.version>
-        <jruby.version>9.1.12.0</jruby.version>
+        <jruby.version>9.1.13.0</jruby.version>
     </properties>
 
 

@@ -867,5 +867,26 @@ public class CukedoctorConverterTest {
                 contains("minmax");
     }
 
+    @Test
+    public void shouldRenderIntroChapterUsingAbsolutePath() {
+        List<Feature> features = FeatureParser.parse(onePassingOneFailing);
+        String resultDoc = Cukedoctor.instance(features, new DocumentAttributes()).renderDocumentation();
+        assertThat(resultDoc).containsOnlyOnce("/cukedoctor-converter/target/test-classes/cukedoctor-intro.adoc[leveloffset=+1]");
+    }
+
+    @Test
+    public void shouldRenderIntroChapterUsingRelativePath() {
+        try {
+            System.setProperty("INTRO_CHAPTER_RELATIVE_PATH", Paths.get("").toAbsolutePath().toString());
+            List<Feature> features = FeatureParser.parse(onePassingOneFailing);
+            String resultDoc = Cukedoctor.instance(features, new DocumentAttributes()).renderDocumentation();
+            assertThat(resultDoc).doesNotContain("/cukedoctor-converter/target/test-classes/cukedoctor-intro.adoc[leveloffset=+1]");
+            assertThat(resultDoc).containsOnlyOnce("target/test-classes/cukedoctor-intro.adoc[leveloffset=+1]");
+
+        }finally {
+            System.clearProperty("INTRO_CHAPTER_RELATIVE_PATH");
+        }
+    }
+
 
 }

@@ -15,6 +15,8 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.regex.Pattern;
 
+import static com.github.cukedoctor.util.Assert.hasText;
+
 /**
  * Created by pestano on 02/06/15.
  */
@@ -52,55 +54,71 @@ public class FileUtil {
      * @return all found json files path that represent cucumber features
      */
     public static List<String> findJsonFiles(String startDir) {
-        return findFiles(startDir,".json");
+        return findFiles(startDir, ".json");
 
     }
 
-    public static List<String> findFiles(String startDir, final String sulfix) {
-        return findFiles(startDir,sulfix,false);
+    public static List<String> findFiles(String startDir, final String suffix) {
+        return findFiles(startDir, suffix, false);
     }
 
-    public static List<String> findFiles(String startDir, final String sulfix, final boolean singleResult) {
-        final List<String> absolutePaths = new ArrayList<>();
+    public static List<String> findFiles(String startDir, final String suffix, final boolean singleResult) {
+        return findFiles(startDir,suffix,singleResult,null);
+    }
+
+    public static List<String> findFiles(String startDir, final String suffix, final boolean singleResult, final String relativePath) {
+        final List<String> foundPaths = new ArrayList<>();
         if (startDir == null) {
             startDir = "";
         }
 
         Path startPath = Paths.get(startDir);
 
-        if(!Files.exists(startPath)){
+        if (!Files.exists(startPath)) {
             if (startDir.startsWith("/")) {// try to find using relative paths
                 startDir = startDir.substring(1);
                 startPath = Paths.get(startDir);
             }
+
+            if (!Files.exists(startPath)) {
+                startPath = Paths.get("");
+            }
         }
 
-        if(!Files.exists(startPath)){
-            startPath = Paths.get("");
-        }
 
         try {
             Files.walkFileTree(Paths.get(startDir), new SimpleFileVisitor<Path>() {
                 @Override
                 public FileVisitResult visitFile(final Path file, final BasicFileAttributes attrs) throws IOException {
                     final String fileName = file.getFileName().toString();
-                    if (fileName.endsWith(sulfix)) {
-                        absolutePaths.add(file.toAbsolutePath().toString());
-                        if(singleResult){
+                    if (fileName.endsWith(suffix)) {
+                        if(hasText(relativePath)) {
+                            boolean isFile = file.toFile().isFile();
+                            Path computedPath = Paths.get(relativePath).relativize(isFile ? file.getParent().toAbsolutePath() : file.toAbsolutePath());
+                            if(isFile) {
+                                foundPaths.add(computedPath.toString()+"/"+file.toFile().getName());
+                            } else {
+                                foundPaths.add(computedPath.toString());
+                            }
+
+                        } else {
+                            foundPaths.add(file.toAbsolutePath().toString());
+                        }
+                        if (singleResult) {
                             return FileVisitResult.TERMINATE;
                         }
                     }
-                    if(attrs.isDirectory()){
+                    if (attrs.isDirectory()) {
                         return super.visitFile(file, attrs);
-                    }else{
+                    } else {
                         return FileVisitResult.SKIP_SUBTREE;
                     }
                 }
             });
         } catch (IOException e) {
-           log.log(Level.WARNING,"Problems scanning "+sulfix +" files in path:"+startDir,e);
+            log.log(Level.WARNING, "Problems scanning " + suffix + " files in path:" + startDir, e);
         }
-        return absolutePaths;
+        return foundPaths;
     }
 
     /**
@@ -131,7 +149,7 @@ public class FileUtil {
             }
             File file = new File(fullyQualifiedName);
             file.createNewFile();
-            FileUtils.write(file, data,"UTF-8");
+            FileUtils.write(file, data, "UTF-8");
             log.info("Wrote: " + file.getAbsolutePath());
             return file;
         } catch (IOException e) {
@@ -167,7 +185,7 @@ public class FileUtil {
 
     /**
      * @param source resource from classpath
-     * @param dest dest path
+     * @param dest   dest path
      * @return copied file
      */
     public static File copyFileFromClassPath(String source, String dest) {
@@ -187,15 +205,15 @@ public class FileUtil {
 
     /**
      * @param source file path
-     * @param dest dest path
+     * @param dest   dest path
      * @return copied file
      */
     public static File copyFile(String source, String dest) {
 
         if (source != null && dest != null) {
             File sourcefile = new File(source);
-            if(!sourcefile.exists()) {
-                log.warning(String.format("File %s not found.",sourcefile.getAbsolutePath()));
+            if (!sourcefile.exists()) {
+                log.warning(String.format("File %s not found.", sourcefile.getAbsolutePath()));
                 return null;
             }
             try {

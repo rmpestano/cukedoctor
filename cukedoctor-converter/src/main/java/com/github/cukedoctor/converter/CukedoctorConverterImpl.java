@@ -104,8 +104,8 @@ public class CukedoctorConverterImpl implements CukedoctorConverter {
 		return docBuilder.toString();
 	}
 
-	public void renderIntro() {
-		List<String> files = FileUtil.findFiles(CukedoctorConfig.INTRO_CHAPTER_DIR, "cukedoctor-intro.adoc",true);
+	private void renderIntro() {
+		List<String> files = FileUtil.findFiles(CukedoctorConfig.INTRO_CHAPTER_DIR, "cukedoctor-intro.adoc",true, CukedoctorConfig.getIntroChapterPathRelative());
 		if(files != null && !files.isEmpty()){
 			String introPath = files.get(0);
 			introPath = introPath.replaceAll("\\\\","/");
