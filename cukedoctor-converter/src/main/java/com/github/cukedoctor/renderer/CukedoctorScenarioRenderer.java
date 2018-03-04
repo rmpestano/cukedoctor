@@ -30,6 +30,15 @@ public class CukedoctorScenarioRenderer extends AbstractBaseRenderer implements 
 
 
     public CukedoctorScenarioRenderer() {
+        loadDependentRenderers();
+    }
+
+    public CukedoctorScenarioRenderer(CukedoctorConfig cukedoctorConfig) {
+        this.cukedoctorConfig = cukedoctorConfig;
+        loadDependentRenderers();
+    }
+
+    private void loadDependentRenderers() {
         ServiceLoader<TagsRenderer> tagsRenderers = ServiceLoader.load(TagsRenderer.class);
         ServiceLoader<ExamplesRenderer> examplesRenderers = ServiceLoader.load(ExamplesRenderer.class);
         ServiceLoader<StepsRenderer> stepsRenderers = ServiceLoader.load(StepsRenderer.class);
@@ -73,7 +82,7 @@ public class CukedoctorScenarioRenderer extends AbstractBaseRenderer implements 
             if (!Status.passed.equals(scenario.getStatus())) {
                 backgroundTitle.append(" " + Status.getStatusIcon(Status.failed));
             }
-            if (!CukedoctorConfig.hideFeaturesSection()) {
+            if (!cukedoctorConfig.isHideFeaturesSection()) {
                 docBuilder.sectionTitleLevel3(backgroundTitle.toString().replaceAll("\\\\", ""));
             } else { //when feature section is not rendered we have to 'downgrade' other sections
                 docBuilder.sectionTitleLevel2(backgroundTitle.toString().replaceAll("\\\\", ""));
@@ -82,7 +91,7 @@ public class CukedoctorScenarioRenderer extends AbstractBaseRenderer implements 
 
         if (hasText(scenario.getName())) {
             StringBuilder scenarioTitle = new StringBuilder();
-            if (CukedoctorConfig.hideScenarioKeyword()) {
+            if (cukedoctorConfig.isHideScenarioKeyword()) {
                 scenarioTitle.append(scenario.getName());
             } else {
                 scenarioTitle.append(scenario.getKeyword()).append(": ").append(scenario.getName());
@@ -91,7 +100,7 @@ public class CukedoctorScenarioRenderer extends AbstractBaseRenderer implements 
             if (notNull(scenario.getStatus()) && !Status.passed.equals(scenario.getStatus())) {
                 scenarioTitle.append(" " + Status.getStatusIcon(Status.failed));
             }
-            if (!CukedoctorConfig.hideFeaturesSection()) {
+            if (!cukedoctorConfig.isHideFeaturesSection()) {
                 docBuilder.sectionTitleLevel3(scenarioTitle.toString());
             } else { //when feature section is not rendered we have to 'downgrade' other sections
                 docBuilder.sectionTitleLevel2(scenarioTitle.toString());
@@ -99,7 +108,7 @@ public class CukedoctorScenarioRenderer extends AbstractBaseRenderer implements 
 
         }
 
-        if (!CukedoctorConfig.hideTags() && (feature.hasTags() || scenario.hasTags())) {
+        if (!cukedoctorConfig.isHideTags() && (feature.hasTags() || scenario.hasTags())) {
             docBuilder.append(renderScenarioTags(scenario, feature));
         }
 

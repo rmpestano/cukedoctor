@@ -35,15 +35,22 @@ public class CukedoctorConverterImpl implements CukedoctorConverter {
 	private I18nLoader i18n;
 	private SummaryRenderer summaryRenderer;
 	private FeatureRenderer featureRenderer;
+	private CukedoctorConfig cukedoctorConfig;
 
 
 	public CukedoctorConverterImpl(List<Feature> features, DocumentAttributes attrs) {
+		this(features,attrs,new CukedoctorConfig());
+	}
+
+	public CukedoctorConverterImpl(List<Feature> features, DocumentAttributes attrs, CukedoctorConfig cukedoctorConfig) {
+		this.cukedoctorConfig = cukedoctorConfig;
 		this.features = features;
 		Collections.sort(this.features);
 		this.documentAttributes = attrs;
 		docBuilder = CukedoctorDocumentBuilder.Factory.newInstance();
 		i18n = I18nLoader.newInstance(features);
 		loadRenderers();
+
 	}
 
 	private void loadRenderers() {
@@ -94,7 +101,7 @@ public class CukedoctorConverterImpl implements CukedoctorConverter {
 		docBuilder.newLine();
 		docBuilder.documentTitle(bold(getDocumentationTitle()));
 		renderIntro();
-		if(!CukedoctorConfig.hideSummarySection()){
+		if(!cukedoctorConfig.isHideSummarySection()){
 			renderSummary();
 		}else{
 			docBuilder.newLine();
@@ -105,7 +112,7 @@ public class CukedoctorConverterImpl implements CukedoctorConverter {
 	}
 
 	private void renderIntro() {
-		List<String> files = FileUtil.findFiles(CukedoctorConfig.INTRO_CHAPTER_DIR, "cukedoctor-intro.adoc",true, CukedoctorConfig.getIntroChapterPathRelative());
+		List<String> files = FileUtil.findFiles(cukedoctorConfig.getIntroChapterDir(), "cukedoctor-intro.adoc",true, cukedoctorConfig.getIntroChapterRelativePath());
 		if(files != null && !files.isEmpty()){
 			String introPath = files.get(0);
 			introPath = introPath.replaceAll("\\\\","/");
@@ -118,7 +125,7 @@ public class CukedoctorConverterImpl implements CukedoctorConverter {
 		if(documentAttributes != null && hasText(documentAttributes.getDocTitle())){
 			return documentAttributes.getDocTitle();
 		} else {
-			return CukedoctorConfig.DOCUMENT_TITLE;
+			return Constants.DOCUMENT_TITLE;
 		}
 
 	}
@@ -152,7 +159,7 @@ public class CukedoctorConverterImpl implements CukedoctorConverter {
 			//name must be filename-theme.yml
 			String pdfThemeName = "cukedoctor-pdf.yml";
 			//search theme.yml
-			List<String> files = FileUtil.findFiles(CukedoctorConfig.CUKEDOCTOR_CUSTOMIZATION_DIR, pdfThemeName, true);
+			List<String> files = FileUtil.findFiles(cukedoctorConfig.getCustomizationDir(), pdfThemeName, true);
 			if(hasElements(files)){
 				String themePath = files.get(0);
 				themePath = themePath.replaceAll("\\\\","/");

@@ -22,6 +22,10 @@ public class CukedoctorFeatureRenderer extends AbstractBaseRenderer implements F
     ScenarioRenderer scenarioRenderer;
 
     public CukedoctorFeatureRenderer() {
+        loadDependentRenderers();
+    }
+
+    private void loadDependentRenderers() {
         ServiceLoader<ScenarioRenderer> scenarioRenderers = ServiceLoader.load(ScenarioRenderer.class);
 
         if (scenarioRenderers.iterator().hasNext()) {
@@ -32,6 +36,11 @@ public class CukedoctorFeatureRenderer extends AbstractBaseRenderer implements F
         }
     }
 
+    public CukedoctorFeatureRenderer(CukedoctorConfig cukedoctorConfig) {
+        this.cukedoctorConfig = cukedoctorConfig;
+        loadDependentRenderers();
+    }
+
     @Override
     public String renderFeature(Feature feature) {
         docBuilder.clear();
@@ -39,14 +48,14 @@ public class CukedoctorFeatureRenderer extends AbstractBaseRenderer implements F
             return "";
         }
         docBuilder.textLine(renderFeatureSectionId(feature));
-        if(!CukedoctorConfig.hideFeaturesSection()) {//when feature section is not rendered we have to 'downgrade' other sections
+        if(!cukedoctorConfig.isHideFeaturesSection()) {//when feature section is not rendered we have to 'downgrade' other sections
             docBuilder.sectionTitleLevel2((bold(feature.getName()))).newLine();
         }else{
             docBuilder.sectionTitleLevel1((bold(feature.getName()))).newLine();
         }
         if (notNull(documentAttributes) && hasText(documentAttributes.getBackend())) {
             String backend = documentAttributes.getBackend();
-            if((backend.toLowerCase().contains("html") ||  backend.toLowerCase().contains("all")) && !CukedoctorConfig.isDisableMinMaxExtension()) {
+            if((backend.toLowerCase().contains("html") ||  backend.toLowerCase().contains("all")) && !cukedoctorConfig.isDisableMinMaxExtension()) {
                 //used by minimax extension @see com.github.cukedoctor.extension.CukedoctorMinMaxExtension
                 docBuilder.append("ifndef::backend-pdf[]").append(newLine());
                 docBuilder.append("minmax::", feature.getName().replaceAll(",", "").replaceAll(" ", "-")).append("[]").newLine();
@@ -68,7 +77,7 @@ public class CukedoctorFeatureRenderer extends AbstractBaseRenderer implements F
     @Override
     public String renderFeatures(List<Feature> features) {
         CukedoctorDocumentBuilder parentBuilder = CukedoctorDocumentBuilder.Factory.newInstance();
-        if(!CukedoctorConfig.hideFeaturesSection()) {
+        if(!cukedoctorConfig.isHideFeaturesSection()) {
             parentBuilder.sectionTitleLevel1(bold(i18n.getMessage("title.features"))).newLine();
         }
         for (Feature feature : features) {

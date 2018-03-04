@@ -29,6 +29,14 @@ import com.github.cukedoctor.util.Formatter;
  */
 public class CukedoctorStepsRenderer extends AbstractBaseRenderer implements StepsRenderer {
 
+
+    public CukedoctorStepsRenderer() {
+    }
+
+    public CukedoctorStepsRenderer(CukedoctorConfig cukedoctorConfig) {
+        this.cukedoctorConfig = cukedoctorConfig;
+    }
+
     @Override
     public String renderSteps(List<Step> steps) {
         docBuilder.clear();
@@ -38,7 +46,7 @@ public class CukedoctorStepsRenderer extends AbstractBaseRenderer implements Ste
             docBuilder.append(step.getKeyword(), "::", newLine());
             docBuilder.append(Constants.Markup.exampleBlock(),newLine());
             docBuilder.append(step.getName() + " ", Status.getStatusIcon(step.getStatus()));
-            if(!CukedoctorConfig.hideStepTime()){
+            if(!cukedoctorConfig.isHideStepTime()){
                 docBuilder.append(renderStepTime(step.getResult()));
             }
 

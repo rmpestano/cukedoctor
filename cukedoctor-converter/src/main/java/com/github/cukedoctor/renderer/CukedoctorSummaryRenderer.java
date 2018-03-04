@@ -5,6 +5,7 @@ import com.github.cukedoctor.api.StepResults;
 import com.github.cukedoctor.api.model.Feature;
 import com.github.cukedoctor.api.model.ScenarioTotalizations;
 import com.github.cukedoctor.api.model.Status;
+import com.github.cukedoctor.config.CukedoctorConfig;
 import com.github.cukedoctor.spi.SummaryRenderer;
 import com.github.cukedoctor.util.Formatter;
 
@@ -21,6 +22,10 @@ public class CukedoctorSummaryRenderer extends AbstractBaseRenderer implements S
     private ScenarioTotalizations scenarioTotalizationsCache;
 
     public CukedoctorSummaryRenderer() {
+    }
+
+    public CukedoctorSummaryRenderer(CukedoctorConfig cukedoctorConfig) {
+        this.cukedoctorConfig = cukedoctorConfig;
     }
 
     @Override

@@ -17,6 +17,9 @@ public abstract class Constants {
 
 	public static final String DISCRETE = "[discrete]";
 
+	public static final String DOCUMENT_TITLE = getProperty("DOCUMENT_TITLE") == null ? "Documentation" : getProperty("DOCUMENT_TITLE");
+	public static final Integer ERROR_MESSAGE_LENGTH = 400;
+
 
 	public static String newLine() {
 		return System.getProperty("line.separator");
@@ -155,6 +158,21 @@ public abstract class Constants {
 		public static String pdfStyle(String value) {
 			return ":pdf-style: " + value;
 		}
+	}
+
+	public static <T> T getProperty(String property, Class<T> type) {
+		return type.cast(getProperty(property));
+	}
+
+	public static Boolean getBooleanProperty(String property) {
+		return Boolean.valueOf(getProperty(property));
+	}
+
+	public static String getProperty(String property) {
+		if (System.getProperty(property) == null) {
+			return null;
+		}
+		return System.getProperty(property);
 	}
 
 }
