@@ -10,7 +10,7 @@
 :docinfo:
 :source-highlighter: highlightjs
 :toclevels: 3
-:revnumber: 1.1.2
+:revnumber: 1.1.3-SNAPSHOT
 :hardbreaks:
 
 = *Cukedoctor Documentation*
@@ -39,7 +39,7 @@ ____
 ****
 Given ::
 =====
-The following two features: icon:thumbs-up[role="green",title="Passed"] [small right]#(509ms)#
+The following two features: icon:thumbs-up[role="green",title="Passed"] [small right]#(525ms)#
 ----
 
 Feature: Feature1
@@ -58,7 +58,7 @@ Feature: Feature2
 =====
 When ::
 =====
-I convert their json test output using cukedoctor converter icon:thumbs-up[role="green",title="Passed"] [small right]#(01s 355ms)#
+I convert their json test output using cukedoctor converter icon:thumbs-up[role="green",title="Passed"] [small right]#(01s 397ms)#
 ******
 
 [discrete]
@@ -227,7 +227,7 @@ Feature: Feature2
 =====
 When ::
 =====
-I convert them using default order icon:thumbs-up[role="green",title="Passed"] [small right]#(027ms)#
+I convert them using default order icon:thumbs-up[role="green",title="Passed"] [small right]#(062ms)#
 =====
 Then ::
 =====
@@ -307,7 +307,7 @@ NOTE: Ordering is done using feature comment '*#order:*'
 =====
 When ::
 =====
-I convert them using comment order icon:thumbs-up[role="green",title="Passed"] [small right]#(043ms)#
+I convert them using comment order icon:thumbs-up[role="green",title="Passed"] [small right]#(069ms)#
 =====
 Then ::
 =====
@@ -416,7 +416,7 @@ Feature: Enrich feature
 =====
 When ::
 =====
-I convert docstring enriched json output using cukedoctor converter icon:thumbs-up[role="green",title="Passed"] [small right]#(076ms)#
+I convert docstring enriched json output using cukedoctor converter icon:thumbs-up[role="green",title="Passed"] [small right]#(068ms)#
 =====
 Then ::
 =====
@@ -529,7 +529,7 @@ Feature: Calculator
 =====
 When ::
 =====
-I convert enriched feature json output using cukedoctor icon:thumbs-up[role="green",title="Passed"] [small right]#(061ms)#
+I convert enriched feature json output using cukedoctor icon:thumbs-up[role="green",title="Passed"] [small right]#(056ms)#
 =====
 Then ::
 =====
@@ -634,7 +634,7 @@ Feature: Feature2
 =====
 And ::
 =====
-The following asciidoc document is on your application classpath icon:thumbs-up[role="green",title="Passed"] [small right]#(033ms)#
+The following asciidoc document is on your application classpath icon:thumbs-up[role="green",title="Passed"] [small right]#(074ms)#
 ******
 
 [discrete]
