@@ -134,7 +134,7 @@ public class CustomRendererTest {
                 "\tat org.junit.Assert.assertEquals(Assert.java:555)" + newLine() +
                 "\tat org.junit.Assert.assertEquals(Assert.java:542)" + newLine() +
                 "\tat com.github.cukedoctor.example.bdd.CalcStepDef.I_should_have_result(CalcStepDef.java:37)" + newLine() +
-                "\tat ✽.Then..." + newLine() +
+                "\tat ✽.Then I should have 0 as result(src/test/resources/features/calc.feature:14)" + newLine() +
                 "" + newLine() +
                 Constants.Markup.exampleBlock() + newLine() +
                 "****" + newLine() +
