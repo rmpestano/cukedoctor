@@ -39,7 +39,7 @@ ____
 ****
 Given ::
 =====
-The following two features: icon:thumbs-up[role="green",title="Passed"] [small right]#(525ms)#
+The following two features: icon:thumbs-up[role="green",title="Passed"] [small right]#(358ms)#
 ----
 
 Feature: Feature1
@@ -58,7 +58,7 @@ Feature: Feature2
 =====
 When ::
 =====
-I convert their json test output using cukedoctor converter icon:thumbs-up[role="green",title="Passed"] [small right]#(01s 397ms)#
+I convert their json test output using cukedoctor converter icon:thumbs-up[role="green",title="Passed"] [small right]#(01s 042ms)#
 ******
 
 [discrete]
@@ -84,7 +84,7 @@ NOTE: *plugin* option replaced *format* option which was deprecated in newer cuc
 =====
 Then ::
 =====
-I should have awesome living documentation icon:thumbs-up[role="green",title="Passed"] [small right]#(005ms)#
+I should have awesome living documentation icon:thumbs-up[role="green",title="Passed"] [small right]#(001ms)#
 ******
 
 [discrete]
@@ -227,7 +227,7 @@ Feature: Feature2
 =====
 When ::
 =====
-I convert them using default order icon:thumbs-up[role="green",title="Passed"] [small right]#(062ms)#
+I convert them using default order icon:thumbs-up[role="green",title="Passed"] [small right]#(023ms)#
 =====
 Then ::
 =====
@@ -307,7 +307,7 @@ NOTE: Ordering is done using feature comment '*#order:*'
 =====
 When ::
 =====
-I convert them using comment order icon:thumbs-up[role="green",title="Passed"] [small right]#(069ms)#
+I convert them using comment order icon:thumbs-up[role="green",title="Passed"] [small right]#(025ms)#
 =====
 Then ::
 =====
@@ -416,7 +416,7 @@ Feature: Enrich feature
 =====
 When ::
 =====
-I convert docstring enriched json output using cukedoctor converter icon:thumbs-up[role="green",title="Passed"] [small right]#(068ms)#
+I convert docstring enriched json output using cukedoctor converter icon:thumbs-up[role="green",title="Passed"] [small right]#(050ms)#
 =====
 Then ::
 =====
@@ -529,7 +529,7 @@ Feature: Calculator
 =====
 When ::
 =====
-I convert enriched feature json output using cukedoctor icon:thumbs-up[role="green",title="Passed"] [small right]#(056ms)#
+I convert enriched feature json output using cukedoctor icon:thumbs-up[role="green",title="Passed"] [small right]#(052ms)#
 =====
 Then ::
 =====
@@ -634,7 +634,7 @@ Feature: Feature2
 =====
 And ::
 =====
-The following asciidoc document is on your application classpath icon:thumbs-up[role="green",title="Passed"] [small right]#(074ms)#
+The following asciidoc document is on your application classpath icon:thumbs-up[role="green",title="Passed"] [small right]#(054ms)#
 ******
 
 [discrete]
