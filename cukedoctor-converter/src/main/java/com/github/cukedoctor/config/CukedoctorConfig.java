@@ -130,4 +130,54 @@ public class CukedoctorConfig implements Serializable {
     }
 
 
+    public CukedoctorConfig setCustomizationDir(String customizationDir) {
+        this.customizationDir = customizationDir;
+        return this;
+    }
+
+    public CukedoctorConfig setDisableMinMaxExtension(Boolean disableMinMaxExtension) {
+        this.disableMinMaxExtension = disableMinMaxExtension;
+        return this;
+    }
+
+    public CukedoctorConfig setHideScenarioKeyword(Boolean hideScenarioKeyword) {
+        this.hideScenarioKeyword = hideScenarioKeyword;
+        return this;
+    }
+
+    public CukedoctorConfig setErrorMessageSize(Integer errorMessageSize) {
+        this.errorMessageSize = errorMessageSize;
+        return this;
+    }
+
+    public CukedoctorConfig setIntroChapterDir(String introChapterDir) {
+        this.introChapterDir = introChapterDir;
+        return this;
+    }
+
+    public CukedoctorConfig setIntroChapterRelativePath(String introChapterRelativePath) {
+        this.introChapterRelativePath = introChapterRelativePath;
+        return this;
+    }
+
+    public CukedoctorConfig setHideFeaturesSection(Boolean hideFeaturesSection) {
+        this.hideFeaturesSection = hideFeaturesSection;
+        return this;
+    }
+
+    public CukedoctorConfig setHideStepTime(Boolean hideStepTime) {
+        this.hideStepTime = hideStepTime;
+        return this;
+    }
+
+    public CukedoctorConfig setHideSummarySection(Boolean hideSummarySection) {
+        this.hideSummarySection = hideSummarySection;
+        return this;
+    }
+
+    public CukedoctorConfig setHideTags(Boolean hideTags) {
+        this.hideTags = hideTags;
+        return this;
+    }
+
 }
