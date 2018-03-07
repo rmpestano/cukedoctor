@@ -1,22 +1,25 @@
 package com.github.cukedoctor.config;
 
 import com.github.cukedoctor.converter.CukedoctorConverterImpl;
-import com.github.cukedoctor.extension.CukedoctorExtensionRegistry;
 import com.github.cukedoctor.util.Constants;
 
 import java.io.Serializable;
+import java.util.List;
 
 import static com.github.cukedoctor.extension.CukedoctorExtensionRegistry.DISABLE_ALL_EXT_KEY;
 import static com.github.cukedoctor.extension.CukedoctorExtensionRegistry.MINMAX_DISABLE_EXT_KEY;
 import static com.github.cukedoctor.util.Assert.hasText;
 import static com.github.cukedoctor.util.Constants.getBooleanProperty;
-import static com.github.cukedoctor.util.Constants.getProperty;
+import static com.github.cukedoctor.util.Constants.getProp;
+import static java.lang.System.getProperty;
 
 /**
  * Created by pestano on 22/06/15.
- * <p>
- * Cukedoctor configuration, each Cukedoctor Converter ({@link com.github.cukedoctor.Cukedoctor}) instance holds a config instance.
+ *
+ * Cukedoctor configuration, each Cukedoctor Converter ({@link com.github.cukedoctor.Cukedoctor#instance(List)}) instance holds a config instance.
+ *
  * For Documentation based attributes see {@link com.github.cukedoctor.api.DocumentAttributes}
+ *
  */
 public class CukedoctorConfig implements Serializable {
 
@@ -33,9 +36,9 @@ public class CukedoctorConfig implements Serializable {
     private Boolean disableMinMaxExtension;
 
     public CukedoctorConfig() {
-        errorMessageSize = getProperty("ERROR_MESSAGE_SIZE", Integer.class);
+        errorMessageSize = getProp("ERROR_MESSAGE_SIZE", Integer.class);
         if(errorMessageSize == null) {
-            errorMessageSize = Constants.ERROR_MESSAGE_LENGTH;
+            errorMessageSize = GlobalConfig.getInstance().getLayoutConfig().getErrorMessageLength();
         }
 
         introChapterDir = getProperty("INTRO_CHAPTER_DIR");

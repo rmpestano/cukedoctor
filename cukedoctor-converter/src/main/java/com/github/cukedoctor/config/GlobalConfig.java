@@ -7,6 +7,10 @@ import java.io.InputStream;
 
 /**
  * Created by pestano on 20/10/16.
+ *
+ * Cukedoctor default configuration loaded from a global cukedoctor.yaml file.
+ *
+ * It holds (global) static configuration which is used in {@link CukedoctorConfig}
  */
 public class GlobalConfig {
 
@@ -18,7 +22,6 @@ public class GlobalConfig {
     private LayoutConfig layoutConfig;
 
     private GlobalConfig() {
-
     }
 
     public static GlobalConfig getInstance() {
@@ -43,7 +46,7 @@ public class GlobalConfig {
             globalConfig = new Yaml().loadAs(customConfiguration, GlobalConfig.class);
         }
 
-        if(globalConfig == null) {
+        if (globalConfig == null) {
             //default config
             globalConfig = new Yaml().loadAs(GlobalConfig.class.getResourceAsStream("/config/cukedoctor.yml"), GlobalConfig.class);
         }
@@ -65,4 +68,5 @@ public class GlobalConfig {
     public void setLayoutConfig(LayoutConfig layoutConfig) {
         this.layoutConfig = layoutConfig;
     }
+
 }

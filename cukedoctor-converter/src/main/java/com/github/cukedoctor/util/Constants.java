@@ -2,7 +2,7 @@ package com.github.cukedoctor.util;
 
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.text.DateFormat;
+import static java.lang.System.getProperty;
 
 /**
  * Created by pestano on 04/06/15.
@@ -18,7 +18,6 @@ public abstract class Constants {
 	public static final String DISCRETE = "[discrete]";
 
 	public static final String DOCUMENT_TITLE = getProperty("DOCUMENT_TITLE") == null ? "Documentation" : getProperty("DOCUMENT_TITLE");
-	public static final Integer ERROR_MESSAGE_LENGTH = 400;
 
 
 	public static String newLine() {
@@ -160,20 +159,21 @@ public abstract class Constants {
 		}
 	}
 
-	public static <T> T getProperty(String property, Class<T> type) {
+	public static <T> T getProp(String property, Class<T> type) {
+		if(property == null) {
+			return null;
+		}
 		return type.cast(getProperty(property));
 	}
 
 	public static Boolean getBooleanProperty(String property) {
+		String value = getProperty(property);
+		if(value == null) {
+			return null;
+		}
 		return Boolean.valueOf(getProperty(property));
 	}
 
-	public static String getProperty(String property) {
-		if (System.getProperty(property) == null) {
-			return null;
-		}
-		return System.getProperty(property);
-	}
 
 }
 

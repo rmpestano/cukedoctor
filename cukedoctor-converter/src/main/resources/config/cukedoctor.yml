@@ -4,6 +4,7 @@ layoutConfig:
   hideStepTime: false
   hideScenarioKeyword: false
   hideTags: false
+  errorMessageLength: 500
 documentAttributes:
   docTitle: "Living Documentation"
   backend: "html5"

@@ -17,6 +17,9 @@ public class LayoutConfig {
 
     private boolean hideTags;
 
+    private Integer errorMessageLength; //stacktrace error messages size to show when a step fails
+
+
     public boolean isHideFeaturesSection() {
         return hideFeaturesSection;
     }
@@ -55,5 +58,13 @@ public class LayoutConfig {
 
     public void setHideTags(boolean hideTags) {
         this.hideTags = hideTags;
+    }
+
+    public Integer getErrorMessageLength() {
+        return errorMessageLength;
+    }
+
+    public void setErrorMessageLength(Integer errorMessageLength) {
+        this.errorMessageLength = errorMessageLength;
     }
 }
