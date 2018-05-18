@@ -19,25 +19,20 @@ import org.junit.runners.JUnit4;
  * Created by pestano on 16/08/15.
  */
 @RunWith(JUnit4.class)
-public class StyleExtensionTest {
+public class AdminThemeExtensionTest {
 
     private static Asciidoctor asciidoctor;
 
     @BeforeClass
     public static void init(){
-        System.setProperty(CUKEDOCTOR_LEGACY_THEME, "");
+        System.clearProperty(CUKEDOCTOR_LEGACY_THEME);
         asciidoctor = Asciidoctor.Factory.create();
     }
 
     @AfterClass
     public static void shutdown(){
-         System.clearProperty(CUKEDOCTOR_LEGACY_THEME);
         if(asciidoctor != null){
             asciidoctor.shutdown();
-        }
-        File file = loadTestFile("sample.html");
-        if(file.exists()){
-            file.delete();
         }
     }
 
@@ -50,7 +45,7 @@ public class StyleExtensionTest {
 
 
     @Test
-    public void shouldAddCustomCssToRenderedHtml(){
+    public void shouldRenderCukedoctorAdminThemeHtml(){
         File sampleAdoc = loadTestFile("sample.adoc");
         assertThat(sampleAdoc).exists();
         String customCssPath = Paths.get("").toAbsolutePath() + "/target/cukedoctor.css";
@@ -58,24 +53,17 @@ public class StyleExtensionTest {
         asciidoctor.convertFile(sampleAdoc, OptionsBuilder.options().safe(SafeMode.UNSAFE).asMap());
 
         String sampleHtml = readFileContent(loadTestFile("sample.html"));
-        assertThat(sampleHtml).isNotEmpty().
-                containsOnlyOnce("<style> body #toctitle {    color: green;}body.book {    background: #444;}</style>");
+        assertThat(sampleHtml).isNotEmpty()
+                .contains("theme/js/bootstrap.min.js")
+                .contains("theme/js/adminlte.min.js")
+                .contains("theme/css/bootstrap.min.css")
+                .contains("theme/css/adminlte.min.css")
+                .contains("<body class=\"skin-blue sidebar-mini fixed\">")
+                .contains("<aside class=\"main-sidebar\">")
+                .contains("<li class=\"header\">Features</li>")
+                .contains("<li class=\"header\">Scenarios</li>");
+                
 
     }
-
-
-    @Test
-    public void shouldDisableStyleExtension(){
-        System.setProperty(STYLE_DISABLE_EXT_KEY,"anyValue");
-        File sampleAdoc = loadTestFile("sample.adoc");
-        assertThat(sampleAdoc).exists();
-        asciidoctor.convertFile(sampleAdoc, OptionsBuilder.options().safe(SafeMode.UNSAFE).asMap());
-
-        String sampleHtml = readFileContent(loadTestFile("sample.html"));
-        assertThat(sampleHtml).isNotEmpty().
-                doesNotContain(".sidebarblock, .sectionbody, .content{overflow:auto!important;}");
-    }
-
-
 
 }

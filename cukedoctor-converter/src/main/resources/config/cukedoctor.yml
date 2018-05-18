@@ -2,7 +2,7 @@ layoutConfig:
   hideFeaturesSection: false
   hideSummarySection: false
   hideStepTime: false
-  hideScenarioKeyword: false
+  hideScenarioKeyword: true
   hideTags: false
   errorMessageLength: 500
 documentAttributes:
@@ -12,7 +12,7 @@ documentAttributes:
   toc: "right"
   icons: "font"
   tocLevels: 3
-  linkCss: false
+  linkCss: true
   sectAnchors: true
   sectLink: true
   numbered: false

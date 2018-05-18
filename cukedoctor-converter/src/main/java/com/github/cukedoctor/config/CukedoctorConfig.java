@@ -8,6 +8,7 @@ import java.util.List;
 
 import static com.github.cukedoctor.extension.CukedoctorExtensionRegistry.DISABLE_ALL_EXT_KEY;
 import static com.github.cukedoctor.extension.CukedoctorExtensionRegistry.MINMAX_DISABLE_EXT_KEY;
+import static com.github.cukedoctor.extension.CukedoctorExtensionRegistry.useLegacyThemes;
 import static com.github.cukedoctor.util.Assert.hasText;
 import static com.github.cukedoctor.util.Constants.getBooleanProperty;
 import static com.github.cukedoctor.util.Constants.getProp;
@@ -116,7 +117,7 @@ public class CukedoctorConfig implements Serializable {
     }
 
     public Boolean isDisableMinMaxExtension() {
-        return disableMinMaxExtension;
+        return disableMinMaxExtension && useLegacyThemes();
     }
 
     /**
