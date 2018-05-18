@@ -133,7 +133,7 @@ public class CukedoctorAdminThemeExtension extends Postprocessor {
                 .attr("href", "theme/css/_all-skins.min.css"));
         
         head.appendChild(newElement("style")
-                .text("li.header {text-transform:uppercase} ul.treeview-menu li.header {color:#738790}"));
+                .text("li.header {text-transform:uppercase} ul.treeview-menu li.header {color:#738790} ul.treeview-menu li a:hover {color:#8aa4af!important;font-weight:600}"));
     }
 
     private void renderScripts(Element wrapper) {
@@ -155,7 +155,9 @@ public class CukedoctorAdminThemeExtension extends Postprocessor {
     private Element renderNavbar() {
         Element navbar = newElement("nav").addClass("navbar navbar-static-top");
         Element sidebarToggle = newElement("a").attr("href", "#");
-        sidebarToggle.addClass("sidebar-toggle");
+        sidebarToggle.addClass("sidebar-toggle")
+                .attr("data-toggle","push-menu")
+                .attr("role","button");
         sidebarToggle.appendChild(newElement("span")
                 .addClass("sr-only")
                 .text("Toggle navigation")
