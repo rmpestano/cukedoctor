@@ -1,5 +1,6 @@
 package com.github.cukedoctor.extension;
 
+import static com.github.cukedoctor.extension.CukedoctorExtensionRegistry.FOOTER_DISABLE_EXT_KEY;
 import java.text.DateFormat;
 import java.util.*;
 import java.util.logging.Logger;
@@ -23,7 +24,7 @@ public class CukedoctorFooterExtension extends Postprocessor {
 
   @Override
   public String process(Document document, String output) {
-    if (document.basebackend("html") && System.getProperty("cukedoctor.disable.footer") == null) {
+    if (document.basebackend("html") && System.getProperty(FOOTER_DISABLE_EXT_KEY) == null) {
       String stopWatch = System.getProperty("cukedoctor.stopwatch");
       Double generationTimeInSeconds = new Double(0);
       String documentationDate = dateFormat.format(new Date());

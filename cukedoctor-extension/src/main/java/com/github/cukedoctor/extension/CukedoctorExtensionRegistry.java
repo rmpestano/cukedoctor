@@ -14,7 +14,7 @@ public class CukedoctorExtensionRegistry implements ExtensionRegistry {
     public static final String MINMAX_DISABLE_EXT_KEY = "cukedoctor.disable.minmax";
     public static final String STYLE_DISABLE_EXT_KEY = "cukedoctor.disable.style";
     public static final String FOOTER_DISABLE_EXT_KEY = "cukedoctor.disable.footer";
-    public static final String CUKEDOCTOR_LEGACY_THEME = "cukedoctor.legacy.teheme";
+    public static final String CUKEDOCTOR_LEGACY_THEME = "cukedoctor.legacy.theme";
 
     @Override
     public void register(Asciidoctor asciidoctor) {
