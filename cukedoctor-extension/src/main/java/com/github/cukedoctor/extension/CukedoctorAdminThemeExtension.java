@@ -1,7 +1,6 @@
 package com.github.cukedoctor.extension;
 
 import static com.github.cukedoctor.extension.CukedoctorExtensionRegistry.*;
-import static com.github.cukedoctor.extension.CukedoctorStyleExtension.BASE_DIR;
 
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -22,7 +21,7 @@ import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
 /**
- * Created by pestano on 20/07/15. extends html document styles
+ * Created by pestano on 18/05/18. extends html document styles
  */
 public class CukedoctorAdminThemeExtension extends Postprocessor {
 
