@@ -25,6 +25,7 @@ public class FilterExtensionTest {
     @BeforeClass
     public static void init(){
         asciidoctor = Asciidoctor.Factory.create();
+        System.setProperty(CUKEDOCTOR_LEGACY_THEME,"true");
     }
 
 

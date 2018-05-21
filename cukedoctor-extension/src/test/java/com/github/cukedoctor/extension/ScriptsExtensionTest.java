@@ -1,4 +1,5 @@
 package com.github.cukedoctor.extension;
+
 import static com.github.cukedoctor.extension.CukedoctorExtensionRegistry.*;
 import org.asciidoctor.Asciidoctor;
 import org.asciidoctor.OptionsBuilder;
@@ -22,31 +23,32 @@ public class ScriptsExtensionTest {
     private static Asciidoctor asciidoctor;
 
     @BeforeClass
-    public static void init(){
+    public static void init() {
         asciidoctor = Asciidoctor.Factory.create();
+        System.setProperty(CUKEDOCTOR_LEGACY_THEME, "true");
     }
 
     @AfterClass
-    public static void shutdown(){
-        if(asciidoctor != null){
+    public static void shutdown() {
+        if (asciidoctor != null) {
             asciidoctor.shutdown();
         }
         File file = loadTestFile("sample.html");
-        if(file.exists()){
+        if (file.exists()) {
             file.delete();
         }
     }
 
     @Before
     @After
-    public void enableAllExtensions(){
+    public void enableAllExtensions() {
         System.clearProperty(THEME_DISABLE_EXT_KEY);
         System.clearProperty(FILTER_DISABLE_EXT_KEY);
         System.clearProperty(MINMAX_DISABLE_EXT_KEY);
     }
 
     @Test
-    public void shouldAddScriptsToRenderedHtml(){
+    public void shouldAddScriptsToRenderedHtml() {
         File sampleAdoc = loadTestFile("sample.adoc");
         assertThat(sampleAdoc).exists();
         asciidoctor.convertFile(sampleAdoc, OptionsBuilder.options().safe(SafeMode.UNSAFE).asMap());
@@ -59,10 +61,9 @@ public class ScriptsExtensionTest {
 
     }
 
-
     @Test
-    public void shouldDisableThemeExtension(){
-        System.setProperty(THEME_DISABLE_EXT_KEY,"anyValue");
+    public void shouldDisableThemeExtension() {
+        System.setProperty(THEME_DISABLE_EXT_KEY, "anyValue");
         File sampleAdoc = loadTestFile("sample.adoc");
         assertThat(sampleAdoc).exists();
         asciidoctor.convertFile(sampleAdoc, OptionsBuilder.options().safe(SafeMode.UNSAFE).asMap());
@@ -75,8 +76,8 @@ public class ScriptsExtensionTest {
     }
 
     @Test
-    public void shouldDisableFilterExtension(){
-        System.setProperty(FILTER_DISABLE_EXT_KEY,"anything");
+    public void shouldDisableFilterExtension() {
+        System.setProperty(FILTER_DISABLE_EXT_KEY, "anything");
         File sampleAdoc = loadTestFile("sample.adoc");
         assertThat(sampleAdoc).exists();
         asciidoctor.convertFile(sampleAdoc, OptionsBuilder.options().safe(SafeMode.UNSAFE).asMap());
@@ -89,8 +90,8 @@ public class ScriptsExtensionTest {
     }
 
     @Test
-    public void shouldDisableMinMaxExtension(){
-        System.setProperty(MINMAX_DISABLE_EXT_KEY,"any");
+    public void shouldDisableMinMaxExtension() {
+        System.setProperty(MINMAX_DISABLE_EXT_KEY, "any");
         File sampleAdoc = loadTestFile("sample.adoc");
         assertThat(sampleAdoc).exists();
         asciidoctor.convertFile(sampleAdoc, OptionsBuilder.options().safe(SafeMode.UNSAFE).asMap());
@@ -101,7 +102,5 @@ public class ScriptsExtensionTest {
                 doesNotContain("function showFeatureScenarios(featureId)").
                 containsOnlyOnce("function themefy()");
     }
-
-
 
 }

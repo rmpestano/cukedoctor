@@ -140,7 +140,6 @@ public class CukedoctorAdminThemeExtension extends Postprocessor {
         wrapper.after(newElement("script").attr("src", "theme/js/adminlte.min.js"))
                 .after(newElement("script").attr("src", "theme/js/bootstrap.min.js"))
                 .after(newElement("script").attr("src", "theme/js/jquery-ui.min.js"))
-                //.after(newElement("script").attr("src", "theme/js/jquery.slim.min.js"))
                 .after(newElement("script").attr("src", "theme/js/jquery.min.js"));
 
     }
@@ -299,7 +298,6 @@ public class CukedoctorAdminThemeExtension extends Postprocessor {
         FileUtil.copyFile("/themes/cukedoctor/css/adminlte.min.css", docDir + "/theme/css/adminlte.min.css");
         FileUtil.copyFile("/themes/cukedoctor/css/bootstrap.min.css", docDir + "/theme/css/bootstrap.min.css");
         FileUtil.copyFile("/themes/cukedoctor/js/jquery.min.js", docDir + "/theme/js/jquery.min.js");
-        FileUtil.copyFile("/themes/cukedoctor/js/jquery.slim.min.js", docDir + "/theme/js/jquery.slim.min.js");
         FileUtil.copyFile("/themes/cukedoctor/js/jquery-ui.min.js", docDir + "/theme/js/jquery-ui.min.js");
         FileUtil.copyFile("/themes/cukedoctor/js/bootstrap.min.js", docDir + "/theme/js/bootstrap.min.js");
         FileUtil.copyFile("/themes/cukedoctor/js/adminlte.min.js", docDir + "/theme/js/adminlte.min.js");
