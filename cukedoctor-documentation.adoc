@@ -20,512 +20,86 @@ include::/home/travis/build/rmpestano/cukedoctor/cukedoctor-converter/target/tes
 
 == *Features*
 
-[[A-feature-with-background, A feature with background]]
-=== *A feature with background*
+[[Cukedoctor-Converter, Cukedoctor Converter]]
+=== *Cukedoctor Converter*
 
-==== Background
+****
+====
+[quote]
+____
+In order to have awesome _living documentation_
+As a bdd developer
+I want to use *Cukedoctor* to convert my cucumber test results into `readable` living documentation.
+____
+====
+****
+
+==== Convert features test output into documentation icon:thumbs-down[role="red",title="Failed"]
 
 ****
 Given ::
 =====
-this is a background step icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
-=====
-****
-
-==== Scenario 1
-
-****
-Given ::
-=====
-this is scenario one step icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
-=====
-****
-
-==== Scenario 2
-
-****
-Given ::
-=====
-this is scenario two step icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
-=====
-****
-
-[[A-feature-with-output, A feature with output]]
-=== *A feature with output*
-
-==== Show the current version of sdkman
-
-****
-When ::
-=====
-I enter "sdk version" icon:thumbs-up[role="green",title="Passed"] [small right]#(100ms)#
-=====
-Then ::
-=====
-I see "SDKMAN x.y.z" icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+The following two features: icon:thumbs-up[role="green",title="Passed"] [small right]#(340ms)#
 ----
 
-Output: 
+Feature: Feature1
 
-broadcast message
-SDKMAN x.y.z
+  Scenario: Scenario feature 1
 
+    Given scenario step
 
+Feature: Feature2
 
-----
-=====
-****
+  Scenario: Scenario feature 2
 
-[[An-embed-data-directly-feature, An embed data directly feature]]
-=== *An embed data directly feature*
-
-==== scenario 1
-
-****
-Given ::
-=====
-I embed data directly icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
-=====
-****
-
-==== scenario 2
-
-****
-Given ::
-=====
-I embed data directly icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
-=====
-****
-
-
-****
-Given ::
-=====
-I embed data directly icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
-=====
-****
-
-[[An-embed-data-directly-feature, An embed data directly feature]]
-=== *An embed data directly feature*
-
-==== scenario 1
-
-****
-Given ::
-=====
-I embed data directly icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
-=====
-****
-
-==== scenario 2
-
-****
-Given ::
-=====
-I embed data directly icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
-=====
-****
-
-
-****
-Given ::
-=====
-I embed data directly icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
-=====
-****
-
-[[An-embed-data-directly-feature, An embed data directly feature]]
-=== *An embed data directly feature*
-
-==== scenario 1
-
-****
-Given ::
-=====
-I embed data directly icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
-----
-
-A paragraph in an open block.
+    Given scenario step
 
 ----
-=====
-****
-
-==== scenario 2
-
-****
-Given ::
-=====
-I embed data directly icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
-=====
-****
-
-
-****
-Given ::
-=====
-I embed data directly icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
-=====
-****
-
-[[An-outline-feature, An outline feature]]
-=== *An outline feature*
-
-==== outline icon:thumbs-down[role="red",title="Failed"]
-
-
-.examples1
-[cols="1*", options="header"]
-|===
-|status
-|passes
-|fails
-|===
-
-.examples2
-[cols="1*", options="header"]
-|===
-|status
-|passes
-|===
-
-[[An-outline-feature, An outline feature]]
-=== *An outline feature*
-
-==== outline icon:thumbs-down[role="red",title="Failed"]
-
-
-.examples1
-[cols="1*", options="header"]
-|===
-|status
-|passes
-|fails
-|===
-
-.examples2
-[cols="1*", options="header"]
-|===
-|status
-|passes
-|===
-
-[[Calculator, Calculator]]
-=== *Calculator*
-
-==== Adding numbers
-You can *asciidoc markup* in _feature_ #description#.
-
-NOTE: This is a very important feature!
-
-****
-Given ::
-=====
-I have numbers 1 and 2 icon:thumbs-up[role="green",title="Passed"] [small right]#(212ms)#
-
-IMPORTANT: Asciidoc markup inside *steps* must be surrounded by *curly brackets*.
-
 =====
 When ::
 =====
-I sum the numbers using the following java code: icon:thumbs-up[role="green",title="Passed"] [small right]#(001ms)#
+I convert their json test output using cukedoctor converter icon:thumbs-up[role="green",title="Passed"] [small right]#(905ms)#
 ******
 
+[discrete]
+[IMPORTANT]
+=======
+[discrete]
+To generate cucumber .json output files just execute your _BDD_ tests with *json* formatter, example:
+[discrete]
 [discrete]
 [source,java]
 ----
-    public class Calc {
-      public long sum(int x, int y){
-          return  x + y; //<1>
-      }
-  }
+@RunWith(Cucumber.class)
+@CucumberOptions(plugin = {"json:target/cucumber.json"} )
 ----
 [discrete]
-<1> This is an asciidoc call inside a feature.
+NOTE: *plugin* option replaced *format* option which was deprecated in newer cucumber versions.
+[discrete]
+=======
 
 
 ******
 
-NOTE: You can use asciidoc in doc strings as well
-
-TIP: Steps comments are placed *before* each steps
-
 =====
 Then ::
 =====
-I should have 3 as result icon:thumbs-up[role="green",title="Passed"] [small right]#(003ms)#
+I should have awesome living documentation icon:thumbs-down[role="red",title="Failed"] [small right]#(013ms)#
+******
 
-* this is a list of itens inside a feature step
-
-* there is no multiline comment in gherkin
-
-** second level list item
-
-=====
-****
-
-[[Calculator, Calculator]]
-=== *Calculator*
-
-==== Adding numbers
-You can use *asciidoc markup* in _feature_ #description#.
-
-NOTE: This is a very important feature!
-
-****
-Given ::
-=====
-I have numbers 1 and 2 icon:thumbs-up[role="green",title="Passed"] [small right]#(114ms)#
-
-IMPORTANT: Asciidoc markup inside *steps* must be surrounded by *curly brackets*.
-
-=====
-When ::
-=====
-I sum the numbers icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
-
-NOTE: Steps comments are placed *before* each steps so this comment is for the *WHEN* step.
-
-=====
-Then ::
-=====
-I should have 3 as result icon:thumbs-up[role="green",title="Passed"] [small right]#(001ms)#
-
-* this is a list of itens inside a feature step
-
-* there is no multiline comment in gherkin
-
-** second level list item
-
-=====
-****
-
-[[Cross-References, Cross References]]
-=== *Cross References*
-
-****
-In order to create links to other sections
-As a writer
-I want to be able to use a cross reference macro
-****
-
-==== Create a cross reference from an AsciiDoc cell to a section
-
-****
-Given ::
-=====
-the AsciiDoc source icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
-----
-
-|===
-a|See <<_install>>
-|===
-
-== Install
-
-Instructions go here.
-
-----
-=====
-When ::
-=====
-it is converted to html icon:thumbs-up[role="green",title="Passed"] [small right]#(002ms)#
-=====
-Then ::
-=====
-the result should match the HTML structure icon:thumbs-up[role="green",title="Passed"] [small right]#(005ms)#
-----
-
-table.tableblock.frame-all.grid-all.spread
-  colgroup
-    col style='width: 100%;'
-  tbody
-    tr
-      td.tableblock.halign-left.valign-top
-        div
-          .paragraph: p
-            'See
-            a href='#_install' Install
-.sect1
-  h2#_install Install
-  .sectionbody
-    .paragraph: p Instructions go here.
-
-----
-=====
-****
-
-==== Create a cross reference using the target section title
-
-****
-Given ::
-=====
-the AsciiDoc source icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
-----
-
-== Section One
-
-content
-
-== Section Two
-
-refer to <<Section One>>
-
-----
-=====
-When ::
-=====
-it is converted to html icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
-=====
-Then ::
-=====
-the result should match the HTML structure icon:thumbs-up[role="green",title="Passed"] [small right]#(004ms)#
-----
-
-.sect1
-  h2#_section_one Section One
-  .sectionbody: .paragraph: p content
-.sect1
-  h2#_section_two Section Two
-  .sectionbody: .paragraph: p
-    'refer to
-    a href='#_section_one' Section One
-
-----
-=====
-****
-
-==== Create a cross reference using the target reftext
-
-****
-Given ::
-=====
-the AsciiDoc source icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
-----
-
-[reftext="the first section"]
-== Section One
-
-content
-
-== Section Two
-
-refer to <<the first section>>
-
-----
-=====
-When ::
-=====
-it is converted to html icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
-=====
-Then ::
-=====
-the result should match the HTML structure icon:thumbs-up[role="green",title="Passed"] [small right]#(005ms)#
-----
-
-.sect1
-  h2#_section_one Section One
-  .sectionbody: .paragraph: p content
-.sect1
-  h2#_section_two Section Two
-  .sectionbody: .paragraph: p
-    'refer to
-    a href='#_section_one' the first section
-
-----
-=====
-****
-
-==== Create a cross reference using the formatted target title
-
-****
-Given ::
-=====
-the AsciiDoc source icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
-----
-
-== Section *One*
-
-content
-
-== Section Two
-
-refer to <<Section *One*>>
-
-----
-=====
-When ::
-=====
-it is converted to html icon:thumbs-up[role="green",title="Passed"] [small right]#(001ms)#
-=====
-Then ::
-=====
-the result should match the HTML structure icon:thumbs-up[role="green",title="Passed"] [small right]#(005ms)#
-----
-
-.sect1
-  h2#_section_strong_one_strong
-    'Section
-    strong One
-  .sectionbody: .paragraph: p content
-.sect1
-  h2#_section_two Section Two
-  .sectionbody: .paragraph: p
-    'refer to
-    a href='#_section_strong_one_strong'
-      'Section
-      strong One
-
-----
-=====
-****
-
-[[Cukedoctor-Main, Cukedoctor Main]]
-=== *Cukedoctor Main*
-
-****
-As a user of CukedoctorMain
-I want to generate asciidoc files based on my cucumber test output
-So that I can generate wonderful living documentation
-****
-
-==== Generate documentation of a single file
-
-****
-Given ::
-=====
-A Cucumber json execution file is are already generated icon:thumbs-up[role="green",title="Passed"] [small right]#(332ms)#
-=====
-When ::
-=====
-I execute CukedoctorMain with args "-o target/test-classes/outputFile.adoc" "-p target/test-classes/json-output/one_passing_one_failing.json" and "-t Documentation" icon:thumbs-up[role="green",title="Passed"] [small right]#(04s 249ms)#
-=====
-Then ::
-=====
-A file named outputFile.adoc should be generated with the following content: icon:thumbs-up[role="green",title="Passed"] [small right]#(003ms)#
-----
-
- :toc: right
-:backend: html5
-:doctitle: Documentation
-:doctype: book
-:icons: font
-:!numbered:
-:!linkcss:
-:sectanchors:
-:sectlink:
-:docinfo:
-:source-highlighter: highlightjs
-:toclevels: 3
-:hardbreaks:
-
+[discrete]
+[discrete]
 = *Documentation*
-
+[discrete]
+[discrete]
+[discrete]
+[discrete]
 == *Summary*
+[discrete]
 [cols="12*^m", options="header,footer"]
+[discrete]
 |===
-3+|Scenarios 7+|Steps 2+|Features: 1
-
+3+|Scenarios 7+|Steps 2+|Features: 2
 |[green]#*Passed*#
 |[red]#*Failed*#
 |Total
@@ -538,945 +112,496 @@ A file named outputFile.adoc should be generated with the following content: ico
 |Total
 |Duration
 |Status
-
-12+^|*<<One-passing-scenario-one-failing-scenario>>*
+12+^|*<<Feature1>>*
 |1
-|1
-|2
+|0
 |1
 |1
 |0
 |0
 |0
 |0
-|2
-|010ms
-|[red]#*failed*#
+|0
+|1
+|647ms
+|[green]#*passed*#
+12+^|*<<Feature2>>*
+|1
+|0
+|1
+|1
+|0
+|0
+|0
+|0
+|0
+|1
+|000ms
+|[green]#*passed*#
 12+^|*Totals*
-|1|1|2|1|1|0|0|0|0|2 2+|010ms
+|2|0|2|2|0|0|0|0|0|2 2+|647ms
 |===
-
+[discrete]
+[discrete]
 == *Features*
+[discrete]
+[discrete]
+[[Feature1, Feature1]]
+[discrete]
+=== *Feature1*
+[discrete]
+[discrete]
+==== Scenario: Scenario feature 1
+[discrete]
+[discrete]
+*****
+[discrete]
+Given ::
+======
+[discrete]
+scenario step icon:thumbs-up[role="green",title="Passed"] [small right]#(647ms)#
+======
+[discrete]
+*****
+[discrete]
+[discrete]
+[[Feature2, Feature2]]
+[discrete]
+=== *Feature2*
+[discrete]
+[discrete]
+==== Scenario: Scenario feature 2
+[discrete]
+[discrete]
+*****
+[discrete]
+Given ::
+======
+[discrete]
+scenario step icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+======
+[discrete]
+*****
 
-[[One-passing-scenario-one-failing-scenario, One passing scenario, one failing scenario]]
-=== *One passing scenario, one failing scenario*
 
-minmax::One-passing-scenario-one-failing-scenario[]
-==== Scenario: Passing
-[small]#tags: @a,@b#
+******
+
+IMPORTANT: org.junit.ComparisonFailure: expected:<...ure1*
+
+==== Scenario[: Scenario feature 1
 
 ****
 Given ::
-this step passes icon:thumbs-up[role="green",title="Passed"] [small right]#(001ms)#
+=====
+scenario step icon:thumbs-up[role="green",title="Passed"] [small right]#(647ms)#
+=====
 ****
 
-==== Scenario: Failing
-[small]#tags: @a,@c#
+[[Feature2, Feature2]]
+=== *Feature2*
+
+==== Scenario:] Scenario feature 2
+...> but was:<...ure1*
+
+==== Scenario[ feature 1
 
 ****
 Given ::
-this step fails icon:thumbs-down[role="red",title="Failed"] [small right]#(008ms)#
-
-IMPORTANT:  (RuntimeError)
-./features/step_definitions/steps.rb:4:in /^this step fails$/'
-features/one_passing_one_failing.feature:10:in Given this step fails'
+=====
+scenario step icon:thumbs-up[role="green",title="Passed"] [small right]#(647ms)#
+=====
 ****
+
+[[Feature2, Feature2]]
+=== *Feature2*
+
+====] Scenario feature 2
+....
+
+
+=====
+****
+
+[[Ordering, Ordering]]
+=== *Ordering*
+
+****
+====
+[quote]
+____
+In order to have features ordered in living documentation
+As a bdd developer
+I want to control the order of features in my documentation
+____
+====
+****
+
+==== Default ordering icon:thumbs-down[role="red",title="Failed"]
+
+****
+Given ::
+=====
+The following two features: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+----
+
+Feature: Feature1
+
+  Scenario: Scenario feature 1
+
+    Given scenario step
+
+Feature: Feature2
+
+  Scenario: Scenario feature 2
+
+    Given scenario step
 
 ----
-=====
-****
-
-==== Generate documentation using multiple files
-
-****
-Given ::
-=====
-Cucumber multiple json execution files are already generate icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 =====
 When ::
 =====
-I execute CukedoctorMain with args "-o target/test-classes/outputFile.adoc" "-p target/test-classes/json-output/" and "-t Documentation" icon:thumbs-up[role="green",title="Passed"] [small right]#(01s 135ms)#
+I convert them using default order icon:thumbs-up[role="green",title="Passed"] [small right]#(033ms)#
 =====
 Then ::
 =====
-A file named outputFile.adoc should be generated with the following content: icon:thumbs-up[role="green",title="Passed"] [small right]#(001ms)#
+Features should be ordered by name in resulting documentation icon:thumbs-down[role="red",title="Failed"] [small right]#(000ms)#
+******
+
+[discrete]
+[[Feature1, Feature1]]
+[discrete]
+=== *Feature1*
+[discrete]
+[discrete]
+==== Scenario: Scenario feature 1
+[discrete]
+[discrete]
+*****
+[discrete]
+Given ::
+======
+[discrete]
+scenario step icon:thumbs-up[role="green",title="Passed"] [small right]#(647ms)#
+======
+[discrete]
+*****
+[discrete]
+[discrete]
+[[Feature2, Feature2]]
+[discrete]
+=== *Feature2*
+[discrete]
+[discrete]
+==== Scenario: Scenario feature 2
+[discrete]
+[discrete]
+*****
+[discrete]
+Given ::
+======
+[discrete]
+scenario step icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+======
+[discrete]
+*****
+
+
+******
+
+IMPORTANT: java.lang.AssertionError: 
+Expecting:
+ <"== *Features*
+
+[[Feature1, Feature1]]
+=== *Feature1*
+
+==== Scenario feature 1
+
+****
+Given ::
+=====
+scenario step icon:thumbs-up[role="green",title="Passed"] [small right]#(647ms)#
+=====
+****
+
+[[Feature2, Feature2]]
+=== *Feature2*
+
+==== Scenario feature 2
+
+****
+Given ::
+=====
+scenario step icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
+****
+
+">
+to contain:
+ <"[[Feature1, Feature1]]
+=== *Feature1*
+
+==== Scenario: Scenario feature 1...
+
+
+=====
+****
+
+==== Custom ordering icon:thumbs-down[role="red",title="Failed"]
+
+****
+Given ::
+=====
+The following two features: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
- :toc: right
-:backend: html5
-:doctitle: Documentation
-:doctype: book
-:icons: font
-:!numbered:
-:!linkcss:
-:sectanchors:
-:sectlink:
-:docinfo:
-:source-highlighter: highlightjs
-:toclevels: 3
-:hardbreaks:
+#order: 2
+Feature: Feature1
 
-= *Documentation*
+  Scenario: Scenario feature 1
 
-== *Summary*
-[cols="12*^m", options="header,footer"]
-|===
-3+|Scenarios 7+|Steps 2+|Features: 4
+    Given scenario step
 
-|[green]#*Passed*#
-|[red]#*Failed*#
-|Total
-|[green]#*Passed*#
-|[red]#*Failed*#
-|[purple]#*Skipped*#
-|[maroon]#*Pending*#
-|[yellow]#*Undefined*#
-|[blue]#*Missing*#
-|Total
-|Duration
-|Status
+#order: 1
+Feature: Feature2
 
-12+^|*<<An-embed-data-directly-feature>>*
-|3
-|0
-|3
-|3
-|0
-|0
-|0
-|0
-|0
-|3
-|000ms
-|[green]#*passed*#
+  Scenario: Scenario feature 2
 
-12+^|*<<An-outline-feature>>*
-|0
-|0
-|0
-|0
-|0
-|0
-|0
-|0
-|0
-|0
-|000ms
-|[green]#*passed*#
+    Given scenario step
 
-12+^|*<<One-passing-scenario-one-failing-scenario>>*
-|1
-|1
-|2
-|1
-|1
-|0
-|0
-|0
-|0
-|2
-|010ms
-|[red]#*failed*#
+----
 
-12+^|*<<Sample-test>>*
-|1
-|1
-|2
-|3
-|1
-|0
-|0
-|0
-|0
-|4
-|10s 104ms
-|[red]#*failed*#
-12+^|*Totals*
-|5|2|7|7|2|0|0|0|0|9 2+|10s 114ms
-|===
+NOTE: Ordering is done using feature comment '*#order:*'
 
-== *Features*
-
-[[An-embed-data-directly-feature, An embed data directly feature]]
-=== *An embed data directly feature*
-
-minmax::An-embed-data-directly-feature[]
-==== Scenario: scenario 1
-****
-Given ::
-I embed data directly icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
-****
-
-==== Scenario Outline: scenario 2
-****
-Given ::
-I embed data directly icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
-****
-
-****
-Given ::
-I embed data directly icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
-****
-
-[[An-outline-feature, An outline feature]]
-=== *An outline feature*
-
-minmax::An-outline-feature[]
-==== Scenario Outline: outline
-
-.examples1
-[cols="1*", options="header"]
-|===
-|status
-|passes
-|fails
-|===
-
-.examples2
-[cols="1*", options="header"]
-|===
-|status
-|passes
-|===
-
-[[One-passing-scenario-one-failing-scenario, One passing scenario, one failing scenario]]
-=== *One passing scenario, one failing scenario*
-
-minmax::One-passing-scenario-one-failing-scenario[]
-==== Scenario: Passing
-[small]#tags: @a,@b#
-
-****
-Given ::
-this step passes icon:thumbs-up[role="green",title="Passed"] [small right]#(001ms)#
-****
-
-==== Scenario: Failing
-[small]#tags: @a,@c#
-
-****
-Given ::
-this step fails icon:thumbs-down[role="red",title="Failed"] [small right]#(008ms)#
-
-IMPORTANT:  (RuntimeError)
-./features/step_definitions/steps.rb:4:in /^this step fails$/'
-features/one_passing_one_failing.feature:10:in Given this step fails'
-****
-
-[[Sample-test, Sample test]]
-=== *Sample test*
-
-minmax::Sample-test[]
-****
-As a user  +
-I want to do something  +
-In order to achieve another thing
-****
-
-==== Scenario Outline: Parsing scenarios with multiple examples
-
-.Example
-[cols="2*", options="header"]
-|===
-|a
-|b
-|1
-|2
-|===
-
-==== Scenario: Basic
-****
-Given ::
-I navigate to the home page icon:thumbs-up[role="green",title="Passed"] [small right]#(044ms)#
+=====
+When ::
+=====
+I convert them using comment order icon:thumbs-up[role="green",title="Passed"] [small right]#(019ms)#
+=====
 Then ::
-I see the text 'Home' icon:thumbs-up[role="green",title="Passed"] [small right]#(001ms)#
-****
+=====
+Features should be ordered respecting order comment icon:thumbs-down[role="red",title="Failed"] [small right]#(000ms)#
+******
 
-==== Scenario: Basic failure
+[discrete]
+[[Feature2, Feature2]]
+[discrete]
+=== *Feature2*
+[discrete]
+[discrete]
+==== Scenario: Scenario feature 2
+[discrete]
+[discrete]
+*****
+[discrete]
+Given ::
+======
+[discrete]
+scenario step icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+======
+[discrete]
+*****
+[discrete]
+[discrete]
+[[Feature1, Feature1]]
+[discrete]
+=== *Feature1*
+[discrete]
+[discrete]
+==== Scenario: Scenario feature 1
+[discrete]
+[discrete]
+*****
+[discrete]
+Given ::
+======
+[discrete]
+scenario step icon:thumbs-up[role="green",title="Passed"] [small right]#(313ms)#
+======
+[discrete]
+*****
+
+
+******
+
+IMPORTANT: java.lang.AssertionError: 
+Expecting:
+ <"== *Features*
+
+[[Feature2, Feature2]]
+=== *Feature2*
+
+==== Scenario feature 2
+
 ****
 Given ::
-I navigate to the home page icon:thumbs-up[role="green",title="Passed"] [small right]#(040ms)#
+=====
+scenario step icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
+****
+
+[[Feature1, Feature1]]
+=== *Feature1*
+
+==== Scenario feature 1
+
+****
+Given ::
+=====
+scenario step icon:thumbs-up[role="green",title="Passed"] [small right]#(313ms)#
+=====
+****
+
+">
+to contain:
+ <"[[Feature2, Feature2]]
+=== *Feature2*
+
+==== Scenario: Scenario feature 2...
+
+
+=====
+****
+
+[[Enrich-features, Enrich features]]
+=== *Enrich features*
+
+****
+====
+[quote]
+____
+In order to have awesome _living documentation_
+As a bdd developer
+I want to render asciidoc markup inside my features.
+____
+====
+****
+
+==== DocSting enrichment icon:thumbs-down[role="red",title="Failed"]
+Asciidoc markup can be used in feature *DocStrings*. To do so you need to enable it by using *[cukector-dicrete]* comment on the feature.
+
+****
+Given ::
+=====
+The following two features: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+----
+
+Feature: Enrich feature
+
+  Scenario: Render source code
+
+    # cukedoctor-discrete
+    Given the following source code in docstrings
+"""
+  [source, java]
+  -----
+  public int sum(int x, int y){
+  int result = x + y;
+  return result; (1)
+  }
+  -----
+  <1> We can have callouts in living documentation
+"""
+
+  Scenario: Render table
+
+    # cukedoctor-discrete
+    Given the following table
+ """
+  |===
+
+  | Cell in column 1, row 1 | Cell in column 2, row 1
+  | Cell in column 1, row 2 | Cell in column 2, row 2
+  | Cell in column 1, row 3 | Cell in column 2, row 3
+
+  |===
+"""
+
+----
+=====
+When ::
+=====
+I convert docstring enriched json output using cukedoctor converter icon:thumbs-up[role="green",title="Passed"] [small right]#(046ms)#
+=====
 Then ::
-I see the text 'Hacienda' icon:thumbs-down[role="red",title="Failed"] [small right]#(10s 017ms)#
-
-IMPORTANT: expected to find text "Hacienda" in "Home | Login Clinical Studies some engaging copy View Available Studies" (RSpec::Expectations::ExpectationNotMetError)
-./features/step_definitions/study_admin_steps.rb:14:in `/^I see the text '(.+)'$/'
-features/test_outline.feature:15:in `Then I see the text 'Hacienda''
-****
-
-----
 =====
-****
+DocString asciidoc output must be rendered in my documentation icon:thumbs-down[role="red",title="Failed"] [small right]#(003ms)#
+******
 
-[[Cukedoctor-Main, Cukedoctor Main]]
-=== *Cukedoctor Main*
-
-****
-As a user of CukedoctorMain
-I want to generate asciidoc files based on my cucumber test output
-So that I can generate wonderful living documentation
-****
-
-==== Generate documentation of a single file icon:thumbs-down[role="red",title="Failed"]
-
-****
-Dado ::
-=====
-A Cucumber json execution file is are already generated icon:thumbs-up[role="green",title="Passed"] [small right]#(187ms)#
-=====
-Quando ::
-=====
-I execute CukedoctorMain with args "-o target/test-classes/outputFile.adoc" "-p target/test-classes/json-output/one_passing_one_failing.json" and "-t Documentation" icon:thumbs-up[role="green",title="Passed"] [small right]#(17s 662ms)#
-=====
-Então ::
-=====
-A file named outputFile.adoc should be generated with the following content: icon:thumbs-down[role="red",title="Failed"] [small right]#(002ms)#
-----
-
- :toc: right
-:backend: html5
-:doctitle: Documentation
-:doctype: book
-:icons: font
-:!numbered:
-:!linkcss:
-:sectanchors:
-:sectlink:
-:docinfo:
-:source-highlighter: highlightjs
-:toclevels: 3
-:hardbreaks:
-
-= *Documentation*
-
-== *Summary*
-[cols="12*^m", options="header,footer"]
-|===
-3+|Scenarios 7+|Steps 2+|Features: 1
-
-|[green]#*Passed*#
-|[red]#*Failed*#
-|Total
-|[green]#*Passed*#
-|[red]#*Failed*#
-|[purple]#*Skipped*#
-|[maroon]#*Pending*#
-|[yellow]#*Undefined*#
-|[blue]#*Missing*#
-|Total
-|Duration
-|Status
-
-12+^|*<<One-passing-scenario-one-failing-scenario>>*
-|1
-|1
-|2
-|1
-|1
-|0
-|0
-|0
-|0
-|2
-|010ms
-|[red]#*failed*#
-12+^|*Totals*
-|1|1|2|1|1|0|0|0|0|2 2+|010ms
-|===
-
-== *Features*
-
-[[One-passing-scenario-one-failing-scenario, One passing scenario, one failing scenario]]
-=== *One passing scenario, one failing scenario*
-
-minmax::One-passing-scenario-one-failing-scenario[]
-==== Scenario: Passing
-[small]#tags: @a,@b#
-
-****
+[discrete]
+[[Discrete-class-feature, Discrete class feature]]
+[discrete]
+=== *Discrete class feature*
+[discrete]
+[discrete]
+==== Scenario: Render source code
+[discrete]
+[discrete]
+*****
+[discrete]
 Given ::
-this step passes icon:thumbs-up[role="green",title="Passed"] [small right]#(001ms)#
-****
-
-==== Scenario: Failing
-[small]#tags: @a,@c#
-
-****
+======
+[discrete]
+the following source code icon:thumbs-up[role="green",title="Passed"] [small right]#(267ms)#
+[discrete]
+*******
+[discrete]
+[discrete]
+[discrete]
+[discrete]
+[source, java]
+-----
+public int sum(int x, int y){
+    int result = x + y;
+    return result; <1>
+}
+-----
+<1> We can have callouts in living documentation>
+[discrete]
+[discrete]
+[discrete]
+*******
+[discrete]
+======
+[discrete]
+*****
+[discrete]
+[discrete]
+==== Scenario: Render table
+[discrete]
+[discrete]
+*****
+[discrete]
 Given ::
-this step fails icon:thumbs-down[role="red",title="Failed"] [small right]#(008ms)#
-
-IMPORTANT:  (RuntimeError)
-./features/step_definitions/steps.rb:4:in /^this step fails$/'
-features/one_passing_one_failing.feature:10:in Given this step fails'
-****
-
-----
-
-IMPORTANT: org.junit.ComparisonFailure: expected:<...0|0|22+|010ms|=====*[Features]*[[One-passing-scena...> but was:<...0|0|22+|010ms|=====*[??title.features??]*[[One-passing-scena...>
-	at org.junit.Assert.assertEquals(Assert.java:115)
-	at org.junit.Assert.assertEquals(Assert.java:144)
-	at com.github.cukedoctor.bdd.CukedoctorMainSteps.A_file_named_outputFile_adoc_should_be_generated_with_the_following_content(CukedoctorMainSteps.java:44)
-	at ✽.Então A file named outputFile.adoc should be generated with the...
-
-=====
-****
-
-==== Generate documentation using multiple files icon:thumbs-down[role="red",title="Failed"]
-
-****
-Dado ::
-=====
-Cucumber multiple json execution files are already generate icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
-=====
-Quando ::
-=====
-I execute CukedoctorMain with args "-o target/test-classes/outputFile.adoc" "-p target/test-classes/json-output/" and "-t Documentation" icon:thumbs-up[role="green",title="Passed"] [small right]#(01s 194ms)#
-=====
-Então ::
-=====
-A file named outputFile.adoc should be generated with the following content: icon:thumbs-down[role="red",title="Failed"] [small right]#(001ms)#
-----
-
- :toc: right
-:backend: html5
-:doctitle: Documentation
-:doctype: book
-:icons: font
-:!numbered:
-:!linkcss:
-:sectanchors:
-:sectlink:
-:docinfo:
-:source-highlighter: highlightjs
-:toclevels: 3
-:hardbreaks:
-
-= *Documentation*
-
-== *Summary*
-[cols="12*^m", options="header,footer"]
+======
+[discrete]
+the following table icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+[discrete]
+*******
+[discrete]
+[discrete]
+[discrete]
+[discrete]
 |===
-3+|Scenarios 7+|Steps 2+|Features: 4
-
-|[green]#*Passed*#
-|[red]#*Failed*#
-|Total
-|[green]#*Passed*#
-|[red]#*Failed*#
-|[purple]#*Skipped*#
-|[maroon]#*Pending*#
-|[yellow]#*Undefined*#
-|[blue]#*Missing*#
-|Total
-|Duration
-|Status
-
-12+^|*<<An-embed-data-directly-feature>>*
-|3
-|0
-|3
-|3
-|0
-|0
-|0
-|0
-|0
-|3
-|000ms
-|[green]#*passed*#
-
-12+^|*<<An-outline-feature>>*
-|0
-|0
-|0
-|0
-|0
-|0
-|0
-|0
-|0
-|0
-|000ms
-|[green]#*passed*#
-
-12+^|*<<One-passing-scenario-one-failing-scenario>>*
-|1
-|1
-|2
-|1
-|1
-|0
-|0
-|0
-|0
-|2
-|010ms
-|[red]#*failed*#
-
-12+^|*<<Sample-test>>*
-|1
-|1
-|2
-|3
-|1
-|0
-|0
-|0
-|0
-|4
-|10s 104ms
-|[red]#*failed*#
-12+^|*Totals*
-|5|2|7|7|2|0|0|0|0|9 2+|10s 114ms
+| Cell in column 1, row 1 | Cell in column 2, row 1
+| Cell in column 1, row 2 | Cell in column 2, row 2
+| Cell in column 1, row 3 | Cell in column 2, row 3
 |===
-
-== *Features*
-
-[[An-embed-data-directly-feature, An embed data directly feature]]
-=== *An embed data directly feature*
-
-minmax::An-embed-data-directly-feature[]
-==== Scenario: scenario 1
-****
-Given ::
-I embed data directly icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
-****
-
-==== Scenario Outline: scenario 2
-****
-Given ::
-I embed data directly icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
-****
-
-****
-Given ::
-I embed data directly icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
-****
-
-[[An-outline-feature, An outline feature]]
-=== *An outline feature*
-
-minmax::An-outline-feature[]
-==== Scenario Outline: outline
-
-.examples1
-[cols="1*", options="header"]
-|===
-|status
-|passes
-|fails
-|===
-
-.examples2
-[cols="1*", options="header"]
-|===
-|status
-|passes
-|===
-
-[[One-passing-scenario-one-failing-scenario, One passing scenario, one failing scenario]]
-=== *One passing scenario, one failing scenario*
-
-minmax::One-passing-scenario-one-failing-scenario[]
-==== Scenario: Passing
-[small]#tags: @a,@b#
-
-****
-Given ::
-this step passes icon:thumbs-up[role="green",title="Passed"] [small right]#(001ms)#
-****
-
-==== Scenario: Failing
-[small]#tags: @a,@c#
-
-****
-Given ::
-this step fails icon:thumbs-down[role="red",title="Failed"] [small right]#(008ms)#
-
-IMPORTANT:  (RuntimeError)
-./features/step_definitions/steps.rb:4:in /^this step fails$/'
-features/one_passing_one_failing.feature:10:in Given this step fails'
-****
-
-[[Sample-test, Sample test]]
-=== *Sample test*
-
-minmax::Sample-test[]
-****
-As a user  +
-I want to do something  +
-In order to achieve another thing
-****
-
-==== Scenario Outline: Parsing scenarios with multiple examples
-
-.Example
-[cols="2*", options="header"]
-|===
-|a
-|b
-|1
-|2
-|===
-
-==== Scenario: Basic
-****
-Given ::
-I navigate to the home page icon:thumbs-up[role="green",title="Passed"] [small right]#(044ms)#
-Then ::
-I see the text 'Home' icon:thumbs-up[role="green",title="Passed"] [small right]#(001ms)#
-****
-
-==== Scenario: Basic failure
-****
-Given ::
-I navigate to the home page icon:thumbs-up[role="green",title="Passed"] [small right]#(040ms)#
-Then ::
-I see the text 'Hacienda' icon:thumbs-down[role="red",title="Failed"] [small right]#(10s 017ms)#
-
-IMPORTANT: expected to find text "Hacienda" in "Home | Login Clinical Studies some engaging copy View Available Studies" (RSpec::Expectations::ExpectationNotMetError)
-./features/step_definitions/study_admin_steps.rb:14:in `/^I see the text '(.+)'$/'
-features/test_outline.feature:15:in `Then I see the text 'Hacienda''
-****
-
-----
-
-IMPORTANT: org.junit.ComparisonFailure: expected:<...|92+|10s114ms|=====*[Features]*[[An-embed-data-dir...> but was:<...|92+|10s114ms|=====*[??title.features??]*[[An-embed-data-dir...>
-	at org.junit.Assert.assertEquals(Assert.java:115)
-	at org.junit.Assert.assertEquals(Assert.java:144)
-	at com.github.cukedoctor.bdd.CukedoctorMainSteps.A_file_named_outputFile_adoc_should_be_generated_with_the_following_content(CukedoctorMainSteps.java:44)
-	at ✽.Então A file named outputFile.adoc should be generated with the...
-
-=====
-****
-
-[[Cukedoctor-Main, Cukedoctor Main]]
-=== *Cukedoctor Main*
-
-****
-As a user of CukedoctorMain
-I want to generate asciidoc files based on my cucumber test output
-So that I can generate wonderful living documentation
-****
-
-==== Generate documentation of a single file
-
-****
-Dado ::
-=====
-A Cucumber json execution file is are already generated icon:thumbs-up[role="green",title="Passed"] [small right]#(139ms)#
-=====
-Cuando ::
-=====
-I execute CukedoctorMain with args "-o target/test-classes/outputFile.adoc" "-p target/test-classes/json-output/one_passing_one_failing.json" and "-t Documentation" icon:thumbs-up[role="green",title="Passed"] [small right]#(04s 658ms)#
-=====
-Entonces ::
-=====
-A file named outputFile.adoc should be generated with the following content: icon:thumbs-up[role="green",title="Passed"] [small right]#(002ms)#
-----
-
- :toc: right
-:backend: html5
-:doctitle: Documentation
-:doctype: book
-:icons: font
-:!numbered:
-:!linkcss:
-:sectanchors:
-:sectlink:
-:docinfo:
-:source-highlighter: highlightjs
-:toclevels: 3
-:hardbreaks:
-
-= *Documentation*
-
-== *Summary*
-[cols="12*^m", options="header,footer"]
-|===
-3+|Scenarios 7+|Steps 2+|Features: 1
-
-|[green]#*Passed*#
-|[red]#*Failed*#
-|Total
-|[green]#*Passed*#
-|[red]#*Failed*#
-|[purple]#*Skipped*#
-|[maroon]#*Pending*#
-|[yellow]#*Undefined*#
-|[blue]#*Missing*#
-|Total
-|Duration
-|Status
-
-12+^|*<<One-passing-scenario-one-failing-scenario>>*
-|1
-|1
-|2
-|1
-|1
-|0
-|0
-|0
-|0
-|2
-|010ms
-|[red]#*failed*#
-12+^|*Totals*
-|1|1|2|1|1|0|0|0|0|2 2+|010ms
-|===
-
-== *Features*
-
-[[One-passing-scenario-one-failing-scenario, One passing scenario, one failing scenario]]
-=== *One passing scenario, one failing scenario*
-
-minmax::One-passing-scenario-one-failing-scenario[]
-==== Scenario: Passing
-[small]#tags: @a,@b#
-
-****
-Given ::
-this step passes icon:thumbs-up[role="green",title="Passed"] [small right]#(001ms)#
-****
-
-==== Scenario: Failing
-[small]#tags: @a,@c#
-
-****
-Given ::
-this step fails icon:thumbs-down[role="red",title="Failed"] [small right]#(008ms)#
-
-IMPORTANT:  (RuntimeError)
-./features/step_definitions/steps.rb:4:in /^this step fails$/'
-features/one_passing_one_failing.feature:10:in Given this step fails'
-****
-
-----
-=====
-****
-
-==== Generate documentation using multiple files
-
-****
-Dado ::
-=====
-Cucumber multiple json execution files are already generate icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
-=====
-Cuando ::
-=====
-I execute CukedoctorMain with args "-o target/test-classes/outputFile.adoc" "-p target/test-classes/json-output/" and "-t Documentation" icon:thumbs-up[role="green",title="Passed"] [small right]#(953ms)#
-=====
-Entonces ::
-=====
-A file named outputFile.adoc should be generated with the following content: icon:thumbs-up[role="green",title="Passed"] [small right]#(001ms)#
-----
-
- :toc: right
-:backend: html5
-:doctitle: Documentation
-:doctype: book
-:icons: font
-:!numbered:
-:!linkcss:
-:sectanchors:
-:sectlink:
-:docinfo:
-:source-highlighter: highlightjs
-:toclevels: 3
-:hardbreaks:
-
-= *Documentation*
-
-== *Summary*
-[cols="12*^m", options="header,footer"]
-|===
-3+|Scenarios 7+|Steps 2+|Features: 4
-
-|[green]#*Passed*#
-|[red]#*Failed*#
-|Total
-|[green]#*Passed*#
-|[red]#*Failed*#
-|[purple]#*Skipped*#
-|[maroon]#*Pending*#
-|[yellow]#*Undefined*#
-|[blue]#*Missing*#
-|Total
-|Duration
-|Status
-
-12+^|*<<An-embed-data-directly-feature>>*
-|3
-|0
-|3
-|3
-|0
-|0
-|0
-|0
-|0
-|3
-|000ms
-|[green]#*passed*#
-
-12+^|*<<An-outline-feature>>*
-|0
-|0
-|0
-|0
-|0
-|0
-|0
-|0
-|0
-|0
-|000ms
-|[green]#*passed*#
-
-12+^|*<<One-passing-scenario-one-failing-scenario>>*
-|1
-|1
-|2
-|1
-|1
-|0
-|0
-|0
-|0
-|2
-|010ms
-|[red]#*failed*#
-
-12+^|*<<Sample-test>>*
-|1
-|1
-|2
-|3
-|1
-|0
-|0
-|0
-|0
-|4
-|10s 104ms
-|[red]#*failed*#
-12+^|*Totals*
-|5|2|7|7|2|0|0|0|0|9 2+|10s 114ms
-|===
-
-== *Features*
-
-[[An-embed-data-directly-feature, An embed data directly feature]]
-=== *An embed data directly feature*
-
-minmax::An-embed-data-directly-feature[]
-==== Scenario: scenario 1
-****
-Given ::
-I embed data directly icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
-****
-
-==== Scenario Outline: scenario 2
-****
-Given ::
-I embed data directly icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
-****
-
-****
-Given ::
-I embed data directly icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
-****
-
-[[An-outline-feature, An outline feature]]
-=== *An outline feature*
-
-minmax::An-outline-feature[]
-==== Scenario Outline: outline
-
-.examples1
-[cols="1*", options="header"]
-|===
-|status
-|passes
-|fails
-|===
-
-.examples2
-[cols="1*", options="header"]
-|===
-|status
-|passes
-|===
-
-[[One-passing-scenario-one-failing-scenario, One passing scenario, one failing scenario]]
-=== *One passing scenario, one failing scenario*
-
-minmax::One-passing-scenario-one-failing-scenario[]
-==== Scenario: Passing
-[small]#tags: @a,@b#
-
-****
-Given ::
-this step passes icon:thumbs-up[role="green",title="Passed"] [small right]#(001ms)#
-****
-
-==== Scenario: Failing
-[small]#tags: @a,@c#
-
-****
-Given ::
-this step fails icon:thumbs-down[role="red",title="Failed"] [small right]#(008ms)#
-
-IMPORTANT:  (RuntimeError)
-./features/step_definitions/steps.rb:4:in /^this step fails$/'
-features/one_passing_one_failing.feature:10:in Given this step fails'
-****
-
-[[Sample-test, Sample test]]
-=== *Sample test*
-
-minmax::Sample-test[]
-****
-As a user  +
-I want to do something  +
-In order to achieve another thing
-****
-
-==== Scenario Outline: Parsing scenarios with multiple examples
-
-.Example
-[cols="2*", options="header"]
-|===
-|a
-|b
-|1
-|2
-|===
-
-==== Scenario: Basic
-****
-Given ::
-I navigate to the home page icon:thumbs-up[role="green",title="Passed"] [small right]#(044ms)#
-Then ::
-I see the text 'Home' icon:thumbs-up[role="green",title="Passed"] [small right]#(001ms)#
-****
-
-==== Scenario: Basic failure
-****
-Given ::
-I navigate to the home page icon:thumbs-up[role="green",title="Passed"] [small right]#(040ms)#
-Then ::
-I see the text 'Hacienda' icon:thumbs-down[role="red",title="Failed"] [small right]#(10s 017ms)#
-
-IMPORTANT: expected to find text "Hacienda" in "Home | Login Clinical Studies some engaging copy View Available Studies" (RSpec::Expectations::ExpectationNotMetError)
-./features/step_definitions/study_admin_steps.rb:14:in `/^I see the text '(.+)'$/'
-features/test_outline.feature:15:in `Then I see the text 'Hacienda''
-****
-
-----
-=====
-****
+[discrete]
+[discrete]
+[discrete]
+*******
+[discrete]
+======
+[discrete]
+*****
+
+
+******
+
+IMPORTANT: java.lang.AssertionError: 
+Expecting:
+ <"== *Features*
 
 [[Discrete-class-feature, Discrete class feature]]
 === *Discrete class feature*
@@ -1508,233 +633,206 @@ public int sum(int x, int y){
 ==== Render table
 
 ****
+Give...
+
+
+=====
+****
+
+==== Comments enrichment icon:thumbs-down[role="red",title="Failed"]
+Asciidoc markup can be used in feature comments. To do so you need to surround asciidoc markup by *curly brackets*;.
+
+****
 Given ::
 =====
-the following table icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+The following feature with asciidoc markup in comments: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+----
+
+Feature: Calculator
+
+  Scenario: Adding numbers
+   You can *asciidoc markup* in _feature_ #description#.
+
+    NOTE: This is a very important feature!
+
+    #{IMPORTANT: Asciidoc markup inside *steps* must be surrounded by *curly brackets*.}
+    Given I have numbers 1 and 2
+
+    # {NOTE: Steps comments are placed *before* each steps so this comment is for the *WHEN* step.}
+
+    When I sum the numbers
+    # {* this is a list of itens inside a feature step}
+    # {* there is no multiline comment in gherkin}
+    # {** second level list item}
+    Then I should have 3 as result
+
+
+----
+=====
+When ::
+=====
+I convert enriched feature json output using cukedoctor icon:thumbs-up[role="green",title="Passed"] [small right]#(041ms)#
+=====
+Then ::
+=====
+Asciidoc markup on comments must be rendered in my documentation icon:thumbs-down[role="red",title="Failed"] [small right]#(000ms)#
 ******
 
 [discrete]
-|===
-| Cell in column 1, row 1 | Cell in column 2, row 1
-| Cell in column 1, row 2 | Cell in column 2, row 2
-| Cell in column 1, row 3 | Cell in column 2, row 3
-|===
+[[Calculator, Calculator]]
+[discrete]
+=== *Calculator*
+[discrete]
+[discrete]
+==== Scenario: Adding numbers
+[discrete]
+You can use *asciidoc markup* in _feature_ #description#.
+[discrete]
+[discrete]
+NOTE: This is a very important feature!
+[discrete]
+[discrete]
+*****
+[discrete]
+Given ::
+======
+[discrete]
+I have numbers 1 and 2 icon:thumbs-up[role="green",title="Passed"] [small right]#(114ms)#
+[discrete]
+[discrete]
+IMPORTANT: Asciidoc markup inside *steps* must be surrounded by *curly brackets*.
+[discrete]
+======
+[discrete]
+When ::
+======
+[discrete]
+I sum the numbers icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+[discrete]
+[discrete]
+NOTE: Steps comments are placed *before* each steps so this comment is for the *WHEN* step.
+[discrete]
+======
+[discrete]
+Then ::
+======
+[discrete]
+I should have 3 as result icon:thumbs-up[role="green",title="Passed"] [small right]#(001ms)#
+[discrete]
+[discrete]
+* this is a list of itens inside a feature step
+[discrete]
+[discrete]
+* there is no multiline comment in gherkin
+[discrete]
+[discrete]
+** second level list item
+[discrete]
+======
+[discrete]
+*****
 
 
 ******
 
-=====
-****
+IMPORTANT: java.lang.AssertionError: 
+Expecting:
+ <"==*Features*
 
-[[Do-something, Do something]]
-=== *Do something*
+[[Calculator,Calculator]]
+===*Calculator*
 
-****
-As a foo...
-****
+====Addingnumbers
+Youcanuse*asciidocmarkup*in_feature_#description#.
 
-==== User browses to the site successfully
-
-****
-Given ::
-=====
-User opens a browser icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
-=====
-****
-
-[[Eat-cukes-in-lot, Eat cukes in lot]]
-=== *Eat cukes in lot*
-
-==== Eating many cukes
+NOTE:Thisisaveryimportantfeature!
 
 ****
-Given ::
+Given::
 =====
-I have 10 cukes icon:thumbs-up[role="green",title="Passed"] [small right]#(09s 998ms)#
-=====
-When ::
-=====
-I eat 5 cukes icon:thumbs-up[role="green",title="Passed"] [small right]#(11s 434ms)#
-=====
-Then ::
-=====
-Am I hungry? "false" icon:thumbs-up[role="green",title="Passed"] [small right]#(18s 585ms)#
-=====
-****
+Ihavenumbers1and2icon:thumbs-up[role="green",title="Passed"][smallright]#(114ms)#
 
-==== Eating many cukes icon:thumbs-down[role="red",title="Failed"]
+IMPORTANT:Asciidocmarkupinside*steps*mustbesurroundedby*curlybrackets*.
 
-****
-Given ::
 =====
-I have 0 cukes icon:thumbs-up[role="green",title="Passed"] [small right]#(07s 152ms)#
+When::
 =====
-When ::
-=====
-I eat 0 cukes icon:thumbs-up[role="green",title="Passed"] [small right]#(11s 462ms)#
-=====
-Then ::
-=====
-Am I hungry? "true" icon:thumbs-down[role="red",title="Failed"] [small right]#(10s 456ms)#
+Isumthenumbersicon:thumbs-up[role="green",title="Passed"][smallright]#(000ms)#
 
-IMPORTANT: java.lang.AssertionError: expected:<true> but was:<false>
-	at org.junit.Assert.fail(Assert.java:88)
-	at org.junit.Assert.failNotEquals(Assert.java:834)
-	at org.junit.Assert.assertEquals(Assert.java:118)
-	at org.junit.Assert.assertEquals(Assert.java:144)
-	at com.github.cukedoctor.example.EatCukesSteps.amIHungry(EatCukesSteps.java:29)
-	at ✽.Then Am I hungry? "true"(src/test/resources/features/eat-cukes.feature:7)
+NOTE:Stepscommentsarepl...
+
 
 =====
 ****
 
-==== Eating many cukes icon:thumbs-down[role="red",title="Failed"]
+[[Documentation-introduction-chapter, Documentation introduction chapter]]
+=== *Documentation introduction chapter*
+
+****
+====
+[quote]
+____
+In order to have an introduction chapter in my documentation
+As a bdd developer
+I want to be able to provide an asciidoc based document which introduces my software.
+____
+====
+****
+
+==== Introduction chapter in classpath icon:thumbs-down[role="red",title="Failed"]
 
 ****
 Given ::
 =====
-I have 2 cukes icon:thumbs-up[role="green",title="Passed"] [small right]#(891ms)#
-=====
-When ::
-=====
-I eat 3 cukes icon:thumbs-up[role="green",title="Passed"] [small right]#(373ms)#
-=====
-Then ::
-=====
-Am I hungry? "true" icon:thumbs-down[role="red",title="Failed"] [small right]#(01s 761ms)#
+The following two features: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+----
 
-IMPORTANT: java.lang.AssertionError: expected:<true> but was:<false>
-	at org.junit.Assert.fail(Assert.java:88)
-	at org.junit.Assert.failNotEquals(Assert.java:834)
-	at org.junit.Assert.assertEquals(Assert.java:118)
-	at org.junit.Assert.assertEquals(Assert.java:144)
-	at com.github.cukedoctor.example.EatCukesSteps.amIHungry(EatCukesSteps.java:29)
-	at ✽.Then Am I hungry? "true"(src/test/resources/features/eat-cukes.feature:7)
+Feature: Feature1
 
-=====
-****
+  Scenario: Scenario feature 1
 
-==== Eating many cukes
+    Given scenario step
 
-****
-Given ::
-=====
-I have 20600 cukes icon:thumbs-up[role="green",title="Passed"] [small right]#(402ms)#
-=====
-When ::
-=====
-I eat 20599 cukes icon:thumbs-up[role="green",title="Passed"] [small right]#(159ms)#
-=====
-Then ::
-=====
-Am I hungry? "false" icon:thumbs-up[role="green",title="Passed"] [small right]#(139ms)#
-=====
-****
+Feature: Feature2
 
-[[Eat-cukes-in-lot, Eat cukes in lot]]
-=== *Eat cukes in lot*
+  Scenario: Scenario feature 2
 
-==== Eating many cukes
+    Given scenario step
 
-****
-Given ::
+----
 =====
-I have 10 cukes icon:thumbs-up[role="green",title="Passed"] [small right]#(09s 998ms)#
+And ::
 =====
-When ::
-=====
-I eat 5 cukes icon:thumbs-up[role="green",title="Passed"] [small right]#(11s 434ms)#
-=====
-Then ::
-=====
-Am I hungry? "false" icon:thumbs-up[role="green",title="Passed"] [small right]#(18s 585ms)#
-=====
-****
+The following asciidoc document is on your application classpath icon:thumbs-up[role="green",title="Passed"] [small right]#(053ms)#
+******
 
-==== Eating many cukes icon:thumbs-down[role="red",title="Failed"]
+[discrete]
+= *Introduction*
+[discrete]
+[discrete]
+Cukedoctor is a *Living documentation* tool which integrates Cucumber and Asciidoctor in order to convert your _BDD_ tests results into an awesome documentation.
+[discrete]
+[discrete]
+Here are some design principles:
+[discrete]
+[discrete]
+* Living documentation should be readable and highlight your software features;
+[discrete]
+** Most bdd tools generate reports and not a truly documentation.
+[discrete]
+* Cukedoctor *do not* introduce a new API that you need to learn, instead it operates on top of http://www.relishapp.com/cucumber/cucumber/docs/formatters/json-output-formatter[cucumber json output^] files;
+[discrete]
+** In the 'worst case' to <<Enrich-features,enhance>> your documentation you will need to know a bit of http://asciidoctor.org/docs/what-is-asciidoc/[asciidoc markup^].
 
-****
-Given ::
-=====
-I have 0 cukes icon:thumbs-up[role="green",title="Passed"] [small right]#(07s 152ms)#
-=====
-When ::
-=====
-I eat 0 cukes icon:thumbs-up[role="green",title="Passed"] [small right]#(11s 462ms)#
-=====
-Then ::
-=====
-Am I hungry? "true" icon:thumbs-down[role="red",title="Failed"] [small right]#(10s 456ms)#
 
-IMPORTANT: java.lang.AssertionError: expected:<true> but was:<false>
-	at org.junit.Assert.fail(Assert.java:88)
-	at org.junit.Assert.failNotEquals(Assert.java:834)
-	at org.junit.Assert.assertEquals(Assert.java:118)
-	at org.junit.Assert.assertEquals(Assert.java:144)
-	at com.github.cukedoctor.example.EatCukesSteps.amIHungry(EatCukesSteps.java:29)
-	at ✽.Then Am I hungry? "true"(src/test/resources/features/eat-cukes.feature:7)
+******
 
-=====
-****
-
-==== Eating many cukes icon:thumbs-down[role="red",title="Failed"]
-
-****
-Given ::
-=====
-I have 2 cukes icon:thumbs-up[role="green",title="Passed"] [small right]#(891ms)#
-=====
-When ::
-=====
-I eat 3 cukes icon:thumbs-up[role="green",title="Passed"] [small right]#(373ms)#
-=====
-Then ::
-=====
-Am I hungry? "true" icon:thumbs-down[role="red",title="Failed"] [small right]#(01s 761ms)#
-
-IMPORTANT: java.lang.AssertionError: expected:<true> but was:<false>
-	at org.junit.Assert.fail(Assert.java:88)
-	at org.junit.Assert.failNotEquals(Assert.java:834)
-	at org.junit.Assert.assertEquals(Assert.java:118)
-	at org.junit.Assert.assertEquals(Assert.java:144)
-	at com.github.cukedoctor.example.EatCukesSteps.amIHungry(EatCukesSteps.java:29)
-	at ✽.Then Am I hungry? "true"(src/test/resources/features/eat-cukes.feature:7)
-
-=====
-****
-
-==== Eating many cukes
-
-****
-Given ::
-=====
-I have 20600 cukes icon:thumbs-up[role="green",title="Passed"] [small right]#(402ms)#
-=====
-When ::
-=====
-I eat 20599 cukes icon:thumbs-up[role="green",title="Passed"] [small right]#(159ms)#
-=====
-Then ::
-=====
-Am I hungry? "false" icon:thumbs-up[role="green",title="Passed"] [small right]#(139ms)#
-=====
-****
-
-[[Enriched-feature, Enriched feature]]
-=== *Enriched feature*
-
-==== Scenario with admonition and  listing
-You can use *asciidoc markup* using feature comments.
-
-****
-Given ::
-=====
-I have admonition with a listing in feature comments. icon:thumbs-up[role="green",title="Passed"] [small right]#(032ms)#
+NOTE: The introduction file must be named *intro-chapter.adoc* and can be in any package of your application,
 
 [TIP]
 ====
 
-This is a tip with source code inside
+By default Cukedoctor will look into application folders but you can make Cukedoctor look into external folder by setting the following system property:
 [source,java]
 ----
 
@@ -1743,31 +841,133 @@ System.setProperty("INTRO_CHAPTER_DIR","/home/some/external/folder");
 ====
 
 =====
-****
-
-[[Enriched-feature, Enriched feature]]
-=== *Enriched feature*
-
-==== Scenario with listing
-You can use *asciidoc markup* using feature comments.
-
-****
-Given ::
+When ::
 =====
-I have listing in feature comments. icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
-[source,java]
-----
-
-System.setProperty("INTRO_CHAPTER_DIR","/home/some/external/folder");
-----
-
+Bdd tests results are converted into documentation by Cukedoctor icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 =====
-****
+Then ::
+=====
+Resulting documentation should have the provided introduction chapter icon:thumbs-down[role="red",title="Failed"] [small right]#(000ms)#
+******
 
+[discrete]
+[discrete]
+= *Documentation*
+[discrete]
+[discrete]
+== *Introduction*
+[discrete]
+[discrete]
+Cukedoctor is a *Living documentation* tool which integrates Cucumber and Asciidoctor in order to convert your _BDD_ tests results into an awesome documentation.
+[discrete]
+[discrete]
+Here are some design principles:
+[discrete]
+[discrete]
+* Living documentation should be readable and highlight your software features;
+[discrete]
+** Most bdd tools generate reports and not a truly documentation.
+[discrete]
+* Cukedoctor *do not* introduce a new API that you need to learn, instead it operates on top of http://www.relishapp.com/cucumber/cucumber/docs/formatters/json-output-formatter[cucumber json output^] files;
+[discrete]
+** In the 'worst case' to <<Enrich-features,enhance>> your documentation you will need to know a bit of http://asciidoctor.org/docs/what-is-asciidoc/[asciidoc markup^].
+[discrete]
+[discrete]
+== *Summary*
+[discrete]
+[cols="12*^m", options="header,footer"]
+[discrete]
+|===
+3+|Scenarios 7+|Steps 2+|Features: 2
+|[green]#*Passed*#
+|[red]#*Failed*#
+|Total
+|[green]#*Passed*#
+|[red]#*Failed*#
+|[purple]#*Skipped*#
+|[maroon]#*Pending*#
+|[yellow]#*Undefined*#
+|[blue]#*Missing*#
+|Total
+|Duration
+|Status
+12+^|*<<Feature1>>*
+|1
+|0
+|1
+|1
+|0
+|0
+|0
+|0
+|0
+|1
+|647ms
+|[green]#*passed*#
+12+^|*<<Feature2>>*
+|1
+|0
+|1
+|1
+|0
+|0
+|0
+|0
+|0
+|1
+|000ms
+|[green]#*passed*#
+12+^|*Totals*
+|2|0|2|2|0|0|0|0|0|2 2+|647ms
+|===
+[discrete]
+[discrete]
+== *Features*
+[discrete]
+[discrete]
 [[Feature1, Feature1]]
+[discrete]
 === *Feature1*
+[discrete]
+[discrete]
+==== Scenario: Scenario feature 1
+[discrete]
+[discrete]
+*****
+[discrete]
+Given ::
+======
+[discrete]
+scenario step icon:thumbs-up[role="green",title="Passed"] [small right]#(647ms)#
+======
+[discrete]
+*****
+[discrete]
+[discrete]
+[[Feature2, Feature2]]
+[discrete]
+=== *Feature2*
+[discrete]
+[discrete]
+==== Scenario: Scenario feature 2
+[discrete]
+[discrete]
+*****
+[discrete]
+Given ::
+======
+[discrete]
+scenario step icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+======
+[discrete]
+*****
 
-==== Scenario feature 1
+
+******
+
+IMPORTANT: org.junit.ComparisonFailure: expected:<...ure1*
+
+==== Scenario[: Scenario feature 1
 
 ****
 Given ::
@@ -1776,10 +976,13 @@ scenario step icon:thumbs-up[role="green",title="Passed"] [small right]#(647ms)#
 =====
 ****
 
-[[Feature1, Feature1]]
-=== *Feature1*
+[[Feature2, Feature2]]
+=== *Feature2*
 
-==== Scenario feature 1
+==== Scenario:] Scenario feature 2
+...> but was:<...ure1*
+
+==== Scenario[ feature 1
 
 ****
 Given ::
@@ -1791,559 +994,10 @@ scenario step icon:thumbs-up[role="green",title="Passed"] [small right]#(647ms)#
 [[Feature2, Feature2]]
 === *Feature2*
 
-==== Scenario feature 2
+====] Scenario feature 2
+....
 
-****
-Given ::
-=====
-scenario step icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
-=====
-****
 
-[[Feature2, Feature2]]
-=== *Feature2*
-
-==== Scenario feature 2
-
-****
-Given ::
-=====
-scenario step icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
-=====
-****
-
-[[One-passing-scenario-one-failing-scenario, One passing scenario, one failing scenario]]
-=== *One passing scenario, one failing scenario*
-
-==== Passing
-[small]#tags: @a,@b#
-
-
-****
-Given ::
-=====
-this step passes icon:thumbs-up[role="green",title="Passed"] [small right]#(001ms)#
-=====
-****
-
-==== Failing icon:thumbs-down[role="red",title="Failed"]
-[small]#tags: @a,@c#
-
-
-****
-Given ::
-=====
-this step fails icon:thumbs-down[role="red",title="Failed"] [small right]#(008ms)#
-
-IMPORTANT:  (RuntimeError)
-./features/step_definitions/steps.rb:4:in /^this step fails$/'
-features/one_passing_one_failing.feature:10:in Given this step fails'
-=====
-****
-
-[[Open-Blocks, Open Blocks]]
-=== *Open Blocks*
-
-****
-In order to group content in a generic container
-As a writer
-I want to be able to wrap content in an open block
-****
-
-==== Render an open block that contains a paragraph to HTML
-
-****
-Given ::
-=====
-the AsciiDoc source icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
-----
-
---
-A paragraph in an open block.
---
-
-----
-=====
-When ::
-=====
-it is converted to html icon:thumbs-up[role="green",title="Passed"] [small right]#(008ms)#
-=====
-Then ::
-=====
-the result should match the HTML source icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
-----
-
-<div class="openblock">
-<div class="content">
-<div class="paragraph">
-<p>A paragraph in an open block.</p>
-</div>
-</div>
-</div>
-
-----
-=====
-****
-
-==== Render an open block that contains a paragraph to DocBook
-
-****
-Given ::
-=====
-the AsciiDoc source icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
-----
-
---
-A paragraph in an open block.
---
-
-----
-=====
-When ::
-=====
-it is converted to docbook icon:thumbs-up[role="green",title="Passed"] [small right]#(003ms)#
-=====
-Then ::
-=====
-the result should match the XML source icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
-----
-
-<simpara>A paragraph in an open block.</simpara>
-
-----
-=====
-****
-
-==== Render an open block that contains a paragraph to HTML (alt)
-
-****
-Given ::
-=====
-the AsciiDoc source icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
-----
-
---
-A paragraph in an open block.
---
-
-----
-=====
-When ::
-=====
-it is converted to html icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
-=====
-Then ::
-=====
-the result should match the HTML structure icon:thumbs-up[role="green",title="Passed"] [small right]#(019ms)#
-----
-
-.openblock
-  .content
-    .paragraph
-      p A paragraph in an open block.
-
-----
-=====
-****
-
-==== Render an open block that contains a paragraph to DocBook (alt)
-
-****
-Given ::
-=====
-the AsciiDoc source icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
-----
-
---
-A paragraph in an open block.
---
-
-----
-=====
-When ::
-=====
-it is converted to docbook icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
-=====
-Then ::
-=====
-the result should match the XML structure icon:thumbs-up[role="green",title="Passed"] [small right]#(003ms)#
-----
-
-simpara A paragraph in an open block.
-
-----
-=====
-****
-
-==== Render an open block that contains a list to HTML
-
-****
-Given ::
-=====
-the AsciiDoc source icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
-----
-
---
-* one
-* two
-* three
---
-
-----
-=====
-When ::
-=====
-it is converted to html icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
-=====
-Then ::
-=====
-the result should match the HTML structure icon:thumbs-up[role="green",title="Passed"] [small right]#(004ms)#
-----
-
-.openblock
-  .content
-    .ulist
-      ul
-        li: p one
-        li: p two
-        li: p three
-
-----
-=====
-****
-
-[[Open-Blocks, Open Blocks]]
-=== *Open Blocks*
-
-****
-In order to pass content through unprocessed
-As a writer
-I want to be able to mark passthrough content using a pass block
-****
-
-==== Render a pass block without performing substitutions by default to HTML
-
-****
-Given ::
-=====
-the AsciiDoc source icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
-----
-
-:name: value
-
-++++
-<p>{name}</p>
-
-image:tiger.png[]
-++++
-
-----
-=====
-When ::
-=====
-it is converted to html icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
-=====
-Then ::
-=====
-the result should match the HTML source icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
-----
-
-<p>{name}</p>
-
-image:tiger.png[]
-
-----
-=====
-****
-
-==== Render a pass block without performing substitutions by default to DocBook
-
-****
-Given ::
-=====
-the AsciiDoc source icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
-----
-
-:name: value
-
-++++
-<simpara>{name}</simpara>
-
-image:tiger.png[]
-++++
-
-----
-=====
-When ::
-=====
-it is converted to docbook icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
-=====
-Then ::
-=====
-the result should match the XML source icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
-----
-
-<simpara>{name}</simpara>
-
-image:tiger.png[]
-
-----
-=====
-****
-
-==== Render a pass block performing explicit substitutions to HTML
-
-****
-Given ::
-=====
-the AsciiDoc source icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
-----
-
-:name: value
-
-[subs="attributes,macros"]
-++++
-<p>{name}</p>
-
-image:tiger.png[]
-++++
-
-----
-=====
-When ::
-=====
-it is converted to html icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
-=====
-Then ::
-=====
-the result should match the HTML source icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
-----
-
-<p>value</p>
-
-<span class="image"><img src="tiger.png" alt="tiger"></span>
-
-----
-=====
-****
-
-[[Sample-test, Sample test]]
-=== *Sample test*
-
-****
-As a user 
-I want to do something 
-In order to achieve an important goal
-****
-
-==== Parsing scenarios with multiple examples
-scenario with examples
-
-
-.examples1
-[cols="1*", options="header"]
-|===
-|status
-|passes
-|fails
-|===
-
-.examples2
-[cols="1*", options="header"]
-|===
-|status
-|passes
-|===
-
-==== Basic
-
-****
-Given ::
-=====
-I navigate to the home page icon:thumbs-up[role="green",title="Passed"] [small right]#(044ms)#
-=====
-When ::
-=====
-I do something icon:thumbs-up[role="green",title="Passed"] [small right]#(044ms)#
-=====
-Then ::
-=====
-I see the text 'Home' icon:thumbs-up[role="green",title="Passed"] [small right]#(001ms)#
-=====
-****
-
-==== Basic failure icon:thumbs-down[role="red",title="Failed"]
-
-****
-Given ::
-=====
-I navigate to the home page icon:thumbs-up[role="green",title="Passed"] [small right]#(040ms)#
-=====
-Then ::
-=====
-I see the text 'Hacienda' icon:thumbs-down[role="red",title="Failed"] [small right]#(10s 017ms)#
-
-IMPORTANT: expected to find text "Hacienda" in "Home | Login Clinical Studies some engaging copy View Available Studies" (RSpec::Expectations::ExpectationNotMetError)
-./features/step_definitions/study_admin_steps.rb:14:in `/^I see the text '(.+)'$/'
-features/test_outline.feature:15:in `Then I see the text 'Hacienda''
-=====
-****
-
-[[Search, Search]]
-=== *Search*
-
-==== Find messages by content
-[small]#tags: @txn#
-
-
-****
-Dado ::
-=====
-a User has posted the following messages: icon:thumbs-up[role="green",title="Passed"] [small right]#(111ms)#
-
-[cols="1*", options="header"]
-|===
-|content
-|I am making dinner
-|I just woke up
-|I am going to work
-|===
-
-----
-
---
-A paragraph in an open block.
---
-
-----
-=====
-****
-
-[[Text-Formatting, Text Formatting]]
-=== *Text Formatting*
-
-****
-In order to apply formatting to the text
-As a writer
-I want to be able to markup inline text with formatting characters
-****
-
-==== Convert text that contains superscript and subscript characters
-
-****
-Given ::
-=====
-the AsciiDoc source icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
-----
-
-_v_~rocket~ is the value
-^3^He is the isotope
-log~4~x^n^ is the expression
-M^me^ White is the address
-the 10^th^ point has coordinate (x~10~, y~10~)
-
-----
-=====
-When ::
-=====
-it is converted to html icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
-=====
-Then ::
-=====
-the result should match the HTML source icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
-----
-
-<div class="paragraph">
-<p><em>v</em><sub>rocket</sub> is the value
-<sup>3</sup>He is the isotope
-log<sub>4</sub>x<sup>n</sup> is the expression
-M<sup>me</sup> White is the address
-the 10<sup>th</sup> point has coordinate (x<sub>10</sub>, y<sub>10</sub>)</p>
-</div>
-
-----
-=====
-****
-
-==== Convert text that has ex-inline literal formatting
-
-****
-Given ::
-=====
-the AsciiDoc source icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
-----
-
-Use [x-]`{asciidoctor-version}` to print the version of Asciidoctor.
-
-----
-=====
-When ::
-=====
-it is converted to html icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
-=====
-Then ::
-=====
-the result should match the HTML source icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
-----
-
-<div class="paragraph">
-<p>Use <code>{asciidoctor-version}</code> to print the version of Asciidoctor.</p>
-</div>
-
-----
-=====
-****
-
-==== Convert text that has ex-inline monospaced formatting
-
-****
-Given ::
-=====
-the AsciiDoc source icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
-----
-
-The document is assumed to be encoded as [x-]+{encoding}+.
-
-----
-=====
-When ::
-=====
-it is converted to html icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
-=====
-Then ::
-=====
-the result should match the HTML source icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
-----
-
-<div class="paragraph">
-<p>The document is assumed to be encoded as <code>UTF-8</code>.</p>
-</div>
-
-----
-=====
-****
-
-[[Feature2, Feature2]]
-=== *Feature2*
-
-==== Scenario feature 2
-
-****
-Given ::
-=====
-scenario step icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
-=====
-****
-
-[[Feature1, Feature1]]
-=== *Feature1*
-
-==== Scenario feature 1
-
-****
-Given ::
-=====
-scenario step icon:thumbs-up[role="green",title="Passed"] [small right]#(313ms)#
 =====
 ****
 
