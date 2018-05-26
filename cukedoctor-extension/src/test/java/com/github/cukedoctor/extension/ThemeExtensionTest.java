@@ -1,4 +1,5 @@
 package com.github.cukedoctor.extension;
+
 import static com.github.cukedoctor.extension.CukedoctorExtensionRegistry.*;
 import org.asciidoctor.Asciidoctor;
 import org.asciidoctor.OptionsBuilder;
@@ -22,30 +23,31 @@ public class ThemeExtensionTest {
     private static Asciidoctor asciidoctor;
 
     @BeforeClass
-    public static void init(){
+    public static void init() {
         asciidoctor = Asciidoctor.Factory.create();
-        System.setProperty(CUKEDOCTOR_LEGACY_THEME, ""); 
+        System.setProperty(CUKEDOCTOR_LEGACY_THEME, "");
+        new CukedoctorExtensionRegistry().register(asciidoctor); //need to register manually because service provider runs before @BeforeClass and SystemProperty is not set
     }
 
     @AfterClass
-    public static void shutdown(){
-        if(asciidoctor != null){
+    public static void shutdown() {
+        if (asciidoctor != null) {
             asciidoctor.shutdown();
         }
         File file = loadTestFile("sample.html");
-        if(file.exists()){
+        if (file.exists()) {
             file.delete();
         }
     }
 
     @Before
     @After
-    public void enableExtension(){
+    public void enableExtension() {
         System.clearProperty(THEME_DISABLE_EXT_KEY);
     }
 
     @Test
-    public void shouldAddThemesToRenderedHtml(){
+    public void shouldAddThemesToRenderedHtml() {
         System.clearProperty(THEME_DISABLE_EXT_KEY);
         File sampleAdoc = loadTestFile("sample.adoc");
         assertThat(sampleAdoc).exists();
@@ -58,15 +60,15 @@ public class ThemeExtensionTest {
     }
 
     @Test
-    public void shouldNotAddThemeToRenderedHtmlWhenExtensionDisabled(){
-        System.setProperty(THEME_DISABLE_EXT_KEY,"anyValue");
+    public void shouldNotAddThemeToRenderedHtmlWhenExtensionDisabled() {
+        System.setProperty(THEME_DISABLE_EXT_KEY, "anyValue");
         File sampleAdoc = loadTestFile("sample.adoc");
         assertThat(sampleAdoc).exists();
         asciidoctor.convertFile(sampleAdoc, OptionsBuilder.options().safe(SafeMode.UNSAFE).asMap());
 
         String sampleHtml = readFileContent(loadTestFile("sample.html"));
         assertThat(sampleHtml).isNotEmpty().
-            doesNotContain("<div name=\"themes\" id=\"themes\"");
+                doesNotContain("<div name=\"themes\" id=\"themes\"");
     }
 
 }

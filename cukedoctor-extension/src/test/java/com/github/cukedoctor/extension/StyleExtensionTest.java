@@ -27,6 +27,8 @@ public class StyleExtensionTest {
     public static void init(){
         System.setProperty(CUKEDOCTOR_LEGACY_THEME, "");
         asciidoctor = Asciidoctor.Factory.create();
+        new CukedoctorExtensionRegistry().register(asciidoctor); //need to register manually because service provider runs before @BeforeClass and SystemProperty is not set
+
     }
 
     @AfterClass

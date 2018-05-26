@@ -22,11 +22,13 @@ import org.junit.runners.JUnit4;
 public class AdminThemeExtensionTest {
 
     private static Asciidoctor asciidoctor;
+    
 
     @BeforeClass
     public static void init(){
         System.clearProperty(CUKEDOCTOR_LEGACY_THEME);
         asciidoctor = Asciidoctor.Factory.create();
+        new CukedoctorExtensionRegistry().register(asciidoctor); //need to register manually because service provider runs before @BeforeClass
     }
 
     @AfterClass

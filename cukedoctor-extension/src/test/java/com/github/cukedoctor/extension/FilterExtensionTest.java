@@ -26,6 +26,7 @@ public class FilterExtensionTest {
     public static void init(){
         asciidoctor = Asciidoctor.Factory.create();
         System.setProperty(CUKEDOCTOR_LEGACY_THEME,"true");
+        new CukedoctorExtensionRegistry().register(asciidoctor); //need to register manually because service provider runs before @BeforeClass
     }
 
 
