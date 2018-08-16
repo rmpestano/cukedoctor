@@ -22,6 +22,7 @@ public class DocumentAttributes {
 	private String revNumber;
 	private boolean hardBreaks = true;
 	private String pdfStyle;
+	private String chapterLabel = "Chapter";
 
 
 	public DocumentAttributes() {
@@ -55,6 +56,11 @@ public class DocumentAttributes {
 
 	public DocumentAttributes icons(String icons) {
 		this.icons = icons;
+		return this;
+	}
+	
+	public DocumentAttributes chapterLabel(String chapterLabel) {
+		this.chapterLabel = chapterLabel;
 		return this;
 	}
 
@@ -128,6 +134,10 @@ public class DocumentAttributes {
 	public String getTocLevels() {
 		return tocLevels;
 	}
+	
+	public String getChapterLabel() {
+		return chapterLabel;
+	}
 
 	public String getSourceHighlighter() {
 		return sourceHighlighter;
@@ -195,6 +205,10 @@ public class DocumentAttributes {
 
 	public void setTocLevels(String tocLevels) {
 		this.tocLevels = tocLevels;
+	}
+	
+	public void setChapterLabel(String chapterLabel) {
+		this.chapterLabel = chapterLabel;
 	}
 
 	public void setLinkCss(boolean linkCss) {
