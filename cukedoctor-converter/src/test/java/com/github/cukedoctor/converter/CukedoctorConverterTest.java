@@ -84,7 +84,8 @@ public class CukedoctorConverterTest {
         attrs.toc("right").backend("html5")
                 .docType("article").docTitle("Title")
                 .icons("font").numbered(false)
-                .sectAnchors(true).sectLink(true);
+                .sectAnchors(true).sectLink(true)
+                .chapterLabel("Chapter");
 
         String expected =
                 ":toc: right" + newLine() +
@@ -97,7 +98,8 @@ public class CukedoctorConverterTest {
                         ":sectanchors:" + newLine() +
                         ":sectlink:" + newLine() +
                         ":docinfo:" + newLine() +
-                        ":source-highlighter: highlightjs\n:toclevels: 3\n:hardbreaks:" + newLine();
+                        ":source-highlighter: highlightjs\n:toclevels: 3\n:hardbreaks:" + newLine() +
+                        ":chapter-label: Chapter"+newLine();
 
 
         attrs.docTitle("Title");
@@ -123,7 +125,8 @@ public class CukedoctorConverterTest {
                 ":sectanchors:" + newLine() +
                 ":sectlink:" + newLine() +
                 ":docinfo:" + newLine() +
-                ":source-highlighter: highlightjs" + newLine() + ":toclevels: 3" + newLine() + ":hardbreaks:" + newLine();
+                ":source-highlighter: highlightjs" + newLine() + ":toclevels: 3" + newLine() + ":hardbreaks:" + newLine() +
+                ":chapter-label: Chapter"+newLine();
 
 
         String document = Cukedoctor.instance(features, new DocumentAttributes()).renderAttributes().
@@ -147,7 +150,8 @@ public class CukedoctorConverterTest {
                 ":sectanchors:" + newLine() +
                 ":sectlink:" + newLine() +
                 ":docinfo:" + newLine() +
-                ":source-highlighter: highlightjs" + newLine() + ":toclevels: 3" + newLine() + ":hardbreaks:" + newLine();
+                ":source-highlighter: highlightjs" + newLine() + ":toclevels: 3" + newLine() + ":hardbreaks:" + newLine() +
+                ":chapter-label: Chapter"+newLine();
 
 
         String document = Cukedoctor.instance(features, GlobalConfig.newInstance().getDocumentAttributes()).renderAttributes().
@@ -185,7 +189,8 @@ public class CukedoctorConverterTest {
         attrs.toc("").backend("html5")
                 .docType("article").docTitle("Title")
                 .icons("font").numbered(false)
-                .sectAnchors(true).sectLink(true);
+                .sectAnchors(true).sectLink(true)
+                .chapterLabel("Chapter");
 
         String expected =
                 ":backend: html5" + newLine() +
@@ -197,7 +202,8 @@ public class CukedoctorConverterTest {
                         ":sectanchors:" + newLine() +
                         ":sectlink:" + newLine() +
                         ":docinfo:" + newLine() +
-                        ":source-highlighter: highlightjs\n:toclevels: 3\n:hardbreaks:" + newLine();
+                        ":source-highlighter: highlightjs\n:toclevels: 3\n:hardbreaks:" + newLine() +
+                        ":chapter-label: Chapter" + newLine();
 
         attrs.docTitle("Title");
         String document = Cukedoctor.instance(features, attrs).renderAttributes().
@@ -215,7 +221,8 @@ public class CukedoctorConverterTest {
                 .docType("article").docTitle("Title")
                 .icons("font").numbered(false)
                 .hardBreaks(false)
-                .sectAnchors(true).sectLink(true);
+                .sectAnchors(true).sectLink(true)
+                .chapterLabel("Chapter");
 
         String expected =
                 ":backend: html5" + newLine() +
@@ -227,7 +234,8 @@ public class CukedoctorConverterTest {
                         ":sectanchors:" + newLine() +
                         ":sectlink:" + newLine() +
                         ":docinfo:" + newLine() +
-                        ":source-highlighter: highlightjs\n:toclevels: 3\n:!hardbreaks:" + newLine();
+                        ":source-highlighter: highlightjs\n:toclevels: 3\n:!hardbreaks:" + newLine() +
+                        ":chapter-label: Chapter" + newLine();
 
         attrs.docTitle("Title");
         String document = Cukedoctor.instance(features, attrs).renderAttributes().
@@ -246,6 +254,7 @@ public class CukedoctorConverterTest {
                 .icons("font").numbered(false)
                 .sectAnchors(true).sectLink(true)
                 .tocLevels("2")
+                .chapterLabel("Chapter")
         ;
 
         String expected =
@@ -260,7 +269,8 @@ public class CukedoctorConverterTest {
                         ":docinfo:" + newLine() +
                         ":source-highlighter: highlightjs" + newLine() +
                         ":toclevels: 2" + newLine() +
-                        ":hardbreaks:" + newLine();
+                        ":hardbreaks:" + newLine() +
+                        ":chapter-label: Chapter"+newLine();
 
 
         attrs.docTitle("Title");
@@ -279,7 +289,8 @@ public class CukedoctorConverterTest {
                 .docType("book")
                 .linkCss(true)
                 .icons("font").numbered(false)
-                .sectAnchors(true).sectLink(true);
+                .sectAnchors(true).sectLink(true)
+        	.chapterLabel("Chapter");
 
         String expected =
                 ":toc: right" + newLine() +
@@ -292,7 +303,8 @@ public class CukedoctorConverterTest {
                         ":sectanchors:" + newLine() +
                         ":sectlink:" + newLine() +
                         ":docinfo:" + newLine() +
-                        ":source-highlighter: highlightjs\n:toclevels: 3\n:hardbreaks:" + newLine();
+                        ":source-highlighter: highlightjs\n:toclevels: 3\n:hardbreaks:" + newLine() +
+                        ":chapter-label: Chapter"+newLine();
 
 
         attrs.docTitle("Documentation Title");
@@ -386,6 +398,7 @@ public class CukedoctorConverterTest {
                 ":source-highlighter: highlightjs" + newLine() +
                 ":toclevels: 3" + newLine() +
                 ":hardbreaks:" + newLine() +
+                ":chapter-label: Chapter" + newLine() +
                 ":pdf-style: " + pdfStylePath + newLine();
 
         String doc = converter.renderAttributes().getDocumentation();
@@ -485,7 +498,8 @@ public class CukedoctorConverterTest {
         attrs.toc("left").backend("html5")
                 .docType("book").docTitle("Living Documentation")
                 .icons("font").numbered(false)
-                .sectAnchors(true).sectLink(true);
+                .sectAnchors(true).sectLink(true)
+                .chapterLabel("Chapter");
 
         CukedoctorConverter converter = Cukedoctor.instance(features, attrs);
         converter.setFilename("/target/living_documentation.adoc");
@@ -512,7 +526,8 @@ public class CukedoctorConverterTest {
         attrs.toc("left").backend("html5")
                 .docType("book").docTitle("Living Documentation")
                 .icons("font").numbered(false)
-                .sectAnchors(true).sectLink(true);
+                .sectAnchors(true).sectLink(true)
+                .chapterLabel("Chapter");
 
         CukedoctorConverter converter = Cukedoctor.instance(features, attrs);
         converter.setFilename("target/living_documentation.adoc");
@@ -542,7 +557,8 @@ public class CukedoctorConverterTest {
         attrs.toc("left").backend("html5")
                 .docType("book").docTitle("Living Documentation")
                 .icons("font").numbered(false)
-                .sectAnchors(true).sectLink(true);
+                .sectAnchors(true).sectLink(true)
+                .chapterLabel("Chapter");
 
         CukedoctorConverter converter = Cukedoctor.instance(features, attrs);
         converter.setFilename("/target/living_documentation.adoc");
@@ -570,7 +586,8 @@ public class CukedoctorConverterTest {
         attrs.toc("left").backend("html5")
                 .docType("book").docTitle("Living Documentation")
                 .icons("font").numbered(false)
-                .sectAnchors(true).sectLink(true);
+                .sectAnchors(true).sectLink(true)
+                .chapterLabel("Chapter");
 
         CukedoctorConverter converter = Cukedoctor.instance(features, attrs);
         converter.setFilename("/target/living_documentation.adoc");
@@ -596,7 +613,8 @@ public class CukedoctorConverterTest {
         attrs.toc("left").backend("html5")
                 .docType("book").docTitle("Living Documentation")
                 .icons("font").numbered(false)
-                .sectAnchors(true).sectLink(true);
+                .sectAnchors(true).sectLink(true)
+                .chapterLabel("Chapter");
 
         CukedoctorConverter converter = Cukedoctor.instance(features, attrs);
         converter.setFilename("target/living_documentation.adoc");
@@ -614,7 +632,8 @@ public class CukedoctorConverterTest {
         attrs.toc("left").backend("html5")
                 .docType("book").docTitle("Living Documentation")
                 .icons("font").numbered(false)
-                .sectAnchors(true).sectLink(true);
+                .sectAnchors(true).sectLink(true)
+                .chapterLabel("Chapter");
 
         CukedoctorConverter converter = Cukedoctor.instance(features, attrs);
         converter.setFilename("target/living_documentation.adoc");
@@ -633,7 +652,8 @@ public class CukedoctorConverterTest {
         attrs.toc("left").backend("html5")
                 .docType("book").docTitle("Living Documentation")
                 .icons("font").numbered(false)
-                .sectAnchors(true).sectLink(true);
+                .sectAnchors(true).sectLink(true)
+                .chapterLabel("Chapter");
 
         CukedoctorConverter converter = Cukedoctor.instance(features, attrs);
         converter.setFilename("target/living_documentation.adoc");

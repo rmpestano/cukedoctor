@@ -78,6 +78,7 @@ public class CustomRendererTest {
                 ":sectlink:" + newLine() +
                 ":docinfo:" + newLine() +
                 ":source-highlighter: highlightjs\n:toclevels: 3\n:hardbreaks:" + newLine() +
+                ":chapter-label: Chapter"+newLine() +
                 "" + newLine() +
                 "= *Living Documentation*" + newLine() +
                 "" + newLine() +

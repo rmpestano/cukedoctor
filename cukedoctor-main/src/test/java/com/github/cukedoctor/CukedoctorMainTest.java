@@ -342,5 +342,29 @@ public class CukedoctorMainTest {
 
     }
 
+    @Test
+    public void shouldCreateDocumentationUsingChapterLabel() throws IOException {
+        String generatedDoc = new CukedoctorMain().execute(new String[]{
+                "-chapterLabel", "mychapter"
+        });
 
+        System.out.flush();
+        String output = baos.toString();
+        assertThat(output).contains("Generating living documentation with args:" + newLine() +
+                "-f: html5" + newLine() +
+                "-p: " + newLine() +
+                "-t: Living Documentation" + newLine() +
+                "-o: Living-Documentation" + newLine());
+
+        baos.close();
+        assertThat(generatedDoc).
+                contains(":!numbered:").contains(":toc: right").
+                contains(":sectlink:").
+                containsOnlyOnce("= *Living Documentation*")
+                .contains(":chapter-label: mychapter");
+
+
+        FileUtil.removeFile("Living-Documentation.adoc");
+        FileUtil.removeFile("Living-Documentation.html");
+    }
 }

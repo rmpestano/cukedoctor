@@ -19,6 +19,7 @@
                     <toc>left</toc>
                     <numbered>true</numbered>
                     <docVersion>${project.version}</docVersion>
+                    <chapterLabel>mychapter</chapterLabel>
                 </configuration>
             </plugin>
         </plugins>

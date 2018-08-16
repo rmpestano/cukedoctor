@@ -21,7 +21,7 @@ public class CukedoctorMojoTest extends AbstractMojoTestCase {
 
 
 
-    protected void setUp() throws Exception {
+    public void setUp() throws Exception {
         super.setUp();
         System.clearProperty("cukedoctor.disable.theme");
         System.clearProperty(FILTER_DISABLE_EXT_KEY);
@@ -29,7 +29,7 @@ public class CukedoctorMojoTest extends AbstractMojoTestCase {
         System.clearProperty("cukedoctor.disable.footer");
     }
 
-    protected void tearDown() throws Exception {
+    public void tearDown() throws Exception {
         super.tearDown();
         System.clearProperty("cukedoctor.disable.theme");
         System.clearProperty(FILTER_DISABLE_EXT_KEY);
@@ -362,7 +362,8 @@ public class CukedoctorMojoTest extends AbstractMojoTestCase {
         File htmlFile = FileUtil.loadFile(mojo.getDocumentationDir() + mojo.outputFileName + ".html");
         assertThat(htmlFile).exists().hasParent("target/docs");
 
-    }
+    }  
+
 
     /**
      * @throws Exception
@@ -392,5 +393,5 @@ public class CukedoctorMojoTest extends AbstractMojoTestCase {
         assertThat(outContent.toString()).contains("Skipping cukedoctor-maven-plugin");
 
     }
-
+    
 }

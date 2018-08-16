@@ -85,6 +85,9 @@ public class CukedoctorMojo extends AbstractMojo {
     @Parameter(defaultValue = "false", required = false)
     boolean disableFooter;
 
+    @Parameter(defaultValue = "Chapter", required = false)
+    String chapterLabel;
+
     @Parameter(required = false)
     String docVersion;
 
@@ -177,7 +180,8 @@ public class CukedoctorMojo extends AbstractMojo {
                 toc(toc.name().toLowerCase()).
                 revNumber(docVersion).
                 hardBreaks(hardBreaks).
-                numbered(numbered);
+                numbered(numbered).
+                chapterLabel(chapterLabel);
 
         if (documentTitle == null) {
             documentTitle = "Living Documentation";
@@ -201,7 +205,6 @@ public class CukedoctorMojo extends AbstractMojo {
         converter.setFilename(pathToSave);//needed by docinfo, pdf-theme
         generatedFile = converter.renderDocumentation();
         File adocFile = FileUtil.saveFile(pathToSave, generatedFile);
-
         Asciidoctor asciidoctor = Asciidoctor.Factory.create();
 
         if (format.equals(Format.all)) {
@@ -213,7 +216,8 @@ public class CukedoctorMojo extends AbstractMojo {
                     toc(toc.name().toLowerCase()).
                     revNumber(docVersion).
                     hardBreaks(hardBreaks).
-                    numbered(numbered);
+                    numbered(numbered).
+                    chapterLabel(chapterLabel);
             documentAttributes.docTitle(documentTitle);
             converter = Cukedoctor.instance(featuresFound, documentAttributes);
             converter.setFilename(pathToSave);//needed by docinfo, pdf-theme

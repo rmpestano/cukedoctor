@@ -46,6 +46,9 @@ public class CukedoctorMain {
 
     @Parameter(names = "-numbered", description = "Section numbering. Default is false ", required = false)
     private Boolean numbered;
+    
+    @Parameter(names = "-chapterLabel", description = "Chapter Label. Default is 'Chapter' ", required = false)
+    private String chapterLabel;
 
     @Parameter(names = "-hardbreaks", description = "Sets asciidoctor hardbreaks attribute. Default is true ", required = false)
     private Boolean hardBreaks;
@@ -119,6 +122,10 @@ public class CukedoctorMain {
         if (!hasText(toc)) {
             toc = "right";
         }
+        
+        if (!hasText(chapterLabel)) {
+            chapterLabel = "Chapter";
+        }
 
         if (numbered == null) {
             numbered = false;
@@ -163,7 +170,8 @@ public class CukedoctorMain {
                 toc(toc).
                 revNumber(docVersion).
                 hardBreaks(hardBreaks).
-                numbered(numbered);
+                numbered(numbered).
+                chapterLabel(chapterLabel);
 
         if(sourceHighlighter != null){
             documentAttributes.sourceHighlighter(sourceHighlighter);
