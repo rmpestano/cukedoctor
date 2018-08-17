@@ -343,9 +343,10 @@ public class CukedoctorMainTest {
     }
 
     @Test
-    public void shouldCreateDocumentationUsingChapterLabel() throws IOException {
+    public void shouldCreateDocumentationUsingChapterLabelAndVersionLabel() throws IOException {
         String generatedDoc = new CukedoctorMain().execute(new String[]{
-                "-chapterLabel", "mychapter"
+                "-chapterLabel", "mychapter",
+                "-versionLabel", "myversion"
         });
 
         System.out.flush();
@@ -360,8 +361,9 @@ public class CukedoctorMainTest {
         assertThat(generatedDoc).
                 contains(":!numbered:").contains(":toc: right").
                 contains(":sectlink:").
-                containsOnlyOnce("= *Living Documentation*")
-                .contains(":chapter-label: mychapter");
+                containsOnlyOnce("= *Living Documentation*").
+                contains(":chapter-label: mychapter").
+                contains(":version-label: myversion");
 
 
         FileUtil.removeFile("Living-Documentation.adoc");

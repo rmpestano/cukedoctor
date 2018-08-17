@@ -21,3 +21,4 @@ documentAttributes:
   sourceHighlighter: "highlightjs"
   hardBreaks: true
   chapterLabel: "Chapter"
+  versionLabel: "Version"

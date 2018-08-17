@@ -3,6 +3,11 @@ package com.github.cukedoctor.mojo;
 import com.github.cukedoctor.config.GlobalConfig;
 import com.github.cukedoctor.util.FileUtil;
 import org.apache.maven.plugin.testing.AbstractMojoTestCase;
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.junit.runners.JUnit4;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -17,10 +22,11 @@ import static org.assertj.core.api.Assertions.contentOf;
 /**
  * Created by pestano on 27/06/15.
  */
+@RunWith(JUnit4.class)
 public class CukedoctorMojoTest extends AbstractMojoTestCase {
 
 
-
+    @Before
     public void setUp() throws Exception {
         super.setUp();
         System.clearProperty("cukedoctor.disable.theme");
@@ -29,6 +35,7 @@ public class CukedoctorMojoTest extends AbstractMojoTestCase {
         System.clearProperty("cukedoctor.disable.footer");
     }
 
+    @After
     public void tearDown() throws Exception {
         super.tearDown();
         System.clearProperty("cukedoctor.disable.theme");
@@ -52,7 +59,9 @@ public class CukedoctorMojoTest extends AbstractMojoTestCase {
         assertThat(mojo.getGeneratedFile()).
                 contains(":backend: html5").
                 contains(":toc: left").
-                contains(":numbered:");
+                contains(":numbered:").
+                contains(":chapter-label: mychapter").
+                contains(":version-label: myversion");
         String docHtml = readFileContent(loadTestFile("documentation.html"));
         assertThat(docHtml).isNotEmpty().
                 containsOnlyOnce("searchFeature(criteria)").
@@ -343,6 +352,7 @@ public class CukedoctorMojoTest extends AbstractMojoTestCase {
     /**
      * @throws Exception
      */
+    @Test
     public void testGenerateAllDocs() throws Exception {
 
         CukedoctorMojo mojo = (CukedoctorMojo) lookupMojo("execute", getTestFile("src/test/resources/html-pdf-docs-pom.xml"));

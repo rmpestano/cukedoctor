@@ -158,6 +158,10 @@ public abstract class Constants {
 			return ":pdf-style: " + value;
 		}
 
+		public static String versionLabel(String value) {
+		    	return ":version-label: " + value;
+		}
+
 		public static String chapterLabel(String value) {
 		    	return ":chapter-label: " + value;
 		}

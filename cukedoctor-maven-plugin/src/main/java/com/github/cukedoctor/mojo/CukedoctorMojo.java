@@ -87,6 +87,9 @@ public class CukedoctorMojo extends AbstractMojo {
 
     @Parameter(defaultValue = "Chapter", required = false)
     String chapterLabel;
+    
+    @Parameter(defaultValue = "Version", required = false)
+    String versionLabel;
 
     @Parameter(required = false)
     String docVersion;
@@ -181,7 +184,8 @@ public class CukedoctorMojo extends AbstractMojo {
                 revNumber(docVersion).
                 hardBreaks(hardBreaks).
                 numbered(numbered).
-                chapterLabel(chapterLabel);
+                chapterLabel(chapterLabel).
+                versionLabel(versionLabel);
 
         if (documentTitle == null) {
             documentTitle = "Living Documentation";
@@ -217,7 +221,8 @@ public class CukedoctorMojo extends AbstractMojo {
                     revNumber(docVersion).
                     hardBreaks(hardBreaks).
                     numbered(numbered).
-                    chapterLabel(chapterLabel);
+                    chapterLabel(chapterLabel).
+                    versionLabel(versionLabel);
             documentAttributes.docTitle(documentTitle);
             converter = Cukedoctor.instance(featuresFound, documentAttributes);
             converter.setFilename(pathToSave);//needed by docinfo, pdf-theme

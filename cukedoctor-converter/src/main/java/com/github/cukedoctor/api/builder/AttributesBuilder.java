@@ -38,6 +38,8 @@ public interface AttributesBuilder {
     AttributesBuilder pdfStyle(String value);
     
     AttributesBuilder chapterLabel(String value);
+    
+    AttributesBuilder versionLabel(String value);
 
     AsciiDocBuilder asciiDocBuilder();
 

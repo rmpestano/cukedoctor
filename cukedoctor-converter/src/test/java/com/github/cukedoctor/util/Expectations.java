@@ -121,6 +121,7 @@ public interface Expectations {
 			":source-highlighter: highlightjs" + newLine()+
 			":toclevels: 3\n:hardbreaks:"+newLine() +
 			":chapter-label: Chapter"+newLine() +
+			":version-label: Version"+newLine() +
 			""+newLine() +
 			"= *Living Documentation*"+newLine() +
 			""+newLine() +
@@ -206,6 +207,7 @@ public interface Expectations {
 			":source-highlighter: highlightjs" + newLine()+
 			":toclevels: 3\n:hardbreaks:"+newLine() +
 			":chapter-label: Chapter"+newLine() +
+			":version-label: Version"+newLine() +
 			""+newLine() +
 			"= *Living Documentation*"+newLine() +
 			""+newLine() +
@@ -290,6 +292,7 @@ public interface Expectations {
 			":toclevels: 3"+newLine() +
 			":hardbreaks:"+newLine() +
 			":chapter-label: Chapter"+newLine() +
+			":version-label: Version"+newLine() +
 			""+newLine() +
 			"= *Living Documentation*"+newLine() +
 			""+newLine() +
@@ -341,6 +344,7 @@ public interface Expectations {
 			":source-highlighter: highlightjs" + newLine()+
 			":toclevels: 3"+newLine() +":hardbreaks:"+newLine() +
 			":chapter-label: Chapter"+newLine() +
+			":version-label: Version"+newLine() +
 			""+newLine() +
 			"= *Living Documentation*"+newLine() +
 			""+newLine() +
@@ -389,7 +393,8 @@ public interface Expectations {
 			":docinfo:"+newLine() +
 			":source-highlighter: highlightjs" + newLine()+
 			":toclevels: 3"+newLine() +":hardbreaks:"+newLine() +
-			":chapter-label: Chapter"+newLine() +
+			":chapter-label: Chapter" + newLine() +
+			":version-label: Version" + newLine() +
 			""+newLine() +
 			"= *Living Documentation*"+newLine() +
 			""+newLine() +
@@ -439,6 +444,7 @@ public interface Expectations {
 			":source-highlighter: highlightjs" + newLine()+
 			":toclevels: 3"+newLine() +":hardbreaks:"+newLine() +
 			":chapter-label: Chapter"+newLine() +
+			":version-label: Version"+newLine() +
 			""+newLine() +
 			"= *Living Documentation*"+newLine() +
 			""+newLine() +
@@ -486,6 +492,7 @@ public interface Expectations {
 			":toclevels: 3"+newLine() +
 			":hardbreaks:"+newLine() +
 			":chapter-label: Chapter"+newLine() +
+			":version-label: Version"+newLine() +
 			""+newLine() +
 			"= *Living Documentation*"+newLine() +
 			""+newLine() +
@@ -737,6 +744,7 @@ public interface Expectations {
 			":source-highlighter: highlightjs" + newLine()+
 			":toclevels: 3\n:hardbreaks:"+newLine() +
 			":chapter-label: Chapter"+newLine() +
+			":version-label: Version"+newLine() +
 			""+newLine() +
 			"= *Doc Title*"+newLine() +
 			""+newLine() +

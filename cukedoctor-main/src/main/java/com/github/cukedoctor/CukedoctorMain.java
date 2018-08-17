@@ -49,6 +49,9 @@ public class CukedoctorMain {
     
     @Parameter(names = "-chapterLabel", description = "Chapter Label. Default is 'Chapter' ", required = false)
     private String chapterLabel;
+    
+    @Parameter(names = "-versionLabel", description = "Version Label. Default is 'Version' ", required = false)
+    private String versionLabel;
 
     @Parameter(names = "-hardbreaks", description = "Sets asciidoctor hardbreaks attribute. Default is true ", required = false)
     private Boolean hardBreaks;
@@ -126,6 +129,10 @@ public class CukedoctorMain {
         if (!hasText(chapterLabel)) {
             chapterLabel = "Chapter";
         }
+        
+        if (!hasText(versionLabel)) {
+            versionLabel = "Version";
+        }
 
         if (numbered == null) {
             numbered = false;
@@ -171,7 +178,8 @@ public class CukedoctorMain {
                 revNumber(docVersion).
                 hardBreaks(hardBreaks).
                 numbered(numbered).
-                chapterLabel(chapterLabel);
+                chapterLabel(chapterLabel).
+                versionLabel(versionLabel);
 
         if(sourceHighlighter != null){
             documentAttributes.sourceHighlighter(sourceHighlighter);
@@ -254,7 +262,7 @@ public class CukedoctorMain {
             ob.attributes(attr);
         }
         
-        asciidoctor.convertFile(adocFile, ob.asMap());
+       String aaaa =  asciidoctor.convertFile(adocFile, ob.asMap());
         asciidoctor.shutdown();
         return doc;
     }

@@ -23,6 +23,7 @@ public class DocumentAttributes {
 	private boolean hardBreaks = true;
 	private String pdfStyle;
 	private String chapterLabel = "Chapter";
+	private String versionLabel = "Version";
 
 
 	public DocumentAttributes() {
@@ -61,6 +62,11 @@ public class DocumentAttributes {
 	
 	public DocumentAttributes chapterLabel(String chapterLabel) {
 		this.chapterLabel = chapterLabel;
+		return this;
+	}
+	
+	public DocumentAttributes versionLabel(String versionLabel) {
+	    this.versionLabel = versionLabel;
 		return this;
 	}
 
@@ -138,6 +144,10 @@ public class DocumentAttributes {
 	public String getChapterLabel() {
 		return chapterLabel;
 	}
+	
+	public String getVersionLabel() {
+		return versionLabel;
+	}
 
 	public String getSourceHighlighter() {
 		return sourceHighlighter;
@@ -210,6 +220,10 @@ public class DocumentAttributes {
 	public void setChapterLabel(String chapterLabel) {
 		this.chapterLabel = chapterLabel;
 	}
+	
+	public void setVersionLabel(String versionLabel) {
+		this.versionLabel = versionLabel;
+	}
 
 	public void setLinkCss(boolean linkCss) {
 		this.linkCss = linkCss;
@@ -242,4 +256,6 @@ public class DocumentAttributes {
 	public void setHardBreaks(boolean hardBreaks) {
 		this.hardBreaks = hardBreaks;
 	}
+
+
 }
