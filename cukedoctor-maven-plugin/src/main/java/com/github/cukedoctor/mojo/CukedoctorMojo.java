@@ -176,6 +176,15 @@ public class CukedoctorMojo extends AbstractMojo {
         } else {
             getLog().info("Generating living documentation for " + featuresFound.size() + " feature(s)...");
         }
+        
+        if (chapterLabel == null) {
+            chapterLabel = "Chapter";
+        }
+
+        
+        if (versionLabel == null) {
+            versionLabel = "Version";
+        }
 
         configExtensions();
         DocumentAttributes documentAttributes = GlobalConfig.newInstance().getDocumentAttributes().

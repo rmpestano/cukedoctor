@@ -352,11 +352,9 @@ public class CukedoctorMojoTest extends AbstractMojoTestCase {
     /**
      * @throws Exception
      */
-    @Test
     public void testGenerateAllDocs() throws Exception {
 
         CukedoctorMojo mojo = (CukedoctorMojo) lookupMojo("execute", getTestFile("src/test/resources/html-pdf-docs-pom.xml"));
-
         assertNotNull(mojo);
         mojo.execute();
         File pdfFile = FileUtil.loadFile(mojo.getDocumentationDir() + mojo.outputFileName + ".pdf");
@@ -394,6 +392,9 @@ public class CukedoctorMojoTest extends AbstractMojoTestCase {
 
     }
 
+    /**
+     * @throws Exception
+     */
     public void testSkipDocsGenerationTest() throws Exception {
         CukedoctorMojo mojo = (CukedoctorMojo) lookupMojo("execute", getTestFile("src/test/resources/skip-docs-pom.xml"));
         assertNotNull(mojo);
@@ -403,5 +404,28 @@ public class CukedoctorMojoTest extends AbstractMojoTestCase {
         assertThat(outContent.toString()).contains("Skipping cukedoctor-maven-plugin");
 
     }
+    
+    /**
+     * @throws Exception
+     */
+    public void testGenerateAllDocsWithChapterAndVersionLabel() throws Exception {
+
+	CukedoctorMojo mojo = (CukedoctorMojo) lookupMojo("execute", getTestFile("src/test/resources/html-docs-chapter-version-labels-pom.xml"));
+        assertNotNull(mojo);
+        mojo.execute();
+        File pdfFile = FileUtil.loadFile(mojo.getDocumentationDir() + mojo.outputFileName + ".pdf");
+        assertThat(pdfFile).exists().hasParent("target/docs");
+
+        String docHtml = readFileContent(loadTestFile("documentation.html"));
+        assertThat(docHtml).isNotEmpty().
+                containsOnlyOnce("searchFeature(criteria)").
+                containsOnlyOnce("function showFeatureScenarios(featureId)").
+                contains("One passing scenario, one failing scenario").
+                contains("Eat cukes in lot").
+                contains("function themefy()");
+        File htmlFile = FileUtil.loadFile(mojo.getDocumentationDir() + mojo.outputFileName + ".html");
+        assertThat(htmlFile).exists().hasParent("target/docs");
+
+    }  
     
 }
