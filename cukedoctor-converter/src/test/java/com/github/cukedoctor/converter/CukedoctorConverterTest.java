@@ -712,36 +712,37 @@ public class CukedoctorConverterTest {
         List<Feature> features = FeatureParser.parse(getClass().getResource("/json-output/enrichment/calc.json").getPath());
         assertThat(features).isNotNull().hasSize(1);
         String output = Cukedoctor.instance(features).renderFeatures(features).getDocumentation();
-        assertThat(output.replaceAll("\r", "")).contains(("[[Calculator, Calculator]]" + newLine() +
-                "=== *Calculator*" + newLine() +
-                newLine() +
-                "==== Scenario: Adding numbers" + newLine() +
-                "You can use *asciidoc markup* in _feature_ #description#." + newLine() +
-                newLine() +
-                "NOTE: This is a very important feature!" + newLine() +
-                newLine() +
-                "****" + newLine() +
-                "Given ::" + newLine() + "=====" + newLine() +
-                "I have numbers 1 and 2 icon:thumbs-up[role=\"green\",title=\"Passed\"] [small right]#(114ms)#" + newLine() +
-                newLine() +
-                "IMPORTANT: Asciidoc markup inside *steps* must be surrounded by *curly brackets*." + newLine() +
-                newLine() +
-                "=====" + newLine() +
-                "When ::" + newLine() + "=====" + newLine() +
-                "I sum the numbers icon:thumbs-up[role=\"green\",title=\"Passed\"] [small right]#(000ms)#" + newLine() +
-                newLine() +
-                "NOTE: Steps comments are placed *before* each steps so this comment is for the *WHEN* step." + newLine() +
-                newLine() + "=====" + newLine() +
-                "Then ::" + newLine() + "=====" + newLine() +
-                "I should have 3 as result icon:thumbs-up[role=\"green\",title=\"Passed\"] [small right]#(001ms)#" + newLine() +
-                newLine() +
-                "* this is a list of itens inside a feature step" + newLine() +
-                newLine() +
-                "* there is no multiline comment in gherkin" + newLine() +
-                newLine() +
-                "** second level list item" + newLine() +
-                newLine() + "=====" + newLine() +
-                "****" + newLine() + newLine()).replaceAll("\r", ""));
+        assertThat(output.replaceAll("\r", "")).contains(("[[Calculator, Calculator]]"+newLine()+ 
+        		"=== *Calculator*"+newLine()+ 
+        		""+newLine()+ 
+        		"==== Scenario: Adding numbers"+newLine()+ 
+        		"You can use *asciidoc markup* in _feature_ #description#."+newLine()+ 
+        		""+newLine()+ 
+        		"NOTE: This is a very important feature!"+newLine()+ 
+        		""+newLine()+ 
+        		"===="+newLine()+ 
+        		"Given ::"+newLine()+ 
+        		"I have numbers 1 and 2 icon:thumbs-up[role=\"green\",title=\"Passed\"] [small right]#(114ms)#"+newLine()+ 
+        		""+newLine()+ 
+        		"IMPORTANT: Asciidoc markup inside *steps* must be surrounded by *curly brackets*."+newLine()+ 
+        		""+newLine()+ 
+        		"When ::"+newLine()+ 
+        		"I sum the numbers icon:thumbs-up[role=\"green\",title=\"Passed\"] [small right]#(000ms)#"+newLine()+ 
+        		""+newLine()+ 
+        		"NOTE: Steps comments are placed *before* each steps so this comment is for the *WHEN* step."+newLine()+ 
+        		""+newLine()+ 
+        		"Then ::"+newLine()+ 
+        		"I should have 3 as result icon:thumbs-up[role=\"green\",title=\"Passed\"] [small right]#(001ms)#"+newLine()+ 
+        		""+newLine()+ 
+        		"* this is a list of itens inside a feature step"+newLine()+ 
+        		""+newLine()+ 
+        		"* there is no multiline comment in gherkin"+newLine()+ 
+        		""+newLine()+ 
+        		"** second level list item"+newLine()+ 
+        		""+newLine()+ 
+        		"===="+newLine()+ 
+        		""+newLine()+ 
+        		""));
     }
 
     @Test
@@ -755,16 +756,16 @@ public class CukedoctorConverterTest {
                 "==== Scenario: Scenario with listing" + newLine() +
                 "You can use *asciidoc markup* using feature comments." + newLine() +
                 "" + newLine() +
-                "****" + newLine() +
-                "Given ::" + newLine() + "=====" + newLine() +
+                "====" + newLine() +
+                "Given ::" + newLine() +
                 "I have listing in feature comments. icon:thumbs-up[role=\"green\",title=\"Passed\"] [small right]#(000ms)#" + newLine() +
                 "[source,java]" + newLine() +
                 "----" + newLine() +
                 "" + newLine() +
                 "System.setProperty(\"INTRO_CHAPTER_DIR\",\"/home/some/external/folder\");" + newLine() +
                 "----" + newLine() +
-                "" + newLine() + "=====" + newLine() +
-                "****" + newLine() + newLine()).replaceAll("\r", ""));
+                "" + newLine() +
+                "====" + newLine() + newLine()).replaceAll("\r", ""));
     }
 
     @Test
@@ -772,28 +773,29 @@ public class CukedoctorConverterTest {
         List<Feature> features = FeatureParser.parse(getClass().getResource("/com/github/cukedoctor/json-output/comment-with-admonition-and-listing.json").getPath());
         assertThat(features).isNotNull().hasSize(1);
         String output = Cukedoctor.instance(features).renderFeatures(features).getDocumentation();
-        assertThat(output.replaceAll("\r", "")).contains(("[[Enriched-feature, Enriched feature]]" + newLine() +
-                "=== *Enriched feature*" + newLine() +
-                "" + newLine() +
-                "==== Scenario: Scenario with admonition and  listing" + newLine() +
-                "You can use *asciidoc markup* using feature comments." + newLine() +
-                "" + newLine() +
-                "****" + newLine() +
-                "Given ::" + newLine() + "=====" + newLine() +
-                "I have admonition with a listing in feature comments. icon:thumbs-up[role=\"green\",title=\"Passed\"] [small right]#(032ms)#" + newLine() +
-                "" + newLine() +
-                "[TIP]" + newLine() +
-                "====" + newLine() +
-                "" + newLine() +
-                "This is a tip with source code inside" + newLine() +
-                "[source,java]" + newLine() +
-                "----" + newLine() +
-                "" + newLine() +
-                "System.setProperty(\"INTRO_CHAPTER_DIR\",\"/home/some/external/folder\");" + newLine() +
-                "----" + newLine() +
-                "====" + newLine() +
-                "" + newLine() + "=====" + newLine() +
-                "****" + newLine() + newLine()).replaceAll("\r", ""));
+        assertThat(output.replaceAll("\r", "")).contains(("[[Enriched-feature, Enriched feature]]"+newLine()+ 
+        		"=== *Enriched feature*"+newLine()+ 
+        		""+newLine()+ 
+        		"==== Scenario: Scenario with admonition and  listing"+newLine()+ 
+        		"You can use *asciidoc markup* using feature comments."+newLine()+ 
+        		""+newLine()+ 
+        		"===="+newLine()+ 
+        		"Given ::"+newLine()+ 
+        		"I have admonition with a listing in feature comments. icon:thumbs-up[role=\"green\",title=\"Passed\"] [small right]#(032ms)#"+newLine()+ 
+        		""+newLine()+ 
+        		"[TIP]"+newLine()+ 
+        		"===="+newLine()+ 
+        		""+newLine()+ 
+        		"This is a tip with source code inside"+newLine()+ 
+        		"[source,java]"+newLine()+ 
+        		"----"+newLine()+ 
+        		""+newLine()+ 
+        		"System.setProperty(\"INTRO_CHAPTER_DIR\",\"/home/some/external/folder\");"+newLine()+ 
+        		"----"+newLine()+ 
+        		"===="+newLine()+ 
+        		""+newLine()+ 
+        		"===="+newLine()+ 
+        		"").replaceAll("\r", ""));
     }
 
     @Test
@@ -801,60 +803,55 @@ public class CukedoctorConverterTest {
         List<Feature> features = FeatureParser.parse(getClass().getResource("/com/github/cukedoctor/json-output/calc-enriched.json").getPath());
         assertThat(features).isNotNull().hasSize(1);
         String output = Cukedoctor.instance(features).renderFeatures(features).getDocumentation();
-        assertThat(output.replaceAll("\r", "")).contains(("[[Calculator, Calculator]]" + newLine() +
-                "=== *Calculator*" + newLine() +
-                "" + newLine() +
-                "==== Scenario: Adding numbers" + newLine() +
-                "You can *asciidoc markup* in _feature_ #description#." + newLine() +
-                "" + newLine() +
-                "NOTE: This is a very important feature!" + newLine() +
-                "" + newLine() +
-                "****" + newLine() +
-                "Given ::" + newLine() +
-                "=====" + newLine() +
-                "I have numbers 1 and 2 icon:thumbs-up[role=\"green\",title=\"Passed\"] [small right]#(212ms)#" + newLine() +
-                "" + newLine() +
-                "IMPORTANT: Asciidoc markup inside *steps* must be surrounded by *curly brackets*." + newLine() +
-                "" + newLine() +
-                "=====" + newLine() +
-                "When ::" + newLine() +
-                "=====" + newLine() +
-                "I sum the numbers using the following java code: icon:thumbs-up[role=\"green\",title=\"Passed\"] [small right]#(001ms)#" + newLine() +
-                "******" + newLine() +
-                "" + newLine() +
-                "[discrete]" + newLine() +
-                "[source,java]" + newLine() +
-                "----" + newLine() +
-                "    public class Calc {" + newLine() +
-                "      public long sum(int x, int y){" + newLine() +
-                "          return  x + y; //<1>" + newLine() +
-                "      }" + newLine() +
-                "  }" + newLine() +
-                "----" + newLine() +
-                "[discrete]" + newLine() +
-                "<1> This is an asciidoc call inside a feature." + newLine() +
-                "" + newLine() +
-                "" + newLine() +
-                "******" + newLine() +
-                "" + newLine() +
-                "NOTE: You can use asciidoc in doc strings as well" + newLine() +
-                "" + newLine() +
-                "TIP: Steps comments are placed *before* each steps" + newLine() +
-                "" + newLine() +
-                "=====" + newLine() +
-                "Then ::" + newLine() +
-                "=====" + newLine() +
-                "I should have 3 as result icon:thumbs-up[role=\"green\",title=\"Passed\"] [small right]#(003ms)#" + newLine() +
-                newLine() +
-                "* this is a list of itens inside a feature step" + newLine() +
-                newLine() +
-                "* there is no multiline comment in gherkin" + newLine() +
-                newLine() +
-                "** second level list item" + newLine() +
-                "" + newLine() +
-                "=====" + newLine() +
-                "****" + newLine() +
-                "\n").replaceAll("\r", ""));
+        assertThat(output.replaceAll("\r", "")).contains(("[[Calculator, Calculator]]"+newLine()+ 
+        		"=== *Calculator*"+newLine()+ 
+        		""+newLine()+ 
+        		"==== Scenario: Adding numbers"+newLine()+ 
+        		"You can *asciidoc markup* in _feature_ #description#."+newLine()+ 
+        		""+newLine()+ 
+        		"NOTE: This is a very important feature!"+newLine()+ 
+        		""+newLine()+ 
+        		"===="+newLine()+ 
+        		"Given ::"+newLine()+ 
+        		"I have numbers 1 and 2 icon:thumbs-up[role=\"green\",title=\"Passed\"] [small right]#(212ms)#"+newLine()+ 
+        		""+newLine()+ 
+        		"IMPORTANT: Asciidoc markup inside *steps* must be surrounded by *curly brackets*."+newLine()+ 
+        		""+newLine()+ 
+        		"When ::"+newLine()+ 
+        		"I sum the numbers using the following java code: icon:thumbs-up[role=\"green\",title=\"Passed\"] [small right]#(001ms)#"+newLine()+ 
+        		"******"+newLine()+ 
+        		""+newLine()+ 
+        		"[discrete]"+newLine()+ 
+        		"[source,java]"+newLine()+ 
+        		"----"+newLine()+ 
+        		"    public class Calc {"+newLine()+ 
+        		"      public long sum(int x, int y){"+newLine()+ 
+        		"          return  x + y; //<1>"+newLine()+ 
+        		"      }"+newLine()+ 
+        		"  }"+newLine()+ 
+        		"----"+newLine()+ 
+        		"[discrete]"+newLine()+ 
+        		"<1> This is an asciidoc call inside a feature."+newLine()+ 
+        		""+newLine()+ 
+        		""+newLine()+ 
+        		"******"+newLine()+ 
+        		""+newLine()+ 
+        		"NOTE: You can use asciidoc in doc strings as well"+newLine()+ 
+        		""+newLine()+ 
+        		"TIP: Steps comments are placed *before* each steps"+newLine()+ 
+        		""+newLine()+ 
+        		"Then ::"+newLine()+ 
+        		"I should have 3 as result icon:thumbs-up[role=\"green\",title=\"Passed\"] [small right]#(003ms)#"+newLine()+ 
+        		""+newLine()+ 
+        		"* this is a list of itens inside a feature step"+newLine()+ 
+        		""+newLine()+ 
+        		"* there is no multiline comment in gherkin"+newLine()+ 
+        		""+newLine()+ 
+        		"** second level list item"+newLine()+ 
+        		""+newLine()+ 
+        		"===="+newLine()+ 
+        		""+newLine()+ 
+        		"").replaceAll("\r", ""));
     }
 
 
