@@ -26,6 +26,7 @@ image:https://travis-ci.org/rmpestano/cukedoctor.svg[Build Status (Travis CI), l
 image:https://coveralls.io/repos/rmpestano/cukedoctor/badge.svg?branch=master&service=github[Coverage, link=https://coveralls.io/r/rmpestano/cukedoctor]
 image:https://maven-badges.herokuapp.com/maven-central/com.github.cukedoctor/cukedoctor/badge.svg["Maven Central",link="http://search.maven.org/#search|ga|1|cukedoctor"]
 image:https://www.versioneye.com/user/projects/55d3328a265ff6002200029f/badge.svg?style=flat[Dependency Status, link=https://www.versioneye.com/user/projects/55d3328a265ff6002200029f/]
+image:https://sonarcloud.io/api/project_badges/measure?project=com.github.cukedoctor:cukedoctor&metric=alert_status["Sonar", link="https://sonarcloud.io/dashboard?id=com.github.cukedoctor%3Acukedoctor"]
 
 BDD living documentation using http://cukes.info/[Cucumber] and http://asciidoctor.org[Asciidoctor] based on Cucumber http://www.relishapp.com/cucumber/cucumber/docs/formatters/json-output-formatter[JSON execution output].
 

@@ -4,25 +4,25 @@ jdk: oraclejdk8
 cache:
   directories:
   - "$HOME/.m2/repository"
-
 env:
   global:
   - secure: e936lcbyk8GZ/WEcliJagjsVHepDzfk51vcTy9RuTQc1Cs3dGrLAn7VudSSyudQtk4rKZ0Q1dmPoSF0lCygsQaSLOONYPEt1HUPuifZzgxr3iLmIzYU+AbJxyKALCMNtJSQKsDyMoyJerwl8C2s2SKsHQZBhDnbkDfdDYkB+NlGFQpVzyKydElc4hoatjIFigsjMU+UTGGooi44eN5PqGVsb/9UAtAZCE2APXKfbTgH08R1ml/TwA/n/279GyXu6/T9BrIgRScrhy7Yxc9pC+rtDp6QVZN0/NsPNnbuzEF1EurQSRhL6dFLOT72iiCbAxQixxXwvo47eaGNZ3kIxVHYUcTjzIRM42atlI2Ghuipm39w0DlUuou1kcOAPXXCBl7oWpxgCnkny3ibN2XDXB7sH1jTnimuDI17QI5SUAiohVZHTB90LIb4j8C/rnOCVhMFGcT3JI9TKEXIlC7udd2gLgew7v+JVvFFqpcM8kIF1Fq1yaf2bW70hiqKKvHGwGvfX2jAPDQdcY4y/vlJmpm1jR4LJXbu+tZo/1OJFShMT0P2NXsYBBFassrMNLqVJW3gb5lwVAhQ2blOHcYfjH7c+PD5rc8zMUmzV9EPfhKquDOzkJn8uEqPBcNVG8IS/zHKvpFpN/0oo1o/QT0G8lH/TbDFr/0JXccgZnYoE4T0=
   - secure: d6GNeNESpM/Nhn6xD7GG+DKWjuP6uDTPtM3s+F0gdwmjuZ6iW4pLH8fWGy31D6UBCgJojvALBLUr9MqSBXGG9LWzr9liNN/b1F1YW3GNeGe2LNzjp5PlF+Cmn+Fgbhqwr/nbhWN98crdLwNc6PKZ0aQ1eFZVQUi0b0HFC3IOv1poldb4ER0nzLH8K2BxRbiqe30ZidMYWYOs8kBRtRlCN2VLV7yHgJMW5EpTvok0BQNq2XgRgy5Co1dy1I1ujVGpkyj0iuDEJIwE4zQvCBEULa5zBMeg91jAj3buH0GN0AcQPcb8foQlqJOvecS2Hjl829NghsgNVrM70YTReblB6FjrM+0C2C0zRFL0H4rxq8qOToNRIJIVStyq+OCH2/MqaeBbH2IgZ/RqtihO/rW4QoYAQ+yo3q7Wrp/JSFQVqj++eN4BSNN90rshbn4TUUrGHdA0ab9BnOHF52pxTVUbEfQnBj03LCS3ttbjMp/0v7xJD8OxLsiD09CmxZW+tImCUSlPCFukxNWoY3XewoWmAjrXXPEkLEvVm4y94Gt407lHxlE8ez4hrPzrwzVqE15oU+Wh8aO9trTJowQCOXg9/sHlERkxQ4hFA8NFlxDWtEbDvFMhDVbHmdMuJCdBpR8YoZ9MOTwcuiTgFGmFHX+PVxzcezzxoXZZLOKRQIMHBXQ=
   - secure: koks+pmzAiW19DRQbVQ3vFYfn3G/tCVuoDkA7aUqW0lXp48YVSLOPk0Yp+AZEKKsBor7XtN4lYLkRTC01JVCTNDoqspyYuAry/TgFbeqH+0JPCpsPAkNmLu6yaSyonIHuBv8aTUIf2w7EzXFDccfn297+aFRLOshMI96GeRjToKS7fcqgR6bw6aIhxnmgvczvcIBDzqhs0oyntfjQ/EFy11oiaRUlFbiTdFSseJeadiTslPq8fMOqiqk353D3sliThC3X4A0bDwLIlu+j6qEEolVd23u0jXytjKPZjkvbnWM+U+uxf3fWqCI4A5126OOR5UM7eCD/Jm2WwY4VtLYp/fReKSYyMwPJncwpITeqg0c1x9hvlHCA9d1oBqncZ4JwdxHXEHDIM4uFJA4lQ6Ny9wCgl9StB3s/KpbNmRMvKq3nbJH4x3MTyDhqPJInNxqP9l0zNa2ZezexKijMs2oNHoB36EqWlB5CigXyHum5kXdI6uJHx55mPjY4e4ZFl72t027uwM84ia5AO6pucbkJKWDB29S8Zn5fawxNgkZiL0a+/pNkt7A6xJSvEaC9adid2eBNYrocwR/UllkHzZ1LptcCzgu2LlfHiMZxS4rE91RL5febc0nMw28SMw1DtXymhx1WHkl0Uf6oj0JnHfVBAYV85gK8exncJ9WiUJWMOo=
   - secure: Cqt0IQXs0vz7WaKbsA33rRzth09lfJxybLQzH3pbyZDBf0CH+W03QuCG4tCe5p/itYV1MMqhkWG6Q05K+WJClP3KfwEGEZkG8HlvGnluA2anKGKuHUlnBUpKi+H2rmxG8uPbDOGCL8jzyZJeGUYrF1PABcHj0/IKimOtAIZz+YscBYuSWZR2aVtdFyHHzDThYivFto4mqoH4CCC/WfhnxY1z/c80m99WNKpf/MioDPjpPHz6ZnVQWuev4QtvOme9Vld9Su4BXD0aMrUR2Dfn+Uqz35vv2zL58CNo17GyX+/sTkCp3kDbshN1KdtlXdFfc50VCSMAeWaxIAd8v8Hwb4AXISIILr/A4fW1hSS+A0YCCVDBrU7gicIT/XTFWklm1E6hjmW7mzEj6y3p05xZAC4kZ2YVUORGMADXwaUCTjcAix8yWP/7RzBI7crAujaY+ATaM9YiPjIYhiOv1hYkTHL3cyOsTx6KxssVm4NKQ1hQ2OsX1xXp6SR4Yykq8+qUPG3dVZ9dT8ouXgAQMVl5JBuwcwGpTuy6ppJkWW4F/Wo0m81KhnrqZxVNu+zTqRuwd0yMIsfU3bFYT2S+qezeGcklGrb+yJBXXml/ltxYuIg55AWPkXjCBCqXwd/ztf0Fv1tBl70aCxQ4WtZljxRJawKVrxlEKtT3tcd2a2CrQ0Y=
-
+  - secure: mv6/JsznLfK6ANaN2Rz7Ku9qiJp+JnxjvkRmSe4doMo7a4b1BQ5zVTw4ba7UNk4zJfGaIOtiTzJn9FXKWdCJazHN7o6BzdFr2VGXA1PBlA85bMgMHXi0xwmAs7JBt+efpfJPEwtxwjnAmnCFvTkYmWafyZEqpH9jcA8dZkZ9BiVHVkdexCxU44FMS6dEabX72u+Y6MPKovNPtE83htDVNabsPW5tp9unezdnIi2WhEbpE+5TLNq17UynPmInFzyMcdOpsk34YFwd5amuNiS92KHtJMz9VP4pX02F3ELjAOXSTnz3CF3wzzTywLguCMx+pFtAF5O34okmAJr0oGuVuzwH2/u5ohN+ce5TZPoC39Zd/O2iuDeUzCWIn0Uk53VytZJfv5cihC0vywAyyKfH5kPIH6QZhQc7Jl9Yi2IRt/KCKKraYACTCGxKy3xQCMZwAxr09b9LKPkv08muZpm9174WDRqftGJ1S99c4InVxUy1j0jLLR/6j/0V7j/SRJQGZRS9g9g4AOY8n40Gem78weAGZoyC54wNhSmXhcYDdhaipuJAjYBeR5IfzNwSro+JY9ulFZXq5lgOWF4TD+/McokwlHu4Q/ewEMC9wn9RtEYOh9NnI0nkg07ieffHLoz+1kT/ygpKVjznCq3QYJeQPSwyAQu1XFpMWtqgZHE6Pic=
 before_script:
 - export MAVEN_OPTS="-Xms256m -Xmx512m"
 - git config --global user.name rmpestano
 - git config --global user.email rmpestano@gmail.com
-
 script:
 - mvn clean install jacoco:report coveralls:report -Pcoverage
-- if [[ $TRAVIS_PULL_REQUEST == "false" ]] && [[ $TRAVIS_BRANCH == "master" ]]; then mvn sonar:sonar -Psonar -Dsonar.organization=cukedoctor -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=${SONAR_KEY} ; fi ;
+- if [[ $TRAVIS_PULL_REQUEST == "false" ]] && [[ $TRAVIS_BRANCH == "master" ]]; then
+  mvn sonar:sonar -Psonar -Dsonar.organization=cukedoctor -Dsonar.host.url=https://sonarcloud.io
+  -Dsonar.login=${SONAR_KEY} ; fi ;
 - cd cukedoctor-converter && mvn compile exec:exec -Pperf
-- if [[ $TRAVIS_PULL_REQUEST == "false" ]] && [[ $TRAVIS_BRANCH == "master" ]]; then mvn -q cukedoctor:execute scm-publish:publish-scm -Pdocs ; fi ;
-
+- if [[ $TRAVIS_PULL_REQUEST == "false" ]] && [[ $TRAVIS_BRANCH == "master" ]]; then
+  mvn -q cukedoctor:execute scm-publish:publish-scm -Pdocs ; fi ;
 after_success:
 - cd .. && mvn clean install -Pfat-jar -DskipTests=true
 - mvn deploy --settings settings.xml -DskipTests=true
