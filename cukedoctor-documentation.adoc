@@ -36,12 +36,11 @@ ____
 ====
 ****
 
-==== Convert features test output into documentation
+==== Convert features test output into documentation icon:thumbs-down[role="red",title="Failed"]
 
-****
+====
 Given ::
-=====
-The following two features: icon:thumbs-up[role="green",title="Passed"] [small right]#(01s 169ms)#
+The following two features: icon:thumbs-up[role="green",title="Passed"] [small right]#(311ms)#
 ----
 
 Feature: Feature1
@@ -57,10 +56,8 @@ Feature: Feature2
     Given scenario step
 
 ----
-=====
 When ::
-=====
-I convert their json test output using cukedoctor converter icon:thumbs-up[role="green",title="Passed"] [small right]#(01s 118ms)#
+I convert their json test output using cukedoctor converter icon:thumbs-up[role="green",title="Passed"] [small right]#(921ms)#
 ******
 
 [discrete]
@@ -83,10 +80,8 @@ NOTE: *plugin* option replaced *format* option which was deprecated in newer cuc
 
 ******
 
-=====
 Then ::
-=====
-I should have awesome living documentation icon:thumbs-up[role="green",title="Passed"] [small right]#(003ms)#
+I should have awesome living documentation icon:thumbs-down[role="red",title="Failed"] [small right]#(010ms)#
 ******
 
 [discrete]
@@ -188,8 +183,37 @@ scenario step icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 
 ******
 
+IMPORTANT: org.junit.ComparisonFailure: expected:<...Scenario feature 1
+
+[****
+Given ::
+=====
+scenario step icon:thumbs-up[role="green",title="Passed"] [small right]#(647ms)#
 =====
 ****
+
+[[Feature2, Feature2]]
+=== *Feature2*
+
+==== Scenario: Scenario feature 2
+
+****
+Given ::
+=====
+scenario step icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
+****]
+
+"> but was:<...Scenario feature 1
+
+[====
+Given ::
+scenario step icon:thumbs-up[role="green",title="Passed"] [small right]#(647ms)#
+====
+...
+
+
+====
 
 [[Ordering, Ordering]]
 === *Ordering*
@@ -205,11 +229,10 @@ ____
 ====
 ****
 
-==== Default ordering
+==== Default ordering icon:thumbs-down[role="red",title="Failed"]
 
-****
+====
 Given ::
-=====
 The following two features: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -226,14 +249,10 @@ Feature: Feature2
     Given scenario step
 
 ----
-=====
 When ::
-=====
-I convert them using default order icon:thumbs-up[role="green",title="Passed"] [small right]#(041ms)#
-=====
+I convert them using default order icon:thumbs-up[role="green",title="Passed"] [small right]#(015ms)#
 Then ::
-=====
-Features should be ordered by name in resulting documentation icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+Features should be ordered by name in resulting documentation icon:thumbs-down[role="red",title="Failed"] [small right]#(000ms)#
 ******
 
 [discrete]
@@ -277,14 +296,46 @@ scenario step icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 
 ******
 
-=====
-****
+IMPORTANT: java.lang.AssertionError: 
+Expecting:
+ <"== *Features*
 
-==== Custom ordering
+[[Feature1, Feature1]]
+=== *Feature1*
 
-****
+==== Scenario: Scenario feature 1
+
+====
 Given ::
-=====
+scenario step icon:thumbs-up[role="green",title="Passed"] [small right]#(647ms)#
+====
+
+[[Feature2, Feature2]]
+=== *Feature2*
+
+==== Scenario: Scenario feature 2
+
+====
+Given ::
+scenario step icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+====
+
+">
+to contain:
+ <"[[Feature1, Feature1]]
+=== *Feature1*
+
+==== Scenario: Scenario feature 1
+
+**...
+
+
+====
+
+==== Custom ordering icon:thumbs-down[role="red",title="Failed"]
+
+====
+Given ::
 The following two features: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -306,14 +357,10 @@ Feature: Feature2
 
 NOTE: Ordering is done using feature comment '*#order:*'
 
-=====
 When ::
-=====
-I convert them using comment order icon:thumbs-up[role="green",title="Passed"] [small right]#(033ms)#
-=====
+I convert them using comment order icon:thumbs-up[role="green",title="Passed"] [small right]#(020ms)#
 Then ::
-=====
-Features should be ordered respecting order comment icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+Features should be ordered respecting order comment icon:thumbs-down[role="red",title="Failed"] [small right]#(000ms)#
 ******
 
 [discrete]
@@ -357,8 +404,41 @@ scenario step icon:thumbs-up[role="green",title="Passed"] [small right]#(313ms)#
 
 ******
 
-=====
-****
+IMPORTANT: java.lang.AssertionError: 
+Expecting:
+ <"== *Features*
+
+[[Feature2, Feature2]]
+=== *Feature2*
+
+==== Scenario: Scenario feature 2
+
+====
+Given ::
+scenario step icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+====
+
+[[Feature1, Feature1]]
+=== *Feature1*
+
+==== Scenario: Scenario feature 1
+
+====
+Given ::
+scenario step icon:thumbs-up[role="green",title="Passed"] [small right]#(313ms)#
+====
+
+">
+to contain:
+ <"[[Feature2, Feature2]]
+=== *Feature2*
+
+==== Scenario: Scenario feature 2
+
+**...
+
+
+====
 
 [[Enrich-features, Enrich features]]
 === *Enrich features*
@@ -374,12 +454,11 @@ ____
 ====
 ****
 
-==== DocSting enrichment
+==== DocSting enrichment icon:thumbs-down[role="red",title="Failed"]
 Asciidoc markup can be used in feature *DocStrings*. To do so you need to enable it by using *[cukector-dicrete]* comment on the feature.
 
-****
+====
 Given ::
-=====
 The following two features: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -415,14 +494,10 @@ Feature: Enrich feature
 """
 
 ----
-=====
 When ::
-=====
-I convert docstring enriched json output using cukedoctor converter icon:thumbs-up[role="green",title="Passed"] [small right]#(065ms)#
-=====
+I convert docstring enriched json output using cukedoctor converter icon:thumbs-up[role="green",title="Passed"] [small right]#(048ms)#
 Then ::
-=====
-DocString asciidoc output must be rendered in my documentation icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+DocString asciidoc output must be rendered in my documentation icon:thumbs-down[role="red",title="Failed"] [small right]#(020ms)#
 ******
 
 [discrete]
@@ -496,15 +571,47 @@ the following table icon:thumbs-up[role="green",title="Passed"] [small right]#(0
 
 ******
 
-=====
-****
+IMPORTANT: java.lang.AssertionError: 
+Expecting:
+ <"== *Features*
 
-==== Comments enrichment
+[[Discrete-class-feature, Discrete class feature]]
+=== *Discrete class feature*
+
+==== Scenario: Render source code
+
+====
+Given ::
+the following source code icon:thumbs-up[role="green",title="Passed"] [small right]#(267ms)#
+******
+
+[discrete]
+[source, java]
+-----
+public int sum(int x, int y){
+    int result = x + y;
+    return result; <1>
+}
+-----
+<1> We can have callouts in living documentation>
+
+
+******
+
+====
+
+==== Scenario: Render table
+
+=...
+
+
+====
+
+==== Comments enrichment icon:thumbs-down[role="red",title="Failed"]
 Asciidoc markup can be used in feature comments. To do so you need to surround asciidoc markup by *curly brackets*;.
 
-****
+====
 Given ::
-=====
 The following feature with asciidoc markup in comments: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -528,14 +635,10 @@ Feature: Calculator
 
 
 ----
-=====
 When ::
-=====
-I convert enriched feature json output using cukedoctor icon:thumbs-up[role="green",title="Passed"] [small right]#(052ms)#
-=====
+I convert enriched feature json output using cukedoctor icon:thumbs-up[role="green",title="Passed"] [small right]#(033ms)#
 Then ::
-=====
-Asciidoc markup on comments must be rendered in my documentation icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+Asciidoc markup on comments must be rendered in my documentation icon:thumbs-down[role="red",title="Failed"] [small right]#(000ms)#
 ******
 
 [discrete]
@@ -595,8 +698,31 @@ I should have 3 as result icon:thumbs-up[role="green",title="Passed"] [small rig
 
 ******
 
-=====
-****
+IMPORTANT: java.lang.AssertionError: 
+Expecting:
+ <"==*Features*
+
+[[Calculator,Calculator]]
+===*Calculator*
+
+====Scenario:Addingnumbers
+Youcanuse*asciidocmarkup*in_feature_#description#.
+
+NOTE:Thisisaveryimportantfeature!
+
+====
+Given::
+Ihavenumbers1and2icon:thumbs-up[role="green",title="Passed"][smallright]#(114ms)#
+
+IMPORTANT:Asciidocmarkupinside*steps*mustbesurroundedby*curlybrackets*.
+
+When::
+Isumthenumbersicon:thumbs-up[role="green",title="Passed"][smallright]#(000ms)#
+
+NOTE:Stepscommentsareplaced*befo...
+
+
+====
 
 [[Documentation-introduction-chapter, Documentation introduction chapter]]
 === *Documentation introduction chapter*
@@ -612,11 +738,10 @@ ____
 ====
 ****
 
-==== Introduction chapter in classpath
+==== Introduction chapter in classpath icon:thumbs-down[role="red",title="Failed"]
 
-****
+====
 Given ::
-=====
 The following two features: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
@@ -633,10 +758,8 @@ Feature: Feature2
     Given scenario step
 
 ----
-=====
 And ::
-=====
-The following asciidoc document is on your application classpath icon:thumbs-up[role="green",title="Passed"] [small right]#(047ms)#
+The following asciidoc document is on your application classpath icon:thumbs-up[role="green",title="Passed"] [small right]#(039ms)#
 ******
 
 [discrete]
@@ -673,14 +796,10 @@ System.setProperty("INTRO_CHAPTER_DIR","/home/some/external/folder");
 ----
 ====
 
-=====
 When ::
-=====
 Bdd tests results are converted into documentation by Cukedoctor icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
-=====
 Then ::
-=====
-Resulting documentation should have the provided introduction chapter icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+Resulting documentation should have the provided introduction chapter icon:thumbs-down[role="red",title="Failed"] [small right]#(000ms)#
 ******
 
 [discrete]
@@ -798,6 +917,35 @@ scenario step icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 
 ******
 
+IMPORTANT: org.junit.ComparisonFailure: expected:<...Scenario feature 1
+
+[****
+Given ::
+=====
+scenario step icon:thumbs-up[role="green",title="Passed"] [small right]#(647ms)#
 =====
 ****
+
+[[Feature2, Feature2]]
+=== *Feature2*
+
+==== Scenario: Scenario feature 2
+
+****
+Given ::
+=====
+scenario step icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
+****]
+
+"> but was:<...Scenario feature 1
+
+[====
+Given ::
+scenario step icon:thumbs-up[role="green",title="Passed"] [small right]#(647ms)#
+====
+...
+
+
+====
 

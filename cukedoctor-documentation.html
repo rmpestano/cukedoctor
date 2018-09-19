@@ -537,21 +537,34 @@ table.CodeRay td.code>pre{padding:0}
       <ul class="sectlevel2"> 
        <li><a href="#Cukedoctor-Converter">2.1. <strong>Cukedoctor Converter</strong></a> 
         <ul class="sectlevel3"> 
-         <li><a href="#_convert_features_test_output_into_documentation">2.1.1. Convert features test output into documentation</a></li> 
+         <li><a href="#_convert_features_test_output_into_documentation_span_class_icon_red_i_class_fa_fa_thumbs_down_title_failed_i_span">2.1.1. Convert features test output into documentation <span class="icon red"><i class="fa fa-thumbs-down" title="Failed"></i></span></a></li> 
         </ul> </li> 
-       <li><a href="#Ordering">2.2. <strong>Ordering</strong></a> 
+       <li><a href="#Feature1">2.2. <strong>Feature1</strong></a> 
         <ul class="sectlevel3"> 
-         <li><a href="#_default_ordering">2.2.1. Default ordering</a></li> 
-         <li><a href="#_custom_ordering">2.2.2. Custom ordering</a></li> 
+         <li><a href="#_scenario_scenario_feature_1_3">2.2.1. Scenario: Scenario feature 1</a></li> 
         </ul> </li> 
-       <li><a href="#Enrich-features">2.3. <strong>Enrich features</strong></a> 
+       <li><a href="#Feature2">2.3. <strong>Feature2</strong></a> 
         <ul class="sectlevel3"> 
-         <li><a href="#_docsting_enrichment">2.3.1. DocSting enrichment</a></li> 
-         <li><a href="#_comments_enrichment">2.3.2. Comments enrichment</a></li> 
+         <li><a href="#_scenario_scenario_feature_2_3">2.3.1. Scenario: Scenario feature 2</a></li> 
+         <li><a href="#_scenario_scenario_feature_1_4">2.3.2. Scenario: Scenario feature 1</a></li> 
         </ul> </li> 
-       <li><a href="#Documentation-introduction-chapter">2.4. <strong>Documentation introduction chapter</strong></a> 
+       <li><a href="#Feature2">2.4. <strong>Feature2</strong></a> 
         <ul class="sectlevel3"> 
-         <li><a href="#_introduction_chapter_in_classpath">2.4.1. Introduction chapter in classpath</a></li> 
+         <li><a href="#_scenario_scenario_feature_2_5">2.4.1. Scenario: Scenario feature 2</a></li> 
+        </ul> </li> 
+       <li><a href="#Feature1">2.5. <strong>Feature1</strong></a> 
+        <ul class="sectlevel3"> 
+         <li><a href="#_scenario_scenario_feature_1_6">2.5.1. Scenario: Scenario feature 1</a></li> 
+         <li><a href="#_scenario_scenario_feature_2_6">2.5.2. Scenario: Scenario feature 2</a></li> 
+        </ul> </li> 
+       <li><a href="#Discrete-class-feature">2.6. <strong>Discrete class feature</strong></a> 
+        <ul class="sectlevel3"> 
+         <li><a href="#_scenario_render_source_code_2">2.6.1. Scenario: Render source code</a></li> 
+         <li><a href="#_scenario_render_table_2">2.6.2. Scenario: Render table</a></li> 
+        </ul> </li> 
+       <li><a href="#Documentation-introduction-chapter">2.7. <strong>Documentation introduction chapter</strong></a> 
+        <ul class="sectlevel3"> 
+         <li><a href="#_introduction_chapter_in_classpath_span_class_icon_red_i_class_fa_fa_thumbs_down_title_failed_i_span">2.7.1. Introduction chapter in classpath <span class="icon red"><i class="fa fa-thumbs-down" title="Failed"></i></span></a></li> 
         </ul> </li> 
       </ul> </li> 
     </ul> 
@@ -612,24 +625,22 @@ table.CodeRay td.code>pre{padding:0}
        </div> 
       </div> 
       <div class="sect3"> 
-       <h4 id="_convert_features_test_output_into_documentation"><a class="anchor" href="#_convert_features_test_output_into_documentation"></a>2.1.1. Convert features test output into documentation</h4> 
-       <div class="sidebarblock"> 
+       <h4 id="_convert_features_test_output_into_documentation_span_class_icon_red_i_class_fa_fa_thumbs_down_title_failed_i_span"><a class="anchor" href="#_convert_features_test_output_into_documentation_span_class_icon_red_i_class_fa_fa_thumbs_down_title_failed_i_span"></a>2.1.1. Convert features test output into documentation <span class="icon red"><i class="fa fa-thumbs-down" title="Failed"></i></span></h4> 
+       <div class="exampleblock"> 
         <div class="content"> 
          <div class="dlist"> 
           <dl> 
            <dt class="hdlist1">
              Given 
            </dt> 
+           <dd> 
+            <p>The following two features: <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(311ms)</span></p> 
+           </dd> 
           </dl> 
          </div> 
-         <div class="exampleblock"> 
+         <div class="listingblock"> 
           <div class="content"> 
-           <div class="paragraph"> 
-            <p>The following two features: <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(01s 169ms)</span></p> 
-           </div> 
-           <div class="listingblock"> 
-            <div class="content"> 
-             <pre>Feature: Feature1
+           <pre>Feature: Feature1
 
   Scenario: Scenario feature 1
 
@@ -640,8 +651,6 @@ Feature: Feature2
   Scenario: Scenario feature 2
 
     Given scenario step</pre> 
-            </div> 
-           </div> 
           </div> 
          </div> 
          <div class="dlist"> 
@@ -649,45 +658,41 @@ Feature: Feature2
            <dt class="hdlist1">
              When 
            </dt> 
+           <dd> 
+            <p>I convert their json test output using cukedoctor converter <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(921ms)</span></p> 
+           </dd> 
           </dl> 
          </div> 
-         <div class="exampleblock"> 
+         <div class="sidebarblock"> 
           <div class="content"> 
-           <div class="paragraph"> 
-            <p>I convert their json test output using cukedoctor converter <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(01s 118ms)</span></p> 
-           </div> 
-           <div class="sidebarblock"> 
-            <div class="content"> 
-             <div class="admonitionblock important"> 
-              <table> 
-               <tbody> 
-                <tr> 
-                 <td class="icon"> <i class="fa icon-important" title="Important"></i> </td> 
-                 <td class="content"> 
-                  <div class="paragraph"> 
-                   <p>To generate cucumber .json output files just execute your <em>BDD</em> tests with <strong>json</strong> formatter, example:</p> 
-                  </div> 
-                  <div class="listingblock"> 
-                   <div class="content"> 
-                    <pre class="CodeRay highlight"><code data-lang="java"><span class="annotation">@RunWith</span>(Cucumber.class)
+           <div class="admonitionblock important"> 
+            <table> 
+             <tbody> 
+              <tr> 
+               <td class="icon"> <i class="fa icon-important" title="Important"></i> </td> 
+               <td class="content"> 
+                <div class="paragraph"> 
+                 <p>To generate cucumber .json output files just execute your <em>BDD</em> tests with <strong>json</strong> formatter, example:</p> 
+                </div> 
+                <div class="listingblock"> 
+                 <div class="content"> 
+                  <pre class="CodeRay highlight"><code data-lang="java"><span class="annotation">@RunWith</span>(Cucumber.class)
 <span class="annotation">@CucumberOptions</span>(plugin = {<span class="string"><span class="delimiter">"</span><span class="content">json:target/cucumber.json</span><span class="delimiter">"</span></span>} )</code></pre> 
-                   </div> 
-                  </div> 
-                  <div class="admonitionblock note"> 
-                   <table> 
-                    <tbody> 
-                     <tr> 
-                      <td class="icon"> <i class="fa icon-note" title="Note"></i> </td> 
-                      <td class="content"> <strong>plugin</strong> option replaced <strong>format</strong> option which was deprecated in newer cucumber versions. </td> 
-                     </tr> 
-                    </tbody> 
-                   </table> 
-                  </div> </td> 
-                </tr> 
-               </tbody> 
-              </table> 
-             </div> 
-            </div> 
+                 </div> 
+                </div> 
+                <div class="admonitionblock note"> 
+                 <table> 
+                  <tbody> 
+                   <tr> 
+                    <td class="icon"> <i class="fa icon-note" title="Note"></i> </td> 
+                    <td class="content"> <strong>plugin</strong> option replaced <strong>format</strong> option which was deprecated in newer cucumber versions. </td> 
+                   </tr> 
+                  </tbody> 
+                 </table> 
+                </div> </td> 
+              </tr> 
+             </tbody> 
+            </table> 
            </div> 
           </div> 
          </div> 
@@ -696,303 +701,402 @@ Feature: Feature2
            <dt class="hdlist1">
              Then 
            </dt> 
+           <dd> 
+            <p>I should have awesome living documentation <span class="icon red"><i class="fa fa-thumbs-down" title="Failed"></i></span> <span class="small right">(010ms)</span></p> 
+           </dd> 
           </dl> 
          </div> 
-         <div class="exampleblock"> 
+         <div class="sidebarblock"> 
           <div class="content"> 
-           <div class="paragraph"> 
-            <p>I should have awesome living documentation <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(003ms)</span></p> 
-           </div> 
+           <h1 id="_strong_documentation_strong" class="discrete"><strong>Documentation</strong></h1> 
+           <h2 id="_strong_summary_strong" class="discrete"><strong>Summary</strong></h2> 
+           <table class="tableblock frame-all grid-all spread"> 
+            <colgroup> 
+             <col style="width: 8.3333%;"> 
+             <col style="width: 8.3333%;"> 
+             <col style="width: 8.3333%;"> 
+             <col style="width: 8.3333%;"> 
+             <col style="width: 8.3333%;"> 
+             <col style="width: 8.3333%;"> 
+             <col style="width: 8.3333%;"> 
+             <col style="width: 8.3333%;"> 
+             <col style="width: 8.3333%;"> 
+             <col style="width: 8.3333%;"> 
+             <col style="width: 8.3333%;"> 
+             <col style="width: 8.3337%;"> 
+            </colgroup> 
+            <thead> 
+             <tr> 
+              <th class="tableblock halign-center valign-top" colspan="3">Scenarios</th> 
+              <th class="tableblock halign-center valign-top" colspan="7">Steps</th> 
+              <th class="tableblock halign-center valign-top" colspan="2">Features: 2</th> 
+             </tr> 
+            </thead> 
+            <tfoot> 
+             <tr> 
+              <td class="tableblock halign-center valign-top"><p class="tableblock"><code>2</code></p></td> 
+              <td class="tableblock halign-center valign-top"><p class="tableblock"><code>0</code></p></td> 
+              <td class="tableblock halign-center valign-top"><p class="tableblock"><code>2</code></p></td> 
+              <td class="tableblock halign-center valign-top"><p class="tableblock"><code>2</code></p></td> 
+              <td class="tableblock halign-center valign-top"><p class="tableblock"><code>0</code></p></td> 
+              <td class="tableblock halign-center valign-top"><p class="tableblock"><code>0</code></p></td> 
+              <td class="tableblock halign-center valign-top"><p class="tableblock"><code>0</code></p></td> 
+              <td class="tableblock halign-center valign-top"><p class="tableblock"><code>0</code></p></td> 
+              <td class="tableblock halign-center valign-top"><p class="tableblock"><code>0</code></p></td> 
+              <td class="tableblock halign-center valign-top"><p class="tableblock"><code>2</code></p></td> 
+              <td class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><code>647ms</code></p></td> 
+             </tr> 
+            </tfoot> 
+            <tbody> 
+             <tr> 
+              <td class="tableblock halign-center valign-top"><p class="tableblock"><code><span class="green"><strong>Passed</strong></span></code></p></td> 
+              <td class="tableblock halign-center valign-top"><p class="tableblock"><code><span class="red"><strong>Failed</strong></span></code></p></td> 
+              <td class="tableblock halign-center valign-top"><p class="tableblock"><code>Total</code></p></td> 
+              <td class="tableblock halign-center valign-top"><p class="tableblock"><code><span class="green"><strong>Passed</strong></span></code></p></td> 
+              <td class="tableblock halign-center valign-top"><p class="tableblock"><code><span class="red"><strong>Failed</strong></span></code></p></td> 
+              <td class="tableblock halign-center valign-top"><p class="tableblock"><code><span class="purple"><strong>Skipped</strong></span></code></p></td> 
+              <td class="tableblock halign-center valign-top"><p class="tableblock"><code><span class="maroon"><strong>Pending</strong></span></code></p></td> 
+              <td class="tableblock halign-center valign-top"><p class="tableblock"><code><span class="yellow"><strong>Undefined</strong></span></code></p></td> 
+              <td class="tableblock halign-center valign-top"><p class="tableblock"><code><span class="blue"><strong>Missing</strong></span></code></p></td> 
+              <td class="tableblock halign-center valign-top"><p class="tableblock"><code>Total</code></p></td> 
+              <td class="tableblock halign-center valign-top"><p class="tableblock"><code>Duration</code></p></td> 
+              <td class="tableblock halign-center valign-top"><p class="tableblock"><code>Status</code></p></td> 
+             </tr> 
+             <tr> 
+              <td class="tableblock halign-center valign-top" colspan="12"><p class="tableblock"><code><strong><a href="#Feature1">Feature1</a></strong></code></p></td> 
+             </tr> 
+             <tr> 
+              <td class="tableblock halign-center valign-top"><p class="tableblock"><code>1</code></p></td> 
+              <td class="tableblock halign-center valign-top"><p class="tableblock"><code>0</code></p></td> 
+              <td class="tableblock halign-center valign-top"><p class="tableblock"><code>1</code></p></td> 
+              <td class="tableblock halign-center valign-top"><p class="tableblock"><code>1</code></p></td> 
+              <td class="tableblock halign-center valign-top"><p class="tableblock"><code>0</code></p></td> 
+              <td class="tableblock halign-center valign-top"><p class="tableblock"><code>0</code></p></td> 
+              <td class="tableblock halign-center valign-top"><p class="tableblock"><code>0</code></p></td> 
+              <td class="tableblock halign-center valign-top"><p class="tableblock"><code>0</code></p></td> 
+              <td class="tableblock halign-center valign-top"><p class="tableblock"><code>0</code></p></td> 
+              <td class="tableblock halign-center valign-top"><p class="tableblock"><code>1</code></p></td> 
+              <td class="tableblock halign-center valign-top"><p class="tableblock"><code>647ms</code></p></td> 
+              <td class="tableblock halign-center valign-top"><p class="tableblock"><code><span class="green"><strong>passed</strong></span></code></p></td> 
+             </tr> 
+             <tr> 
+              <td class="tableblock halign-center valign-top" colspan="12"><p class="tableblock"><code><strong><a href="#Feature2">Feature2</a></strong></code></p></td> 
+             </tr> 
+             <tr> 
+              <td class="tableblock halign-center valign-top"><p class="tableblock"><code>1</code></p></td> 
+              <td class="tableblock halign-center valign-top"><p class="tableblock"><code>0</code></p></td> 
+              <td class="tableblock halign-center valign-top"><p class="tableblock"><code>1</code></p></td> 
+              <td class="tableblock halign-center valign-top"><p class="tableblock"><code>1</code></p></td> 
+              <td class="tableblock halign-center valign-top"><p class="tableblock"><code>0</code></p></td> 
+              <td class="tableblock halign-center valign-top"><p class="tableblock"><code>0</code></p></td> 
+              <td class="tableblock halign-center valign-top"><p class="tableblock"><code>0</code></p></td> 
+              <td class="tableblock halign-center valign-top"><p class="tableblock"><code>0</code></p></td> 
+              <td class="tableblock halign-center valign-top"><p class="tableblock"><code>0</code></p></td> 
+              <td class="tableblock halign-center valign-top"><p class="tableblock"><code>1</code></p></td> 
+              <td class="tableblock halign-center valign-top"><p class="tableblock"><code>000ms</code></p></td> 
+              <td class="tableblock halign-center valign-top"><p class="tableblock"><code><span class="green"><strong>passed</strong></span></code></p></td> 
+             </tr> 
+             <tr> 
+              <td class="tableblock halign-center valign-top" colspan="12"><p class="tableblock"><code><strong>Totals</strong></code></p></td> 
+             </tr> 
+            </tbody> 
+           </table> 
+           <h2 id="_strong_features_strong_2" class="discrete"><strong>Features</strong></h2> 
+           <h3 id="Feature1" class="discrete"><strong>Feature1</strong></h3> 
+           <h4 id="_scenario_scenario_feature_1" class="discrete">Scenario: Scenario feature 1</h4> 
            <div class="sidebarblock"> 
             <div class="content"> 
-             <h1 id="_strong_documentation_strong" class="discrete"><strong>Documentation</strong></h1> 
-             <h2 id="_strong_summary_strong" class="discrete"><strong>Summary</strong></h2> 
-             <table class="tableblock frame-all grid-all spread"> 
-              <colgroup> 
-               <col style="width: 8.3333%;"> 
-               <col style="width: 8.3333%;"> 
-               <col style="width: 8.3333%;"> 
-               <col style="width: 8.3333%;"> 
-               <col style="width: 8.3333%;"> 
-               <col style="width: 8.3333%;"> 
-               <col style="width: 8.3333%;"> 
-               <col style="width: 8.3333%;"> 
-               <col style="width: 8.3333%;"> 
-               <col style="width: 8.3333%;"> 
-               <col style="width: 8.3333%;"> 
-               <col style="width: 8.3337%;"> 
-              </colgroup> 
-              <thead> 
-               <tr> 
-                <th class="tableblock halign-center valign-top" colspan="3">Scenarios</th> 
-                <th class="tableblock halign-center valign-top" colspan="7">Steps</th> 
-                <th class="tableblock halign-center valign-top" colspan="2">Features: 2</th> 
-               </tr> 
-              </thead> 
-              <tfoot> 
-               <tr> 
-                <td class="tableblock halign-center valign-top"><p class="tableblock"><code>2</code></p></td> 
-                <td class="tableblock halign-center valign-top"><p class="tableblock"><code>0</code></p></td> 
-                <td class="tableblock halign-center valign-top"><p class="tableblock"><code>2</code></p></td> 
-                <td class="tableblock halign-center valign-top"><p class="tableblock"><code>2</code></p></td> 
-                <td class="tableblock halign-center valign-top"><p class="tableblock"><code>0</code></p></td> 
-                <td class="tableblock halign-center valign-top"><p class="tableblock"><code>0</code></p></td> 
-                <td class="tableblock halign-center valign-top"><p class="tableblock"><code>0</code></p></td> 
-                <td class="tableblock halign-center valign-top"><p class="tableblock"><code>0</code></p></td> 
-                <td class="tableblock halign-center valign-top"><p class="tableblock"><code>0</code></p></td> 
-                <td class="tableblock halign-center valign-top"><p class="tableblock"><code>2</code></p></td> 
-                <td class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><code>647ms</code></p></td> 
-               </tr> 
-              </tfoot> 
-              <tbody> 
-               <tr> 
-                <td class="tableblock halign-center valign-top"><p class="tableblock"><code><span class="green"><strong>Passed</strong></span></code></p></td> 
-                <td class="tableblock halign-center valign-top"><p class="tableblock"><code><span class="red"><strong>Failed</strong></span></code></p></td> 
-                <td class="tableblock halign-center valign-top"><p class="tableblock"><code>Total</code></p></td> 
-                <td class="tableblock halign-center valign-top"><p class="tableblock"><code><span class="green"><strong>Passed</strong></span></code></p></td> 
-                <td class="tableblock halign-center valign-top"><p class="tableblock"><code><span class="red"><strong>Failed</strong></span></code></p></td> 
-                <td class="tableblock halign-center valign-top"><p class="tableblock"><code><span class="purple"><strong>Skipped</strong></span></code></p></td> 
-                <td class="tableblock halign-center valign-top"><p class="tableblock"><code><span class="maroon"><strong>Pending</strong></span></code></p></td> 
-                <td class="tableblock halign-center valign-top"><p class="tableblock"><code><span class="yellow"><strong>Undefined</strong></span></code></p></td> 
-                <td class="tableblock halign-center valign-top"><p class="tableblock"><code><span class="blue"><strong>Missing</strong></span></code></p></td> 
-                <td class="tableblock halign-center valign-top"><p class="tableblock"><code>Total</code></p></td> 
-                <td class="tableblock halign-center valign-top"><p class="tableblock"><code>Duration</code></p></td> 
-                <td class="tableblock halign-center valign-top"><p class="tableblock"><code>Status</code></p></td> 
-               </tr> 
-               <tr> 
-                <td class="tableblock halign-center valign-top" colspan="12"><p class="tableblock"><code><strong><a href="#Feature1">Feature1</a></strong></code></p></td> 
-               </tr> 
-               <tr> 
-                <td class="tableblock halign-center valign-top"><p class="tableblock"><code>1</code></p></td> 
-                <td class="tableblock halign-center valign-top"><p class="tableblock"><code>0</code></p></td> 
-                <td class="tableblock halign-center valign-top"><p class="tableblock"><code>1</code></p></td> 
-                <td class="tableblock halign-center valign-top"><p class="tableblock"><code>1</code></p></td> 
-                <td class="tableblock halign-center valign-top"><p class="tableblock"><code>0</code></p></td> 
-                <td class="tableblock halign-center valign-top"><p class="tableblock"><code>0</code></p></td> 
-                <td class="tableblock halign-center valign-top"><p class="tableblock"><code>0</code></p></td> 
-                <td class="tableblock halign-center valign-top"><p class="tableblock"><code>0</code></p></td> 
-                <td class="tableblock halign-center valign-top"><p class="tableblock"><code>0</code></p></td> 
-                <td class="tableblock halign-center valign-top"><p class="tableblock"><code>1</code></p></td> 
-                <td class="tableblock halign-center valign-top"><p class="tableblock"><code>647ms</code></p></td> 
-                <td class="tableblock halign-center valign-top"><p class="tableblock"><code><span class="green"><strong>passed</strong></span></code></p></td> 
-               </tr> 
-               <tr> 
-                <td class="tableblock halign-center valign-top" colspan="12"><p class="tableblock"><code><strong><a href="#Feature2">Feature2</a></strong></code></p></td> 
-               </tr> 
-               <tr> 
-                <td class="tableblock halign-center valign-top"><p class="tableblock"><code>1</code></p></td> 
-                <td class="tableblock halign-center valign-top"><p class="tableblock"><code>0</code></p></td> 
-                <td class="tableblock halign-center valign-top"><p class="tableblock"><code>1</code></p></td> 
-                <td class="tableblock halign-center valign-top"><p class="tableblock"><code>1</code></p></td> 
-                <td class="tableblock halign-center valign-top"><p class="tableblock"><code>0</code></p></td> 
-                <td class="tableblock halign-center valign-top"><p class="tableblock"><code>0</code></p></td> 
-                <td class="tableblock halign-center valign-top"><p class="tableblock"><code>0</code></p></td> 
-                <td class="tableblock halign-center valign-top"><p class="tableblock"><code>0</code></p></td> 
-                <td class="tableblock halign-center valign-top"><p class="tableblock"><code>0</code></p></td> 
-                <td class="tableblock halign-center valign-top"><p class="tableblock"><code>1</code></p></td> 
-                <td class="tableblock halign-center valign-top"><p class="tableblock"><code>000ms</code></p></td> 
-                <td class="tableblock halign-center valign-top"><p class="tableblock"><code><span class="green"><strong>passed</strong></span></code></p></td> 
-               </tr> 
-               <tr> 
-                <td class="tableblock halign-center valign-top" colspan="12"><p class="tableblock"><code><strong>Totals</strong></code></p></td> 
-               </tr> 
-              </tbody> 
-             </table> 
-             <h2 id="_strong_features_strong_2" class="discrete"><strong>Features</strong></h2> 
-             <h3 id="Feature1" class="discrete"><strong>Feature1</strong></h3> 
-             <h4 id="_scenario_scenario_feature_1" class="discrete">Scenario: Scenario feature 1</h4> 
-             <div class="sidebarblock"> 
+             <div class="dlist discrete"> 
+              <dl> 
+               <dt>
+                 Given 
+               </dt> 
+              </dl> 
+             </div> 
+             <div class="exampleblock"> 
               <div class="content"> 
-               <div class="dlist discrete"> 
-                <dl> 
-                 <dt>
-                   Given 
-                 </dt> 
-                </dl> 
-               </div> 
-               <div class="exampleblock"> 
-                <div class="content"> 
-                 <div class="paragraph"> 
-                  <p>scenario step <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(647ms)</span></p> 
-                 </div> 
-                </div> 
+               <div class="paragraph"> 
+                <p>scenario step <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(647ms)</span></p> 
                </div> 
               </div> 
              </div> 
-             <h3 id="Feature2" class="discrete"><strong>Feature2</strong></h3> 
-             <h4 id="_scenario_scenario_feature_2" class="discrete">Scenario: Scenario feature 2</h4> 
-             <div class="sidebarblock"> 
+            </div> 
+           </div> 
+           <h3 id="Feature2" class="discrete"><strong>Feature2</strong></h3> 
+           <h4 id="_scenario_scenario_feature_2" class="discrete">Scenario: Scenario feature 2</h4> 
+           <div class="sidebarblock"> 
+            <div class="content"> 
+             <div class="dlist discrete"> 
+              <dl> 
+               <dt>
+                 Given 
+               </dt> 
+              </dl> 
+             </div> 
+             <div class="exampleblock"> 
               <div class="content"> 
-               <div class="dlist discrete"> 
-                <dl> 
-                 <dt>
-                   Given 
-                 </dt> 
-                </dl> 
-               </div> 
-               <div class="exampleblock"> 
-                <div class="content"> 
-                 <div class="paragraph"> 
-                  <p>scenario step <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
-                 </div> 
-                </div> 
+               <div class="paragraph"> 
+                <p>scenario step <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
                </div> 
               </div> 
              </div> 
             </div> 
            </div> 
           </div> 
+         </div> 
+         <div class="admonitionblock important"> 
+          <table> 
+           <tbody> 
+            <tr> 
+             <td class="icon"> <i class="fa icon-important" title="Important"></i> </td> 
+             <td class="content"> org.junit.ComparisonFailure: expected:&lt;…​Scenario feature 1 </td> 
+            </tr> 
+           </tbody> 
+          </table> 
+         </div> 
+         <div class="paragraph"> 
+          <p>[<strong>*</strong>*<br> Given ::</p> 
+         </div> 
+         <div class="exampleblock"> 
+          <div class="content"> 
+           <div class="paragraph"> 
+            <p>scenario step <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(647ms)</span></p> 
+           </div> 
+          </div> 
+         </div> 
+         <div class="sidebarblock"> 
+          <div class="content"> 
+           <div id="Feature2" class="paragraph"> 
+            <p>=== <strong>Feature2</strong></p> 
+           </div> 
+           <div class="paragraph"> 
+            <p>==== Scenario: Scenario feature 2</p> 
+           </div> 
+          </div> 
+         </div> 
+         <div class="dlist"> 
+          <dl> 
+           <dt class="hdlist1">
+             Given 
+           </dt> 
+          </dl> 
+         </div> 
+         <div class="exampleblock"> 
+          <div class="content"> 
+           <div class="paragraph"> 
+            <p>scenario step <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
+           </div> 
+          </div> 
+         </div> 
+         <div class="paragraph"> 
+          <p><strong>*</strong>*]</p> 
+         </div> 
+         <div class="paragraph"> 
+          <p>"&gt; but was:&lt;…​Scenario feature 1</p> 
+         </div> 
+         <div class="paragraph"> 
+          <p>[====<br> Given ::<br> scenario step <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(647ms)</span></p> 
+         </div> 
+        </div> 
+       </div> 
+       <div class="paragraph"> 
+        <p>…​</p> 
+       </div> 
+       <div class="exampleblock"> 
+        <div class="content"> 
+         <div id="Ordering" class="paragraph"> 
+          <p>=== <strong>Ordering</strong></p> 
+         </div> 
+         <span class="fa fa-minus-square fa-fw" style="cursor:pointer;float:right;margin-top:-30px" title="Minimize" onclick="hideFeatureScenarios('Ordering');document.getElementById('hidden-Ordering').style.display = 'inline';this.style.display = 'none'"> </span> 
+         <span id="hidden-Ordering" class="fa fa-plus-square fa-fw" style="cursor:pointer;float:right;display:none;margin-top:-30px" title="Maximize feature" onclick="showFeatureScenarios('Ordering');this.style.display = 'none'"> </span> 
+         <div class="sidebarblock"> 
+          <div class="content"> 
+          </div> 
+         </div> 
+        </div> 
+       </div> 
+       <div class="quoteblock"> 
+        <blockquote> 
+         <div class="paragraph"> 
+          <p>In order to have features ordered in living documentation<br> As a bdd developer<br> I want to control the order of features in my documentation</p> 
+         </div> 
+        </blockquote> 
+       </div> 
+       <div class="exampleblock"> 
+        <div class="content"> 
+         <div class="sidebarblock"> 
+          <div class="content"> 
+           <div class="paragraph"> 
+            <p>==== Default ordering <span class="icon red"><i class="fa fa-thumbs-down" title="Failed"></i></span></p> 
+           </div> 
+          </div> 
+         </div> 
+        </div> 
+       </div> 
+       <div class="dlist"> 
+        <dl> 
+         <dt class="hdlist1">
+           Given 
+         </dt> 
+         <dd> 
+          <p>The following two features: <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
+         </dd> 
+        </dl> 
+       </div> 
+       <div class="listingblock"> 
+        <div class="content"> 
+         <pre>Feature: Feature1
+
+  Scenario: Scenario feature 1
+
+    Given scenario step
+
+Feature: Feature2
+
+  Scenario: Scenario feature 2
+
+    Given scenario step</pre> 
+        </div> 
+       </div> 
+       <div class="dlist"> 
+        <dl> 
+         <dt class="hdlist1">
+           When 
+         </dt> 
+         <dd> 
+          <p>I convert them using default order <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(015ms)</span></p> 
+         </dd> 
+         <dt class="hdlist1">
+           Then 
+         </dt> 
+         <dd> 
+          <p>Features should be ordered by name in resulting documentation <span class="icon red"><i class="fa fa-thumbs-down" title="Failed"></i></span> <span class="small right">(000ms)</span></p> 
+         </dd> 
+        </dl> 
+       </div> 
+       <div class="sidebarblock"> 
+        <div class="content"> 
+         <h3 id="Feature1" class="discrete"><strong>Feature1</strong></h3> 
+         <h4 id="_scenario_scenario_feature_1_2" class="discrete">Scenario: Scenario feature 1</h4> 
+         <div class="sidebarblock"> 
+          <div class="content"> 
+           <div class="dlist discrete"> 
+            <dl> 
+             <dt>
+               Given 
+             </dt> 
+            </dl> 
+           </div> 
+           <div class="exampleblock"> 
+            <div class="content"> 
+             <div class="paragraph"> 
+              <p>scenario step <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(647ms)</span></p> 
+             </div> 
+            </div> 
+           </div> 
+          </div> 
+         </div> 
+         <h3 id="Feature2" class="discrete"><strong>Feature2</strong></h3> 
+         <h4 id="_scenario_scenario_feature_2_2" class="discrete">Scenario: Scenario feature 2</h4> 
+         <div class="sidebarblock"> 
+          <div class="content"> 
+           <div class="dlist discrete"> 
+            <dl> 
+             <dt>
+               Given 
+             </dt> 
+            </dl> 
+           </div> 
+           <div class="exampleblock"> 
+            <div class="content"> 
+             <div class="paragraph"> 
+              <p>scenario step <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
+             </div> 
+            </div> 
+           </div> 
+          </div> 
+         </div> 
+        </div> 
+       </div> 
+       <div class="admonitionblock important"> 
+        <table> 
+         <tbody> 
+          <tr> 
+           <td class="icon"> <i class="fa icon-important" title="Important"></i> </td> 
+           <td class="content"> java.lang.AssertionError:<br> Expecting:<br> &lt;"== <strong>Features</strong> </td> 
+          </tr> 
+         </tbody> 
+        </table> 
+       </div> 
+      </div> 
+     </div> 
+     <div class="sect2"> 
+      <h3 id="Feature1"><a class="anchor" href="#Feature1"></a>2.2. <strong>Feature1</strong></h3> 
+      <div class="sect3"> 
+       <h4 id="_scenario_scenario_feature_1_3"><a class="anchor" href="#_scenario_scenario_feature_1_3"></a>2.2.1. Scenario: Scenario feature 1</h4> 
+       <div class="exampleblock"> 
+        <div class="content"> 
+         <div class="dlist"> 
+          <dl> 
+           <dt class="hdlist1">
+             Given 
+           </dt> 
+           <dd> 
+            <p>scenario step <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(647ms)</span></p> 
+           </dd> 
+          </dl> 
          </div> 
         </div> 
        </div> 
       </div> 
      </div> 
      <div class="sect2"> 
-      <h3 id="Ordering"><a class="anchor" href="#Ordering"></a>2.2. <strong>Ordering</strong></h3> 
-      <span class="fa fa-minus-square fa-fw" style="cursor:pointer;float:right;margin-top:-30px" title="Minimize" onclick="hideFeatureScenarios('Ordering');document.getElementById('hidden-Ordering').style.display = 'inline';this.style.display = 'none'"> </span> 
-      <span id="hidden-Ordering" class="fa fa-plus-square fa-fw" style="cursor:pointer;float:right;display:none;margin-top:-30px" title="Maximize feature" onclick="showFeatureScenarios('Ordering');this.style.display = 'none'"> </span> 
-      <div class="sidebarblock"> 
-       <div class="content"> 
-        <div class="exampleblock"> 
-         <div class="content"> 
-          <div class="quoteblock"> 
-           <blockquote> 
-            <div class="paragraph"> 
-             <p>In order to have features ordered in living documentation<br> As a bdd developer<br> I want to control the order of features in my documentation</p> 
-            </div> 
-           </blockquote> 
-          </div> 
-         </div> 
-        </div> 
-       </div> 
-      </div> 
+      <h3 id="Feature2"><a class="anchor" href="#Feature2"></a>2.3. <strong>Feature2</strong></h3> 
       <div class="sect3"> 
-       <h4 id="_default_ordering"><a class="anchor" href="#_default_ordering"></a>2.2.1. Default ordering</h4> 
-       <div class="sidebarblock"> 
+       <h4 id="_scenario_scenario_feature_2_3"><a class="anchor" href="#_scenario_scenario_feature_2_3"></a>2.3.1. Scenario: Scenario feature 2</h4> 
+       <div class="exampleblock"> 
         <div class="content"> 
          <div class="dlist"> 
           <dl> 
            <dt class="hdlist1">
              Given 
            </dt> 
+           <dd> 
+            <p>scenario step <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
+           </dd> 
           </dl> 
-         </div> 
-         <div class="exampleblock"> 
-          <div class="content"> 
-           <div class="paragraph"> 
-            <p>The following two features: <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
-           </div> 
-           <div class="listingblock"> 
-            <div class="content"> 
-             <pre>Feature: Feature1
-
-  Scenario: Scenario feature 1
-
-    Given scenario step
-
-Feature: Feature2
-
-  Scenario: Scenario feature 2
-
-    Given scenario step</pre> 
-            </div> 
-           </div> 
-          </div> 
-         </div> 
-         <div class="dlist"> 
-          <dl> 
-           <dt class="hdlist1">
-             When 
-           </dt> 
-          </dl> 
-         </div> 
-         <div class="exampleblock"> 
-          <div class="content"> 
-           <div class="paragraph"> 
-            <p>I convert them using default order <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(041ms)</span></p> 
-           </div> 
-          </div> 
-         </div> 
-         <div class="dlist"> 
-          <dl> 
-           <dt class="hdlist1">
-             Then 
-           </dt> 
-          </dl> 
-         </div> 
-         <div class="exampleblock"> 
-          <div class="content"> 
-           <div class="paragraph"> 
-            <p>Features should be ordered by name in resulting documentation <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
-           </div> 
-           <div class="sidebarblock"> 
-            <div class="content"> 
-             <h3 id="Feature1" class="discrete"><strong>Feature1</strong></h3> 
-             <h4 id="_scenario_scenario_feature_1_2" class="discrete">Scenario: Scenario feature 1</h4> 
-             <div class="sidebarblock"> 
-              <div class="content"> 
-               <div class="dlist discrete"> 
-                <dl> 
-                 <dt>
-                   Given 
-                 </dt> 
-                </dl> 
-               </div> 
-               <div class="exampleblock"> 
-                <div class="content"> 
-                 <div class="paragraph"> 
-                  <p>scenario step <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(647ms)</span></p> 
-                 </div> 
-                </div> 
-               </div> 
-              </div> 
-             </div> 
-             <h3 id="Feature2" class="discrete"><strong>Feature2</strong></h3> 
-             <h4 id="_scenario_scenario_feature_2_2" class="discrete">Scenario: Scenario feature 2</h4> 
-             <div class="sidebarblock"> 
-              <div class="content"> 
-               <div class="dlist discrete"> 
-                <dl> 
-                 <dt>
-                   Given 
-                 </dt> 
-                </dl> 
-               </div> 
-               <div class="exampleblock"> 
-                <div class="content"> 
-                 <div class="paragraph"> 
-                  <p>scenario step <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
-                 </div> 
-                </div> 
-               </div> 
-              </div> 
-             </div> 
-            </div> 
-           </div> 
-          </div> 
          </div> 
         </div> 
        </div> 
+       <div class="paragraph"> 
+        <p>"&gt;<br> to contain:<br> &lt;"<a id="Feature1"></a><br> === <strong>Feature1</strong></p> 
+       </div> 
       </div> 
       <div class="sect3"> 
-       <h4 id="_custom_ordering"><a class="anchor" href="#_custom_ordering"></a>2.2.2. Custom ordering</h4> 
-       <div class="sidebarblock"> 
+       <h4 id="_scenario_scenario_feature_1_4"><a class="anchor" href="#_scenario_scenario_feature_1_4"></a>2.3.2. Scenario: Scenario feature 1</h4> 
+       <div class="paragraph"> 
+        <p>**…​</p> 
+       </div> 
+       <div class="exampleblock"> 
         <div class="content"> 
-         <div class="dlist"> 
-          <dl> 
-           <dt class="hdlist1">
-             Given 
-           </dt> 
-          </dl> 
+         <div class="paragraph"> 
+          <p>==== Custom ordering <span class="icon red"><i class="fa fa-thumbs-down" title="Failed"></i></span></p> 
          </div> 
-         <div class="exampleblock"> 
-          <div class="content"> 
-           <div class="paragraph"> 
-            <p>The following two features: <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
-           </div> 
-           <div class="listingblock"> 
-            <div class="content"> 
-             <pre>#order: 2
+        </div> 
+       </div> 
+       <div class="dlist"> 
+        <dl> 
+         <dt class="hdlist1">
+           Given 
+         </dt> 
+         <dd> 
+          <p>The following two features: <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
+         </dd> 
+        </dl> 
+       </div> 
+       <div class="listingblock"> 
+        <div class="content"> 
+         <pre>#order: 2
 Feature: Feature1
 
   Scenario: Scenario feature 1
@@ -1005,137 +1109,181 @@ Feature: Feature2
   Scenario: Scenario feature 2
 
     Given scenario step</pre> 
+        </div> 
+       </div> 
+       <div class="admonitionblock note"> 
+        <table> 
+         <tbody> 
+          <tr> 
+           <td class="icon"> <i class="fa icon-note" title="Note"></i> </td> 
+           <td class="content"> Ordering is done using feature comment '<strong>#order:</strong>' </td> 
+          </tr> 
+         </tbody> 
+        </table> 
+       </div> 
+       <div class="dlist"> 
+        <dl> 
+         <dt class="hdlist1">
+           When 
+         </dt> 
+         <dd> 
+          <p>I convert them using comment order <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(020ms)</span></p> 
+         </dd> 
+         <dt class="hdlist1">
+           Then 
+         </dt> 
+         <dd> 
+          <p>Features should be ordered respecting order comment <span class="icon red"><i class="fa fa-thumbs-down" title="Failed"></i></span> <span class="small right">(000ms)</span></p> 
+         </dd> 
+        </dl> 
+       </div> 
+       <div class="sidebarblock"> 
+        <div class="content"> 
+         <h3 id="Feature2" class="discrete"><strong>Feature2</strong></h3> 
+         <h4 id="_scenario_scenario_feature_2_4" class="discrete">Scenario: Scenario feature 2</h4> 
+         <div class="sidebarblock"> 
+          <div class="content"> 
+           <div class="dlist discrete"> 
+            <dl> 
+             <dt>
+               Given 
+             </dt> 
+            </dl> 
+           </div> 
+           <div class="exampleblock"> 
+            <div class="content"> 
+             <div class="paragraph"> 
+              <p>scenario step <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
+             </div> 
             </div> 
            </div> 
-           <div class="admonitionblock note"> 
-            <table> 
-             <tbody> 
-              <tr> 
-               <td class="icon"> <i class="fa icon-note" title="Note"></i> </td> 
-               <td class="content"> Ordering is done using feature comment '<strong>#order:</strong>' </td> 
-              </tr> 
-             </tbody> 
-            </table> 
-           </div> 
           </div> 
          </div> 
-         <div class="dlist"> 
-          <dl> 
-           <dt class="hdlist1">
-             When 
-           </dt> 
-          </dl> 
-         </div> 
-         <div class="exampleblock"> 
+         <h3 id="Feature1" class="discrete"><strong>Feature1</strong></h3> 
+         <h4 id="_scenario_scenario_feature_1_5" class="discrete">Scenario: Scenario feature 1</h4> 
+         <div class="sidebarblock"> 
           <div class="content"> 
-           <div class="paragraph"> 
-            <p>I convert them using comment order <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(033ms)</span></p> 
+           <div class="dlist discrete"> 
+            <dl> 
+             <dt>
+               Given 
+             </dt> 
+            </dl> 
            </div> 
-          </div> 
-         </div> 
-         <div class="dlist"> 
-          <dl> 
-           <dt class="hdlist1">
-             Then 
-           </dt> 
-          </dl> 
-         </div> 
-         <div class="exampleblock"> 
-          <div class="content"> 
-           <div class="paragraph"> 
-            <p>Features should be ordered respecting order comment <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
-           </div> 
-           <div class="sidebarblock"> 
+           <div class="exampleblock"> 
             <div class="content"> 
-             <h3 id="Feature2" class="discrete"><strong>Feature2</strong></h3> 
-             <h4 id="_scenario_scenario_feature_2_3" class="discrete">Scenario: Scenario feature 2</h4> 
-             <div class="sidebarblock"> 
-              <div class="content"> 
-               <div class="dlist discrete"> 
-                <dl> 
-                 <dt>
-                   Given 
-                 </dt> 
-                </dl> 
-               </div> 
-               <div class="exampleblock"> 
-                <div class="content"> 
-                 <div class="paragraph"> 
-                  <p>scenario step <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
-                 </div> 
-                </div> 
-               </div> 
-              </div> 
-             </div> 
-             <h3 id="Feature1" class="discrete"><strong>Feature1</strong></h3> 
-             <h4 id="_scenario_scenario_feature_1_3" class="discrete">Scenario: Scenario feature 1</h4> 
-             <div class="sidebarblock"> 
-              <div class="content"> 
-               <div class="dlist discrete"> 
-                <dl> 
-                 <dt>
-                   Given 
-                 </dt> 
-                </dl> 
-               </div> 
-               <div class="exampleblock"> 
-                <div class="content"> 
-                 <div class="paragraph"> 
-                  <p>scenario step <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(313ms)</span></p> 
-                 </div> 
-                </div> 
-               </div> 
-              </div> 
+             <div class="paragraph"> 
+              <p>scenario step <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(313ms)</span></p> 
              </div> 
             </div> 
            </div> 
           </div> 
          </div> 
         </div> 
+       </div> 
+       <div class="admonitionblock important"> 
+        <table> 
+         <tbody> 
+          <tr> 
+           <td class="icon"> <i class="fa icon-important" title="Important"></i> </td> 
+           <td class="content"> java.lang.AssertionError:<br> Expecting:<br> &lt;"== <strong>Features</strong> </td> 
+          </tr> 
+         </tbody> 
+        </table> 
        </div> 
       </div> 
      </div> 
      <div class="sect2"> 
-      <h3 id="Enrich-features"><a class="anchor" href="#Enrich-features"></a>2.3. <strong>Enrich features</strong></h3> 
-      <span class="fa fa-minus-square fa-fw" style="cursor:pointer;float:right;margin-top:-30px" title="Minimize" onclick="hideFeatureScenarios('Enrich-features');document.getElementById('hidden-Enrich-features').style.display = 'inline';this.style.display = 'none'"> </span> 
-      <span id="hidden-Enrich-features" class="fa fa-plus-square fa-fw" style="cursor:pointer;float:right;display:none;margin-top:-30px" title="Maximize feature" onclick="showFeatureScenarios('Enrich-features');this.style.display = 'none'"> </span> 
-      <div class="sidebarblock"> 
-       <div class="content"> 
-        <div class="exampleblock"> 
-         <div class="content"> 
-          <div class="quoteblock"> 
-           <blockquote> 
-            <div class="paragraph"> 
-             <p>In order to have awesome <em>living documentation</em><br> As a bdd developer<br> I want to render asciidoc markup inside my features.</p> 
-            </div> 
-           </blockquote> 
-          </div> 
-         </div> 
-        </div> 
-       </div> 
-      </div> 
+      <h3 id="Feature2"><a class="anchor" href="#Feature2"></a>2.4. <strong>Feature2</strong></h3> 
       <div class="sect3"> 
-       <h4 id="_docsting_enrichment"><a class="anchor" href="#_docsting_enrichment"></a>2.3.1. DocSting enrichment</h4> 
-       <div class="paragraph"> 
-        <p>Asciidoc markup can be used in feature <strong>DocStrings</strong>. To do so you need to enable it by using <strong>[cukector-dicrete]</strong> comment on the feature.</p> 
-       </div> 
-       <div class="sidebarblock"> 
+       <h4 id="_scenario_scenario_feature_2_5"><a class="anchor" href="#_scenario_scenario_feature_2_5"></a>2.4.1. Scenario: Scenario feature 2</h4> 
+       <div class="exampleblock"> 
         <div class="content"> 
          <div class="dlist"> 
           <dl> 
            <dt class="hdlist1">
              Given 
            </dt> 
+           <dd> 
+            <p>scenario step <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
+           </dd> 
           </dl> 
          </div> 
-         <div class="exampleblock"> 
+        </div> 
+       </div> 
+      </div> 
+     </div> 
+     <div class="sect2"> 
+      <h3 id="Feature1"><a class="anchor" href="#Feature1"></a>2.5. <strong>Feature1</strong></h3> 
+      <div class="sect3"> 
+       <h4 id="_scenario_scenario_feature_1_6"><a class="anchor" href="#_scenario_scenario_feature_1_6"></a>2.5.1. Scenario: Scenario feature 1</h4> 
+       <div class="exampleblock"> 
+        <div class="content"> 
+         <div class="dlist"> 
+          <dl> 
+           <dt class="hdlist1">
+             Given 
+           </dt> 
+           <dd> 
+            <p>scenario step <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(313ms)</span></p> 
+           </dd> 
+          </dl> 
+         </div> 
+        </div> 
+       </div> 
+       <div class="paragraph"> 
+        <p>"&gt;<br> to contain:<br> &lt;"<a id="Feature2"></a><br> === <strong>Feature2</strong></p> 
+       </div> 
+      </div> 
+      <div class="sect3"> 
+       <h4 id="_scenario_scenario_feature_2_6"><a class="anchor" href="#_scenario_scenario_feature_2_6"></a>2.5.2. Scenario: Scenario feature 2</h4> 
+       <div class="paragraph"> 
+        <p>**…​</p> 
+       </div> 
+       <div class="exampleblock"> 
+        <div class="content"> 
+         <div id="Enrich-features" class="paragraph"> 
+          <p>=== <strong>Enrich features</strong></p> 
+         </div> 
+         <span class="fa fa-minus-square fa-fw" style="cursor:pointer;float:right;margin-top:-30px" title="Minimize" onclick="hideFeatureScenarios('Enrich-features');document.getElementById('hidden-Enrich-features').style.display = 'inline';this.style.display = 'none'"> </span> 
+         <span id="hidden-Enrich-features" class="fa fa-plus-square fa-fw" style="cursor:pointer;float:right;display:none;margin-top:-30px" title="Maximize feature" onclick="showFeatureScenarios('Enrich-features');this.style.display = 'none'"> </span> 
+         <div class="sidebarblock"> 
+          <div class="content"> 
+          </div> 
+         </div> 
+        </div> 
+       </div> 
+       <div class="quoteblock"> 
+        <blockquote> 
+         <div class="paragraph"> 
+          <p>In order to have awesome <em>living documentation</em><br> As a bdd developer<br> I want to render asciidoc markup inside my features.</p> 
+         </div> 
+        </blockquote> 
+       </div> 
+       <div class="exampleblock"> 
+        <div class="content"> 
+         <div class="sidebarblock"> 
           <div class="content"> 
            <div class="paragraph"> 
-            <p>The following two features: <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
+            <p>==== DocSting enrichment <span class="icon red"><i class="fa fa-thumbs-down" title="Failed"></i></span><br> Asciidoc markup can be used in feature <strong>DocStrings</strong>. To do so you need to enable it by using <strong>[cukector-dicrete]</strong> comment on the feature.</p> 
            </div> 
-           <div class="listingblock"> 
-            <div class="content"> 
-             <pre>Feature: Enrich feature
+          </div> 
+         </div> 
+        </div> 
+       </div> 
+       <div class="dlist"> 
+        <dl> 
+         <dt class="hdlist1">
+           Given 
+         </dt> 
+         <dd> 
+          <p>The following two features: <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
+         </dd> 
+        </dl> 
+       </div> 
+       <div class="listingblock"> 
+        <div class="content"> 
+         <pre>Feature: Enrich feature
 
   Scenario: Render source code
 
@@ -1165,121 +1313,105 @@ Feature: Feature2
 
   |===
 """</pre> 
+        </div> 
+       </div> 
+       <div class="dlist"> 
+        <dl> 
+         <dt class="hdlist1">
+           When 
+         </dt> 
+         <dd> 
+          <p>I convert docstring enriched json output using cukedoctor converter <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(048ms)</span></p> 
+         </dd> 
+         <dt class="hdlist1">
+           Then 
+         </dt> 
+         <dd> 
+          <p>DocString asciidoc output must be rendered in my documentation <span class="icon red"><i class="fa fa-thumbs-down" title="Failed"></i></span> <span class="small right">(020ms)</span></p> 
+         </dd> 
+        </dl> 
+       </div> 
+       <div class="sidebarblock"> 
+        <div class="content"> 
+         <h3 id="Discrete-class-feature" class="discrete"><strong>Discrete class feature</strong></h3> 
+         <h4 id="_scenario_render_source_code" class="discrete">Scenario: Render source code</h4> 
+         <div class="sidebarblock"> 
+          <div class="content"> 
+           <div class="dlist discrete"> 
+            <dl> 
+             <dt>
+               Given 
+             </dt> 
+            </dl> 
+           </div> 
+           <div class="exampleblock"> 
+            <div class="content"> 
+             <div class="paragraph"> 
+              <p>the following source code <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(267ms)</span></p> 
+             </div> 
+             <div class="sidebarblock"> 
+              <div class="content"> 
+               <div class="listingblock"> 
+                <div class="content"> 
+                 <pre class="CodeRay highlight"><code data-lang="java"><span class="directive">public</span> <span class="type">int</span> sum(<span class="type">int</span> x, <span class="type">int</span> y){
+    <span class="type">int</span> result = x + y;
+    <span class="keyword">return</span> result; <i class="conum" data-value="1"></i><b>(1)</b>
+}</code></pre> 
+                </div> 
+               </div> 
+               <div class="colist arabic"> 
+                <table> 
+                 <tbody> 
+                  <tr> 
+                   <td><i class="conum" data-value="1"></i><b>1</b></td> 
+                   <td>We can have callouts in living documentation&gt;</td> 
+                  </tr> 
+                 </tbody> 
+                </table> 
+               </div> 
+              </div> 
+             </div> 
             </div> 
            </div> 
           </div> 
          </div> 
-         <div class="dlist"> 
-          <dl> 
-           <dt class="hdlist1">
-             When 
-           </dt> 
-          </dl> 
-         </div> 
-         <div class="exampleblock"> 
+         <h4 id="_scenario_render_table" class="discrete">Scenario: Render table</h4> 
+         <div class="sidebarblock"> 
           <div class="content"> 
-           <div class="paragraph"> 
-            <p>I convert docstring enriched json output using cukedoctor converter <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(065ms)</span></p> 
+           <div class="dlist discrete"> 
+            <dl> 
+             <dt>
+               Given 
+             </dt> 
+            </dl> 
            </div> 
-          </div> 
-         </div> 
-         <div class="dlist"> 
-          <dl> 
-           <dt class="hdlist1">
-             Then 
-           </dt> 
-          </dl> 
-         </div> 
-         <div class="exampleblock"> 
-          <div class="content"> 
-           <div class="paragraph"> 
-            <p>DocString asciidoc output must be rendered in my documentation <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
-           </div> 
-           <div class="sidebarblock"> 
+           <div class="exampleblock"> 
             <div class="content"> 
-             <h3 id="Discrete-class-feature" class="discrete"><strong>Discrete class feature</strong></h3> 
-             <h4 id="_scenario_render_source_code" class="discrete">Scenario: Render source code</h4> 
-             <div class="sidebarblock"> 
-              <div class="content"> 
-               <div class="dlist discrete"> 
-                <dl> 
-                 <dt>
-                   Given 
-                 </dt> 
-                </dl> 
-               </div> 
-               <div class="exampleblock"> 
-                <div class="content"> 
-                 <div class="paragraph"> 
-                  <p>the following source code <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(267ms)</span></p> 
-                 </div> 
-                 <div class="sidebarblock"> 
-                  <div class="content"> 
-                   <div class="listingblock"> 
-                    <div class="content"> 
-                     <pre class="CodeRay highlight"><code data-lang="java"><span class="directive">public</span> <span class="type">int</span> sum(<span class="type">int</span> x, <span class="type">int</span> y){
-    <span class="type">int</span> result = x + y;
-    <span class="keyword">return</span> result; <i class="conum" data-value="1"></i><b>(1)</b>
-}</code></pre> 
-                    </div> 
-                   </div> 
-                   <div class="colist arabic"> 
-                    <table> 
-                     <tbody> 
-                      <tr> 
-                       <td><i class="conum" data-value="1"></i><b>1</b></td> 
-                       <td>We can have callouts in living documentation&gt;</td> 
-                      </tr> 
-                     </tbody> 
-                    </table> 
-                   </div> 
-                  </div> 
-                 </div> 
-                </div> 
-               </div> 
-              </div> 
+             <div class="paragraph"> 
+              <p>the following table <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
              </div> 
-             <h4 id="_scenario_render_table" class="discrete">Scenario: Render table</h4> 
              <div class="sidebarblock"> 
               <div class="content"> 
-               <div class="dlist discrete"> 
-                <dl> 
-                 <dt>
-                   Given 
-                 </dt> 
-                </dl> 
-               </div> 
-               <div class="exampleblock"> 
-                <div class="content"> 
-                 <div class="paragraph"> 
-                  <p>the following table <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
-                 </div> 
-                 <div class="sidebarblock"> 
-                  <div class="content"> 
-                   <table class="tableblock frame-all grid-all spread"> 
-                    <colgroup> 
-                     <col style="width: 50%;"> 
-                     <col style="width: 50%;"> 
-                    </colgroup> 
-                    <tbody> 
-                     <tr> 
-                      <td class="tableblock halign-left valign-top"><p class="tableblock">Cell in column 1, row 1</p></td> 
-                      <td class="tableblock halign-left valign-top"><p class="tableblock">Cell in column 2, row 1</p></td> 
-                     </tr> 
-                     <tr> 
-                      <td class="tableblock halign-left valign-top"><p class="tableblock">Cell in column 1, row 2</p></td> 
-                      <td class="tableblock halign-left valign-top"><p class="tableblock">Cell in column 2, row 2</p></td> 
-                     </tr> 
-                     <tr> 
-                      <td class="tableblock halign-left valign-top"><p class="tableblock">Cell in column 1, row 3</p></td> 
-                      <td class="tableblock halign-left valign-top"><p class="tableblock">Cell in column 2, row 3</p></td> 
-                     </tr> 
-                    </tbody> 
-                   </table> 
-                  </div> 
-                 </div> 
-                </div> 
-               </div> 
+               <table class="tableblock frame-all grid-all spread"> 
+                <colgroup> 
+                 <col style="width: 50%;"> 
+                 <col style="width: 50%;"> 
+                </colgroup> 
+                <tbody> 
+                 <tr> 
+                  <td class="tableblock halign-left valign-top"><p class="tableblock">Cell in column 1, row 1</p></td> 
+                  <td class="tableblock halign-left valign-top"><p class="tableblock">Cell in column 2, row 1</p></td> 
+                 </tr> 
+                 <tr> 
+                  <td class="tableblock halign-left valign-top"><p class="tableblock">Cell in column 1, row 2</p></td> 
+                  <td class="tableblock halign-left valign-top"><p class="tableblock">Cell in column 2, row 2</p></td> 
+                 </tr> 
+                 <tr> 
+                  <td class="tableblock halign-left valign-top"><p class="tableblock">Cell in column 1, row 3</p></td> 
+                  <td class="tableblock halign-left valign-top"><p class="tableblock">Cell in column 2, row 3</p></td> 
+                 </tr> 
+                </tbody> 
+               </table> 
               </div> 
              </div> 
             </div> 
@@ -1288,29 +1420,84 @@ Feature: Feature2
          </div> 
         </div> 
        </div> 
-      </div> 
-      <div class="sect3"> 
-       <h4 id="_comments_enrichment"><a class="anchor" href="#_comments_enrichment"></a>2.3.2. Comments enrichment</h4> 
-       <div class="paragraph"> 
-        <p>Asciidoc markup can be used in feature comments. To do so you need to surround asciidoc markup by <strong>curly brackets</strong>;.</p> 
+       <div class="admonitionblock important"> 
+        <table> 
+         <tbody> 
+          <tr> 
+           <td class="icon"> <i class="fa icon-important" title="Important"></i> </td> 
+           <td class="content"> java.lang.AssertionError:<br> Expecting:<br> &lt;"== <strong>Features</strong> </td> 
+          </tr> 
+         </tbody> 
+        </table> 
        </div> 
-       <div class="sidebarblock"> 
+      </div> 
+     </div> 
+     <div class="sect2"> 
+      <h3 id="Discrete-class-feature"><a class="anchor" href="#Discrete-class-feature"></a>2.6. <strong>Discrete class feature</strong></h3> 
+      <div class="sect3"> 
+       <h4 id="_scenario_render_source_code_2"><a class="anchor" href="#_scenario_render_source_code_2"></a>2.6.1. Scenario: Render source code</h4> 
+       <div class="exampleblock"> 
         <div class="content"> 
          <div class="dlist"> 
           <dl> 
            <dt class="hdlist1">
              Given 
            </dt> 
+           <dd> 
+            <p>the following source code <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(267ms)</span></p> 
+           </dd> 
           </dl> 
          </div> 
-         <div class="exampleblock"> 
+         <div class="sidebarblock"> 
           <div class="content"> 
-           <div class="paragraph"> 
-            <p>The following feature with asciidoc markup in comments: <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
-           </div> 
            <div class="listingblock"> 
             <div class="content"> 
-             <pre>Feature: Calculator
+             <pre class="CodeRay highlight"><code data-lang="java"><span class="directive">public</span> <span class="type">int</span> sum(<span class="type">int</span> x, <span class="type">int</span> y){
+    <span class="type">int</span> result = x + y;
+    <span class="keyword">return</span> result; <i class="conum" data-value="1"></i><b>(1)</b>
+}</code></pre> 
+            </div> 
+           </div> 
+           <div class="colist arabic"> 
+            <table> 
+             <tbody> 
+              <tr> 
+               <td><i class="conum" data-value="1"></i><b>1</b></td> 
+               <td>We can have callouts in living documentation&gt;</td> 
+              </tr> 
+             </tbody> 
+            </table> 
+           </div> 
+          </div> 
+         </div> 
+        </div> 
+       </div> 
+      </div> 
+      <div class="sect3"> 
+       <h4 id="_scenario_render_table_2"><a class="anchor" href="#_scenario_render_table_2"></a>2.6.2. Scenario: Render table</h4> 
+       <div class="paragraph"> 
+        <p>=…​</p> 
+       </div> 
+       <div class="exampleblock"> 
+        <div class="content"> 
+         <div class="paragraph"> 
+          <p>==== Comments enrichment <span class="icon red"><i class="fa fa-thumbs-down" title="Failed"></i></span><br> Asciidoc markup can be used in feature comments. To do so you need to surround asciidoc markup by <strong>curly brackets</strong>;.</p> 
+         </div> 
+        </div> 
+       </div> 
+       <div class="dlist"> 
+        <dl> 
+         <dt class="hdlist1">
+           Given 
+         </dt> 
+         <dd> 
+          <p>The following feature with asciidoc markup in comments: <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
+         </dd> 
+        </dl> 
+       </div> 
+       <div class="listingblock"> 
+        <div class="content"> 
+         <pre>Feature: Calculator
 
   Scenario: Adding numbers
    You can *asciidoc markup* in _feature_ #description#.
@@ -1327,129 +1514,113 @@ Feature: Feature2
     # {* there is no multiline comment in gherkin}
     # {** second level list item}
     Then I should have 3 as result</pre> 
+        </div> 
+       </div> 
+       <div class="dlist"> 
+        <dl> 
+         <dt class="hdlist1">
+           When 
+         </dt> 
+         <dd> 
+          <p>I convert enriched feature json output using cukedoctor <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(033ms)</span></p> 
+         </dd> 
+         <dt class="hdlist1">
+           Then 
+         </dt> 
+         <dd> 
+          <p>Asciidoc markup on comments must be rendered in my documentation <span class="icon red"><i class="fa fa-thumbs-down" title="Failed"></i></span> <span class="small right">(000ms)</span></p> 
+         </dd> 
+        </dl> 
+       </div> 
+       <div class="sidebarblock"> 
+        <div class="content"> 
+         <h3 id="Calculator" class="discrete"><strong>Calculator</strong></h3> 
+         <h4 id="_scenario_adding_numbers" class="discrete">Scenario: Adding numbers</h4> 
+         <div class="paragraph"> 
+          <p>You can use <strong>asciidoc markup</strong> in <em>feature</em> <mark>description</mark>.</p> 
+         </div> 
+         <div class="admonitionblock note"> 
+          <table> 
+           <tbody> 
+            <tr> 
+             <td class="icon"> <i class="fa icon-note" title="Note"></i> </td> 
+             <td class="content"> This is a very important feature! </td> 
+            </tr> 
+           </tbody> 
+          </table> 
+         </div> 
+         <div class="sidebarblock"> 
+          <div class="content"> 
+           <div class="dlist discrete"> 
+            <dl> 
+             <dt>
+               Given 
+             </dt> 
+            </dl> 
+           </div> 
+           <div class="exampleblock"> 
+            <div class="content"> 
+             <div class="paragraph"> 
+              <p>I have numbers 1 and 2 <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(114ms)</span></p> 
+             </div> 
+             <div class="admonitionblock important"> 
+              <table> 
+               <tbody> 
+                <tr> 
+                 <td class="icon"> <i class="fa icon-important" title="Important"></i> </td> 
+                 <td class="content"> Asciidoc markup inside <strong>steps</strong> must be surrounded by <strong>curly brackets</strong>. </td> 
+                </tr> 
+               </tbody> 
+              </table> 
+             </div> 
             </div> 
            </div> 
-          </div> 
-         </div> 
-         <div class="dlist"> 
-          <dl> 
-           <dt class="hdlist1">
-             When 
-           </dt> 
-          </dl> 
-         </div> 
-         <div class="exampleblock"> 
-          <div class="content"> 
-           <div class="paragraph"> 
-            <p>I convert enriched feature json output using cukedoctor <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(052ms)</span></p> 
+           <div class="dlist discrete"> 
+            <dl> 
+             <dt>
+               When 
+             </dt> 
+            </dl> 
            </div> 
-          </div> 
-         </div> 
-         <div class="dlist"> 
-          <dl> 
-           <dt class="hdlist1">
-             Then 
-           </dt> 
-          </dl> 
-         </div> 
-         <div class="exampleblock"> 
-          <div class="content"> 
-           <div class="paragraph"> 
-            <p>Asciidoc markup on comments must be rendered in my documentation <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
-           </div> 
-           <div class="sidebarblock"> 
+           <div class="exampleblock"> 
             <div class="content"> 
-             <h3 id="Calculator" class="discrete"><strong>Calculator</strong></h3> 
-             <h4 id="_scenario_adding_numbers" class="discrete">Scenario: Adding numbers</h4> 
              <div class="paragraph"> 
-              <p>You can use <strong>asciidoc markup</strong> in <em>feature</em> <mark>description</mark>.</p> 
+              <p>I sum the numbers <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
              </div> 
              <div class="admonitionblock note"> 
               <table> 
                <tbody> 
                 <tr> 
                  <td class="icon"> <i class="fa icon-note" title="Note"></i> </td> 
-                 <td class="content"> This is a very important feature! </td> 
+                 <td class="content"> Steps comments are placed <strong>before</strong> each steps so this comment is for the <strong>WHEN</strong> step. </td> 
                 </tr> 
                </tbody> 
               </table> 
              </div> 
-             <div class="sidebarblock"> 
-              <div class="content"> 
-               <div class="dlist discrete"> 
-                <dl> 
-                 <dt>
-                   Given 
-                 </dt> 
-                </dl> 
-               </div> 
-               <div class="exampleblock"> 
-                <div class="content"> 
-                 <div class="paragraph"> 
-                  <p>I have numbers 1 and 2 <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(114ms)</span></p> 
-                 </div> 
-                 <div class="admonitionblock important"> 
-                  <table> 
-                   <tbody> 
-                    <tr> 
-                     <td class="icon"> <i class="fa icon-important" title="Important"></i> </td> 
-                     <td class="content"> Asciidoc markup inside <strong>steps</strong> must be surrounded by <strong>curly brackets</strong>. </td> 
-                    </tr> 
-                   </tbody> 
-                  </table> 
-                 </div> 
-                </div> 
-               </div> 
-               <div class="dlist discrete"> 
-                <dl> 
-                 <dt>
-                   When 
-                 </dt> 
-                </dl> 
-               </div> 
-               <div class="exampleblock"> 
-                <div class="content"> 
-                 <div class="paragraph"> 
-                  <p>I sum the numbers <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
-                 </div> 
-                 <div class="admonitionblock note"> 
-                  <table> 
-                   <tbody> 
-                    <tr> 
-                     <td class="icon"> <i class="fa icon-note" title="Note"></i> </td> 
-                     <td class="content"> Steps comments are placed <strong>before</strong> each steps so this comment is for the <strong>WHEN</strong> step. </td> 
-                    </tr> 
-                   </tbody> 
-                  </table> 
-                 </div> 
-                </div> 
-               </div> 
-               <div class="dlist discrete"> 
-                <dl> 
-                 <dt>
-                   Then 
-                 </dt> 
-                </dl> 
-               </div> 
-               <div class="exampleblock"> 
-                <div class="content"> 
-                 <div class="paragraph"> 
-                  <p>I should have 3 as result <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(001ms)</span></p> 
-                 </div> 
-                 <div class="ulist discrete"> 
-                  <ul class="discrete"> 
-                   <li> <p>this is a list of itens inside a feature step</p> </li> 
-                   <li> <p>there is no multiline comment in gherkin</p> 
-                    <div class="ulist discrete"> 
-                     <ul class="discrete"> 
-                      <li> <p>second level list item</p> </li> 
-                     </ul> 
-                    </div> </li> 
-                  </ul> 
-                 </div> 
-                </div> 
-               </div> 
-              </div> 
+            </div> 
+           </div> 
+           <div class="dlist discrete"> 
+            <dl> 
+             <dt>
+               Then 
+             </dt> 
+            </dl> 
+           </div> 
+           <div class="exampleblock"> 
+            <div class="content"> 
+             <div class="paragraph"> 
+              <p>I should have 3 as result <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(001ms)</span></p> 
+             </div> 
+             <div class="ulist discrete"> 
+              <ul class="discrete"> 
+               <li> <p>this is a list of itens inside a feature step</p> </li> 
+               <li> <p>there is no multiline comment in gherkin</p> 
+                <div class="ulist discrete"> 
+                 <ul class="discrete"> 
+                  <li> <p>second level list item</p> </li> 
+                 </ul> 
+                </div> </li> 
+              </ul> 
              </div> 
             </div> 
            </div> 
@@ -1457,10 +1628,59 @@ Feature: Feature2
          </div> 
         </div> 
        </div> 
+       <div class="admonitionblock important"> 
+        <table> 
+         <tbody> 
+          <tr> 
+           <td class="icon"> <i class="fa icon-important" title="Important"></i> </td> 
+           <td class="content"> java.lang.AssertionError:<br> Expecting:<br> &lt;"==<strong>Features</strong> </td> 
+          </tr> 
+         </tbody> 
+        </table> 
+       </div> 
+       <div id="Calculator" class="paragraph"> 
+        <p>===<strong>Calculator</strong></p> 
+       </div> 
+       <div class="paragraph"> 
+        <p>====Scenario:Addingnumbers<br> Youcanuse*asciidocmarkup*in_feature_#description#.</p> 
+       </div> 
+       <div class="paragraph"> 
+        <p>NOTE:Thisisaveryimportantfeature!</p> 
+       </div> 
+       <div class="exampleblock"> 
+        <div class="content"> 
+         <div class="dlist"> 
+          <dl> 
+           <dt class="hdlist1">
+             Given 
+           </dt> 
+           <dd> 
+            <p>Ihavenumbers1and2<span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span><span class="smallright">(114ms)</span></p> 
+           </dd> 
+          </dl> 
+         </div> 
+         <div class="paragraph"> 
+          <p>IMPORTANT:Asciidocmarkupinside*steps*mustbesurroundedby*curlybrackets*.</p> 
+         </div> 
+         <div class="dlist"> 
+          <dl> 
+           <dt class="hdlist1">
+             When 
+           </dt> 
+           <dd> 
+            <p>Isumthenumbers<span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span><span class="smallright">(000ms)</span></p> 
+           </dd> 
+          </dl> 
+         </div> 
+         <div class="paragraph"> 
+          <p>NOTE:Stepscommentsareplaced*befo…​</p> 
+         </div> 
+        </div> 
+       </div> 
       </div> 
      </div> 
      <div class="sect2"> 
-      <h3 id="Documentation-introduction-chapter"><a class="anchor" href="#Documentation-introduction-chapter"></a>2.4. <strong>Documentation introduction chapter</strong></h3> 
+      <h3 id="Documentation-introduction-chapter"><a class="anchor" href="#Documentation-introduction-chapter"></a>2.7. <strong>Documentation introduction chapter</strong></h3> 
       <span class="fa fa-minus-square fa-fw" style="cursor:pointer;float:right;margin-top:-30px" title="Minimize" onclick="hideFeatureScenarios('Documentation-introduction-chapter');document.getElementById('hidden-Documentation-introduction-chapter').style.display = 'inline';this.style.display = 'none'"> </span> 
       <span id="hidden-Documentation-introduction-chapter" class="fa fa-plus-square fa-fw" style="cursor:pointer;float:right;display:none;margin-top:-30px" title="Maximize feature" onclick="showFeatureScenarios('Documentation-introduction-chapter');this.style.display = 'none'"> </span> 
       <div class="sidebarblock"> 
@@ -1479,24 +1699,22 @@ Feature: Feature2
        </div> 
       </div> 
       <div class="sect3"> 
-       <h4 id="_introduction_chapter_in_classpath"><a class="anchor" href="#_introduction_chapter_in_classpath"></a>2.4.1. Introduction chapter in classpath</h4> 
-       <div class="sidebarblock"> 
+       <h4 id="_introduction_chapter_in_classpath_span_class_icon_red_i_class_fa_fa_thumbs_down_title_failed_i_span"><a class="anchor" href="#_introduction_chapter_in_classpath_span_class_icon_red_i_class_fa_fa_thumbs_down_title_failed_i_span"></a>2.7.1. Introduction chapter in classpath <span class="icon red"><i class="fa fa-thumbs-down" title="Failed"></i></span></h4> 
+       <div class="exampleblock"> 
         <div class="content"> 
          <div class="dlist"> 
           <dl> 
            <dt class="hdlist1">
              Given 
            </dt> 
+           <dd> 
+            <p>The following two features: <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
+           </dd> 
           </dl> 
          </div> 
-         <div class="exampleblock"> 
+         <div class="listingblock"> 
           <div class="content"> 
-           <div class="paragraph"> 
-            <p>The following two features: <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
-           </div> 
-           <div class="listingblock"> 
-            <div class="content"> 
-             <pre>Feature: Feature1
+           <pre>Feature: Feature1
 
   Scenario: Scenario feature 1
 
@@ -1507,8 +1725,6 @@ Feature: Feature2
   Scenario: Scenario feature 2
 
     Given scenario step</pre> 
-            </div> 
-           </div> 
           </div> 
          </div> 
          <div class="dlist"> 
@@ -1516,247 +1732,225 @@ Feature: Feature2
            <dt class="hdlist1">
              And 
            </dt> 
+           <dd> 
+            <p>The following asciidoc document is on your application classpath <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(039ms)</span></p> 
+           </dd> 
           </dl> 
          </div> 
-         <div class="exampleblock"> 
+         <div class="sidebarblock"> 
           <div class="content"> 
+           <h1 id="_strong_introduction_strong_2" class="discrete"><strong>Introduction</strong></h1> 
            <div class="paragraph"> 
-            <p>The following asciidoc document is on your application classpath <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(047ms)</span></p> 
+            <p>Cukedoctor is a <strong>Living documentation</strong> tool which integrates Cucumber and Asciidoctor in order to convert your <em>BDD</em> tests results into an awesome documentation.</p> 
            </div> 
-           <div class="sidebarblock"> 
-            <div class="content"> 
-             <h1 id="_strong_introduction_strong_2" class="discrete"><strong>Introduction</strong></h1> 
-             <div class="paragraph"> 
-              <p>Cukedoctor is a <strong>Living documentation</strong> tool which integrates Cucumber and Asciidoctor in order to convert your <em>BDD</em> tests results into an awesome documentation.</p> 
-             </div> 
-             <div class="paragraph"> 
-              <p>Here are some design principles:</p> 
-             </div> 
-             <div class="ulist discrete"> 
-              <ul class="discrete"> 
-               <li> <p>Living documentation should be readable and highlight your software features;</p> 
-                <div class="ulist discrete"> 
-                 <ul class="discrete"> 
-                  <li> <p>Most bdd tools generate reports and not a truly documentation.</p> </li> 
-                 </ul> 
-                </div> </li> 
-               <li> <p>Cukedoctor <strong>do not</strong> introduce a new API that you need to learn, instead it operates on top of <a href="http://www.relishapp.com/cucumber/cucumber/docs/formatters/json-output-formatter" target="_blank" rel="noopener">cucumber json output</a> files;</p> 
-                <div class="ulist discrete"> 
-                 <ul class="discrete"> 
-                  <li> <p>In the 'worst case' to <a href="#Enrich-features">enhance</a> your documentation you will need to know a bit of <a href="http://asciidoctor.org/docs/what-is-asciidoc/" target="_blank" rel="noopener">asciidoc markup</a>.</p> </li> 
-                 </ul> 
-                </div> </li> 
-              </ul> 
-             </div> 
-            </div> 
+           <div class="paragraph"> 
+            <p>Here are some design principles:</p> 
            </div> 
-           <div class="admonitionblock note"> 
-            <table> 
-             <tbody> 
-              <tr> 
-               <td class="icon"> <i class="fa icon-note" title="Note"></i> </td> 
-               <td class="content"> The introduction file must be named <strong>intro-chapter.adoc</strong> and can be in any package of your application, </td> 
-              </tr> 
-             </tbody> 
-            </table> 
-           </div> 
-           <div class="admonitionblock tip"> 
-            <table> 
-             <tbody> 
-              <tr> 
-               <td class="icon"> <i class="fa icon-tip" title="Tip"></i> </td> 
-               <td class="content"> 
-                <div class="paragraph"> 
-                 <p>By default Cukedoctor will look into application folders but you can make Cukedoctor look into external folder by setting the following system property:</p> 
-                </div> 
-                <div class="listingblock"> 
-                 <div class="content"> 
-                  <pre class="CodeRay highlight"><code data-lang="java"><span class="predefined-type">System</span>.setProperty(<span class="string"><span class="delimiter">"</span><span class="content">INTRO_CHAPTER_DIR</span><span class="delimiter">"</span></span>,<span class="string"><span class="delimiter">"</span><span class="content">/home/some/external/folder</span><span class="delimiter">"</span></span>);</code></pre> 
-                 </div> 
-                </div> </td> 
-              </tr> 
-             </tbody> 
-            </table> 
+           <div class="ulist discrete"> 
+            <ul class="discrete"> 
+             <li> <p>Living documentation should be readable and highlight your software features;</p> 
+              <div class="ulist discrete"> 
+               <ul class="discrete"> 
+                <li> <p>Most bdd tools generate reports and not a truly documentation.</p> </li> 
+               </ul> 
+              </div> </li> 
+             <li> <p>Cukedoctor <strong>do not</strong> introduce a new API that you need to learn, instead it operates on top of <a href="http://www.relishapp.com/cucumber/cucumber/docs/formatters/json-output-formatter" target="_blank" rel="noopener">cucumber json output</a> files;</p> 
+              <div class="ulist discrete"> 
+               <ul class="discrete"> 
+                <li> <p>In the 'worst case' to <a href="#Enrich-features">enhance</a> your documentation you will need to know a bit of <a href="http://asciidoctor.org/docs/what-is-asciidoc/" target="_blank" rel="noopener">asciidoc markup</a>.</p> </li> 
+               </ul> 
+              </div> </li> 
+            </ul> 
            </div> 
           </div> 
          </div> 
+         <div class="admonitionblock note"> 
+          <table> 
+           <tbody> 
+            <tr> 
+             <td class="icon"> <i class="fa icon-note" title="Note"></i> </td> 
+             <td class="content"> The introduction file must be named <strong>intro-chapter.adoc</strong> and can be in any package of your application, </td> 
+            </tr> 
+           </tbody> 
+          </table> 
+         </div> 
+        </div> 
+       </div> 
+       <div class="paragraph"> 
+        <p>By default Cukedoctor will look into application folders but you can make Cukedoctor look into external folder by setting the following system property:</p> 
+       </div> 
+       <div class="listingblock"> 
+        <div class="content"> 
+         <pre class="CodeRay highlight"><code data-lang="java"><span class="predefined-type">System</span>.setProperty(<span class="string"><span class="delimiter">"</span><span class="content">INTRO_CHAPTER_DIR</span><span class="delimiter">"</span></span>,<span class="string"><span class="delimiter">"</span><span class="content">/home/some/external/folder</span><span class="delimiter">"</span></span>);</code></pre> 
+        </div> 
+       </div> 
+       <div class="exampleblock"> 
+        <div class="content"> 
          <div class="dlist"> 
           <dl> 
            <dt class="hdlist1">
              When 
            </dt> 
-          </dl> 
-         </div> 
-         <div class="exampleblock"> 
-          <div class="content"> 
-           <div class="paragraph"> 
+           <dd> 
             <p>Bdd tests results are converted into documentation by Cukedoctor <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
-           </div> 
-          </div> 
-         </div> 
-         <div class="dlist"> 
-          <dl> 
+           </dd> 
            <dt class="hdlist1">
              Then 
            </dt> 
+           <dd> 
+            <p>Resulting documentation should have the provided introduction chapter <span class="icon red"><i class="fa fa-thumbs-down" title="Failed"></i></span> <span class="small right">(000ms)</span></p> 
+           </dd> 
           </dl> 
          </div> 
-         <div class="exampleblock"> 
+         <div class="sidebarblock"> 
           <div class="content"> 
+           <h1 id="_strong_documentation_strong_2" class="discrete"><strong>Documentation</strong></h1> 
+           <h2 id="_strong_introduction_strong_3" class="discrete"><strong>Introduction</strong></h2> 
            <div class="paragraph"> 
-            <p>Resulting documentation should have the provided introduction chapter <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
+            <p>Cukedoctor is a <strong>Living documentation</strong> tool which integrates Cucumber and Asciidoctor in order to convert your <em>BDD</em> tests results into an awesome documentation.</p> 
            </div> 
+           <div class="paragraph"> 
+            <p>Here are some design principles:</p> 
+           </div> 
+           <div class="ulist discrete"> 
+            <ul class="discrete"> 
+             <li> <p>Living documentation should be readable and highlight your software features;</p> 
+              <div class="ulist discrete"> 
+               <ul class="discrete"> 
+                <li> <p>Most bdd tools generate reports and not a truly documentation.</p> </li> 
+               </ul> 
+              </div> </li> 
+             <li> <p>Cukedoctor <strong>do not</strong> introduce a new API that you need to learn, instead it operates on top of <a href="http://www.relishapp.com/cucumber/cucumber/docs/formatters/json-output-formatter" target="_blank" rel="noopener">cucumber json output</a> files;</p> 
+              <div class="ulist discrete"> 
+               <ul class="discrete"> 
+                <li> <p>In the 'worst case' to <a href="#Enrich-features">enhance</a> your documentation you will need to know a bit of <a href="http://asciidoctor.org/docs/what-is-asciidoc/" target="_blank" rel="noopener">asciidoc markup</a>.</p> <h2 id="_strong_summary_strong_2" class="discrete"><strong>Summary</strong></h2> </li> 
+               </ul> 
+              </div> </li> 
+            </ul> 
+           </div> 
+           <table class="tableblock frame-all grid-all spread"> 
+            <colgroup> 
+             <col style="width: 8.3333%;"> 
+             <col style="width: 8.3333%;"> 
+             <col style="width: 8.3333%;"> 
+             <col style="width: 8.3333%;"> 
+             <col style="width: 8.3333%;"> 
+             <col style="width: 8.3333%;"> 
+             <col style="width: 8.3333%;"> 
+             <col style="width: 8.3333%;"> 
+             <col style="width: 8.3333%;"> 
+             <col style="width: 8.3333%;"> 
+             <col style="width: 8.3333%;"> 
+             <col style="width: 8.3337%;"> 
+            </colgroup> 
+            <tbody> 
+             <tr> 
+              <td class="tableblock halign-left valign-top" colspan="3"><p class="tableblock">Scenarios</p></td> 
+              <td class="tableblock halign-left valign-top" colspan="7"><p class="tableblock">Steps</p></td> 
+              <td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock">Features: 2</p></td> 
+             </tr> 
+             <tr> 
+              <td class="tableblock halign-left valign-top"><p class="tableblock"><span class="green"><strong>Passed</strong></span></p></td> 
+              <td class="tableblock halign-left valign-top"><p class="tableblock"><span class="red"><strong>Failed</strong></span></p></td> 
+              <td class="tableblock halign-left valign-top"><p class="tableblock">Total</p></td> 
+              <td class="tableblock halign-left valign-top"><p class="tableblock"><span class="green"><strong>Passed</strong></span></p></td> 
+              <td class="tableblock halign-left valign-top"><p class="tableblock"><span class="red"><strong>Failed</strong></span></p></td> 
+              <td class="tableblock halign-left valign-top"><p class="tableblock"><span class="purple"><strong>Skipped</strong></span></p></td> 
+              <td class="tableblock halign-left valign-top"><p class="tableblock"><span class="maroon"><strong>Pending</strong></span></p></td> 
+              <td class="tableblock halign-left valign-top"><p class="tableblock"><span class="yellow"><strong>Undefined</strong></span></p></td> 
+              <td class="tableblock halign-left valign-top"><p class="tableblock"><span class="blue"><strong>Missing</strong></span></p></td> 
+              <td class="tableblock halign-left valign-top"><p class="tableblock">Total</p></td> 
+              <td class="tableblock halign-left valign-top"><p class="tableblock">Duration</p></td> 
+              <td class="tableblock halign-left valign-top"><p class="tableblock">Status</p></td> 
+             </tr> 
+             <tr> 
+              <td class="tableblock halign-center valign-top" colspan="12"><p class="tableblock"><strong><a href="#Feature1">Feature1</a></strong></p></td> 
+             </tr> 
+             <tr> 
+              <td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td> 
+              <td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td> 
+              <td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td> 
+              <td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td> 
+              <td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td> 
+              <td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td> 
+              <td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td> 
+              <td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td> 
+              <td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td> 
+              <td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td> 
+              <td class="tableblock halign-left valign-top"><p class="tableblock">647ms</p></td> 
+              <td class="tableblock halign-left valign-top"><p class="tableblock"><span class="green"><strong>passed</strong></span></p></td> 
+             </tr> 
+             <tr> 
+              <td class="tableblock halign-center valign-top" colspan="12"><p class="tableblock"><strong><a href="#Feature2">Feature2</a></strong></p></td> 
+             </tr> 
+             <tr> 
+              <td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td> 
+              <td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td> 
+              <td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td> 
+              <td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td> 
+              <td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td> 
+              <td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td> 
+              <td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td> 
+              <td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td> 
+              <td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td> 
+              <td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td> 
+              <td class="tableblock halign-left valign-top"><p class="tableblock">000ms</p></td> 
+              <td class="tableblock halign-left valign-top"><p class="tableblock"><span class="green"><strong>passed</strong></span></p></td> 
+             </tr> 
+             <tr> 
+              <td class="tableblock halign-center valign-top" colspan="12"><p class="tableblock"><strong>Totals</strong></p></td> 
+             </tr> 
+             <tr> 
+              <td class="tableblock halign-left valign-top"><p class="tableblock">2</p></td> 
+              <td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td> 
+              <td class="tableblock halign-left valign-top"><p class="tableblock">2</p></td> 
+              <td class="tableblock halign-left valign-top"><p class="tableblock">2</p></td> 
+              <td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td> 
+              <td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td> 
+              <td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td> 
+              <td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td> 
+              <td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td> 
+              <td class="tableblock halign-left valign-top"><p class="tableblock">2</p></td> 
+              <td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock">647ms</p></td> 
+             </tr> 
+            </tbody> 
+           </table> 
+           <h2 id="_strong_features_strong_3" class="discrete"><strong>Features</strong></h2> 
+           <h3 id="Feature1" class="discrete"><strong>Feature1</strong></h3> 
+           <h4 id="_scenario_scenario_feature_1_7" class="discrete">Scenario: Scenario feature 1</h4> 
            <div class="sidebarblock"> 
             <div class="content"> 
-             <h1 id="_strong_documentation_strong_2" class="discrete"><strong>Documentation</strong></h1> 
-             <h2 id="_strong_introduction_strong_3" class="discrete"><strong>Introduction</strong></h2> 
-             <div class="paragraph"> 
-              <p>Cukedoctor is a <strong>Living documentation</strong> tool which integrates Cucumber and Asciidoctor in order to convert your <em>BDD</em> tests results into an awesome documentation.</p> 
+             <div class="dlist discrete"> 
+              <dl> 
+               <dt>
+                 Given 
+               </dt> 
+              </dl> 
              </div> 
-             <div class="paragraph"> 
-              <p>Here are some design principles:</p> 
-             </div> 
-             <div class="ulist discrete"> 
-              <ul class="discrete"> 
-               <li> <p>Living documentation should be readable and highlight your software features;</p> 
-                <div class="ulist discrete"> 
-                 <ul class="discrete"> 
-                  <li> <p>Most bdd tools generate reports and not a truly documentation.</p> </li> 
-                 </ul> 
-                </div> </li> 
-               <li> <p>Cukedoctor <strong>do not</strong> introduce a new API that you need to learn, instead it operates on top of <a href="http://www.relishapp.com/cucumber/cucumber/docs/formatters/json-output-formatter" target="_blank" rel="noopener">cucumber json output</a> files;</p> 
-                <div class="ulist discrete"> 
-                 <ul class="discrete"> 
-                  <li> <p>In the 'worst case' to <a href="#Enrich-features">enhance</a> your documentation you will need to know a bit of <a href="http://asciidoctor.org/docs/what-is-asciidoc/" target="_blank" rel="noopener">asciidoc markup</a>.</p> <h2 id="_strong_summary_strong_2" class="discrete"><strong>Summary</strong></h2> </li> 
-                 </ul> 
-                </div> </li> 
-              </ul> 
-             </div> 
-             <table class="tableblock frame-all grid-all spread"> 
-              <colgroup> 
-               <col style="width: 8.3333%;"> 
-               <col style="width: 8.3333%;"> 
-               <col style="width: 8.3333%;"> 
-               <col style="width: 8.3333%;"> 
-               <col style="width: 8.3333%;"> 
-               <col style="width: 8.3333%;"> 
-               <col style="width: 8.3333%;"> 
-               <col style="width: 8.3333%;"> 
-               <col style="width: 8.3333%;"> 
-               <col style="width: 8.3333%;"> 
-               <col style="width: 8.3333%;"> 
-               <col style="width: 8.3337%;"> 
-              </colgroup> 
-              <tbody> 
-               <tr> 
-                <td class="tableblock halign-left valign-top" colspan="3"><p class="tableblock">Scenarios</p></td> 
-                <td class="tableblock halign-left valign-top" colspan="7"><p class="tableblock">Steps</p></td> 
-                <td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock">Features: 2</p></td> 
-               </tr> 
-               <tr> 
-                <td class="tableblock halign-left valign-top"><p class="tableblock"><span class="green"><strong>Passed</strong></span></p></td> 
-                <td class="tableblock halign-left valign-top"><p class="tableblock"><span class="red"><strong>Failed</strong></span></p></td> 
-                <td class="tableblock halign-left valign-top"><p class="tableblock">Total</p></td> 
-                <td class="tableblock halign-left valign-top"><p class="tableblock"><span class="green"><strong>Passed</strong></span></p></td> 
-                <td class="tableblock halign-left valign-top"><p class="tableblock"><span class="red"><strong>Failed</strong></span></p></td> 
-                <td class="tableblock halign-left valign-top"><p class="tableblock"><span class="purple"><strong>Skipped</strong></span></p></td> 
-                <td class="tableblock halign-left valign-top"><p class="tableblock"><span class="maroon"><strong>Pending</strong></span></p></td> 
-                <td class="tableblock halign-left valign-top"><p class="tableblock"><span class="yellow"><strong>Undefined</strong></span></p></td> 
-                <td class="tableblock halign-left valign-top"><p class="tableblock"><span class="blue"><strong>Missing</strong></span></p></td> 
-                <td class="tableblock halign-left valign-top"><p class="tableblock">Total</p></td> 
-                <td class="tableblock halign-left valign-top"><p class="tableblock">Duration</p></td> 
-                <td class="tableblock halign-left valign-top"><p class="tableblock">Status</p></td> 
-               </tr> 
-               <tr> 
-                <td class="tableblock halign-center valign-top" colspan="12"><p class="tableblock"><strong><a href="#Feature1">Feature1</a></strong></p></td> 
-               </tr> 
-               <tr> 
-                <td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td> 
-                <td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td> 
-                <td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td> 
-                <td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td> 
-                <td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td> 
-                <td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td> 
-                <td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td> 
-                <td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td> 
-                <td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td> 
-                <td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td> 
-                <td class="tableblock halign-left valign-top"><p class="tableblock">647ms</p></td> 
-                <td class="tableblock halign-left valign-top"><p class="tableblock"><span class="green"><strong>passed</strong></span></p></td> 
-               </tr> 
-               <tr> 
-                <td class="tableblock halign-center valign-top" colspan="12"><p class="tableblock"><strong><a href="#Feature2">Feature2</a></strong></p></td> 
-               </tr> 
-               <tr> 
-                <td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td> 
-                <td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td> 
-                <td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td> 
-                <td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td> 
-                <td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td> 
-                <td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td> 
-                <td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td> 
-                <td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td> 
-                <td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td> 
-                <td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td> 
-                <td class="tableblock halign-left valign-top"><p class="tableblock">000ms</p></td> 
-                <td class="tableblock halign-left valign-top"><p class="tableblock"><span class="green"><strong>passed</strong></span></p></td> 
-               </tr> 
-               <tr> 
-                <td class="tableblock halign-center valign-top" colspan="12"><p class="tableblock"><strong>Totals</strong></p></td> 
-               </tr> 
-               <tr> 
-                <td class="tableblock halign-left valign-top"><p class="tableblock">2</p></td> 
-                <td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td> 
-                <td class="tableblock halign-left valign-top"><p class="tableblock">2</p></td> 
-                <td class="tableblock halign-left valign-top"><p class="tableblock">2</p></td> 
-                <td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td> 
-                <td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td> 
-                <td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td> 
-                <td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td> 
-                <td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td> 
-                <td class="tableblock halign-left valign-top"><p class="tableblock">2</p></td> 
-                <td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock">647ms</p></td> 
-               </tr> 
-              </tbody> 
-             </table> 
-             <h2 id="_strong_features_strong_3" class="discrete"><strong>Features</strong></h2> 
-             <h3 id="Feature1" class="discrete"><strong>Feature1</strong></h3> 
-             <h4 id="_scenario_scenario_feature_1_4" class="discrete">Scenario: Scenario feature 1</h4> 
-             <div class="sidebarblock"> 
+             <div class="exampleblock"> 
               <div class="content"> 
-               <div class="dlist discrete"> 
-                <dl> 
-                 <dt>
-                   Given 
-                 </dt> 
-                </dl> 
-               </div> 
-               <div class="exampleblock"> 
-                <div class="content"> 
-                 <div class="paragraph"> 
-                  <p>scenario step <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(647ms)</span></p> 
-                 </div> 
-                </div> 
+               <div class="paragraph"> 
+                <p>scenario step <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(647ms)</span></p> 
                </div> 
               </div> 
              </div> 
-             <h3 id="Feature2" class="discrete"><strong>Feature2</strong></h3> 
-             <h4 id="_scenario_scenario_feature_2_4" class="discrete">Scenario: Scenario feature 2</h4> 
-             <div class="sidebarblock"> 
+            </div> 
+           </div> 
+           <h3 id="Feature2" class="discrete"><strong>Feature2</strong></h3> 
+           <h4 id="_scenario_scenario_feature_2_7" class="discrete">Scenario: Scenario feature 2</h4> 
+           <div class="sidebarblock"> 
+            <div class="content"> 
+             <div class="dlist discrete"> 
+              <dl> 
+               <dt>
+                 Given 
+               </dt> 
+              </dl> 
+             </div> 
+             <div class="exampleblock"> 
               <div class="content"> 
-               <div class="dlist discrete"> 
-                <dl> 
-                 <dt>
-                   Given 
-                 </dt> 
-                </dl> 
-               </div> 
-               <div class="exampleblock"> 
-                <div class="content"> 
-                 <div class="paragraph"> 
-                  <p>scenario step <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
-                 </div> 
-                </div> 
+               <div class="paragraph"> 
+                <p>scenario step <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
                </div> 
               </div> 
              </div> 
@@ -1764,6 +1958,66 @@ Feature: Feature2
            </div> 
           </div> 
          </div> 
+         <div class="admonitionblock important"> 
+          <table> 
+           <tbody> 
+            <tr> 
+             <td class="icon"> <i class="fa icon-important" title="Important"></i> </td> 
+             <td class="content"> org.junit.ComparisonFailure: expected:&lt;…​Scenario feature 1 </td> 
+            </tr> 
+           </tbody> 
+          </table> 
+         </div> 
+         <div class="paragraph"> 
+          <p>[<strong>*</strong>*<br> Given ::</p> 
+         </div> 
+         <div class="exampleblock"> 
+          <div class="content"> 
+           <div class="paragraph"> 
+            <p>scenario step <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(647ms)</span></p> 
+           </div> 
+          </div> 
+         </div> 
+         <div class="sidebarblock"> 
+          <div class="content"> 
+           <div id="Feature2" class="paragraph"> 
+            <p>=== <strong>Feature2</strong></p> 
+           </div> 
+           <div class="paragraph"> 
+            <p>==== Scenario: Scenario feature 2</p> 
+           </div> 
+          </div> 
+         </div> 
+         <div class="dlist"> 
+          <dl> 
+           <dt class="hdlist1">
+             Given 
+           </dt> 
+          </dl> 
+         </div> 
+         <div class="exampleblock"> 
+          <div class="content"> 
+           <div class="paragraph"> 
+            <p>scenario step <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
+           </div> 
+          </div> 
+         </div> 
+         <div class="paragraph"> 
+          <p><strong>*</strong>*]</p> 
+         </div> 
+         <div class="paragraph"> 
+          <p>"&gt; but was:&lt;…​Scenario feature 1</p> 
+         </div> 
+         <div class="paragraph"> 
+          <p>[====<br> Given ::<br> scenario step <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(647ms)</span></p> 
+         </div> 
+        </div> 
+       </div> 
+       <div class="paragraph"> 
+        <p>…​</p> 
+       </div> 
+       <div class="exampleblock"> 
+        <div class="content"> 
         </div> 
        </div> 
       </div> 
@@ -1773,8 +2027,8 @@ Feature: Feature2
   </div> 
   <div id="footer" style="color:gray;font-size:11px">
     Generated by 
-   <a href="https://github.com/rmpestano/cukedoctor" target="_blank"> Cukedoctor 1.1.4-SNAPSHOT</a> - Sep 19, 2018 8:32:51 PM 
-   <span style="float:right;font-size:11px"> Execution time: 6.622 seconds</span> 
+   <a href="https://github.com/rmpestano/cukedoctor" target="_blank"> Cukedoctor 1.1.4-SNAPSHOT</a> - Sep 19, 2018 8:49:59 PM 
+   <span style="float:right;font-size:11px"> Execution time: 6.563 seconds</span> 
   </div> 
   <style>  
 
@@ -1782,7 +2036,8 @@ Feature: Feature2
 .sidebarblock, .sectionbody, .content{
 overflow:auto!important;
 }
-div.sidebarblock {overflow-y:hidden;overflow-x:auto}</style> 
+div.sidebarblock {overflow-y:hidden;overflow-x:auto}
+ body .exampleblock > .content{ background:#fff}</style> 
   <script type="text/javascript">  
 
 document.addEventListener("DOMContentLoaded", function(event) { 
