@@ -336,6 +336,28 @@
                 </repository>
             </distributionManagement>
         </profile>
+        
+        
+        <profile>
+            <id>sonar</id>
+            <properties>
+                <sonar.surefire.reportsPath>${project.build.directory}/surefire-reports</sonar.surefire.reportsPath>
+                <sonar.jacoco.reportPath>${project.build.directory}/jacoco.exec</sonar.jacoco.reportPath>
+                <sonar.language>java</sonar.language>
+                <sonar.core.codeCoveragePlugin>jacoco</sonar.core.codeCoveragePlugin>
+                <sonar.dynamicAnalysis>reuseReports</sonar.dynamicAnalysis>
+            </properties>
+            
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.sonarsource.scanner.maven</groupId>
+                        <artifactId>sonar-maven-plugin</artifactId>
+                        <version>3.4.0.905</version>
+                    </plugin>
+                </plugins>
+            </build>    
+        </profile> 
 
     </profiles>
 
