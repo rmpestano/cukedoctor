@@ -18,7 +18,7 @@
         "steps": [
           {
             "result": {
-              "duration": 340771114,
+              "duration": 1169488636,
               "status": "passed"
             },
             "line": 13,
@@ -35,7 +35,7 @@
           },
           {
             "result": {
-              "duration": 905336064,
+              "duration": 1118674584,
               "status": "passed"
             },
             "comments": [
@@ -58,9 +58,8 @@
           },
           {
             "result": {
-              "duration": 13185928,
-              "error_message": "org.junit.ComparisonFailure: expected:\u003c...ure1*\n\n\u003d\u003d\u003d\u003d Scenario[: Scenario feature 1\n\n****\nGiven ::\n\u003d\u003d\u003d\u003d\u003d\nscenario step icon:thumbs-up[role\u003d\"green\",title\u003d\"Passed\"] [small right]#(647ms)#\n\u003d\u003d\u003d\u003d\u003d\n****\n\n[[Feature2, Feature2]]\n\u003d\u003d\u003d *Feature2*\n\n\u003d\u003d\u003d\u003d Scenario:] Scenario feature 2\n...\u003e but was:\u003c...ure1*\n\n\u003d\u003d\u003d\u003d Scenario[ feature 1\n\n****\nGiven ::\n\u003d\u003d\u003d\u003d\u003d\nscenario step icon:thumbs-up[role\u003d\"green\",title\u003d\"Passed\"] [small right]#(647ms)#\n\u003d\u003d\u003d\u003d\u003d\n****\n\n[[Feature2, Feature2]]\n\u003d\u003d\u003d *Feature2*\n\n\u003d\u003d\u003d\u003d] Scenario feature 2\n...\u003e\n\tat sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)\n\tat sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)\n\tat sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)\n\tat com.github.cukedoctor.bdd.cukedoctor.ConverterSteps.I_should_have_awesome_living_documentation(ConverterSteps.java:44)\n\tat ✽.Then I should have awesome living documentation(com/github/cukedoctor/bdd/cukedoctor/converter.feature:45)\n",
-              "status": "failed"
+              "duration": 3267200,
+              "status": "passed"
             },
             "comments": [
               {
@@ -108,7 +107,7 @@
         "steps": [
           {
             "result": {
-              "duration": 98156,
+              "duration": 118403,
               "status": "passed"
             },
             "line": 14,
@@ -125,7 +124,7 @@
           },
           {
             "result": {
-              "duration": 46163743,
+              "duration": 65425446,
               "status": "passed"
             },
             "line": 48,
@@ -137,9 +136,8 @@
           },
           {
             "result": {
-              "duration": 3923517,
-              "error_message": "java.lang.AssertionError: \nExpecting:\n \u003c\"\u003d\u003d *Features*\n\n[[Discrete-class-feature, Discrete class feature]]\n\u003d\u003d\u003d *Discrete class feature*\n\n\u003d\u003d\u003d\u003d Render source code\n\n****\nGiven ::\n\u003d\u003d\u003d\u003d\u003d\nthe following source code icon:thumbs-up[role\u003d\"green\",title\u003d\"Passed\"] [small right]#(267ms)#\n******\n\n[discrete]\n[source, java]\n-----\npublic int sum(int x, int y){\n    int result \u003d x + y;\n    return result; \u003c1\u003e\n}\n-----\n\u003c1\u003e We can have callouts in living documentation\u003e\n\n\n******\n\n\u003d\u003d\u003d\u003d\u003d\n****\n\n\u003d\u003d\u003d\u003d Render table\n\n****\nGiven ::\n\u003d\u003d\u003d\u003d\u003d\nthe following table icon:thumbs-up[role\u003d\"green\",title\u003d\"Passed\"] [small right]#(000ms)#\n******\n\n[discrete]\n|\u003d\u003d\u003d\n| Cell in column 1, row 1 | Cell in column 2, row 1\n| Cell in column 1, row 2 | Cell in column 2, row 2\n| Cell in column 1, row 3 | Cell in column 2, row 3\n|\u003d\u003d\u003d\n\n\n******\n\n\u003d\u003d\u003d\u003d\u003d\n****\n\n\"\u003e\nto contain:\n \u003c\"[[Discrete-class-feature, Discrete class feature]]\n\u003d\u003d\u003d *Discrete class feature*\n\n\u003d\u003d\u003d\u003d Scenario: Render source code\n\n****\nGiven ::\n\u003d\u003d\u003d\u003d\u003d\nthe following source code icon:thumbs-up[role\u003d\"green\",title\u003d\"Passed\"] [small right]#(267ms)#\n******\n\n[discrete]\n[source, java]\n-----\npublic int sum(int x, int y){\n    int result \u003d x + y;\n    return result; \u003c1\u003e\n}\n-----\n\u003c1\u003e We can have callouts in living documentation\u003e\n\n\n******\n\n\u003d\u003d\u003d\u003d\u003d\n****\n\n\u003d\u003d\u003d\u003d Scenario: Render table\n\n****\nGiven ::\n\u003d\u003d\u003d\u003d\u003d\nthe following table icon:thumbs-up[role\u003d\"green\",title\u003d\"Passed\"] [small right]#(000ms)#\n******\n\n[discrete]\n|\u003d\u003d\u003d\n| Cell in column 1, row 1 | Cell in column 2, row 1\n| Cell in column 1, row 2 | Cell in column 2, row 2\n| Cell in column 1, row 3 | Cell in column 2, row 3\n|\u003d\u003d\u003d\n\n\n******\n\n\u003d\u003d\u003d\u003d\u003d\n****\n\n\"\u003e \n\tat com.github.cukedoctor.bdd.cukedoctor.EnrichmentSteps.DocString_asciidoc_output_must_be_rendered_in_my_documentation(EnrichmentSteps.java:36)\n\tat ✽.Then DocString asciidoc output must be rendered in my documentation(com/github/cukedoctor/bdd/cukedoctor/enrichment.feature:51)\n",
-              "status": "failed"
+              "duration": 384947,
+              "status": "passed"
             },
             "comments": [
               {
@@ -171,7 +169,7 @@
         "steps": [
           {
             "result": {
-              "duration": 89170,
+              "duration": 136668,
               "status": "passed"
             },
             "line": 107,
@@ -188,7 +186,7 @@
           },
           {
             "result": {
-              "duration": 41348340,
+              "duration": 52495718,
               "status": "passed"
             },
             "line": 129,
@@ -200,9 +198,8 @@
           },
           {
             "result": {
-              "duration": 888783,
-              "error_message": "java.lang.AssertionError: \nExpecting:\n \u003c\"\u003d\u003d*Features*\n\n[[Calculator,Calculator]]\n\u003d\u003d\u003d*Calculator*\n\n\u003d\u003d\u003d\u003dAddingnumbers\nYoucanuse*asciidocmarkup*in_feature_#description#.\n\nNOTE:Thisisaveryimportantfeature!\n\n****\nGiven::\n\u003d\u003d\u003d\u003d\u003d\nIhavenumbers1and2icon:thumbs-up[role\u003d\"green\",title\u003d\"Passed\"][smallright]#(114ms)#\n\nIMPORTANT:Asciidocmarkupinside*steps*mustbesurroundedby*curlybrackets*.\n\n\u003d\u003d\u003d\u003d\u003d\nWhen::\n\u003d\u003d\u003d\u003d\u003d\nIsumthenumbersicon:thumbs-up[role\u003d\"green\",title\u003d\"Passed\"][smallright]#(000ms)#\n\nNOTE:Stepscommentsareplaced*before*eachstepssothiscommentisforthe*WHEN*step.\n\n\u003d\u003d\u003d\u003d\u003d\nThen::\n\u003d\u003d\u003d\u003d\u003d\nIshouldhave3asresulticon:thumbs-up[role\u003d\"green\",title\u003d\"Passed\"][smallright]#(001ms)#\n\n*thisisalistofitensinsideafeaturestep\n\n*thereisnomultilinecommentingherkin\n\n**secondlevellistitem\n\n\u003d\u003d\u003d\u003d\u003d\n****\n\n\"\u003e\nto contain:\n \u003c\"[[Calculator,Calculator]]\n\u003d\u003d\u003d*Calculator*\n\n\u003d\u003d\u003d\u003dScenario:Addingnumbers\nYoucanuse*asciidocmarkup*in_feature_#description#.\n\nNOTE:Thisisaveryimportantfeature!\n\n****\nGiven::\n\u003d\u003d\u003d\u003d\u003d\nIhavenumbers1and2icon:thumbs-up[role\u003d\"green\",title\u003d\"Passed\"][smallright]#(114ms)#\n\nIMPORTANT:Asciidocmarkupinside*steps*mustbesurroundedby*curlybrackets*.\n\n\u003d\u003d\u003d\u003d\u003d\nWhen::\n\u003d\u003d\u003d\u003d\u003d\nIsumthenumbersicon:thumbs-up[role\u003d\"green\",title\u003d\"Passed\"][smallright]#(000ms)#\n\nNOTE:Stepscommentsareplaced*before*eachstepssothiscommentisforthe*WHEN*step.\n\n\u003d\u003d\u003d\u003d\u003d\nThen::\n\u003d\u003d\u003d\u003d\u003d\nIshouldhave3asresulticon:thumbs-up[role\u003d\"green\",title\u003d\"Passed\"][smallright]#(001ms)#\n\n*thisisalistofitensinsideafeaturestep\n\n*thereisnomultilinecommentingherkin\n\n**secondlevellistitem\n\n\u003d\u003d\u003d\u003d\u003d\n****\n\n\"\u003e \n\tat com.github.cukedoctor.bdd.cukedoctor.EnrichmentSteps.Asciidoc_output_must_be_rendered_in_my_documentation(EnrichmentSteps.java:50)\n\tat ✽.Then Asciidoc markup on comments must be rendered in my documentation(com/github/cukedoctor/bdd/cukedoctor/enrichment.feature:132)\n",
-              "status": "failed"
+              "duration": 301379,
+              "status": "passed"
             },
             "comments": [
               {
@@ -250,7 +247,7 @@
         "steps": [
           {
             "result": {
-              "duration": 89179,
+              "duration": 130045,
               "status": "passed"
             },
             "line": 13,
@@ -267,7 +264,7 @@
           },
           {
             "result": {
-              "duration": 53607994,
+              "duration": 47758391,
               "status": "passed"
             },
             "comments": [
@@ -326,7 +323,7 @@
           },
           {
             "result": {
-              "duration": 50367,
+              "duration": 41348,
               "status": "passed"
             },
             "line": 54,
@@ -338,9 +335,8 @@
           },
           {
             "result": {
-              "duration": 907836,
-              "error_message": "org.junit.ComparisonFailure: expected:\u003c...ure1*\n\n\u003d\u003d\u003d\u003d Scenario[: Scenario feature 1\n\n****\nGiven ::\n\u003d\u003d\u003d\u003d\u003d\nscenario step icon:thumbs-up[role\u003d\"green\",title\u003d\"Passed\"] [small right]#(647ms)#\n\u003d\u003d\u003d\u003d\u003d\n****\n\n[[Feature2, Feature2]]\n\u003d\u003d\u003d *Feature2*\n\n\u003d\u003d\u003d\u003d Scenario:] Scenario feature 2\n...\u003e but was:\u003c...ure1*\n\n\u003d\u003d\u003d\u003d Scenario[ feature 1\n\n****\nGiven ::\n\u003d\u003d\u003d\u003d\u003d\nscenario step icon:thumbs-up[role\u003d\"green\",title\u003d\"Passed\"] [small right]#(647ms)#\n\u003d\u003d\u003d\u003d\u003d\n****\n\n[[Feature2, Feature2]]\n\u003d\u003d\u003d *Feature2*\n\n\u003d\u003d\u003d\u003d] Scenario feature 2\n...\u003e\n\tat sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)\n\tat sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)\n\tat sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)\n\tat com.github.cukedoctor.bdd.cukedoctor.IntroChapterSteps.I_should_have_awesome_living_documentation(IntroChapterSteps.java:47)\n\tat ✽.Then Resulting documentation should have the provided introduction chapter(com/github/cukedoctor/bdd/cukedoctor/intro-chapter.feature:58)\n",
-              "status": "failed"
+              "duration": 468806,
+              "status": "passed"
             },
             "comments": [
               {
@@ -388,7 +384,7 @@
         "steps": [
           {
             "result": {
-              "duration": 220952,
+              "duration": 261504,
               "status": "passed"
             },
             "line": 14,
@@ -405,7 +401,7 @@
           },
           {
             "result": {
-              "duration": 33428885,
+              "duration": 41727853,
               "status": "passed"
             },
             "line": 28,
@@ -417,9 +413,8 @@
           },
           {
             "result": {
-              "duration": 423507,
-              "error_message": "java.lang.AssertionError: \nExpecting:\n \u003c\"\u003d\u003d *Features*\n\n[[Feature1, Feature1]]\n\u003d\u003d\u003d *Feature1*\n\n\u003d\u003d\u003d\u003d Scenario feature 1\n\n****\nGiven ::\n\u003d\u003d\u003d\u003d\u003d\nscenario step icon:thumbs-up[role\u003d\"green\",title\u003d\"Passed\"] [small right]#(647ms)#\n\u003d\u003d\u003d\u003d\u003d\n****\n\n[[Feature2, Feature2]]\n\u003d\u003d\u003d *Feature2*\n\n\u003d\u003d\u003d\u003d Scenario feature 2\n\n****\nGiven ::\n\u003d\u003d\u003d\u003d\u003d\nscenario step icon:thumbs-up[role\u003d\"green\",title\u003d\"Passed\"] [small right]#(000ms)#\n\u003d\u003d\u003d\u003d\u003d\n****\n\n\"\u003e\nto contain:\n \u003c\"[[Feature1, Feature1]]\n\u003d\u003d\u003d *Feature1*\n\n\u003d\u003d\u003d\u003d Scenario: Scenario feature 1\n\n****\nGiven ::\n\u003d\u003d\u003d\u003d\u003d\nscenario step icon:thumbs-up[role\u003d\"green\",title\u003d\"Passed\"] [small right]#(647ms)#\n\u003d\u003d\u003d\u003d\u003d\n****\n\n[[Feature2, Feature2]]\n\u003d\u003d\u003d *Feature2*\n\n\u003d\u003d\u003d\u003d Scenario: Scenario feature 2\n\n****\nGiven ::\n\u003d\u003d\u003d\u003d\u003d\nscenario step icon:thumbs-up[role\u003d\"green\",title\u003d\"Passed\"] [small right]#(000ms)#\n\u003d\u003d\u003d\u003d\u003d\n****\n\n\"\u003e \n\tat com.github.cukedoctor.bdd.cukedoctor.OrderingSteps.Features_should_be_ordered_by_name_in_resulting_documentation(OrderingSteps.java:40)\n\tat ✽.Then Features should be ordered by name in resulting documentation(com/github/cukedoctor/bdd/cukedoctor/ordering.feature:31)\n",
-              "status": "failed"
+              "duration": 170031,
+              "status": "passed"
             },
             "comments": [
               {
@@ -451,7 +446,7 @@
         "steps": [
           {
             "result": {
-              "duration": 122531,
+              "duration": 101692,
               "status": "passed"
             },
             "comments": [
@@ -474,7 +469,7 @@
           },
           {
             "result": {
-              "duration": 19047654,
+              "duration": 33045827,
               "status": "passed"
             },
             "line": 79,
@@ -486,9 +481,8 @@
           },
           {
             "result": {
-              "duration": 488630,
-              "error_message": "java.lang.AssertionError: \nExpecting:\n \u003c\"\u003d\u003d *Features*\n\n[[Feature2, Feature2]]\n\u003d\u003d\u003d *Feature2*\n\n\u003d\u003d\u003d\u003d Scenario feature 2\n\n****\nGiven ::\n\u003d\u003d\u003d\u003d\u003d\nscenario step icon:thumbs-up[role\u003d\"green\",title\u003d\"Passed\"] [small right]#(000ms)#\n\u003d\u003d\u003d\u003d\u003d\n****\n\n[[Feature1, Feature1]]\n\u003d\u003d\u003d *Feature1*\n\n\u003d\u003d\u003d\u003d Scenario feature 1\n\n****\nGiven ::\n\u003d\u003d\u003d\u003d\u003d\nscenario step icon:thumbs-up[role\u003d\"green\",title\u003d\"Passed\"] [small right]#(313ms)#\n\u003d\u003d\u003d\u003d\u003d\n****\n\n\"\u003e\nto contain:\n \u003c\"[[Feature2, Feature2]]\n\u003d\u003d\u003d *Feature2*\n\n\u003d\u003d\u003d\u003d Scenario: Scenario feature 2\n\n****\nGiven ::\n\u003d\u003d\u003d\u003d\u003d\nscenario step icon:thumbs-up[role\u003d\"green\",title\u003d\"Passed\"] [small right]#(000ms)#\n\u003d\u003d\u003d\u003d\u003d\n****\n\n[[Feature1, Feature1]]\n\u003d\u003d\u003d *Feature1*\n\n\u003d\u003d\u003d\u003d Scenario: Scenario feature 1\n\n****\nGiven ::\n\u003d\u003d\u003d\u003d\u003d\nscenario step icon:thumbs-up[role\u003d\"green\",title\u003d\"Passed\"] [small right]#(313ms)#\n\u003d\u003d\u003d\u003d\u003d\n****\n\n\"\u003e \n\tat com.github.cukedoctor.bdd.cukedoctor.OrderingSteps.Features_should_be_ordered_respecting_order_comment(OrderingSteps.java:54)\n\tat ✽.Then Features should be ordered respecting order comment(com/github/cukedoctor/bdd/cukedoctor/ordering.feature:82)\n",
-              "status": "failed"
+              "duration": 414473,
+              "status": "passed"
             },
             "comments": [
               {
