@@ -62,7 +62,18 @@ public class CukedoctorAdminThemeExtension extends Postprocessor {
             Element mainSidebar = renderMainSidebar();
 
             wrapper.appendChild(mainSidebar);
-
+            
+            Element contentWrapper = renderContentWrapper();
+            
+            htmlDocument.getElementById("header").remove();//remove asciidoctor toc and title
+            
+            wrapper.appendChild(contentWrapper);
+            
+            renderSummary();
+            //contentWrapper.appendChild(summary);
+            //renderFeatures(contentWrapper);
+            
+            
             htmlDocument.getElementById("header").before(wrapper);
 
             renderScripts(wrapper);
@@ -131,8 +142,10 @@ public class CukedoctorAdminThemeExtension extends Postprocessor {
                 .attr("rel", "stylesheet")
                 .attr("href", "theme/css/_all-skins.min.css"));
         
-        head.appendChild(newElement("style")
-                .text("li.header {text-transform:uppercase} ul.treeview-menu li.header {color:#738790} ul.treeview-menu li a:hover {color:#8aa4af!important;font-weight:600}"));
+         head.appendChild(newElement("link")
+                .attr("rel", "stylesheet")
+                .attr("href", "theme/css/custom.css"));
+        
     }
 
     private void renderScripts(Element wrapper) {
@@ -245,7 +258,19 @@ public class CukedoctorAdminThemeExtension extends Postprocessor {
     private Element renderLeftMenu() {
         Element leftMenu = newElement("ul").addClass("sidebar-menu tree")
                 .attr("data-widget", "tree");
-
+        
+        Element homeItem = newElement("li");
+        Element homeAnchor = newElement("a").attr("href", "#");
+        homeAnchor.appendChild(newElement("i").addClass("fa fa-home"))
+                 .text("Home");
+         
+        leftMenu.appendChild(homeItem);
+        
+        Element summaryItem = newElement("li");
+        Element summaryItemAnchor = newElement("a").attr("href", "#");
+        summaryItemAnchor.appendChild(newElement("i").addClass("fa fa-pie-chart"))
+                 .text("Summary");
+        
         leftMenu.appendChild(newElement("li").addClass("header").text("Features"));
 
         Elements tocElements = htmlDocument.getElementById("toc").select("ul.sectlevel2 > li");
@@ -296,6 +321,7 @@ public class CukedoctorAdminThemeExtension extends Postprocessor {
         FileUtil.copyFile("/themes/cukedoctor/css/_all-skins.min.css", docDir + "/theme/css/_all-skins.min.css");
         FileUtil.copyFile("/themes/cukedoctor/css/adminlte.min.css", docDir + "/theme/css/adminlte.min.css");
         FileUtil.copyFile("/themes/cukedoctor/css/bootstrap.min.css", docDir + "/theme/css/bootstrap.min.css");
+        FileUtil.copyFile("/themes/cukedoctor/css/custom.css", docDir + "/theme/css/custom.css");
         FileUtil.copyFile("/themes/cukedoctor/js/jquery.min.js", docDir + "/theme/js/jquery.min.js");
         FileUtil.copyFile("/themes/cukedoctor/js/jquery-ui.min.js", docDir + "/theme/js/jquery-ui.min.js");
         FileUtil.copyFile("/themes/cukedoctor/js/bootstrap.min.js", docDir + "/theme/js/bootstrap.min.js");
@@ -305,6 +331,60 @@ public class CukedoctorAdminThemeExtension extends Postprocessor {
         FileUtil.copyFile("/themes/cukedoctor/fonts/glyphicons-halflings-regular.ttf", docDir + "/theme/fonts/glyphicons-halflings-regular.ttf");
         FileUtil.copyFile("/themes/cukedoctor/fonts/glyphicons-halflings-regular.woff", docDir + "/theme/fonts/glyphicons-halflings-regular.woff");
         FileUtil.copyFile("/themes/cukedoctor/fonts/glyphicons-halflings-regular.woff2", docDir + "/theme/fonts/glyphicons-halflings-regular.woff2");
+    }
+
+    private Element renderContentWrapper() {
+        Element contentWrapper = newElementWithClass("div", "content-wrapper");
+        return contentWrapper;
+    }
+
+    private void renderFeatures(Element contentWrapper) {
+        Element content =  htmlDocument.getElementById("content");
+        //content.
+        contentWrapper.appendChild(content);
+    }
+
+    private void renderSummary() {
+        Elements summaryTotals = htmlDocument.select("#content .sect1:first-child tfoot tr code");
+        for (Element total : summaryTotals) {
+            System.out.println(total.text());
+        }
+        
+        <div class="box box-default">
+    <div class="box-header with-border">
+        <h3 class="box-title">Scenarios</h3>
+
+        <div class="box-tools pull-right">
+            <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+            </button>
+            <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+        </div>
+    </div>
+    <!-- /.box-header -->
+    <div class="box-body">
+        <div class="row">
+            <div class="col-md-8">
+                <div class="chart-responsive">
+                    <canvas id="pieChart" height="150"></canvas>
+                </div>
+                <!-- ./chart-responsive -->
+            </div>
+            <!-- /.col -->
+            <div class="col-md-4">
+                <ul class="chart-legend clearfix">
+                    <li><i class="fa fa-circle-o text-red"></i> Chrome</li>
+                    <li><i class="fa fa-circle-o text-green"></i> IE</li>
+                    <li><i class="fa fa-circle-o text-yellow"></i> FireFox</li>
+                    <li><i class="fa fa-circle-o text-aqua"></i> Safari</li>
+                    <li><i class="fa fa-circle-o text-light-blue"></i> Opera</li>
+                    <li><i class="fa fa-circle-o text-gray"></i> Navigator</li>
+                </ul>
+            </div>
+            <!-- /.col -->
+        </div>
+        <!-- /.row -->
+    </div>
+</div>    
     }
 
 }

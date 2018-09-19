@@ -102,7 +102,7 @@ public class CukedoctorConverterTest {
 
         attrs.docTitle("Title");
         String document = Cukedoctor.instance(features, attrs).renderAttributes().
-                getDocumentation().toString();
+                getDocumentation();
         assertEquals(expected, document);
     }
 
@@ -127,7 +127,7 @@ public class CukedoctorConverterTest {
 
 
         String document = Cukedoctor.instance(features, new DocumentAttributes()).renderAttributes().
-                getDocumentation().toString();
+                getDocumentation();
         assertEquals(expected, document);
     }
 
@@ -151,7 +151,7 @@ public class CukedoctorConverterTest {
 
 
         String document = Cukedoctor.instance(features, GlobalConfig.newInstance().getDocumentAttributes()).renderAttributes().
-                getDocumentation().toString();
+                getDocumentation();
         assertEquals(expected, document);
     }
 
@@ -162,7 +162,7 @@ public class CukedoctorConverterTest {
 
 
         String document = Cukedoctor.instance(features).renderAttributes().
-                getDocumentation().toString();
+                getDocumentation();
         assertEquals("", document);
     }
 
@@ -172,7 +172,7 @@ public class CukedoctorConverterTest {
         features.add(FeatureBuilder.instance().id("id").name("name").build());
 
         String document = Cukedoctor.instance(features, null).renderAttributes().
-                getDocumentation().toString();
+                getDocumentation();
         assertEquals("", document);
     }
 
@@ -201,7 +201,7 @@ public class CukedoctorConverterTest {
 
         attrs.docTitle("Title");
         String document = Cukedoctor.instance(features, attrs).renderAttributes().
-                getDocumentation().toString();
+                getDocumentation();
         assertEquals(expected, document);
     }
 
@@ -231,7 +231,7 @@ public class CukedoctorConverterTest {
 
         attrs.docTitle("Title");
         String document = Cukedoctor.instance(features, attrs).renderAttributes().
-                getDocumentation().toString();
+                getDocumentation();
         assertEquals(expected, document);
     }
 
@@ -265,7 +265,7 @@ public class CukedoctorConverterTest {
 
         attrs.docTitle("Title");
         String document = Cukedoctor.instance(features, attrs).renderAttributes().
-                getDocumentation().toString();
+                getDocumentation();
         assertEquals(expected, document);
     }
 
@@ -297,7 +297,7 @@ public class CukedoctorConverterTest {
 
         attrs.docTitle("Documentation Title");
         String document = Cukedoctor.instance(features, attrs).renderAttributes().
-                getDocumentation().toString();
+                getDocumentation();
         assertEquals(document, expected);
     }
 
@@ -307,7 +307,7 @@ public class CukedoctorConverterTest {
     @Test
     public void shouldRenderSummaryForOneFeature() {
         List<Feature> features = FeatureParser.parse(onePassingOneFailing);
-        String resultDoc = Cukedoctor.instance(features, new DocumentAttributes().docTitle("Title")).renderSummary().getDocumentation().toString();
+        String resultDoc = Cukedoctor.instance(features, new DocumentAttributes().docTitle("Title")).renderSummary().getDocumentation();
         assertThat(resultDoc).isNotNull().
                 containsOnlyOnce("<<One-passing-scenario-one-failing-scenario>>").
                 containsOnlyOnce("|[red]#*failed*#").
@@ -320,7 +320,7 @@ public class CukedoctorConverterTest {
     @Test
     public void shouldRenderSummaryForMultipleFeatures() {
         List<Feature> features = FeatureParser.parse(onePassingOneFailing, embedDataDirectly, outline, invalidFeatureResult);
-        String resultDoc = Cukedoctor.instance(features, new DocumentAttributes().docTitle("Title")).renderSummary().getDocumentation().toString();
+        String resultDoc = Cukedoctor.instance(features, new DocumentAttributes().docTitle("Title")).renderSummary().getDocumentation();
         assertThat(resultDoc).isNotNull().
                 containsOnlyOnce("<<One-passing-scenario-one-failing-scenario>>").
                 containsOnlyOnce("<<An-embed-data-directly-feature>>").
@@ -336,7 +336,7 @@ public class CukedoctorConverterTest {
     @Test
     public void shouldRenderSummaryForFeatureWithBackground() {
         List<Feature> features = FeatureParser.parse(getClass().getResource("/json-output/feature_with_background.json").getPath());
-        String resultDoc = Cukedoctor.instance(features, new DocumentAttributes().docTitle("Title")).renderSummary().getDocumentation().toString();
+        String resultDoc = Cukedoctor.instance(features, new DocumentAttributes().docTitle("Title")).renderSummary().getDocumentation();
         assertThat(resultDoc).isNotNull().
                 containsOnlyOnce("<<A-feature-with-background>>").
                 contains("*Totals*" + newLine() +
@@ -455,7 +455,7 @@ public class CukedoctorConverterTest {
         features.add(feature);
         features.add(featureToSkip);
         String resultDoc = Cukedoctor.instance(features, new DocumentAttributes()).
-                renderFeatures(features).getDocumentation().toString();
+                renderFeatures(features).getDocumentation();
 
         assertThat(resultDoc).
                 doesNotContain("feature to skip").

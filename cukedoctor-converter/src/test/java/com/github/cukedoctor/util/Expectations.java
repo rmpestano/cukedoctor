@@ -296,7 +296,6 @@ public interface Expectations {
 			"== *One passing scenario, one failing scenario*"+newLine() +
 			""+newLine() +
 			"ifndef::backend-pdf[]"+newLine() +
-			"minmax::One-passing-scenario-one-failing-scenario[]"+newLine() +
 			"endif::[]"+newLine() +
 			"=== Scenario: Passing"+newLine() +
 			"[small]#tags: @a,@b#"+newLine() +

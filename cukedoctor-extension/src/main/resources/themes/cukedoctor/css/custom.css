@@ -1,0 +1,17 @@
+body .wrapper {
+    font-size: 16px;
+    line-height: 1.6;
+    text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+    margin: 140px;
+}
+
+li.header {
+    text-transform:uppercase
+} 
+ul.treeview-menu li.header {
+    color:#738790
+} 
+ul.treeview-menu li a:hover {
+    color:#8aa4af!important;font-weight:600
+}
