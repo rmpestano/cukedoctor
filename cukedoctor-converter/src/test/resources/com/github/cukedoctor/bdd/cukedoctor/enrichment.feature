@@ -50,14 +50,15 @@ Feature: Enrich feature
     # cukedoctor-discrete
     Then DocString asciidoc output must be rendered in my documentation
 """
+== *Features*
+
 [[Discrete-class-feature, Discrete class feature]]
 === *Discrete class feature*
 
 ==== Scenario: Render source code
 
-****
+====
 Given ::
-=====
 the following source code icon:thumbs-up[role="green",title="Passed"] [small right]#(267ms)#
 ******
 
@@ -74,14 +75,12 @@ public int sum(int x, int y){
 
 ******
 
-=====
-****
+====
 
 ==== Scenario: Render table
 
-****
+====
 Given ::
-=====
 the following table icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ******
 
@@ -95,8 +94,7 @@ the following table icon:thumbs-up[role="green",title="Passed"] [small right]#(0
 
 ******
 
-=====
-****
+====
 
 
 """
@@ -131,41 +129,37 @@ Feature: Calculator
 # cukedoctor-discrete
     Then Asciidoc markup on comments must be rendered in my documentation
 """
-[[Calculator, Calculator]]
-=== *Calculator*
+==*Features*
 
-==== Scenario: Adding numbers
-You can use *asciidoc markup* in _feature_ #description#.
+[[Calculator,Calculator]]
+===*Calculator*
 
-NOTE: This is a very important feature!
+====Scenario:Addingnumbers
+Youcanuse*asciidocmarkup*in_feature_#description#.
 
-****
-Given ::
-=====
-I have numbers 1 and 2 icon:thumbs-up[role="green",title="Passed"] [small right]#(114ms)#
+NOTE:Thisisaveryimportantfeature!
 
-IMPORTANT: Asciidoc markup inside *steps* must be surrounded by *curly brackets*.
+====
+Given::
+Ihavenumbers1and2icon:thumbs-up[role="green",title="Passed"][smallright]#(114ms)#
 
-=====
-When ::
-=====
-I sum the numbers icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+IMPORTANT:Asciidocmarkupinside*steps*mustbesurroundedby*curlybrackets*.
 
-NOTE: Steps comments are placed *before* each steps so this comment is for the *WHEN* step.
+When::
+Isumthenumbersicon:thumbs-up[role="green",title="Passed"][smallright]#(000ms)#
 
-=====
-Then ::
-=====
-I should have 3 as result icon:thumbs-up[role="green",title="Passed"] [small right]#(001ms)#
+NOTE:Stepscommentsareplaced*before*eachstepssothiscommentisforthe*WHEN*step.
 
-* this is a list of itens inside a feature step
+Then::
+Ishouldhave3asresulticon:thumbs-up[role="green",title="Passed"][smallright]#(001ms)#
 
-* there is no multiline comment in gherkin
+*thisisalistofitensinsideafeaturestep
 
-** second level list item
+*thereisnomultilinecommentingherkin
 
-=====
-****
+**secondlevellistitem
+
+====
 
 
 """

@@ -33,7 +33,7 @@ public class EnrichmentSteps {
 
     @Then("^DocString asciidoc output must be rendered in my documentation$")
     public void DocString_asciidoc_output_must_be_rendered_in_my_documentation(String expected) throws Throwable {
-        assertThat(documentation.replaceAll("\r","")).contains((expected.replaceAll("\r","")));
+    	assertThat(documentation.replaceAll("\r","")).contains((expected.replaceAll("\r","")));
     }
 
     @When("^I convert enriched feature json output using cukedoctor$")

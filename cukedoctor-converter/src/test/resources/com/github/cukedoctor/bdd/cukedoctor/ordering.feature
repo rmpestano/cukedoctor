@@ -30,29 +30,27 @@ Feature: Feature2
     # cukedoctor-discrete
     Then Features should be ordered by name in resulting documentation
 """
+== *Features*
+
 [[Feature1, Feature1]]
 === *Feature1*
 
 ==== Scenario: Scenario feature 1
 
-****
+====
 Given ::
-=====
 scenario step icon:thumbs-up[role="green",title="Passed"] [small right]#(647ms)#
-=====
-****
+====
 
 [[Feature2, Feature2]]
 === *Feature2*
 
 ==== Scenario: Scenario feature 2
 
-****
+====
 Given ::
-=====
 scenario step icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
-=====
-****
+====
 
 
 """
@@ -81,29 +79,27 @@ Feature: Feature2
 # cukedoctor-discrete
     Then Features should be ordered respecting order comment
 """
+== *Features*
+
 [[Feature2, Feature2]]
 === *Feature2*
 
 ==== Scenario: Scenario feature 2
 
-****
+====
 Given ::
-=====
 scenario step icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
-=====
-****
+====
 
 [[Feature1, Feature1]]
 === *Feature1*
 
 ==== Scenario: Scenario feature 1
 
-****
+====
 Given ::
-=====
 scenario step icon:thumbs-up[role="green",title="Passed"] [small right]#(313ms)#
-=====
-****
+====
 
 
 """
