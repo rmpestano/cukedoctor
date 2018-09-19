@@ -145,7 +145,9 @@ public class CukedoctorConverterImpl implements CukedoctorConverter {
 					.sourceHighlighter(documentAttributes.getSourceHighlighter())
 					.tocLevels(documentAttributes.getTocLevels())
 					.revNumber(documentAttributes.getRevNumber())
-					.hardBreaks(documentAttributes.isHardBreaks());
+					.hardBreaks(documentAttributes.isHardBreaks())
+					.chapterLabel(documentAttributes.getChapterLabel())
+					.versionLabel(documentAttributes.getVersionLabel());
 			if(hasText(documentAttributes.getPdfStyle())) {
 				docBuilder.attributes().pdfStyle(documentAttributes.getPdfStyle());
 			}

@@ -15,7 +15,7 @@
                     <project implementation="com.github.cukedoctor.mojo.stub.CukedoctorMojoStub"/>
                     <outputFileName>documentation</outputFileName>
                     <outputDir>docs</outputDir>
-                    <format>html5</format>
+                    <format>all</format>
                     <toc>left</toc>
                     <numbered>true</numbered>
                     <docVersion>${project.version}</docVersion>

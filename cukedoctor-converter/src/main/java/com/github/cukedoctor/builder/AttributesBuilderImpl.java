@@ -94,6 +94,19 @@ public class AttributesBuilderImpl implements AttributesBuilder {
         docBuilder.textLine(Constants.Atributes.tocLevels(value));
         return this;
     }
+    
+
+    @Override
+    public AttributesBuilder chapterLabel(String value) {
+	docBuilder.textLine(Constants.Atributes.chapterLabel(value));
+        return this;
+    }
+    
+    @Override
+    public AttributesBuilder versionLabel(String value) {
+	docBuilder.textLine(Constants.Atributes.versionLabel(value));
+        return this;
+    }
 
     @Override
     public AttributesBuilder pdfStyle(String value) {
