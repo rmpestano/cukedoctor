@@ -40,7 +40,7 @@ ____
 
 ====
 Given ::
-The following two features: icon:thumbs-up[role="green",title="Passed"] [small right]#(513ms)#
+The following two features: icon:thumbs-up[role="green",title="Passed"] [small right]#(509ms)#
 ----
 
 Feature: Feature1
@@ -57,7 +57,7 @@ Feature: Feature2
 
 ----
 When ::
-I convert their json test output using cukedoctor converter icon:thumbs-up[role="green",title="Passed"] [small right]#(01s 297ms)#
+I convert their json test output using cukedoctor converter icon:thumbs-up[role="green",title="Passed"] [small right]#(01s 172ms)#
 ******
 
 [discrete]
@@ -81,7 +81,7 @@ NOTE: *plugin* option replaced *format* option which was deprecated in newer cuc
 ******
 
 Then ::
-I should have awesome living documentation icon:thumbs-down[role="red",title="Failed"] [small right]#(014ms)#
+I should have awesome living documentation icon:thumbs-down[role="red",title="Failed"] [small right]#(016ms)#
 ******
 
 [discrete]
@@ -250,7 +250,7 @@ Feature: Feature2
 
 ----
 When ::
-I convert them using default order icon:thumbs-up[role="green",title="Passed"] [small right]#(047ms)#
+I convert them using default order icon:thumbs-up[role="green",title="Passed"] [small right]#(038ms)#
 Then ::
 Features should be ordered by name in resulting documentation icon:thumbs-down[role="red",title="Failed"] [small right]#(000ms)#
 ******
@@ -358,7 +358,7 @@ Feature: Feature2
 NOTE: Ordering is done using feature comment '*#order:*'
 
 When ::
-I convert them using comment order icon:thumbs-up[role="green",title="Passed"] [small right]#(029ms)#
+I convert them using comment order icon:thumbs-up[role="green",title="Passed"] [small right]#(046ms)#
 Then ::
 Features should be ordered respecting order comment icon:thumbs-down[role="red",title="Failed"] [small right]#(000ms)#
 ******
@@ -495,9 +495,9 @@ Feature: Enrich feature
 
 ----
 When ::
-I convert docstring enriched json output using cukedoctor converter icon:thumbs-up[role="green",title="Passed"] [small right]#(068ms)#
+I convert docstring enriched json output using cukedoctor converter icon:thumbs-up[role="green",title="Passed"] [small right]#(097ms)#
 Then ::
-DocString asciidoc output must be rendered in my documentation icon:thumbs-down[role="red",title="Failed"] [small right]#(004ms)#
+DocString asciidoc output must be rendered in my documentation icon:thumbs-down[role="red",title="Failed"] [small right]#(003ms)#
 ******
 
 [discrete]
@@ -636,9 +636,9 @@ Feature: Calculator
 
 ----
 When ::
-I convert enriched feature json output using cukedoctor icon:thumbs-up[role="green",title="Passed"] [small right]#(040ms)#
+I convert enriched feature json output using cukedoctor icon:thumbs-up[role="green",title="Passed"] [small right]#(029ms)#
 Then ::
-Asciidoc markup on comments must be rendered in my documentation icon:thumbs-down[role="red",title="Failed"] [small right]#(000ms)#
+Asciidoc markup on comments must be rendered in my documentation icon:thumbs-down[role="red",title="Failed"] [small right]#(001ms)#
 ******
 
 [discrete]
