@@ -23,6 +23,8 @@ Feature: Cukedoctor Main
 :source-highlighter: highlightjs
 :toclevels: 3
 :hardbreaks:
+:chapter-label: Chapter
+:version-label: Version
 
 = *Documentation*
 
@@ -115,6 +117,8 @@ features/one_passing_one_failing.feature:10:in Given this step fails'
 :source-highlighter: highlightjs
 :toclevels: 3
 :hardbreaks:
+:chapter-label: Chapter
+:version-label: Version
 
 = *Documentation*
 

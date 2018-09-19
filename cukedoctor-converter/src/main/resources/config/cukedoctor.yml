@@ -20,3 +20,5 @@ documentAttributes:
   pdfStyle:
   sourceHighlighter: "highlightjs"
   hardBreaks: true
+  chapterLabel: "Chapter"
+  versionLabel: "Version"

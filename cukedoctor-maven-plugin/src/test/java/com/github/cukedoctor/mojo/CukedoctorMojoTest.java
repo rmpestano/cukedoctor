@@ -20,8 +20,7 @@ import static org.assertj.core.api.Assertions.contentOf;
 public class CukedoctorMojoTest extends AbstractMojoTestCase {
 
 
-
-    protected void setUp() throws Exception {
+    public void setUp() throws Exception {
         super.setUp();
         System.clearProperty("cukedoctor.disable.theme");
         System.clearProperty(FILTER_DISABLE_EXT_KEY);
@@ -29,7 +28,7 @@ public class CukedoctorMojoTest extends AbstractMojoTestCase {
         System.clearProperty("cukedoctor.disable.footer");
     }
 
-    protected void tearDown() throws Exception {
+    public void tearDown() throws Exception {
         super.tearDown();
         System.clearProperty("cukedoctor.disable.theme");
         System.clearProperty(FILTER_DISABLE_EXT_KEY);
@@ -52,7 +51,9 @@ public class CukedoctorMojoTest extends AbstractMojoTestCase {
         assertThat(mojo.getGeneratedFile()).
                 contains(":backend: html5").
                 contains(":toc: left").
-                contains(":numbered:");
+                contains(":numbered:").
+                contains(":chapter-label: mychapter").
+                contains(":version-label: myversion");
         String docHtml = readFileContent(loadTestFile("documentation.html"));
         assertThat(docHtml).isNotEmpty().
                 containsOnlyOnce("searchFeature(criteria)").
@@ -346,7 +347,6 @@ public class CukedoctorMojoTest extends AbstractMojoTestCase {
     public void testGenerateAllDocs() throws Exception {
 
         CukedoctorMojo mojo = (CukedoctorMojo) lookupMojo("execute", getTestFile("src/test/resources/html-pdf-docs-pom.xml"));
-
         assertNotNull(mojo);
         mojo.execute();
         File pdfFile = FileUtil.loadFile(mojo.getDocumentationDir() + mojo.outputFileName + ".pdf");
@@ -362,7 +362,8 @@ public class CukedoctorMojoTest extends AbstractMojoTestCase {
         File htmlFile = FileUtil.loadFile(mojo.getDocumentationDir() + mojo.outputFileName + ".html");
         assertThat(htmlFile).exists().hasParent("target/docs");
 
-    }
+    }  
+
 
     /**
      * @throws Exception
@@ -383,6 +384,9 @@ public class CukedoctorMojoTest extends AbstractMojoTestCase {
 
     }
 
+    /**
+     * @throws Exception
+     */
     public void testSkipDocsGenerationTest() throws Exception {
         CukedoctorMojo mojo = (CukedoctorMojo) lookupMojo("execute", getTestFile("src/test/resources/skip-docs-pom.xml"));
         assertNotNull(mojo);
@@ -392,5 +396,28 @@ public class CukedoctorMojoTest extends AbstractMojoTestCase {
         assertThat(outContent.toString()).contains("Skipping cukedoctor-maven-plugin");
 
     }
+    
+    /**
+     * @throws Exception
+     */
+    public void testGenerateAllDocsWithChapterAndVersionLabel() throws Exception {
 
+	CukedoctorMojo mojo = (CukedoctorMojo) lookupMojo("execute", getTestFile("src/test/resources/html-docs-chapter-version-labels-pom.xml"));
+        assertNotNull(mojo);
+        mojo.execute();
+        File pdfFile = FileUtil.loadFile(mojo.getDocumentationDir() + mojo.outputFileName + ".pdf");
+        assertThat(pdfFile).exists().hasParent("target/docs");
+
+        String docHtml = readFileContent(loadTestFile("documentation.html"));
+        assertThat(docHtml).isNotEmpty().
+                containsOnlyOnce("searchFeature(criteria)").
+                containsOnlyOnce("function showFeatureScenarios(featureId)").
+                contains("One passing scenario, one failing scenario").
+                contains("Eat cukes in lot").
+                contains("function themefy()");
+        File htmlFile = FileUtil.loadFile(mojo.getDocumentationDir() + mojo.outputFileName + ".html");
+        assertThat(htmlFile).exists().hasParent("target/docs");
+
+    }  
+    
 }
