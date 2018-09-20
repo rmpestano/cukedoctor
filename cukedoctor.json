@@ -18,7 +18,7 @@
         "steps": [
           {
             "result": {
-              "duration": 509185852,
+              "duration": 409724195,
               "status": "passed"
             },
             "line": 13,
@@ -35,7 +35,7 @@
           },
           {
             "result": {
-              "duration": 1172593740,
+              "duration": 949114435,
               "status": "passed"
             },
             "comments": [
@@ -58,9 +58,8 @@
           },
           {
             "result": {
-              "duration": 16679510,
-              "error_message": "org.junit.ComparisonFailure: expected:\u003c...Scenario feature 1\n\n[****\nGiven ::\n\u003d\u003d\u003d\u003d\u003d\nscenario step icon:thumbs-up[role\u003d\"green\",title\u003d\"Passed\"] [small right]#(647ms)#\n\u003d\u003d\u003d\u003d\u003d\n****\n\n[[Feature2, Feature2]]\n\u003d\u003d\u003d *Feature2*\n\n\u003d\u003d\u003d\u003d Scenario: Scenario feature 2\n\n****\nGiven ::\n\u003d\u003d\u003d\u003d\u003d\nscenario step icon:thumbs-up[role\u003d\"green\",title\u003d\"Passed\"] [small right]#(000ms)#\n\u003d\u003d\u003d\u003d\u003d\n****]\n\n\"\u003e but was:\u003c...Scenario feature 1\n\n[\u003d\u003d\u003d\u003d\nGiven ::\nscenario step icon:thumbs-up[role\u003d\"green\",title\u003d\"Passed\"] [small right]#(647ms)#\n\u003d\u003d\u003d\u003d\n\n[[Feature2, Feature2]]\n\u003d\u003d\u003d *Feature2*\n\n\u003d\u003d\u003d\u003d Scenario: Scenario feature 2\n\n\u003d\u003d\u003d\u003d\nGiven ::\nscenario step icon:thumbs-up[role\u003d\"green\",title\u003d\"Passed\"] [small right]#(000ms)#\n\u003d\u003d\u003d\u003d]\n\n\"\u003e\n\tat sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)\n\tat sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)\n\tat sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)\n\tat com.github.cukedoctor.bdd.cukedoctor.ConverterSteps.I_should_have_awesome_living_documentation(ConverterSteps.java:44)\n\tat ✽.Then I should have awesome living documentation(com/github/cukedoctor/bdd/cukedoctor/converter.feature:45)\n",
-              "status": "failed"
+              "duration": 1614921,
+              "status": "passed"
             },
             "comments": [
               {
@@ -77,7 +76,7 @@
             "doc_string": {
               "content_type": "",
               "line": 46,
-              "value": "\n\u003d *Documentation*\n\n\n\n\u003d\u003d *Summary*\n[cols\u003d\"12*^m\", options\u003d\"header,footer\"]\n|\u003d\u003d\u003d\n3+|Scenarios 7+|Steps 2+|Features: 2\n\n|[green]#*Passed*#\n|[red]#*Failed*#\n|Total\n|[green]#*Passed*#\n|[red]#*Failed*#\n|[purple]#*Skipped*#\n|[maroon]#*Pending*#\n|[yellow]#*Undefined*#\n|[blue]#*Missing*#\n|Total\n|Duration\n|Status\n\n12+^|*\u003c\u003cFeature1\u003e\u003e*\n|1\n|0\n|1\n|1\n|0\n|0\n|0\n|0\n|0\n|1\n|647ms\n|[green]#*passed*#\n\n12+^|*\u003c\u003cFeature2\u003e\u003e*\n|1\n|0\n|1\n|1\n|0\n|0\n|0\n|0\n|0\n|1\n|000ms\n|[green]#*passed*#\n12+^|*Totals*\n|2|0|2|2|0|0|0|0|0|2 2+|647ms\n|\u003d\u003d\u003d\n\n\u003d\u003d *Features*\n\n[[Feature1, Feature1]]\n\u003d\u003d\u003d *Feature1*\n\n\u003d\u003d\u003d\u003d Scenario: Scenario feature 1\n\n****\nGiven ::\n\u003d\u003d\u003d\u003d\u003d\nscenario step icon:thumbs-up[role\u003d\"green\",title\u003d\"Passed\"] [small right]#(647ms)#\n\u003d\u003d\u003d\u003d\u003d\n****\n\n[[Feature2, Feature2]]\n\u003d\u003d\u003d *Feature2*\n\n\u003d\u003d\u003d\u003d Scenario: Scenario feature 2\n\n****\nGiven ::\n\u003d\u003d\u003d\u003d\u003d\nscenario step icon:thumbs-up[role\u003d\"green\",title\u003d\"Passed\"] [small right]#(000ms)#\n\u003d\u003d\u003d\u003d\u003d\n****\n\n"
+              "value": "\n\u003d *Documentation*\n\n\n\n\u003d\u003d *Summary*\n[cols\u003d\"12*^m\", options\u003d\"header,footer\"]\n|\u003d\u003d\u003d\n3+|Scenarios 7+|Steps 2+|Features: 2\n\n|[green]#*Passed*#\n|[red]#*Failed*#\n|Total\n|[green]#*Passed*#\n|[red]#*Failed*#\n|[purple]#*Skipped*#\n|[maroon]#*Pending*#\n|[yellow]#*Undefined*#\n|[blue]#*Missing*#\n|Total\n|Duration\n|Status\n\n12+^|*\u003c\u003cFeature1\u003e\u003e*\n|1\n|0\n|1\n|1\n|0\n|0\n|0\n|0\n|0\n|1\n|647ms\n|[green]#*passed*#\n\n12+^|*\u003c\u003cFeature2\u003e\u003e*\n|1\n|0\n|1\n|1\n|0\n|0\n|0\n|0\n|0\n|1\n|000ms\n|[green]#*passed*#\n12+^|*Totals*\n|2|0|2|2|0|0|0|0|0|2 2+|647ms\n|\u003d\u003d\u003d\n\n\u003d\u003d *Features*\n\n[[Feature1, Feature1]]\n\u003d\u003d\u003d *Feature1*\n\n\u003d\u003d\u003d\u003d Scenario: Scenario feature 1\n\n\u003d\u003d\u003d\u003d\nGiven ::\nscenario step icon:thumbs-up[role\u003d\"green\",title\u003d\"Passed\"] [small right]#(647ms)#\n\u003d\u003d\u003d\u003d\n\n[[Feature2, Feature2]]\n\u003d\u003d\u003d *Feature2*\n\n\u003d\u003d\u003d\u003d Scenario: Scenario feature 2\n\n\u003d\u003d\u003d\u003d\nGiven ::\nscenario step icon:thumbs-up[role\u003d\"green\",title\u003d\"Passed\"] [small right]#(000ms)#\n\u003d\u003d\u003d\u003d\n\n"
             }
           }
         ]
@@ -108,7 +107,7 @@
         "steps": [
           {
             "result": {
-              "duration": 101132,
+              "duration": 90591,
               "status": "passed"
             },
             "line": 14,
@@ -125,7 +124,7 @@
           },
           {
             "result": {
-              "duration": 97371199,
+              "duration": 46756789,
               "status": "passed"
             },
             "line": 48,
@@ -137,9 +136,8 @@
           },
           {
             "result": {
-              "duration": 3196077,
-              "error_message": "java.lang.AssertionError: \nExpecting:\n \u003c\"\u003d\u003d *Features*\n\n[[Discrete-class-feature, Discrete class feature]]\n\u003d\u003d\u003d *Discrete class feature*\n\n\u003d\u003d\u003d\u003d Scenario: Render source code\n\n\u003d\u003d\u003d\u003d\nGiven ::\nthe following source code icon:thumbs-up[role\u003d\"green\",title\u003d\"Passed\"] [small right]#(267ms)#\n******\n\n[discrete]\n[source, java]\n-----\npublic int sum(int x, int y){\n    int result \u003d x + y;\n    return result; \u003c1\u003e\n}\n-----\n\u003c1\u003e We can have callouts in living documentation\u003e\n\n\n******\n\n\u003d\u003d\u003d\u003d\n\n\u003d\u003d\u003d\u003d Scenario: Render table\n\n\u003d\u003d\u003d\u003d\nGiven ::\nthe following table icon:thumbs-up[role\u003d\"green\",title\u003d\"Passed\"] [small right]#(000ms)#\n******\n\n[discrete]\n|\u003d\u003d\u003d\n| Cell in column 1, row 1 | Cell in column 2, row 1\n| Cell in column 1, row 2 | Cell in column 2, row 2\n| Cell in column 1, row 3 | Cell in column 2, row 3\n|\u003d\u003d\u003d\n\n\n******\n\n\u003d\u003d\u003d\u003d\n\n\"\u003e\nto contain:\n \u003c\"[[Discrete-class-feature, Discrete class feature]]\n\u003d\u003d\u003d *Discrete class feature*\n\n\u003d\u003d\u003d\u003d Scenario: Render source code\n\n****\nGiven ::\n\u003d\u003d\u003d\u003d\u003d\nthe following source code icon:thumbs-up[role\u003d\"green\",title\u003d\"Passed\"] [small right]#(267ms)#\n******\n\n[discrete]\n[source, java]\n-----\npublic int sum(int x, int y){\n    int result \u003d x + y;\n    return result; \u003c1\u003e\n}\n-----\n\u003c1\u003e We can have callouts in living documentation\u003e\n\n\n******\n\n\u003d\u003d\u003d\u003d\u003d\n****\n\n\u003d\u003d\u003d\u003d Scenario: Render table\n\n****\nGiven ::\n\u003d\u003d\u003d\u003d\u003d\nthe following table icon:thumbs-up[role\u003d\"green\",title\u003d\"Passed\"] [small right]#(000ms)#\n******\n\n[discrete]\n|\u003d\u003d\u003d\n| Cell in column 1, row 1 | Cell in column 2, row 1\n| Cell in column 1, row 2 | Cell in column 2, row 2\n| Cell in column 1, row 3 | Cell in column 2, row 3\n|\u003d\u003d\u003d\n\n\n******\n\n\u003d\u003d\u003d\u003d\u003d\n****\n\n\"\u003e \n\tat com.github.cukedoctor.bdd.cukedoctor.EnrichmentSteps.DocString_asciidoc_output_must_be_rendered_in_my_documentation(EnrichmentSteps.java:36)\n\tat ✽.Then DocString asciidoc output must be rendered in my documentation(com/github/cukedoctor/bdd/cukedoctor/enrichment.feature:51)\n",
-              "status": "failed"
+              "duration": 219915,
+              "status": "passed"
             },
             "comments": [
               {
@@ -156,13 +154,13 @@
             "doc_string": {
               "content_type": "",
               "line": 52,
-              "value": "[[Discrete-class-feature, Discrete class feature]]\n\u003d\u003d\u003d *Discrete class feature*\n\n\u003d\u003d\u003d\u003d Scenario: Render source code\n\n****\nGiven ::\n\u003d\u003d\u003d\u003d\u003d\nthe following source code icon:thumbs-up[role\u003d\"green\",title\u003d\"Passed\"] [small right]#(267ms)#\n******\n\n[discrete]\n[source, java]\n-----\npublic int sum(int x, int y){\n    int result \u003d x + y;\n    return result; \u003c1\u003e\n}\n-----\n\u003c1\u003e We can have callouts in living documentation\u003e\n\n\n******\n\n\u003d\u003d\u003d\u003d\u003d\n****\n\n\u003d\u003d\u003d\u003d Scenario: Render table\n\n****\nGiven ::\n\u003d\u003d\u003d\u003d\u003d\nthe following table icon:thumbs-up[role\u003d\"green\",title\u003d\"Passed\"] [small right]#(000ms)#\n******\n\n[discrete]\n|\u003d\u003d\u003d\n| Cell in column 1, row 1 | Cell in column 2, row 1\n| Cell in column 1, row 2 | Cell in column 2, row 2\n| Cell in column 1, row 3 | Cell in column 2, row 3\n|\u003d\u003d\u003d\n\n\n******\n\n\u003d\u003d\u003d\u003d\u003d\n****\n\n"
+              "value": "\u003d\u003d *Features*\n\n[[Discrete-class-feature, Discrete class feature]]\n\u003d\u003d\u003d *Discrete class feature*\n\n\u003d\u003d\u003d\u003d Scenario: Render source code\n\n\u003d\u003d\u003d\u003d\nGiven ::\nthe following source code icon:thumbs-up[role\u003d\"green\",title\u003d\"Passed\"] [small right]#(267ms)#\n******\n\n[discrete]\n[source, java]\n-----\npublic int sum(int x, int y){\n    int result \u003d x + y;\n    return result; \u003c1\u003e\n}\n-----\n\u003c1\u003e We can have callouts in living documentation\u003e\n\n\n******\n\n\u003d\u003d\u003d\u003d\n\n\u003d\u003d\u003d\u003d Scenario: Render table\n\n\u003d\u003d\u003d\u003d\nGiven ::\nthe following table icon:thumbs-up[role\u003d\"green\",title\u003d\"Passed\"] [small right]#(000ms)#\n******\n\n[discrete]\n|\u003d\u003d\u003d\n| Cell in column 1, row 1 | Cell in column 2, row 1\n| Cell in column 1, row 2 | Cell in column 2, row 2\n| Cell in column 1, row 3 | Cell in column 2, row 3\n|\u003d\u003d\u003d\n\n\n******\n\n\u003d\u003d\u003d\u003d\n\n"
             }
           }
         ]
       },
       {
-        "line": 104,
+        "line": 102,
         "name": "Comments enrichment",
         "description": "Asciidoc markup can be used in feature comments. To do so you need to surround asciidoc markup by *curly brackets*;.",
         "id": "enrich-features;comments-enrichment",
@@ -171,10 +169,10 @@
         "steps": [
           {
             "result": {
-              "duration": 137571,
+              "duration": 68139,
               "status": "passed"
             },
-            "line": 107,
+            "line": 105,
             "name": "The following feature with asciidoc markup in comments:",
             "match": {
               "location": "EnrichmentSteps.The_following_feature_with_asciidoc_markup_in_comments(String)"
@@ -182,16 +180,16 @@
             "keyword": "Given ",
             "doc_string": {
               "content_type": "",
-              "line": 108,
+              "line": 106,
               "value": "Feature: Calculator\n\n  Scenario: Adding numbers\n   You can *asciidoc markup* in _feature_ #description#.\n\n    NOTE: This is a very important feature!\n\n    #{IMPORTANT: Asciidoc markup inside *steps* must be surrounded by *curly brackets*.}\n    Given I have numbers 1 and 2\n\n    # {NOTE: Steps comments are placed *before* each steps so this comment is for the *WHEN* step.}\n\n    When I sum the numbers\n    # {* this is a list of itens inside a feature step}\n    # {* there is no multiline comment in gherkin}\n    # {** second level list item}\n    Then I should have 3 as result\n"
             }
           },
           {
             "result": {
-              "duration": 29711927,
+              "duration": 16250154,
               "status": "passed"
             },
-            "line": 129,
+            "line": 127,
             "name": "I convert enriched feature json output using cukedoctor",
             "match": {
               "location": "EnrichmentSteps.I_convert_enriched_feature_json_output_using_cukedoctor()"
@@ -200,17 +198,16 @@
           },
           {
             "result": {
-              "duration": 1086750,
-              "error_message": "java.lang.AssertionError: \nExpecting:\n \u003c\"\u003d\u003d*Features*\n\n[[Calculator,Calculator]]\n\u003d\u003d\u003d*Calculator*\n\n\u003d\u003d\u003d\u003dScenario:Addingnumbers\nYoucanuse*asciidocmarkup*in_feature_#description#.\n\nNOTE:Thisisaveryimportantfeature!\n\n\u003d\u003d\u003d\u003d\nGiven::\nIhavenumbers1and2icon:thumbs-up[role\u003d\"green\",title\u003d\"Passed\"][smallright]#(114ms)#\n\nIMPORTANT:Asciidocmarkupinside*steps*mustbesurroundedby*curlybrackets*.\n\nWhen::\nIsumthenumbersicon:thumbs-up[role\u003d\"green\",title\u003d\"Passed\"][smallright]#(000ms)#\n\nNOTE:Stepscommentsareplaced*before*eachstepssothiscommentisforthe*WHEN*step.\n\nThen::\nIshouldhave3asresulticon:thumbs-up[role\u003d\"green\",title\u003d\"Passed\"][smallright]#(001ms)#\n\n*thisisalistofitensinsideafeaturestep\n\n*thereisnomultilinecommentingherkin\n\n**secondlevellistitem\n\n\u003d\u003d\u003d\u003d\n\n\"\u003e\nto contain:\n \u003c\"[[Calculator,Calculator]]\n\u003d\u003d\u003d*Calculator*\n\n\u003d\u003d\u003d\u003dScenario:Addingnumbers\nYoucanuse*asciidocmarkup*in_feature_#description#.\n\nNOTE:Thisisaveryimportantfeature!\n\n****\nGiven::\n\u003d\u003d\u003d\u003d\u003d\nIhavenumbers1and2icon:thumbs-up[role\u003d\"green\",title\u003d\"Passed\"][smallright]#(114ms)#\n\nIMPORTANT:Asciidocmarkupinside*steps*mustbesurroundedby*curlybrackets*.\n\n\u003d\u003d\u003d\u003d\u003d\nWhen::\n\u003d\u003d\u003d\u003d\u003d\nIsumthenumbersicon:thumbs-up[role\u003d\"green\",title\u003d\"Passed\"][smallright]#(000ms)#\n\nNOTE:Stepscommentsareplaced*before*eachstepssothiscommentisforthe*WHEN*step.\n\n\u003d\u003d\u003d\u003d\u003d\nThen::\n\u003d\u003d\u003d\u003d\u003d\nIshouldhave3asresulticon:thumbs-up[role\u003d\"green\",title\u003d\"Passed\"][smallright]#(001ms)#\n\n*thisisalistofitensinsideafeaturestep\n\n*thereisnomultilinecommentingherkin\n\n**secondlevellistitem\n\n\u003d\u003d\u003d\u003d\u003d\n****\n\n\"\u003e \n\tat com.github.cukedoctor.bdd.cukedoctor.EnrichmentSteps.Asciidoc_output_must_be_rendered_in_my_documentation(EnrichmentSteps.java:50)\n\tat ✽.Then Asciidoc markup on comments must be rendered in my documentation(com/github/cukedoctor/bdd/cukedoctor/enrichment.feature:132)\n",
-              "status": "failed"
+              "duration": 178256,
+              "status": "passed"
             },
             "comments": [
               {
-                "line": 131,
+                "line": 129,
                 "value": "# cukedoctor-discrete"
               }
             ],
-            "line": 132,
+            "line": 130,
             "name": "Asciidoc markup on comments must be rendered in my documentation",
             "match": {
               "location": "EnrichmentSteps.Asciidoc_output_must_be_rendered_in_my_documentation(String)"
@@ -218,8 +215,8 @@
             "keyword": "Then ",
             "doc_string": {
               "content_type": "",
-              "line": 133,
-              "value": "[[Calculator, Calculator]]\n\u003d\u003d\u003d *Calculator*\n\n\u003d\u003d\u003d\u003d Scenario: Adding numbers\nYou can use *asciidoc markup* in _feature_ #description#.\n\nNOTE: This is a very important feature!\n\n****\nGiven ::\n\u003d\u003d\u003d\u003d\u003d\nI have numbers 1 and 2 icon:thumbs-up[role\u003d\"green\",title\u003d\"Passed\"] [small right]#(114ms)#\n\nIMPORTANT: Asciidoc markup inside *steps* must be surrounded by *curly brackets*.\n\n\u003d\u003d\u003d\u003d\u003d\nWhen ::\n\u003d\u003d\u003d\u003d\u003d\nI sum the numbers icon:thumbs-up[role\u003d\"green\",title\u003d\"Passed\"] [small right]#(000ms)#\n\nNOTE: Steps comments are placed *before* each steps so this comment is for the *WHEN* step.\n\n\u003d\u003d\u003d\u003d\u003d\nThen ::\n\u003d\u003d\u003d\u003d\u003d\nI should have 3 as result icon:thumbs-up[role\u003d\"green\",title\u003d\"Passed\"] [small right]#(001ms)#\n\n* this is a list of itens inside a feature step\n\n* there is no multiline comment in gherkin\n\n** second level list item\n\n\u003d\u003d\u003d\u003d\u003d\n****\n\n"
+              "line": 131,
+              "value": "\u003d\u003d*Features*\n\n[[Calculator,Calculator]]\n\u003d\u003d\u003d*Calculator*\n\n\u003d\u003d\u003d\u003dScenario:Addingnumbers\nYoucanuse*asciidocmarkup*in_feature_#description#.\n\nNOTE:Thisisaveryimportantfeature!\n\n\u003d\u003d\u003d\u003d\nGiven::\nIhavenumbers1and2icon:thumbs-up[role\u003d\"green\",title\u003d\"Passed\"][smallright]#(114ms)#\n\nIMPORTANT:Asciidocmarkupinside*steps*mustbesurroundedby*curlybrackets*.\n\nWhen::\nIsumthenumbersicon:thumbs-up[role\u003d\"green\",title\u003d\"Passed\"][smallright]#(000ms)#\n\nNOTE:Stepscommentsareplaced*before*eachstepssothiscommentisforthe*WHEN*step.\n\nThen::\nIshouldhave3asresulticon:thumbs-up[role\u003d\"green\",title\u003d\"Passed\"][smallright]#(001ms)#\n\n*thisisalistofitensinsideafeaturestep\n\n*thereisnomultilinecommentingherkin\n\n**secondlevellistitem\n\n\u003d\u003d\u003d\u003d\n\n"
             }
           }
         ]
@@ -250,7 +247,7 @@
         "steps": [
           {
             "result": {
-              "duration": 122301,
+              "duration": 75943,
               "status": "passed"
             },
             "line": 13,
@@ -267,7 +264,7 @@
           },
           {
             "result": {
-              "duration": 62179837,
+              "duration": 19474966,
               "status": "passed"
             },
             "comments": [
@@ -326,7 +323,7 @@
           },
           {
             "result": {
-              "duration": 30428,
+              "duration": 25709,
               "status": "passed"
             },
             "line": 54,
@@ -338,9 +335,8 @@
           },
           {
             "result": {
-              "duration": 807581,
-              "error_message": "org.junit.ComparisonFailure: expected:\u003c...Scenario feature 1\n\n[****\nGiven ::\n\u003d\u003d\u003d\u003d\u003d\nscenario step icon:thumbs-up[role\u003d\"green\",title\u003d\"Passed\"] [small right]#(647ms)#\n\u003d\u003d\u003d\u003d\u003d\n****\n\n[[Feature2, Feature2]]\n\u003d\u003d\u003d *Feature2*\n\n\u003d\u003d\u003d\u003d Scenario: Scenario feature 2\n\n****\nGiven ::\n\u003d\u003d\u003d\u003d\u003d\nscenario step icon:thumbs-up[role\u003d\"green\",title\u003d\"Passed\"] [small right]#(000ms)#\n\u003d\u003d\u003d\u003d\u003d\n****]\n\n\"\u003e but was:\u003c...Scenario feature 1\n\n[\u003d\u003d\u003d\u003d\nGiven ::\nscenario step icon:thumbs-up[role\u003d\"green\",title\u003d\"Passed\"] [small right]#(647ms)#\n\u003d\u003d\u003d\u003d\n\n[[Feature2, Feature2]]\n\u003d\u003d\u003d *Feature2*\n\n\u003d\u003d\u003d\u003d Scenario: Scenario feature 2\n\n\u003d\u003d\u003d\u003d\nGiven ::\nscenario step icon:thumbs-up[role\u003d\"green\",title\u003d\"Passed\"] [small right]#(000ms)#\n\u003d\u003d\u003d\u003d]\n\n\"\u003e\n\tat sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)\n\tat sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)\n\tat sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)\n\tat com.github.cukedoctor.bdd.cukedoctor.IntroChapterSteps.I_should_have_awesome_living_documentation(IntroChapterSteps.java:47)\n\tat ✽.Then Resulting documentation should have the provided introduction chapter(com/github/cukedoctor/bdd/cukedoctor/intro-chapter.feature:58)\n",
-              "status": "failed"
+              "duration": 393884,
+              "status": "passed"
             },
             "comments": [
               {
@@ -357,7 +353,7 @@
             "doc_string": {
               "content_type": "",
               "line": 59,
-              "value": "\n\u003d *Documentation*\n\n\u003d\u003d *Introduction*\n\nCukedoctor is a *Living documentation* tool which integrates Cucumber and Asciidoctor in order to convert your _BDD_ tests results into an awesome documentation.\n\nHere are some design principles:\n\n* Living documentation should be readable and highlight your software features;\n** Most bdd tools generate reports and not a truly documentation.\n* Cukedoctor *do not* introduce a new API that you need to learn, instead it operates on top of http://www.relishapp.com/cucumber/cucumber/docs/formatters/json-output-formatter[cucumber json output^] files;\n** In the \u0027worst case\u0027 to \u003c\u003cEnrich-features,enhance\u003e\u003e your documentation you will need to know a bit of http://asciidoctor.org/docs/what-is-asciidoc/[asciidoc markup^].\n\n\u003d\u003d *Summary*\n[cols\u003d\"12*^m\", options\u003d\"header,footer\"]\n|\u003d\u003d\u003d\n3+|Scenarios 7+|Steps 2+|Features: 2\n\n|[green]#*Passed*#\n|[red]#*Failed*#\n|Total\n|[green]#*Passed*#\n|[red]#*Failed*#\n|[purple]#*Skipped*#\n|[maroon]#*Pending*#\n|[yellow]#*Undefined*#\n|[blue]#*Missing*#\n|Total\n|Duration\n|Status\n\n12+^|*\u003c\u003cFeature1\u003e\u003e*\n|1\n|0\n|1\n|1\n|0\n|0\n|0\n|0\n|0\n|1\n|647ms\n|[green]#*passed*#\n\n12+^|*\u003c\u003cFeature2\u003e\u003e*\n|1\n|0\n|1\n|1\n|0\n|0\n|0\n|0\n|0\n|1\n|000ms\n|[green]#*passed*#\n12+^|*Totals*\n|2|0|2|2|0|0|0|0|0|2 2+|647ms\n|\u003d\u003d\u003d\n\n\u003d\u003d *Features*\n\n[[Feature1, Feature1]]\n\u003d\u003d\u003d *Feature1*\n\n\u003d\u003d\u003d\u003d Scenario: Scenario feature 1\n\n****\nGiven ::\n\u003d\u003d\u003d\u003d\u003d\nscenario step icon:thumbs-up[role\u003d\"green\",title\u003d\"Passed\"] [small right]#(647ms)#\n\u003d\u003d\u003d\u003d\u003d\n****\n\n[[Feature2, Feature2]]\n\u003d\u003d\u003d *Feature2*\n\n\u003d\u003d\u003d\u003d Scenario: Scenario feature 2\n\n****\nGiven ::\n\u003d\u003d\u003d\u003d\u003d\nscenario step icon:thumbs-up[role\u003d\"green\",title\u003d\"Passed\"] [small right]#(000ms)#\n\u003d\u003d\u003d\u003d\u003d\n****\n\n"
+              "value": "\n\u003d *Documentation*\n\n\u003d\u003d *Introduction*\n\nCukedoctor is a *Living documentation* tool which integrates Cucumber and Asciidoctor in order to convert your _BDD_ tests results into an awesome documentation.\n\nHere are some design principles:\n\n* Living documentation should be readable and highlight your software features;\n** Most bdd tools generate reports and not a truly documentation.\n* Cukedoctor *do not* introduce a new API that you need to learn, instead it operates on top of http://www.relishapp.com/cucumber/cucumber/docs/formatters/json-output-formatter[cucumber json output^] files;\n** In the \u0027worst case\u0027 to \u003c\u003cEnrich-features,enhance\u003e\u003e your documentation you will need to know a bit of http://asciidoctor.org/docs/what-is-asciidoc/[asciidoc markup^].\n\n\u003d\u003d *Summary*\n[cols\u003d\"12*^m\", options\u003d\"header,footer\"]\n|\u003d\u003d\u003d\n3+|Scenarios 7+|Steps 2+|Features: 2\n\n|[green]#*Passed*#\n|[red]#*Failed*#\n|Total\n|[green]#*Passed*#\n|[red]#*Failed*#\n|[purple]#*Skipped*#\n|[maroon]#*Pending*#\n|[yellow]#*Undefined*#\n|[blue]#*Missing*#\n|Total\n|Duration\n|Status\n\n12+^|*\u003c\u003cFeature1\u003e\u003e*\n|1\n|0\n|1\n|1\n|0\n|0\n|0\n|0\n|0\n|1\n|647ms\n|[green]#*passed*#\n\n12+^|*\u003c\u003cFeature2\u003e\u003e*\n|1\n|0\n|1\n|1\n|0\n|0\n|0\n|0\n|0\n|1\n|000ms\n|[green]#*passed*#\n12+^|*Totals*\n|2|0|2|2|0|0|0|0|0|2 2+|647ms\n|\u003d\u003d\u003d\n\n\u003d\u003d *Features*\n\n[[Feature1, Feature1]]\n\u003d\u003d\u003d *Feature1*\n\n\u003d\u003d\u003d\u003d Scenario: Scenario feature 1\n\n\u003d\u003d\u003d\u003d\nGiven ::\nscenario step icon:thumbs-up[role\u003d\"green\",title\u003d\"Passed\"] [small right]#(647ms)#\n\u003d\u003d\u003d\u003d\n\n[[Feature2, Feature2]]\n\u003d\u003d\u003d *Feature2*\n\n\u003d\u003d\u003d\u003d Scenario: Scenario feature 2\n\n\u003d\u003d\u003d\u003d\nGiven ::\nscenario step icon:thumbs-up[role\u003d\"green\",title\u003d\"Passed\"] [small right]#(000ms)#\n\u003d\u003d\u003d\u003d\n\n"
             }
           }
         ]
@@ -388,7 +384,7 @@
         "steps": [
           {
             "result": {
-              "duration": 104388,
+              "duration": 77236,
               "status": "passed"
             },
             "line": 14,
@@ -405,7 +401,7 @@
           },
           {
             "result": {
-              "duration": 38905670,
+              "duration": 31121374,
               "status": "passed"
             },
             "line": 28,
@@ -417,9 +413,8 @@
           },
           {
             "result": {
-              "duration": 560052,
-              "error_message": "java.lang.AssertionError: \nExpecting:\n \u003c\"\u003d\u003d *Features*\n\n[[Feature1, Feature1]]\n\u003d\u003d\u003d *Feature1*\n\n\u003d\u003d\u003d\u003d Scenario: Scenario feature 1\n\n\u003d\u003d\u003d\u003d\nGiven ::\nscenario step icon:thumbs-up[role\u003d\"green\",title\u003d\"Passed\"] [small right]#(647ms)#\n\u003d\u003d\u003d\u003d\n\n[[Feature2, Feature2]]\n\u003d\u003d\u003d *Feature2*\n\n\u003d\u003d\u003d\u003d Scenario: Scenario feature 2\n\n\u003d\u003d\u003d\u003d\nGiven ::\nscenario step icon:thumbs-up[role\u003d\"green\",title\u003d\"Passed\"] [small right]#(000ms)#\n\u003d\u003d\u003d\u003d\n\n\"\u003e\nto contain:\n \u003c\"[[Feature1, Feature1]]\n\u003d\u003d\u003d *Feature1*\n\n\u003d\u003d\u003d\u003d Scenario: Scenario feature 1\n\n****\nGiven ::\n\u003d\u003d\u003d\u003d\u003d\nscenario step icon:thumbs-up[role\u003d\"green\",title\u003d\"Passed\"] [small right]#(647ms)#\n\u003d\u003d\u003d\u003d\u003d\n****\n\n[[Feature2, Feature2]]\n\u003d\u003d\u003d *Feature2*\n\n\u003d\u003d\u003d\u003d Scenario: Scenario feature 2\n\n****\nGiven ::\n\u003d\u003d\u003d\u003d\u003d\nscenario step icon:thumbs-up[role\u003d\"green\",title\u003d\"Passed\"] [small right]#(000ms)#\n\u003d\u003d\u003d\u003d\u003d\n****\n\n\"\u003e \n\tat com.github.cukedoctor.bdd.cukedoctor.OrderingSteps.Features_should_be_ordered_by_name_in_resulting_documentation(OrderingSteps.java:40)\n\tat ✽.Then Features should be ordered by name in resulting documentation(com/github/cukedoctor/bdd/cukedoctor/ordering.feature:31)\n",
-              "status": "failed"
+              "duration": 119896,
+              "status": "passed"
             },
             "comments": [
               {
@@ -436,13 +431,13 @@
             "doc_string": {
               "content_type": "",
               "line": 32,
-              "value": "[[Feature1, Feature1]]\n\u003d\u003d\u003d *Feature1*\n\n\u003d\u003d\u003d\u003d Scenario: Scenario feature 1\n\n****\nGiven ::\n\u003d\u003d\u003d\u003d\u003d\nscenario step icon:thumbs-up[role\u003d\"green\",title\u003d\"Passed\"] [small right]#(647ms)#\n\u003d\u003d\u003d\u003d\u003d\n****\n\n[[Feature2, Feature2]]\n\u003d\u003d\u003d *Feature2*\n\n\u003d\u003d\u003d\u003d Scenario: Scenario feature 2\n\n****\nGiven ::\n\u003d\u003d\u003d\u003d\u003d\nscenario step icon:thumbs-up[role\u003d\"green\",title\u003d\"Passed\"] [small right]#(000ms)#\n\u003d\u003d\u003d\u003d\u003d\n****\n\n"
+              "value": "\u003d\u003d *Features*\n\n[[Feature1, Feature1]]\n\u003d\u003d\u003d *Feature1*\n\n\u003d\u003d\u003d\u003d Scenario: Scenario feature 1\n\n\u003d\u003d\u003d\u003d\nGiven ::\nscenario step icon:thumbs-up[role\u003d\"green\",title\u003d\"Passed\"] [small right]#(647ms)#\n\u003d\u003d\u003d\u003d\n\n[[Feature2, Feature2]]\n\u003d\u003d\u003d *Feature2*\n\n\u003d\u003d\u003d\u003d Scenario: Scenario feature 2\n\n\u003d\u003d\u003d\u003d\nGiven ::\nscenario step icon:thumbs-up[role\u003d\"green\",title\u003d\"Passed\"] [small right]#(000ms)#\n\u003d\u003d\u003d\u003d\n\n"
             }
           }
         ]
       },
       {
-        "line": 60,
+        "line": 58,
         "name": "Custom ordering",
         "description": "",
         "id": "ordering;custom-ordering",
@@ -451,16 +446,16 @@
         "steps": [
           {
             "result": {
-              "duration": 95371,
+              "duration": 66355,
               "status": "passed"
             },
             "comments": [
               {
-                "line": 62,
+                "line": 60,
                 "value": "#{NOTE: Ordering is done using feature comment \u0027*#order:*\u0027}"
               }
             ],
-            "line": 63,
+            "line": 61,
             "name": "The following two features:",
             "match": {
               "location": "OrderingSteps.the_following_two_features(String)"
@@ -468,16 +463,16 @@
             "keyword": "Given ",
             "doc_string": {
               "content_type": "",
-              "line": 64,
+              "line": 62,
               "value": "#order: 2\nFeature: Feature1\n\n  Scenario: Scenario feature 1\n\n    Given scenario step\n\n#order: 1\nFeature: Feature2\n\n  Scenario: Scenario feature 2\n\n    Given scenario step"
             }
           },
           {
             "result": {
-              "duration": 46628927,
+              "duration": 41017768,
               "status": "passed"
             },
-            "line": 79,
+            "line": 77,
             "name": "I convert them using comment order",
             "match": {
               "location": "OrderingSteps.I_convert_them__using_comment_order()"
@@ -486,17 +481,16 @@
           },
           {
             "result": {
-              "duration": 837687,
-              "error_message": "java.lang.AssertionError: \nExpecting:\n \u003c\"\u003d\u003d *Features*\n\n[[Feature2, Feature2]]\n\u003d\u003d\u003d *Feature2*\n\n\u003d\u003d\u003d\u003d Scenario: Scenario feature 2\n\n\u003d\u003d\u003d\u003d\nGiven ::\nscenario step icon:thumbs-up[role\u003d\"green\",title\u003d\"Passed\"] [small right]#(000ms)#\n\u003d\u003d\u003d\u003d\n\n[[Feature1, Feature1]]\n\u003d\u003d\u003d *Feature1*\n\n\u003d\u003d\u003d\u003d Scenario: Scenario feature 1\n\n\u003d\u003d\u003d\u003d\nGiven ::\nscenario step icon:thumbs-up[role\u003d\"green\",title\u003d\"Passed\"] [small right]#(313ms)#\n\u003d\u003d\u003d\u003d\n\n\"\u003e\nto contain:\n \u003c\"[[Feature2, Feature2]]\n\u003d\u003d\u003d *Feature2*\n\n\u003d\u003d\u003d\u003d Scenario: Scenario feature 2\n\n****\nGiven ::\n\u003d\u003d\u003d\u003d\u003d\nscenario step icon:thumbs-up[role\u003d\"green\",title\u003d\"Passed\"] [small right]#(000ms)#\n\u003d\u003d\u003d\u003d\u003d\n****\n\n[[Feature1, Feature1]]\n\u003d\u003d\u003d *Feature1*\n\n\u003d\u003d\u003d\u003d Scenario: Scenario feature 1\n\n****\nGiven ::\n\u003d\u003d\u003d\u003d\u003d\nscenario step icon:thumbs-up[role\u003d\"green\",title\u003d\"Passed\"] [small right]#(313ms)#\n\u003d\u003d\u003d\u003d\u003d\n****\n\n\"\u003e \n\tat com.github.cukedoctor.bdd.cukedoctor.OrderingSteps.Features_should_be_ordered_respecting_order_comment(OrderingSteps.java:54)\n\tat ✽.Then Features should be ordered respecting order comment(com/github/cukedoctor/bdd/cukedoctor/ordering.feature:82)\n",
-              "status": "failed"
+              "duration": 317099,
+              "status": "passed"
             },
             "comments": [
               {
-                "line": 81,
+                "line": 79,
                 "value": "# cukedoctor-discrete"
               }
             ],
-            "line": 82,
+            "line": 80,
             "name": "Features should be ordered respecting order comment",
             "match": {
               "location": "OrderingSteps.Features_should_be_ordered_respecting_order_comment(String)"
@@ -504,8 +498,8 @@
             "keyword": "Then ",
             "doc_string": {
               "content_type": "",
-              "line": 83,
-              "value": "[[Feature2, Feature2]]\n\u003d\u003d\u003d *Feature2*\n\n\u003d\u003d\u003d\u003d Scenario: Scenario feature 2\n\n****\nGiven ::\n\u003d\u003d\u003d\u003d\u003d\nscenario step icon:thumbs-up[role\u003d\"green\",title\u003d\"Passed\"] [small right]#(000ms)#\n\u003d\u003d\u003d\u003d\u003d\n****\n\n[[Feature1, Feature1]]\n\u003d\u003d\u003d *Feature1*\n\n\u003d\u003d\u003d\u003d Scenario: Scenario feature 1\n\n****\nGiven ::\n\u003d\u003d\u003d\u003d\u003d\nscenario step icon:thumbs-up[role\u003d\"green\",title\u003d\"Passed\"] [small right]#(313ms)#\n\u003d\u003d\u003d\u003d\u003d\n****\n\n"
+              "line": 81,
+              "value": "\u003d\u003d *Features*\n\n[[Feature2, Feature2]]\n\u003d\u003d\u003d *Feature2*\n\n\u003d\u003d\u003d\u003d Scenario: Scenario feature 2\n\n\u003d\u003d\u003d\u003d\nGiven ::\nscenario step icon:thumbs-up[role\u003d\"green\",title\u003d\"Passed\"] [small right]#(000ms)#\n\u003d\u003d\u003d\u003d\n\n[[Feature1, Feature1]]\n\u003d\u003d\u003d *Feature1*\n\n\u003d\u003d\u003d\u003d Scenario: Scenario feature 1\n\n\u003d\u003d\u003d\u003d\nGiven ::\nscenario step icon:thumbs-up[role\u003d\"green\",title\u003d\"Passed\"] [small right]#(313ms)#\n\u003d\u003d\u003d\u003d\n\n"
             }
           }
         ]
