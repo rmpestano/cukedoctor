@@ -743,7 +743,7 @@ public interface Expectations {
 			""+newLine()+ 
 			"= *Doc Title*"+newLine()+ 
 			""+newLine()+ 
-			"include::/home/rmpestano/projects/cukedoctor/cukedoctor-converter/target/test-classes/cukedoctor-intro.adoc[leveloffset=+1]"+newLine()+ 
+			"include::"+home()+"cukedoctor-intro.adoc[leveloffset=+1]"+newLine() + newLine() +
 			""+newLine()+ 
 			"== *Resumo*"+newLine()+ 
 			"[cols=\"12*^m\", options=\"header,footer\"]"+newLine()+ 
