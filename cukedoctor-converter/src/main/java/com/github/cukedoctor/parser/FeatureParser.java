@@ -24,10 +24,8 @@ public class FeatureParser {
 	 * @return list of cucumber features found in json output files
 	 */
 	public static List<Feature> parse(String json) {
-		InputStreamReader is = null;
 		List<Feature> features = null;
-		try {
-			is = new InputStreamReader(new FileInputStream(json),"UTF-8");
+		try (InputStreamReader is = new InputStreamReader(new FileInputStream(json),"UTF-8")) {
 			features = new ObjectMapper().readValue(is, new TypeReference<List<Feature>>() {
 			});
 			Iterator<Feature> it = features.iterator();
@@ -43,13 +41,13 @@ public class FeatureParser {
 			}
 
 		} catch (FileNotFoundException e) {
-			log.log(Level.WARNING, "Could not find json file:" + json,e);
+			log.log(Level.WARNING, "Could not find json file:" + json);
 		} catch (JsonMappingException e) {
-			log.log(Level.WARNING, "Could not map json file:" + json, e);
+			log.log(Level.WARNING, "Could not map json file:" + json);
 		} catch (JsonParseException e) {
-			log.log(Level.WARNING, "Could not parse json file:" + json,e);
+			log.log(Level.WARNING, "Could not parse json file:" + json);
 		} catch (IOException e) {
-			log.log(Level.WARNING, "Could not read json file:" + json,e);
+			log.log(Level.WARNING, "Could not read json file:" + json);
 		}
 
 		return features;

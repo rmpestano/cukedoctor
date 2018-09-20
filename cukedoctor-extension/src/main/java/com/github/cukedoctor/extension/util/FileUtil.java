@@ -167,19 +167,24 @@ public class FileUtil {
 
     public static String readFileContent(File target) {
         StringBuilder content = new StringBuilder();
-        try {
+        try (InputStream openStream = new FileInputStream(target)) {
+            try(BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(openStream))) {
+                String line = null;
+                while ((line = bufferedReader.readLine()) != null)
 
-            InputStream openStream = new FileInputStream(target);
-            BufferedReader bufferedReader = new BufferedReader(
-                    new InputStreamReader(openStream));
-            String line = null;
-            while ((line = bufferedReader.readLine()) != null) {
-                content.append(line);
+                {
+                    content.append(line);
+                }
+                bufferedReader.close();
+
+            }catch (Exception e) {
+                log.log(Level.WARNING, "Could not read file content: " + target);
             }
-            bufferedReader.close();
 
         } catch (Exception e) {
+            log.log(Level.WARNING, "Could not read file content: " + target);
         }
+
         return content.toString();
     }
 
