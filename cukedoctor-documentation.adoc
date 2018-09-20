@@ -38,9 +38,9 @@ ____
 
 ==== Convert features test output into documentation
 
-====
+==========
 Given ::
-The following two features: icon:thumbs-up[role="green",title="Passed"] [small right]#(411ms)#
+The following two features: icon:thumbs-up[role="green",title="Passed"] [small right]#(321ms)#
 ----
 
 Feature: Feature1
@@ -57,7 +57,7 @@ Feature: Feature2
 
 ----
 When ::
-I convert their json test output using cukedoctor converter icon:thumbs-up[role="green",title="Passed"] [small right]#(01s 035ms)#
+I convert their json test output using cukedoctor converter icon:thumbs-up[role="green",title="Passed"] [small right]#(790ms)#
 ******
 
 [discrete]
@@ -81,7 +81,7 @@ NOTE: *plugin* option replaced *format* option which was deprecated in newer cuc
 ******
 
 Then ::
-I should have awesome living documentation icon:thumbs-up[role="green",title="Passed"] [small right]#(001ms)#
+I should have awesome living documentation icon:thumbs-up[role="green",title="Passed"] [small right]#(004ms)#
 ******
 
 [discrete]
@@ -150,14 +150,12 @@ I should have awesome living documentation icon:thumbs-up[role="green",title="Pa
 [discrete]
 ==== Scenario: Scenario feature 1
 [discrete]
-[discrete]
-====
+============
 [discrete]
 Given ::
 [discrete]
 scenario step icon:thumbs-up[role="green",title="Passed"] [small right]#(647ms)#
-[discrete]
-====
+============
 [discrete]
 [discrete]
 [[Feature2, Feature2]]
@@ -167,19 +165,17 @@ scenario step icon:thumbs-up[role="green",title="Passed"] [small right]#(647ms)#
 [discrete]
 ==== Scenario: Scenario feature 2
 [discrete]
-[discrete]
-====
+============
 [discrete]
 Given ::
 [discrete]
 scenario step icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
-[discrete]
-====
+============
 
 
 ******
 
-====
+==========
 
 [[Ordering, Ordering]]
 === *Ordering*
@@ -197,7 +193,7 @@ ____
 
 ==== Default ordering
 
-====
+==========
 Given ::
 The following two features: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
@@ -216,7 +212,7 @@ Feature: Feature2
 
 ----
 When ::
-I convert them using default order icon:thumbs-up[role="green",title="Passed"] [small right]#(043ms)#
+I convert them using default order icon:thumbs-up[role="green",title="Passed"] [small right]#(040ms)#
 Then ::
 Features should be ordered by name in resulting documentation icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ******
@@ -232,14 +228,12 @@ Features should be ordered by name in resulting documentation icon:thumbs-up[rol
 [discrete]
 ==== Scenario: Scenario feature 1
 [discrete]
-[discrete]
-====
+============
 [discrete]
 Given ::
 [discrete]
 scenario step icon:thumbs-up[role="green",title="Passed"] [small right]#(647ms)#
-[discrete]
-====
+============
 [discrete]
 [discrete]
 [[Feature2, Feature2]]
@@ -249,23 +243,21 @@ scenario step icon:thumbs-up[role="green",title="Passed"] [small right]#(647ms)#
 [discrete]
 ==== Scenario: Scenario feature 2
 [discrete]
-[discrete]
-====
+============
 [discrete]
 Given ::
 [discrete]
 scenario step icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
-[discrete]
-====
+============
 
 
 ******
 
-====
+==========
 
 ==== Custom ordering
 
-====
+==========
 Given ::
 The following two features: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
@@ -289,7 +281,7 @@ Feature: Feature2
 NOTE: Ordering is done using feature comment '*#order:*'
 
 When ::
-I convert them using comment order icon:thumbs-up[role="green",title="Passed"] [small right]#(027ms)#
+I convert them using comment order icon:thumbs-up[role="green",title="Passed"] [small right]#(035ms)#
 Then ::
 Features should be ordered respecting order comment icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ******
@@ -305,14 +297,12 @@ Features should be ordered respecting order comment icon:thumbs-up[role="green",
 [discrete]
 ==== Scenario: Scenario feature 2
 [discrete]
-[discrete]
-====
+============
 [discrete]
 Given ::
 [discrete]
 scenario step icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
-[discrete]
-====
+============
 [discrete]
 [discrete]
 [[Feature1, Feature1]]
@@ -322,19 +312,17 @@ scenario step icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 [discrete]
 ==== Scenario: Scenario feature 1
 [discrete]
-[discrete]
-====
+============
 [discrete]
 Given ::
 [discrete]
 scenario step icon:thumbs-up[role="green",title="Passed"] [small right]#(313ms)#
-[discrete]
-====
+============
 
 
 ******
 
-====
+==========
 
 [[Enrich-features, Enrich features]]
 === *Enrich features*
@@ -353,7 +341,7 @@ ____
 ==== DocSting enrichment
 Asciidoc markup can be used in feature *DocStrings*. To do so you need to enable it by using *[cukector-dicrete]* comment on the feature.
 
-====
+==========
 Given ::
 The following two features: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
@@ -391,7 +379,7 @@ Feature: Enrich feature
 
 ----
 When ::
-I convert docstring enriched json output using cukedoctor converter icon:thumbs-up[role="green",title="Passed"] [small right]#(039ms)#
+I convert docstring enriched json output using cukedoctor converter icon:thumbs-up[role="green",title="Passed"] [small right]#(062ms)#
 Then ::
 DocString asciidoc output must be rendered in my documentation icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ******
@@ -407,8 +395,7 @@ DocString asciidoc output must be rendered in my documentation icon:thumbs-up[ro
 [discrete]
 ==== Scenario: Render source code
 [discrete]
-[discrete]
-====
+============
 [discrete]
 Given ::
 [discrete]
@@ -432,14 +419,12 @@ public int sum(int x, int y){
 [discrete]
 *******
 [discrete]
-[discrete]
-====
+============
 [discrete]
 [discrete]
 ==== Scenario: Render table
 [discrete]
-[discrete]
-====
+============
 [discrete]
 Given ::
 [discrete]
@@ -460,18 +445,17 @@ the following table icon:thumbs-up[role="green",title="Passed"] [small right]#(0
 [discrete]
 *******
 [discrete]
-[discrete]
-====
+============
 
 
 ******
 
-====
+==========
 
 ==== Comments enrichment
 Asciidoc markup can be used in feature comments. To do so you need to surround asciidoc markup by *curly brackets*;.
 
-====
+==========
 Given ::
 The following feature with asciidoc markup in comments: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
@@ -497,7 +481,7 @@ Feature: Calculator
 
 ----
 When ::
-I convert enriched feature json output using cukedoctor icon:thumbs-up[role="green",title="Passed"] [small right]#(034ms)#
+I convert enriched feature json output using cukedoctor icon:thumbs-up[role="green",title="Passed"] [small right]#(057ms)#
 Then ::
 Asciidoc markup on comments must be rendered in my documentation icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ******
@@ -518,8 +502,7 @@ Youcanuse*asciidocmarkup*in_feature_#description#.
 [discrete]
 NOTE:Thisisaveryimportantfeature!
 [discrete]
-[discrete]
-====
+============
 [discrete]
 Given::
 [discrete]
@@ -550,13 +533,12 @@ Ishouldhave3asresulticon:thumbs-up[role="green",title="Passed"][smallright]#(001
 [discrete]
 **secondlevellistitem
 [discrete]
-[discrete]
-====
+============
 
 
 ******
 
-====
+==========
 
 [[Documentation-introduction-chapter, Documentation introduction chapter]]
 === *Documentation introduction chapter*
@@ -574,7 +556,7 @@ ____
 
 ==== Introduction chapter in classpath
 
-====
+==========
 Given ::
 The following two features: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
@@ -593,7 +575,7 @@ Feature: Feature2
 
 ----
 And ::
-The following asciidoc document is on your application classpath icon:thumbs-up[role="green",title="Passed"] [small right]#(032ms)#
+The following asciidoc document is on your application classpath icon:thumbs-up[role="green",title="Passed"] [small right]#(058ms)#
 ******
 
 [discrete]
@@ -718,14 +700,12 @@ Here are some design principles:
 [discrete]
 ==== Scenario: Scenario feature 1
 [discrete]
-[discrete]
-====
+============
 [discrete]
 Given ::
 [discrete]
 scenario step icon:thumbs-up[role="green",title="Passed"] [small right]#(647ms)#
-[discrete]
-====
+============
 [discrete]
 [discrete]
 [[Feature2, Feature2]]
@@ -735,17 +715,15 @@ scenario step icon:thumbs-up[role="green",title="Passed"] [small right]#(647ms)#
 [discrete]
 ==== Scenario: Scenario feature 2
 [discrete]
-[discrete]
-====
+============
 [discrete]
 Given ::
 [discrete]
 scenario step icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
-[discrete]
-====
+============
 
 
 ******
 
-====
+==========
 
