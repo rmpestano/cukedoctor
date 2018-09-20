@@ -136,12 +136,12 @@ public class RendererTest {
 
         List<Step> steps = feature.getScenarios().get(0).getSteps();
         String resultDoc = stepsRenderer.renderSteps(steps);
-        assertThat(resultDoc).isEqualTo("====" + newLine() +
+        assertThat(resultDoc).isEqualTo("==========" + newLine() +
                 "Given::" + newLine() +
                 
                 "passing step icon:thumbs-up[role=\"green\",title=\"Passed\"] [small right]#(000ms)#" + newLine() +
                 
-                "====" + newLine() + newLine());
+                "==========" + newLine() + newLine());
     }
 
     @Test
@@ -154,7 +154,7 @@ public class RendererTest {
         StepsRenderer stepsRenderer = new CukedoctorStepsRenderer();
 
         String resultDoc = stepsRenderer.renderSteps(steps);
-        assertThat(resultDoc).isEqualTo("====" + newLine() +
+        assertThat(resultDoc).isEqualTo("==========" + newLine() +
                 "Given::" + newLine() +
                 
                 "passing step icon:thumbs-up[role=\"green\",title=\"Passed\"] [small right]#(000ms)#" + newLine() +
@@ -163,7 +163,7 @@ public class RendererTest {
                 
                 "failing step icon:thumbs-down[role=\"red\",title=\"Failed\"] [small right]#(000ms)#" + newLine() +
                 
-                "====" + newLine()+newLine());
+                "==========" + newLine()+newLine());
     }
 
     @Test
@@ -182,10 +182,10 @@ public class RendererTest {
                 doesNotContain("scenario to skip").
                 isEqualTo("==== Scenario: scenario"+newLine() +
                         "description"+newLine() +newLine()+
-                        "===="+newLine() +
+                        "=========="+newLine() +
                         "Given::"+newLine() +
                         "passing step icon:thumbs-up[role=\"green\",title=\"Passed\"] [small right]#(000ms)#"+newLine() +
-                        "====" + newLine() +
+                        "==========" + newLine() +
                         ""+newLine());
     }
 
@@ -197,7 +197,7 @@ public class RendererTest {
         List<Step> steps = feature.getScenarios().get(0).getSteps();
         CukedoctorScenarioRenderer scenarioRenderer = new CukedoctorScenarioRenderer();
         String resultDoc = scenarioRenderer.renderScenarioSteps(steps);
-        assertThat(resultDoc).isEqualTo("====" + newLine() +
+        assertThat(resultDoc).isEqualTo("==========" + newLine() +
                 "Given::" + newLine() + 
                 "passing step icon:thumbs-up[role=\"green\",title=\"Passed\"] [small right]#(000ms)#" + newLine() +
                 
@@ -219,7 +219,7 @@ public class RendererTest {
                 
                 "skipped step icon:thumbs-down[role=\"purple\",title=\"Skipped\"] [small right]#(000ms)#" + newLine() +
                 
-                "====" + newLine()+newLine());
+                "==========" + newLine()+newLine());
     }
 
     @Test
@@ -232,7 +232,7 @@ public class RendererTest {
         assertThat(resultDoc.replaceAll("\r","")).isEqualTo(("==== Scenario: scenario icon:thumbs-down[role=\"red\",title=\"Failed\"]"+newLine() +
                 "description"+newLine() +
                 ""+newLine() +
-                "===="+newLine() +
+                "=========="+newLine() +
                 "Given::"+newLine() +
                 
                 "passing step icon:thumbs-up[role=\"green\",title=\"Passed\"] [small right]#(000ms)#"+newLine() +
@@ -241,27 +241,27 @@ public class RendererTest {
                 
                 "failing step icon:thumbs-down[role=\"red\",title=\"Failed\"] [small right]#(000ms)#"+newLine() +
                 
-                "===="+newLine() +
+                "=========="+newLine() +
                 ""+newLine() +
                 "==== Scenario: scenario icon:thumbs-down[role=\"red\",title=\"Failed\"]"+newLine() +
                 "description"+newLine() +
                 ""+newLine() +
-                "===="+newLine() +
+                "=========="+newLine() +
                 "Then::"+newLine() +
                 
                 "skipped step icon:thumbs-down[role=\"purple\",title=\"Skipped\"] [small right]#(000ms)#"+newLine() +
                 
-                "===="+newLine() +
+                "=========="+newLine() +
                 ""+newLine() +
                 "==== Scenario: scenario icon:thumbs-down[role=\"red\",title=\"Failed\"]"+newLine() +
                 "description"+newLine() +
                 ""+newLine() +
-                "===="+newLine() +
+                "=========="+newLine() +
                 "Given::"+newLine() +
                  
                 "undefined step icon:thumbs-down[role=\"yellow\",title=\"Undefined\"] [small right]#(000ms)#"+newLine() +
                 
-                "===="+newLine() +
+                "=========="+newLine() +
                 ""+newLine()).replaceAll("\r",""));
     }
 

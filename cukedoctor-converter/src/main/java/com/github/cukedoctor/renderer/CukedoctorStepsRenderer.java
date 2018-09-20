@@ -41,7 +41,7 @@ public class CukedoctorStepsRenderer extends AbstractBaseRenderer implements Ste
     public String renderSteps(List<Step> steps) {
         docBuilder.clear();
 
-        docBuilder.textLine("====");
+        docBuilder.textLine("==========");
         for (Step step : steps) {
             docBuilder.append(step.getKeyword(), "::", newLine());
             docBuilder.append(step.getName() + " ", Status.getStatusIcon(step.getStatus()));
@@ -70,7 +70,7 @@ public class CukedoctorStepsRenderer extends AbstractBaseRenderer implements Ste
             renderOutput(step);
             enrichStep(step);
         }
-        docBuilder.textLine("====").newLine();
+        docBuilder.textLine("==========").newLine();
 
         return docBuilder.toString();
     }

@@ -100,19 +100,19 @@ public class CustomRendererTest {
         		""+newLine()+ 
         		"  Adding numbers:::"+newLine()+ 
         		"+"+newLine()+ 
-        		"===="+newLine()+ 
+        		"=========="+newLine()+ 
         		"Given ::"+newLine()+ 
         		"I have numbers 1 and 2 icon:thumbs-up[role=\"green\",title=\"Passed\"] [small right]#(155ms)#"+newLine()+ 
         		"When ::"+newLine()+ 
         		"I sum the numbers icon:thumbs-up[role=\"green\",title=\"Passed\"] [small right]#(000ms)#"+newLine()+ 
         		"Then ::"+newLine()+ 
         		"I should have 3 as result icon:thumbs-up[role=\"green\",title=\"Passed\"] [small right]#(001ms)#"+newLine()+ 
-        		"===="+newLine()+ 
+        		"=========="+newLine()+ 
         		""+newLine()+ 
         		"  Subtracting numbers:::"+newLine()+ 
         		"A feature with a failing step"+newLine()+ 
         		"+"+newLine()+ 
-        		"===="+newLine()+ 
+        		"=========="+newLine()+ 
         		"Given ::"+newLine()+ 
         		"I have numbers 2 and 1 icon:thumbs-up[role=\"green\",title=\"Passed\"] [small right]#(000ms)#"+newLine()+ 
         		"When ::"+newLine()+ 
@@ -129,7 +129,7 @@ public class CustomRendererTest {
         		"	at com.github.cukedoctor.example.bdd.CalcStepDef.I_should_have_result(CalcStepDef.java:37)"+newLine()+ 
         		"	at ✽.Then I should have 0 as result(src/test/resources/features/calc.feature:14)"+newLine()+ 
         		""+newLine()+ 
-        		"===="+newLine()+ 
+        		"=========="+newLine()+ 
         		""+newLine()+ 
         		"");
         //FileUtil.saveFile("target/test-docs/calc.adoc", resultDoc);

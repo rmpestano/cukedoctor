@@ -720,7 +720,7 @@ public class CukedoctorConverterTest {
         		""+newLine()+ 
         		"NOTE: This is a very important feature!"+newLine()+ 
         		""+newLine()+ 
-        		"===="+newLine()+ 
+        		"=========="+newLine()+
         		"Given ::"+newLine()+ 
         		"I have numbers 1 and 2 icon:thumbs-up[role=\"green\",title=\"Passed\"] [small right]#(114ms)#"+newLine()+ 
         		""+newLine()+ 
@@ -740,7 +740,7 @@ public class CukedoctorConverterTest {
         		""+newLine()+ 
         		"** second level list item"+newLine()+ 
         		""+newLine()+ 
-        		"===="+newLine()+ 
+        		"=========="+newLine()+
         		""+newLine()+ 
         		""));
     }
@@ -756,7 +756,7 @@ public class CukedoctorConverterTest {
                 "==== Scenario: Scenario with listing" + newLine() +
                 "You can use *asciidoc markup* using feature comments." + newLine() +
                 "" + newLine() +
-                "====" + newLine() +
+                "==========" + newLine() +
                 "Given ::" + newLine() +
                 "I have listing in feature comments. icon:thumbs-up[role=\"green\",title=\"Passed\"] [small right]#(000ms)#" + newLine() +
                 "[source,java]" + newLine() +
@@ -765,7 +765,7 @@ public class CukedoctorConverterTest {
                 "System.setProperty(\"INTRO_CHAPTER_DIR\",\"/home/some/external/folder\");" + newLine() +
                 "----" + newLine() +
                 "" + newLine() +
-                "====" + newLine() + newLine()).replaceAll("\r", ""));
+                "==========" + newLine() + newLine()).replaceAll("\r", ""));
     }
 
     @Test
@@ -779,7 +779,7 @@ public class CukedoctorConverterTest {
         		"==== Scenario: Scenario with admonition and  listing"+newLine()+ 
         		"You can use *asciidoc markup* using feature comments."+newLine()+ 
         		""+newLine()+ 
-        		"===="+newLine()+ 
+        		"=========="+newLine()+
         		"Given ::"+newLine()+ 
         		"I have admonition with a listing in feature comments. icon:thumbs-up[role=\"green\",title=\"Passed\"] [small right]#(032ms)#"+newLine()+ 
         		""+newLine()+ 
@@ -794,7 +794,7 @@ public class CukedoctorConverterTest {
         		"----"+newLine()+ 
         		"===="+newLine()+ 
         		""+newLine()+ 
-        		"===="+newLine()+ 
+        		"=========="+newLine()+
         		"").replaceAll("\r", ""));
     }
 
@@ -811,7 +811,7 @@ public class CukedoctorConverterTest {
         		""+newLine()+ 
         		"NOTE: This is a very important feature!"+newLine()+ 
         		""+newLine()+ 
-        		"===="+newLine()+ 
+        		"=========="+newLine()+
         		"Given ::"+newLine()+ 
         		"I have numbers 1 and 2 icon:thumbs-up[role=\"green\",title=\"Passed\"] [small right]#(212ms)#"+newLine()+ 
         		""+newLine()+ 
@@ -849,7 +849,7 @@ public class CukedoctorConverterTest {
         		""+newLine()+ 
         		"** second level list item"+newLine()+ 
         		""+newLine()+ 
-        		"===="+newLine()+ 
+        		"=========="+newLine()+
         		""+newLine()+ 
         		"").replaceAll("\r", ""));
     }

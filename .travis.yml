@@ -21,7 +21,7 @@ script:
 - if [[ $TRAVIS_PULL_REQUEST == "false" ]] && [[ $TRAVIS_BRANCH == "master" ]]; then mvn sonar:sonar -Psonar -Dsonar.organization=cukedoctor -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=${SONAR_KEY} ; fi ;
 - cd cukedoctor-converter && mvn compile exec:exec -Pperf
 - if [[ $TRAVIS_PULL_REQUEST == "false" ]] && [[ $TRAVIS_BRANCH == "master" ]]; then
-  mvn -q cukedoctor:execute scm-publish:publish-scm -Pdocs ; fi ;
 after_success:
+- if [[ $TRAVIS_PULL_REQUEST == "false" ]] && [[ $TRAVIS_BRANCH == "master" ]]; then mvn -q cukedoctor:execute scm-publish:publish-scm -Pdocs ; fi ;
 - cd .. && mvn clean install -Pfat-jar -DskipTests=true
 - if [[ $TRAVIS_PULL_REQUEST == "false" ]] && [[ $TRAVIS_BRANCH == "master" ]]; then mvn deploy --settings settings.xml -DskipTests=true  ; fi ;

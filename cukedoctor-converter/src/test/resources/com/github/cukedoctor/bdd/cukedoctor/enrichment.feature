@@ -57,7 +57,7 @@ Feature: Enrich feature
 
 ==== Scenario: Render source code
 
-====
+==========
 Given ::
 the following source code icon:thumbs-up[role="green",title="Passed"] [small right]#(267ms)#
 ******
@@ -75,11 +75,11 @@ public int sum(int x, int y){
 
 ******
 
-====
+==========
 
 ==== Scenario: Render table
 
-====
+==========
 Given ::
 the following table icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ******
@@ -94,7 +94,7 @@ the following table icon:thumbs-up[role="green",title="Passed"] [small right]#(0
 
 ******
 
-====
+==========
 
 
 """
@@ -139,7 +139,7 @@ Youcanuse*asciidocmarkup*in_feature_#description#.
 
 NOTE:Thisisaveryimportantfeature!
 
-====
+==========
 Given::
 Ihavenumbers1and2icon:thumbs-up[role="green",title="Passed"][smallright]#(114ms)#
 
@@ -159,7 +159,7 @@ Ishouldhave3asresulticon:thumbs-up[role="green",title="Passed"][smallright]#(001
 
 **secondlevellistitem
 
-====
+==========
 
 
 """

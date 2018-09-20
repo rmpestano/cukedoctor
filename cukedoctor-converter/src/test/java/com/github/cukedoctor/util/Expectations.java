@@ -175,23 +175,23 @@ public interface Expectations {
 			"[small]#tags: @a,@b#"+newLine()+ 
 			""+newLine()+ 
 			""+newLine()+ 
-			"===="+newLine()+ 
+			"=========="+newLine()+ 
 			"Given ::"+newLine()+ 
 			"this step passes icon:thumbs-up[role=\"green\",title=\"Passed\"] [small right]#(001ms)#"+newLine()+ 
-			"===="+newLine()+ 
+			"=========="+newLine()+ 
 			""+newLine()+ 
 			"==== Scenario: Failing icon:thumbs-down[role=\"red\",title=\"Failed\"]"+newLine()+ 
 			"[small]#tags: @a,@c#"+newLine()+ 
 			""+newLine()+ 
 			""+newLine()+ 
-			"===="+newLine()+ 
+			"=========="+newLine()+ 
 			"Given ::"+newLine()+ 
 			"this step fails icon:thumbs-down[role=\"red\",title=\"Failed\"] [small right]#(008ms)#"+newLine()+ 
 			""+newLine()+ 
 			"IMPORTANT:  (RuntimeError)"+newLine()+ 
 			"./features/step_definitions/steps.rb:4:in /^this step fails$/'"+newLine()+ 
 			"features/one_passing_one_failing.feature:10:in Given this step fails'"+newLine()+ 
-			"===="+newLine()+ 
+			"=========="+newLine()+ 
 			""+newLine()+ 
 			"";
 
@@ -260,23 +260,23 @@ public interface Expectations {
 			"[small]#tags: @a,@b#"+newLine()+ 
 			""+newLine()+ 
 			""+newLine()+ 
-			"===="+newLine()+ 
+			"=========="+newLine()+ 
 			"Given ::"+newLine()+ 
 			"this step passes icon:thumbs-up[role=\"green\",title=\"Passed\"] [small right]#(001ms)#"+newLine()+ 
-			"===="+newLine()+ 
+			"=========="+newLine()+ 
 			""+newLine()+ 
 			"=== Scenario: Failing icon:thumbs-down[role=\"red\",title=\"Failed\"]"+newLine()+ 
 			"[small]#tags: @a,@c#"+newLine()+ 
 			""+newLine()+ 
 			""+newLine()+ 
-			"===="+newLine()+ 
+			"=========="+newLine()+ 
 			"Given ::"+newLine()+ 
 			"this step fails icon:thumbs-down[role=\"red\",title=\"Failed\"] [small right]#(008ms)#"+newLine()+ 
 			""+newLine()+ 
 			"IMPORTANT:  (RuntimeError)"+newLine()+ 
 			"./features/step_definitions/steps.rb:4:in /^this step fails$/'"+newLine()+ 
 			"features/one_passing_one_failing.feature:10:in Given this step fails'"+newLine()+ 
-			"===="+newLine()+ 
+			"=========="+newLine()+ 
 			""+newLine()+ 
 			"";
 
@@ -309,23 +309,23 @@ public interface Expectations {
 			"[small]#tags: @a,@b#"+newLine()+ 
 			""+newLine()+ 
 			""+newLine()+ 
-			"===="+newLine()+ 
+			"=========="+newLine()+ 
 			"Given ::"+newLine()+ 
 			"this step passes icon:thumbs-up[role=\"green\",title=\"Passed\"] [small right]#(001ms)#"+newLine()+ 
-			"===="+newLine()+ 
+			"=========="+newLine()+ 
 			""+newLine()+ 
 			"=== Scenario: Failing icon:thumbs-down[role=\"red\",title=\"Failed\"]"+newLine()+ 
 			"[small]#tags: @a,@c#"+newLine()+ 
 			""+newLine()+ 
 			""+newLine()+ 
-			"===="+newLine()+ 
+			"=========="+newLine()+ 
 			"Given ::"+newLine()+ 
 			"this step fails icon:thumbs-down[role=\"red\",title=\"Failed\"] [small right]#(008ms)#"+newLine()+ 
 			""+newLine()+ 
 			"IMPORTANT:  (RuntimeError)"+newLine()+ 
 			"./features/step_definitions/steps.rb:4:in /^this step fails$/'"+newLine()+ 
 			"features/one_passing_one_failing.feature:10:in Given this step fails'"+newLine()+ 
-			"===="+newLine()+ 
+			"=========="+newLine()+ 
 			""+newLine()+ 
 			"";
 
@@ -360,23 +360,23 @@ public interface Expectations {
 			"[small]#tags: @a,@b#"+newLine()+ 
 			""+newLine()+ 
 			""+newLine()+ 
-			"===="+newLine()+ 
+			"=========="+newLine()+ 
 			"Given ::"+newLine()+ 
 			"this step passes icon:thumbs-up[role=\"green\",title=\"Passed\"] [small right]#(001ms)#"+newLine()+ 
-			"===="+newLine()+ 
+			"=========="+newLine()+ 
 			""+newLine()+ 
 			"=== Failing icon:thumbs-down[role=\"red\",title=\"Failed\"]"+newLine()+ 
 			"[small]#tags: @a,@c#"+newLine()+ 
 			""+newLine()+ 
 			""+newLine()+ 
-			"===="+newLine()+ 
+			"=========="+newLine()+ 
 			"Given ::"+newLine()+ 
 			"this step fails icon:thumbs-down[role=\"red\",title=\"Failed\"] [small right]#(008ms)#"+newLine()+ 
 			""+newLine()+ 
 			"IMPORTANT:  (RuntimeError)"+newLine()+ 
 			"./features/step_definitions/steps.rb:4:in /^this step fails$/'"+newLine()+ 
 			"features/one_passing_one_failing.feature:10:in Given this step fails'"+newLine()+ 
-			"===="+newLine()+ 
+			"=========="+newLine()+ 
 			""+newLine()+ 
 			"";
 
@@ -411,23 +411,23 @@ public interface Expectations {
 			"[small]#tags: @a,@b#"+newLine()+ 
 			""+newLine()+ 
 			""+newLine()+ 
-			"===="+newLine()+ 
+			"=========="+newLine()+ 
 			"Given ::"+newLine()+ 
 			"this step passes icon:thumbs-up[role=\"green\",title=\"Passed\"]"+newLine()+ 
-			"===="+newLine()+ 
+			"=========="+newLine()+ 
 			""+newLine()+ 
 			"=== Scenario: Failing icon:thumbs-down[role=\"red\",title=\"Failed\"]"+newLine()+ 
 			"[small]#tags: @a,@c#"+newLine()+ 
 			""+newLine()+ 
 			""+newLine()+ 
-			"===="+newLine()+ 
+			"=========="+newLine()+ 
 			"Given ::"+newLine()+ 
 			"this step fails icon:thumbs-down[role=\"red\",title=\"Failed\"]"+newLine()+ 
 			""+newLine()+ 
 			"IMPORTANT:  (RuntimeError)"+newLine()+ 
 			"./features/step_definitions/steps.rb:4:in /^this step fails$/'"+newLine()+ 
 			"features/one_passing_one_failing.feature:10:in Given this step fails'"+newLine()+ 
-			"===="+newLine()+ 
+			"=========="+newLine()+ 
 			""+newLine()+ 
 			"";
 
@@ -460,21 +460,21 @@ public interface Expectations {
 			"endif::[]"+newLine()+ 
 			"=== Scenario: Passing"+newLine()+ 
 			""+newLine()+ 
-			"===="+newLine()+ 
+			"=========="+newLine()+ 
 			"Given ::"+newLine()+ 
 			"this step passes icon:thumbs-up[role=\"green\",title=\"Passed\"]"+newLine()+ 
-			"===="+newLine()+ 
+			"=========="+newLine()+ 
 			""+newLine()+ 
 			"=== Scenario: Failing icon:thumbs-down[role=\"red\",title=\"Failed\"]"+newLine()+ 
 			""+newLine()+ 
-			"===="+newLine()+ 
+			"=========="+newLine()+ 
 			"Given ::"+newLine()+ 
 			"this step fails icon:thumbs-down[role=\"red\",title=\"Failed\"]"+newLine()+ 
 			""+newLine()+ 
 			"IMPORTANT:  (RuntimeError)"+newLine()+ 
 			"./features/step_definitions/steps.rb:4:in /^this step fails$/'"+newLine()+ 
 			"features/one_passing_one_failing.feature:10:in Given this step fails'"+newLine()+ 
-			"===="+newLine()+ 
+			"=========="+newLine()+ 
 			""+newLine()+ 
 			"";
 
@@ -571,23 +571,23 @@ public interface Expectations {
 			"endif::[]"+newLine()+ 
 			"==== Scenario: scenario 1"+newLine()+ 
 			""+newLine()+ 
-			"===="+newLine()+ 
+			"=========="+newLine()+ 
 			"Given ::"+newLine()+ 
 			"I embed data directly icon:thumbs-up[role=\"green\",title=\"Passed\"] [small right]#(000ms)#"+newLine()+ 
-			"===="+newLine()+ 
+			"=========="+newLine()+ 
 			""+newLine()+ 
 			"==== Scenario Outline: scenario 2"+newLine()+ 
 			""+newLine()+ 
-			"===="+newLine()+ 
+			"=========="+newLine()+ 
 			"Given ::"+newLine()+ 
 			"I embed data directly icon:thumbs-up[role=\"green\",title=\"Passed\"] [small right]#(000ms)#"+newLine()+ 
-			"===="+newLine()+ 
+			"=========="+newLine()+ 
 			""+newLine()+ 
 			""+newLine()+ 
-			"===="+newLine()+ 
+			"=========="+newLine()+ 
 			"Given ::"+newLine()+ 
 			"I embed data directly icon:thumbs-up[role=\"green\",title=\"Passed\"] [small right]#(000ms)#"+newLine()+ 
-			"===="+newLine()+ 
+			"=========="+newLine()+
 			""+newLine()+ 
 			"[[An-outline-feature, An outline feature]]"+newLine()+ 
 			"=== *An outline feature*"+newLine()+ 
@@ -623,23 +623,23 @@ public interface Expectations {
 			"[small]#tags: @a,@b#"+newLine()+ 
 			""+newLine()+ 
 			""+newLine()+ 
-			"===="+newLine()+ 
+			"=========="+newLine()+ 
 			"Given ::"+newLine()+ 
 			"this step passes icon:thumbs-up[role=\"green\",title=\"Passed\"] [small right]#(001ms)#"+newLine()+ 
-			"===="+newLine()+ 
+			"=========="+newLine()+ 
 			""+newLine()+ 
 			"==== Scenario: Failing icon:thumbs-down[role=\"red\",title=\"Failed\"]"+newLine()+ 
 			"[small]#tags: @a,@c#"+newLine()+ 
 			""+newLine()+ 
 			""+newLine()+ 
-			"===="+newLine()+ 
+			"=========="+newLine()+ 
 			"Given ::"+newLine()+ 
 			"this step fails icon:thumbs-down[role=\"red\",title=\"Failed\"] [small right]#(008ms)#"+newLine()+ 
 			""+newLine()+ 
 			"IMPORTANT:  (RuntimeError)"+newLine()+ 
 			"./features/step_definitions/steps.rb:4:in /^this step fails$/'"+newLine()+ 
 			"features/one_passing_one_failing.feature:10:in Given this step fails'"+newLine()+ 
-			"===="+newLine()+ 
+			"=========="+newLine()+ 
 			""+newLine()+ 
 			"";
 
@@ -701,7 +701,7 @@ public interface Expectations {
 			"==== Cenario: Find messages by content"+newLine() +
 			"[small]#tags: @txn#"+newLine() +
 			""+newLine() + newLine() +
-			"****"+newLine()  +
+			"=========="+newLine()  +
 			"Dado ::"+newLine() +
 			Constants.Markup.exampleBlock() + newLine() +
 			"a User has posted the following messages: icon:thumbs-up[role=\"green\",title=\"Passed\"] [small right]#(111ms)#"+newLine() +
@@ -722,7 +722,7 @@ public interface Expectations {
 			""+newLine() +
 			"----"+newLine() +
 			Constants.Markup.exampleBlock() + newLine() +
-			"****"+newLine() +
+			"=========="+newLine() +
 			""+newLine();
 
 	String FEATURE_WITH_STEP_TABLE_IN_PT_BR = ":toc: right"+newLine()+ 
@@ -792,7 +792,7 @@ public interface Expectations {
 			"[small]#tags: @txn#"+newLine()+ 
 			""+newLine()+ 
 			""+newLine()+ 
-			"===="+newLine()+ 
+			"=========="+newLine()+ 
 			"Dado ::"+newLine()+ 
 			"a User has posted the following messages: icon:thumbs-up[role=\"green\",title=\"Passed\"] [small right]#(111ms)#"+newLine()+ 
 			""+newLine()+ 
@@ -811,7 +811,7 @@ public interface Expectations {
 			"--"+newLine()+ 
 			""+newLine()+ 
 			"----"+newLine()+ 
-			"===="+newLine()+ 
+			"=========="+newLine()+ 
 			""+newLine()+ 
 			"";
 	String DOCUMENTATION_WITH_SCENARIO_WITHOUT_DESCRIPTION =  ""+newLine()+ 
@@ -865,10 +865,10 @@ public interface Expectations {
 			""+newLine()+ 
 			"==== Scenario: User browses to the site successfully"+newLine()+ 
 			""+newLine()+ 
-			"===="+newLine()+ 
+			"=========="+newLine()+ 
 			"Given ::"+newLine()+ 
 			"User opens a browser icon:thumbs-up[role=\"green\",title=\"Passed\"] [small right]#(000ms)#"+newLine()+ 
-			"===="+newLine()+ 
+			"=========="+newLine()+ 
 			""+newLine()+ 
 			"";
 }

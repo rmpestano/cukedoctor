@@ -75,23 +75,23 @@ endif::[]
 [small]#tags: @a,@b#
 
 
-====
+==========
 Given ::
 this step passes icon:thumbs-up[role="green",title="Passed"] [small right]#(001ms)#
-====
+==========
 
 ==== Scenario: Failing icon:thumbs-down[role="red",title="Failed"]
 [small]#tags: @a,@c#
 
 
-====
+==========
 Given ::
 this step fails icon:thumbs-down[role="red",title="Failed"] [small right]#(008ms)#
 
 IMPORTANT:  (RuntimeError)
 ./features/step_definitions/steps.rb:4:in /^this step fails$/'
 features/one_passing_one_failing.feature:10:in Given this step fails'
-====
+==========
 
 
     """
@@ -209,23 +209,23 @@ minmax::An-embed-data-directly-feature[]
 endif::[]
 ==== Scenario: scenario 1
 
-====
+==========
 Given ::
 I embed data directly icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
-====
+==========
 
 ==== Scenario Outline: scenario 2
 
-====
+==========
 Given ::
 I embed data directly icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
-====
+==========
 
 
-====
+==========
 Given ::
 I embed data directly icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
-====
+==========
 
 [[An-outline-feature, An outline feature]]
 === *An outline feature*
@@ -261,23 +261,23 @@ endif::[]
 [small]#tags: @a,@b#
 
 
-====
+==========
 Given ::
 this step passes icon:thumbs-up[role="green",title="Passed"] [small right]#(001ms)#
-====
+==========
 
 ==== Scenario: Failing icon:thumbs-down[role="red",title="Failed"]
 [small]#tags: @a,@c#
 
 
-====
+==========
 Given ::
 this step fails icon:thumbs-down[role="red",title="Failed"] [small right]#(008ms)#
 
 IMPORTANT:  (RuntimeError)
 ./features/step_definitions/steps.rb:4:in /^this step fails$/'
 features/one_passing_one_failing.feature:10:in Given this step fails'
-====
+==========
 
 [[Sample-test, Sample test]]
 === *Sample test*
@@ -305,16 +305,16 @@ In order to achieve another thing
 
 ==== Scenario: Basic
 
-====
+==========
 Given ::
 I navigate to the home page icon:thumbs-up[role="green",title="Passed"] [small right]#(044ms)#
 Then ::
 I see the text 'Home' icon:thumbs-up[role="green",title="Passed"] [small right]#(001ms)#
-====
+==========
 
 ==== Scenario: Basic failure icon:thumbs-down[role="red",title="Failed"]
 
-====
+==========
 Given ::
 I navigate to the home page icon:thumbs-up[role="green",title="Passed"] [small right]#(040ms)#
 Then ::
@@ -323,6 +323,6 @@ I see the text 'Hacienda' icon:thumbs-down[role="red",title="Failed"] [small rig
 IMPORTANT: expected to find text "Hacienda" in "Home | Login Clinical Studies some engaging copy View Available Studies" (RSpec::Expectations::ExpectationNotMetError)
 ./features/step_definitions/study_admin_steps.rb:14:in `/^I see the text '(.+)'$/'
 features/test_outline.feature:15:in `Then I see the text 'Hacienda''
-====
+==========
 
       """
