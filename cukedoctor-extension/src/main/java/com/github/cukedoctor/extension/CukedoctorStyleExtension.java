@@ -70,7 +70,7 @@ public class CukedoctorStyleExtension extends Postprocessor {
             try {
                 String customCss = IOUtils.toString(new FileInputStream(themePath));
                 Elements head = document.getElementsByTag("head");
-                head.append(" <style> "+customCss);
+                head.append(" <style> "+customCss+"</style>");
             } catch (IOException e) {
                 log.log(Level.SEVERE, "Could not copy cukedoctor css from: " + themePath, e);
             }
