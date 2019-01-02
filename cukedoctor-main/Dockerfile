@@ -7,5 +7,4 @@ VOLUME /output
 
 ENV JAVA_OPTS=""
 
-#ENTRYPOINT ["java", "-jar", "cukedoctor.jar"]
 ENTRYPOINT ["/entrypoint.sh"]
