@@ -40,7 +40,7 @@ ____
 
 ==========
 Given ::
-The following two features: icon:thumbs-up[role="green",title="Passed"] [small right]#(316ms)#
+The following two features: icon:thumbs-up[role="green",title="Passed"] [small right]#(005ms)#
 ----
 
 Feature: Feature1
@@ -57,7 +57,7 @@ Feature: Feature2
 
 ----
 When ::
-I convert their json test output using cukedoctor converter icon:thumbs-up[role="green",title="Passed"] [small right]#(852ms)#
+I convert their json test output using cukedoctor converter icon:thumbs-up[role="green",title="Passed"] [small right]#(020ms)#
 ******
 
 [discrete]
@@ -81,7 +81,7 @@ NOTE: *plugin* option replaced *format* option which was deprecated in newer cuc
 ******
 
 Then ::
-I should have awesome living documentation icon:thumbs-up[role="green",title="Passed"] [small right]#(001ms)#
+I should have awesome living documentation icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ******
 
 [discrete]
@@ -212,7 +212,7 @@ Feature: Feature2
 
 ----
 When ::
-I convert them using default order icon:thumbs-up[role="green",title="Passed"] [small right]#(015ms)#
+I convert them using default order icon:thumbs-up[role="green",title="Passed"] [small right]#(008ms)#
 Then ::
 Features should be ordered by name in resulting documentation icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ******
@@ -259,7 +259,7 @@ scenario step icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 
 ==========
 Given ::
-The following two features: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+The following two features: icon:thumbs-up[role="green",title="Passed"] [small right]#(002ms)#
 ----
 
 #order: 2
@@ -281,7 +281,7 @@ Feature: Feature2
 NOTE: Ordering is done using feature comment '*#order:*'
 
 When ::
-I convert them using comment order icon:thumbs-up[role="green",title="Passed"] [small right]#(014ms)#
+I convert them using comment order icon:thumbs-up[role="green",title="Passed"] [small right]#(006ms)#
 Then ::
 Features should be ordered respecting order comment icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ******
@@ -379,7 +379,7 @@ Feature: Enrich feature
 
 ----
 When ::
-I convert docstring enriched json output using cukedoctor converter icon:thumbs-up[role="green",title="Passed"] [small right]#(020ms)#
+I convert docstring enriched json output using cukedoctor converter icon:thumbs-up[role="green",title="Passed"] [small right]#(013ms)#
 Then ::
 DocString asciidoc output must be rendered in my documentation icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ******
@@ -481,7 +481,7 @@ Feature: Calculator
 
 ----
 When ::
-I convert enriched feature json output using cukedoctor icon:thumbs-up[role="green",title="Passed"] [small right]#(019ms)#
+I convert enriched feature json output using cukedoctor icon:thumbs-up[role="green",title="Passed"] [small right]#(017ms)#
 Then ::
 Asciidoc markup on comments must be rendered in my documentation icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ******
@@ -575,7 +575,7 @@ Feature: Feature2
 
 ----
 And ::
-The following asciidoc document is on your application classpath icon:thumbs-up[role="green",title="Passed"] [small right]#(018ms)#
+The following asciidoc document is on your application classpath icon:thumbs-up[role="green",title="Passed"] [small right]#(016ms)#
 ******
 
 [discrete]
@@ -615,7 +615,7 @@ System.setProperty("INTRO_CHAPTER_DIR","/home/some/external/folder");
 When ::
 Bdd tests results are converted into documentation by Cukedoctor icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 Then ::
-Resulting documentation should have the provided introduction chapter icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+Resulting documentation should have the provided introduction chapter icon:thumbs-up[role="green",title="Passed"] [small right]#(001ms)#
 ******
 
 [discrete]
