@@ -916,7 +916,7 @@ It will search features (cucumber output in json format) in current folder (`$PW
 
 TIP: To change features folder just change first parameter of docker volume, ex: `docker run -v "/home:/output" ...` will search for cucumber features in `/home` directory.  
 
-NOTE: For usage details, see https://github.com/rmpestano/cukedoctor#usage-2[cukedoctor-cli^]
+NOTE: For Cukedoctor parameters details, see https://github.com/rmpestano/cukedoctor#usage-2[cukedoctor-cli^]
 
 == Distribution
 
