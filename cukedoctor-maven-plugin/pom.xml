@@ -99,7 +99,6 @@
                 <!-- taken from http://maven.apache.org/plugin-tools/maven-plugin-plugin/examples/using-annotations.html -->
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-plugin-plugin</artifactId>
-                <version>3.4</version>
                 <configuration>
                     <!-- see http://jira.codehaus.org/browse/MNG-5346 -->
                     <skipErrorNoDescriptorsFound>true</skipErrorNoDescriptorsFound>
