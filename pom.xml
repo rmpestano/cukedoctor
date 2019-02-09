@@ -59,13 +59,13 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <jackson-core.version>2.7.3</jackson-core.version>
-        <asciidoctorj.version>1.6.0-alpha.6</asciidoctorj.version>
-        <asciidoctorj-pdf.version>1.5.0-alpha.16</asciidoctorj-pdf.version>
+        <asciidoctorj.version>1.6.2</asciidoctorj.version>
+        <asciidoctorj-pdf.version>1.5.0-beta.2</asciidoctorj-pdf.version>
         <joda-time.version>2.9.2</joda-time.version>
         <cucumber.version>1.2.4</cucumber.version>
-        <snakeyaml.version>1.17</snakeyaml.version>
+        <snakeyaml.version>1.24</snakeyaml.version>
         <jacoco.version>0.7.6.201602180812</jacoco.version>
-        <jruby.version>9.1.13.0</jruby.version>
+        <jruby.version>9.2.7.0</jruby.version>
     </properties>
 
 
@@ -146,7 +146,7 @@
                 <exclusions>
                     <exclusion>
                         <groupId>org.jruby</groupId>
-                        <artifactId>jruby-complete</artifactId>
+                        <artifactId>jruby</artifactId>
                     </exclusion>
                 </exclusions>
             </dependency>

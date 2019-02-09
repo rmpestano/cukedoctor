@@ -22,18 +22,16 @@
         <dependency>
             <groupId>org.asciidoctor</groupId>
             <artifactId>asciidoctorj</artifactId>
-            <scope>provided</scope>
-            <exclusions>
-                <exclusion>
-                    <groupId>org.jruby</groupId>
-                    <artifactId>jruby-complete</artifactId>
-                </exclusion>
-            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>org.asciidoctor</groupId>
+            <artifactId>asciidoctorj-pdf</artifactId>
+            <scope>runtime</scope>
         </dependency>
         <dependency>
             <groupId>org.jruby</groupId>
             <artifactId>jruby-complete</artifactId>
-            <scope>provided</scope>
+            <scope>runtime</scope>
         </dependency>
         <dependency>
             <groupId>org.jsoup</groupId>

@@ -99,7 +99,9 @@ public class CukedoctorConverterTest {
                         ":sectanchors:" + newLine() +
                         ":sectlink:" + newLine() +
                         ":docinfo:" + newLine() +
-                        ":source-highlighter: highlightjs\n:toclevels: 3\n:hardbreaks:" + newLine() +
+                        ":source-highlighter: highlightjs" + newLine() +
+                        ":toclevels: 3" + newLine() +
+                        ":hardbreaks:" + newLine() +
                         ":chapter-label: Chapter" + newLine() +
                         ":version-label: Version" + newLine();
 
@@ -127,7 +129,9 @@ public class CukedoctorConverterTest {
                 ":sectanchors:" + newLine() +
                 ":sectlink:" + newLine() +
                 ":docinfo:" + newLine() +
-                ":source-highlighter: highlightjs" + newLine() + ":toclevels: 3" + newLine() + ":hardbreaks:" + newLine() +
+                ":source-highlighter: highlightjs" + newLine() +
+                ":toclevels: 3" + newLine() +
+                ":hardbreaks:" + newLine() +
                 ":chapter-label: Chapter"+ newLine() +
                 ":version-label: Version"+ newLine();
 
@@ -153,7 +157,9 @@ public class CukedoctorConverterTest {
                 ":sectanchors:" + newLine() +
                 ":sectlink:" + newLine() +
                 ":docinfo:" + newLine() +
-                ":source-highlighter: highlightjs" + newLine() + ":toclevels: 3" + newLine() + ":hardbreaks:" + newLine() +
+                ":source-highlighter: highlightjs" + newLine() +
+                ":toclevels: 3" + newLine() +
+                ":hardbreaks:" + newLine() +
                 ":chapter-label: Chapter"+newLine() +
                 ":version-label: Version"+newLine();
 
@@ -207,7 +213,9 @@ public class CukedoctorConverterTest {
                         ":sectanchors:" + newLine() +
                         ":sectlink:" + newLine() +
                         ":docinfo:" + newLine() +
-                        ":source-highlighter: highlightjs\n:toclevels: 3\n:hardbreaks:" + newLine() +
+                        ":source-highlighter: highlightjs" + newLine() +
+                        ":toclevels: 3" + newLine() +
+                        ":hardbreaks:" + newLine() +
                         ":chapter-label: Chapter" + newLine() +
                         ":version-label: Version" + newLine();
 
@@ -240,7 +248,9 @@ public class CukedoctorConverterTest {
                         ":sectanchors:" + newLine() +
                         ":sectlink:" + newLine() +
                         ":docinfo:" + newLine() +
-                        ":source-highlighter: highlightjs\n:toclevels: 3\n:!hardbreaks:" + newLine() +
+                        ":source-highlighter: highlightjs" + newLine() +
+                        ":toclevels: 3" + newLine() +
+                        ":!hardbreaks:" + newLine() +
                         ":chapter-label: Chapter" + newLine() +
                         ":version-label: Version" + newLine();
 
@@ -313,7 +323,9 @@ public class CukedoctorConverterTest {
                         ":sectanchors:" + newLine() +
                         ":sectlink:" + newLine() +
                         ":docinfo:" + newLine() +
-                        ":source-highlighter: highlightjs\n:toclevels: 3\n:hardbreaks:" + newLine() +
+                        ":source-highlighter: highlightjs" + newLine() +
+                        ":toclevels: 3" + newLine() +
+                        ":hardbreaks:" + newLine() +
                         ":chapter-label: Chapter" + newLine() +
                         ":version-label: Version" + newLine();
 
@@ -394,6 +406,7 @@ public class CukedoctorConverterTest {
         CukedoctorConverter converter = Cukedoctor.instance(features, new DocumentAttributes().backend("pdf"));
         converter.setFilename("target/pdf/living documentation.adoc");
         String pdfStylePath = Paths.get("").toAbsolutePath() + "/target/pdf/cukedoctor-pdf.yml";
+        pdfStylePath = pdfStylePath.replaceAll("\\\\", "/");
         FileUtil.copyFileFromClassPath("/cukedoctor-pdf-test.yml", pdfStylePath);
         converter.addCustomPdfTheme();
         String expected = ":toc: right" + newLine() +
@@ -414,7 +427,7 @@ public class CukedoctorConverterTest {
                 ":pdf-style: " + pdfStylePath + newLine();
 
         String doc = converter.renderAttributes().getDocumentation();
-        assertThat(expected).isEqualTo(doc);
+        assertThat(doc).isEqualTo(expected);
         File file = FileUtil.loadFile("target/pdf/cukedoctor-pdf.yml");
         assertThat(file).exists();
         assertTrue(file.delete());
@@ -713,36 +726,36 @@ public class CukedoctorConverterTest {
         assertThat(features).isNotNull().hasSize(1);
         String output = Cukedoctor.instance(features).renderFeatures(features).getDocumentation();
         assertThat(output.replaceAll("\r", "")).contains(("[[Calculator, Calculator]]"+newLine()+ 
-        		"=== *Calculator*"+newLine()+ 
-        		""+newLine()+ 
-        		"==== Scenario: Adding numbers"+newLine()+ 
-        		"You can use *asciidoc markup* in _feature_ #description#."+newLine()+ 
-        		""+newLine()+ 
-        		"NOTE: This is a very important feature!"+newLine()+ 
-        		""+newLine()+ 
-        		"=========="+newLine()+
-        		"Given ::"+newLine()+ 
-        		"I have numbers 1 and 2 icon:thumbs-up[role=\"green\",title=\"Passed\"] [small right]#(114ms)#"+newLine()+ 
-        		""+newLine()+ 
-        		"IMPORTANT: Asciidoc markup inside *steps* must be surrounded by *curly brackets*."+newLine()+ 
-        		""+newLine()+ 
-        		"When ::"+newLine()+ 
-        		"I sum the numbers icon:thumbs-up[role=\"green\",title=\"Passed\"] [small right]#(000ms)#"+newLine()+ 
-        		""+newLine()+ 
-        		"NOTE: Steps comments are placed *before* each steps so this comment is for the *WHEN* step."+newLine()+ 
-        		""+newLine()+ 
-        		"Then ::"+newLine()+ 
-        		"I should have 3 as result icon:thumbs-up[role=\"green\",title=\"Passed\"] [small right]#(001ms)#"+newLine()+ 
-        		""+newLine()+ 
-        		"* this is a list of itens inside a feature step"+newLine()+ 
-        		""+newLine()+ 
-        		"* there is no multiline comment in gherkin"+newLine()+ 
-        		""+newLine()+ 
-        		"** second level list item"+newLine()+ 
-        		""+newLine()+ 
-        		"=========="+newLine()+
-        		""+newLine()+ 
-        		""));
+                "=== *Calculator*"+newLine()+
+                ""+newLine()+
+                "==== Scenario: Adding numbers"+newLine()+
+                "You can use *asciidoc markup* in _feature_ #description#."+newLine()+
+                ""+newLine()+
+                "NOTE: This is a very important feature!"+newLine()+
+                ""+newLine()+
+                "=========="+newLine()+
+                "Given ::"+newLine()+
+                "I have numbers 1 and 2 icon:thumbs-up[role=\"green\",title=\"Passed\"] [small right]#(114ms)#"+newLine()+
+                ""+newLine()+
+                "IMPORTANT: Asciidoc markup inside *steps* must be surrounded by *curly brackets*."+newLine()+
+                ""+newLine()+
+                "When ::"+newLine()+
+                "I sum the numbers icon:thumbs-up[role=\"green\",title=\"Passed\"] [small right]#(000ms)#"+newLine()+
+                ""+newLine()+
+                "NOTE: Steps comments are placed *before* each steps so this comment is for the *WHEN* step."+newLine()+
+                ""+newLine()+
+                "Then ::"+newLine()+
+                "I should have 3 as result icon:thumbs-up[role=\"green\",title=\"Passed\"] [small right]#(001ms)#"+newLine()+
+                ""+newLine()+
+                "* this is a list of itens inside a feature step"+newLine()+
+                ""+newLine()+
+                "* there is no multiline comment in gherkin"+newLine()+
+                ""+newLine()+
+                "** second level list item"+newLine()+
+                ""+newLine()+
+                "=========="+newLine()+
+                ""+newLine()+
+                "").replaceAll("\r", ""));
     }
 
     @Test
