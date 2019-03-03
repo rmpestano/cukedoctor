@@ -37,6 +37,7 @@ public class RendererTest {
 
     private static String invalidFeatureResult;
     private static String featureWithTableInStep;
+    private static String featureWithSourceDocStringInStep;
     private static String onePassingOneFailing;
     private static String embedDataDirectly;
     private static String outline;
@@ -48,6 +49,7 @@ public class RendererTest {
         outline = FileUtil.findJsonFile("target/test-classes/json-output/outline.json");
         invalidFeatureResult = FileUtil.findJsonFile("target/test-classes/json-output/invalid_feature_result.json");
         featureWithTableInStep = FileUtil.findJsonFile("target/test-classes/json-output/step-with-table.json");
+        featureWithSourceDocStringInStep = FileUtil.findJsonFile("target/test-classes/json-output/step-with-source-doc-string.json");
     }
 
 
@@ -271,6 +273,15 @@ public class RendererTest {
         CukedoctorConverter converter = Cukedoctor.instance(features, GlobalConfig.getInstance().getDocumentAttributes().docTitle("Doc Title"));
         String resultDoc = converter.renderDocumentation();
         assertThat(resultDoc.replaceAll("\r","")).isEqualTo(Expectations.FEATURE_WITH_STEP_TABLE_IN_PT_BR.replaceAll("\r",""));
+    }
+
+    @Test
+    public void shouldRenderSourceDocStringInStep(){
+        List<Feature> features = FeatureParser.parse(featureWithSourceDocStringInStep);
+        final Feature feature = features.get(0);
+        CukedoctorFeatureRenderer featureRenderer = new CukedoctorFeatureRenderer();
+        String resultDoc = featureRenderer.renderFeature(feature);
+        assertThat(resultDoc).isEqualTo(Expectations.FEATURE_WITH_SOURCE_DOC_STRING);
     }
 
     @Test

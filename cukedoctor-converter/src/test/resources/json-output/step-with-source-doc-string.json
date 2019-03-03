@@ -1,0 +1,38 @@
+[
+  {
+    "uri": "features/test.feature",
+    "id": "test",
+    "keyword": "Feature",
+    "name": "test",
+    "description": "",
+    "line": 1,
+    "elements": [
+      {
+        "id": "test;test",
+        "keyword": "Scenario",
+        "name": "test",
+        "description": "",
+        "line": 2,
+        "type": "scenario",
+        "steps": [
+          {
+            "keyword": "Given ",
+            "name": "code",
+            "line": 3,
+            "doc_string": {
+              "value": "class TestClass\n  attr_reader :test\nend",
+              "content_type": "ruby",
+              "line": 4
+            },
+            "match": {
+              "location": "features/test.feature:3"
+            },
+            "result": {
+              "status": "undefined"
+            }
+          }
+        ]
+      }
+    ]
+  }
+]

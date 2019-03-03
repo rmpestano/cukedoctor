@@ -871,4 +871,25 @@ public interface Expectations {
 			"=========="+newLine()+ 
 			""+newLine()+ 
 			"";
+
+	String FEATURE_WITH_SOURCE_DOC_STRING = "[[test, test]]"+newLine()+
+			"=== *test*"+newLine()+
+			""+newLine()+
+			"ifndef::backend-pdf[]"+newLine()+
+			"minmax::test[]"+newLine()+
+			"endif::[]"+newLine()+
+			"==== Scenario: test icon:thumbs-down[role=\"red\",title=\"Failed\"]"+newLine()+
+			""+newLine()+
+			"=========="+newLine()+
+			"Given ::"+newLine()+
+			"code icon:thumbs-down[role=\"yellow\",title=\"Undefined\"] [small right]#(000ms)#"+newLine()+
+			"[source,ruby]"+newLine()+
+			"----"+newLine()+
+			""+newLine()+
+			"class TestClass"+newLine()+
+			"  attr_reader :test"+newLine()+
+			"end"+newLine()+
+			""+newLine()+
+			"----"+newLine()+
+			"=========="+newLine()+newLine();
 }
