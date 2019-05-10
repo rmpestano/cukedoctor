@@ -19,6 +19,16 @@ public class DocString {
     this.value = value;
   }
 
+  private String content_type;
+
+  public String getContentType() {
+    return content_type;
+  }
+
+  public void setContent_type(String value) {
+    this.content_type = value;
+  }
+
   @Override
   public String toString() {
     return value;

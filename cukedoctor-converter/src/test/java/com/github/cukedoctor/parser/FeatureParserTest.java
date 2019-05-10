@@ -79,6 +79,13 @@ public class FeatureParserTest {
 				assertThat(step).isNotNull();
 				assertThat(step.getDocString()).isNotNull();
 				assertThat(step.getDocString().getValue()).isEqualTo("A paragraph in an open block.");
+				assertThat(step.getDocString().getContentType()).isEqualTo("");
+
+				step = scenario.getStepByName("I embed code directly");
+				assertThat(step).isNotNull();
+				assertThat(step.getDocString()).isNotNull();
+				assertThat(step.getDocString().getValue()).isEqualTo("puts('Hello world')");
+				assertThat(step.getDocString().getContentType()).isEqualTo("ruby");
 			}
 		}
 	}

@@ -86,6 +86,9 @@ public class CukedoctorStepsRenderer extends AbstractBaseRenderer implements Ste
     }
 
     private void renderListingBlock(DocString docString) {
+        if(docString.getContentType() != null && !docString.getContentType().equals("")) {
+            docBuilder.append("[source,", docString.getContentType(), "]", newLine());
+        }
         docBuilder.append(listing(), newLine(), newLine());
         docBuilder.append(docString.getValue().replaceAll("\\n", newLine()));
         docBuilder.append(newLine(), newLine(), listing(), newLine());

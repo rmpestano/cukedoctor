@@ -37,6 +37,23 @@
               "status": "passed",
               "duration": 1
             }
+          },
+          {
+            "keyword": "Given ",
+            "name": "I embed code directly",
+            "line": 4,
+            "doc_string": {
+              "value": "puts('Hello world')",
+              "content_type": "ruby",
+              "line": 10
+            },
+            "match": {
+              "location": "features/step_definitions/json_steps.rb:10"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1
+            }
           }
         ]
       },
