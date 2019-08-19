@@ -53,7 +53,7 @@ public class CukedoctorMain {
     @Parameter(names = "-versionLabel", description = "Version Label. Default is 'Version' ", required = false)
     private String versionLabel;
 
-    @Parameter(names = "-hardbreaks", description = "Sets asciidoctor hardbreaks attribute. Default is true ", required = false)
+    @Parameter(names = "-hardbreaks", description = "Sets asciidoctor hardbreaks attribute. Default is true ", arity = 1, required = false)
     private Boolean hardBreaks;
 
     @Parameter(names = "-docVersion", description = "Documentation version", required = false)
