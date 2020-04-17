@@ -278,20 +278,31 @@ public class Feature implements Comparable<Feature> {
     public Integer getOrder() {
         if (order == null && comments != null) {
             for (Comment comment : comments) {
-                if (hasText(comment.getOrder())) {
-                    try {
-                        this.order = Integer.parseInt(comment.getOrder());
-                    } catch (Exception e) {
-                        Logger.getLogger(getClass().getName()).warning(String.format("Could not get order of feature %s cause: %s", name, e.getMessage()));
-                    }
-                }
+                trySetOrder(comment.getOrder(), "comment");
             }
         }
+
+        if (order == null && hasTags()) {
+            for (Tag tag : getTags()) {
+                trySetOrder(tag.getOrder(), "tag");
+            }
+        }
+
         if (order == null) {
             this.order = -1;
         }
 
         return order;
+    }
+
+    private void trySetOrder(String order, String source) {
+        if (hasText(order)) {
+            try {
+                this.order = Integer.parseInt(order);
+            } catch (Exception e) {
+                Logger.getLogger(getClass().getName()).warning(String.format("Could not get order of feature %s from %s cause: %s", name, source, e.getMessage()));
+            }
+        }
     }
 
     @Override

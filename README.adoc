@@ -242,9 +242,9 @@ Feature: Calculator
 
 === Feature ordering
 
-To change the order features will be rendered in living documentation you can add `order comment`:
+To change the order features will be rendered in living documentation you can add an `order comment` in cucumber-jvm 1.x only:
 
-.ordererd.feature
+.ordered.feature.comment
 ----
 # order: 1
 Feature: Calculator
@@ -252,6 +252,18 @@ Feature: Calculator
   Scenario: Adding numbers
 
 ----
+
+Or in cucumber-jvm 2.x and later, with an `order tag`:
+
+.ordered.feature.tag
+----
+@order-1
+Feature: Calculator
+
+  Scenario: Adding numbers
+
+----
+
 
 === Enriching documentation
 
