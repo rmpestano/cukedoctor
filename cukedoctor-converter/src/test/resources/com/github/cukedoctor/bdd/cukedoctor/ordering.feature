@@ -136,8 +136,6 @@ Feature: Feature2
 === *Feature2*
 
 ==== Scenario: Scenario feature 2
-[small]#tags: @order-1#
-
 
 ==========
 Given ::
@@ -148,12 +146,10 @@ scenario step icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 === *Feature1*
 
 ==== Scenario: Scenario feature 1
-[small]#tags: @order-2#
-
 
 ==========
 Given ::
-scenario step icon:thumbs-up[role="green",title="Passed"] [small right]#(313ms)#
+scenario step icon:thumbs-up[role="green",title="Passed"] [small right]#(001ms)#
 ==========
 
 

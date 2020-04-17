@@ -129,6 +129,32 @@ public class RendererTest {
     }
 
     @Test
+    public void shouldRenderFeatureScenariosOmittingTagsIfOrderFeatureTagIsTheOnlyTag() {
+        // cucumber-jvm-5.6.0 cascades feature tags down to scenarios. See "ordering.feature" and "order-tags.json" for an example.
+        final Feature feature = FeatureBuilder.instance().aFeatureWithTwoScenarios();
+        final String orderTagName = "@order-42";
+        feature.getTags().add(new Tag(orderTagName));
+        for (Scenario scenario : feature.getScenarios()) {
+            ScenarioBuilder.instance(scenario).tag(new Tag(orderTagName));
+        }
+
+        CukedoctorScenarioRenderer scenarioRenderer = new CukedoctorScenarioRenderer();
+        scenarioRenderer = spy(scenarioRenderer);
+        doReturn("").when(scenarioRenderer).renderScenarioSteps(anyListOf(Step.class));
+        doReturn("").when(scenarioRenderer).renderScenarioExamples(any(Scenario.class));
+
+        CukedoctorFeatureRenderer featureRenderer = new CukedoctorFeatureRenderer();
+        featureRenderer = spy(featureRenderer);
+        featureRenderer.scenarioRenderer = scenarioRenderer;
+
+        String resultDoc = featureRenderer.renderFeatureScenarios(feature);
+        assertThat(resultDoc).isEqualTo("==== Scenario: scenario 1" + newLine() +
+                "description" + newLine() + newLine() +
+                "==== Scenario: scenario 2" + newLine() +
+                "description 2" + newLine() + newLine());
+    }
+
+    @Test
     public void shouldRenderFeatureStepsWithOnePassingStep(){
         final Feature feature = FeatureBuilder.instance().aFeatureWithOneScenarioWithOnePassingStep();
         List<Feature> features = new ArrayList<>();

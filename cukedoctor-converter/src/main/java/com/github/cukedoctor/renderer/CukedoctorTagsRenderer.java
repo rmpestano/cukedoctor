@@ -32,4 +32,21 @@ public class CukedoctorTagsRenderer extends AbstractBaseRenderer implements Tags
         docBuilder.newLine();
         return docBuilder.toString();
     }
+
+    @Override
+    public boolean shouldRenderScenarioTags(Feature feature, Scenario scenario) {
+        if (feature.hasTags()) {
+            for (Tag tag : feature.getTags()) {
+                if (!tag.isOrder()) return true;
+            }
+        }
+
+        if (scenario.hasTags()) {
+            for (Tag tag : scenario.getTags()) {
+                if (!tag.isOrder()) return true;
+            }
+        }
+
+        return false;
+    }
 }

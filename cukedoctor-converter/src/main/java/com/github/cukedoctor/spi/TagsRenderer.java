@@ -10,4 +10,6 @@ import com.github.cukedoctor.renderer.BaseRenderer;
 public interface TagsRenderer extends BaseRenderer {
 
     String renderScenarioTags(Feature feature, Scenario scenario);
+
+    boolean shouldRenderScenarioTags(Feature feature, Scenario scenario);
 }
