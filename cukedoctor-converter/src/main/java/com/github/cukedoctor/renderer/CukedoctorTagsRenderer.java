@@ -5,6 +5,9 @@ import com.github.cukedoctor.api.model.Scenario;
 import com.github.cukedoctor.api.model.Tag;
 import com.github.cukedoctor.spi.TagsRenderer;
 
+import java.util.HashSet;
+import java.util.List;
+
 /**
  * Created by pestano on 28/02/16.
  */
@@ -12,41 +15,38 @@ public class CukedoctorTagsRenderer extends AbstractBaseRenderer implements Tags
 
     @Override
     public String renderScenarioTags(Feature feature, Scenario scenario) {
+        int expectedSize = (feature.hasTags() ? feature.getTags().size() : 0) + (scenario.hasTags() ? scenario.getTags().size() : 0);
+        if (expectedSize == 0) return "";
+
+        HashSet<String> tagNames = new HashSet<>(expectedSize);
+        extractTagNames(tagNames, feature.getTags());
+        extractTagNames(tagNames, scenario.getTags());
+        if (tagNames.size() == 0) return "";
+
         docBuilder.clear();
         StringBuilder tags = new StringBuilder("[small]#tags: ");
-        if (feature.hasTags()) {
-            for (Tag featureTag : feature.getTags()) {
-                tags.append(featureTag.getName()).append(",");
-            }
+        for (String tagName : tagNames) {
+            tags.append(tagName).append(",");
         }
-        if (scenario.hasTags()) {
-            for (Tag scenarioTag : scenario.getTags()) {
-                tags.append(scenarioTag.getName()).append(",");
-            }
-        }
+
         if (tags.indexOf(",") != -1) {//delete last comma
             tags.deleteCharAt(tags.lastIndexOf(","));
         }
+
         tags.append("#");
         docBuilder.textLine(tags.toString());
         docBuilder.newLine();
         return docBuilder.toString();
     }
 
-    @Override
-    public boolean shouldRenderScenarioTags(Feature feature, Scenario scenario) {
-        if (feature.hasTags()) {
-            for (Tag tag : feature.getTags()) {
-                if (!tag.isOrder()) return true;
+    private void extractTagNames(HashSet<String> tagNames, List<Tag> tags) {
+        if (tags == null) return;
+
+        for (Tag tag : tags) {
+            if (!tag.isOrder()) {
+                tagNames.add(tag.getName());
             }
         }
-
-        if (scenario.hasTags()) {
-            for (Tag tag : scenario.getTags()) {
-                if (!tag.isOrder()) return true;
-            }
-        }
-
-        return false;
     }
+
 }

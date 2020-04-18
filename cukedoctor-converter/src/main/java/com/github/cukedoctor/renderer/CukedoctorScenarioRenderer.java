@@ -108,7 +108,7 @@ public class CukedoctorScenarioRenderer extends AbstractBaseRenderer implements 
 
         }
 
-        if (!cukedoctorConfig.isHideTags() && tagsRenderer.shouldRenderScenarioTags(feature, scenario)) {
+        if (!cukedoctorConfig.isHideTags()) {
             docBuilder.append(renderScenarioTags(scenario, feature));
         }
 

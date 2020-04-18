@@ -12,55 +12,115 @@ import org.junit.runners.JUnit4;
 import java.util.ArrayList;
 import java.util.List;
 
+import static com.github.cukedoctor.util.Constants.newLine;
+import static org.junit.Assert.assertEquals;
+
 @RunWith(JUnit4.class)
 public class CukedoctorTagsRendererTest {
-    private TagsRenderer tagsRenderer = new CukedoctorTagsRenderer();
+    private final TagsRenderer tagsRenderer = new CukedoctorTagsRenderer();
+    private final String someTag = "@someTag";
+    private final String order42 = "@order-42";
+    private final String order1 = "@order-1";
+    private final String otherTag = "@otherTag";
+
 
     @Test
     public void shouldNotRenderIfNeitherFeatureNorScenarioHasTags() {
-        Assert.assertFalse("", tagsRenderer.shouldRenderScenarioTags(createEmptyFeature(), createEmptyScenario()));
+        assertEquals(
+                "",
+                tagsRenderer.renderScenarioTags(createEmptyFeature(), createEmptyScenario())
+        );
     }
 
 
     @Test
     public void shouldRenderIfScenarioHasTags() {
-        Assert.assertTrue(tagsRenderer.shouldRenderScenarioTags(createEmptyFeature(), createScenario("@someTag")));
+        assertEquals(
+                "[small]#tags: " + someTag + "#" + newLine() + newLine(),
+                tagsRenderer.renderScenarioTags(createEmptyFeature(), createScenario(someTag))
+        );
     }
 
     @Test
     public void shouldRenderIfScenarioHasOrderAndNotOrderTags() {
-        Assert.assertTrue(tagsRenderer.shouldRenderScenarioTags(createEmptyFeature(), createScenario("@someTag", "@order-42")));
+        assertEquals(
+                "[small]#tags: " + someTag +  "#" + newLine() + newLine(),
+                tagsRenderer.renderScenarioTags(createEmptyFeature(), createScenario(someTag, order42))
+        );
     }
 
     @Test
     public void shouldNotRenderIfScenarioOnlyHasSingleOrderTagAndFeatureHasNoTags() {
-        Assert.assertFalse(tagsRenderer.shouldRenderScenarioTags(createEmptyFeature(), createScenario("@order-42")));
+        assertEquals(
+                "",
+                tagsRenderer.renderScenarioTags(createEmptyFeature(), createScenario(order42))
+        );
     }
 
     @Test
     public void shouldNotRenderIfScenarioOnlyHasOrderTagsAndFeatureHasNoTags() {
-        Assert.assertFalse(tagsRenderer.shouldRenderScenarioTags(createEmptyFeature(), createScenario("@order-42", "@order-1")));
+        assertEquals(
+                "",
+                tagsRenderer.renderScenarioTags(createEmptyFeature(), createScenario(order42, order1))
+        );
     }
 
 
     @Test
     public void shouldRenderIfFeatureHasTagsButNotOrderTags() {
-        Assert.assertTrue(tagsRenderer.shouldRenderScenarioTags(createFeature("@someTag"), createEmptyScenario()));
+        assertEquals(
+                "[small]#tags: " + someTag + "#" + newLine() + newLine(),
+                tagsRenderer.renderScenarioTags(createFeature(someTag), createEmptyScenario())
+        );
     }
 
     @Test
     public void shouldRenderIfFeatureHasOrderAndNotOrderTags() {
-        Assert.assertTrue(tagsRenderer.shouldRenderScenarioTags(createFeature("@someTag", "@order-42"), createEmptyScenario()));
+        assertEquals(
+                "[small]#tags: " + someTag + "#" + newLine() + newLine(),
+                tagsRenderer.renderScenarioTags(createFeature(someTag, order42), createEmptyScenario())
+        );
     }
 
     @Test
     public void shouldNotRenderIfFeatureOnlyHasSingleOrderTagAndScenarioHasNoTags() {
-        Assert.assertFalse(tagsRenderer.shouldRenderScenarioTags(createFeature("@order-42"), createEmptyScenario()));
+        assertEquals(
+                "",
+                tagsRenderer.renderScenarioTags(createFeature(order42), createEmptyScenario())
+        );
     }
 
     @Test
     public void shouldNotRenderIfFeatureOnlyHasOrderTagsAndScenarioHasNoTags() {
-        Assert.assertFalse(tagsRenderer.shouldRenderScenarioTags(createFeature("@order-42", "@order-1"), createEmptyScenario()));
+        assertEquals(
+                "",
+                tagsRenderer.renderScenarioTags(createFeature(order42, order1), createEmptyScenario())
+        );
+    }
+
+
+    @Test
+    public void shouldRenderIfFeatureAndScenarioHaveTags() {
+        assertEquals(
+                "[small]#tags: " + someTag + "," + otherTag + "#" + newLine() + newLine(),
+                tagsRenderer.renderScenarioTags(createFeature(someTag), createScenario(otherTag))
+        );
+    }
+
+    @Test
+    public void shouldRenderTagOnceIfPresentOnBothFeatureAndScenario() {
+        assertEquals(
+                "[small]#tags: " + someTag + "," + otherTag + "#" + newLine() + newLine(),
+                tagsRenderer.renderScenarioTags(createFeature(someTag), createScenario(otherTag, someTag))
+        );
+    }
+
+    @Test
+    public void shouldNotRenderIfFeatureAndScenarioOnlyHaveOrderTags() {
+        assertEquals(
+                "",
+                tagsRenderer.renderScenarioTags(createFeature(order42), createScenario(order42))
+        );
     }
 
 
