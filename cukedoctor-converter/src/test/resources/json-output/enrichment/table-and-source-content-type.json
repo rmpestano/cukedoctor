@@ -23,7 +23,7 @@
             },
             "keyword": "Given ",
             "doc_string": {
-              "content_type": "cukedoctor-discrete",
+              "content_type": "asciidoc",
               "line": 6,
               "value": "[source, java]\n-----\npublic int sum(int x, int y){\n    int result \u003d x + y;\n    return result; (1)\n}\n-----\n\u003c1\u003e We can have callouts in living documentation"
             }
@@ -50,7 +50,7 @@
             },
             "keyword": "Given ",
             "doc_string": {
-              "content_type": "cukedoctor-discrete",
+              "content_type": "asciidoc",
               "line": 20,
               "value": "|\u003d\u003d\u003d\n\n| Cell in column 1, row 1 | Cell in column 2, row 1\n| Cell in column 1, row 2 | Cell in column 2, row 2\n| Cell in column 1, row 3 | Cell in column 2, row 3\n\n|\u003d\u003d\u003d"
             }

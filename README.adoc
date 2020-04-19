@@ -320,13 +320,13 @@ image::enrich.png[]
 You can use Asciidoc markup in https://www.relishapp.com/cucumber/cucumber/docs/gherkin/doc-strings[feature DocStrings].
 The Features below show the different ways of achieving this:
 
-* Step comment (cucumber-jvm 1.x only)
+* Step comment `#cukedoctor-discrete` (cucumber-jvm 1.x only)
 ** Applies to all DocStrings in the commented step
-* Content type
+* Content type `asciidoc`
 ** Must be applied to each DocString you wish to be enriched
-* Feature tag
+* Feature tag `@asciidoc`
 ** Applies to all DocStrings in the tagged feature
-* Scenario tag
+* Scenario tag `@asciidoc`
 ** Applies to all DocStrings in the tagged scenario
 
 ----
@@ -367,7 +367,7 @@ Feature: Discrete class feature with content type
   Scenario: Render source code
 
     Given the following source code
-    """cukedoctor-discrete
+    """asciidoc
 [source, java]
 -----
 public int sum(int x, int y){
@@ -380,9 +380,8 @@ public int sum(int x, int y){
 
   Scenario: Render table
 
-    # cukedoctor-discrete
     Given the following table
-    """cukedoctor-discrete
+    """asciidoc
 |====
 
 | Cell in column 1, row 1 | Cell in column 2, row 1
@@ -393,7 +392,7 @@ public int sum(int x, int y){
     """
 
 
-@cukedoctor-discrete
+@asciidoc
 Feature: Discrete class feature with feature tag
 
   Scenario: Render source code
@@ -426,7 +425,7 @@ public int sum(int x, int y){
 
 Feature: Discrete class feature with scenario tag
 
-  @cukedoctor-discrete
+  @asciidoc
   Scenario: Render source code
 
     Given the following source code
@@ -441,7 +440,7 @@ public int sum(int x, int y){
 <1> We can have callouts in living documentation
     """
 
-  @cukedoctor-discrete
+  @asciidoc
   Scenario: Render table
 
     Given the following table
@@ -460,7 +459,7 @@ The docstrings will be rendered as follows:
 
 image::discrete.png[]
 
-IMPORTANT: By default Cukedoctor will render DocStrings as http://asciidoctor.org/docs/user-manual/\#listing-blocks[asciidoc listing^]. To enable this feature use *# cukedoctor-discrete* comment.
+IMPORTANT: By default Cukedoctor will render DocStrings as http://asciidoctor.org/docs/user-manual/\#listing-blocks[asciidoc listing^]. Use the above mechanism to enable this feature.
 
 === *"Stepless"* documentation
 

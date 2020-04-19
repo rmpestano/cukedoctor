@@ -38,6 +38,6 @@ public class Tag {
     }
 
     public boolean isDiscrete() {
-        return extractPattern("cukedoctor-discrete", name) != null;
+        return extractPattern("asciidoc", name) != null;
     }
 }

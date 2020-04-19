@@ -30,7 +30,7 @@
         ],
         "tags": [
           {
-            "name": "@cukedoctor-discrete"
+            "name": "@asciidoc"
           }
         ]
       },
@@ -62,7 +62,7 @@
         ],
         "tags": [
           {
-            "name": "@cukedoctor-discrete"
+            "name": "@asciidoc"
           }
         ]
       }
@@ -74,7 +74,7 @@
     "uri": "classpath:org/example/feature-tag.feature",
     "tags": [
       {
-        "name": "@cukedoctor-discrete",
+        "name": "@asciidoc",
         "type": "Tag",
         "location": {
           "line": 1,

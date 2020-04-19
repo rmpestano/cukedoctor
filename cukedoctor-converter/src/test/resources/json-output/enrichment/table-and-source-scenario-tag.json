@@ -30,7 +30,7 @@
         ],
         "tags": [
           {
-            "name": "@cukedoctor-discrete"
+            "name": "@asciidoc"
           }
         ]
       },
@@ -61,7 +61,7 @@
         ],
         "tags": [
           {
-            "name": "@cukedoctor-discrete"
+            "name": "@asciidoc"
           }
         ]
       }

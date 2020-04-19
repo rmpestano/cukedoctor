@@ -32,7 +32,7 @@ public class DocString {
   }
 
   public boolean isDiscrete() {
-    return Objects.equals(content_type, "cukedoctor-discrete");
+    return Objects.equals(content_type, "asciidoc");
   }
 
   @Override

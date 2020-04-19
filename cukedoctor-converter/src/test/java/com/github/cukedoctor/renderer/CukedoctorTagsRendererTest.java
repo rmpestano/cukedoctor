@@ -22,7 +22,7 @@ public class CukedoctorTagsRendererTest {
     private final String order42 = "@order-42";
     private final String order1 = "@order-1";
     private final String otherTag = "@otherTag";
-    private final String discrete = "@cukedoctor-discrete";
+    private final String discrete = "@asciidoc";
 
 
     @Test

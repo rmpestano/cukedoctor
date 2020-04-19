@@ -100,7 +100,7 @@ the following table icon:thumbs-up[role="green",title="Passed"] [small right]#(0
 """
 
   Scenario: DocString enrichment activated by the content type
-  Asciidoc markup can be used in feature *DocStrings*. To do so you can enable it by using the content type *[cukedoctor-dicrete]* in the DocString.
+  Asciidoc markup can be used in feature *DocStrings*. To do so you can enable it by using the content type *[asciidoc]* in the DocString.
 
     Given The following two features:
 """
@@ -109,7 +109,7 @@ Feature: Discrete class feature
   Scenario: Render source code
 
     Given the following source code in docstrings
-\"\"\"cukedoctor-discrete
+\"\"\"asciidoc
   [source, java]
   -----
   public int sum(int x, int y){
@@ -123,7 +123,7 @@ Feature: Discrete class feature
   Scenario: Render table
 
     Given the following table
- \"\"\"cukedoctor-discrete
+ \"\"\"asciidoc
   |===
 
   | Cell in column 1, row 1 | Cell in column 2, row 1
@@ -188,11 +188,11 @@ the following table icon:thumbs-up[role="green",title="Passed"] [small right]#(0
 """
 
   Scenario: DocString enrichment activated by a feature tag
-  Asciidoc markup can be used in feature *DocStrings*. You can enable this by applying the tag [@cukedoctor-discrete] to the feature. Note this enables the enrichment for all DocStrings within the feature.
+  Asciidoc markup can be used in feature *DocStrings*. You can enable this by applying the tag [@asciidoc] to the feature. Note this enables the enrichment for all DocStrings within the feature.
 
     Given The following two features:
 """
-@cukedoctor-discrete
+@asciidoc
 Feature: Discrete class feature
 
   Scenario: Render source code
@@ -277,13 +277,13 @@ the following table icon:thumbs-up[role="green",title="Passed"] [small right]#(0
 """
 
   Scenario: DocString enrichment activated by a scenario tag
-  Asciidoc markup can be used in feature *DocStrings*. You can enable this by applying the tag [@cukedoctor-discrete] to the scenario. Note this enables the enrichment for all DocStrings within the scenario.
+  Asciidoc markup can be used in feature *DocStrings*. You can enable this by applying the tag [@asciidoc] to the scenario. Note this enables the enrichment for all DocStrings within the scenario.
 
     Given The following two features:
 """
 Feature: Discrete class feature
 
-  @cukedoctor-discrete
+  @asciidoc
   Scenario: Render source code
 
     Given the following source code in docstrings
@@ -298,7 +298,7 @@ Feature: Discrete class feature
   <1> We can have callouts in living documentation
 \"\"\"
 
-  @cukedoctor-discrete
+  @asciidoc
   Scenario: Render table
 
     Given the following table
