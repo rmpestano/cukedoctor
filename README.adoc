@@ -320,10 +320,14 @@ image::enrich.png[]
 You can use Asciidoc markup in https://www.relishapp.com/cucumber/cucumber/docs/gherkin/doc-strings[feature DocStrings].
 The Features below show the different ways of achieving this:
 
-- Step comment
-- Content type
-- Feature tag
-- Scenario tag
+* Step comment (cucumber-jvm 1.x only)
+** Applies to all DocStrings in the commented step
+* Content type
+** Must be applied to each DocString you wish to be enriched
+* Feature tag
+** Applies to all DocStrings in the tagged feature
+* Scenario tag
+** Applies to all DocStrings in the tagged scenario
 
 ----
 Feature: Discrete class feature with step comment
