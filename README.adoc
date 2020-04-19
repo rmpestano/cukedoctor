@@ -317,10 +317,16 @@ image::enrich.png[]
 
 ==== Asciidoc markup in DocStrings
 
-You can use Asciidoc markup in https://www.relishapp.com/cucumber/cucumber/docs/gherkin/doc-strings[feature DocStrings], see feature below:
+You can use Asciidoc markup in https://www.relishapp.com/cucumber/cucumber/docs/gherkin/doc-strings[feature DocStrings].
+The Features below show the different ways of achieving this:
+
+- Step comment
+- Content type
+- Feature tag
+- Scenario tag
 
 ----
-Feature: Discrete class feature
+Feature: Discrete class feature with step comment
 
   Scenario: Render source code
 
@@ -340,6 +346,100 @@ public int sum(int x, int y){
   Scenario: Render table
 
     # cukedoctor-discrete
+    Given the following table
+    """
+|====
+
+| Cell in column 1, row 1 | Cell in column 2, row 1
+| Cell in column 1, row 2 | Cell in column 2, row 2
+| Cell in column 1, row 3 | Cell in column 2, row 3
+
+|====
+    """
+
+
+Feature: Discrete class feature with content type
+
+  Scenario: Render source code
+
+    Given the following source code
+    """cukedoctor-discrete
+[source, java]
+-----
+public int sum(int x, int y){
+        int result = x + y;
+        return result; <1>
+    }
+-----
+<1> We can have callouts in living documentation
+    """
+
+  Scenario: Render table
+
+    # cukedoctor-discrete
+    Given the following table
+    """cukedoctor-discrete
+|====
+
+| Cell in column 1, row 1 | Cell in column 2, row 1
+| Cell in column 1, row 2 | Cell in column 2, row 2
+| Cell in column 1, row 3 | Cell in column 2, row 3
+
+|====
+    """
+
+
+@cukedoctor-discrete
+Feature: Discrete class feature with feature tag
+
+  Scenario: Render source code
+
+    Given the following source code
+    """
+[source, java]
+-----
+public int sum(int x, int y){
+        int result = x + y;
+        return result; <1>
+    }
+-----
+<1> We can have callouts in living documentation
+    """
+
+  Scenario: Render table
+
+    Given the following table
+    """
+|====
+
+| Cell in column 1, row 1 | Cell in column 2, row 1
+| Cell in column 1, row 2 | Cell in column 2, row 2
+| Cell in column 1, row 3 | Cell in column 2, row 3
+
+|====
+    """
+
+
+Feature: Discrete class feature with scenario tag
+
+  @cukedoctor-discrete
+  Scenario: Render source code
+
+    Given the following source code
+    """
+[source, java]
+-----
+public int sum(int x, int y){
+        int result = x + y;
+        return result; <1>
+    }
+-----
+<1> We can have callouts in living documentation
+    """
+
+  @cukedoctor-discrete
+  Scenario: Render table
+
     Given the following table
     """
 |====
