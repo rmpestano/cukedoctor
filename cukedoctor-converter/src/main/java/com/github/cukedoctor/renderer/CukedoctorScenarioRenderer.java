@@ -124,13 +124,13 @@ public class CukedoctorScenarioRenderer extends AbstractBaseRenderer implements 
         }
 
         if (scenario.hasSteps()) {
-            docBuilder.append(renderScenarioSteps(scenario.getSteps()));
+            docBuilder.append(renderScenarioSteps(scenario.getSteps(), scenario, feature));
         }
         return docBuilder.toString();
     }
 
-    String renderScenarioSteps(List<Step> scenarioSteps) {
-        return stepsRenderer.renderSteps(scenarioSteps);
+    String renderScenarioSteps(List<Step> scenarioSteps, Scenario scenario, Feature feature) {
+        return stepsRenderer.renderSteps(scenarioSteps, scenario, feature);
     }
 
     String renderScenarioExamples(Scenario scenario) {

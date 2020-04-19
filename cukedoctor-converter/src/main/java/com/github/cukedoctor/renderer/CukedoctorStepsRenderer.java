@@ -1,28 +1,18 @@
 package com.github.cukedoctor.renderer;
 
-import static com.github.cukedoctor.api.CukedoctorDocumentBuilder.Factory.newInstance;
-import static com.github.cukedoctor.util.Assert.hasText;
-import static com.github.cukedoctor.util.Assert.notEmpty;
-import static com.github.cukedoctor.util.Assert.notNull;
-import static com.github.cukedoctor.util.Constants.newLine;
-import static com.github.cukedoctor.util.Constants.Markup.listing;
-import static com.github.cukedoctor.util.Constants.Markup.table;
-import static com.github.cukedoctor.util.Constants.Markup.tableCol;
-
-import java.util.List;
-
 import com.github.cukedoctor.api.CukedoctorDocumentBuilder;
-import com.github.cukedoctor.api.model.Comment;
-import com.github.cukedoctor.api.model.DocString;
-import com.github.cukedoctor.api.model.Output;
-import com.github.cukedoctor.api.model.Result;
-import com.github.cukedoctor.api.model.Row;
-import com.github.cukedoctor.api.model.Status;
-import com.github.cukedoctor.api.model.Step;
+import com.github.cukedoctor.api.model.*;
 import com.github.cukedoctor.config.CukedoctorConfig;
 import com.github.cukedoctor.spi.StepsRenderer;
 import com.github.cukedoctor.util.Constants;
 import com.github.cukedoctor.util.Formatter;
+
+import java.util.List;
+
+import static com.github.cukedoctor.api.CukedoctorDocumentBuilder.Factory.newInstance;
+import static com.github.cukedoctor.util.Assert.*;
+import static com.github.cukedoctor.util.Constants.Markup.*;
+import static com.github.cukedoctor.util.Constants.newLine;
 
 /**
  * Created by pestano on 28/02/16.
@@ -38,7 +28,7 @@ public class CukedoctorStepsRenderer extends AbstractBaseRenderer implements Ste
     }
 
     @Override
-    public String renderSteps(List<Step> steps) {
+    public String renderSteps(List<Step> steps, Scenario scenario, Feature feature) {
         docBuilder.clear();
 
         docBuilder.textLine("==========");
@@ -52,14 +42,14 @@ public class CukedoctorStepsRenderer extends AbstractBaseRenderer implements Ste
             docBuilder.append(renderStepTable(step));
 
             if (notNull(step.getDocString()) && hasText(step.getDocString().getValue())) {
-                if(step.hasDiscreteComment()){
+                if(step.getDocString().isDiscrete() || step.hasDiscreteComment() || isDiscrete(scenario) || isDiscrete(feature)) {
                     //discrete step renders inside a sidebar block and has [discrete] class on every line
                     renderDiscreteSidebarBlock(step.getDocString());
 
                 } else{
                     renderListingBlock(step.getDocString());
                 }
-               
+
             }
 
             if (step.getResult() != null && !Status.passed.equals(step.getStatus())) {
@@ -73,6 +63,24 @@ public class CukedoctorStepsRenderer extends AbstractBaseRenderer implements Ste
         docBuilder.textLine("==========").newLine();
 
         return docBuilder.toString();
+    }
+
+    private boolean isDiscrete(Scenario scenario) {
+        if (!scenario.hasTags()) return false;
+        return isDiscrete(scenario.getTags());
+    }
+
+    private boolean isDiscrete(Feature feature) {
+        if (!feature.hasTags()) return false;
+        return isDiscrete(feature.getTags());
+    }
+
+    private boolean isDiscrete(Iterable<Tag> tags) {
+        for (Tag tag : tags) {
+            if (tag.isDiscrete()) return true;
+        }
+
+        return false;
     }
 
     void renderOutput(Step step) {
@@ -190,7 +198,7 @@ public class CukedoctorStepsRenderer extends AbstractBaseRenderer implements Ste
                }
         }
        }
-        
+
     }
 
     String renderStepTime(Result result) {

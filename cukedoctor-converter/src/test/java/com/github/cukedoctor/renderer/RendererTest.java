@@ -2,13 +2,10 @@ package com.github.cukedoctor.renderer;
 
 import com.github.cukedoctor.Cukedoctor;
 import com.github.cukedoctor.api.CukedoctorConverter;
-import com.github.cukedoctor.api.DocumentAttributes;
 import com.github.cukedoctor.api.model.*;
 import com.github.cukedoctor.config.GlobalConfig;
 import com.github.cukedoctor.parser.FeatureParser;
-import com.github.cukedoctor.spi.FeatureRenderer;
 import com.github.cukedoctor.spi.StepsRenderer;
-import com.github.cukedoctor.util.Constants;
 import com.github.cukedoctor.util.Expectations;
 import com.github.cukedoctor.util.FileUtil;
 import com.github.cukedoctor.util.builder.FeatureBuilder;
@@ -23,9 +20,7 @@ import java.util.List;
 
 import static com.github.cukedoctor.util.Constants.newLine;
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.mockito.Matchers.any;
-import static org.mockito.Matchers.anyListOf;
-import static org.mockito.Matchers.eq;
+import static org.mockito.Matchers.*;
 import static org.mockito.Mockito.doReturn;
 import static org.mockito.Mockito.spy;
 
@@ -59,7 +54,7 @@ public class RendererTest {
 
         CukedoctorScenarioRenderer scenarioRenderer = new CukedoctorScenarioRenderer();
         scenarioRenderer = spy(scenarioRenderer);
-        doReturn("").when(scenarioRenderer).renderScenarioSteps(anyListOf(Step.class));
+        doReturn("").when(scenarioRenderer).renderScenarioSteps(anyListOf(Step.class), any(Scenario.class), any(Feature.class));
         doReturn("").when(scenarioRenderer).renderScenarioExamples(any(Scenario.class));
         doReturn("").when(scenarioRenderer).renderScenarioTags(any(Scenario.class),eq(feature));
 
@@ -82,7 +77,7 @@ public class RendererTest {
         }
         CukedoctorScenarioRenderer scenarioRenderer = new CukedoctorScenarioRenderer();
         scenarioRenderer = spy(scenarioRenderer);
-        doReturn("").when(scenarioRenderer).renderScenarioSteps(anyListOf(Step.class));
+        doReturn("").when(scenarioRenderer).renderScenarioSteps(anyListOf(Step.class), any(Scenario.class), any(Feature.class));
         doReturn("").when(scenarioRenderer).renderScenarioExamples(any(Scenario.class));
 
         CukedoctorFeatureRenderer featureRenderer = new CukedoctorFeatureRenderer();
@@ -91,11 +86,11 @@ public class RendererTest {
 
         String resultDoc = featureRenderer.renderFeatureScenarios(feature);
         assertThat(resultDoc).isEqualTo("==== Scenario: scenario 1"+newLine() +
-                "[small]#tags: @Tag1,@tag2#"+newLine() +
+                "[small]#tags: @tag2,@Tag1#"+newLine() +
                 ""+newLine() +
                 "description"+newLine() + newLine() +
                 "==== Scenario: scenario 2"+newLine() +
-                "[small]#tags: @Tag1,@tag2#"+newLine() +
+                "[small]#tags: @tag2,@Tag1#"+newLine() +
                 ""+newLine() +
                 "description 2"+newLine() + newLine());
     }
@@ -110,7 +105,7 @@ public class RendererTest {
 
         CukedoctorScenarioRenderer scenarioRenderer = new CukedoctorScenarioRenderer();
         scenarioRenderer = spy(scenarioRenderer);
-        doReturn("").when(scenarioRenderer).renderScenarioSteps(anyListOf(Step.class));
+        doReturn("").when(scenarioRenderer).renderScenarioSteps(anyListOf(Step.class), any(Scenario.class), any(Feature.class));
         doReturn("").when(scenarioRenderer).renderScenarioExamples(any(Scenario.class));
 
         CukedoctorFeatureRenderer featureRenderer = new CukedoctorFeatureRenderer();
@@ -119,11 +114,11 @@ public class RendererTest {
 
         String resultDoc = featureRenderer.renderFeatureScenarios(feature);
         assertThat(resultDoc).isEqualTo("==== Scenario: scenario 1" + newLine() +
-                "[small]#tags: @FeatureTag,@Tag1,@tag2#" + newLine() +
+                "[small]#tags: @tag2,@FeatureTag,@Tag1#" + newLine() +
                 "" + newLine() +
                 "description" + newLine() + newLine() +
                 "==== Scenario: scenario 2" + newLine() +
-                "[small]#tags: @FeatureTag,@Tag1,@tag2#" + newLine() +
+                "[small]#tags: @tag2,@FeatureTag,@Tag1#" + newLine() +
                 "" + newLine() +
                 "description 2" + newLine() + newLine());
     }
@@ -140,7 +135,7 @@ public class RendererTest {
 
         CukedoctorScenarioRenderer scenarioRenderer = new CukedoctorScenarioRenderer();
         scenarioRenderer = spy(scenarioRenderer);
-        doReturn("").when(scenarioRenderer).renderScenarioSteps(anyListOf(Step.class));
+        doReturn("").when(scenarioRenderer).renderScenarioSteps(anyListOf(Step.class), any(Scenario.class), any(Feature.class));
         doReturn("").when(scenarioRenderer).renderScenarioExamples(any(Scenario.class));
 
         CukedoctorFeatureRenderer featureRenderer = new CukedoctorFeatureRenderer();
@@ -163,7 +158,7 @@ public class RendererTest {
         StepsRenderer stepsRenderer = new CukedoctorStepsRenderer();
 
         List<Step> steps = feature.getScenarios().get(0).getSteps();
-        String resultDoc = stepsRenderer.renderSteps(steps);
+        String resultDoc = stepsRenderer.renderSteps(steps, feature.getScenarios().get(0), feature);
         assertThat(resultDoc).isEqualTo("==========" + newLine() +
                 "Given::" + newLine() +
                 
@@ -181,7 +176,7 @@ public class RendererTest {
         List<Step> steps = feature.getScenarios().get(0).getSteps();
         StepsRenderer stepsRenderer = new CukedoctorStepsRenderer();
 
-        String resultDoc = stepsRenderer.renderSteps(steps);
+        String resultDoc = stepsRenderer.renderSteps(steps, feature.getScenarios().get(0), feature);
         assertThat(resultDoc).isEqualTo("==========" + newLine() +
                 "Given::" + newLine() +
                 
@@ -224,7 +219,7 @@ public class RendererTest {
         features.add(feature);
         List<Step> steps = feature.getScenarios().get(0).getSteps();
         CukedoctorScenarioRenderer scenarioRenderer = new CukedoctorScenarioRenderer();
-        String resultDoc = scenarioRenderer.renderScenarioSteps(steps);
+        String resultDoc = scenarioRenderer.renderScenarioSteps(steps, feature.getScenarios().get(0), feature);
         assertThat(resultDoc).isEqualTo("==========" + newLine() +
                 "Given::" + newLine() + 
                 "passing step icon:thumbs-up[role=\"green\",title=\"Passed\"] [small right]#(000ms)#" + newLine() +

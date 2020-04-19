@@ -2,6 +2,8 @@ package com.github.cukedoctor.api.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+import java.util.Objects;
+
 /**
  * Created by rafael-pestano on 01/07/2015.
  */
@@ -27,6 +29,10 @@ public class DocString {
 
   public void setContent_type(String value) {
     this.content_type = value;
+  }
+
+  public boolean isDiscrete() {
+    return Objects.equals(content_type, "cukedoctor-discrete");
   }
 
   @Override

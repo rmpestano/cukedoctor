@@ -1,0 +1,86 @@
+[
+  {
+    "line": 2,
+    "elements": [
+      {
+        "start_timestamp": "2020-04-18T12:03:33.906Z",
+        "line": 4,
+        "name": "Render source code",
+        "description": "",
+        "id": "enrich-feature;render-source-code",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 11993400,
+              "status": "passed"
+            },
+            "line": 6,
+            "name": "the following source code in docstrings",
+            "match": {
+              "location": "org.example.StepDefinitions.theFollowingSourceCodeInDocstrings(java.lang.String)"
+            },
+            "keyword": "Given ",
+            "doc_string": {
+              "line": 7,
+              "value": "[source, java]\n-----\npublic int sum(int x, int y){\n    int result \u003d x + y;\n    return result; (1)\n}\n-----\n\u003c1\u003e We can have callouts in living documentation"
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@cukedoctor-discrete"
+          }
+        ]
+      },
+      {
+        "start_timestamp": "2020-04-18T12:03:34.152Z",
+        "line": 18,
+        "name": "Render table",
+        "description": "",
+        "id": "enrich-feature;render-table",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 998900,
+              "status": "passed"
+            },
+            "line": 20,
+            "name": "the following table",
+            "match": {
+              "location": "org.example.StepDefinitions.theFollowingTable(java.lang.String)"
+            },
+            "keyword": "Given ",
+            "doc_string": {
+              "line": 21,
+              "value": "|\u003d\u003d\u003d\n\n| Cell in column 1, row 1 | Cell in column 2, row 1\n| Cell in column 1, row 2 | Cell in column 2, row 2\n| Cell in column 1, row 3 | Cell in column 2, row 3\n\n|\u003d\u003d\u003d"
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@cukedoctor-discrete"
+          }
+        ]
+      }
+    ],
+    "name": "Discrete class feature",
+    "description": "",
+    "id": "discrete-class-feature",
+    "keyword": "Feature",
+    "uri": "classpath:org/example/feature-tag.feature",
+    "tags": [
+      {
+        "name": "@cukedoctor-discrete",
+        "type": "Tag",
+        "location": {
+          "line": 1,
+          "column": 1
+        }
+      }
+    ]
+  }
+]

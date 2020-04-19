@@ -8,12 +8,12 @@ Feature: Enrich features
   I want to render asciidoc markup inside my features.
   ____
   ====
-  Scenario: DocSting enrichment
-    Asciidoc markup can be used in feature *DocStrings*. To do so you need to enable it by using *[cukector-dicrete]* comment on the feature.
+  Scenario: DocString enrichment activated by a step comment
+Asciidoc markup can be used in feature *DocStrings*. To do so you can enable it by using *[cukedoctor-discrete]* comment on the step containing the DocString.
 
-    Given The following two features:
+  Given The following two features:
 """
-Feature: Enrich feature
+Feature: Discrete class feature
 
   Scenario: Render source code
 
@@ -24,7 +24,7 @@ Feature: Enrich feature
   -----
   public int sum(int x, int y){
   int result = x + y;
-  return result; (1)
+  return result; <1>
   }
   -----
   <1> We can have callouts in living documentation
@@ -45,10 +45,10 @@ Feature: Enrich feature
 \"\"\"
 """
 
-    When I convert docstring enriched json output using cukedoctor converter
+  When I convert docstring enriched json output activated with a step comment using cukedoctor converter
 
     # cukedoctor-discrete
-    Then DocString asciidoc output must be rendered in my documentation
+  Then DocString asciidoc output must be rendered in my documentation
 """
 == *Features*
 
@@ -59,7 +59,7 @@ Feature: Enrich feature
 
 ==========
 Given ::
-the following source code icon:thumbs-up[role="green",title="Passed"] [small right]#(267ms)#
+the following source code in docstrings icon:thumbs-up[role="green",title="Passed"] [small right]#(267ms)#
 ******
 
 [discrete]
@@ -94,6 +94,273 @@ the following table icon:thumbs-up[role="green",title="Passed"] [small right]#(0
 
 ******
 
+==========
+
+
+"""
+
+  Scenario: DocString enrichment activated by the content type
+  Asciidoc markup can be used in feature *DocStrings*. To do so you can enable it by using the content type *[cukedoctor-dicrete]* in the DocString.
+
+    Given The following two features:
+"""
+Feature: Discrete class feature
+
+  Scenario: Render source code
+
+    Given the following source code in docstrings
+\"\"\"cukedoctor-discrete
+  [source, java]
+  -----
+  public int sum(int x, int y){
+  int result = x + y;
+  return result; (1)
+  }
+  -----
+  <1> We can have callouts in living documentation
+\"\"\"
+
+  Scenario: Render table
+
+    Given the following table
+ \"\"\"cukedoctor-discrete
+  |===
+
+  | Cell in column 1, row 1 | Cell in column 2, row 1
+  | Cell in column 1, row 2 | Cell in column 2, row 2
+  | Cell in column 1, row 3 | Cell in column 2, row 3
+
+  |===
+\"\"\"
+"""
+
+    When I convert docstring enriched json output activated with the content type using cukedoctor converter
+
+    # cukedoctor-discrete
+    Then DocString asciidoc output must be rendered in my documentation
+"""
+== *Features*
+
+[[Discrete-class-feature, Discrete class feature]]
+=== *Discrete class feature*
+
+==== Scenario: Render source code
+
+==========
+Given ::
+the following source code in docstrings icon:thumbs-up[role="green",title="Passed"] [small right]#(002ms)#
+******
+
+[discrete]
+[source, java]
+-----
+public int sum(int x, int y){
+    int result = x + y;
+    return result; (1)
+}
+-----
+[discrete]
+<1> We can have callouts in living documentation
+
+
+******
+==========
+
+==== Scenario: Render table
+
+==========
+Given ::
+the following table icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+******
+
+[discrete]
+|===
+| Cell in column 1, row 1 | Cell in column 2, row 1
+| Cell in column 1, row 2 | Cell in column 2, row 2
+| Cell in column 1, row 3 | Cell in column 2, row 3
+|===
+
+
+******
+==========
+
+
+"""
+
+  Scenario: DocString enrichment activated by a feature tag
+  Asciidoc markup can be used in feature *DocStrings*. You can enable this by applying the tag [@cukedoctor-discrete] to the feature. Note this enables the enrichment for all DocStrings within the feature.
+
+    Given The following two features:
+"""
+@cukedoctor-discrete
+Feature: Discrete class feature
+
+  Scenario: Render source code
+
+    Given the following source code in docstrings
+\"\"\"
+  [source, java]
+  -----
+  public int sum(int x, int y){
+  int result = x + y;
+  return result; (1)
+  }
+  -----
+  <1> We can have callouts in living documentation
+\"\"\"
+
+  Scenario: Render table
+
+    Given the following table
+ \"\"\"
+  |===
+
+  | Cell in column 1, row 1 | Cell in column 2, row 1
+  | Cell in column 1, row 2 | Cell in column 2, row 2
+  | Cell in column 1, row 3 | Cell in column 2, row 3
+
+  |===
+\"\"\"
+"""
+
+    When I convert docstring enriched json output activated with a feature tag using cukedoctor converter
+
+    # cukedoctor-discrete
+    Then DocString asciidoc output must be rendered in my documentation
+"""
+== *Features*
+
+[[Discrete-class-feature, Discrete class feature]]
+=== *Discrete class feature*
+
+==== Scenario: Render source code
+
+==========
+Given ::
+the following source code in docstrings icon:thumbs-up[role="green",title="Passed"] [small right]#(011ms)#
+******
+
+[discrete]
+[source, java]
+-----
+public int sum(int x, int y){
+    int result = x + y;
+    return result; (1)
+}
+-----
+[discrete]
+<1> We can have callouts in living documentation
+
+
+******
+==========
+
+==== Scenario: Render table
+
+==========
+Given ::
+the following table icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+******
+
+[discrete]
+|===
+| Cell in column 1, row 1 | Cell in column 2, row 1
+| Cell in column 1, row 2 | Cell in column 2, row 2
+| Cell in column 1, row 3 | Cell in column 2, row 3
+|===
+
+
+******
+==========
+
+
+"""
+
+  Scenario: DocString enrichment activated by a scenario tag
+  Asciidoc markup can be used in feature *DocStrings*. You can enable this by applying the tag [@cukedoctor-discrete] to the scenario. Note this enables the enrichment for all DocStrings within the scenario.
+
+    Given The following two features:
+"""
+Feature: Discrete class feature
+
+  @cukedoctor-discrete
+  Scenario: Render source code
+
+    Given the following source code in docstrings
+\"\"\"
+  [source, java]
+  -----
+  public int sum(int x, int y){
+  int result = x + y;
+  return result; (1)
+  }
+  -----
+  <1> We can have callouts in living documentation
+\"\"\"
+
+  @cukedoctor-discrete
+  Scenario: Render table
+
+    Given the following table
+ \"\"\"
+  |===
+
+  | Cell in column 1, row 1 | Cell in column 2, row 1
+  | Cell in column 1, row 2 | Cell in column 2, row 2
+  | Cell in column 1, row 3 | Cell in column 2, row 3
+
+  |===
+\"\"\"
+"""
+
+    When I convert docstring enriched json output activated with a scenario tag using cukedoctor converter
+
+    # cukedoctor-discrete
+    Then DocString asciidoc output must be rendered in my documentation
+"""
+== *Features*
+
+[[Discrete-class-feature, Discrete class feature]]
+=== *Discrete class feature*
+
+==== Scenario: Render source code
+
+==========
+Given ::
+the following source code in docstrings icon:thumbs-up[role="green",title="Passed"] [small right]#(002ms)#
+******
+
+[discrete]
+[source, java]
+-----
+public int sum(int x, int y){
+    int result = x + y;
+    return result; (1)
+}
+-----
+[discrete]
+<1> We can have callouts in living documentation
+
+
+******
+==========
+
+==== Scenario: Render table
+
+==========
+Given ::
+the following table icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+******
+
+[discrete]
+|===
+| Cell in column 1, row 1 | Cell in column 2, row 1
+| Cell in column 1, row 2 | Cell in column 2, row 2
+| Cell in column 1, row 3 | Cell in column 2, row 3
+|===
+
+
+******
 ==========
 
 

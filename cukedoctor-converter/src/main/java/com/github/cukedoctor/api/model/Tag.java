@@ -16,6 +16,15 @@ public class Tag {
         this.name = name;
     }
 
+    private static String extractPattern(String pattern, String text) {
+        int indexOfOrder = text.indexOf(pattern);
+        if (hasText(text) && indexOfOrder != -1) {
+            return text.substring(indexOfOrder + pattern.length()).trim();
+        }
+
+        return null;
+    }
+
     public String getName() {
         return name;
     }
@@ -25,11 +34,10 @@ public class Tag {
     }
 
     public String getOrder() {
-        int indexOfOrder = name.indexOf("order-");
-        if (hasText(name) && indexOfOrder != -1) {
-            return name.substring(indexOfOrder + 6).trim();
-        }
+        return extractPattern("order-", name);
+    }
 
-        return null;
+    public boolean isDiscrete() {
+        return extractPattern("cukedoctor-discrete", name) != null;
     }
 }

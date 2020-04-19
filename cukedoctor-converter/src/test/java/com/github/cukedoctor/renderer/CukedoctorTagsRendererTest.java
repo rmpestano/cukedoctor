@@ -22,6 +22,7 @@ public class CukedoctorTagsRendererTest {
     private final String order42 = "@order-42";
     private final String order1 = "@order-1";
     private final String otherTag = "@otherTag";
+    private final String discrete = "@cukedoctor-discrete";
 
 
     @Test
@@ -65,6 +66,14 @@ public class CukedoctorTagsRendererTest {
         );
     }
 
+    @Test
+    public void shouldNotRenderIfScenarioOnlyHasDiscreteTagAndFeatureHasNoTags() {
+        assertEquals(
+                "",
+                tagsRenderer.renderScenarioTags(createEmptyFeature(), createScenario(discrete))
+        );
+    }
+
 
     @Test
     public void shouldRenderIfFeatureHasTagsButNotOrderTags() {
@@ -95,6 +104,14 @@ public class CukedoctorTagsRendererTest {
         assertEquals(
                 "",
                 tagsRenderer.renderScenarioTags(createFeature(order42, order1), createEmptyScenario())
+        );
+    }
+
+    @Test
+    public void shouldNotRenderIfFeatureOnlyHasDiscreteTagAndScenarioHasNoTags() {
+        assertEquals(
+                "",
+                tagsRenderer.renderScenarioTags(createFeature(discrete), createEmptyScenario())
         );
     }
 

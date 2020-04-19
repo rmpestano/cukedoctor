@@ -1,0 +1,68 @@
+[
+  {
+    "line": 1,
+    "elements": [
+      {
+        "start_timestamp": "2020-04-18T11:57:01.454Z",
+        "line": 3,
+        "name": "Render source code",
+        "description": "",
+        "id": "enrich-feature;render-source-code",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 2002900,
+              "status": "passed"
+            },
+            "line": 5,
+            "name": "the following source code in docstrings",
+            "match": {
+              "location": "org.example.StepDefinitions.theFollowingSourceCodeInDocstrings(java.lang.String)"
+            },
+            "keyword": "Given ",
+            "doc_string": {
+              "content_type": "cukedoctor-discrete",
+              "line": 6,
+              "value": "[source, java]\n-----\npublic int sum(int x, int y){\n    int result \u003d x + y;\n    return result; (1)\n}\n-----\n\u003c1\u003e We can have callouts in living documentation"
+            }
+          }
+        ]
+      },
+      {
+        "start_timestamp": "2020-04-18T11:57:01.581Z",
+        "line": 17,
+        "name": "Render table",
+        "description": "",
+        "id": "enrich-feature;render-table",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "status": "passed"
+            },
+            "line": 19,
+            "name": "the following table",
+            "match": {
+              "location": "org.example.StepDefinitions.theFollowingTable(java.lang.String)"
+            },
+            "keyword": "Given ",
+            "doc_string": {
+              "content_type": "cukedoctor-discrete",
+              "line": 20,
+              "value": "|\u003d\u003d\u003d\n\n| Cell in column 1, row 1 | Cell in column 2, row 1\n| Cell in column 1, row 2 | Cell in column 2, row 2\n| Cell in column 1, row 3 | Cell in column 2, row 3\n\n|\u003d\u003d\u003d"
+            }
+          }
+        ]
+      }
+    ],
+    "name": "Discrete class feature",
+    "description": "",
+    "id": "discrete-class-feature",
+    "keyword": "Feature",
+    "uri": "classpath:org/example/content-type.feature",
+    "tags": []
+  }
+]
