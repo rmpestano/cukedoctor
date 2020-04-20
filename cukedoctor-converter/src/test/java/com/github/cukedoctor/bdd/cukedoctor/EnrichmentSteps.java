@@ -3,7 +3,6 @@ package com.github.cukedoctor.bdd.cukedoctor;
 import com.github.cukedoctor.Cukedoctor;
 import com.github.cukedoctor.api.model.Feature;
 import com.github.cukedoctor.parser.FeatureParser;
-import cucumber.api.PendingException;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
@@ -11,7 +10,6 @@ import cucumber.api.java.en.When;
 import java.net.URL;
 import java.util.List;
 
-import static com.github.cukedoctor.util.Constants.newLine;
 import static org.assertj.core.api.Assertions.assertThat;
 
 /**
@@ -22,13 +20,24 @@ public class EnrichmentSteps {
     String documentation;
 
 
-    @When("^I convert docstring enriched json output using cukedoctor converter$")
-    public void I_convert_docstring_enriched_json_output_using_cukedoctor_converter() throws Throwable {
-        URL featureFile = getClass().getResource("/json-output/enrichment/table-and-source.json");
-        assertThat(featureFile).isNotNull();
-        List<Feature> features = FeatureParser.parse(featureFile.getPath());
-        assertThat(features).isNotNull().hasSize(1);
-        documentation = Cukedoctor.instance(features).renderFeatures().getDocumentation();
+    @When("^I convert docstring enriched json output activated with a step comment using cukedoctor converter$")
+    public void I_convert_docstring_enriched_json_output_activated_with_a_step_comment_using_cukedoctor_converter() throws Throwable {
+        getFeatureFixture("/json-output/enrichment/table-and-source-step-comment.json");
+    }
+
+    @When("^I convert docstring enriched json output activated with the content type using cukedoctor converter$")
+    public void I_convert_docstring_enriched_json_output_activiated_with_the_content_type_using_cukedoctor_converter() throws Throwable {
+        getFeatureFixture("/json-output/enrichment/table-and-source-content-type.json");
+    }
+
+    @When("^I convert docstring enriched json output activated with a feature tag using cukedoctor converter$")
+    public void I_convert_docstring_enriched_json_output_activiated_with_a_feature_tag_using_cukedoctor_converter() throws Throwable {
+        getFeatureFixture("/json-output/enrichment/table-and-source-feature-tag.json");
+    }
+
+    @When("^I convert docstring enriched json output activated with a scenario tag using cukedoctor converter$")
+    public void I_convert_docstring_enriched_json_output_activiated_with_a_scenario_tag_using_cukedoctor_converter() throws Throwable {
+        getFeatureFixture("/json-output/enrichment/table-and-source-scenario-tag.json");
     }
 
     @Then("^DocString asciidoc output must be rendered in my documentation$")
@@ -38,11 +47,7 @@ public class EnrichmentSteps {
 
     @When("^I convert enriched feature json output using cukedoctor$")
     public void I_convert_enriched_feature_json_output_using_cukedoctor() throws Throwable {
-        URL featureFile = getClass().getResource("/json-output/enrichment/calc.json");
-        assertThat(featureFile).isNotNull();
-        List<Feature> features = FeatureParser.parse(featureFile.getPath());
-        assertThat(features).isNotNull().hasSize(1);
-        documentation = Cukedoctor.instance(features).renderFeatures().getDocumentation();
+        getFeatureFixture("/json-output/enrichment/calc.json");
     }
 
     @Then("^Asciidoc markup on comments must be rendered in my documentation$")
@@ -55,4 +60,11 @@ public class EnrichmentSteps {
         assertThat(features).isNotNull();
     }
 
+    private void getFeatureFixture(String fixturePath) {
+        URL featureFile = getClass().getResource(fixturePath);
+        assertThat(featureFile).isNotNull();
+        List<Feature> features = FeatureParser.parse(featureFile.getPath());
+        assertThat(features).isNotNull().hasSize(1);
+        documentation = Cukedoctor.instance(features).renderFeatures().getDocumentation();
+    }
 }

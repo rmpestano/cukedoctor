@@ -107,7 +107,7 @@ public class CukedoctorConverterTest {
         attrs.docTitle("Title");
         String document = Cukedoctor.instance(features, attrs).renderAttributes().
                 getDocumentation().toString();
-        assertEquals(expected, document);
+        assertEquals(expected.replace("\r", ""), document.replace("\r", ""));
     }
 
 
@@ -214,7 +214,7 @@ public class CukedoctorConverterTest {
         attrs.docTitle("Title");
         String document = Cukedoctor.instance(features, attrs).renderAttributes().
                 getDocumentation().toString();
-        assertEquals(expected, document);
+        assertEquals(expected.replace("\r", ""), document.replace("\r", ""));
     }
 
     @Test
@@ -247,7 +247,7 @@ public class CukedoctorConverterTest {
         attrs.docTitle("Title");
         String document = Cukedoctor.instance(features, attrs).renderAttributes().
                 getDocumentation().toString();
-        assertEquals(expected, document);
+        assertEquals(expected.replace("\r", ""), document.replace("\r", ""));
     }
 
     @Test
@@ -321,7 +321,7 @@ public class CukedoctorConverterTest {
         attrs.docTitle("Documentation Title");
         String document = Cukedoctor.instance(features, attrs).renderAttributes().
                 getDocumentation().toString();
-        assertEquals(document, expected);
+        assertEquals(expected.replace("\r", ""), document.replace("\r", ""));
     }
 
 
@@ -393,7 +393,7 @@ public class CukedoctorConverterTest {
         features.add(feature);
         CukedoctorConverter converter = Cukedoctor.instance(features, new DocumentAttributes().backend("pdf"));
         converter.setFilename("target/pdf/living documentation.adoc");
-        String pdfStylePath = Paths.get("").toAbsolutePath() + "/target/pdf/cukedoctor-pdf.yml";
+        String pdfStylePath = Paths.get("").toAbsolutePath().toString().replace("\\", "/") /* Windows path hack */ + "/target/pdf/cukedoctor-pdf.yml";
         FileUtil.copyFileFromClassPath("/cukedoctor-pdf-test.yml", pdfStylePath);
         converter.addCustomPdfTheme();
         String expected = ":toc: right" + newLine() +
@@ -414,7 +414,7 @@ public class CukedoctorConverterTest {
                 ":pdf-style: " + pdfStylePath + newLine();
 
         String doc = converter.renderAttributes().getDocumentation();
-        assertThat(expected).isEqualTo(doc);
+        assertThat(doc).isEqualTo(expected);
         File file = FileUtil.loadFile("target/pdf/cukedoctor-pdf.yml");
         assertThat(file).exists();
         assertTrue(file.delete());
@@ -712,7 +712,7 @@ public class CukedoctorConverterTest {
         List<Feature> features = FeatureParser.parse(getClass().getResource("/json-output/enrichment/calc.json").getPath());
         assertThat(features).isNotNull().hasSize(1);
         String output = Cukedoctor.instance(features).renderFeatures(features).getDocumentation();
-        assertThat(output.replaceAll("\r", "")).contains(("[[Calculator, Calculator]]"+newLine()+ 
+        assertThat(output.replaceAll("\r\n|\r|\n", newLine())).contains(("[[Calculator, Calculator]]"+newLine()+
         		"=== *Calculator*"+newLine()+ 
         		""+newLine()+ 
         		"==== Scenario: Adding numbers"+newLine()+ 

@@ -1,5 +1,7 @@
 package com.github.cukedoctor.spi;
 
+import com.github.cukedoctor.api.model.Feature;
+import com.github.cukedoctor.api.model.Scenario;
 import com.github.cukedoctor.api.model.Step;
 import com.github.cukedoctor.renderer.BaseRenderer;
 
@@ -10,5 +12,5 @@ import java.util.List;
  */
 public interface StepsRenderer extends BaseRenderer{
 
-    String renderSteps(List<Step> steps);
+    String renderSteps(List<Step> steps, Scenario scenario, Feature feature);
 }

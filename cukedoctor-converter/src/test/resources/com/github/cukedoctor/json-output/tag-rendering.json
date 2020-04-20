@@ -1,0 +1,86 @@
+[
+  {
+    "line": 2,
+    "elements": [
+      {
+        "start_timestamp": "2020-04-18T06:52:50.150Z",
+        "line": 5,
+        "name": "Scenario feature 1",
+        "description": "",
+        "id": "feature1;scenario-feature-1",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 1998200,
+              "status": "passed"
+            },
+            "line": 7,
+            "name": "scenario step",
+            "match": {
+              "location": "org.example.StepDefinitions.scenarioStep()"
+            },
+            "keyword": "Given "
+          }
+        ],
+        "tags": [
+          {
+            "name": "@someTag"
+          },
+          {
+            "name": "@otherTag"
+          }
+        ]
+      },
+      {
+        "start_timestamp": "2020-04-18T06:52:50.366Z",
+        "line": 10,
+        "name": "Scenario feature 2",
+        "description": "",
+        "id": "feature1;scenario-feature-2",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "status": "passed"
+            },
+            "line": 12,
+            "name": "scenario step",
+            "match": {
+              "location": "org.example.StepDefinitions.scenarioStep()"
+            },
+            "keyword": "Given "
+          }
+        ],
+        "tags": [
+          {
+            "name": "@someTag"
+          },
+          {
+            "name": "@someTag"
+          },
+          {
+            "name": "@otherTag"
+          }
+        ]
+      }
+    ],
+    "name": "Feature1",
+    "description": "",
+    "id": "feature1",
+    "keyword": "Feature",
+    "uri": "classpath:org/example/1.feature",
+    "tags": [
+      {
+        "name": "@someTag",
+        "type": "Tag",
+        "location": {
+          "line": 1,
+          "column": 1
+        }
+      }
+    ]
+  }
+]

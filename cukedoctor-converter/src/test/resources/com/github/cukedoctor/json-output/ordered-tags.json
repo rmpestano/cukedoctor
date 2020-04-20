@@ -1,0 +1,97 @@
+[
+  {
+    "line": 2,
+    "elements": [
+      {
+        "start_timestamp": "2020-04-17T15:02:48.477Z",
+        "line": 4,
+        "name": "Scenario feature 1",
+        "description": "",
+        "id": "feature1;scenario-feature-1",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 1998800,
+              "status": "passed"
+            },
+            "line": 6,
+            "name": "scenario step",
+            "match": {
+              "location": "org.example.StepDefinitions.scenarioStep()"
+            },
+            "keyword": "Given "
+          }
+        ],
+        "tags": [
+          {
+            "name": "@order-2"
+          }
+        ]
+      }
+    ],
+    "name": "Feature1",
+    "description": "",
+    "id": "feature1",
+    "keyword": "Feature",
+    "uri": "classpath:org/example/1.feature",
+    "tags": [
+      {
+        "name": "@order-2",
+        "type": "Tag",
+        "location": {
+          "line": 1,
+          "column": 1
+        }
+      }
+    ]
+  },
+  {
+    "line": 2,
+    "elements": [
+      {
+        "start_timestamp": "2020-04-17T15:02:48.583Z",
+        "line": 4,
+        "name": "Scenario feature 2",
+        "description": "",
+        "id": "feature2;scenario-feature-2",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "status": "passed"
+            },
+            "line": 6,
+            "name": "scenario step",
+            "match": {
+              "location": "org.example.StepDefinitions.scenarioStep()"
+            },
+            "keyword": "Given "
+          }
+        ],
+        "tags": [
+          {
+            "name": "@order-1"
+          }
+        ]
+      }
+    ],
+    "name": "Feature2",
+    "description": "",
+    "id": "feature2",
+    "keyword": "Feature",
+    "uri": "classpath:org/example/2.feature",
+    "tags": [
+      {
+        "name": "@order-1",
+        "type": "Tag",
+        "location": {
+          "line": 1,
+          "column": 1
+        }
+      }
+    ]
+  }
+]

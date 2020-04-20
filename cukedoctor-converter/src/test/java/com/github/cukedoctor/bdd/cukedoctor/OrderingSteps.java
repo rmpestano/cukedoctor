@@ -3,7 +3,6 @@ package com.github.cukedoctor.bdd.cukedoctor;
 import com.github.cukedoctor.Cukedoctor;
 import com.github.cukedoctor.api.model.Feature;
 import com.github.cukedoctor.parser.FeatureParser;
-import cucumber.api.PendingException;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
@@ -37,21 +36,38 @@ public class OrderingSteps {
 
     @Then("^Features should be ordered by name in resulting documentation$")
     public void Features_should_be_ordered_by_name_in_resulting_documentation(String expected) throws Throwable {
-        assertThat(documentation.replaceAll("\r","")).isNotNull().contains(expected.replaceAll("\r",""));
-        }
+        assertThat(documentation.replaceAll("\r", "")).isNotNull().contains(expected.replaceAll("\r", ""));
+    }
 
     @When("^I convert them using comment order$")
     public void I_convert_them__using_comment_order() throws Throwable {
-        URL featureFile = getClass().getResource("/com/github/cukedoctor/json-output/ordered.json");
+        convert("/com/github/cukedoctor/json-output/ordered-comments.json");
+    }
+
+    @Then("^Features should be ordered respecting order comment$")
+    public void Features_should_be_ordered_respecting_order_comment(String expected) throws Throwable {
+        assertFeaturesShouldBeOrdered(expected);
+    }
+
+    @When("^I convert them using tag order$")
+    public void I_convert_them__using_tag_order() throws Throwable {
+        convert("/com/github/cukedoctor/json-output/ordered-tags.json");
+    }
+
+    @Then("^Features should be ordered respecting order tag$")
+    public void Features_should_be_ordered_respecting_order_tag(String expected) throws Throwable {
+        assertFeaturesShouldBeOrdered(expected);
+    }
+
+    private void convert(String featureFilePath) {
+        URL featureFile = getClass().getResource(featureFilePath);
         assertThat(featureFile).isNotNull();
         List<Feature> features = FeatureParser.parse(featureFile.getPath());
         assertThat(features).isNotNull().hasSize(2);
         documentation = Cukedoctor.instance(features).renderFeatures().getDocumentation();
     }
 
-    @Then("^Features should be ordered respecting order comment$")
-    public void Features_should_be_ordered_respecting_order_comment(String expected) throws Throwable {
-        assertThat(documentation.replaceAll("\r","")).isNotNull().contains(expected.replaceAll("\r",""));
+    private void assertFeaturesShouldBeOrdered(String expected) {
+        assertThat(documentation.replaceAll("\r", "")).isNotNull().contains(expected.replaceAll("\r", ""));
     }
-
 }

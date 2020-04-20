@@ -55,7 +55,8 @@ scenario step icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 
 """
 
-  Scenario: Custom ordering
+  Scenario: Custom ordering with comments
+    Supported only for cucumber-jvm 1.x
 
     #{NOTE: Ordering is done using feature comment '*#order:*'}
     Given The following two features:
@@ -99,6 +100,56 @@ scenario step icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ==========
 Given ::
 scenario step icon:thumbs-up[role="green",title="Passed"] [small right]#(313ms)#
+==========
+
+
+"""
+
+
+  Scenario: Custom ordering with tags
+
+    #{NOTE: Ordering is done using feature tag '*@order-*'}
+    Given The following two features:
+"""
+@order-2
+Feature: Feature1
+
+  Scenario: Scenario feature 1
+
+    Given scenario step
+
+@order-1
+Feature: Feature2
+
+  Scenario: Scenario feature 2
+
+    Given scenario step
+"""
+    When I convert them using tag order
+
+# cukedoctor-discrete
+    Then Features should be ordered respecting order tag
+"""
+== *Features*
+
+[[Feature2, Feature2]]
+=== *Feature2*
+
+==== Scenario: Scenario feature 2
+
+==========
+Given ::
+scenario step icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+==========
+
+[[Feature1, Feature1]]
+=== *Feature1*
+
+==== Scenario: Scenario feature 1
+
+==========
+Given ::
+scenario step icon:thumbs-up[role="green",title="Passed"] [small right]#(001ms)#
 ==========
 
 
