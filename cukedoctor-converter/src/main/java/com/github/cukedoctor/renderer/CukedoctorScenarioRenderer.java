@@ -15,6 +15,7 @@ import java.util.ServiceLoader;
 
 import static com.github.cukedoctor.util.Assert.hasText;
 import static com.github.cukedoctor.util.Assert.notNull;
+import static com.github.cukedoctor.util.StringUtil.trimAllLines;
 
 /**
  * Created by pestano on 27/02/16.
@@ -113,7 +114,7 @@ public class CukedoctorScenarioRenderer extends AbstractBaseRenderer implements 
         }
 
         if (hasText(scenario.getDescription())) {
-            docBuilder.textLine(scenario.getDescription().replaceAll("\\\\", "")).newLine();
+            docBuilder.textLine(trimAllLines(scenario.getDescription()).replaceAll("\\\\", "")).newLine();
         } else {
             docBuilder.textLine("").newLine();
         }

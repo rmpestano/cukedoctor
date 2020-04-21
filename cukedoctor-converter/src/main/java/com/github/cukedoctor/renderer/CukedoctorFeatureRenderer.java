@@ -13,6 +13,7 @@ import java.util.ServiceLoader;
 import static com.github.cukedoctor.util.Assert.*;
 import static com.github.cukedoctor.util.Constants.Markup.bold;
 import static com.github.cukedoctor.util.Constants.newLine;
+import static com.github.cukedoctor.util.StringUtil.trimAllLines;
 
 /**
  * Created by pestano on 27/02/16.
@@ -64,7 +65,7 @@ public class CukedoctorFeatureRenderer extends AbstractBaseRenderer implements F
 
         }
         if (hasText(feature.getDescription())) {
-            docBuilder.sideBarBlock(feature.getDescription().trim().replaceAll("\\\\", "").replaceAll("\\n", newLine()));
+            docBuilder.sideBarBlock(trimAllLines(feature.getDescription()).replaceAll("\\\\", "").replaceAll("\\n", newLine()));
         }
 
         if(feature.hasScenarios()){
