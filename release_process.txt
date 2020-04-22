@@ -9,8 +9,16 @@
 
 2 - create the new version at https://bintray.com/rmpestano/cukedoctor/cukedoctor
 
-3 - mvn release:prepare -Prelease -Darguments="-DskipTests" -Dmaven.javadoc.skip=true -Dmaven.test.skip=true
+3 - update manually each module pom to the version to be released
 
-4 - mvn release:perform -Prelease -Pfat-jar -Darguments="-DskipTests" -Dmaven.javadoc.skip=true -Dmaven.test.skip=true -Dmaven.jarsigner.skip=true
+4 - mvn clean install -Pfat-jar
 
-5 - sync with maven central at https://bintray.com/rmpestano/cukedoctor/cukedoctor/NEW_VERSION
+5 - upload jars published in local maven repo to version created in bintray
+
+6 - manually revert the version number in each module pom
+
+7 - mvn release:prepare -Prelease -Darguments="-DskipTests" -Dmaven.javadoc.skip=true -Dmaven.test.skip=true
+
+8 - update tag description on github with the release notes from the opened milestone
+
+9 - close the milestone in github
