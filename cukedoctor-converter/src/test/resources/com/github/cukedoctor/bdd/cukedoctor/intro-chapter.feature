@@ -9,6 +9,16 @@ Feature: Documentation introduction chapter
   ____
   ====
   Scenario: Introduction chapter in classpath
+  NOTE: The introduction file must be named *intro-chapter.adoc* and can be in any package of your application,
+
+  [TIP]
+  ====
+  By default Cukedoctor will look into application folders but you can make Cukedoctor look into external folder by setting the following system property:
+  [source,java]
+  ----
+  System.setProperty("INTRO_CHAPTER_DIR","/home/some/external/folder");
+  ----
+  ====
   
 	Given The following two features:
 """
@@ -25,20 +35,9 @@ Feature: Feature2
     Given scenario step
 """
 
-#{NOTE: The introduction file must be named *intro-chapter.adoc* and can be in any package of your application,}
 
-#{[TIP]}
-#{====}
-#{By default Cukedoctor will look into application folders but you can make Cukedoctor look into external folder by setting the following system property:}
-#{[source,java]}
-#{----}
-#{System.setProperty("INTRO_CHAPTER_DIR","/home/some/external/folder");}
-#{----}
-#{====}
-
-    #cukedoctor-discrete
     And The following asciidoc document is on your application classpath
-"""
+"""asciidoc
 = *Introduction*
 
 Cukedoctor is a *Living documentation* tool which integrates Cucumber and Asciidoctor in order to convert your _BDD_ tests results into an awesome documentation.
@@ -54,9 +53,9 @@ Here are some design principles:
     When Bdd tests results are converted into documentation by Cukedoctor
  
 
-    # cukedoctor-discrete
+
     Then Resulting documentation should have the provided introduction chapter
-"""
+"""asciidoc
 
 = *Documentation*
 

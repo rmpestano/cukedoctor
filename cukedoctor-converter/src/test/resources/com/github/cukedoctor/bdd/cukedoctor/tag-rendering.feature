@@ -1,5 +1,4 @@
 @order-4
-@asciidoc
 Feature: Tag rendering
 
   Scenario: Render feature tags in that feature's scenarios
@@ -23,7 +22,7 @@ Feature: Feature1
     When I render the feature
 
     Then the tags displayed under each scenario should not have duplicates
-"""
+"""asciidoc
 == *Features*
 
 [[Feature1, Feature1]]
@@ -73,7 +72,7 @@ Feature: Feature1
     When I render the feature
 
     Then Cukedoctor tags should not be rendered in documentation
-"""
+"""asciidoc
 == *Features*
 
 [[Feature1, Feature1]]

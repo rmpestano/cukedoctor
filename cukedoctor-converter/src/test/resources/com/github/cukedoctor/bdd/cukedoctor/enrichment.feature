@@ -1,5 +1,4 @@
 @order-2
-@asciidoc
 Feature: Enrich features
   ====
   [quote]
