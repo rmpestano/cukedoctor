@@ -3,7 +3,7 @@
     "line": 2,
     "elements": [
       {
-        "start_timestamp": "2020-04-22T12:21:45.198Z",
+        "start_timestamp": "2020-04-22T12:26:06.675Z",
         "line": 11,
         "name": "Convert features test output into documentation",
         "description": "",
@@ -28,7 +28,7 @@
           },
           {
             "result": {
-              "duration": 13000000,
+              "duration": 20000000,
               "status": "passed"
             },
             "line": 27,
@@ -85,11 +85,11 @@
     ]
   },
   {
-    "line": 3,
+    "line": 2,
     "elements": [
       {
-        "start_timestamp": "2020-04-22T12:21:45.227Z",
-        "line": 27,
+        "start_timestamp": "2020-04-22T12:26:06.706Z",
+        "line": 26,
         "name": "DocString enrichment activated by the content type",
         "description": "  Asciidoc markup can be used in feature *DocStrings*. To do so you can enable it by using the content type *[asciidoc]* in the DocString.",
         "id": "enrich-features;docstring-enrichment-activated-by-the-content-type",
@@ -98,25 +98,26 @@
         "steps": [
           {
             "result": {
+              "duration": 3000000,
               "status": "passed"
             },
-            "line": 30,
+            "line": 29,
             "name": "The following two features:",
             "match": {
               "location": "com.github.cukedoctor.bdd.cukedoctor.OrderingSteps.the_following_two_features(java.lang.String)"
             },
             "keyword": "Given ",
             "doc_string": {
-              "line": 31,
+              "line": 30,
               "value": "Feature: Discrete class feature\n\n  Scenario: Render source code\n\n    Given the following source code in docstrings\n\"\"\"asciidoc\n  [source, java]\n  -----\n  public int sum(int x, int y){\n  int result \u003d x + y;\n  return result; (1)\n  }\n  -----\n  \u003c1\u003e We can have callouts in living documentation\n\"\"\"\n\n  Scenario: Render table\n\n    Given the following table\n \"\"\"asciidoc\n  |\u003d\u003d\u003d\n\n  | Cell in column 1, row 1 | Cell in column 2, row 1\n  | Cell in column 1, row 2 | Cell in column 2, row 2\n  | Cell in column 1, row 3 | Cell in column 2, row 3\n\n  |\u003d\u003d\u003d\n\"\"\""
             }
           },
           {
             "result": {
-              "duration": 14000000,
+              "duration": 21000000,
               "status": "passed"
             },
-            "line": 62,
+            "line": 61,
             "name": "I convert enriched docstring with asciidoc content type using cukedoctor converter",
             "match": {
               "location": "com.github.cukedoctor.bdd.cukedoctor.EnrichmentSteps.I_convert_enriched_docstring_with_content_type_using_cukedoctor_converter()"
@@ -125,10 +126,9 @@
           },
           {
             "result": {
-              "duration": 1000000,
               "status": "passed"
             },
-            "line": 64,
+            "line": 63,
             "name": "DocString asciidoc output must be rendered in my documentation",
             "match": {
               "location": "com.github.cukedoctor.bdd.cukedoctor.EnrichmentSteps.DocString_asciidoc_output_must_be_rendered_in_my_documentation(java.lang.String)"
@@ -136,7 +136,7 @@
             "keyword": "Then ",
             "doc_string": {
               "content_type": "asciidoc",
-              "line": 65,
+              "line": 64,
               "value": "\u003d\u003d *Features*\n\n[[Discrete-class-feature, Discrete class feature]]\n\u003d\u003d\u003d *Discrete class feature*\n\n\u003d\u003d\u003d\u003d Scenario: Render source code\n\n\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\nGiven ::\nthe following source code in docstrings icon:thumbs-up[role\u003d\"green\",title\u003d\"Passed\"] [small right]#(002ms)#\n******\n\n[discrete]\n[source, java]\n-----\npublic int sum(int x, int y){\n    int result \u003d x + y;\n    return result; (1)\n}\n-----\n[discrete]\n\u003c1\u003e We can have callouts in living documentation\n\n\n******\n\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\n\n\u003d\u003d\u003d\u003d Scenario: Render table\n\n\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\nGiven ::\nthe following table icon:thumbs-up[role\u003d\"green\",title\u003d\"Passed\"] [small right]#(000ms)#\n******\n\n[discrete]\n|\u003d\u003d\u003d\n| Cell in column 1, row 1 | Cell in column 2, row 1\n| Cell in column 1, row 2 | Cell in column 2, row 2\n| Cell in column 1, row 3 | Cell in column 2, row 3\n|\u003d\u003d\u003d\n\n\n******\n\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\n\n"
             }
           }
@@ -144,15 +144,12 @@
         "tags": [
           {
             "name": "@order-2"
-          },
-          {
-            "name": "@asciidoc"
           }
         ]
       },
       {
-        "start_timestamp": "2020-04-22T12:21:45.256Z",
-        "line": 114,
+        "start_timestamp": "2020-04-22T12:26:06.741Z",
+        "line": 113,
         "name": "DocString enrichment activated by a feature tag",
         "description": "  Asciidoc markup can be used in feature *DocStrings*. You can enable this by applying the tag [@asciidoc] to the feature. Note this enables the enrichment for all DocStrings within the feature.",
         "id": "enrich-features;docstring-enrichment-activated-by-a-feature-tag",
@@ -163,23 +160,23 @@
             "result": {
               "status": "passed"
             },
-            "line": 117,
+            "line": 116,
             "name": "The following two features:",
             "match": {
               "location": "com.github.cukedoctor.bdd.cukedoctor.OrderingSteps.the_following_two_features(java.lang.String)"
             },
             "keyword": "Given ",
             "doc_string": {
-              "line": 118,
+              "line": 117,
               "value": "@asciidoc\nFeature: Discrete class feature\n\n  Scenario: Render source code\n\n    Given the following source code in docstrings\n\"\"\"\n  [source, java]\n  -----\n  public int sum(int x, int y){\n  int result \u003d x + y;\n  return result; (1)\n  }\n  -----\n  \u003c1\u003e We can have callouts in living documentation\n\"\"\"\n\n  Scenario: Render table\n\n    Given the following table\n \"\"\"\n  |\u003d\u003d\u003d\n\n  | Cell in column 1, row 1 | Cell in column 2, row 1\n  | Cell in column 1, row 2 | Cell in column 2, row 2\n  | Cell in column 1, row 3 | Cell in column 2, row 3\n\n  |\u003d\u003d\u003d\n\"\"\""
             }
           },
           {
             "result": {
-              "duration": 11000000,
+              "duration": 20000000,
               "status": "passed"
             },
-            "line": 150,
+            "line": 149,
             "name": "I convert enriched docstring with asciidoc feature tag using cukedoctor converter",
             "match": {
               "location": "com.github.cukedoctor.bdd.cukedoctor.EnrichmentSteps.I_convert_docstring_enriched_json_output_activiated_with_a_feature_tag_using_cukedoctor_converter()"
@@ -188,10 +185,9 @@
           },
           {
             "result": {
-              "duration": 1000000,
               "status": "passed"
             },
-            "line": 152,
+            "line": 151,
             "name": "DocString asciidoc output must be rendered in my documentation",
             "match": {
               "location": "com.github.cukedoctor.bdd.cukedoctor.EnrichmentSteps.DocString_asciidoc_output_must_be_rendered_in_my_documentation(java.lang.String)"
@@ -199,7 +195,7 @@
             "keyword": "Then ",
             "doc_string": {
               "content_type": "asciidoc",
-              "line": 153,
+              "line": 152,
               "value": "\u003d\u003d *Features*\n\n[[Discrete-class-feature, Discrete class feature]]\n\u003d\u003d\u003d *Discrete class feature*\n\n\u003d\u003d\u003d\u003d Scenario: Render source code\n\n\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\nGiven ::\nthe following source code in docstrings icon:thumbs-up[role\u003d\"green\",title\u003d\"Passed\"] [small right]#(011ms)#\n******\n\n[discrete]\n[source, java]\n-----\npublic int sum(int x, int y){\n    int result \u003d x + y;\n    return result; (1)\n}\n-----\n[discrete]\n\u003c1\u003e We can have callouts in living documentation\n\n\n******\n\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\n\n\u003d\u003d\u003d\u003d Scenario: Render table\n\n\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\nGiven ::\nthe following table icon:thumbs-up[role\u003d\"green\",title\u003d\"Passed\"] [small right]#(000ms)#\n******\n\n[discrete]\n|\u003d\u003d\u003d\n| Cell in column 1, row 1 | Cell in column 2, row 1\n| Cell in column 1, row 2 | Cell in column 2, row 2\n| Cell in column 1, row 3 | Cell in column 2, row 3\n|\u003d\u003d\u003d\n\n\n******\n\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\n\n"
             }
           }
@@ -207,15 +203,12 @@
         "tags": [
           {
             "name": "@order-2"
-          },
-          {
-            "name": "@asciidoc"
           }
         ]
       },
       {
-        "start_timestamp": "2020-04-22T12:21:45.279Z",
-        "line": 202,
+        "start_timestamp": "2020-04-22T12:26:06.767Z",
+        "line": 201,
         "name": "DocString enrichment activated by a scenario tag",
         "description": "  Asciidoc markup can be used in feature *DocStrings*. You can enable this by applying the tag [@asciidoc] to the scenario. Note this enables the enrichment for all DocStrings within the scenario.",
         "id": "enrich-features;docstring-enrichment-activated-by-a-scenario-tag",
@@ -226,23 +219,23 @@
             "result": {
               "status": "passed"
             },
-            "line": 205,
+            "line": 204,
             "name": "The following two features:",
             "match": {
               "location": "com.github.cukedoctor.bdd.cukedoctor.OrderingSteps.the_following_two_features(java.lang.String)"
             },
             "keyword": "Given ",
             "doc_string": {
-              "line": 206,
+              "line": 205,
               "value": "Feature: Discrete class feature\n\n  @asciidoc\n  Scenario: Render source code\n\n    Given the following source code in docstrings\n\"\"\"\n  [source, java]\n  -----\n  public int sum(int x, int y){\n  int result \u003d x + y;\n  return result; (1)\n  }\n  -----\n  \u003c1\u003e We can have callouts in living documentation\n\"\"\"\n\n  @asciidoc\n  Scenario: Render table\n\n    Given the following table\n \"\"\"\n  |\u003d\u003d\u003d\n\n  | Cell in column 1, row 1 | Cell in column 2, row 1\n  | Cell in column 1, row 2 | Cell in column 2, row 2\n  | Cell in column 1, row 3 | Cell in column 2, row 3\n\n  |\u003d\u003d\u003d\n\"\"\""
             }
           },
           {
             "result": {
-              "duration": 8000000,
+              "duration": 13000000,
               "status": "passed"
             },
-            "line": 239,
+            "line": 238,
             "name": "I convert enriched docstring with asciidoc scenario tag using cukedoctor converter",
             "match": {
               "location": "com.github.cukedoctor.bdd.cukedoctor.EnrichmentSteps.I_convert_docstring_enriched_json_output_activiated_with_a_scenario_tag_using_cukedoctor_converter()"
@@ -253,7 +246,7 @@
             "result": {
               "status": "passed"
             },
-            "line": 242,
+            "line": 241,
             "name": "DocString asciidoc output must be rendered in my documentation",
             "match": {
               "location": "com.github.cukedoctor.bdd.cukedoctor.EnrichmentSteps.DocString_asciidoc_output_must_be_rendered_in_my_documentation(java.lang.String)"
@@ -261,7 +254,7 @@
             "keyword": "Then ",
             "doc_string": {
               "content_type": "asciidoc",
-              "line": 243,
+              "line": 242,
               "value": "\u003d\u003d *Features*\n\n[[Discrete-class-feature, Discrete class feature]]\n\u003d\u003d\u003d *Discrete class feature*\n\n\u003d\u003d\u003d\u003d Scenario: Render source code\n\n\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\nGiven ::\nthe following source code in docstrings icon:thumbs-up[role\u003d\"green\",title\u003d\"Passed\"] [small right]#(002ms)#\n******\n\n[discrete]\n[source, java]\n-----\npublic int sum(int x, int y){\n    int result \u003d x + y;\n    return result; (1)\n}\n-----\n[discrete]\n\u003c1\u003e We can have callouts in living documentation\n\n\n******\n\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\n\n\u003d\u003d\u003d\u003d Scenario: Render table\n\n\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\nGiven ::\nthe following table icon:thumbs-up[role\u003d\"green\",title\u003d\"Passed\"] [small right]#(000ms)#\n******\n\n[discrete]\n|\u003d\u003d\u003d\n| Cell in column 1, row 1 | Cell in column 2, row 1\n| Cell in column 1, row 2 | Cell in column 2, row 2\n| Cell in column 1, row 3 | Cell in column 2, row 3\n|\u003d\u003d\u003d\n\n\n******\n\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\n\n"
             }
           }
@@ -269,9 +262,6 @@
         "tags": [
           {
             "name": "@order-2"
-          },
-          {
-            "name": "@asciidoc"
           }
         ]
       }
@@ -289,14 +279,6 @@
           "line": 1,
           "column": 1
         }
-      },
-      {
-        "name": "@asciidoc",
-        "type": "Tag",
-        "location": {
-          "line": 2,
-          "column": 1
-        }
       }
     ]
   },
@@ -304,10 +286,10 @@
     "line": 2,
     "elements": [
       {
-        "start_timestamp": "2020-04-22T12:21:45.292Z",
+        "start_timestamp": "2020-04-22T12:26:06.790Z",
         "line": 11,
         "name": "Introduction chapter in classpath",
-        "description": "",
+        "description": "  NOTE: The introduction file must be named *intro-chapter.adoc* and can be in any package of your application,\n\n  [TIP]\n  \u003d\u003d\u003d\u003d\n  By default Cukedoctor will look into application folders but you can make Cukedoctor look into external folder by setting the following system property:\n  [source,java]\n  ----\n  System.setProperty(\"INTRO_CHAPTER_DIR\",\"/home/some/external/folder\");\n  ----\n  \u003d\u003d\u003d\u003d",
         "id": "documentation-introduction-chapter;introduction-chapter-in-classpath",
         "type": "scenario",
         "keyword": "Scenario",
@@ -316,30 +298,31 @@
             "result": {
               "status": "passed"
             },
-            "line": 13,
+            "line": 23,
             "name": "The following two features:",
             "match": {
               "location": "com.github.cukedoctor.bdd.cukedoctor.OrderingSteps.the_following_two_features(java.lang.String)"
             },
             "keyword": "Given ",
             "doc_string": {
-              "line": 14,
+              "line": 24,
               "value": "Feature: Feature1\n\n  Scenario: Scenario feature 1\n\n    Given scenario step\n\nFeature: Feature2\n\n  Scenario: Scenario feature 2\n\n    Given scenario step"
             }
           },
           {
             "result": {
-              "duration": 10000000,
+              "duration": 17000000,
               "status": "passed"
             },
-            "line": 40,
+            "line": 39,
             "name": "The following asciidoc document is on your application classpath",
             "match": {
               "location": "com.github.cukedoctor.bdd.cukedoctor.IntroChapterSteps.I_convert_their_json_output_report_using_cukedoctor_converter(java.lang.String)"
             },
             "keyword": "And ",
             "doc_string": {
-              "line": 41,
+              "content_type": "asciidoc",
+              "line": 40,
               "value": "\u003d *Introduction*\n\nCukedoctor is a *Living documentation* tool which integrates Cucumber and Asciidoctor in order to convert your _BDD_ tests results into an awesome documentation.\n\nHere are some design principles:\n\n* Living documentation should be readable and highlight your software features;\n** Most bdd tools generate reports and not a truly documentation.\n* Cukedoctor *do not* introduce a new API that you need to learn, instead it operates on top of http://www.relishapp.com/cucumber/cucumber/docs/formatters/json-output-formatter[cucumber json output^] files;\n** In the \u0027worst case\u0027 to \u003c\u003cEnrich-features,enhance\u003e\u003e your documentation you will need to know a bit of http://asciidoctor.org/docs/what-is-asciidoc/[asciidoc markup^]."
             }
           },
@@ -347,7 +330,7 @@
             "result": {
               "status": "passed"
             },
-            "line": 54,
+            "line": 53,
             "name": "Bdd tests results are converted into documentation by Cukedoctor",
             "match": {
               "location": "com.github.cukedoctor.bdd.cukedoctor.IntroChapterSteps.Bdd_tests_results_are_converted_into_documentation_by_Cukedoctor()"
@@ -358,14 +341,15 @@
             "result": {
               "status": "passed"
             },
-            "line": 58,
+            "line": 57,
             "name": "Resulting documentation should have the provided introduction chapter",
             "match": {
               "location": "com.github.cukedoctor.bdd.cukedoctor.IntroChapterSteps.I_should_have_awesome_living_documentation(java.lang.String)"
             },
             "keyword": "Then ",
             "doc_string": {
-              "line": 59,
+              "content_type": "asciidoc",
+              "line": 58,
               "value": "\n\u003d *Documentation*\n\n\u003d\u003d *Introduction*\n\nCukedoctor is a *Living documentation* tool which integrates Cucumber and Asciidoctor in order to convert your _BDD_ tests results into an awesome documentation.\n\nHere are some design principles:\n\n* Living documentation should be readable and highlight your software features;\n** Most bdd tools generate reports and not a truly documentation.\n* Cukedoctor *do not* introduce a new API that you need to learn, instead it operates on top of http://www.relishapp.com/cucumber/cucumber/docs/formatters/json-output-formatter[cucumber json output^] files;\n** In the \u0027worst case\u0027 to \u003c\u003cEnrich-features,enhance\u003e\u003e your documentation you will need to know a bit of http://asciidoctor.org/docs/what-is-asciidoc/[asciidoc markup^].\n\n\u003d\u003d *Summary*\n[cols\u003d\"12*^m\", options\u003d\"header,footer\"]\n|\u003d\u003d\u003d\n3+|Scenarios 7+|Steps 2+|Features: 2\n\n|[green]#*Passed*#\n|[red]#*Failed*#\n|Total\n|[green]#*Passed*#\n|[red]#*Failed*#\n|[purple]#*Skipped*#\n|[maroon]#*Pending*#\n|[yellow]#*Undefined*#\n|[blue]#*Missing*#\n|Total\n|Duration\n|Status\n\n12+^|*\u003c\u003cFeature1\u003e\u003e*\n|1\n|0\n|1\n|1\n|0\n|0\n|0\n|0\n|0\n|1\n|647ms\n|[green]#*passed*#\n\n12+^|*\u003c\u003cFeature2\u003e\u003e*\n|1\n|0\n|1\n|1\n|0\n|0\n|0\n|0\n|0\n|1\n|000ms\n|[green]#*passed*#\n12+^|*Totals*\n|2|0|2|2|0|0|0|0|0|2 2+|647ms\n|\u003d\u003d\u003d\n\n\u003d\u003d *Features*\n\n[[Feature1, Feature1]]\n\u003d\u003d\u003d *Feature1*\n\n\u003d\u003d\u003d\u003d Scenario: Scenario feature 1\n\n\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\nGiven ::\nscenario step icon:thumbs-up[role\u003d\"green\",title\u003d\"Passed\"] [small right]#(647ms)#\n\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\n\n[[Feature2, Feature2]]\n\u003d\u003d\u003d *Feature2*\n\n\u003d\u003d\u003d\u003d Scenario: Scenario feature 2\n\n\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\nGiven ::\nscenario step icon:thumbs-up[role\u003d\"green\",title\u003d\"Passed\"] [small right]#(000ms)#\n\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\n\n"
             }
           }
@@ -397,7 +381,7 @@
     "line": 2,
     "elements": [
       {
-        "start_timestamp": "2020-04-22T12:21:45.318Z",
+        "start_timestamp": "2020-04-22T12:26:06.820Z",
         "line": 12,
         "name": "Default ordering",
         "description": "",
@@ -407,7 +391,6 @@
         "steps": [
           {
             "result": {
-              "duration": 1000000,
               "status": "passed"
             },
             "line": 14,
@@ -435,7 +418,6 @@
           },
           {
             "result": {
-              "duration": 1000000,
               "status": "passed"
             },
             "line": 30,
@@ -458,7 +440,7 @@
         ]
       },
       {
-        "start_timestamp": "2020-04-22T12:21:45.333Z",
+        "start_timestamp": "2020-04-22T12:26:06.833Z",
         "line": 57,
         "name": "Custom ordering with tags",
         "description": "    NOTE: Ordering is done using feature tag *@order-*",
@@ -483,7 +465,7 @@
           },
           {
             "result": {
-              "duration": 6000000,
+              "duration": 7000000,
               "status": "passed"
             },
             "line": 77,
@@ -495,6 +477,7 @@
           },
           {
             "result": {
+              "duration": 1000000,
               "status": "passed"
             },
             "line": 79,
@@ -534,11 +517,11 @@
     ]
   },
   {
-    "line": 3,
+    "line": 2,
     "elements": [
       {
-        "start_timestamp": "2020-04-22T12:21:45.342Z",
-        "line": 5,
+        "start_timestamp": "2020-04-22T12:26:06.844Z",
+        "line": 4,
         "name": "Render feature tags in that feature\u0027s scenarios",
         "description": "",
         "id": "tag-rendering;render-feature-tags-in-that-feature-s-scenarios",
@@ -549,84 +532,23 @@
             "result": {
               "status": "passed"
             },
-            "line": 7,
+            "line": 6,
             "name": "The following two features:",
             "match": {
               "location": "com.github.cukedoctor.bdd.cukedoctor.OrderingSteps.the_following_two_features(java.lang.String)"
             },
             "keyword": "Given ",
             "doc_string": {
-              "line": 8,
+              "line": 7,
               "value": "@someTag\nFeature: Feature1\n\n  @otherTag\n  Scenario: Scenario feature 1\n\n    Given scenario step\n\n  @someTag @otherTag\n  Scenario: Scenario feature 2\n\n    Given scenario step"
             }
           },
           {
             "result": {
-              "duration": 6000000,
+              "duration": 7000000,
               "status": "passed"
             },
-            "line": 23,
-            "name": "I render the feature",
-            "match": {
-              "location": "com.github.cukedoctor.bdd.cukedoctor.TagRenderingSteps.I_render_the_feature()"
-            },
-            "keyword": "When "
-          },
-          {
-            "result": {
-              "status": "passed"
-            },
-            "line": 25,
-            "name": "the tags displayed under each scenario should not have duplicates",
-            "match": {
-              "location": "com.github.cukedoctor.bdd.cukedoctor.TagRenderingSteps.the_tags_displayed_under_each_scenario_should_not_have_duplicates(java.lang.String)"
-            },
-            "keyword": "Then ",
-            "doc_string": {
-              "line": 26,
-              "value": "\u003d\u003d *Features*\n\n[[Feature1, Feature1]]\n\u003d\u003d\u003d *Feature1*\n\n\u003d\u003d\u003d\u003d Scenario: Scenario feature 1\n[small]#tags: @someTag,@otherTag#\n\n\n\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\nGiven ::\nscenario step icon:thumbs-up[role\u003d\"green\",title\u003d\"Passed\"] [small right]#(001ms)#\n\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\n\n\u003d\u003d\u003d\u003d Scenario: Scenario feature 2\n[small]#tags: @someTag,@otherTag#\n\n\n\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\nGiven ::\nscenario step icon:thumbs-up[role\u003d\"green\",title\u003d\"Passed\"] [small right]#(000ms)#\n\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\n\n"
-            }
-          }
-        ],
-        "tags": [
-          {
-            "name": "@order-4"
-          },
-          {
-            "name": "@asciidoc"
-          }
-        ]
-      },
-      {
-        "start_timestamp": "2020-04-22T12:21:45.351Z",
-        "line": 53,
-        "name": "Ignore cukedoctor tags in resulting documentation",
-        "description": "   Cukedoctor specific tags like `@asciidoc` and `@order` *should not* be rendered in resulting documentation.",
-        "id": "tag-rendering;ignore-cukedoctor-tags-in-resulting-documentation",
-        "type": "scenario",
-        "keyword": "Scenario",
-        "steps": [
-          {
-            "result": {
-              "status": "passed"
-            },
-            "line": 57,
-            "name": "The following two features:",
-            "match": {
-              "location": "com.github.cukedoctor.bdd.cukedoctor.OrderingSteps.the_following_two_features(java.lang.String)"
-            },
-            "keyword": "Given ",
-            "doc_string": {
-              "line": 58,
-              "value": "@someTag @asciidoc @order-99\nFeature: Feature1\n\n  @otherTag @asciidoc\n  Scenario: Scenario feature 1\n\n    Given scenario step\n\n  @someTag @otherTag\n  Scenario: Scenario feature 2\n\n    Given scenario step"
-            }
-          },
-          {
-            "result": {
-              "duration": 5000000,
-              "status": "passed"
-            },
-            "line": 73,
+            "line": 22,
             "name": "I render the feature",
             "match": {
               "location": "com.github.cukedoctor.bdd.cukedoctor.TagRenderingSteps.I_render_the_feature()"
@@ -638,14 +560,15 @@
               "duration": 1000000,
               "status": "passed"
             },
-            "line": 75,
-            "name": "Cukedoctor tags should not be rendered in documentation",
+            "line": 24,
+            "name": "the tags displayed under each scenario should not have duplicates",
             "match": {
-              "location": "com.github.cukedoctor.bdd.cukedoctor.TagRenderingSteps.Cukedoctor_tags_should_not_be_rendered_in_documentation(java.lang.String)"
+              "location": "com.github.cukedoctor.bdd.cukedoctor.TagRenderingSteps.the_tags_displayed_under_each_scenario_should_not_have_duplicates(java.lang.String)"
             },
             "keyword": "Then ",
             "doc_string": {
-              "line": 76,
+              "content_type": "asciidoc",
+              "line": 25,
               "value": "\u003d\u003d *Features*\n\n[[Feature1, Feature1]]\n\u003d\u003d\u003d *Feature1*\n\n\u003d\u003d\u003d\u003d Scenario: Scenario feature 1\n[small]#tags: @someTag,@otherTag#\n\n\n\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\nGiven ::\nscenario step icon:thumbs-up[role\u003d\"green\",title\u003d\"Passed\"] [small right]#(001ms)#\n\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\n\n\u003d\u003d\u003d\u003d Scenario: Scenario feature 2\n[small]#tags: @someTag,@otherTag#\n\n\n\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\nGiven ::\nscenario step icon:thumbs-up[role\u003d\"green\",title\u003d\"Passed\"] [small right]#(000ms)#\n\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\n\n"
             }
           }
@@ -653,9 +576,65 @@
         "tags": [
           {
             "name": "@order-4"
+          }
+        ]
+      },
+      {
+        "start_timestamp": "2020-04-22T12:26:06.854Z",
+        "line": 52,
+        "name": "Ignore cukedoctor tags in resulting documentation",
+        "description": "   Cukedoctor specific tags like `@asciidoc` and `@order` *should not* be rendered in resulting documentation.",
+        "id": "tag-rendering;ignore-cukedoctor-tags-in-resulting-documentation",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "status": "passed"
+            },
+            "line": 56,
+            "name": "The following two features:",
+            "match": {
+              "location": "com.github.cukedoctor.bdd.cukedoctor.OrderingSteps.the_following_two_features(java.lang.String)"
+            },
+            "keyword": "Given ",
+            "doc_string": {
+              "line": 57,
+              "value": "@someTag @asciidoc @order-99\nFeature: Feature1\n\n  @otherTag @asciidoc\n  Scenario: Scenario feature 1\n\n    Given scenario step\n\n  @someTag @otherTag\n  Scenario: Scenario feature 2\n\n    Given scenario step"
+            }
           },
           {
-            "name": "@asciidoc"
+            "result": {
+              "duration": 7000000,
+              "status": "passed"
+            },
+            "line": 72,
+            "name": "I render the feature",
+            "match": {
+              "location": "com.github.cukedoctor.bdd.cukedoctor.TagRenderingSteps.I_render_the_feature()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "status": "passed"
+            },
+            "line": 74,
+            "name": "Cukedoctor tags should not be rendered in documentation",
+            "match": {
+              "location": "com.github.cukedoctor.bdd.cukedoctor.TagRenderingSteps.Cukedoctor_tags_should_not_be_rendered_in_documentation(java.lang.String)"
+            },
+            "keyword": "Then ",
+            "doc_string": {
+              "content_type": "asciidoc",
+              "line": 75,
+              "value": "\u003d\u003d *Features*\n\n[[Feature1, Feature1]]\n\u003d\u003d\u003d *Feature1*\n\n\u003d\u003d\u003d\u003d Scenario: Scenario feature 1\n[small]#tags: @someTag,@otherTag#\n\n\n\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\nGiven ::\nscenario step icon:thumbs-up[role\u003d\"green\",title\u003d\"Passed\"] [small right]#(001ms)#\n\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\n\n\u003d\u003d\u003d\u003d Scenario: Scenario feature 2\n[small]#tags: @someTag,@otherTag#\n\n\n\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\nGiven ::\nscenario step icon:thumbs-up[role\u003d\"green\",title\u003d\"Passed\"] [small right]#(000ms)#\n\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\n\n"
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@order-4"
           }
         ]
       }
@@ -671,14 +650,6 @@
         "type": "Tag",
         "location": {
           "line": 1,
-          "column": 1
-        }
-      },
-      {
-        "name": "@asciidoc",
-        "type": "Tag",
-        "location": {
-          "line": 2,
           "column": 1
         }
       }

@@ -657,7 +657,7 @@ Feature: Feature2
              When 
            </dt> 
            <dd> 
-            <p>I convert their json test output using cukedoctor converter <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(013ms)</span></p> 
+            <p>I convert their json test output using cukedoctor converter <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(020ms)</span></p> 
            </dd> 
           </dl> 
          </div> 
@@ -867,7 +867,7 @@ Feature: Feature2
              Given 
            </dt> 
            <dd> 
-            <p>The following two features: <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(001ms)</span></p> 
+            <p>The following two features: <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
            </dd> 
           </dl> 
          </div> 
@@ -898,7 +898,7 @@ Feature: Feature2
              Then 
            </dt> 
            <dd> 
-            <p>Features should be ordered by name in resulting documentation <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(001ms)</span></p> 
+            <p>Features should be ordered by name in resulting documentation <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
            </dd> 
           </dl> 
          </div> 
@@ -989,13 +989,13 @@ Feature: Feature2
              When 
            </dt> 
            <dd> 
-            <p>I convert them using tag order <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(006ms)</span></p> 
+            <p>I convert them using tag order <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(007ms)</span></p> 
            </dd> 
            <dt class="hdlist1">
              Then 
            </dt> 
            <dd> 
-            <p>Features should be ordered respecting order tag <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
+            <p>Features should be ordered respecting order tag <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(001ms)</span></p> 
            </dd> 
           </dl> 
          </div> 
@@ -1111,74 +1111,40 @@ Feature: Feature2
              Given 
            </dt> 
            <dd> 
-            <p>The following two features: <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
+            <p>The following two features: <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(003ms)</span></p> 
            </dd> 
           </dl> 
          </div> 
-         <div class="sidebarblock"> 
+         <div class="listingblock"> 
           <div class="content"> 
-           <div class="paragraph"> 
-            <p>Feature: Discrete class feature</p> 
-           </div> 
-           <div class="literalblock"> 
-            <div class="content"> 
-             <pre>Scenario: Render source code</pre> 
-            </div> 
-           </div> 
-           <div class="literalblock"> 
-            <div class="content"> 
-             <pre>Given the following source code in docstrings</pre> 
-            </div> 
-           </div> 
-           <div class="paragraph"> 
-            <p>"""asciidoc</p> 
-           </div> 
-           <div class="literalblock"> 
-            <div class="content"> 
-             <pre>[source, java]
------
-public int sum(int x, int y){
-int result = x + y;
-return result; (1)
-}
------</pre> 
-            </div> 
-           </div> 
-           <div class="literalblock"> 
-            <div class="content"> 
-             <pre>&lt;1&gt; We can have callouts in living documentation</pre> 
-            </div> 
-           </div> 
-           <div class="paragraph"> 
-            <p>"""</p> 
-           </div> 
-           <div class="literalblock"> 
-            <div class="content"> 
-             <pre>Scenario: Render table</pre> 
-            </div> 
-           </div> 
-           <div class="literalblock"> 
-            <div class="content"> 
-             <pre>Given the following table</pre> 
-            </div> 
-           </div> 
-           <div class="literalblock"> 
-            <div class="content"> 
-             <pre>"""asciidoc</pre> 
-            </div> 
-           </div> 
-           <div class="literalblock"> 
-            <div class="content"> 
-             <pre>|===
-| Cell in column 1, row 1 | Cell in column 2, row 1
-| Cell in column 1, row 2 | Cell in column 2, row 2
-| Cell in column 1, row 3 | Cell in column 2, row 3
-|===</pre> 
-            </div> 
-           </div> 
-           <div class="paragraph"> 
-            <p>"""</p> 
-           </div> 
+           <pre>Feature: Discrete class feature
+
+  Scenario: Render source code
+
+    Given the following source code in docstrings
+"""asciidoc
+  [source, java]
+  -----
+  public int sum(int x, int y){
+  int result = x + y;
+  return result; (1)
+  }
+  -----
+  &lt;1&gt; We can have callouts in living documentation
+"""
+
+  Scenario: Render table
+
+    Given the following table
+ """asciidoc
+  |===
+
+  | Cell in column 1, row 1 | Cell in column 2, row 1
+  | Cell in column 1, row 2 | Cell in column 2, row 2
+  | Cell in column 1, row 3 | Cell in column 2, row 3
+
+  |===
+"""</pre> 
           </div> 
          </div> 
          <div class="dlist"> 
@@ -1187,13 +1153,13 @@ return result; (1)
              When 
            </dt> 
            <dd> 
-            <p>I convert enriched docstring with asciidoc content type using cukedoctor converter <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(014ms)</span></p> 
+            <p>I convert enriched docstring with asciidoc content type using cukedoctor converter <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(021ms)</span></p> 
            </dd> 
            <dt class="hdlist1">
              Then 
            </dt> 
            <dd> 
-            <p>DocString asciidoc output must be rendered in my documentation <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(001ms)</span></p> 
+            <p>DocString asciidoc output must be rendered in my documentation <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
            </dd> 
           </dl> 
          </div> 
@@ -1299,73 +1265,37 @@ return result; (1)
            </dd> 
           </dl> 
          </div> 
-         <div class="sidebarblock"> 
+         <div class="listingblock"> 
           <div class="content"> 
-           <div class="paragraph"> 
-            <p>@asciidoc</p> 
-           </div> 
-           <div class="paragraph"> 
-            <p>Feature: Discrete class feature</p> 
-           </div> 
-           <div class="literalblock"> 
-            <div class="content"> 
-             <pre>Scenario: Render source code</pre> 
-            </div> 
-           </div> 
-           <div class="literalblock"> 
-            <div class="content"> 
-             <pre>Given the following source code in docstrings</pre> 
-            </div> 
-           </div> 
-           <div class="paragraph"> 
-            <p>"""</p> 
-           </div> 
-           <div class="literalblock"> 
-            <div class="content"> 
-             <pre>[source, java]
------
-public int sum(int x, int y){
-int result = x + y;
-return result; (1)
-}
------</pre> 
-            </div> 
-           </div> 
-           <div class="literalblock"> 
-            <div class="content"> 
-             <pre>&lt;1&gt; We can have callouts in living documentation</pre> 
-            </div> 
-           </div> 
-           <div class="paragraph"> 
-            <p>"""</p> 
-           </div> 
-           <div class="literalblock"> 
-            <div class="content"> 
-             <pre>Scenario: Render table</pre> 
-            </div> 
-           </div> 
-           <div class="literalblock"> 
-            <div class="content"> 
-             <pre>Given the following table</pre> 
-            </div> 
-           </div> 
-           <div class="literalblock"> 
-            <div class="content"> 
-             <pre>"""</pre> 
-            </div> 
-           </div> 
-           <div class="literalblock"> 
-            <div class="content"> 
-             <pre>|===
-| Cell in column 1, row 1 | Cell in column 2, row 1
-| Cell in column 1, row 2 | Cell in column 2, row 2
-| Cell in column 1, row 3 | Cell in column 2, row 3
-|===</pre> 
-            </div> 
-           </div> 
-           <div class="paragraph"> 
-            <p>"""</p> 
-           </div> 
+           <pre>@asciidoc
+Feature: Discrete class feature
+
+  Scenario: Render source code
+
+    Given the following source code in docstrings
+"""
+  [source, java]
+  -----
+  public int sum(int x, int y){
+  int result = x + y;
+  return result; (1)
+  }
+  -----
+  &lt;1&gt; We can have callouts in living documentation
+"""
+
+  Scenario: Render table
+
+    Given the following table
+ """
+  |===
+
+  | Cell in column 1, row 1 | Cell in column 2, row 1
+  | Cell in column 1, row 2 | Cell in column 2, row 2
+  | Cell in column 1, row 3 | Cell in column 2, row 3
+
+  |===
+"""</pre> 
           </div> 
          </div> 
          <div class="dlist"> 
@@ -1374,13 +1304,13 @@ return result; (1)
              When 
            </dt> 
            <dd> 
-            <p>I convert enriched docstring with asciidoc feature tag using cukedoctor converter <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(011ms)</span></p> 
+            <p>I convert enriched docstring with asciidoc feature tag using cukedoctor converter <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(020ms)</span></p> 
            </dd> 
            <dt class="hdlist1">
              Then 
            </dt> 
            <dd> 
-            <p>DocString asciidoc output must be rendered in my documentation <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(001ms)</span></p> 
+            <p>DocString asciidoc output must be rendered in my documentation <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
            </dd> 
           </dl> 
          </div> 
@@ -1486,80 +1416,38 @@ return result; (1)
            </dd> 
           </dl> 
          </div> 
-         <div class="sidebarblock"> 
+         <div class="listingblock"> 
           <div class="content"> 
-           <div class="paragraph"> 
-            <p>Feature: Discrete class feature</p> 
-           </div> 
-           <div class="literalblock"> 
-            <div class="content"> 
-             <pre>@asciidoc</pre> 
-            </div> 
-           </div> 
-           <div class="literalblock"> 
-            <div class="content"> 
-             <pre>Scenario: Render source code</pre> 
-            </div> 
-           </div> 
-           <div class="literalblock"> 
-            <div class="content"> 
-             <pre>Given the following source code in docstrings</pre> 
-            </div> 
-           </div> 
-           <div class="paragraph"> 
-            <p>"""</p> 
-           </div> 
-           <div class="literalblock"> 
-            <div class="content"> 
-             <pre>[source, java]
------
-public int sum(int x, int y){
-int result = x + y;
-return result; (1)
-}
------</pre> 
-            </div> 
-           </div> 
-           <div class="literalblock"> 
-            <div class="content"> 
-             <pre>&lt;1&gt; We can have callouts in living documentation</pre> 
-            </div> 
-           </div> 
-           <div class="paragraph"> 
-            <p>"""</p> 
-           </div> 
-           <div class="literalblock"> 
-            <div class="content"> 
-             <pre>@asciidoc</pre> 
-            </div> 
-           </div> 
-           <div class="literalblock"> 
-            <div class="content"> 
-             <pre>Scenario: Render table</pre> 
-            </div> 
-           </div> 
-           <div class="literalblock"> 
-            <div class="content"> 
-             <pre>Given the following table</pre> 
-            </div> 
-           </div> 
-           <div class="literalblock"> 
-            <div class="content"> 
-             <pre>"""</pre> 
-            </div> 
-           </div> 
-           <div class="literalblock"> 
-            <div class="content"> 
-             <pre>|===
-| Cell in column 1, row 1 | Cell in column 2, row 1
-| Cell in column 1, row 2 | Cell in column 2, row 2
-| Cell in column 1, row 3 | Cell in column 2, row 3
-|===</pre> 
-            </div> 
-           </div> 
-           <div class="paragraph"> 
-            <p>"""</p> 
-           </div> 
+           <pre>Feature: Discrete class feature
+
+  @asciidoc
+  Scenario: Render source code
+
+    Given the following source code in docstrings
+"""
+  [source, java]
+  -----
+  public int sum(int x, int y){
+  int result = x + y;
+  return result; (1)
+  }
+  -----
+  &lt;1&gt; We can have callouts in living documentation
+"""
+
+  @asciidoc
+  Scenario: Render table
+
+    Given the following table
+ """
+  |===
+
+  | Cell in column 1, row 1 | Cell in column 2, row 1
+  | Cell in column 1, row 2 | Cell in column 2, row 2
+  | Cell in column 1, row 3 | Cell in column 2, row 3
+
+  |===
+"""</pre> 
           </div> 
          </div> 
          <div class="dlist"> 
@@ -1568,7 +1456,7 @@ return result; (1)
              When 
            </dt> 
            <dd> 
-            <p>I convert enriched docstring with asciidoc scenario tag using cukedoctor converter <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(008ms)</span></p> 
+            <p>I convert enriched docstring with asciidoc scenario tag using cukedoctor converter <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(013ms)</span></p> 
            </dd> 
            <dt class="hdlist1">
              Then 
@@ -1685,6 +1573,34 @@ return result; (1)
       </div> 
       <div class="sect3"> 
        <h4 id="_introduction_chapter_in_classpath"><a class="anchor" href="#_introduction_chapter_in_classpath"></a>2.4.1. Introduction chapter in classpath</h4> 
+       <div class="admonitionblock note"> 
+        <table> 
+         <tbody> 
+          <tr> 
+           <td class="icon"> <i class="fa icon-note" title="Note"></i> </td> 
+           <td class="content"> The introduction file must be named <strong>intro-chapter.adoc</strong> and can be in any package of your application, </td> 
+          </tr> 
+         </tbody> 
+        </table> 
+       </div> 
+       <div class="admonitionblock tip"> 
+        <table> 
+         <tbody> 
+          <tr> 
+           <td class="icon"> <i class="fa icon-tip" title="Tip"></i> </td> 
+           <td class="content"> 
+            <div class="paragraph"> 
+             <p>By default Cukedoctor will look into application folders but you can make Cukedoctor look into external folder by setting the following system property:</p> 
+            </div> 
+            <div class="listingblock"> 
+             <div class="content"> 
+              <pre class="CodeRay highlight"><code data-lang="java"><span class="predefined-type">System</span>.setProperty(<span class="string"><span class="delimiter">"</span><span class="content">INTRO_CHAPTER_DIR</span><span class="delimiter">"</span></span>,<span class="string"><span class="delimiter">"</span><span class="content">/home/some/external/folder</span><span class="delimiter">"</span></span>);</code></pre> 
+             </div> 
+            </div> </td> 
+          </tr> 
+         </tbody> 
+        </table> 
+       </div> 
        <div class="exampleblock"> 
         <div class="content"> 
          <div class="dlist"> 
@@ -1718,22 +1634,35 @@ Feature: Feature2
              And 
            </dt> 
            <dd> 
-            <p>The following asciidoc document is on your application classpath <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(010ms)</span></p> 
+            <p>The following asciidoc document is on your application classpath <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(017ms)</span></p> 
            </dd> 
           </dl> 
          </div> 
-         <div class="listingblock"> 
+         <div class="sidebarblock"> 
           <div class="content"> 
-           <pre>= *Introduction*
-
-Cukedoctor is a *Living documentation* tool which integrates Cucumber and Asciidoctor in order to convert your _BDD_ tests results into an awesome documentation.
-
-Here are some design principles:
-
-* Living documentation should be readable and highlight your software features;
-** Most bdd tools generate reports and not a truly documentation.
-* Cukedoctor *do not* introduce a new API that you need to learn, instead it operates on top of http://www.relishapp.com/cucumber/cucumber/docs/formatters/json-output-formatter[cucumber json output^] files;
-** In the 'worst case' to &lt;&lt;Enrich-features,enhance&gt;&gt; your documentation you will need to know a bit of http://asciidoctor.org/docs/what-is-asciidoc/[asciidoc markup^].</pre> 
+           <h1 id="_introduction_2" class="discrete"><strong>Introduction</strong></h1> 
+           <div class="paragraph"> 
+            <p>Cukedoctor is a <strong>Living documentation</strong> tool which integrates Cucumber and Asciidoctor in order to convert your <em>BDD</em> tests results into an awesome documentation.</p> 
+           </div> 
+           <div class="paragraph"> 
+            <p>Here are some design principles:</p> 
+           </div> 
+           <div class="ulist discrete"> 
+            <ul class="discrete"> 
+             <li> <p>Living documentation should be readable and highlight your software features;</p> 
+              <div class="ulist discrete"> 
+               <ul class="discrete"> 
+                <li> <p>Most bdd tools generate reports and not a truly documentation.</p> </li> 
+               </ul> 
+              </div> </li> 
+             <li> <p>Cukedoctor <strong>do not</strong> introduce a new API that you need to learn, instead it operates on top of <a href="http://www.relishapp.com/cucumber/cucumber/docs/formatters/json-output-formatter" target="_blank" rel="noopener">cucumber json output</a> files;</p> 
+              <div class="ulist discrete"> 
+               <ul class="discrete"> 
+                <li> <p>In the 'worst case' to <a href="#Enrich-features">enhance</a> your documentation you will need to know a bit of <a href="http://asciidoctor.org/docs/what-is-asciidoc/" target="_blank" rel="noopener">asciidoc markup</a>.</p> </li> 
+               </ul> 
+              </div> </li> 
+            </ul> 
+           </div> 
           </div> 
          </div> 
          <div class="dlist"> 
@@ -1752,115 +1681,152 @@ Here are some design principles:
            </dd> 
           </dl> 
          </div> 
-         <div class="listingblock"> 
+         <div class="sidebarblock"> 
           <div class="content"> 
-           <pre>= *Documentation*
-
-== *Introduction*
-
-Cukedoctor is a *Living documentation* tool which integrates Cucumber and Asciidoctor in order to convert your _BDD_ tests results into an awesome documentation.
-
-Here are some design principles:
-
-* Living documentation should be readable and highlight your software features;
-** Most bdd tools generate reports and not a truly documentation.
-* Cukedoctor *do not* introduce a new API that you need to learn, instead it operates on top of http://www.relishapp.com/cucumber/cucumber/docs/formatters/json-output-formatter[cucumber json output^] files;
-** In the 'worst case' to &lt;&lt;Enrich-features,enhance&gt;&gt; your documentation you will need to know a bit of http://asciidoctor.org/docs/what-is-asciidoc/[asciidoc markup^].
-
-== *Summary*
-[cols="12*^m", options="header,footer"]
-|===
-3+|Scenarios 7+|Steps 2+|Features: 2
-
-|[green]#*Passed*#
-|[red]#*Failed*#
-|Total
-|[green]#*Passed*#
-|[red]#*Failed*#
-|[purple]#*Skipped*#
-|[maroon]#*Pending*#
-|[yellow]#*Undefined*#
-|[blue]#*Missing*#
-|Total
-|Duration
-|Status
-
-12+^|*&lt;&lt;Feature1&gt;&gt;*
-|1
-|0
-|1
-|1
-|0
-|0
-|0
-|0
-|0
-|1
-|647ms
-|[green]#*passed*#
-
-12+^|*&lt;&lt;Feature2&gt;&gt;*
-|1
-|0
-|1
-|1
-|0
-|0
-|0
-|0
-|0
-|1
-|000ms
-|[green]#*passed*#
-12+^|*Totals*
-|2|0|2|2|0|0|0|0|0|2 2+|647ms
-|===
-
-== *Features*
-
-[[Feature1, Feature1]]
-=== *Feature1*
-
-==== Scenario: Scenario feature 1</pre> 
-          </div> 
-         </div> 
-        </div> 
-       </div> 
-       <div class="dlist"> 
-        <dl> 
-         <dt class="hdlist1">
-           Given 
-         </dt> 
-         <dd> 
-          <p>scenario step <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(647ms)</span></p> 
-         </dd> 
-        </dl> 
-       </div> 
-       <div class="exampleblock"> 
-        <div class="content"> 
-         <div id="Feature2" class="paragraph"> 
-          <p>=== <strong>Feature2</strong></p> 
-         </div> 
-         <div class="paragraph"> 
-          <p>==== Scenario: Scenario feature 2</p> 
-         </div> 
-        </div> 
-       </div> 
-       <div class="dlist"> 
-        <dl> 
-         <dt class="hdlist1">
-           Given 
-         </dt> 
-         <dd> 
-          <p>scenario step <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
-         </dd> 
-        </dl> 
-       </div> 
-       <div class="exampleblock"> 
-        <div class="content"> 
-         <div class="listingblock"> 
-          <div class="content"> 
-           <pre></pre> 
+           <h1 id="_documentation_2" class="discrete"><strong>Documentation</strong></h1> 
+           <h2 id="_introduction_3" class="discrete"><strong>Introduction</strong></h2> 
+           <div class="paragraph"> 
+            <p>Cukedoctor is a <strong>Living documentation</strong> tool which integrates Cucumber and Asciidoctor in order to convert your <em>BDD</em> tests results into an awesome documentation.</p> 
+           </div> 
+           <div class="paragraph"> 
+            <p>Here are some design principles:</p> 
+           </div> 
+           <div class="ulist discrete"> 
+            <ul class="discrete"> 
+             <li> <p>Living documentation should be readable and highlight your software features;</p> 
+              <div class="ulist discrete"> 
+               <ul class="discrete"> 
+                <li> <p>Most bdd tools generate reports and not a truly documentation.</p> </li> 
+               </ul> 
+              </div> </li> 
+             <li> <p>Cukedoctor <strong>do not</strong> introduce a new API that you need to learn, instead it operates on top of <a href="http://www.relishapp.com/cucumber/cucumber/docs/formatters/json-output-formatter" target="_blank" rel="noopener">cucumber json output</a> files;</p> 
+              <div class="ulist discrete"> 
+               <ul class="discrete"> 
+                <li> <p>In the 'worst case' to <a href="#Enrich-features">enhance</a> your documentation you will need to know a bit of <a href="http://asciidoctor.org/docs/what-is-asciidoc/" target="_blank" rel="noopener">asciidoc markup</a>.</p> <h2 id="_summary_2" class="discrete"><strong>Summary</strong></h2> </li> 
+               </ul> 
+              </div> </li> 
+            </ul> 
+           </div> 
+           <table class="tableblock frame-all grid-all stretch"> 
+            <colgroup> 
+             <col style="width: 8.3333%;"> 
+             <col style="width: 8.3333%;"> 
+             <col style="width: 8.3333%;"> 
+             <col style="width: 8.3333%;"> 
+             <col style="width: 8.3333%;"> 
+             <col style="width: 8.3333%;"> 
+             <col style="width: 8.3333%;"> 
+             <col style="width: 8.3333%;"> 
+             <col style="width: 8.3333%;"> 
+             <col style="width: 8.3333%;"> 
+             <col style="width: 8.3333%;"> 
+             <col style="width: 8.3337%;"> 
+            </colgroup> 
+            <tbody> 
+             <tr> 
+              <td class="tableblock halign-left valign-top" colspan="3"><p class="tableblock">Scenarios</p></td> 
+              <td class="tableblock halign-left valign-top" colspan="7"><p class="tableblock">Steps</p></td> 
+              <td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock">Features: 2</p></td> 
+             </tr> 
+             <tr> 
+              <td class="tableblock halign-left valign-top"><p class="tableblock"><span class="green"><strong>Passed</strong></span></p></td> 
+              <td class="tableblock halign-left valign-top"><p class="tableblock"><span class="red"><strong>Failed</strong></span></p></td> 
+              <td class="tableblock halign-left valign-top"><p class="tableblock">Total</p></td> 
+              <td class="tableblock halign-left valign-top"><p class="tableblock"><span class="green"><strong>Passed</strong></span></p></td> 
+              <td class="tableblock halign-left valign-top"><p class="tableblock"><span class="red"><strong>Failed</strong></span></p></td> 
+              <td class="tableblock halign-left valign-top"><p class="tableblock"><span class="purple"><strong>Skipped</strong></span></p></td> 
+              <td class="tableblock halign-left valign-top"><p class="tableblock"><span class="maroon"><strong>Pending</strong></span></p></td> 
+              <td class="tableblock halign-left valign-top"><p class="tableblock"><span class="yellow"><strong>Undefined</strong></span></p></td> 
+              <td class="tableblock halign-left valign-top"><p class="tableblock"><span class="blue"><strong>Missing</strong></span></p></td> 
+              <td class="tableblock halign-left valign-top"><p class="tableblock">Total</p></td> 
+              <td class="tableblock halign-left valign-top"><p class="tableblock">Duration</p></td> 
+              <td class="tableblock halign-left valign-top"><p class="tableblock">Status</p></td> 
+             </tr> 
+             <tr> 
+              <td class="tableblock halign-center valign-top" colspan="12"><p class="tableblock"><strong><a href="#Feature1">Feature1</a></strong></p></td> 
+             </tr> 
+             <tr> 
+              <td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td> 
+              <td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td> 
+              <td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td> 
+              <td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td> 
+              <td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td> 
+              <td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td> 
+              <td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td> 
+              <td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td> 
+              <td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td> 
+              <td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td> 
+              <td class="tableblock halign-left valign-top"><p class="tableblock">647ms</p></td> 
+              <td class="tableblock halign-left valign-top"><p class="tableblock"><span class="green"><strong>passed</strong></span></p></td> 
+             </tr> 
+             <tr> 
+              <td class="tableblock halign-center valign-top" colspan="12"><p class="tableblock"><strong><a href="#Feature2">Feature2</a></strong></p></td> 
+             </tr> 
+             <tr> 
+              <td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td> 
+              <td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td> 
+              <td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td> 
+              <td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td> 
+              <td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td> 
+              <td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td> 
+              <td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td> 
+              <td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td> 
+              <td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td> 
+              <td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td> 
+              <td class="tableblock halign-left valign-top"><p class="tableblock">000ms</p></td> 
+              <td class="tableblock halign-left valign-top"><p class="tableblock"><span class="green"><strong>passed</strong></span></p></td> 
+             </tr> 
+             <tr> 
+              <td class="tableblock halign-center valign-top" colspan="12"><p class="tableblock"><strong>Totals</strong></p></td> 
+             </tr> 
+             <tr> 
+              <td class="tableblock halign-left valign-top"><p class="tableblock">2</p></td> 
+              <td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td> 
+              <td class="tableblock halign-left valign-top"><p class="tableblock">2</p></td> 
+              <td class="tableblock halign-left valign-top"><p class="tableblock">2</p></td> 
+              <td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td> 
+              <td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td> 
+              <td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td> 
+              <td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td> 
+              <td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td> 
+              <td class="tableblock halign-left valign-top"><p class="tableblock">2</p></td> 
+              <td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock">647ms</p></td> 
+             </tr> 
+            </tbody> 
+           </table> 
+           <h2 id="_features_8" class="discrete"><strong>Features</strong></h2> 
+           <h3 id="Feature1" class="discrete"><strong>Feature1</strong></h3> 
+           <h4 id="_scenario_scenario_feature_1_4" class="discrete">Scenario: Scenario feature 1</h4> 
+           <div class="exampleblock"> 
+            <div class="content"> 
+             <div class="dlist discrete"> 
+              <dl> 
+               <dt>
+                 Given 
+               </dt> 
+              </dl> 
+             </div> 
+             <div class="paragraph"> 
+              <p>scenario step <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(647ms)</span></p> 
+             </div> 
+            </div> 
+           </div> 
+           <h3 id="Feature2" class="discrete"><strong>Feature2</strong></h3> 
+           <h4 id="_scenario_scenario_feature_2_4" class="discrete">Scenario: Scenario feature 2</h4> 
+           <div class="exampleblock"> 
+            <div class="content"> 
+             <div class="dlist discrete"> 
+              <dl> 
+               <dt>
+                 Given 
+               </dt> 
+              </dl> 
+             </div> 
+             <div class="paragraph"> 
+              <p>scenario step <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
+             </div> 
+            </div> 
+           </div> 
           </div> 
          </div> 
         </div> 
@@ -1885,44 +1851,20 @@ Here are some design principles:
            </dd> 
           </dl> 
          </div> 
-         <div class="sidebarblock"> 
+         <div class="listingblock"> 
           <div class="content"> 
-           <div class="paragraph"> 
-            <p>@someTag</p> 
-           </div> 
-           <div class="paragraph"> 
-            <p>Feature: Feature1</p> 
-           </div> 
-           <div class="literalblock"> 
-            <div class="content"> 
-             <pre>@otherTag</pre> 
-            </div> 
-           </div> 
-           <div class="literalblock"> 
-            <div class="content"> 
-             <pre>Scenario: Scenario feature 1</pre> 
-            </div> 
-           </div> 
-           <div class="literalblock"> 
-            <div class="content"> 
-             <pre>Given scenario step</pre> 
-            </div> 
-           </div> 
-           <div class="literalblock"> 
-            <div class="content"> 
-             <pre>@someTag @otherTag</pre> 
-            </div> 
-           </div> 
-           <div class="literalblock"> 
-            <div class="content"> 
-             <pre>Scenario: Scenario feature 2</pre> 
-            </div> 
-           </div> 
-           <div class="literalblock"> 
-            <div class="content"> 
-             <pre>Given scenario step</pre> 
-            </div> 
-           </div> 
+           <pre>@someTag
+Feature: Feature1
+
+  @otherTag
+  Scenario: Scenario feature 1
+
+    Given scenario step
+
+  @someTag @otherTag
+  Scenario: Scenario feature 2
+
+    Given scenario step</pre> 
           </div> 
          </div> 
          <div class="dlist"> 
@@ -1931,131 +1873,13 @@ Here are some design principles:
              When 
            </dt> 
            <dd> 
-            <p>I render the feature <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(006ms)</span></p> 
+            <p>I render the feature <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(007ms)</span></p> 
            </dd> 
            <dt class="hdlist1">
              Then 
            </dt> 
            <dd> 
-            <p>the tags displayed under each scenario should not have duplicates <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
-           </dd> 
-          </dl> 
-         </div> 
-         <div class="sidebarblock"> 
-          <div class="content"> 
-           <h2 id="_features_8" class="discrete"><strong>Features</strong></h2> 
-           <h3 id="Feature1" class="discrete"><strong>Feature1</strong></h3> 
-           <h4 id="_scenario_scenario_feature_1_4" class="discrete">Scenario: Scenario feature 1</h4> 
-           <div class="paragraph"> 
-            <p><span class="small">tags: @someTag,@otherTag</span></p> 
-           </div> 
-           <div class="exampleblock"> 
-            <div class="content"> 
-             <div class="dlist discrete"> 
-              <dl> 
-               <dt>
-                 Given 
-               </dt> 
-              </dl> 
-             </div> 
-             <div class="paragraph"> 
-              <p>scenario step <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(001ms)</span></p> 
-             </div> 
-            </div> 
-           </div> 
-           <h4 id="_scenario_scenario_feature_2_4" class="discrete">Scenario: Scenario feature 2</h4> 
-           <div class="paragraph"> 
-            <p><span class="small">tags: @someTag,@otherTag</span></p> 
-           </div> 
-           <div class="exampleblock"> 
-            <div class="content"> 
-             <div class="dlist discrete"> 
-              <dl> 
-               <dt>
-                 Given 
-               </dt> 
-              </dl> 
-             </div> 
-             <div class="paragraph"> 
-              <p>scenario step <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
-             </div> 
-            </div> 
-           </div> 
-          </div> 
-         </div> 
-        </div> 
-       </div> 
-      </div> 
-      <div class="sect3"> 
-       <h4 id="_ignore_cukedoctor_tags_in_resulting_documentation"><a class="anchor" href="#_ignore_cukedoctor_tags_in_resulting_documentation"></a>2.5.2. Ignore cukedoctor tags in resulting documentation</h4> 
-       <div class="paragraph"> 
-        <p>Cukedoctor specific tags like <code>@asciidoc</code> and <code>@order</code> <strong>should not</strong> be rendered in resulting documentation.</p> 
-       </div> 
-       <div class="exampleblock"> 
-        <div class="content"> 
-         <div class="dlist"> 
-          <dl> 
-           <dt class="hdlist1">
-             Given 
-           </dt> 
-           <dd> 
-            <p>The following two features: <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
-           </dd> 
-          </dl> 
-         </div> 
-         <div class="sidebarblock"> 
-          <div class="content"> 
-           <div class="paragraph"> 
-            <p>@someTag @asciidoc @order-99</p> 
-           </div> 
-           <div class="paragraph"> 
-            <p>Feature: Feature1</p> 
-           </div> 
-           <div class="literalblock"> 
-            <div class="content"> 
-             <pre>@otherTag @asciidoc</pre> 
-            </div> 
-           </div> 
-           <div class="literalblock"> 
-            <div class="content"> 
-             <pre>Scenario: Scenario feature 1</pre> 
-            </div> 
-           </div> 
-           <div class="literalblock"> 
-            <div class="content"> 
-             <pre>Given scenario step</pre> 
-            </div> 
-           </div> 
-           <div class="literalblock"> 
-            <div class="content"> 
-             <pre>@someTag @otherTag</pre> 
-            </div> 
-           </div> 
-           <div class="literalblock"> 
-            <div class="content"> 
-             <pre>Scenario: Scenario feature 2</pre> 
-            </div> 
-           </div> 
-           <div class="literalblock"> 
-            <div class="content"> 
-             <pre>Given scenario step</pre> 
-            </div> 
-           </div> 
-          </div> 
-         </div> 
-         <div class="dlist"> 
-          <dl> 
-           <dt class="hdlist1">
-             When 
-           </dt> 
-           <dd> 
-            <p>I render the feature <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(005ms)</span></p> 
-           </dd> 
-           <dt class="hdlist1">
-             Then 
-           </dt> 
-           <dd> 
-            <p>Cukedoctor tags should not be rendered in documentation <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(001ms)</span></p> 
+            <p>the tags displayed under each scenario should not have duplicates <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(001ms)</span></p> 
            </dd> 
           </dl> 
          </div> 
@@ -2104,14 +1928,108 @@ Here are some design principles:
         </div> 
        </div> 
       </div> 
+      <div class="sect3"> 
+       <h4 id="_ignore_cukedoctor_tags_in_resulting_documentation"><a class="anchor" href="#_ignore_cukedoctor_tags_in_resulting_documentation"></a>2.5.2. Ignore cukedoctor tags in resulting documentation</h4> 
+       <div class="paragraph"> 
+        <p>Cukedoctor specific tags like <code>@asciidoc</code> and <code>@order</code> <strong>should not</strong> be rendered in resulting documentation.</p> 
+       </div> 
+       <div class="exampleblock"> 
+        <div class="content"> 
+         <div class="dlist"> 
+          <dl> 
+           <dt class="hdlist1">
+             Given 
+           </dt> 
+           <dd> 
+            <p>The following two features: <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
+           </dd> 
+          </dl> 
+         </div> 
+         <div class="listingblock"> 
+          <div class="content"> 
+           <pre>@someTag @asciidoc @order-99
+Feature: Feature1
+
+  @otherTag @asciidoc
+  Scenario: Scenario feature 1
+
+    Given scenario step
+
+  @someTag @otherTag
+  Scenario: Scenario feature 2
+
+    Given scenario step</pre> 
+          </div> 
+         </div> 
+         <div class="dlist"> 
+          <dl> 
+           <dt class="hdlist1">
+             When 
+           </dt> 
+           <dd> 
+            <p>I render the feature <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(007ms)</span></p> 
+           </dd> 
+           <dt class="hdlist1">
+             Then 
+           </dt> 
+           <dd> 
+            <p>Cukedoctor tags should not be rendered in documentation <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
+           </dd> 
+          </dl> 
+         </div> 
+         <div class="sidebarblock"> 
+          <div class="content"> 
+           <h2 id="_features_10" class="discrete"><strong>Features</strong></h2> 
+           <h3 id="Feature1" class="discrete"><strong>Feature1</strong></h3> 
+           <h4 id="_scenario_scenario_feature_1_6" class="discrete">Scenario: Scenario feature 1</h4> 
+           <div class="paragraph"> 
+            <p><span class="small">tags: @someTag,@otherTag</span></p> 
+           </div> 
+           <div class="exampleblock"> 
+            <div class="content"> 
+             <div class="dlist discrete"> 
+              <dl> 
+               <dt>
+                 Given 
+               </dt> 
+              </dl> 
+             </div> 
+             <div class="paragraph"> 
+              <p>scenario step <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(001ms)</span></p> 
+             </div> 
+            </div> 
+           </div> 
+           <h4 id="_scenario_scenario_feature_2_6" class="discrete">Scenario: Scenario feature 2</h4> 
+           <div class="paragraph"> 
+            <p><span class="small">tags: @someTag,@otherTag</span></p> 
+           </div> 
+           <div class="exampleblock"> 
+            <div class="content"> 
+             <div class="dlist discrete"> 
+              <dl> 
+               <dt>
+                 Given 
+               </dt> 
+              </dl> 
+             </div> 
+             <div class="paragraph"> 
+              <p>scenario step <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span> <span class="small right">(000ms)</span></p> 
+             </div> 
+            </div> 
+           </div> 
+          </div> 
+         </div> 
+        </div> 
+       </div> 
+      </div> 
      </div> 
     </div> 
    </div> 
   </div> 
   <div id="footer" style="color:gray;font-size:11px">
     Generated by 
-   <a href="https://github.com/rmpestano/cukedoctor" target="_blank"> Cukedoctor 2.1-SNAPSHOT</a> - Apr 22, 2020 12:28:02 PM 
-   <span style="float:right;font-size:11px"> Execution time: 8.045 seconds</span> 
+   <a href="https://github.com/rmpestano/cukedoctor" target="_blank"> Cukedoctor 2.1-SNAPSHOT</a> - Apr 22, 2020 12:32:06 PM 
+   <span style="float:right;font-size:11px"> Execution time: 7.377 seconds</span> 
   </div> 
   <style>  
 
