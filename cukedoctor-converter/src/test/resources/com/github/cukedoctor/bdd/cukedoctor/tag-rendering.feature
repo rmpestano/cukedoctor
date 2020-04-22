@@ -1,4 +1,5 @@
 @order-4
+@asciidoc
 Feature: Tag rendering
 
   Scenario: Render feature tags in that feature's scenarios
