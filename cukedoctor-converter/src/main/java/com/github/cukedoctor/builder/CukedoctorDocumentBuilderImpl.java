@@ -47,7 +47,7 @@ public class CukedoctorDocumentBuilderImpl extends AsciiDocBuilder implements Cu
 
     @Override
     public CukedoctorDocumentBuilder textLine(String text) {
-        if(text == Constants.newLine() || hasText(text)){
+        if(Constants.newLine().equals(text) || hasText(text)){
             super.textLine(text);
         }
         return this;

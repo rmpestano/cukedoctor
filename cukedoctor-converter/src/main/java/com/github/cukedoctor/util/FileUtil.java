@@ -22,7 +22,7 @@ import static com.github.cukedoctor.util.Assert.hasText;
  */
 public class FileUtil {
 
-    public static Logger log = Logger.getLogger(FileUtil.class.getName());
+    private final static Logger log = Logger.getLogger(FileUtil.class.getName());
     public static final Pattern ADOC_FILE_EXTENSION = Pattern.compile("([^\\s]+(\\.(?i)(ad|adoc|asciidoc|asc))$)");
 
     /**
@@ -55,7 +55,6 @@ public class FileUtil {
      */
     public static List<String> findJsonFiles(String startDir) {
         return findFiles(startDir, ".json");
-
     }
 
     public static List<String> findFiles(String startDir, final String suffix) {
@@ -85,9 +84,8 @@ public class FileUtil {
             }
         }
 
-
         try {
-            Files.walkFileTree(Paths.get(startDir), new SimpleFileVisitor<Path>() {
+            Files.walkFileTree(startPath, new SimpleFileVisitor<Path>() {
                 @Override
                 public FileVisitResult visitFile(final Path file, final BasicFileAttributes attrs) throws IOException {
                     final String fileName = file.getFileName().toString();
@@ -116,7 +114,7 @@ public class FileUtil {
                 }
             });
         } catch (IOException e) {
-            log.log(Level.WARNING, "Problems scanning " + suffix + " files in path:" + startDir, e);
+            log.log(Level.WARNING, "Problems scanning " + suffix + " files in path:" + startDir, e.getMessage());
         }
         return foundPaths;
     }

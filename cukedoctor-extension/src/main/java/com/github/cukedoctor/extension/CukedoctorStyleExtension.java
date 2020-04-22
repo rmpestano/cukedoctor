@@ -25,7 +25,7 @@ import org.jsoup.select.Elements;
  */
 public class CukedoctorStyleExtension extends Postprocessor {
 
-    public static Logger log = Logger.getLogger(CukedoctorStyleExtension.class.getName());
+    private static final Logger LOG = Logger.getLogger(CukedoctorStyleExtension.class.getName());
 
     public static final String BASE_DIR =  Files.exists(Paths.get("target")) ? Paths.get("target").toString() :
             Files.exists(Paths.get("bin")) ? Paths.get("bin").toString() : Paths.get("").toString();
@@ -72,7 +72,7 @@ public class CukedoctorStyleExtension extends Postprocessor {
                 Elements head = document.getElementsByTag("head");
                 head.append(" <style> "+customCss+"</style>");
             } catch (IOException e) {
-                log.log(Level.SEVERE, "Could not copy cukedoctor css from: " + themePath, e);
+                LOG.log(Level.SEVERE, "Could not copy cukedoctor css from: " + themePath, e);
             }
         }
     }

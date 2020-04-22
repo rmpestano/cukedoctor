@@ -18,7 +18,7 @@ import java.util.regex.Pattern;
  */
 public class FileUtil {
 
-    public static Logger log = Logger.getLogger(FileUtil.class.getName());
+    private final static Logger LOG = Logger.getLogger(FileUtil.class.getName());
     public static final Pattern ADOC_FILE_EXTENSION = Pattern.compile("([^\\s]+(\\.(?i)(ad|adoc|asciidoc|asc))$)");
 
     /**
@@ -50,10 +50,10 @@ public class FileUtil {
             File file = new File(fullyQualifiedName);
             file.createNewFile();
             FileUtils.write(file, data, "UTF-8");
-            log.info("Wrote: " + file.getAbsolutePath());
+            LOG.info("Wrote: " + file.getAbsolutePath());
             return file;
         } catch (IOException e) {
-            log.log(Level.SEVERE, "Could not create file " + name, e);
+            LOG.log(Level.SEVERE, "Could not create file " + name, e);
             return null;
         }
     }
@@ -71,15 +71,11 @@ public class FileUtil {
         if (!path.startsWith("/")) {
             path = "/" + path;
         }
-
         return new File(Paths.get("").toAbsolutePath().toString() + path.trim());
     }
 
     public static boolean removeFile(String path) {
-
-
         File fileToRemove = loadFile(path);
-
         return fileToRemove.delete();
     }
 
@@ -87,16 +83,13 @@ public class FileUtil {
     public static File copyFile(String source, String dest) {
 
         if (source != null && dest != null) {
-            try {
-                InputStream in = FileUtil.class.getResourceAsStream(source);
+            try (InputStream in = FileUtil.class.getResourceAsStream(source)) {
                 return saveFile(dest, IOUtils.toString(in));
             } catch (IOException e) {
-                log.log(Level.SEVERE, "Could not copy source file: " + source + " to dest file: " + dest, e);
+                LOG.log(Level.SEVERE, "Could not copy source file: " + source + " to dest file: " + dest, e);
             }
         }
         return null;
-
-
     }
 
     public static List<String> findFiles(String startDir, final String sulfix) {
@@ -123,7 +116,7 @@ public class FileUtil {
         }
 
         try {
-            Files.walkFileTree(Paths.get(startDir), new SimpleFileVisitor<Path>() {
+            Files.walkFileTree(startPath, new SimpleFileVisitor<Path>() {
                 @Override
                 public FileVisitResult visitFile(final Path file, final BasicFileAttributes attrs) throws IOException {
                     final String fileName = file.getFileName().toString();
@@ -141,14 +134,14 @@ public class FileUtil {
                 }
             });
         } catch (IOException e) {
-            log.log(Level.WARNING, "Problems scanning " + sulfix + " files in path:" + startDir, e);
+            LOG.log(Level.WARNING, "Problems scanning " + sulfix + " files in path:" + startDir, e.getMessage());
         }
         return absolutePaths;
     }
 
     /**
      * @param source resource from classpath
-     * @param dest dest path
+     * @param dest   dest path
      * @return copied file
      */
     public static File copyFileFromClassPath(String source, String dest) {
@@ -157,7 +150,7 @@ public class FileUtil {
                 InputStream in = FileUtil.class.getResourceAsStream(source);
                 return saveFile(dest, IOUtils.toString(in));
             } catch (IOException e) {
-                log.log(Level.SEVERE, "Could not copy source file: " + source + " to dest file: " + dest, e);
+                LOG.log(Level.SEVERE, "Could not copy source file: " + source + " to dest file: " + dest, e);
             }
         }
         return null;
@@ -168,21 +161,19 @@ public class FileUtil {
     public static String readFileContent(File target) {
         StringBuilder content = new StringBuilder();
         try (InputStream openStream = new FileInputStream(target)) {
-            try(BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(openStream))) {
+            try (BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(openStream))) {
                 String line = null;
-                while ((line = bufferedReader.readLine()) != null)
-
-                {
+                while ((line = bufferedReader.readLine()) != null) {
                     content.append(line);
                 }
                 bufferedReader.close();
 
-            }catch (Exception e) {
-                log.log(Level.WARNING, "Could not read file content: " + target);
+            } catch (Exception e) {
+                LOG.log(Level.WARNING, "Could not read file content: " + target);
             }
 
         } catch (Exception e) {
-            log.log(Level.WARNING, "Could not read file content: " + target);
+            LOG.log(Level.WARNING, "Could not read file content: " + target);
         }
 
         return content.toString();
@@ -194,7 +185,7 @@ public class FileUtil {
 
     public static String removeSpecialChars(String content) {
 
-        return content.replaceAll(" ","").replaceAll("\n","").replaceAll("\t","");
+        return content.replaceAll(" ", "").replaceAll("\n", "").replaceAll("\t", "");
 
     }
 }
