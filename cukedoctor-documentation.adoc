@@ -57,7 +57,7 @@ Feature: Feature2
 
 ----
 When ::
-I convert their json test output using cukedoctor converter icon:thumbs-up[role="green",title="Passed"] [small right]#(019ms)#
+I convert their json test output using cukedoctor converter icon:thumbs-up[role="green",title="Passed"] [small right]#(013ms)#
 ******
 
 [discrete]
@@ -80,7 +80,7 @@ NOTE: *plugin* option replaced *format* option which was deprecated in newer cuc
 
 ******
 Then ::
-I should have awesome living documentation icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+I should have awesome living documentation icon:thumbs-up[role="green",title="Passed"] [small right]#(001ms)#
 ******
 
 [discrete]
@@ -210,9 +210,9 @@ Feature: Feature2
 
 ----
 When ::
-I convert them using default order icon:thumbs-up[role="green",title="Passed"] [small right]#(009ms)#
+I convert them using default order icon:thumbs-up[role="green",title="Passed"] [small right]#(008ms)#
 Then ::
-Features should be ordered by name in resulting documentation icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+Features should be ordered by name in resulting documentation icon:thumbs-up[role="green",title="Passed"] [small right]#(001ms)#
 ******
 
 [discrete]
@@ -276,7 +276,7 @@ Feature: Feature2
 
 ----
 When ::
-I convert them using tag order icon:thumbs-up[role="green",title="Passed"] [small right]#(008ms)#
+I convert them using tag order icon:thumbs-up[role="green",title="Passed"] [small right]#(006ms)#
 Then ::
 Features should be ordered respecting order tag icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ******
@@ -350,7 +350,7 @@ Asciidoc markup can be used in feature *DocStrings*. To do so you can enable it 
 
 ==========
 Given ::
-The following two features: icon:thumbs-up[role="green",title="Passed"] [small right]#(001ms)#
+The following two features: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ******
 
 [discrete]
@@ -395,7 +395,7 @@ Feature: Discrete class feature
 
 ******
 When ::
-I convert enriched docstring with asciidoc content type using cukedoctor converter icon:thumbs-up[role="green",title="Passed"] [small right]#(015ms)#
+I convert enriched docstring with asciidoc content type using cukedoctor converter icon:thumbs-up[role="green",title="Passed"] [small right]#(014ms)#
 Then ::
 DocString asciidoc output must be rendered in my documentation icon:thumbs-up[role="green",title="Passed"] [small right]#(001ms)#
 ******
@@ -520,9 +520,9 @@ Feature: Discrete class feature
 
 ******
 When ::
-I convert enriched docstring with asciidoc feature tag using cukedoctor converter icon:thumbs-up[role="green",title="Passed"] [small right]#(018ms)#
+I convert enriched docstring with asciidoc feature tag using cukedoctor converter icon:thumbs-up[role="green",title="Passed"] [small right]#(011ms)#
 Then ::
-DocString asciidoc output must be rendered in my documentation icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+DocString asciidoc output must be rendered in my documentation icon:thumbs-up[role="green",title="Passed"] [small right]#(001ms)#
 ******
 
 [discrete]
@@ -647,7 +647,7 @@ Feature: Discrete class feature
 
 ******
 When ::
-I convert enriched docstring with asciidoc scenario tag using cukedoctor converter icon:thumbs-up[role="green",title="Passed"] [small right]#(005ms)#
+I convert enriched docstring with asciidoc scenario tag using cukedoctor converter icon:thumbs-up[role="green",title="Passed"] [small right]#(008ms)#
 Then ::
 DocString asciidoc output must be rendered in my documentation icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ******
@@ -755,7 +755,7 @@ Feature: Feature2
 
 ----
 And ::
-The following asciidoc document is on your application classpath icon:thumbs-up[role="green",title="Passed"] [small right]#(007ms)#
+The following asciidoc document is on your application classpath icon:thumbs-up[role="green",title="Passed"] [small right]#(010ms)#
 ----
 
 = *Introduction*
@@ -873,55 +873,74 @@ scenario step icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 
 ==========
 Given ::
-The following two features: icon:thumbs-up[role="green",title="Passed"] [small right]#(001ms)#
-----
+The following two features: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+******
 
+[discrete]
 @someTag
+[discrete]
 Feature: Feature1
-
+[discrete]
+[discrete]
   @otherTag
+[discrete]
   Scenario: Scenario feature 1
-
+[discrete]
+[discrete]
     Given scenario step
-
+[discrete]
+[discrete]
   @someTag @otherTag
+[discrete]
   Scenario: Scenario feature 2
-
+[discrete]
+[discrete]
     Given scenario step
 
-----
+
+******
 When ::
-I render the feature icon:thumbs-up[role="green",title="Passed"] [small right]#(017ms)#
+I render the feature icon:thumbs-up[role="green",title="Passed"] [small right]#(006ms)#
 Then ::
 the tags displayed under each scenario should not have duplicates icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
-----
+******
 
+[discrete]
 == *Features*
-
+[discrete]
+[discrete]
 [[Feature1, Feature1]]
+[discrete]
 === *Feature1*
-
+[discrete]
+[discrete]
 ==== Scenario: Scenario feature 1
+[discrete]
 [small]#tags: @someTag,@otherTag#
-
-
-==========
+[discrete]
+[discrete]
+============
+[discrete]
 Given ::
+[discrete]
 scenario step icon:thumbs-up[role="green",title="Passed"] [small right]#(001ms)#
-==========
-
+============
+[discrete]
+[discrete]
 ==== Scenario: Scenario feature 2
+[discrete]
 [small]#tags: @someTag,@otherTag#
-
-
-==========
+[discrete]
+[discrete]
+============
+[discrete]
 Given ::
+[discrete]
 scenario step icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
-==========
+============
 
 
-
-----
+******
 ==========
 
 ==== Ignore cukedoctor tags in resulting documentation
@@ -930,53 +949,72 @@ Cukedoctor specific tags like `@asciidoc` and `@order` *should not* be rendered 
 ==========
 Given ::
 The following two features: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
-----
+******
 
+[discrete]
 @someTag @asciidoc @order-99
+[discrete]
 Feature: Feature1
-
+[discrete]
+[discrete]
   @otherTag @asciidoc
+[discrete]
   Scenario: Scenario feature 1
-
+[discrete]
+[discrete]
     Given scenario step
-
+[discrete]
+[discrete]
   @someTag @otherTag
+[discrete]
   Scenario: Scenario feature 2
-
+[discrete]
+[discrete]
     Given scenario step
 
-----
+
+******
 When ::
-I render the feature icon:thumbs-up[role="green",title="Passed"] [small right]#(006ms)#
+I render the feature icon:thumbs-up[role="green",title="Passed"] [small right]#(005ms)#
 Then ::
-Cukedoctor tags should not be rendered in documentation icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
-----
+Cukedoctor tags should not be rendered in documentation icon:thumbs-up[role="green",title="Passed"] [small right]#(001ms)#
+******
 
+[discrete]
 == *Features*
-
+[discrete]
+[discrete]
 [[Feature1, Feature1]]
+[discrete]
 === *Feature1*
-
+[discrete]
+[discrete]
 ==== Scenario: Scenario feature 1
+[discrete]
 [small]#tags: @someTag,@otherTag#
-
-
-==========
+[discrete]
+[discrete]
+============
+[discrete]
 Given ::
+[discrete]
 scenario step icon:thumbs-up[role="green",title="Passed"] [small right]#(001ms)#
-==========
-
+============
+[discrete]
+[discrete]
 ==== Scenario: Scenario feature 2
+[discrete]
 [small]#tags: @someTag,@otherTag#
-
-
-==========
+[discrete]
+[discrete]
+============
+[discrete]
 Given ::
+[discrete]
 scenario step icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
-==========
+============
 
 
-
-----
+******
 ==========
 

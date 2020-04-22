@@ -3,7 +3,7 @@
     "line": 2,
     "elements": [
       {
-        "start_timestamp": "2020-04-22T12:12:47.289Z",
+        "start_timestamp": "2020-04-22T12:21:45.198Z",
         "line": 11,
         "name": "Convert features test output into documentation",
         "description": "",
@@ -28,7 +28,7 @@
           },
           {
             "result": {
-              "duration": 19000000,
+              "duration": 13000000,
               "status": "passed"
             },
             "line": 27,
@@ -45,6 +45,7 @@
           },
           {
             "result": {
+              "duration": 1000000,
               "status": "passed"
             },
             "line": 43,
@@ -87,7 +88,7 @@
     "line": 3,
     "elements": [
       {
-        "start_timestamp": "2020-04-22T12:12:47.316Z",
+        "start_timestamp": "2020-04-22T12:21:45.227Z",
         "line": 27,
         "name": "DocString enrichment activated by the content type",
         "description": "  Asciidoc markup can be used in feature *DocStrings*. To do so you can enable it by using the content type *[asciidoc]* in the DocString.",
@@ -97,7 +98,6 @@
         "steps": [
           {
             "result": {
-              "duration": 1000000,
               "status": "passed"
             },
             "line": 30,
@@ -113,7 +113,7 @@
           },
           {
             "result": {
-              "duration": 15000000,
+              "duration": 14000000,
               "status": "passed"
             },
             "line": 62,
@@ -151,7 +151,7 @@
         ]
       },
       {
-        "start_timestamp": "2020-04-22T12:12:47.344Z",
+        "start_timestamp": "2020-04-22T12:21:45.256Z",
         "line": 114,
         "name": "DocString enrichment activated by a feature tag",
         "description": "  Asciidoc markup can be used in feature *DocStrings*. You can enable this by applying the tag [@asciidoc] to the feature. Note this enables the enrichment for all DocStrings within the feature.",
@@ -176,7 +176,7 @@
           },
           {
             "result": {
-              "duration": 18000000,
+              "duration": 11000000,
               "status": "passed"
             },
             "line": 150,
@@ -188,6 +188,7 @@
           },
           {
             "result": {
+              "duration": 1000000,
               "status": "passed"
             },
             "line": 152,
@@ -213,7 +214,7 @@
         ]
       },
       {
-        "start_timestamp": "2020-04-22T12:12:47.365Z",
+        "start_timestamp": "2020-04-22T12:21:45.279Z",
         "line": 202,
         "name": "DocString enrichment activated by a scenario tag",
         "description": "  Asciidoc markup can be used in feature *DocStrings*. You can enable this by applying the tag [@asciidoc] to the scenario. Note this enables the enrichment for all DocStrings within the scenario.",
@@ -238,7 +239,7 @@
           },
           {
             "result": {
-              "duration": 5000000,
+              "duration": 8000000,
               "status": "passed"
             },
             "line": 239,
@@ -303,7 +304,7 @@
     "line": 2,
     "elements": [
       {
-        "start_timestamp": "2020-04-22T12:12:47.373Z",
+        "start_timestamp": "2020-04-22T12:21:45.292Z",
         "line": 11,
         "name": "Introduction chapter in classpath",
         "description": "",
@@ -328,7 +329,7 @@
           },
           {
             "result": {
-              "duration": 7000000,
+              "duration": 10000000,
               "status": "passed"
             },
             "line": 40,
@@ -396,7 +397,7 @@
     "line": 2,
     "elements": [
       {
-        "start_timestamp": "2020-04-22T12:12:47.385Z",
+        "start_timestamp": "2020-04-22T12:21:45.318Z",
         "line": 12,
         "name": "Default ordering",
         "description": "",
@@ -422,7 +423,7 @@
           },
           {
             "result": {
-              "duration": 9000000,
+              "duration": 8000000,
               "status": "passed"
             },
             "line": 28,
@@ -434,6 +435,7 @@
           },
           {
             "result": {
+              "duration": 1000000,
               "status": "passed"
             },
             "line": 30,
@@ -456,7 +458,7 @@
         ]
       },
       {
-        "start_timestamp": "2020-04-22T12:12:47.408Z",
+        "start_timestamp": "2020-04-22T12:21:45.333Z",
         "line": 57,
         "name": "Custom ordering with tags",
         "description": "    NOTE: Ordering is done using feature tag *@order-*",
@@ -481,7 +483,7 @@
           },
           {
             "result": {
-              "duration": 8000000,
+              "duration": 6000000,
               "status": "passed"
             },
             "line": 77,
@@ -532,11 +534,11 @@
     ]
   },
   {
-    "line": 2,
+    "line": 3,
     "elements": [
       {
-        "start_timestamp": "2020-04-22T12:12:47.427Z",
-        "line": 4,
+        "start_timestamp": "2020-04-22T12:21:45.342Z",
+        "line": 5,
         "name": "Render feature tags in that feature\u0027s scenarios",
         "description": "",
         "id": "tag-rendering;render-feature-tags-in-that-feature-s-scenarios",
@@ -545,26 +547,25 @@
         "steps": [
           {
             "result": {
-              "duration": 1000000,
               "status": "passed"
             },
-            "line": 6,
+            "line": 7,
             "name": "The following two features:",
             "match": {
               "location": "com.github.cukedoctor.bdd.cukedoctor.OrderingSteps.the_following_two_features(java.lang.String)"
             },
             "keyword": "Given ",
             "doc_string": {
-              "line": 7,
+              "line": 8,
               "value": "@someTag\nFeature: Feature1\n\n  @otherTag\n  Scenario: Scenario feature 1\n\n    Given scenario step\n\n  @someTag @otherTag\n  Scenario: Scenario feature 2\n\n    Given scenario step"
             }
           },
           {
             "result": {
-              "duration": 17000000,
+              "duration": 6000000,
               "status": "passed"
             },
-            "line": 22,
+            "line": 23,
             "name": "I render the feature",
             "match": {
               "location": "com.github.cukedoctor.bdd.cukedoctor.TagRenderingSteps.I_render_the_feature()"
@@ -575,14 +576,14 @@
             "result": {
               "status": "passed"
             },
-            "line": 24,
+            "line": 25,
             "name": "the tags displayed under each scenario should not have duplicates",
             "match": {
               "location": "com.github.cukedoctor.bdd.cukedoctor.TagRenderingSteps.the_tags_displayed_under_each_scenario_should_not_have_duplicates(java.lang.String)"
             },
             "keyword": "Then ",
             "doc_string": {
-              "line": 25,
+              "line": 26,
               "value": "\u003d\u003d *Features*\n\n[[Feature1, Feature1]]\n\u003d\u003d\u003d *Feature1*\n\n\u003d\u003d\u003d\u003d Scenario: Scenario feature 1\n[small]#tags: @someTag,@otherTag#\n\n\n\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\nGiven ::\nscenario step icon:thumbs-up[role\u003d\"green\",title\u003d\"Passed\"] [small right]#(001ms)#\n\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\n\n\u003d\u003d\u003d\u003d Scenario: Scenario feature 2\n[small]#tags: @someTag,@otherTag#\n\n\n\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\nGiven ::\nscenario step icon:thumbs-up[role\u003d\"green\",title\u003d\"Passed\"] [small right]#(000ms)#\n\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\n\n"
             }
           }
@@ -590,12 +591,15 @@
         "tags": [
           {
             "name": "@order-4"
+          },
+          {
+            "name": "@asciidoc"
           }
         ]
       },
       {
-        "start_timestamp": "2020-04-22T12:12:47.449Z",
-        "line": 52,
+        "start_timestamp": "2020-04-22T12:21:45.351Z",
+        "line": 53,
         "name": "Ignore cukedoctor tags in resulting documentation",
         "description": "   Cukedoctor specific tags like `@asciidoc` and `@order` *should not* be rendered in resulting documentation.",
         "id": "tag-rendering;ignore-cukedoctor-tags-in-resulting-documentation",
@@ -606,23 +610,23 @@
             "result": {
               "status": "passed"
             },
-            "line": 56,
+            "line": 57,
             "name": "The following two features:",
             "match": {
               "location": "com.github.cukedoctor.bdd.cukedoctor.OrderingSteps.the_following_two_features(java.lang.String)"
             },
             "keyword": "Given ",
             "doc_string": {
-              "line": 57,
+              "line": 58,
               "value": "@someTag @asciidoc @order-99\nFeature: Feature1\n\n  @otherTag @asciidoc\n  Scenario: Scenario feature 1\n\n    Given scenario step\n\n  @someTag @otherTag\n  Scenario: Scenario feature 2\n\n    Given scenario step"
             }
           },
           {
             "result": {
-              "duration": 6000000,
+              "duration": 5000000,
               "status": "passed"
             },
-            "line": 72,
+            "line": 73,
             "name": "I render the feature",
             "match": {
               "location": "com.github.cukedoctor.bdd.cukedoctor.TagRenderingSteps.I_render_the_feature()"
@@ -631,16 +635,17 @@
           },
           {
             "result": {
+              "duration": 1000000,
               "status": "passed"
             },
-            "line": 74,
+            "line": 75,
             "name": "Cukedoctor tags should not be rendered in documentation",
             "match": {
               "location": "com.github.cukedoctor.bdd.cukedoctor.TagRenderingSteps.Cukedoctor_tags_should_not_be_rendered_in_documentation(java.lang.String)"
             },
             "keyword": "Then ",
             "doc_string": {
-              "line": 75,
+              "line": 76,
               "value": "\u003d\u003d *Features*\n\n[[Feature1, Feature1]]\n\u003d\u003d\u003d *Feature1*\n\n\u003d\u003d\u003d\u003d Scenario: Scenario feature 1\n[small]#tags: @someTag,@otherTag#\n\n\n\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\nGiven ::\nscenario step icon:thumbs-up[role\u003d\"green\",title\u003d\"Passed\"] [small right]#(001ms)#\n\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\n\n\u003d\u003d\u003d\u003d Scenario: Scenario feature 2\n[small]#tags: @someTag,@otherTag#\n\n\n\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\nGiven ::\nscenario step icon:thumbs-up[role\u003d\"green\",title\u003d\"Passed\"] [small right]#(000ms)#\n\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\n\n"
             }
           }
@@ -648,6 +653,9 @@
         "tags": [
           {
             "name": "@order-4"
+          },
+          {
+            "name": "@asciidoc"
           }
         ]
       }
@@ -663,6 +671,14 @@
         "type": "Tag",
         "location": {
           "line": 1,
+          "column": 1
+        }
+      },
+      {
+        "name": "@asciidoc",
+        "type": "Tag",
+        "location": {
+          "line": 2,
           "column": 1
         }
       }
