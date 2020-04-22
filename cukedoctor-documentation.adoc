@@ -10,14 +10,14 @@
 :docinfo:
 :source-highlighter: highlightjs
 :toclevels: 3
-:revnumber: 2.0
+:revnumber: 2.1-SNAPSHOT
 :hardbreaks:
 :chapter-label: Chapter
 :version-label: Version
 
 = *Cukedoctor Documentation*
 
-include::/Users/rpestano/projects/cukedoctor-master/cukedoctor-converter/target/test-classes/cukedoctor-intro.adoc[leveloffset=+1]
+include::/home/travis/build/rmpestano/cukedoctor/cukedoctor-converter/target/test-classes/cukedoctor-intro.adoc[leveloffset=+1]
 
 
 == *Features*
@@ -40,7 +40,7 @@ ____
 
 ==========
 Given ::
-The following two features: icon:thumbs-up[role="green",title="Passed"] [small right]#(057ms)#
+The following two features: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
 
 Feature: Feature1
@@ -57,7 +57,7 @@ Feature: Feature2
 
 ----
 When ::
-I convert their json test output using cukedoctor converter icon:thumbs-up[role="green",title="Passed"] [small right]#(513ms)#
+I convert their json test output using cukedoctor converter icon:thumbs-up[role="green",title="Passed"] [small right]#(011ms)#
 ******
 
 [discrete]
@@ -210,7 +210,7 @@ Feature: Feature2
 
 ----
 When ::
-I convert them using default order icon:thumbs-up[role="green",title="Passed"] [small right]#(036ms)#
+I convert them using default order icon:thumbs-up[role="green",title="Passed"] [small right]#(006ms)#
 Then ::
 Features should be ordered by name in resulting documentation icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ******
@@ -276,7 +276,7 @@ Feature: Feature2
 
 ----
 When ::
-I convert them using tag order icon:thumbs-up[role="green",title="Passed"] [small right]#(040ms)#
+I convert them using tag order icon:thumbs-up[role="green",title="Passed"] [small right]#(006ms)#
 Then ::
 Features should be ordered respecting order tag icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ******
@@ -395,7 +395,7 @@ Feature: Discrete class feature
 
 ******
 When ::
-I convert enriched docstring with asciidoc content type using cukedoctor converter icon:thumbs-up[role="green",title="Passed"] [small right]#(047ms)#
+I convert enriched docstring with asciidoc content type using cukedoctor converter icon:thumbs-up[role="green",title="Passed"] [small right]#(007ms)#
 Then ::
 DocString asciidoc output must be rendered in my documentation icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ******
@@ -520,7 +520,7 @@ Feature: Discrete class feature
 
 ******
 When ::
-I convert enriched docstring with asciidoc feature tag using cukedoctor converter icon:thumbs-up[role="green",title="Passed"] [small right]#(032ms)#
+I convert enriched docstring with asciidoc feature tag using cukedoctor converter icon:thumbs-up[role="green",title="Passed"] [small right]#(008ms)#
 Then ::
 DocString asciidoc output must be rendered in my documentation icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ******
@@ -647,7 +647,7 @@ Feature: Discrete class feature
 
 ******
 When ::
-I convert enriched docstring with asciidoc scenario tag using cukedoctor converter icon:thumbs-up[role="green",title="Passed"] [small right]#(042ms)#
+I convert enriched docstring with asciidoc scenario tag using cukedoctor converter icon:thumbs-up[role="green",title="Passed"] [small right]#(007ms)#
 Then ::
 DocString asciidoc output must be rendered in my documentation icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ******
@@ -755,7 +755,7 @@ Feature: Feature2
 
 ----
 And ::
-The following asciidoc document is on your application classpath icon:thumbs-up[role="green",title="Passed"] [small right]#(023ms)#
+The following asciidoc document is on your application classpath icon:thumbs-up[role="green",title="Passed"] [small right]#(007ms)#
 ----
 
 = *Introduction*
@@ -891,7 +891,7 @@ Feature: Feature1
 
 ----
 When ::
-I render the feature icon:thumbs-up[role="green",title="Passed"] [small right]#(043ms)#
+I render the feature icon:thumbs-up[role="green",title="Passed"] [small right]#(007ms)#
 Then ::
 the tags displayed under each scenario should not have duplicates icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
@@ -947,7 +947,7 @@ Feature: Feature1
 
 ----
 When ::
-I render the feature icon:thumbs-up[role="green",title="Passed"] [small right]#(034ms)#
+I render the feature icon:thumbs-up[role="green",title="Passed"] [small right]#(006ms)#
 Then ::
 Cukedoctor tags should not be rendered in documentation icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----

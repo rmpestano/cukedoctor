@@ -3,7 +3,7 @@
     "line": 2,
     "elements": [
       {
-        "start_timestamp": "2020-04-22T12:06:31.634Z",
+        "start_timestamp": "2020-04-22T12:11:11.588Z",
         "line": 11,
         "name": "Convert features test output into documentation",
         "description": "",
@@ -13,7 +13,7 @@
         "steps": [
           {
             "result": {
-              "duration": 57063000,
+              "duration": 234000,
               "status": "passed"
             },
             "line": 13,
@@ -29,7 +29,7 @@
           },
           {
             "result": {
-              "duration": 513366000,
+              "duration": 11525000,
               "status": "passed"
             },
             "line": 27,
@@ -46,7 +46,7 @@
           },
           {
             "result": {
-              "duration": 650000,
+              "duration": 277000,
               "status": "passed"
             },
             "line": 43,
@@ -89,7 +89,7 @@
     "line": 3,
     "elements": [
       {
-        "start_timestamp": "2020-04-22T12:06:32.282Z",
+        "start_timestamp": "2020-04-22T12:11:11.606Z",
         "line": 27,
         "name": "DocString enrichment activated by the content type",
         "description": "  Asciidoc markup can be used in feature *DocStrings*. To do so you can enable it by using the content type *[asciidoc]* in the DocString.",
@@ -99,7 +99,7 @@
         "steps": [
           {
             "result": {
-              "duration": 469000,
+              "duration": 91000,
               "status": "passed"
             },
             "line": 30,
@@ -115,7 +115,7 @@
           },
           {
             "result": {
-              "duration": 47238000,
+              "duration": 7216000,
               "status": "passed"
             },
             "line": 62,
@@ -127,7 +127,7 @@
           },
           {
             "result": {
-              "duration": 194000,
+              "duration": 153000,
               "status": "passed"
             },
             "line": 64,
@@ -153,7 +153,7 @@
         ]
       },
       {
-        "start_timestamp": "2020-04-22T12:06:32.354Z",
+        "start_timestamp": "2020-04-22T12:11:11.621Z",
         "line": 114,
         "name": "DocString enrichment activated by a feature tag",
         "description": "  Asciidoc markup can be used in feature *DocStrings*. You can enable this by applying the tag [@asciidoc] to the feature. Note this enables the enrichment for all DocStrings within the feature.",
@@ -163,7 +163,7 @@
         "steps": [
           {
             "result": {
-              "duration": 607000,
+              "duration": 80000,
               "status": "passed"
             },
             "line": 117,
@@ -179,7 +179,7 @@
           },
           {
             "result": {
-              "duration": 32669000,
+              "duration": 8116000,
               "status": "passed"
             },
             "line": 150,
@@ -191,7 +191,7 @@
           },
           {
             "result": {
-              "duration": 144000,
+              "duration": 126000,
               "status": "passed"
             },
             "line": 152,
@@ -217,7 +217,7 @@
         ]
       },
       {
-        "start_timestamp": "2020-04-22T12:06:32.396Z",
+        "start_timestamp": "2020-04-22T12:11:11.632Z",
         "line": 202,
         "name": "DocString enrichment activated by a scenario tag",
         "description": "  Asciidoc markup can be used in feature *DocStrings*. You can enable this by applying the tag [@asciidoc] to the scenario. Note this enables the enrichment for all DocStrings within the scenario.",
@@ -227,7 +227,7 @@
         "steps": [
           {
             "result": {
-              "duration": 613000,
+              "duration": 85000,
               "status": "passed"
             },
             "line": 205,
@@ -243,7 +243,7 @@
           },
           {
             "result": {
-              "duration": 42026000,
+              "duration": 7617000,
               "status": "passed"
             },
             "line": 239,
@@ -255,7 +255,7 @@
           },
           {
             "result": {
-              "duration": 152000,
+              "duration": 122000,
               "status": "passed"
             },
             "line": 242,
@@ -309,7 +309,7 @@
     "line": 2,
     "elements": [
       {
-        "start_timestamp": "2020-04-22T12:06:32.449Z",
+        "start_timestamp": "2020-04-22T12:11:11.643Z",
         "line": 11,
         "name": "Introduction chapter in classpath",
         "description": "",
@@ -319,7 +319,7 @@
         "steps": [
           {
             "result": {
-              "duration": 262000,
+              "duration": 83000,
               "status": "passed"
             },
             "line": 13,
@@ -335,7 +335,7 @@
           },
           {
             "result": {
-              "duration": 23694000,
+              "duration": 7973000,
               "status": "passed"
             },
             "line": 40,
@@ -351,7 +351,7 @@
           },
           {
             "result": {
-              "duration": 65000,
+              "duration": 54000,
               "status": "passed"
             },
             "line": 54,
@@ -363,7 +363,7 @@
           },
           {
             "result": {
-              "duration": 184000,
+              "duration": 230000,
               "status": "passed"
             },
             "line": 58,
@@ -405,7 +405,7 @@
     "line": 2,
     "elements": [
       {
-        "start_timestamp": "2020-04-22T12:06:32.487Z",
+        "start_timestamp": "2020-04-22T12:11:11.657Z",
         "line": 12,
         "name": "Default ordering",
         "description": "",
@@ -415,7 +415,7 @@
         "steps": [
           {
             "result": {
-              "duration": 297000,
+              "duration": 82000,
               "status": "passed"
             },
             "line": 14,
@@ -431,7 +431,7 @@
           },
           {
             "result": {
-              "duration": 36639000,
+              "duration": 6484000,
               "status": "passed"
             },
             "line": 28,
@@ -443,7 +443,7 @@
           },
           {
             "result": {
-              "duration": 242000,
+              "duration": 139000,
               "status": "passed"
             },
             "line": 30,
@@ -466,7 +466,7 @@
         ]
       },
       {
-        "start_timestamp": "2020-04-22T12:06:32.535Z",
+        "start_timestamp": "2020-04-22T12:11:11.669Z",
         "line": 57,
         "name": "Custom ordering with tags",
         "description": "    NOTE: Ordering is done using feature tag *@order-*",
@@ -476,7 +476,7 @@
         "steps": [
           {
             "result": {
-              "duration": 417000,
+              "duration": 109000,
               "status": "passed"
             },
             "line": 61,
@@ -492,7 +492,7 @@
           },
           {
             "result": {
-              "duration": 40849000,
+              "duration": 6466000,
               "status": "passed"
             },
             "line": 77,
@@ -504,7 +504,7 @@
           },
           {
             "result": {
-              "duration": 188000,
+              "duration": 119000,
               "status": "passed"
             },
             "line": 79,
@@ -547,7 +547,7 @@
     "line": 2,
     "elements": [
       {
-        "start_timestamp": "2020-04-22T12:06:32.586Z",
+        "start_timestamp": "2020-04-22T12:11:11.678Z",
         "line": 4,
         "name": "Render feature tags in that feature\u0027s scenarios",
         "description": "",
@@ -557,7 +557,7 @@
         "steps": [
           {
             "result": {
-              "duration": 302000,
+              "duration": 82000,
               "status": "passed"
             },
             "line": 6,
@@ -573,7 +573,7 @@
           },
           {
             "result": {
-              "duration": 43347000,
+              "duration": 7128000,
               "status": "passed"
             },
             "line": 22,
@@ -585,7 +585,7 @@
           },
           {
             "result": {
-              "duration": 121000,
+              "duration": 137000,
               "status": "passed"
             },
             "line": 24,
@@ -607,7 +607,7 @@
         ]
       },
       {
-        "start_timestamp": "2020-04-22T12:06:32.641Z",
+        "start_timestamp": "2020-04-22T12:11:11.689Z",
         "line": 52,
         "name": "Ignore cukedoctor tags in resulting documentation",
         "description": "   Cukedoctor specific tags like `@asciidoc` and `@order` *should not* be rendered in resulting documentation.",
@@ -617,7 +617,7 @@
         "steps": [
           {
             "result": {
-              "duration": 361000,
+              "duration": 75000,
               "status": "passed"
             },
             "line": 56,
@@ -633,7 +633,7 @@
           },
           {
             "result": {
-              "duration": 34533000,
+              "duration": 6220000,
               "status": "passed"
             },
             "line": 72,
@@ -645,7 +645,7 @@
           },
           {
             "result": {
-              "duration": 94000,
+              "duration": 121000,
               "status": "passed"
             },
             "line": 74,
