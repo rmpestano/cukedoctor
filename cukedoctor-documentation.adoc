@@ -57,7 +57,7 @@ Feature: Feature2
 
 ----
 When ::
-I convert their json test output using cukedoctor converter icon:thumbs-up[role="green",title="Passed"] [small right]#(011ms)#
+I convert their json test output using cukedoctor converter icon:thumbs-up[role="green",title="Passed"] [small right]#(019ms)#
 ******
 
 [discrete]
@@ -193,7 +193,7 @@ ____
 
 ==========
 Given ::
-The following two features: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+The following two features: icon:thumbs-up[role="green",title="Passed"] [small right]#(001ms)#
 ----
 
 Feature: Feature1
@@ -210,7 +210,7 @@ Feature: Feature2
 
 ----
 When ::
-I convert them using default order icon:thumbs-up[role="green",title="Passed"] [small right]#(006ms)#
+I convert them using default order icon:thumbs-up[role="green",title="Passed"] [small right]#(009ms)#
 Then ::
 Features should be ordered by name in resulting documentation icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ******
@@ -276,7 +276,7 @@ Feature: Feature2
 
 ----
 When ::
-I convert them using tag order icon:thumbs-up[role="green",title="Passed"] [small right]#(006ms)#
+I convert them using tag order icon:thumbs-up[role="green",title="Passed"] [small right]#(008ms)#
 Then ::
 Features should be ordered respecting order tag icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ******
@@ -350,7 +350,7 @@ Asciidoc markup can be used in feature *DocStrings*. To do so you can enable it 
 
 ==========
 Given ::
-The following two features: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+The following two features: icon:thumbs-up[role="green",title="Passed"] [small right]#(001ms)#
 ******
 
 [discrete]
@@ -395,9 +395,9 @@ Feature: Discrete class feature
 
 ******
 When ::
-I convert enriched docstring with asciidoc content type using cukedoctor converter icon:thumbs-up[role="green",title="Passed"] [small right]#(007ms)#
+I convert enriched docstring with asciidoc content type using cukedoctor converter icon:thumbs-up[role="green",title="Passed"] [small right]#(015ms)#
 Then ::
-DocString asciidoc output must be rendered in my documentation icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+DocString asciidoc output must be rendered in my documentation icon:thumbs-up[role="green",title="Passed"] [small right]#(001ms)#
 ******
 
 [discrete]
@@ -520,7 +520,7 @@ Feature: Discrete class feature
 
 ******
 When ::
-I convert enriched docstring with asciidoc feature tag using cukedoctor converter icon:thumbs-up[role="green",title="Passed"] [small right]#(008ms)#
+I convert enriched docstring with asciidoc feature tag using cukedoctor converter icon:thumbs-up[role="green",title="Passed"] [small right]#(018ms)#
 Then ::
 DocString asciidoc output must be rendered in my documentation icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ******
@@ -647,7 +647,7 @@ Feature: Discrete class feature
 
 ******
 When ::
-I convert enriched docstring with asciidoc scenario tag using cukedoctor converter icon:thumbs-up[role="green",title="Passed"] [small right]#(007ms)#
+I convert enriched docstring with asciidoc scenario tag using cukedoctor converter icon:thumbs-up[role="green",title="Passed"] [small right]#(005ms)#
 Then ::
 DocString asciidoc output must be rendered in my documentation icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ******
@@ -873,7 +873,7 @@ scenario step icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 
 ==========
 Given ::
-The following two features: icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+The following two features: icon:thumbs-up[role="green",title="Passed"] [small right]#(001ms)#
 ----
 
 @someTag
@@ -891,7 +891,7 @@ Feature: Feature1
 
 ----
 When ::
-I render the feature icon:thumbs-up[role="green",title="Passed"] [small right]#(007ms)#
+I render the feature icon:thumbs-up[role="green",title="Passed"] [small right]#(017ms)#
 Then ::
 the tags displayed under each scenario should not have duplicates icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ----
