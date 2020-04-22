@@ -1,10 +1,11 @@
+@asciidoc
 Feature: Discrete class feature
+  `asciidoc` docstring content type is used to enable asciidoc in cucumber docstrings
 
   Scenario: Render source code
 
-    # cukedoctor-discrete
     Given the following source code
-    """
+    """asciidoc
 [source, java]
 -----
 public int sum(int x, int y){
@@ -17,9 +18,8 @@ public int sum(int x, int y){
 
   Scenario: Render table
 
-    # cukedoctor-discrete
     Given the following table
-    """
+    """asciidoc
 |===
 
 | Cell in column 1, row 1 | Cell in column 2, row 1

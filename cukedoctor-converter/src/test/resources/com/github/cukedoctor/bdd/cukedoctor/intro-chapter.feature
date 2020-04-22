@@ -1,4 +1,4 @@
-# order: 3
+@order-3
 Feature: Documentation introduction chapter
   ====
   [quote]

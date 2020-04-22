@@ -3,8 +3,7 @@ package com.github.cukedoctor.bdd.cukedoctor;
 import com.github.cukedoctor.Cukedoctor;
 import com.github.cukedoctor.api.model.Feature;
 import com.github.cukedoctor.parser.FeatureParser;
-import cucumber.api.java.en.Then;
-import cucumber.api.java.en.When;
+import io.cucumber.java.en.*;
 
 import java.net.URL;
 import java.util.List;
@@ -25,6 +24,12 @@ public class TagRenderingSteps {
 
     @Then("^the tags displayed under each scenario should not have duplicates$")
     public void the_tags_displayed_under_each_scenario_should_not_have_duplicates(String expected) {
+        assertThat(documentation.replaceAll("\r", "")).isNotNull().contains(expected.replaceAll("\r", ""));
+    }
+
+
+    @Then("Cukedoctor tags should not be rendered in documentation")
+    public void Cukedoctor_tags_should_not_be_rendered_in_documentation(String expected) {
         assertThat(documentation.replaceAll("\r", "")).isNotNull().contains(expected.replaceAll("\r", ""));
     }
 }

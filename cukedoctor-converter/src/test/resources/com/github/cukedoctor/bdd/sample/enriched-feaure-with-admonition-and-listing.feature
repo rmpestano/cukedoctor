@@ -1,17 +1,20 @@
+@asciidoc
 Feature: Enriched feature
 
   Scenario: Scenario with admonition and  listing
-   You can use *asciidoc markup* using feature comments.
+   You can use *asciidoc markup* in docstrings by using `@asciidoc` tag at feature or scenario.
 
-#{[TIP]}
-#{====}
-#{This is a tip with source code inside}
-#{[source,java]}
-#{----}
-#{System.setProperty("INTRO_CHAPTER_DIR","/home/some/external/folder");}
-#{----}
-#{====}
-   Given I have admonition with a listing in feature comments.
+   Given I have admonition with a listing in step docstring.
+    """
+   [TIP]
+    ====
+    This is a tip with source code inside
+    [source,java]
+    ----
+    System.setProperty("INTRO_CHAPTER_DIR","/home/some/external/folder");
+    ----
+    ====
+    """
    
 
  

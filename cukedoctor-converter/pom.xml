@@ -52,6 +52,19 @@
             <version>1.11.3</version>
             <scope>provided</scope>
         </dependency>
+
+        <dependency>
+            <groupId>io.cucumber</groupId>
+            <artifactId>cucumber-junit</artifactId>
+            <version>5.6.0</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>io.cucumber</groupId>
+            <artifactId>cucumber-java</artifactId>
+            <version>5.6.0</version>
+            <scope>test</scope>
+        </dependency>
     </dependencies>
 
     <profiles>
@@ -153,7 +166,7 @@
                             <dependency>
                                 <groupId>org.jruby</groupId>
                                 <artifactId>jruby-complete</artifactId>
-                                <version>9.0.4.0</version>
+                                <version>9.2.11.1</version>
                              </dependency>
                         </dependencies>
                     </plugin>

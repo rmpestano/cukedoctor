@@ -1,7 +1,7 @@
 package com.github.cukedoctor.bdd.sample;
 
-import cucumber.api.PendingException;
-import cucumber.api.java.en.Given;
+
+import io.cucumber.java.en.Given;
 
 /**
  * Created by rafael-pestano on 08/03/2016.

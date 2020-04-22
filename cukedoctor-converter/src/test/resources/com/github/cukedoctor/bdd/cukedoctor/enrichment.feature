@@ -1,4 +1,5 @@
-# order: 2
+@order-2
+@asciidoc
 Feature: Enrich features
   ====
   [quote]
@@ -8,96 +9,20 @@ Feature: Enrich features
   I want to render asciidoc markup inside my features.
   ____
   ====
-  Scenario: DocString enrichment activated by a step comment
-Asciidoc markup can be used in feature *DocStrings*. To do so you can enable it by using *[cukedoctor-discrete]* comment on the step containing the DocString.
 
-  Given The following two features:
-"""
-Feature: Discrete class feature
+  https://asciidoctor.org/docs/what-is-asciidoc/[Asciidoc^] markup can be used in feature *DocStrings*. To do so you can enable it by using *@asciidoc* tag at `feature` or `scenario` level.
 
-  Scenario: Render source code
+  [IMPORTANT]
+  =====
+  Adding @asciidoc tag at *feature level* will make cukedoctor interpret `all features docstrings` as Asciidoc markup.
 
-    # cukedoctor-discrete
-    Given the following source code in docstrings
-\"\"\"
-  [source, java]
-  -----
-  public int sum(int x, int y){
-  int result = x + y;
-  return result; <1>
-  }
-  -----
-  <1> We can have callouts in living documentation
-\"\"\"
+  Adding @asciidoc at *scenario level* will make cukedoctor interpret `all steps docstrings` as asciidoc markup.
 
-  Scenario: Render table
+  TIP: To enable asciidoc markup in a *single step* you can use `asciidoc` as https://relishapp.com/cucumber/cucumber/docs/gherkin/doc-strings#docstring-with-interesting-content-type[docstring content type^].
+  =====
 
-    # cukedoctor-discrete
-    Given the following table
- \"\"\"
-  |===
+  NOTE: Feature and scenario descriptions are automatically interpreted as Asciidoc markup without the need for adding the feature tag.
 
-  | Cell in column 1, row 1 | Cell in column 2, row 1
-  | Cell in column 1, row 2 | Cell in column 2, row 2
-  | Cell in column 1, row 3 | Cell in column 2, row 3
-
-  |===
-\"\"\"
-"""
-
-  When I convert docstring enriched json output activated with a step comment using cukedoctor converter
-
-    # cukedoctor-discrete
-  Then DocString asciidoc output must be rendered in my documentation
-"""
-== *Features*
-
-[[Discrete-class-feature, Discrete class feature]]
-=== *Discrete class feature*
-
-==== Scenario: Render source code
-
-==========
-Given ::
-the following source code in docstrings icon:thumbs-up[role="green",title="Passed"] [small right]#(267ms)#
-******
-
-[discrete]
-[source, java]
------
-public int sum(int x, int y){
-    int result = x + y;
-    return result; <1>
-}
------
-<1> We can have callouts in living documentation>
-
-
-******
-
-==========
-
-==== Scenario: Render table
-
-==========
-Given ::
-the following table icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
-******
-
-[discrete]
-|===
-| Cell in column 1, row 1 | Cell in column 2, row 1
-| Cell in column 1, row 2 | Cell in column 2, row 2
-| Cell in column 1, row 3 | Cell in column 2, row 3
-|===
-
-
-******
-
-==========
-
-
-"""
 
   Scenario: DocString enrichment activated by the content type
   Asciidoc markup can be used in feature *DocStrings*. To do so you can enable it by using the content type *[asciidoc]* in the DocString.
@@ -134,11 +59,10 @@ Feature: Discrete class feature
 \"\"\"
 """
 
-    When I convert docstring enriched json output activated with the content type using cukedoctor converter
+    When I convert enriched docstring with asciidoc content type using cukedoctor converter
 
-    # cukedoctor-discrete
     Then DocString asciidoc output must be rendered in my documentation
-"""
+"""asciidoc
 == *Features*
 
 [[Discrete-class-feature, Discrete class feature]]
@@ -223,11 +147,10 @@ Feature: Discrete class feature
 \"\"\"
 """
 
-    When I convert docstring enriched json output activated with a feature tag using cukedoctor converter
+    When I convert enriched docstring with asciidoc feature tag using cukedoctor converter
 
-    # cukedoctor-discrete
     Then DocString asciidoc output must be rendered in my documentation
-"""
+"""asciidoc
 == *Features*
 
 [[Discrete-class-feature, Discrete class feature]]
@@ -313,11 +236,11 @@ Feature: Discrete class feature
 \"\"\"
 """
 
-    When I convert docstring enriched json output activated with a scenario tag using cukedoctor converter
+    When I convert enriched docstring with asciidoc scenario tag using cukedoctor converter
 
-    # cukedoctor-discrete
+
     Then DocString asciidoc output must be rendered in my documentation
-"""
+"""asciidoc
 == *Features*
 
 [[Discrete-class-feature, Discrete class feature]]
@@ -361,71 +284,6 @@ the following table icon:thumbs-up[role="green",title="Passed"] [small right]#(0
 
 
 ******
-==========
-
-
-"""
-
-  Scenario: Comments enrichment
-  Asciidoc markup can be used in feature comments. To do so you need to surround asciidoc markup by *curly brackets*;.
-
-    Given The following feature with asciidoc markup in comments:
-"""
-Feature: Calculator
-
-  Scenario: Adding numbers
-   You can *asciidoc markup* in _feature_ #description#.
-
-    NOTE: This is a very important feature!
-
-    #{IMPORTANT: Asciidoc markup inside *steps* must be surrounded by *curly brackets*.}
-    Given I have numbers 1 and 2
-
-    # {NOTE: Steps comments are placed *before* each steps so this comment is for the *WHEN* step.}
-
-    When I sum the numbers
-    # {* this is a list of itens inside a feature step}
-    # {* there is no multiline comment in gherkin}
-    # {** second level list item}
-    Then I should have 3 as result
-
-"""
-
-    When I convert enriched feature json output using cukedoctor
-
-# cukedoctor-discrete
-    Then Asciidoc markup on comments must be rendered in my documentation
-"""
-==*Features*
-
-[[Calculator,Calculator]]
-===*Calculator*
-
-====Scenario:Addingnumbers
-Youcanuse*asciidocmarkup*in_feature_#description#.
-
-NOTE:Thisisaveryimportantfeature!
-
-==========
-Given::
-Ihavenumbers1and2icon:thumbs-up[role="green",title="Passed"][smallright]#(114ms)#
-
-IMPORTANT:Asciidocmarkupinside*steps*mustbesurroundedby*curlybrackets*.
-
-When::
-Isumthenumbersicon:thumbs-up[role="green",title="Passed"][smallright]#(000ms)#
-
-NOTE:Stepscommentsareplaced*before*eachstepssothiscommentisforthe*WHEN*step.
-
-Then::
-Ishouldhave3asresulticon:thumbs-up[role="green",title="Passed"][smallright]#(001ms)#
-
-*thisisalistofitensinsideafeaturestep
-
-*thereisnomultilinecommentingherkin
-
-**secondlevellistitem
-
 ==========
 
 

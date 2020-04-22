@@ -1,6 +1,6 @@
 package com.github.cukedoctor.bdd.sample;
 
-import cucumber.api.java.en.Given;
+import io.cucumber.java.en.Given;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.Assert.assertTrue;
@@ -10,13 +10,13 @@ import static org.junit.Assert.assertTrue;
  */
 public class EnrichmentSteps {
 
-    @Given("^I have listing in feature comments.$")
-    public void I_have_listing_in_feature_comments() throws Throwable {
+    @Given("^I have listing in step docstring.$")
+    public void I_have_listing_in_feature_comments(String asciidoc) throws Throwable {
        assertTrue(true);
     }
 
-    @Given("^I have admonition with a listing in feature comments.$")
-    public void I_have_admonition_with_a_listing_in_feature_comments() throws Throwable {
+    @Given("^I have admonition with a listing in step docstring.$")
+    public void I_have_admonition_with_a_listing_in_feature_comments(String asciidoc) throws Throwable {
         assertThat(Boolean.TRUE).isEqualTo(true);
     }
 

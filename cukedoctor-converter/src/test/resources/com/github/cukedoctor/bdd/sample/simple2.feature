@@ -1,4 +1,4 @@
-# order: 1
+@order-2
 Feature: Feature2
 
   Scenario: Scenario feature 2

@@ -1,4 +1,4 @@
-# order: 0
+@order-0
 Feature: Cukedoctor Converter
   ====
   [quote]
@@ -24,9 +24,8 @@ Feature: Feature2
 
     Given scenario step
 """
-    # cukedoctor-discrete
     When I convert their json test output using cukedoctor converter
-"""
+"""asciidoc
 [IMPORTANT]
 ======
 To generate cucumber .json output files just execute your _BDD_ tests with *json* formatter, example:
@@ -41,9 +40,8 @@ NOTE: *plugin* option replaced *format* option which was deprecated in newer cuc
 ======
 """
 
-    # cukedoctor-discrete
     Then I should have awesome living documentation
-"""
+"""asciidoc
 
 = *Documentation*
 

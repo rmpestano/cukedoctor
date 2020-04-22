@@ -157,7 +157,6 @@ To generate cucumber .json output files just execute your _BDD_ tests with *json
 @RunWith(Cucumber.class)
 @CucumberOptions(plugin = {"json:target/cucumber.json"} )
 ----
-NOTE: *plugin* option replaced *format* option which was deprecated in newer cucumber versions.
 
 ======
 
@@ -315,12 +314,14 @@ And it will be rendered as follows:
 
 image::enrich.png[]
 
+IMPORTANT: Step comments are only supported by *Cucumber-jvm 1.x*
+
 ==== Asciidoc markup in DocStrings
 
 You can use Asciidoc markup in https://www.relishapp.com/cucumber/cucumber/docs/gherkin/doc-strings[feature DocStrings].
 The Features below show the different ways of achieving this:
 
-* Step comment `#cukedoctor-discrete` (cucumber-jvm 1.x only)
+* Step comment `#cukedoctor-discrete` (*cucumber-jvm 1.x* only)
 ** Applies to all DocStrings in the commented step
 * Content type `asciidoc`
 ** Must be applied to each DocString you wish to be enriched

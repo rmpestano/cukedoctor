@@ -1,10 +1,8 @@
 package com.github.cukedoctor.bdd.sample;
 
-import cucumber.api.PendingException;
-import cucumber.api.java.en.Given;
+import io.cucumber.java.en.Given;
 
 import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertTrue;
 
 /**
  * Created by rafael-pestano on 07/03/2016.

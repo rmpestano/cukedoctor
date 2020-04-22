@@ -3,9 +3,7 @@ package com.github.cukedoctor.bdd.cukedoctor;
 import com.github.cukedoctor.Cukedoctor;
 import com.github.cukedoctor.api.model.Feature;
 import com.github.cukedoctor.parser.FeatureParser;
-import cucumber.api.java.en.Given;
-import cucumber.api.java.en.Then;
-import cucumber.api.java.en.When;
+import io.cucumber.java.en.*;
 
 import java.net.URL;
 import java.util.List;
@@ -25,17 +23,17 @@ public class EnrichmentSteps {
         getFeatureFixture("/json-output/enrichment/table-and-source-step-comment.json");
     }
 
-    @When("^I convert docstring enriched json output activated with the content type using cukedoctor converter$")
-    public void I_convert_docstring_enriched_json_output_activiated_with_the_content_type_using_cukedoctor_converter() throws Throwable {
+    @When("^I convert enriched docstring with asciidoc content type using cukedoctor converter$")
+    public void I_convert_enriched_docstring_with_content_type_using_cukedoctor_converter() throws Throwable {
         getFeatureFixture("/json-output/enrichment/table-and-source-content-type.json");
     }
 
-    @When("^I convert docstring enriched json output activated with a feature tag using cukedoctor converter$")
+    @When("^I convert enriched docstring with asciidoc feature tag using cukedoctor converter$")
     public void I_convert_docstring_enriched_json_output_activiated_with_a_feature_tag_using_cukedoctor_converter() throws Throwable {
         getFeatureFixture("/json-output/enrichment/table-and-source-feature-tag.json");
     }
 
-    @When("^I convert docstring enriched json output activated with a scenario tag using cukedoctor converter$")
+    @When("^I convert enriched docstring with asciidoc scenario tag using cukedoctor converter$")
     public void I_convert_docstring_enriched_json_output_activiated_with_a_scenario_tag_using_cukedoctor_converter() throws Throwable {
         getFeatureFixture("/json-output/enrichment/table-and-source-scenario-tag.json");
     }
@@ -50,15 +48,6 @@ public class EnrichmentSteps {
         getFeatureFixture("/json-output/enrichment/calc.json");
     }
 
-    @Then("^Asciidoc markup on comments must be rendered in my documentation$")
-    public void Asciidoc_output_must_be_rendered_in_my_documentation(String expected) throws Throwable {
-        assertThat(documentation.replaceAll("\r","").replaceAll(" ","")).contains(expected.replaceAll("\r","").replaceAll(" ",""));
-    }
-
-    @Given("^The following feature with asciidoc markup in comments:$")
-    public void The_following_feature_with_asciidoc_markup_in_comments(String features) throws Throwable {
-        assertThat(features).isNotNull();
-    }
 
     private void getFeatureFixture(String fixturePath) {
         URL featureFile = getClass().getResource(fixturePath);
