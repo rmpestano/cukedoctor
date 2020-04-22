@@ -15,10 +15,15 @@
 
 5 - upload jars published in local maven repo to version created in bintray
 
-6 - manually revert the version number in each module pom
+6 - update cukedoctor docker image: from cukedoctor-main module execute:
+   docker build -t rmpestano/cukedoctor . && docker tag rmpestano/cukedoctor:latest rmpestano/cukedoctor:new_version
+   docker push rmpestano/cukedoctor:new_version
+   docker push rmpestano/cukedoctor:latest
 
-7 - mvn release:prepare -Prelease -Darguments="-DskipTests" -Dmaven.javadoc.skip=true -Dmaven.test.skip=true
+7 - manually revert the version number in each module pom
 
-8 - update tag description on github with the release notes from the opened milestone
+8 - mvn release:prepare -Prelease -Darguments="-DskipTests" -Dmaven.javadoc.skip=true -Dmaven.test.skip=true
 
-9 - close the milestone in github
+9 - update tag description on github with the release notes from the opened milestone
+
+10 - close the milestone in github
