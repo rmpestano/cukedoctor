@@ -2,6 +2,7 @@ package com.github.cukedoctor.util;
 
 import java.nio.file.Files;
 import java.nio.file.Paths;
+
 import static java.lang.System.getProperty;
 
 /**
@@ -165,6 +166,8 @@ public abstract class Constants {
 		public static String chapterLabel(String value) {
 		    	return ":chapter-label: " + value;
 		}
+
+		public static String stem(String value) { return ":stem: " + value;  }
 	}
 
 	public static <T> T getProp(String property, Class<T> type) {

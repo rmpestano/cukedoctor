@@ -115,6 +115,14 @@ public class AttributesBuilderImpl implements AttributesBuilder {
     }
 
     @Override
+    public AttributesBuilder stem(String value) {
+        if (value == null) return this;
+
+        docBuilder.textLine(Constants.Atributes.stem(value));
+        return this;
+    }
+
+    @Override
     public AsciiDocBuilder asciiDocBuilder(){
         return docBuilder;
     }

@@ -324,6 +324,45 @@ public class CukedoctorConverterTest {
         assertEquals(expected.replace("\r", ""), document.replace("\r", ""));
     }
 
+    @Test
+    public void shouldRenderStemAttribute() {
+        List<Feature> features = new ArrayList<>();
+        features.add(FeatureBuilder.instance().id("id").name("name").build());
+
+        DocumentAttributes attrs = new DocumentAttributes()
+                .stem("latexmath")
+                .toc("right")
+                .backend("html5")
+                .docType("article")
+                .docTitle("Title")
+                .icons("font")
+                .numbered(false)
+                .sectAnchors(true)
+                .sectLink(true)
+                .chapterLabel("Chapter")
+                .versionLabel("Version");
+
+        String expected =
+                ":toc: right" + newLine() +
+                        ":backend: html5" + newLine() +
+                        ":doctitle: Title" + newLine() +
+                        ":doctype: article" + newLine() +
+                        ":icons: font" + newLine() +
+                        ":!numbered:" + newLine() +
+                        ":!linkcss:" + newLine() +
+                        ":sectanchors:" + newLine() +
+                        ":sectlink:" + newLine() +
+                        ":docinfo:" + newLine() +
+                        ":source-highlighter: highlightjs\n:toclevels: 3\n:hardbreaks:" + newLine() +
+                        ":chapter-label: Chapter" + newLine() +
+                        ":version-label: Version" + newLine() +
+                        ":stem: latexmath" + newLine();
+
+        String document = Cukedoctor.instance(features, attrs).renderAttributes().getDocumentation();
+
+        assertEquals(expected.replace("\r", ""), document.replace("\r", ""));
+    }
+
 
     // renderSummary() tests
 
@@ -686,10 +725,10 @@ public class CukedoctorConverterTest {
         assertThat(features).hasSize(1);
         CukedoctorConverter converter = Cukedoctor.instance(features, new DocumentAttributes());
         converter.setFilename("target/living_documentation.adoc");
-        String resultDoc = converter.renderDocumentation();
+        String resultDoc = converter.renderDocumentation().replaceAll("\r\n|\r|\n", newLine());
         assertThat(resultDoc).contains("****" + newLine() +
-                "As a user" + newLine() +
-                "I want to do something" + newLine() +
+                "As a user " + newLine() +
+                "I want to do something " + newLine() +
                 "In order to achieve an important goal" + newLine() +
                 "****");
         FileUtil.saveFile("target/sample.adoc", resultDoc);

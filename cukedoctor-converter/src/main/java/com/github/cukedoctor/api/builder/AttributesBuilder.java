@@ -41,6 +41,8 @@ public interface AttributesBuilder {
     
     AttributesBuilder versionLabel(String value);
 
+    AttributesBuilder stem(String value);
+
     AsciiDocBuilder asciiDocBuilder();
 
 }

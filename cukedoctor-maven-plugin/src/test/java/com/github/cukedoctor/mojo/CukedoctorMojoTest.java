@@ -418,6 +418,24 @@ public class CukedoctorMojoTest extends AbstractMojoTestCase {
         File htmlFile = FileUtil.loadFile(mojo.getDocumentationDir() + mojo.outputFileName + ".html");
         assertThat(htmlFile).exists().hasParent("target/docs");
 
-    }  
-    
+    }
+
+    /**
+     * @throws Exception
+     */
+    public void testGenerateStem() throws Exception {
+
+        CukedoctorMojo mojo = (CukedoctorMojo) lookupMojo("execute", getTestFile("src/test/resources/html-docs-stem-pom.xml"));
+
+        assertNotNull(mojo);
+        mojo.execute();
+
+        File file = FileUtil.loadFile(mojo.getDocumentationDir() + mojo.outputFileName + ".html");
+        assertThat(file).exists().hasParent("target/docs");
+        assertThat(mojo.getGeneratedFile()).contains(":stem: latexmath");
+
+        String docHtml = readFileContent(loadTestFile("documentation.html"));
+        assertThat(docHtml).isNotEmpty();
+    }
+
 }

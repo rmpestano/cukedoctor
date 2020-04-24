@@ -784,6 +784,10 @@ mvn cukedoctor:execute
 |When present, this flag hides `tags` rendering
 |
 
+|stem
+|When present, sets the asciidoc stem attribute to the specified interpreter e.g. `latexmath`
+|
+
 |====
 
 === Disable extensions

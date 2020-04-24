@@ -34,16 +34,16 @@ import org.apache.maven.plugins.annotations.Mojo;
 import org.apache.maven.plugins.annotations.Parameter;
 import org.apache.maven.project.MavenProject;
 import org.asciidoctor.Asciidoctor;
+import org.asciidoctor.Attributes;
 import org.asciidoctor.OptionsBuilder;
 import org.asciidoctor.SafeMode;
+import org.asciidoctor.extension.ExtensionGroup;
 
 import java.io.File;
 import java.util.List;
 
 import static com.github.cukedoctor.extension.CukedoctorExtensionRegistry.CUKEDOCTOR_EXTENSION_GROUP_NAME;
 import static com.github.cukedoctor.extension.CukedoctorExtensionRegistry.FILTER_DISABLE_EXT_KEY;
-import org.asciidoctor.Attributes;
-import org.asciidoctor.extension.ExtensionGroup;
 
 @Mojo(name = "execute",
         defaultPhase = LifecyclePhase.INSTALL)
@@ -121,6 +121,9 @@ public class CukedoctorMojo extends AbstractMojo {
     @Parameter(property = "cukedoctor.skip", defaultValue = "false")
     private boolean skip;
 
+    @Parameter(property = "stem", required = false)
+    String stem;
+
 
     @Component
     MavenProject project;
@@ -194,7 +197,8 @@ public class CukedoctorMojo extends AbstractMojo {
                 hardBreaks(hardBreaks).
                 numbered(numbered).
                 chapterLabel(chapterLabel).
-                versionLabel(versionLabel);
+                versionLabel(versionLabel).
+                stem(stem);
 
         if (documentTitle == null) {
             documentTitle = "Living Documentation";
