@@ -24,6 +24,7 @@ public class DocumentAttributes {
 	private String pdfStyle;
 	private String chapterLabel = "Chapter";
 	private String versionLabel = "Version";
+	private String stem = null;
 
 
 	public DocumentAttributes() {
@@ -117,6 +118,11 @@ public class DocumentAttributes {
 		return this;
 	}
 
+	public DocumentAttributes stem(String stem) {
+		this.stem = stem;
+		return this;
+	}
+
 	public String getBackend() {
 		return backend;
 	}
@@ -184,6 +190,8 @@ public class DocumentAttributes {
 	public boolean isHardBreaks() {
 		return hardBreaks;
 	}
+
+	public String getStem() { return stem; }
 
 
 	//setters needed by snakeyml
@@ -256,6 +264,8 @@ public class DocumentAttributes {
 	public void setHardBreaks(boolean hardBreaks) {
 		this.hardBreaks = hardBreaks;
 	}
+
+	public void setStem(String stem) { this.stem = stem; }
 
 
 }

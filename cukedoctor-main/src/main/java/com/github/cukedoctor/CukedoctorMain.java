@@ -83,6 +83,9 @@ public class CukedoctorMain {
     @Parameter(names = "-allowUriRead", description = "Allow include content be referenced by an URI. Default is false", required = false)
     private Boolean allowUriRead;
 
+    @Parameter(names = "-stem", description = "Sets asciidoctor stem attribute with the specified interpreter. By default, the stem attribute is set using asciidoctor's default interpreter ", required = false)
+    private String stem;
+
     private static List<Feature> searchPathAndScan(String path) {
         if (path.endsWith(".json")) {
             return FeatureParser.parse(FileUtil.findJsonFile(path));
@@ -179,7 +182,8 @@ public class CukedoctorMain {
                 hardBreaks(hardBreaks).
                 numbered(numbered).
                 chapterLabel(chapterLabel).
-                versionLabel(versionLabel);
+                versionLabel(versionLabel).
+                stem(stem);
 
         if(sourceHighlighter != null){
             documentAttributes.sourceHighlighter(sourceHighlighter);

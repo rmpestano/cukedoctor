@@ -344,29 +344,49 @@ public class CukedoctorMainTest {
 
     @Test
     public void shouldCreateDocumentationUsingChapterLabelAndVersionLabel() throws IOException {
-        String generatedDoc = new CukedoctorMain().execute(new String[]{
-                "-chapterLabel", "mychapter",
-                "-versionLabel", "myversion"
-        });
+        try {
+            String generatedDoc = new CukedoctorMain().execute(new String[]{
+                    "-chapterLabel", "mychapter",
+                    "-versionLabel", "myversion"
+            });
 
-        System.out.flush();
-        String output = baos.toString();
-        assertThat(output).contains("Generating living documentation with args:" + newLine() +
-                "-f: html5" + newLine() +
-                "-p: " + newLine() +
-                "-t: Living Documentation" + newLine() +
-                "-o: Living-Documentation" + newLine());
+            System.out.flush();
+            String output = baos.toString();
+            assertThat(output).contains("Generating living documentation with args:" + newLine() +
+                    "-f: html5" + newLine() +
+                    "-p: " + newLine() +
+                    "-t: Living Documentation" + newLine() +
+                    "-o: Living-Documentation" + newLine());
 
-        baos.close();
-        assertThat(generatedDoc).
-                contains(":!numbered:").contains(":toc: right").
-                contains(":sectlink:").
-                containsOnlyOnce("= *Living Documentation*").
-                contains(":chapter-label: mychapter").
-                contains(":version-label: myversion");
+            baos.close();
+            assertThat(generatedDoc).
+                    contains(":!numbered:").contains(":toc: right").
+                    contains(":sectlink:").
+                    containsOnlyOnce("= *Living Documentation*").
+                    contains(":chapter-label: mychapter").
+                    contains(":version-label: myversion");
+        } finally {
+            FileUtil.removeFile("Living-Documentation.adoc");
+            FileUtil.removeFile("Living-Documentation.html");
+        }
+    }
 
+    @Test
+    public void shouldRenderStemWhenSpecifiedOnCommandLine()  throws IOException {
+        try {
+            String generatedDoc = new CukedoctorMain().execute(new String[]{
+                    "-stem", "latexmath"
+            });
 
-        FileUtil.removeFile("Living-Documentation.adoc");
-        FileUtil.removeFile("Living-Documentation.html");
+            System.out.flush();
+            baos.close();
+
+            assertThat(generatedDoc).contains(":stem: latexmath" + newLine());
+
+        } finally {
+            FileUtil.removeFile("Living-Documentation.adoc");
+            FileUtil.removeFile("Living-Documentation.html");
+
+        }
     }
 }

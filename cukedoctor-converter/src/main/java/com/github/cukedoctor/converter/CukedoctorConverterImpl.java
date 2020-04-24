@@ -1,13 +1,5 @@
 package com.github.cukedoctor.converter;
 
-import static com.github.cukedoctor.util.Assert.hasElements;
-import static com.github.cukedoctor.util.Assert.hasText;
-import static com.github.cukedoctor.util.Assert.notNull;
-import static com.github.cukedoctor.util.Constants.newLine;
-import static com.github.cukedoctor.util.Constants.Markup.bold;
-
-import java.util.*;
-
 import com.github.cukedoctor.api.CukedoctorConverter;
 import com.github.cukedoctor.api.CukedoctorDocumentBuilder;
 import com.github.cukedoctor.api.DocumentAttributes;
@@ -20,6 +12,14 @@ import com.github.cukedoctor.spi.FeatureRenderer;
 import com.github.cukedoctor.spi.SummaryRenderer;
 import com.github.cukedoctor.util.Constants;
 import com.github.cukedoctor.util.FileUtil;
+
+import java.util.Collections;
+import java.util.List;
+import java.util.ServiceLoader;
+
+import static com.github.cukedoctor.util.Assert.*;
+import static com.github.cukedoctor.util.Constants.Markup.bold;
+import static com.github.cukedoctor.util.Constants.newLine;
 
 
 /**
@@ -147,7 +147,8 @@ public class CukedoctorConverterImpl implements CukedoctorConverter {
 					.revNumber(documentAttributes.getRevNumber())
 					.hardBreaks(documentAttributes.isHardBreaks())
 					.chapterLabel(documentAttributes.getChapterLabel())
-					.versionLabel(documentAttributes.getVersionLabel());
+					.versionLabel(documentAttributes.getVersionLabel())
+					.stem(documentAttributes.getStem());
 			if(hasText(documentAttributes.getPdfStyle())) {
 				docBuilder.attributes().pdfStyle(documentAttributes.getPdfStyle());
 			}
