@@ -3,7 +3,7 @@
     "line": 2,
     "elements": [
       {
-        "start_timestamp": "2020-04-22T13:12:35.765Z",
+        "start_timestamp": "2020-04-25T10:27:16.331Z",
         "line": 11,
         "name": "Convert features test output into documentation",
         "description": "",
@@ -28,7 +28,7 @@
           },
           {
             "result": {
-              "duration": 15000000,
+              "duration": 21000000,
               "status": "passed"
             },
             "line": 27,
@@ -45,6 +45,7 @@
           },
           {
             "result": {
+              "duration": 1000000,
               "status": "passed"
             },
             "line": 43,
@@ -87,7 +88,7 @@
     "line": 2,
     "elements": [
       {
-        "start_timestamp": "2020-04-22T13:12:35.784Z",
+        "start_timestamp": "2020-04-25T10:27:16.370Z",
         "line": 26,
         "name": "DocString enrichment activated by the content type",
         "description": "  Asciidoc markup can be used in feature *DocStrings*. To do so you can enable it by using the content type *[asciidoc]* in the DocString.",
@@ -97,6 +98,7 @@
         "steps": [
           {
             "result": {
+              "duration": 1000000,
               "status": "passed"
             },
             "line": 29,
@@ -112,7 +114,7 @@
           },
           {
             "result": {
-              "duration": 6000000,
+              "duration": 16000000,
               "status": "passed"
             },
             "line": 61,
@@ -146,7 +148,7 @@
         ]
       },
       {
-        "start_timestamp": "2020-04-22T13:12:35.797Z",
+        "start_timestamp": "2020-04-25T10:27:16.401Z",
         "line": 113,
         "name": "DocString enrichment activated by a feature tag",
         "description": "  Asciidoc markup can be used in feature *DocStrings*. You can enable this by applying the tag [@asciidoc] to the feature. Note this enables the enrichment for all DocStrings within the feature.",
@@ -171,7 +173,7 @@
           },
           {
             "result": {
-              "duration": 7000000,
+              "duration": 11000000,
               "status": "passed"
             },
             "line": 149,
@@ -205,7 +207,7 @@
         ]
       },
       {
-        "start_timestamp": "2020-04-22T13:12:35.807Z",
+        "start_timestamp": "2020-04-25T10:27:16.414Z",
         "line": 201,
         "name": "DocString enrichment activated by a scenario tag",
         "description": "  Asciidoc markup can be used in feature *DocStrings*. You can enable this by applying the tag [@asciidoc] to the scenario. Note this enables the enrichment for all DocStrings within the scenario.",
@@ -230,7 +232,7 @@
           },
           {
             "result": {
-              "duration": 7000000,
+              "duration": 6000000,
               "status": "passed"
             },
             "line": 238,
@@ -284,7 +286,7 @@
     "line": 2,
     "elements": [
       {
-        "start_timestamp": "2020-04-22T13:12:35.816Z",
+        "start_timestamp": "2020-04-25T10:27:16.426Z",
         "line": 11,
         "name": "Introduction chapter in classpath",
         "description": "  NOTE: The introduction file must be named *intro-chapter.adoc* and can be in any package of your application,\n\n  [TIP]\n  \u003d\u003d\u003d\u003d\n  By default Cukedoctor will look into application folders but you can make Cukedoctor look into external folder by setting the following system property:\n  [source,java]\n  ----\n  System.setProperty(\"INTRO_CHAPTER_DIR\",\"/home/some/external/folder\");\n  ----\n  \u003d\u003d\u003d\u003d",
@@ -309,7 +311,7 @@
           },
           {
             "result": {
-              "duration": 7000000,
+              "duration": 16000000,
               "status": "passed"
             },
             "line": 39,
@@ -380,7 +382,7 @@
     "line": 2,
     "elements": [
       {
-        "start_timestamp": "2020-04-22T13:12:35.829Z",
+        "start_timestamp": "2020-04-25T10:27:16.450Z",
         "line": 12,
         "name": "Default ordering",
         "description": "",
@@ -405,7 +407,7 @@
           },
           {
             "result": {
-              "duration": 6000000,
+              "duration": 11000000,
               "status": "passed"
             },
             "line": 28,
@@ -417,6 +419,7 @@
           },
           {
             "result": {
+              "duration": 1000000,
               "status": "passed"
             },
             "line": 30,
@@ -439,7 +442,7 @@
         ]
       },
       {
-        "start_timestamp": "2020-04-22T13:12:35.839Z",
+        "start_timestamp": "2020-04-25T10:27:16.471Z",
         "line": 57,
         "name": "Custom ordering with tags",
         "description": "    NOTE: Ordering is done using feature tag *@order-*",
@@ -464,7 +467,7 @@
           },
           {
             "result": {
-              "duration": 6000000,
+              "duration": 17000000,
               "status": "passed"
             },
             "line": 77,
@@ -518,7 +521,7 @@
     "line": 2,
     "elements": [
       {
-        "start_timestamp": "2020-04-22T13:12:35.848Z",
+        "start_timestamp": "2020-04-25T10:27:16.496Z",
         "line": 4,
         "name": "Render feature tags in that feature\u0027s scenarios",
         "description": "",
@@ -543,7 +546,7 @@
           },
           {
             "result": {
-              "duration": 6000000,
+              "duration": 13000000,
               "status": "passed"
             },
             "line": 22,
@@ -555,7 +558,6 @@
           },
           {
             "result": {
-              "duration": 1000000,
               "status": "passed"
             },
             "line": 24,
@@ -578,7 +580,7 @@
         ]
       },
       {
-        "start_timestamp": "2020-04-22T13:12:35.857Z",
+        "start_timestamp": "2020-04-25T10:27:16.512Z",
         "line": 52,
         "name": "Ignore cukedoctor tags in resulting documentation",
         "description": "   Cukedoctor specific tags like `@asciidoc` and `@order` *should not* be rendered in resulting documentation.",
@@ -604,7 +606,7 @@
           },
           {
             "result": {
-              "duration": 6000000,
+              "duration": 7000000,
               "status": "passed"
             },
             "line": 72,
