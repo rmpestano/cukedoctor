@@ -725,14 +725,15 @@ public class CukedoctorConverterTest {
         assertThat(features).hasSize(1);
         CukedoctorConverter converter = Cukedoctor.instance(features, new DocumentAttributes());
         converter.setFilename("target/living_documentation.adoc");
-        String resultDoc = converter.renderDocumentation().replaceAll("\r\n|\r|\n", newLine());
+        String resultDoc = converter.renderDocumentation().replaceAll("\r\n", newLine());
         assertThat(resultDoc).contains("****" + newLine() +
-                "As a user " + newLine() +
-                "I want to do something " + newLine() +
+                "As a user" + newLine() +
+                "I want to do something" + newLine() +
                 "In order to achieve an important goal" + newLine() +
                 "****");
         FileUtil.saveFile("target/sample.adoc", resultDoc);
     }
+
 
     @Test
     public void shouldSaveDocumentationIntoDisk() {
