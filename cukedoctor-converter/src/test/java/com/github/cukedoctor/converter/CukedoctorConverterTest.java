@@ -29,6 +29,7 @@ import static com.github.cukedoctor.util.Constants.newLine;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
+import static com.github.cukedoctor.util.StringUtil.trimAllLines;
 
 
 /**
@@ -726,7 +727,7 @@ public class CukedoctorConverterTest {
         CukedoctorConverter converter = Cukedoctor.instance(features, new DocumentAttributes());
         converter.setFilename("target/living_documentation.adoc");
         String resultDoc = converter.renderDocumentation().replaceAll("\r\n", newLine());
-        assertThat(resultDoc).contains("****" + newLine() +
+        assertThat(trimAllLines(resultDoc)).contains("****" + newLine() +
                 "As a user" + newLine() +
                 "I want to do something" + newLine() +
                 "In order to achieve an important goal" + newLine() +
