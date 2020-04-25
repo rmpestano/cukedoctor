@@ -19,6 +19,7 @@ import java.util.List;
 
 import static com.github.cukedoctor.util.Constants.newLine;
 import static org.assertj.core.api.Assertions.assertThat;
+import static com.github.cukedoctor.util.StringUtil.trimAllLines;
 
 /**
  * Created by pestano on 27/02/16.
@@ -66,8 +67,8 @@ public class CustomRendererTest {
                 .sectAnchors(true).sectLink(true);
 
         CukedoctorConverter converter = Cukedoctor.instance(features, attrs);
-        String resultDoc = converter.renderDocumentation();
-        assertThat(resultDoc).isEqualTo(":toc: right"+newLine()+ 
+        String resultDoc = converter.renderDocumentation().replaceAll("\r\n|\r|\n", newLine());
+        assertThat(trimAllLines(resultDoc)).isEqualTo(trimAllLines(":toc: right"+newLine()+ 
         		":backend: html5"+newLine()+ 
         		":doctitle: Living Documentation"+newLine()+ 
         		":doctype: book"+newLine()+ 
@@ -121,17 +122,17 @@ public class CustomRendererTest {
         		"I should have 0 as result icon:thumbs-down[role=\"red\",title=\"Failed\"] [small right]#(000ms)#"+newLine()+ 
         		""+newLine()+ 
         		"IMPORTANT: java.lang.AssertionError: expected:<0> but was:<1>"+newLine()+ 
-        		"	at org.junit.Assert.fail(Assert.java:88)"+newLine()+ 
-        		"	at org.junit.Assert.failNotEquals(Assert.java:743)"+newLine()+ 
-        		"	at org.junit.Assert.assertEquals(Assert.java:118)"+newLine()+ 
-        		"	at org.junit.Assert.assertEquals(Assert.java:555)"+newLine()+ 
-        		"	at org.junit.Assert.assertEquals(Assert.java:542)"+newLine()+ 
-        		"	at com.github.cukedoctor.example.bdd.CalcStepDef.I_should_have_result(CalcStepDef.java:37)"+newLine()+ 
-        		"	at ✽.Then I should have 0 as result(src/test/resources/features/calc.feature:14)"+newLine()+ 
+        		"at org.junit.Assert.fail(Assert.java:88)"+newLine()+ 
+        		"at org.junit.Assert.failNotEquals(Assert.java:743)"+newLine()+ 
+        		"at org.junit.Assert.assertEquals(Assert.java:118)"+newLine()+ 
+        		"at org.junit.Assert.assertEquals(Assert.java:555)"+newLine()+ 
+        		"at org.junit.Assert.assertEquals(Assert.java:542)"+newLine()+ 
+        		"at com.github.cukedoctor.example.bdd.CalcStepDef.I_should_have_result(CalcStepDef.java:37)"+newLine()+ 
+        		"at ✽.Then I should have 0 as result(src/test/resources/features/calc.feature:14)"+newLine()+ 
         		""+newLine()+ 
         		"=========="+newLine()+ 
         		""+newLine()+ 
-        		"");
+        		"").replaceAll("\r\n", newLine()));
         //FileUtil.saveFile("target/test-docs/calc.adoc", resultDoc);
     }
 
