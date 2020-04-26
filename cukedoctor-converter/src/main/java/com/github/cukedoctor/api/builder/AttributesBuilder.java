@@ -43,6 +43,8 @@ public interface AttributesBuilder {
 
     AttributesBuilder stem(String value);
 
+    AttributesBuilder allowUriRead(Boolean value);
+
     AsciiDocBuilder asciiDocBuilder();
 
 }

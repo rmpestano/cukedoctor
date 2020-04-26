@@ -148,10 +148,9 @@ public class CukedoctorConverterImpl implements CukedoctorConverter {
 					.hardBreaks(documentAttributes.isHardBreaks())
 					.chapterLabel(documentAttributes.getChapterLabel())
 					.versionLabel(documentAttributes.getVersionLabel())
-					.stem(documentAttributes.getStem());
-			if(hasText(documentAttributes.getPdfStyle())) {
-				docBuilder.attributes().pdfStyle(documentAttributes.getPdfStyle());
-			}
+					.stem(documentAttributes.getStem())
+					.allowUriRead(documentAttributes.isAllowUriRead())
+					.pdfStyle(documentAttributes.getPdfStyle());
 		}
 		return this;
 	}

@@ -86,6 +86,7 @@ public class CukedoctorMain {
     @Parameter(names = "-stem", description = "Sets asciidoctor stem attribute with the specified interpreter. By default, the stem attribute is set using asciidoctor's default interpreter ", required = false)
     private String stem;
 
+
     private static List<Feature> searchPathAndScan(String path) {
         if (path.endsWith(".json")) {
             return FeatureParser.parse(FileUtil.findJsonFile(path));
@@ -189,6 +190,10 @@ public class CukedoctorMain {
             documentAttributes.sourceHighlighter(sourceHighlighter);
         }
 
+        if(allowUriRead != null) {
+            documentAttributes.allowUriRead(allowUriRead);
+        }
+
         if (outputName.contains(".")) {
             outputName = outputName.substring(0, outputName.lastIndexOf(".")) + ".adoc";
         } else {
@@ -259,14 +264,7 @@ public class CukedoctorMain {
         OptionsBuilder ob;
         ob = OptionsBuilder.options().backend(attrs.getBackend());
         ob.safe(SafeMode.UNSAFE);
-
-        if (allowUriRead != null && allowUriRead) {
-            Attributes attr = new Attributes();
-            attr.setAllowUriRead(true);
-            ob.attributes(attr);
-        }
-        
-       String aaaa =  asciidoctor.convertFile(adocFile, ob.asMap());
+        asciidoctor.convertFile(adocFile, ob.asMap());
         asciidoctor.shutdown();
         return doc;
     }

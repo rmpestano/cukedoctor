@@ -377,11 +377,26 @@ public class CukedoctorMainTest {
             String generatedDoc = new CukedoctorMain().execute(new String[]{
                     "-stem", "latexmath"
             });
-
             System.out.flush();
             baos.close();
-
             assertThat(generatedDoc).contains(":stem: latexmath" + newLine());
+
+        } finally {
+            FileUtil.removeFile("Living-Documentation.adoc");
+            FileUtil.removeFile("Living-Documentation.html");
+
+        }
+    }
+
+    @Test
+    public void shouldRenderAllowIriReadWhenSpecifiedOnCommandLine()  throws IOException {
+        try {
+            String generatedDoc = new CukedoctorMain().execute(new String[]{
+                    "-allowUriRead", ""
+            });
+            System.out.flush();
+            baos.close();
+            assertThat(generatedDoc).contains(":allowUriRead:" + newLine());
 
         } finally {
             FileUtil.removeFile("Living-Documentation.adoc");

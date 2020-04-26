@@ -10,7 +10,6 @@ import io.github.robwin.markup.builder.MarkupDocBuilder;
 public interface CukedoctorDocumentBuilder extends MarkupDocBuilder {
 
 
-
     AttributesBuilder attributes();
 
     CukedoctorDocumentBuilder sideBarBlock(String text);
@@ -23,7 +22,7 @@ public interface CukedoctorDocumentBuilder extends MarkupDocBuilder {
 
     void clear();
 
-    public static class Factory {
+    class Factory {
 
         private static CukedoctorDocumentBuilder instance;
 

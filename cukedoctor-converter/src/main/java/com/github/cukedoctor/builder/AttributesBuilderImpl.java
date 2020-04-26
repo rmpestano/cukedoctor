@@ -13,7 +13,7 @@ public class AttributesBuilderImpl implements AttributesBuilder {
 
     private AsciiDocBuilder docBuilder;
 
-    public AttributesBuilderImpl(AsciiDocBuilder docBuilder){
+    public AttributesBuilderImpl(AsciiDocBuilder docBuilder) {
         this.docBuilder = docBuilder;
     }
 
@@ -94,53 +94,64 @@ public class AttributesBuilderImpl implements AttributesBuilder {
         docBuilder.textLine(Constants.Atributes.tocLevels(value));
         return this;
     }
-    
+
 
     @Override
     public AttributesBuilder chapterLabel(String value) {
-	docBuilder.textLine(Constants.Atributes.chapterLabel(value));
+        docBuilder.textLine(Constants.Atributes.chapterLabel(value));
         return this;
     }
-    
+
     @Override
     public AttributesBuilder versionLabel(String value) {
-	docBuilder.textLine(Constants.Atributes.versionLabel(value));
+        docBuilder.textLine(Constants.Atributes.versionLabel(value));
         return this;
     }
 
     @Override
     public AttributesBuilder pdfStyle(String value) {
+        if (!hasText(value)) {
+            return this;
+        }
         docBuilder.textLine(Constants.Atributes.pdfStyle(value));
         return this;
     }
 
     @Override
     public AttributesBuilder stem(String value) {
-        if (value == null) return this;
-
+        if (!hasText(value)) {
+            return this;
+        }
         docBuilder.textLine(Constants.Atributes.stem(value));
         return this;
     }
 
     @Override
-    public AsciiDocBuilder asciiDocBuilder(){
+    public AttributesBuilder allowUriRead(Boolean value) {
+        if(value != null) {
+            docBuilder.textLine(Constants.Atributes.allowUriRead(value));
+        }
+        return this;
+    }
+
+    @Override
+    public AsciiDocBuilder asciiDocBuilder() {
         return docBuilder;
     }
 
     @Override
     public AttributesBuilder revNumber(String value) {
-        if(hasText(value)){
+        if (hasText(value)) {
             docBuilder.textLine(Constants.Atributes.revNumber(value));
-        } else{
+        } else {
             //verify system property
             String revNumberSysProp = System.getProperty("docVersion");
-            if(revNumberSysProp != null){
+            if (revNumberSysProp != null) {
                 docBuilder.textLine(Constants.Atributes.revNumber(revNumberSysProp));
             }
         }
         return this;
     }
-
 
 
 }

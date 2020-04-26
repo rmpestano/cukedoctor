@@ -438,4 +438,22 @@ public class CukedoctorMojoTest extends AbstractMojoTestCase {
         assertThat(docHtml).isNotEmpty();
     }
 
+    /**
+     * @throws Exception
+     */
+    public void testGenerateAllowUriRead() throws Exception {
+
+        CukedoctorMojo mojo = (CukedoctorMojo) lookupMojo("execute", getTestFile("src/test/resources/html-docs-allow-uri-read-pom.xml"));
+
+        assertNotNull(mojo);
+        mojo.execute();
+
+        File file = FileUtil.loadFile(mojo.getDocumentationDir() + mojo.outputFileName + ".html");
+        assertThat(file).exists().hasParent("target/docs");
+        assertThat(mojo.getGeneratedFile()).contains(":allowUriRead:");
+
+        String docHtml = readFileContent(loadTestFile("documentation.html"));
+        assertThat(docHtml).isNotEmpty();
+    }
+
 }

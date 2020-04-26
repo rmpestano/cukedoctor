@@ -25,6 +25,7 @@ public class DocumentAttributes {
 	private String chapterLabel = "Chapter";
 	private String versionLabel = "Version";
 	private String stem = null;
+	private Boolean allowUriRead = null;
 
 
 	public DocumentAttributes() {
@@ -123,6 +124,11 @@ public class DocumentAttributes {
 		return this;
 	}
 
+	public DocumentAttributes allowUriRead(boolean allowUriRead) {
+		this.allowUriRead = allowUriRead;
+		return this;
+	}
+
 	public String getBackend() {
 		return backend;
 	}
@@ -193,6 +199,9 @@ public class DocumentAttributes {
 
 	public String getStem() { return stem; }
 
+	public Boolean isAllowUriRead() {
+		return allowUriRead;
+	}
 
 	//setters needed by snakeyml
 
@@ -267,5 +276,7 @@ public class DocumentAttributes {
 
 	public void setStem(String stem) { this.stem = stem; }
 
-
+	public void setAllowUriRead(boolean allowUriRead) {
+		this.allowUriRead = allowUriRead;
+	}
 }

@@ -115,8 +115,8 @@ public class CukedoctorMojo extends AbstractMojo {
     @Parameter(required = false)
     String sourceHighlighter;
 
-    @Parameter(defaultValue = "false", required = false)
-    boolean allowUriRead;
+    @Parameter(required = false)
+    Boolean allowUriRead;
 
     @Parameter(property = "cukedoctor.skip", defaultValue = "false")
     private boolean skip;
@@ -184,7 +184,6 @@ public class CukedoctorMojo extends AbstractMojo {
             chapterLabel = "Chapter";
         }
 
-        
         if (versionLabel == null) {
             versionLabel = "Version";
         }
@@ -200,6 +199,10 @@ public class CukedoctorMojo extends AbstractMojo {
                 versionLabel(versionLabel).
                 stem(stem);
 
+        if(allowUriRead != null) {
+            documentAttributes.allowUriRead(allowUriRead);
+        }
+
         if (documentTitle == null) {
             documentTitle = "Living Documentation";
         }
@@ -210,7 +213,7 @@ public class CukedoctorMojo extends AbstractMojo {
 
         documentAttributes.docTitle(documentTitle);
         CukedoctorConverter converter = Cukedoctor.instance(featuresFound, documentAttributes);
-        String targetFile = "";
+        String targetFile;
         if (outputFileName.contains(".")) {
             targetFile = outputFileName.substring(0, outputFileName.lastIndexOf(".")) + ".adoc";
         } else {
@@ -277,12 +280,6 @@ public class CukedoctorMojo extends AbstractMojo {
         OptionsBuilder ob;
         ob = OptionsBuilder.options().backend(documentAttributes.getBackend());
         ob.safe(SafeMode.UNSAFE);
-
-        if (allowUriRead) {
-            Attributes attr = new Attributes();
-            attr.setAllowUriRead(true);
-            ob.attributes(attr);
-        }
 
         ExtensionGroup cukedoctorExtensionGroup = asciidoctor.createGroup(CUKEDOCTOR_EXTENSION_GROUP_NAME);
         if ("pdf".equals(documentAttributes.getBackend())) {
