@@ -2,6 +2,8 @@
 
 Cukedoctor is a *Living documentation* tool which integrates Cucumber and Asciidoctor in order to convert your _BDD_ tests results into an awesome documentation.
 
+image::https://user-images.githubusercontent.com/79351/32431984-fb09a580-c292-11e7-9a10-553d46dba2b3.png[align="center"]
+
 Here are some design principles:
 
 * Living documentation should be readable and highlight your software features;

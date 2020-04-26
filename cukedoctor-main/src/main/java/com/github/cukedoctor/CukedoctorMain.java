@@ -218,15 +218,15 @@ public class CukedoctorMain {
         main.execute(args);
     }
 
-    public String execute(List<Feature> features, DocumentAttributes attrs, String outputName) {
+    public String execute(List<Feature> features, DocumentAttributes documentAttributes, String outputName) {
         if (title == null) {
             title = "Living Documentation";
         }
-        if (attrs == null) {
-            attrs = new DocumentAttributes().docTitle(title);
+        if (documentAttributes == null) {
+            documentAttributes = new DocumentAttributes().docTitle(title);
         }
-        if (!hasText(attrs.getBackend())) {
-            attrs.backend("html5");
+        if (!hasText(documentAttributes.getBackend())) {
+            documentAttributes.backend("html5");
         }
         if (outputName == null) {
             outputName = title.replaceAll(" ", "_");
@@ -252,19 +252,21 @@ public class CukedoctorMain {
             System.setProperty("HIDE_TAGS", Boolean.toString(hideTags));
         }
 
-        CukedoctorConverter converter = Cukedoctor.instance(features, attrs);
+        CukedoctorConverter converter = Cukedoctor.instance(features, documentAttributes);
         String doc = converter.renderDocumentation();
         File adocFile = FileUtil.saveFile(outputName, doc);
         Asciidoctor asciidoctor = Asciidoctor.Factory.create();
         ExtensionGroup cukedoctorExtensionGroup = asciidoctor.createGroup(CUKEDOCTOR_EXTENSION_GROUP_NAME);
-        if (attrs.getBackend().equalsIgnoreCase("pdf")) {
+        if (documentAttributes.getBackend().equalsIgnoreCase("pdf")) {
             cukedoctorExtensionGroup.unregister();
         }
         
-        OptionsBuilder ob;
-        ob = OptionsBuilder.options().backend(attrs.getBackend());
-        ob.safe(SafeMode.UNSAFE);
-        asciidoctor.convertFile(adocFile, ob.asMap());
+        OptionsBuilder ob = OptionsBuilder.options()
+                .safe(SafeMode.UNSAFE)
+                .backend(documentAttributes.getBackend())
+                .attributes(documentAttributes.toMap());
+        System.out.println("Document attributes\n"+documentAttributes.toMap());
+        asciidoctor.convertFile(adocFile, ob);
         asciidoctor.shutdown();
         return doc;
     }

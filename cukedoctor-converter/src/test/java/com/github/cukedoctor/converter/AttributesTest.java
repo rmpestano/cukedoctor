@@ -346,7 +346,7 @@ public class AttributesTest {
                         ":chapter-label: Chapter" + newLine() +
                         ":version-label: Version" + newLine() +
                         ":stem: latexmath" + newLine() +
-                        ":allowUriRead:" + newLine();
+                        ":allow-uri-read:" + newLine();
 
         String document = Cukedoctor.instance(features, attrs).renderAttributes().getDocumentation();
 
@@ -389,7 +389,7 @@ public class AttributesTest {
                         ":chapter-label: Chapter" + newLine() +
                         ":version-label: Version" + newLine() +
                         ":stem: latexmath" + newLine() +
-                        ":!allowUriRead:" + newLine();
+                        ":!allow-uri-read:" + newLine();
 
         String document = Cukedoctor.instance(features, attrs).renderAttributes().getDocumentation();
 

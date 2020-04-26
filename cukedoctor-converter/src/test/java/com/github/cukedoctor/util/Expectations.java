@@ -739,7 +739,7 @@ public interface Expectations {
 			":toclevels: 3"+newLine()+ 
 			":hardbreaks:"+newLine()+ 
 			":chapter-label: Chapter"+newLine()+ 
-			":version-label: Version"+newLine()+ 
+			":version-label: Version"+newLine()+
 			""+newLine()+ 
 			"= *Doc Title*"+newLine()+ 
 			""+newLine()+ 

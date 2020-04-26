@@ -19,92 +19,92 @@ public class AttributesBuilderImpl implements AttributesBuilder {
 
     @Override
     public AttributesBuilder toc(String value) {
-        docBuilder.textLine(Constants.Atributes.toc(value));
+        docBuilder.textLine(Constants.Attributes.toc(value));
         return this;
     }
 
     @Override
     public AttributesBuilder backend(String value) {
-        docBuilder.textLine(Constants.Atributes.backend(value));
+        docBuilder.textLine(Constants.Attributes.backend(value));
         return this;
     }
 
     @Override
     public AttributesBuilder docTitle(String value) {
-        docBuilder.textLine(Constants.Atributes.docTitle(value));
+        docBuilder.textLine(Constants.Attributes.docTitle(value));
         return this;
     }
 
     @Override
     public AttributesBuilder docType(String value) {
-        docBuilder.textLine(Constants.Atributes.docType(value));
+        docBuilder.textLine(Constants.Attributes.docType(value));
         return this;
     }
 
     @Override
     public AttributesBuilder icons(String value) {
-        docBuilder.textLine(Constants.Atributes.icons(value));
+        docBuilder.textLine(Constants.Attributes.icons(value));
         return this;
     }
 
     @Override
     public AttributesBuilder numbered(boolean value) {
-        docBuilder.textLine(Constants.Atributes.numbered(value));
+        docBuilder.textLine(Constants.Attributes.numbered(value));
         return this;
     }
 
     @Override
     public AttributesBuilder linkcss(boolean value) {
-        docBuilder.textLine(Constants.Atributes.linkcss(value));
+        docBuilder.textLine(Constants.Attributes.linkcss(value));
         return this;
     }
 
     @Override
     public AttributesBuilder sectAnchors(boolean value) {
-        docBuilder.textLine(Constants.Atributes.sectAnchors(value));
+        docBuilder.textLine(Constants.Attributes.sectAnchors(value));
         return this;
     }
 
     @Override
     public AttributesBuilder sectLink(boolean value) {
-        docBuilder.textLine(Constants.Atributes.sectLink(value));
+        docBuilder.textLine(Constants.Attributes.sectLink(value));
         return this;
     }
 
     @Override
     public AttributesBuilder docInfo(boolean value) {
-        docBuilder.textLine(Constants.Atributes.docInfo(value));
+        docBuilder.textLine(Constants.Attributes.docInfo(value));
         return this;
     }
 
     @Override
     public AttributesBuilder hardBreaks(boolean value) {
-        docBuilder.textLine(Constants.Atributes.hardBreaks(value));
+        docBuilder.textLine(Constants.Attributes.hardBreaks(value));
         return this;
     }
 
     @Override
     public AttributesBuilder sourceHighlighter(String value) {
-        docBuilder.textLine(Constants.Atributes.sourceHighlighter(value));
+        docBuilder.textLine(Constants.Attributes.sourceHighlighter(value));
         return this;
     }
 
     @Override
     public AttributesBuilder tocLevels(String value) {
-        docBuilder.textLine(Constants.Atributes.tocLevels(value));
+        docBuilder.textLine(Constants.Attributes.tocLevels(value));
         return this;
     }
 
 
     @Override
     public AttributesBuilder chapterLabel(String value) {
-        docBuilder.textLine(Constants.Atributes.chapterLabel(value));
+        docBuilder.textLine(Constants.Attributes.chapterLabel(value));
         return this;
     }
 
     @Override
     public AttributesBuilder versionLabel(String value) {
-        docBuilder.textLine(Constants.Atributes.versionLabel(value));
+        docBuilder.textLine(Constants.Attributes.versionLabel(value));
         return this;
     }
 
@@ -113,7 +113,7 @@ public class AttributesBuilderImpl implements AttributesBuilder {
         if (!hasText(value)) {
             return this;
         }
-        docBuilder.textLine(Constants.Atributes.pdfStyle(value));
+        docBuilder.textLine(Constants.Attributes.pdfStyle(value));
         return this;
     }
 
@@ -122,14 +122,14 @@ public class AttributesBuilderImpl implements AttributesBuilder {
         if (!hasText(value)) {
             return this;
         }
-        docBuilder.textLine(Constants.Atributes.stem(value));
+        docBuilder.textLine(Constants.Attributes.stem(value));
         return this;
     }
 
     @Override
     public AttributesBuilder allowUriRead(Boolean value) {
         if(value != null) {
-            docBuilder.textLine(Constants.Atributes.allowUriRead(value));
+            docBuilder.textLine(Constants.Attributes.allowUriRead(value));
         }
         return this;
     }
@@ -142,12 +142,12 @@ public class AttributesBuilderImpl implements AttributesBuilder {
     @Override
     public AttributesBuilder revNumber(String value) {
         if (hasText(value)) {
-            docBuilder.textLine(Constants.Atributes.revNumber(value));
+            docBuilder.textLine(Constants.Attributes.revNumber(value));
         } else {
             //verify system property
             String revNumberSysProp = System.getProperty("docVersion");
             if (revNumberSysProp != null) {
-                docBuilder.textLine(Constants.Atributes.revNumber(revNumberSysProp));
+                docBuilder.textLine(Constants.Attributes.revNumber(revNumberSysProp));
             }
         }
         return this;

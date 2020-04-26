@@ -3,6 +3,7 @@ package com.github.cukedoctor.util;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
+import static com.github.cukedoctor.util.Constants.Attributes.Name.*;
 import static java.lang.System.getProperty;
 
 /**
@@ -85,90 +86,122 @@ public abstract class Constants {
         }
     }
 
-    public abstract static class Atributes {
+    public abstract static class Attributes {
+
+        public enum Name {
+            TOC("toc"), TOCLEVELS("toclevels"), ICONS("icons"), NUMBERED("numbered"),
+            HARDBREAKS("hardbreaks"), LINKCSS("linkcss"), SECTANCHORS("sectanchors"),
+            SECTLINK("sectlink"), BACKEND("backend"), REVNUMBER("revnumber"), DOCTITLE("doctitle"),
+            DOCTYPE("doctype"), DOCINFO("docinfo"), SOURCEHIGHLIGHTER("source-highlighter"),
+            PDFSTYLE("pdf-style"), VERSIONLABEL("version-label"), CHAPTERLABEL("chapter-label"),
+            STEM("stem"), ALLOWURIREAD("allow-uri-read");
+
+            final String name;
+
+            Name(String name) {
+                this.name = name;
+            }
+
+            public String getName() {
+                return name;
+            }
+
+
+        }
+
+        private static String toAdocAttr(String attrName, Object attrValue) {
+            if (attrValue == null || "".equals(attrValue.toString().trim())) {
+                return "";
+            }
+            StringBuilder adocAttr = new StringBuilder();
+            adocAttr.append(":");
+            if (Boolean.class.isAssignableFrom(attrValue.getClass())) {
+                boolean bool = Boolean.parseBoolean(attrValue.toString());
+                if (!bool) {
+                    adocAttr.append("!");
+                }
+                adocAttr.append(attrName).append(":");
+            } else {
+                adocAttr.append(attrName).append(":").append(" ").append(attrValue.toString());
+            }
+            return adocAttr.toString();
+        }
 
 
         public static String toc(String value) {
-            if (value == null || "".equals(value.trim())) {
-                return "";
-            }
-            return ":toc: " + value;
+            return toAdocAttr(TOC.name, value);
         }
 
         public static String tocLevels(String value) {
-            return ":toclevels: " + value;
+            return toAdocAttr(TOCLEVELS.name, value);
         }
 
         public static String icons(String value) {
-            return ":icons: " + value;
+            return toAdocAttr(ICONS.name, value);
         }
 
         public static String numbered(boolean numbered) {
-            return numbered ? ":numbered:" : ":!numbered:";
+            return toAdocAttr(NUMBERED.name, numbered);
         }
 
         public static String hardBreaks(boolean hardBreaks) {
-            return hardBreaks ? ":hardbreaks:" : ":!hardbreaks:";
+            return toAdocAttr(HARDBREAKS.name, hardBreaks);
         }
 
         public static String linkcss(boolean linkcss) {
-            return linkcss ? ":linkcss:" : ":!linkcss:";
+            return toAdocAttr(LINKCSS.name, linkcss);
         }
 
         public static String sectAnchors(boolean sectAnchors) {
-            return sectAnchors ? ":sectanchors:" : ":!sectanchors:";
+            return toAdocAttr(SECTANCHORS.name, sectAnchors);
         }
 
         public static String sectLink(boolean sectLink) {
-            return sectLink ? ":sectlink:" : ":!sectlink:";
+            return toAdocAttr(SECTLINK.name, sectLink);
         }
 
-        public static String backend(String value) {
-            return ":backend: " + value;
+        public static String backend(String backend) {
+            return toAdocAttr(BACKEND.name, backend);
         }
 
-        public static String revNumber(String value) {
-            return ":revnumber: " + value;
+        public static String revNumber(String revNumber) {
+            return toAdocAttr(REVNUMBER.name, revNumber);
         }
 
-        public static String revDate(String value) {
-            return ":revdate: " + value;
+        public static String docTitle(String docTitle) {
+            return toAdocAttr(DOCTITLE.name, docTitle);
         }
 
-        public static String docTitle(String value) {
-            return ":doctitle: " + value;
-        }
-
-        public static String docType(String value) {
-            return ":doctype: " + value;
+        public static String docType(String docType) {
+            return toAdocAttr(DOCTYPE.name, docType);
         }
 
         public static String docInfo(boolean docInfo) {
-            return docInfo ? ":docinfo:" : ":!docinfo:";
+            return toAdocAttr(DOCINFO.name, docInfo);
         }
 
-        public static String sourceHighlighter(String value) {
-            return ":source-highlighter: " + value;
+        public static String sourceHighlighter(String sourceHighlighter) {
+            return toAdocAttr(SOURCEHIGHLIGHTER.name, sourceHighlighter);
         }
 
-        public static String pdfStyle(String value) {
-            return ":pdf-style: " + value;
+        public static String pdfStyle(String pdfStyle) {
+            return toAdocAttr(PDFSTYLE.name, pdfStyle);
         }
 
-        public static String versionLabel(String value) {
-            return ":version-label: " + value;
+        public static String versionLabel(String versionLabel) {
+            return toAdocAttr(VERSIONLABEL.name, versionLabel);
         }
 
-        public static String chapterLabel(String value) {
-            return ":chapter-label: " + value;
+        public static String chapterLabel(String chapterLabel) {
+            return toAdocAttr(CHAPTERLABEL.name, chapterLabel);
         }
 
-        public static String stem(String value) {
-            return ":stem: " + value;
+        public static String stem(String stem) {
+            return toAdocAttr(STEM.name, stem);
         }
 
-        public static String allowUriRead(boolean value) {
-            return value ? ":allowUriRead:" : ":!allowUriRead:";
+        public static String allowUriRead(boolean allowUriRead) {
+            return toAdocAttr(ALLOWURIREAD.name, allowUriRead);
         }
     }
 

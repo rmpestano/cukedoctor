@@ -396,7 +396,7 @@ public class CukedoctorMainTest {
             });
             System.out.flush();
             baos.close();
-            assertThat(generatedDoc).contains(":allowUriRead:" + newLine());
+            assertThat(generatedDoc).contains(":allow-uri-read:" + newLine());
 
         } finally {
             FileUtil.removeFile("Living-Documentation.adoc");

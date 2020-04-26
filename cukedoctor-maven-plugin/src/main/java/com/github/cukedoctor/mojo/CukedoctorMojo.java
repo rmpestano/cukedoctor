@@ -231,15 +231,8 @@ public class CukedoctorMojo extends AbstractMojo {
             documentAttributes.backend(Format.html5.name().toLowerCase());
             generateDocumentation(documentAttributes, adocFile, asciidoctor);
             //pdf backend
-            documentAttributes = new DocumentAttributes().
-                    backend(Format.pdf.name()).
-                    toc(toc.name().toLowerCase()).
-                    revNumber(docVersion).
-                    hardBreaks(hardBreaks).
-                    numbered(numbered).
-                    chapterLabel(chapterLabel).
-                    versionLabel(versionLabel);
-            documentAttributes.docTitle(documentTitle);
+            documentAttributes = documentAttributes.
+                    backend(Format.pdf.name());
             converter = Cukedoctor.instance(featuresFound, documentAttributes);
             converter.setFilename(pathToSave);//needed by docinfo, pdf-theme
             generatedFile = converter.renderDocumentation();
@@ -277,20 +270,18 @@ public class CukedoctorMojo extends AbstractMojo {
 
     private void generateDocumentation(DocumentAttributes documentAttributes, File adocFile, Asciidoctor asciidoctor) {
         
-        OptionsBuilder ob;
-        ob = OptionsBuilder.options().backend(documentAttributes.getBackend());
-        ob.safe(SafeMode.UNSAFE);
-
+        OptionsBuilder ob = OptionsBuilder.options()
+                .safe(SafeMode.UNSAFE)
+                .backend(documentAttributes.getBackend())
+                .attributes(documentAttributes.toMap());
+        getLog().info("Document attributes:\n"+documentAttributes.toMap());
         ExtensionGroup cukedoctorExtensionGroup = asciidoctor.createGroup(CUKEDOCTOR_EXTENSION_GROUP_NAME);
         if ("pdf".equals(documentAttributes.getBackend())) {
             cukedoctorExtensionGroup.unregister();
+            //remove auxiliary files
+            FileUtil.removeFile(adocFile.getParent() + "/" + outputFileName + "-theme.yml");
         }
         asciidoctor.convertFile(adocFile, ob);
-        //remove auxiliary files
-        if ("pdf".equals(documentAttributes.getBackend())) {
-            FileUtil.removeFile(adocFile.getParent() + "/" + outputFileName + "-theme.yml");
-
-        }
 
         getLog().info("Generated documentation at: " + adocFile.getParent());
     }

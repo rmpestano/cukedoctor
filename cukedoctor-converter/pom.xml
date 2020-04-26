@@ -161,6 +161,7 @@
                             <hideScenarioKeyword>true</hideScenarioKeyword>
                             <sourceHighlighter>coderay</sourceHighlighter>
                             <docVersion>${project.parent.version}</docVersion>
+                            <allowUriRead>true</allowUriRead>
                         </configuration>
                         <executions>
                             <execution>

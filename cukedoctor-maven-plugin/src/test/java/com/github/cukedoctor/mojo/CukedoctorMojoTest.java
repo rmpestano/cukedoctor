@@ -450,7 +450,7 @@ public class CukedoctorMojoTest extends AbstractMojoTestCase {
 
         File file = FileUtil.loadFile(mojo.getDocumentationDir() + mojo.outputFileName + ".html");
         assertThat(file).exists().hasParent("target/docs");
-        assertThat(mojo.getGeneratedFile()).contains(":allowUriRead:");
+        assertThat(mojo.getGeneratedFile()).contains(":allow-uri-read:");
 
         String docHtml = readFileContent(loadTestFile("documentation.html"));
         assertThat(docHtml).isNotEmpty();
