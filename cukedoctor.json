@@ -3,7 +3,7 @@
     "line": 2,
     "elements": [
       {
-        "start_timestamp": "2020-04-25T10:27:16.331Z",
+        "start_timestamp": "2020-04-26T09:11:35.895Z",
         "line": 11,
         "name": "Convert features test output into documentation",
         "description": "",
@@ -28,7 +28,7 @@
           },
           {
             "result": {
-              "duration": 21000000,
+              "duration": 9000000,
               "status": "passed"
             },
             "line": 27,
@@ -45,7 +45,6 @@
           },
           {
             "result": {
-              "duration": 1000000,
               "status": "passed"
             },
             "line": 43,
@@ -88,7 +87,7 @@
     "line": 2,
     "elements": [
       {
-        "start_timestamp": "2020-04-25T10:27:16.370Z",
+        "start_timestamp": "2020-04-26T09:11:35.911Z",
         "line": 26,
         "name": "DocString enrichment activated by the content type",
         "description": "  Asciidoc markup can be used in feature *DocStrings*. To do so you can enable it by using the content type *[asciidoc]* in the DocString.",
@@ -98,7 +97,6 @@
         "steps": [
           {
             "result": {
-              "duration": 1000000,
               "status": "passed"
             },
             "line": 29,
@@ -114,7 +112,7 @@
           },
           {
             "result": {
-              "duration": 16000000,
+              "duration": 6000000,
               "status": "passed"
             },
             "line": 61,
@@ -148,7 +146,7 @@
         ]
       },
       {
-        "start_timestamp": "2020-04-25T10:27:16.401Z",
+        "start_timestamp": "2020-04-26T09:11:35.924Z",
         "line": 113,
         "name": "DocString enrichment activated by a feature tag",
         "description": "  Asciidoc markup can be used in feature *DocStrings*. You can enable this by applying the tag [@asciidoc] to the feature. Note this enables the enrichment for all DocStrings within the feature.",
@@ -173,7 +171,7 @@
           },
           {
             "result": {
-              "duration": 11000000,
+              "duration": 7000000,
               "status": "passed"
             },
             "line": 149,
@@ -207,7 +205,7 @@
         ]
       },
       {
-        "start_timestamp": "2020-04-25T10:27:16.414Z",
+        "start_timestamp": "2020-04-26T09:11:35.933Z",
         "line": 201,
         "name": "DocString enrichment activated by a scenario tag",
         "description": "  Asciidoc markup can be used in feature *DocStrings*. You can enable this by applying the tag [@asciidoc] to the scenario. Note this enables the enrichment for all DocStrings within the scenario.",
@@ -286,7 +284,7 @@
     "line": 2,
     "elements": [
       {
-        "start_timestamp": "2020-04-25T10:27:16.426Z",
+        "start_timestamp": "2020-04-26T09:11:35.941Z",
         "line": 11,
         "name": "Introduction chapter in classpath",
         "description": "  NOTE: The introduction file must be named *intro-chapter.adoc* and can be in any package of your application,\n\n  [TIP]\n  \u003d\u003d\u003d\u003d\n  By default Cukedoctor will look into application folders but you can make Cukedoctor look into external folder by setting the following system property:\n  [source,java]\n  ----\n  System.setProperty(\"INTRO_CHAPTER_DIR\",\"/home/some/external/folder\");\n  ----\n  \u003d\u003d\u003d\u003d",
@@ -311,7 +309,7 @@
           },
           {
             "result": {
-              "duration": 16000000,
+              "duration": 6000000,
               "status": "passed"
             },
             "line": 39,
@@ -382,7 +380,7 @@
     "line": 2,
     "elements": [
       {
-        "start_timestamp": "2020-04-25T10:27:16.450Z",
+        "start_timestamp": "2020-04-26T09:11:35.951Z",
         "line": 12,
         "name": "Default ordering",
         "description": "",
@@ -407,7 +405,7 @@
           },
           {
             "result": {
-              "duration": 11000000,
+              "duration": 6000000,
               "status": "passed"
             },
             "line": 28,
@@ -419,7 +417,6 @@
           },
           {
             "result": {
-              "duration": 1000000,
               "status": "passed"
             },
             "line": 30,
@@ -442,7 +439,7 @@
         ]
       },
       {
-        "start_timestamp": "2020-04-25T10:27:16.471Z",
+        "start_timestamp": "2020-04-26T09:11:35.960Z",
         "line": 57,
         "name": "Custom ordering with tags",
         "description": "    NOTE: Ordering is done using feature tag *@order-*",
@@ -467,7 +464,7 @@
           },
           {
             "result": {
-              "duration": 17000000,
+              "duration": 5000000,
               "status": "passed"
             },
             "line": 77,
@@ -521,7 +518,7 @@
     "line": 2,
     "elements": [
       {
-        "start_timestamp": "2020-04-25T10:27:16.496Z",
+        "start_timestamp": "2020-04-26T09:11:35.968Z",
         "line": 4,
         "name": "Render feature tags in that feature\u0027s scenarios",
         "description": "",
@@ -546,7 +543,7 @@
           },
           {
             "result": {
-              "duration": 13000000,
+              "duration": 6000000,
               "status": "passed"
             },
             "line": 22,
@@ -580,7 +577,7 @@
         ]
       },
       {
-        "start_timestamp": "2020-04-25T10:27:16.512Z",
+        "start_timestamp": "2020-04-26T09:11:35.976Z",
         "line": 52,
         "name": "Ignore cukedoctor tags in resulting documentation",
         "description": "   Cukedoctor specific tags like `@asciidoc` and `@order` *should not* be rendered in resulting documentation.",
@@ -590,7 +587,6 @@
         "steps": [
           {
             "result": {
-              "duration": 1000000,
               "status": "passed"
             },
             "line": 56,
@@ -606,7 +602,7 @@
           },
           {
             "result": {
-              "duration": 7000000,
+              "duration": 5000000,
               "status": "passed"
             },
             "line": 72,
