@@ -46,15 +46,19 @@ public class CukedoctorConverterImpl implements CukedoctorConverter {
     }
 
     public CukedoctorConverterImpl(List<Feature> features, DocumentAttributes attrs, CukedoctorConfig cukedoctorConfig) {
+        this(features, attrs, cukedoctorConfig, CukedoctorDocumentBuilder.Factory.newInstance());
+    }
+
+    public CukedoctorConverterImpl(List<Feature> features, DocumentAttributes attrs, CukedoctorConfig cukedoctorConfig, CukedoctorDocumentBuilder docBuilder) {
         this.cukedoctorConfig = cukedoctorConfig;
         this.features = features;
         Collections.sort(this.features);
         this.documentAttributes = attrs;
-        docBuilder = CukedoctorDocumentBuilder.Factory.newInstance();
+        this.docBuilder = docBuilder;
         i18n = I18nLoader.newInstance(features);
         loadRenderers();
-
     }
+
 
     private void loadRenderers() {
         ServiceLoader<HeaderRenderer> headRenderers = ServiceLoader.load(HeaderRenderer.class);

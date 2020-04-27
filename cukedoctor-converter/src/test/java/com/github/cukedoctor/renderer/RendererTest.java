@@ -3,6 +3,7 @@ package com.github.cukedoctor.renderer;
 import com.github.cukedoctor.Cukedoctor;
 import com.github.cukedoctor.api.CukedoctorConverter;
 import com.github.cukedoctor.api.CukedoctorDocumentBuilder;
+import com.github.cukedoctor.api.DocumentAttributes;
 import com.github.cukedoctor.api.model.*;
 import com.github.cukedoctor.builder.CukedoctorDocumentBuilderImpl;
 import com.github.cukedoctor.config.GlobalConfig;
@@ -304,7 +305,7 @@ public class RendererTest {
     public void shouldRenderSourceDocStringInStep() {
         List<Feature> features = FeatureParser.parse(featureWithSourceDocStringInStep);
         final Feature feature = features.get(0);
-        CukedoctorFeatureRenderer featureRenderer = new CukedoctorFeatureRenderer(new CukedoctorDocumentBuilderImpl().nestTitle().nestTitle());
+        CukedoctorFeatureRenderer featureRenderer = new CukedoctorFeatureRenderer(new CukedoctorDocumentBuilderImpl().nestTitle().nestTitle(), new DocumentAttributes());
         String resultDoc = featureRenderer.renderFeature(feature);
         assertThat(resultDoc).isEqualTo(Expectations.FEATURE_WITH_SOURCE_DOC_STRING);
     }
@@ -368,7 +369,7 @@ public class RendererTest {
     public void shouldRenderFeatureDescription() {
         final Feature feature = FeatureBuilder.instance().description("Feature description").name("Feature name").build();
 
-        CukedoctorFeatureRenderer featureRenderer = new CukedoctorFeatureRenderer(new CukedoctorDocumentBuilderImpl().nestTitle().nestTitle());
+        CukedoctorFeatureRenderer featureRenderer = new CukedoctorFeatureRenderer(new CukedoctorDocumentBuilderImpl().nestTitle().nestTitle(), new DocumentAttributes());
         featureRenderer = spy(featureRenderer);
         doReturn("").when(featureRenderer).renderFeatureScenario(any(Scenario.class), eq(feature), any(CukedoctorDocumentBuilder.class));
         String resultDoc = featureRenderer.renderFeature(feature);

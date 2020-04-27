@@ -1,8 +1,12 @@
 package com.github.cukedoctor.bdd.cukedoctor;
 
 import com.github.cukedoctor.Cukedoctor;
+import com.github.cukedoctor.api.CukedoctorDocumentBuilder;
 import com.github.cukedoctor.api.model.Feature;
+import com.github.cukedoctor.builder.CukedoctorDocumentBuilderImpl;
+import com.github.cukedoctor.config.CukedoctorConfig;
 import com.github.cukedoctor.parser.FeatureParser;
+import com.github.cukedoctor.renderer.CukedoctorFeatureRenderer;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -31,7 +35,7 @@ public class OrderingSteps {
         assertThat(featureFile).isNotNull();
         List<Feature> features = FeatureParser.parse(featureFile.getPath());
         assertThat(features).isNotNull().hasSize(2);
-        documentation = Cukedoctor.instance(features).renderDocumentation();
+        documentation = new CukedoctorFeatureRenderer(new CukedoctorDocumentBuilderImpl().nestTitle().createNestedBuilder()).renderFeatures(features);
     }
 
     @Then("^Features should be ordered by name in resulting documentation$")
@@ -64,7 +68,7 @@ public class OrderingSteps {
         assertThat(featureFile).isNotNull();
         List<Feature> features = FeatureParser.parse(featureFile.getPath());
         assertThat(features).isNotNull().hasSize(2);
-        documentation = Cukedoctor.instance(features).renderDocumentation();
+        documentation = Cukedoctor.instance(features, null, new CukedoctorConfig(), CukedoctorDocumentBuilder.Factory.newInstance().nestTitle().createNestedBuilder()).renderFeatures(features).getDocumentation();
     }
 
     private void assertFeaturesShouldBeOrdered(String expected) {
