@@ -3,7 +3,9 @@ package com.github.cukedoctor.bdd.cukedoctor;
 import com.github.cukedoctor.Cukedoctor;
 import com.github.cukedoctor.api.model.Feature;
 import com.github.cukedoctor.parser.FeatureParser;
-import io.cucumber.java.en.*;
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
 
 import java.net.URL;
 import java.util.List;
@@ -29,7 +31,7 @@ public class OrderingSteps {
         assertThat(featureFile).isNotNull();
         List<Feature> features = FeatureParser.parse(featureFile.getPath());
         assertThat(features).isNotNull().hasSize(2);
-        documentation = Cukedoctor.instance(features).renderFeatures().getDocumentation();
+        documentation = Cukedoctor.instance(features).renderDocumentation();
     }
 
     @Then("^Features should be ordered by name in resulting documentation$")
@@ -62,7 +64,7 @@ public class OrderingSteps {
         assertThat(featureFile).isNotNull();
         List<Feature> features = FeatureParser.parse(featureFile.getPath());
         assertThat(features).isNotNull().hasSize(2);
-        documentation = Cukedoctor.instance(features).renderFeatures().getDocumentation();
+        documentation = Cukedoctor.instance(features).renderDocumentation();
     }
 
     private void assertFeaturesShouldBeOrdered(String expected) {

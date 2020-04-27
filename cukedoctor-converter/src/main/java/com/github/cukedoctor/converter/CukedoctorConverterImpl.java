@@ -66,12 +66,12 @@ public class CukedoctorConverterImpl implements CukedoctorConverter {
         } else {
             headerRenderer = new CukedoctorHeaderRenderer();
         }
+
         if (summaryRenderers.iterator().hasNext()) {
             summaryRenderer = summaryRenderers.iterator().next();
         } else {
             summaryRenderer = new CukedoctorSummaryRenderer();
         }
-        summaryRenderer.setDocumentBuilder(CukedoctorDocumentBuilder.Factory.newInstance());
         summaryRenderer.setI18n(i18n);
 
         if (featureRenderers.iterator().hasNext()) {
@@ -79,11 +79,8 @@ public class CukedoctorConverterImpl implements CukedoctorConverter {
         } else {
             featureRenderer = new CukedoctorFeatureRenderer();
         }
-
-        featureRenderer.setDocumentBuilder(CukedoctorDocumentBuilder.Factory.newInstance());
         featureRenderer.setI18n(i18n);
         featureRenderer.setDocumentAttributes(documentAttributes);
-
     }
 
 
@@ -104,11 +101,11 @@ public class CukedoctorConverterImpl implements CukedoctorConverter {
      */
     public synchronized String renderDocumentation() {
         System.setProperty(Constants.STOP_WATCH, String.valueOf(System.currentTimeMillis()));
-        docBuilder = CukedoctorDocumentBuilder.Factory.newInstance();
+        docBuilder.clear();
         addCustomPdfTheme();//needs to be added before renderAttributes because it adds pdf-style doc attr
         renderAttributes();
         docBuilder.newLine();
-        docBuilder.documentTitle(bold(getDocumentationTitle()));
+        docBuilder.titleThenNest(bold(getDocumentationTitle()));
         renderIntro();
         if (!cukedoctorConfig.isHideSummarySection()) {
             renderSummary();
@@ -140,6 +137,7 @@ public class CukedoctorConverterImpl implements CukedoctorConverter {
     }
 
     public CukedoctorConverter renderAttributes() {
+        headerRenderer.setDocumentBuilder(docBuilder.createNestedBuilder());
         docBuilder.append(headerRenderer.renderDocumentHeader(documentAttributes));
         return this;
     }
@@ -166,19 +164,14 @@ public class CukedoctorConverterImpl implements CukedoctorConverter {
     }
 
     public CukedoctorConverter renderSummary() {
-        if (summaryRenderer != null) {
-            //renderer provided through spi
-            docBuilder.textLine(summaryRenderer.renderSummary(features));
-        } else {
-            summaryRenderer = new CukedoctorSummaryRenderer();
-            docBuilder.textLine(summaryRenderer.renderSummary(features));
-        }
-
+        summaryRenderer.setDocumentBuilder(docBuilder.createNestedBuilder());
+        docBuilder.textLine(summaryRenderer.renderSummary(features));
         return this;
     }
 
 
     public CukedoctorConverter renderFeatures(List<Feature> features) {
+        featureRenderer.setDocumentBuilder(docBuilder.createNestedBuilder());
         docBuilder.append(featureRenderer.renderFeatures(features));
         return this;
     }

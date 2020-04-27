@@ -26,6 +26,11 @@ public class CukedoctorFeatureRenderer extends AbstractBaseRenderer implements F
         loadDependentRenderers();
     }
 
+    public CukedoctorFeatureRenderer(CukedoctorDocumentBuilder builder) {
+        loadDependentRenderers();
+        setDocumentBuilder(builder);
+    }
+
     private void loadDependentRenderers() {
         ServiceLoader<ScenarioRenderer> scenarioRenderers = ServiceLoader.load(ScenarioRenderer.class);
 
@@ -44,53 +49,50 @@ public class CukedoctorFeatureRenderer extends AbstractBaseRenderer implements F
 
     @Override
     public String renderFeature(Feature feature) {
-        docBuilder.clear();
+        CukedoctorDocumentBuilder builder = docBuilder.createNestedBuilder();
         if (feature.hasIgnoreDocsTag()) {
             return "";
         }
-        docBuilder.textLine(renderFeatureSectionId(feature));
-        if(!cukedoctorConfig.isHideFeaturesSection()) {//when feature section is not rendered we have to 'downgrade' other sections
-            docBuilder.sectionTitleLevel2((bold(feature.getName()))).newLine();
-        }else{
-            docBuilder.sectionTitleLevel1((bold(feature.getName()))).newLine();
-        }
+        builder.textLine(renderFeatureSectionId(feature));
+        builder.titleThenNest(bold(feature.getName())).newLine();
+
         if (notNull(documentAttributes) && hasText(documentAttributes.getBackend())) {
             String backend = documentAttributes.getBackend();
             if((backend.toLowerCase().contains("html") ||  backend.toLowerCase().contains("all")) && !cukedoctorConfig.isDisableMinMaxExtension()) {
                 //used by minimax extension @see com.github.cukedoctor.extension.CukedoctorMinMaxExtension
-                docBuilder.append("ifndef::backend-pdf[]").append(newLine());
-                docBuilder.append("minmax::", feature.getName().replaceAll(",", "").replaceAll(" ", "-")).append("[]").newLine();
-                docBuilder.append("endif::[]").append(newLine());
+                builder.append("ifndef::backend-pdf[]").append(newLine());
+                builder.append("minmax::", feature.getName().replaceAll(",", "").replaceAll(" ", "-")).append("[]").newLine();
+                builder.append("endif::[]").append(newLine());
             }
 
         }
         if (hasText(feature.getDescription())) {
-            docBuilder.sideBarBlock(trimAllLines(feature.getDescription()).replaceAll("\\\\", "").replaceAll("\\n", newLine()));
+            builder.sideBarBlock(trimAllLines(feature.getDescription()).replaceAll("\\\\", "").replaceAll("\\n", newLine()));
         }
 
         if(feature.hasScenarios()){
-            docBuilder.append(renderFeatureScenarios(feature));
+            builder.append(renderFeatureScenarios(feature, builder));
         }
 
-        return docBuilder.toString();
+        return builder.toString();
     }
 
     @Override
     public String renderFeatures(List<Feature> features) {
-        CukedoctorDocumentBuilder parentBuilder = CukedoctorDocumentBuilder.Factory.newInstance();
+        docBuilder.clear();
         if(!cukedoctorConfig.isHideFeaturesSection()) {
-            parentBuilder.sectionTitleLevel1(bold(i18n.getMessage("title.features"))).newLine();
+            docBuilder.titleThenNest(bold(i18n.getMessage("title.features"))).newLine();
         }
         for (Feature feature : features) {
-            parentBuilder.append(renderFeature(feature));
+            docBuilder.append(renderFeature(feature));
         }
-        return parentBuilder.toString();
+        return docBuilder.toString();
     }
 
-    protected String renderFeatureScenarios(Feature feature) {
+    protected String renderFeatureScenarios(Feature feature, CukedoctorDocumentBuilder builder) {
         StringBuilder sb = new StringBuilder();
         for (Scenario scenario : feature.getScenarios()) {
-            sb.append(renderFeatureScenario(scenario, feature));
+            sb.append(renderFeatureScenario(scenario, feature, builder));
         }
         feature.setBackgroundRendered(false);
         return sb.toString();
@@ -105,7 +107,8 @@ public class CukedoctorFeatureRenderer extends AbstractBaseRenderer implements F
                 ", " + feature.getName() + "]]";
     }
 
-    protected String renderFeatureScenario(Scenario scenario, Feature feature){
+    protected String renderFeatureScenario(Scenario scenario, Feature feature, CukedoctorDocumentBuilder builder){
+        scenarioRenderer.setDocumentBuilder(builder.createNestedBuilder());
         return scenarioRenderer.renderScenario(scenario,feature);
     }
 }

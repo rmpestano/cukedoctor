@@ -14,13 +14,23 @@ public interface CukedoctorDocumentBuilder extends MarkupDocBuilder {
 
     CukedoctorDocumentBuilder sideBarBlock(String text);
 
-
     CukedoctorDocumentBuilder append(Object... text);
-
 
     CukedoctorDocumentBuilder textLine(String text);
 
+    CukedoctorDocumentBuilder sectionTitleLevel5(String title);
+
+    CukedoctorDocumentBuilder title(String title);
+
+    CukedoctorDocumentBuilder nestTitle();
+
+    CukedoctorDocumentBuilder unNestTitle();
+
+    CukedoctorDocumentBuilder titleThenNest(String title);
+
     void clear();
+
+    CukedoctorDocumentBuilder createNestedBuilder();
 
     class Factory {
 
