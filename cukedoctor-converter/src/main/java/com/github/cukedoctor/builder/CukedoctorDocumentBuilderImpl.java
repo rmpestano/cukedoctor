@@ -25,7 +25,7 @@ public class CukedoctorDocumentBuilderImpl extends AsciiDocBuilder implements Cu
         initialiseTitleNesting();
     }
 
-    private CukedoctorDocumentBuilderImpl(CukedoctorDocumentBuilderImpl parent) {
+    CukedoctorDocumentBuilderImpl(CukedoctorDocumentBuilderImpl parent) {
         this.initialTitleNestingLevel = parent.currentTitleNestingLevel;
         initialiseTitleNesting();
     }
