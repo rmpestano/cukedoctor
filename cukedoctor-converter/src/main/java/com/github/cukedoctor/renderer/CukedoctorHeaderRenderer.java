@@ -4,7 +4,7 @@ import com.github.cukedoctor.api.DocumentAttributes;
 import com.github.cukedoctor.spi.HeaderRenderer;
 
 /**
- * Created by rmpestano on 28/02/16.
+ * Created by rmpestano on 27/04/20.
  *
  * @since 2.2
  */
