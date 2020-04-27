@@ -113,7 +113,7 @@ public class AttributesTest {
 
 
         String document = Cukedoctor.instance(features).renderAttributes().
-                getDocumentation().toString();
+                getDocumentation();
         assertEquals("", document);
     }
 
@@ -123,7 +123,7 @@ public class AttributesTest {
         features.add(FeatureBuilder.instance().id("id").name("name").build());
 
         String document = Cukedoctor.instance(features, null).renderAttributes().
-                getDocumentation().toString();
+                getDocumentation();
         assertEquals("", document);
     }
 

@@ -7,8 +7,10 @@ import com.github.cukedoctor.api.model.Feature;
 import com.github.cukedoctor.config.CukedoctorConfig;
 import com.github.cukedoctor.i18n.I18nLoader;
 import com.github.cukedoctor.renderer.CukedoctorFeatureRenderer;
+import com.github.cukedoctor.renderer.CukedoctorHeaderRenderer;
 import com.github.cukedoctor.renderer.CukedoctorSummaryRenderer;
 import com.github.cukedoctor.spi.FeatureRenderer;
+import com.github.cukedoctor.spi.HeaderRenderer;
 import com.github.cukedoctor.spi.SummaryRenderer;
 import com.github.cukedoctor.util.Constants;
 import com.github.cukedoctor.util.FileUtil;
@@ -35,6 +37,7 @@ public class CukedoctorConverterImpl implements CukedoctorConverter {
     private I18nLoader i18n;
     private SummaryRenderer summaryRenderer;
     private FeatureRenderer featureRenderer;
+    private HeaderRenderer headerRenderer;
     private CukedoctorConfig cukedoctorConfig;
 
 
@@ -54,9 +57,15 @@ public class CukedoctorConverterImpl implements CukedoctorConverter {
     }
 
     private void loadRenderers() {
+        ServiceLoader<HeaderRenderer> headRenderers = ServiceLoader.load(HeaderRenderer.class);
         ServiceLoader<SummaryRenderer> summaryRenderers = ServiceLoader.load(SummaryRenderer.class);
         ServiceLoader<FeatureRenderer> featureRenderers = ServiceLoader.load(FeatureRenderer.class);
 
+        if (headRenderers.iterator().hasNext()) {
+            headerRenderer = headRenderers.iterator().next();
+        } else {
+            headerRenderer = new CukedoctorHeaderRenderer();
+        }
         if (summaryRenderers.iterator().hasNext()) {
             summaryRenderer = summaryRenderers.iterator().next();
         } else {
@@ -131,27 +140,7 @@ public class CukedoctorConverterImpl implements CukedoctorConverter {
     }
 
     public CukedoctorConverter renderAttributes() {
-        if (documentAttributes != null) {
-            docBuilder.attributes().toc(documentAttributes.getToc())
-                    .backend(documentAttributes.getBackend())
-                    .docTitle(documentAttributes.getDocTitle())
-                    .docType(documentAttributes.getDocType())
-                    .icons(documentAttributes.getIcons())
-                    .numbered(documentAttributes.isNumbered())
-                    .linkcss(documentAttributes.isLinkCss())
-                    .sectAnchors(documentAttributes.isSectAnchors())
-                    .sectLink(documentAttributes.isSectLink())
-                    .docInfo(documentAttributes.isDocInfo())
-                    .sourceHighlighter(documentAttributes.getSourceHighlighter())
-                    .tocLevels(documentAttributes.getTocLevels())
-                    .revNumber(documentAttributes.getRevNumber())
-                    .hardBreaks(documentAttributes.isHardBreaks())
-                    .chapterLabel(documentAttributes.getChapterLabel())
-                    .versionLabel(documentAttributes.getVersionLabel())
-                    .stem(documentAttributes.getStem())
-                    .allowUriRead(documentAttributes.isAllowUriRead())
-                    .pdfStyle(documentAttributes.getPdfStyle());
-        }
+        docBuilder.append(headerRenderer.renderDocumentHeader(documentAttributes));
         return this;
     }
 

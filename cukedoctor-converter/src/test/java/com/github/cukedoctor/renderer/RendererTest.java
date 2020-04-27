@@ -5,6 +5,7 @@ import com.github.cukedoctor.api.CukedoctorConverter;
 import com.github.cukedoctor.api.model.*;
 import com.github.cukedoctor.config.GlobalConfig;
 import com.github.cukedoctor.parser.FeatureParser;
+import com.github.cukedoctor.spi.HeaderRenderer;
 import com.github.cukedoctor.spi.StepsRenderer;
 import com.github.cukedoctor.util.Expectations;
 import com.github.cukedoctor.util.FileUtil;
@@ -49,14 +50,14 @@ public class RendererTest {
 
 
     @Test
-    public void shouldRenderFeatureScenarios(){
+    public void shouldRenderFeatureScenarios() {
         final Feature feature = FeatureBuilder.instance().aFeatureWithTwoScenarios();
 
         CukedoctorScenarioRenderer scenarioRenderer = new CukedoctorScenarioRenderer();
         scenarioRenderer = spy(scenarioRenderer);
         doReturn("").when(scenarioRenderer).renderScenarioSteps(anyListOf(Step.class), any(Scenario.class), any(Feature.class));
         doReturn("").when(scenarioRenderer).renderScenarioExamples(any(Scenario.class));
-        doReturn("").when(scenarioRenderer).renderScenarioTags(any(Scenario.class),eq(feature));
+        doReturn("").when(scenarioRenderer).renderScenarioTags(any(Scenario.class), eq(feature));
 
         CukedoctorFeatureRenderer featureRenderer = new CukedoctorFeatureRenderer();
         featureRenderer = spy(featureRenderer);
@@ -70,7 +71,7 @@ public class RendererTest {
     }
 
     @Test
-    public void shouldRenderFeatureScenariosWithTagsInScenarios(){
+    public void shouldRenderFeatureScenariosWithTagsInScenarios() {
         final Feature feature = FeatureBuilder.instance().aFeatureWithTwoScenarios();
         for (Scenario scenario : feature.getScenarios()) {
             ScenarioBuilder.instance(scenario).tag(new Tag("@Tag1")).tag(new Tag("@tag2"));
@@ -85,18 +86,18 @@ public class RendererTest {
         featureRenderer.scenarioRenderer = scenarioRenderer;
 
         String resultDoc = featureRenderer.renderFeatureScenarios(feature);
-        assertThat(resultDoc).isEqualTo("==== Scenario: scenario 1"+newLine() +
-                "[small]#tags: @tag2,@Tag1#"+newLine() +
-                ""+newLine() +
-                "description"+newLine() + newLine() +
-                "==== Scenario: scenario 2"+newLine() +
-                "[small]#tags: @tag2,@Tag1#"+newLine() +
-                ""+newLine() +
-                "description 2"+newLine() + newLine());
+        assertThat(resultDoc).isEqualTo("==== Scenario: scenario 1" + newLine() +
+                "[small]#tags: @tag2,@Tag1#" + newLine() +
+                "" + newLine() +
+                "description" + newLine() + newLine() +
+                "==== Scenario: scenario 2" + newLine() +
+                "[small]#tags: @tag2,@Tag1#" + newLine() +
+                "" + newLine() +
+                "description 2" + newLine() + newLine());
     }
 
     @Test
-    public void shouldRenderFeatureScenariosWithTagsInFeaturesAndScenarios(){
+    public void shouldRenderFeatureScenariosWithTagsInFeaturesAndScenarios() {
         final Feature feature = FeatureBuilder.instance().aFeatureWithTwoScenarios();
         feature.getTags().add(new Tag("@FeatureTag"));
         for (Scenario scenario : feature.getScenarios()) {
@@ -150,7 +151,7 @@ public class RendererTest {
     }
 
     @Test
-    public void shouldRenderFeatureStepsWithOnePassingStep(){
+    public void shouldRenderFeatureStepsWithOnePassingStep() {
         final Feature feature = FeatureBuilder.instance().aFeatureWithOneScenarioWithOnePassingStep();
         List<Feature> features = new ArrayList<>();
         features.add(feature);
@@ -161,59 +162,60 @@ public class RendererTest {
         String resultDoc = stepsRenderer.renderSteps(steps, feature.getScenarios().get(0), feature);
         assertThat(resultDoc).isEqualTo("==========" + newLine() +
                 "Given::" + newLine() +
-                
+
                 "passing step icon:thumbs-up[role=\"green\",title=\"Passed\"] [small right]#(000ms)#" + newLine() +
-                
+
                 "==========" + newLine() + newLine());
     }
 
     @Test
-    public void shouldRenderFeatureStepsWithOnePassingAndOneFailingStep(){
+    public void shouldRenderFeatureStepsWithOnePassingAndOneFailingStep() {
         final Feature feature = FeatureBuilder.instance().aFeatureWithOneScenarioWithOnePassingAndOneFailingStep();
         List<Feature> features = new ArrayList<>();
         features.add(feature);
-       ;
+        ;
         List<Step> steps = feature.getScenarios().get(0).getSteps();
         StepsRenderer stepsRenderer = new CukedoctorStepsRenderer();
 
         String resultDoc = stepsRenderer.renderSteps(steps, feature.getScenarios().get(0), feature);
         assertThat(resultDoc).isEqualTo("==========" + newLine() +
                 "Given::" + newLine() +
-                
+
                 "passing step icon:thumbs-up[role=\"green\",title=\"Passed\"] [small right]#(000ms)#" + newLine() +
-                
+
                 "When::" + newLine() +
-                
+
                 "failing step icon:thumbs-down[role=\"red\",title=\"Failed\"] [small right]#(000ms)#" + newLine() +
-                
-                "==========" + newLine()+newLine());
+
+                "==========" + newLine() + newLine());
     }
 
     @Test
-    public void shouldNotRenderScenarioWithSkipDocsTag(){
+    public void shouldNotRenderScenarioWithSkipDocsTag() {
         final Feature feature = FeatureBuilder.instance().aFeatureWithOneScenarioWithOnePassingStep();
         Scenario scenarioToSkip = ScenarioBuilder.instance().name("scenario to skip").tag(new Tag("@skipDocs")).
-                type(Type.scenario).build();;
+                type(Type.scenario).build();
+        ;
         feature.getScenarios().add(scenarioToSkip);
         List<Feature> features = new ArrayList<>();
         features.add(feature);
 
         CukedoctorFeatureRenderer featureRenderer = new CukedoctorFeatureRenderer();
-        String resultDoc  = featureRenderer.renderFeatureScenarios(feature);
+        String resultDoc = featureRenderer.renderFeatureScenarios(feature);
 
         assertThat(resultDoc).
                 doesNotContain("scenario to skip").
-                isEqualTo("==== Scenario: scenario"+newLine() +
-                        "description"+newLine() +newLine()+
-                        "=========="+newLine() +
-                        "Given::"+newLine() +
-                        "passing step icon:thumbs-up[role=\"green\",title=\"Passed\"] [small right]#(000ms)#"+newLine() +
+                isEqualTo("==== Scenario: scenario" + newLine() +
+                        "description" + newLine() + newLine() +
                         "==========" + newLine() +
-                        ""+newLine());
+                        "Given::" + newLine() +
+                        "passing step icon:thumbs-up[role=\"green\",title=\"Passed\"] [small right]#(000ms)#" + newLine() +
+                        "==========" + newLine() +
+                        "" + newLine());
     }
 
     @Test
-    public void shouldRenderFeatureStepsWithOneScenarioWithMultipleStep(){
+    public void shouldRenderFeatureStepsWithOneScenarioWithMultipleStep() {
         final Feature feature = FeatureBuilder.instance().aFeatureWithOneScenarioWithMultipleSteps();
         List<Feature> features = new ArrayList<>();
         features.add(feature);
@@ -221,83 +223,83 @@ public class RendererTest {
         CukedoctorScenarioRenderer scenarioRenderer = new CukedoctorScenarioRenderer();
         String resultDoc = scenarioRenderer.renderScenarioSteps(steps, feature.getScenarios().get(0), feature);
         assertThat(resultDoc).isEqualTo("==========" + newLine() +
-                "Given::" + newLine() + 
+                "Given::" + newLine() +
                 "passing step icon:thumbs-up[role=\"green\",title=\"Passed\"] [small right]#(000ms)#" + newLine() +
-                
-                "When::" + newLine() + 
-               "failing step icon:thumbs-down[role=\"red\",title=\"Failed\"] [small right]#(000ms)#" + newLine() +
-                
-                "When::" + newLine() + 
+
+                "When::" + newLine() +
+                "failing step icon:thumbs-down[role=\"red\",title=\"Failed\"] [small right]#(000ms)#" + newLine() +
+
+                "When::" + newLine() +
                 "pending step icon:thumbs-down[role=\"maroon\",title=\"Pending\"] [small right]#(000ms)#" + newLine() +
-                
+
                 "When::" + newLine() +
-                
+
                 "missing step icon:thumbs-down[role=\"blue\",title=\"Missing\"] [small right]#(000ms)#" + newLine() +
-                
+
                 "When::" + newLine() +
-                
+
                 "undefined step icon:thumbs-down[role=\"yellow\",title=\"Undefined\"] [small right]#(000ms)#" + newLine() +
-                
+
                 "Then::" + newLine() +
-                
+
                 "skipped step icon:thumbs-down[role=\"purple\",title=\"Skipped\"] [small right]#(000ms)#" + newLine() +
-                
-                "==========" + newLine()+newLine());
+
+                "==========" + newLine() + newLine());
     }
 
     @Test
-    public void shouldRenderFeatureScenariosWithMultipleSteps(){
+    public void shouldRenderFeatureScenariosWithMultipleSteps() {
         final Feature feature = FeatureBuilder.instance().aFeatureWithMultipleScenariosAndSteps();
         List<Feature> features = new ArrayList<>();
         features.add(feature);
         CukedoctorFeatureRenderer featureRenderer = new CukedoctorFeatureRenderer();
         String resultDoc = featureRenderer.renderFeatureScenarios(feature);
-        assertThat(resultDoc.replaceAll("\r","")).isEqualTo(("==== Scenario: scenario icon:thumbs-down[role=\"red\",title=\"Failed\"]"+newLine() +
-                "description"+newLine() +
-                ""+newLine() +
-                "=========="+newLine() +
-                "Given::"+newLine() +
-                
-                "passing step icon:thumbs-up[role=\"green\",title=\"Passed\"] [small right]#(000ms)#"+newLine() +
-                 
-                "When::"+newLine() +
-                
-                "failing step icon:thumbs-down[role=\"red\",title=\"Failed\"] [small right]#(000ms)#"+newLine() +
-                
-                "=========="+newLine() +
-                ""+newLine() +
-                "==== Scenario: scenario icon:thumbs-down[role=\"red\",title=\"Failed\"]"+newLine() +
-                "description"+newLine() +
-                ""+newLine() +
-                "=========="+newLine() +
-                "Then::"+newLine() +
-                
-                "skipped step icon:thumbs-down[role=\"purple\",title=\"Skipped\"] [small right]#(000ms)#"+newLine() +
-                
-                "=========="+newLine() +
-                ""+newLine() +
-                "==== Scenario: scenario icon:thumbs-down[role=\"red\",title=\"Failed\"]"+newLine() +
-                "description"+newLine() +
-                ""+newLine() +
-                "=========="+newLine() +
-                "Given::"+newLine() +
-                 
-                "undefined step icon:thumbs-down[role=\"yellow\",title=\"Undefined\"] [small right]#(000ms)#"+newLine() +
-                
-                "=========="+newLine() +
-                ""+newLine()).replaceAll("\r",""));
+        assertThat(resultDoc.replaceAll("\r", "")).isEqualTo(("==== Scenario: scenario icon:thumbs-down[role=\"red\",title=\"Failed\"]" + newLine() +
+                "description" + newLine() +
+                "" + newLine() +
+                "==========" + newLine() +
+                "Given::" + newLine() +
+
+                "passing step icon:thumbs-up[role=\"green\",title=\"Passed\"] [small right]#(000ms)#" + newLine() +
+
+                "When::" + newLine() +
+
+                "failing step icon:thumbs-down[role=\"red\",title=\"Failed\"] [small right]#(000ms)#" + newLine() +
+
+                "==========" + newLine() +
+                "" + newLine() +
+                "==== Scenario: scenario icon:thumbs-down[role=\"red\",title=\"Failed\"]" + newLine() +
+                "description" + newLine() +
+                "" + newLine() +
+                "==========" + newLine() +
+                "Then::" + newLine() +
+
+                "skipped step icon:thumbs-down[role=\"purple\",title=\"Skipped\"] [small right]#(000ms)#" + newLine() +
+
+                "==========" + newLine() +
+                "" + newLine() +
+                "==== Scenario: scenario icon:thumbs-down[role=\"red\",title=\"Failed\"]" + newLine() +
+                "description" + newLine() +
+                "" + newLine() +
+                "==========" + newLine() +
+                "Given::" + newLine() +
+
+                "undefined step icon:thumbs-down[role=\"yellow\",title=\"Undefined\"] [small right]#(000ms)#" + newLine() +
+
+                "==========" + newLine() +
+                "" + newLine()).replaceAll("\r", ""));
     }
 
     @Test
-    public void shouldRenderFeatureWithTableInSteps(){
+    public void shouldRenderFeatureWithTableInSteps() {
         List<Feature> features = FeatureParser.parse(featureWithTableInStep);
         CukedoctorConverter converter = Cukedoctor.instance(features, GlobalConfig.getInstance().getDocumentAttributes().docTitle("Doc Title"));
         String resultDoc = converter.renderDocumentation();
-        assertThat(resultDoc.replaceAll("\r","")).isEqualTo(Expectations.FEATURE_WITH_STEP_TABLE_IN_PT_BR.replaceAll("\r",""));
+        assertThat(resultDoc.replaceAll("\r", "")).isEqualTo(Expectations.FEATURE_WITH_STEP_TABLE_IN_PT_BR.replaceAll("\r", ""));
     }
 
     @Test
-    public void shouldRenderSourceDocStringInStep(){
+    public void shouldRenderSourceDocStringInStep() {
         List<Feature> features = FeatureParser.parse(featureWithSourceDocStringInStep);
         final Feature feature = features.get(0);
         CukedoctorFeatureRenderer featureRenderer = new CukedoctorFeatureRenderer();
@@ -306,7 +308,7 @@ public class RendererTest {
     }
 
     @Test
-    public void shouldNotGenerateSectionIdForFeatureBlankName(){
+    public void shouldNotGenerateSectionIdForFeatureBlankName() {
         final Feature feature = FeatureBuilder.instance().aFeatureWithOneScenarioWithOnePassingStep();
         feature.setName("    ");
         List<Feature> features = new ArrayList<>();
@@ -317,7 +319,7 @@ public class RendererTest {
     }
 
     @Test
-    public void shouldNotRenderSectionIdForFeatureWithNullName(){
+    public void shouldNotRenderSectionIdForFeatureWithNullName() {
         final Feature feature = FeatureBuilder.instance().aFeatureWithOneScenarioWithOnePassingStep();
         feature.setName(null);
         List<Feature> features = new ArrayList<>();
@@ -328,7 +330,7 @@ public class RendererTest {
     }
 
     @Test
-    public void shouldRenderSectionIdForFeatureWithNameWithSpaces(){
+    public void shouldRenderSectionIdForFeatureWithNameWithSpaces() {
         final Feature feature = FeatureBuilder.instance().aFeatureWithOneScenarioWithOnePassingStep();
         feature.setName("Feature name");
         List<Feature> features = new ArrayList<>();
@@ -339,7 +341,7 @@ public class RendererTest {
     }
 
     @Test
-    public void shouldRenderSectionIdForFeatureWithNameWithSpacesAndComma(){
+    public void shouldRenderSectionIdForFeatureWithNameWithSpacesAndComma() {
         final Feature feature = FeatureBuilder.instance().aFeatureWithOneScenarioWithOnePassingStep();
         feature.setName("Feature name, subname");
         List<Feature> features = new ArrayList<>();
@@ -350,7 +352,7 @@ public class RendererTest {
     }
 
     @Test
-    public void shouldRenderFeatureSectionId(){
+    public void shouldRenderFeatureSectionId() {
         final Feature feature = FeatureBuilder.instance().aFeatureWithOneScenarioWithOnePassingStep();
         feature.setName("Name");
         List<Feature> features = new ArrayList<>();
@@ -361,49 +363,70 @@ public class RendererTest {
     }
 
     @Test
-    public void shouldRenderFeatureDescription(){
+    public void shouldRenderFeatureDescription() {
         final Feature feature = FeatureBuilder.instance().description("Feature description").name("Feature name").build();
 
         CukedoctorFeatureRenderer featureRenderer = new CukedoctorFeatureRenderer();
         featureRenderer = spy(featureRenderer);
-        doReturn("").when(featureRenderer).renderFeatureScenario(any(Scenario.class),eq(feature));
+        doReturn("").when(featureRenderer).renderFeatureScenario(any(Scenario.class), eq(feature));
         String resultDoc = featureRenderer.renderFeature(feature);
-        assertThat(resultDoc).isEqualTo("[[Feature-name, Feature name]]"+newLine() +
-                "=== *Feature name*"+newLine() +
-                ""+newLine() +
-                "ifndef::backend-pdf[]"+newLine() +
-			    "minmax::Feature-name[]"+newLine() +
-			    "endif::[]"+newLine() +
-                "****"+newLine() +
-                "Feature description"+newLine() +
-                "****"+newLine() +
-                ""+newLine());
+        assertThat(resultDoc).isEqualTo("[[Feature-name, Feature name]]" + newLine() +
+                "=== *Feature name*" + newLine() +
+                "" + newLine() +
+                "ifndef::backend-pdf[]" + newLine() +
+                "minmax::Feature-name[]" + newLine() +
+                "endif::[]" + newLine() +
+                "****" + newLine() +
+                "Feature description" + newLine() +
+                "****" + newLine() +
+                "" + newLine());
     }
 
     // Integration tests
 
     @Test
-    public void shouldRenderScenarioExamples(){
+    public void shouldRenderScenarioExamples() {
         List<Feature> features = FeatureParser.parse(outline);
         assertThat(features).hasSize(1);
         CukedoctorScenarioRenderer scenarioRenderer = new CukedoctorScenarioRenderer();
         String resultDoc = scenarioRenderer.renderScenarioExamples(features.get(0).getElements().get(0));
-        assertThat(resultDoc).isEqualTo(""+newLine() +
-                ".examples1"+newLine() +
-                "[cols=\"1*\", options=\"header\"]"+newLine() +
-                "|==="+newLine() +
-                "|status"+newLine() +
-                "|passes"+newLine() +
-                "|fails"+newLine() +
-                "|==="+newLine() +
-                ""+newLine() +
-                ".examples2"+newLine() +
-                "[cols=\"1*\", options=\"header\"]"+newLine() +
-                "|==="+newLine() +
-                "|status"+newLine() +
-                "|passes"+newLine() +
-                "|==="+newLine() +
-                ""+newLine());
+        assertThat(resultDoc).isEqualTo("" + newLine() +
+                ".examples1" + newLine() +
+                "[cols=\"1*\", options=\"header\"]" + newLine() +
+                "|===" + newLine() +
+                "|status" + newLine() +
+                "|passes" + newLine() +
+                "|fails" + newLine() +
+                "|===" + newLine() +
+                "" + newLine() +
+                ".examples2" + newLine() +
+                "[cols=\"1*\", options=\"header\"]" + newLine() +
+                "|===" + newLine() +
+                "|status" + newLine() +
+                "|passes" + newLine() +
+                "|===" + newLine() +
+                "" + newLine());
+    }
+
+    @Test
+    public void shouldRenderDocumentationHeader() {
+        HeaderRenderer headerRenderer = new CukedoctorHeaderRenderer();
+        String generatedHeader = headerRenderer.renderDocumentHeader(GlobalConfig.getInstance().getDocumentAttributes());
+        assertThat(generatedHeader).isEqualToIgnoringWhitespace(":toc: right" + newLine() +
+                ":backend: html5" + newLine() +
+                ":doctitle: Living Documentation" + newLine() +
+                ":doctype: book" + newLine() +
+                ":icons: font" + newLine() +
+                ":!numbered:" + newLine() +
+                ":!linkcss:" + newLine() +
+                ":sectanchors:" + newLine() +
+                ":sectlink:" + newLine() +
+                ":docinfo:" + newLine() +
+                ":source-highlighter: highlightjs" + newLine() +
+                ":toclevels: 3" + newLine() +
+                ":hardbreaks:" + newLine() +
+                ":chapter-label: Chapter" + newLine() +
+                ":version-label: Version" + newLine());
     }
 
 
