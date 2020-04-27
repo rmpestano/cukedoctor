@@ -30,6 +30,8 @@ public class CukedoctorSummaryRenderer extends AbstractBaseRenderer implements S
 
     @Override
     public String renderSummary(List<Feature> features) {
+        docBuilder.clear();
+
         calculateTotalizations(features);
         docBuilder.textLine(H2(bold(i18n.getMessage("title.summary"))));
 

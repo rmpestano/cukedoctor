@@ -26,10 +26,10 @@ import java.util.List;
 import static com.github.cukedoctor.extension.CukedoctorExtensionRegistry.DISABLE_ALL_EXT_KEY;
 import static com.github.cukedoctor.extension.CukedoctorExtensionRegistry.MINMAX_DISABLE_EXT_KEY;
 import static com.github.cukedoctor.util.Constants.newLine;
+import static com.github.cukedoctor.util.StringUtil.trimAllLines;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
-import static com.github.cukedoctor.util.StringUtil.trimAllLines;
 
 
 /**
@@ -228,8 +228,7 @@ public class CukedoctorConverterTest {
         List<Feature> features = new ArrayList<>();
         features.add(feature);
         features.add(featureToSkip);
-        String resultDoc = Cukedoctor.instance(features, new DocumentAttributes()).
-                renderFeatures(features).getDocumentation().toString();
+        String resultDoc = Cukedoctor.instance(features, new DocumentAttributes()).renderDocumentation();
 
         assertThat(resultDoc).
                 doesNotContain("feature to skip").
@@ -461,7 +460,7 @@ public class CukedoctorConverterTest {
     public void shouldEnrichFeature() {
         List<Feature> features = FeatureParser.parse(getClass().getResource("/json-output/enrichment/calc.json").getPath());
         assertThat(features).isNotNull().hasSize(1);
-        String output = Cukedoctor.instance(features).renderFeatures(features).getDocumentation();
+        String output = Cukedoctor.instance(features).renderDocumentation();
         assertThat(output.replaceAll("\r\n|\r|\n", newLine())).contains(("[[Calculator, Calculator]]"+newLine()+
         		"=== *Calculator*"+newLine()+
         		""+newLine()+
@@ -499,7 +498,7 @@ public class CukedoctorConverterTest {
     public void shouldEnrichFeatureWithListing() {
         List<Feature> features = FeatureParser.parse(getClass().getResource("/com/github/cukedoctor/json-output/comment-with-listing.json").getPath());
         assertThat(features).isNotNull().hasSize(1);
-        String output = Cukedoctor.instance(features).renderFeatures(features).getDocumentation();
+        String output = Cukedoctor.instance(features).renderDocumentation();
         assertThat(output.replaceAll("\r", "")).contains(("[[Enriched-feature, Enriched feature]]" + newLine() +
                 "=== *Enriched feature*" + newLine() +
                 "" + newLine() +
@@ -522,7 +521,7 @@ public class CukedoctorConverterTest {
     public void shouldEnrichFeatureWithListingWithinAdmonitionBlock() {
         List<Feature> features = FeatureParser.parse(getClass().getResource("/com/github/cukedoctor/json-output/comment-with-admonition-and-listing.json").getPath());
         assertThat(features).isNotNull().hasSize(1);
-        String output = Cukedoctor.instance(features).renderFeatures(features).getDocumentation();
+        String output = Cukedoctor.instance(features).renderDocumentation();
         assertThat(output.replaceAll("\r", "")).contains(("[[Enriched-feature, Enriched feature]]"+newLine()+
         		"=== *Enriched feature*"+newLine()+
         		""+newLine()+
@@ -552,7 +551,7 @@ public class CukedoctorConverterTest {
     public void shouldEnrichFeatureWithCommentAndDocstring() {
         List<Feature> features = FeatureParser.parse(getClass().getResource("/com/github/cukedoctor/json-output/calc-enriched.json").getPath());
         assertThat(features).isNotNull().hasSize(1);
-        String output = Cukedoctor.instance(features).renderFeatures(features).getDocumentation();
+        String output = Cukedoctor.instance(features).renderDocumentation();
         assertThat(output.replaceAll("\r", "")).contains(("[[Calculator, Calculator]]"+newLine()+
         		"=== *Calculator*"+newLine()+
         		""+newLine()+

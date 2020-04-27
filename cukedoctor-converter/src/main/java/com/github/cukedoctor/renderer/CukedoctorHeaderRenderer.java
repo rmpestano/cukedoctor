@@ -13,9 +13,12 @@ public class CukedoctorHeaderRenderer extends AbstractBaseRenderer implements He
 
     @Override
     public String renderDocumentHeader(DocumentAttributes documentAttributes) {
+        docBuilder.clear();
+
         if(documentAttributes == null) {
             return "";
         }
+
         return docBuilder.attributes().toc(documentAttributes.getToc())
                 .backend(documentAttributes.getBackend())
                 .docTitle(documentAttributes.getDocTitle())

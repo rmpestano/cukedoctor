@@ -83,11 +83,7 @@ public class CukedoctorScenarioRenderer extends AbstractBaseRenderer implements 
             if (!Status.passed.equals(scenario.getStatus())) {
                 backgroundTitle.append(" " + Status.getStatusIcon(Status.failed));
             }
-            if (!cukedoctorConfig.isHideFeaturesSection()) {
-                docBuilder.sectionTitleLevel3(backgroundTitle.toString().replaceAll("\\\\", ""));
-            } else { //when feature section is not rendered we have to 'downgrade' other sections
-                docBuilder.sectionTitleLevel2(backgroundTitle.toString().replaceAll("\\\\", ""));
-            }
+            docBuilder.titleThenNest(backgroundTitle.toString().replaceAll("\\\\", ""));
         }
 
         if (hasText(scenario.getName())) {
@@ -101,12 +97,8 @@ public class CukedoctorScenarioRenderer extends AbstractBaseRenderer implements 
             if (notNull(scenario.getStatus()) && !Status.passed.equals(scenario.getStatus())) {
                 scenarioTitle.append(" " + Status.getStatusIcon(Status.failed));
             }
-            if (!cukedoctorConfig.isHideFeaturesSection()) {
-                docBuilder.sectionTitleLevel3(scenarioTitle.toString());
-            } else { //when feature section is not rendered we have to 'downgrade' other sections
-                docBuilder.sectionTitleLevel2(scenarioTitle.toString());
-            }
 
+            docBuilder.titleThenNest(scenarioTitle.toString());
         }
 
         if (!cukedoctorConfig.isHideTags()) {
@@ -131,14 +123,17 @@ public class CukedoctorScenarioRenderer extends AbstractBaseRenderer implements 
     }
 
     String renderScenarioSteps(List<Step> scenarioSteps, Scenario scenario, Feature feature) {
+        stepsRenderer.setDocumentBuilder(docBuilder.createNestedBuilder());
         return stepsRenderer.renderSteps(scenarioSteps, scenario, feature);
     }
 
     String renderScenarioExamples(Scenario scenario) {
+        examplesRenderer.setDocumentBuilder(docBuilder.createNestedBuilder());
         return examplesRenderer.renderScenarioExamples(scenario);
     }
 
     String renderScenarioTags(Scenario scenario, Feature feature) {
+        tagsRenderer.setDocumentBuilder(docBuilder.createNestedBuilder());
         return tagsRenderer.renderScenarioTags(feature, scenario);
     }
 

@@ -3,7 +3,8 @@ package com.github.cukedoctor.bdd.cukedoctor;
 import com.github.cukedoctor.Cukedoctor;
 import com.github.cukedoctor.api.model.Feature;
 import com.github.cukedoctor.parser.FeatureParser;
-import io.cucumber.java.en.*;
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
 
 import java.net.URL;
 import java.util.List;
@@ -19,7 +20,7 @@ public class TagRenderingSteps {
         URL featureFile = getClass().getResource("/com/github/cukedoctor/json-output/tag-rendering.json");
         assertThat(featureFile).isNotNull();
         List<Feature> features = FeatureParser.parse(featureFile.getPath());
-        documentation = Cukedoctor.instance(features).renderFeatures().getDocumentation();
+        documentation = Cukedoctor.instance(features).renderDocumentation();
     }
 
     @Then("^the tags displayed under each scenario should not have duplicates$")
