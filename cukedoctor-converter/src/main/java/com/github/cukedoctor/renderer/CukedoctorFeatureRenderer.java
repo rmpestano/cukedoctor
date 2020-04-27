@@ -1,6 +1,7 @@
 package com.github.cukedoctor.renderer;
 
 import com.github.cukedoctor.api.CukedoctorDocumentBuilder;
+import com.github.cukedoctor.api.DocumentAttributes;
 import com.github.cukedoctor.api.model.Feature;
 import com.github.cukedoctor.api.model.Scenario;
 import com.github.cukedoctor.config.CukedoctorConfig;
@@ -26,9 +27,15 @@ public class CukedoctorFeatureRenderer extends AbstractBaseRenderer implements F
         loadDependentRenderers();
     }
 
+    // For testing convenience. Mimics the instance that would be built via Cukedoctor.instance(someFeatures)
     public CukedoctorFeatureRenderer(CukedoctorDocumentBuilder builder) {
+        this(builder, null);
+    }
+
+    public CukedoctorFeatureRenderer(CukedoctorDocumentBuilder builder, DocumentAttributes documentAttributes) {
         loadDependentRenderers();
         setDocumentBuilder(builder);
+        setDocumentAttributes(documentAttributes);
     }
 
     private void loadDependentRenderers() {

@@ -122,7 +122,7 @@ public class AttributesTest {
         List<Feature> features = new ArrayList<>();
         features.add(FeatureBuilder.instance().id("id").name("name").build());
 
-        String document = Cukedoctor.instance(features, null).renderAttributes().
+        String document = Cukedoctor.instance(features, (DocumentAttributes) null).renderAttributes().
                 getDocumentation();
         assertEquals("", document);
     }

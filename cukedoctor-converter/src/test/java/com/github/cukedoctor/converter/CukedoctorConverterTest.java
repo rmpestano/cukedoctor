@@ -2,9 +2,11 @@ package com.github.cukedoctor.converter;
 
 import com.github.cukedoctor.Cukedoctor;
 import com.github.cukedoctor.api.CukedoctorConverter;
+import com.github.cukedoctor.api.CukedoctorDocumentBuilder;
 import com.github.cukedoctor.api.DocumentAttributes;
 import com.github.cukedoctor.api.model.Feature;
 import com.github.cukedoctor.api.model.Tag;
+import com.github.cukedoctor.config.CukedoctorConfig;
 import com.github.cukedoctor.config.GlobalConfig;
 import com.github.cukedoctor.parser.FeatureParser;
 import com.github.cukedoctor.renderer.CukedoctorSummaryRenderer;
@@ -228,7 +230,12 @@ public class CukedoctorConverterTest {
         List<Feature> features = new ArrayList<>();
         features.add(feature);
         features.add(featureToSkip);
-        String resultDoc = Cukedoctor.instance(features, new DocumentAttributes()).renderDocumentation();
+        String resultDoc = Cukedoctor.instance(
+                features,
+                new DocumentAttributes(),
+                new CukedoctorConfig(),
+                CukedoctorDocumentBuilder.Factory.newInstance().nestTitle().createNestedBuilder()
+        ).renderFeatures(features).getDocumentation();
 
         assertThat(resultDoc).
                 doesNotContain("feature to skip").
@@ -460,7 +467,7 @@ public class CukedoctorConverterTest {
     public void shouldEnrichFeature() {
         List<Feature> features = FeatureParser.parse(getClass().getResource("/json-output/enrichment/calc.json").getPath());
         assertThat(features).isNotNull().hasSize(1);
-        String output = Cukedoctor.instance(features).renderDocumentation();
+        String output = Cukedoctor.instance(features, CukedoctorDocumentBuilder.Factory.newInstance().nestTitle().createNestedBuilder()).renderFeatures(features).getDocumentation();
         assertThat(output.replaceAll("\r\n|\r|\n", newLine())).contains(("[[Calculator, Calculator]]"+newLine()+
         		"=== *Calculator*"+newLine()+
         		""+newLine()+
@@ -498,7 +505,7 @@ public class CukedoctorConverterTest {
     public void shouldEnrichFeatureWithListing() {
         List<Feature> features = FeatureParser.parse(getClass().getResource("/com/github/cukedoctor/json-output/comment-with-listing.json").getPath());
         assertThat(features).isNotNull().hasSize(1);
-        String output = Cukedoctor.instance(features).renderDocumentation();
+        String output = Cukedoctor.instance(features, CukedoctorDocumentBuilder.Factory.newInstance().nestTitle().createNestedBuilder()).renderFeatures(features).getDocumentation();
         assertThat(output.replaceAll("\r", "")).contains(("[[Enriched-feature, Enriched feature]]" + newLine() +
                 "=== *Enriched feature*" + newLine() +
                 "" + newLine() +
@@ -521,7 +528,7 @@ public class CukedoctorConverterTest {
     public void shouldEnrichFeatureWithListingWithinAdmonitionBlock() {
         List<Feature> features = FeatureParser.parse(getClass().getResource("/com/github/cukedoctor/json-output/comment-with-admonition-and-listing.json").getPath());
         assertThat(features).isNotNull().hasSize(1);
-        String output = Cukedoctor.instance(features).renderDocumentation();
+        String output = Cukedoctor.instance(features, CukedoctorDocumentBuilder.Factory.newInstance().nestTitle().createNestedBuilder()).renderFeatures(features).getDocumentation();
         assertThat(output.replaceAll("\r", "")).contains(("[[Enriched-feature, Enriched feature]]"+newLine()+
         		"=== *Enriched feature*"+newLine()+
         		""+newLine()+
@@ -551,7 +558,7 @@ public class CukedoctorConverterTest {
     public void shouldEnrichFeatureWithCommentAndDocstring() {
         List<Feature> features = FeatureParser.parse(getClass().getResource("/com/github/cukedoctor/json-output/calc-enriched.json").getPath());
         assertThat(features).isNotNull().hasSize(1);
-        String output = Cukedoctor.instance(features).renderDocumentation();
+        String output = Cukedoctor.instance(features, CukedoctorDocumentBuilder.Factory.newInstance().nestTitle().createNestedBuilder()).renderFeatures(features).getDocumentation();
         assertThat(output.replaceAll("\r", "")).contains(("[[Calculator, Calculator]]"+newLine()+
         		"=== *Calculator*"+newLine()+
         		""+newLine()+
