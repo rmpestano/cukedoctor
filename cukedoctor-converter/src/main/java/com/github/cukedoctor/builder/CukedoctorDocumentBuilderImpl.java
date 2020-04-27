@@ -21,7 +21,7 @@ public class CukedoctorDocumentBuilderImpl extends AsciiDocBuilder implements Cu
 
     @Override
     public AttributesBuilder attributes() {
-        if(attrsBuilder == null){
+        if (attrsBuilder == null) {
             attrsBuilder = new AttributesBuilderImpl(this);
         }
         return attrsBuilder;
@@ -35,9 +35,9 @@ public class CukedoctorDocumentBuilderImpl extends AsciiDocBuilder implements Cu
 
     @Override
     public CukedoctorDocumentBuilder append(Object... text) {
-        if(notEmpty(text)){
+        if (notEmpty(text)) {
             for (Object o : text) {
-                if(o.equals(Constants.newLine()) || hasText(o.toString())){
+                if (o.equals(Constants.newLine()) || hasText(o.toString())) {
                     documentBuilder.append(o.toString());
                 }
             }
@@ -47,13 +47,13 @@ public class CukedoctorDocumentBuilderImpl extends AsciiDocBuilder implements Cu
 
     @Override
     public CukedoctorDocumentBuilder textLine(String text) {
-        if(Constants.newLine().equals(text) || hasText(text)){
+        if (Constants.newLine().equals(text) || hasText(text)) {
             super.textLine(text);
         }
         return this;
     }
 
-    public void clear(){
+    public void clear() {
         documentBuilder = new StringBuilder();
     }
 }
