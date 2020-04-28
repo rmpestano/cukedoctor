@@ -10,8 +10,6 @@ import java.util.List;
 public interface CukedoctorConverter {
 
 
-	DocumentAttributes getDocumentAttributes();
-
 	List<Feature> getFeatures();
 
 	String getDocumentation();
@@ -23,8 +21,6 @@ public interface CukedoctorConverter {
 	String renderDocumentation();
 
 	String getDocumentationTitle();
-
-	CukedoctorConverter renderAttributes();
 
 	/**
 	 * @return document overall summary which gathers information about all features like
