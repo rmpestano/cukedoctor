@@ -35,7 +35,7 @@ public class CukedoctorFeatureRendererTest {
         features.add(feature);
         features.add(featureToSkip);
         String resultDoc = new CukedoctorFeatureRenderer(
-                CukedoctorDocumentBuilder.Factory.newInstance().nestTitle().createNestedBuilder(),
+                CukedoctorDocumentBuilder.Factory.newInstance().createNestedBuilder(),
                 new DocumentAttributes()
         ).renderFeatures(features);
 
@@ -63,7 +63,7 @@ public class CukedoctorFeatureRendererTest {
     public void shouldEnrichFeature() {
         List<Feature> features = FeatureParser.parse(getClass().getResource("/json-output/enrichment/calc.json").getPath());
         assertThat(features).isNotNull().hasSize(1);
-        String output = new CukedoctorFeatureRenderer(CukedoctorDocumentBuilder.Factory.newInstance().nestTitle().createNestedBuilder()).renderFeatures(features);
+        String output = new CukedoctorFeatureRenderer(CukedoctorDocumentBuilder.Factory.newInstance().createNestedBuilder()).renderFeatures(features);
         assertThat(output.replaceAll("\r\n|\r|\n", newLine())).contains(("[[Calculator, Calculator]]" + newLine() +
                 "=== *Calculator*" + newLine() +
                 "" + newLine() +
@@ -101,7 +101,7 @@ public class CukedoctorFeatureRendererTest {
     public void shouldEnrichFeatureWithListing() {
         List<Feature> features = FeatureParser.parse(getClass().getResource("/com/github/cukedoctor/json-output/comment-with-listing.json").getPath());
         assertThat(features).isNotNull().hasSize(1);
-        String output = new CukedoctorFeatureRenderer(CukedoctorDocumentBuilder.Factory.newInstance().nestTitle().createNestedBuilder()).renderFeatures(features);
+        String output = new CukedoctorFeatureRenderer(CukedoctorDocumentBuilder.Factory.newInstance().createNestedBuilder()).renderFeatures(features);
         assertThat(output.replaceAll("\r", "")).contains(("[[Enriched-feature, Enriched feature]]" + newLine() +
                 "=== *Enriched feature*" + newLine() +
                 "" + newLine() +
@@ -124,7 +124,7 @@ public class CukedoctorFeatureRendererTest {
     public void shouldEnrichFeatureWithListingWithinAdmonitionBlock() {
         List<Feature> features = FeatureParser.parse(getClass().getResource("/com/github/cukedoctor/json-output/comment-with-admonition-and-listing.json").getPath());
         assertThat(features).isNotNull().hasSize(1);
-        String output = new CukedoctorFeatureRenderer(CukedoctorDocumentBuilder.Factory.newInstance().nestTitle().createNestedBuilder()).renderFeatures(features);
+        String output = new CukedoctorFeatureRenderer(CukedoctorDocumentBuilder.Factory.newInstance().createNestedBuilder()).renderFeatures(features);
         assertThat(output.replaceAll("\r", "")).contains(("[[Enriched-feature, Enriched feature]]" + newLine() +
                 "=== *Enriched feature*" + newLine() +
                 "" + newLine() +
@@ -154,7 +154,7 @@ public class CukedoctorFeatureRendererTest {
     public void shouldEnrichFeatureWithCommentAndDocstring() {
         List<Feature> features = FeatureParser.parse(getClass().getResource("/com/github/cukedoctor/json-output/calc-enriched.json").getPath());
         assertThat(features).isNotNull().hasSize(1);
-        String output = new CukedoctorFeatureRenderer(CukedoctorDocumentBuilder.Factory.newInstance().nestTitle().createNestedBuilder()).renderFeatures(features);
+        String output = new CukedoctorFeatureRenderer(CukedoctorDocumentBuilder.Factory.newInstance().createNestedBuilder()).renderFeatures(features);
         assertThat(output.replaceAll("\r", "")).contains(("[[Calculator, Calculator]]" + newLine() +
                 "=== *Calculator*" + newLine() +
                 "" + newLine() +
@@ -216,7 +216,7 @@ public class CukedoctorFeatureRendererTest {
         doReturn("").when(scenarioRenderer).renderScenarioExamples(any(Scenario.class));
         doReturn("").when(scenarioRenderer).renderScenarioTags(any(Scenario.class), eq(feature));
 
-        CukedoctorFeatureRenderer featureRenderer = new CukedoctorFeatureRenderer(new CukedoctorDocumentBuilderImpl().nestTitle().nestTitle().nestTitle());
+        CukedoctorFeatureRenderer featureRenderer = new CukedoctorFeatureRenderer(new CukedoctorDocumentBuilderImpl().createNestedBuilder());
         featureRenderer = spy(featureRenderer);
         featureRenderer.scenarioRenderer = scenarioRenderer;
 
@@ -238,7 +238,7 @@ public class CukedoctorFeatureRendererTest {
         doReturn("").when(scenarioRenderer).renderScenarioSteps(anyListOf(Step.class), any(Scenario.class), any(Feature.class));
         doReturn("").when(scenarioRenderer).renderScenarioExamples(any(Scenario.class));
 
-        CukedoctorFeatureRenderer featureRenderer = new CukedoctorFeatureRenderer(new CukedoctorDocumentBuilderImpl().nestTitle().nestTitle().nestTitle());
+        CukedoctorFeatureRenderer featureRenderer = new CukedoctorFeatureRenderer(new CukedoctorDocumentBuilderImpl().createNestedBuilder());
         featureRenderer = spy(featureRenderer);
         featureRenderer.scenarioRenderer = scenarioRenderer;
 
@@ -266,7 +266,7 @@ public class CukedoctorFeatureRendererTest {
         doReturn("").when(scenarioRenderer).renderScenarioSteps(anyListOf(Step.class), any(Scenario.class), any(Feature.class));
         doReturn("").when(scenarioRenderer).renderScenarioExamples(any(Scenario.class));
 
-        CukedoctorFeatureRenderer featureRenderer = new CukedoctorFeatureRenderer(new CukedoctorDocumentBuilderImpl().nestTitle().nestTitle().nestTitle());
+        CukedoctorFeatureRenderer featureRenderer = new CukedoctorFeatureRenderer(new CukedoctorDocumentBuilderImpl().createNestedBuilder());
         featureRenderer = spy(featureRenderer);
         featureRenderer.scenarioRenderer = scenarioRenderer;
 
@@ -296,7 +296,7 @@ public class CukedoctorFeatureRendererTest {
         doReturn("").when(scenarioRenderer).renderScenarioSteps(anyListOf(Step.class), any(Scenario.class), any(Feature.class));
         doReturn("").when(scenarioRenderer).renderScenarioExamples(any(Scenario.class));
 
-        CukedoctorFeatureRenderer featureRenderer = new CukedoctorFeatureRenderer(new CukedoctorDocumentBuilderImpl().nestTitle().nestTitle().nestTitle());
+        CukedoctorFeatureRenderer featureRenderer = new CukedoctorFeatureRenderer(new CukedoctorDocumentBuilderImpl().createNestedBuilder());
         featureRenderer = spy(featureRenderer);
         featureRenderer.scenarioRenderer = scenarioRenderer;
 
@@ -317,7 +317,7 @@ public class CukedoctorFeatureRendererTest {
         List<Feature> features = new ArrayList<>();
         features.add(feature);
 
-        CukedoctorFeatureRenderer featureRenderer = new CukedoctorFeatureRenderer(new CukedoctorDocumentBuilderImpl().nestTitle().nestTitle().nestTitle());
+        CukedoctorFeatureRenderer featureRenderer = new CukedoctorFeatureRenderer(new CukedoctorDocumentBuilderImpl().createNestedBuilder());
         String resultDoc = featureRenderer.renderFeatureScenarios(feature, featureRenderer.docBuilder.createNestedBuilder());
 
         assertThat(resultDoc).
@@ -336,7 +336,7 @@ public class CukedoctorFeatureRendererTest {
         final Feature feature = FeatureBuilder.instance().aFeatureWithMultipleScenariosAndSteps();
         List<Feature> features = new ArrayList<>();
         features.add(feature);
-        CukedoctorFeatureRenderer featureRenderer = new CukedoctorFeatureRenderer(new CukedoctorDocumentBuilderImpl().nestTitle().nestTitle().nestTitle());
+        CukedoctorFeatureRenderer featureRenderer = new CukedoctorFeatureRenderer(new CukedoctorDocumentBuilderImpl().createNestedBuilder().createNestedBuilder());
         String resultDoc = featureRenderer.renderFeatureScenarios(feature, featureRenderer.docBuilder);
         assertThat(resultDoc.replaceAll("\r", "")).isEqualTo(("==== Scenario: scenario icon:thumbs-down[role=\"red\",title=\"Failed\"]" + newLine() +
                 "description" + newLine() +
@@ -378,7 +378,7 @@ public class CukedoctorFeatureRendererTest {
     public void shouldRenderSourceDocStringInStep() {
         List<Feature> features = FeatureParser.parse(featureWithSourceDocStringInStep);
         final Feature feature = features.get(0);
-        CukedoctorFeatureRenderer featureRenderer = new CukedoctorFeatureRenderer(new CukedoctorDocumentBuilderImpl().nestTitle().nestTitle(), new DocumentAttributes());
+        CukedoctorFeatureRenderer featureRenderer = new CukedoctorFeatureRenderer(new CukedoctorDocumentBuilderImpl().createNestedBuilder().createNestedBuilder(), new DocumentAttributes());
         String resultDoc = featureRenderer.renderFeature(feature);
         assertThat(resultDoc).isEqualTo(Expectations.FEATURE_WITH_SOURCE_DOC_STRING);
     }
@@ -437,7 +437,7 @@ public class CukedoctorFeatureRendererTest {
     public void shouldRenderFeatureDescription() {
         final Feature feature = FeatureBuilder.instance().description("Feature description").name("Feature name").build();
 
-        CukedoctorFeatureRenderer featureRenderer = new CukedoctorFeatureRenderer(new CukedoctorDocumentBuilderImpl().nestTitle().nestTitle(), new DocumentAttributes());
+        CukedoctorFeatureRenderer featureRenderer = new CukedoctorFeatureRenderer(new CukedoctorDocumentBuilderImpl().createNestedBuilder().createNestedBuilder(), new DocumentAttributes());
         featureRenderer = spy(featureRenderer);
         doReturn("").when(featureRenderer).renderFeatureScenario(any(Scenario.class), eq(feature), any(CukedoctorDocumentBuilder.class));
         String resultDoc = featureRenderer.renderFeature(feature);

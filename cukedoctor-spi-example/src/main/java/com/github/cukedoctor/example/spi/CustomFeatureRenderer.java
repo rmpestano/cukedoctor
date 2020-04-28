@@ -45,7 +45,7 @@ public class CustomFeatureRenderer extends CukedoctorFeatureRenderer {
 
     @Override
     public String renderFeature(Feature feature) {
-        CukedoctorDocumentBuilder builder = docBuilder.createNestedBuilder();
+        CukedoctorDocumentBuilder builder = docBuilder.createPeerBuilder();
         builder.textLine((bold(feature.getName()))+"::").newLine();
         if (hasText(feature.getDescription())) {
             builder.append("+").sideBarBlock(feature.getDescription().trim().replaceAll("\\n", " +" + newLine()));

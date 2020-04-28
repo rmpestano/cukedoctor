@@ -33,7 +33,7 @@ public class OrderingSteps {
         assertThat(featureFile).isNotNull();
         List<Feature> features = FeatureParser.parse(featureFile.getPath());
         assertThat(features).isNotNull().hasSize(2);
-        documentation = new CukedoctorFeatureRenderer(new CukedoctorDocumentBuilderImpl().nestTitle().createNestedBuilder()).renderFeatures(features);
+        documentation = new CukedoctorFeatureRenderer(new CukedoctorDocumentBuilderImpl().createNestedBuilder()).renderFeatures(features);
     }
 
     @Then("^Features should be ordered by name in resulting documentation$")

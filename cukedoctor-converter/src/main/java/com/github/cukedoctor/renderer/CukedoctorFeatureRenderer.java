@@ -56,12 +56,12 @@ public class CukedoctorFeatureRenderer extends AbstractBaseRenderer implements F
 
     @Override
     public String renderFeature(Feature feature) {
-        CukedoctorDocumentBuilder builder = docBuilder.createNestedBuilder();
+        CukedoctorDocumentBuilder builder = docBuilder.createPeerBuilder();
         if (feature.hasIgnoreDocsTag()) {
             return "";
         }
         builder.textLine(renderFeatureSectionId(feature));
-        builder.titleThenNest(bold(feature.getName())).newLine();
+        builder.title(bold(feature.getName())).newLine();
 
         if (notNull(documentAttributes) && hasText(documentAttributes.getBackend())) {
             String backend = documentAttributes.getBackend();
