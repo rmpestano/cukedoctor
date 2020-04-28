@@ -8,6 +8,7 @@ import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;
 
 import static com.github.cukedoctor.util.Constants.newLine;
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.Assert.assertEquals;
 
 @RunWith(JUnit4.class)
@@ -365,5 +366,25 @@ public class CukedoctorHeaderRendererTest {
 
         String document = new CukedoctorHeaderRenderer().renderDocumentHeader(attrs);
         assertEquals(expected.replace("\r", ""), document.replace("\r", ""));
+    }
+
+    @Test
+    public void shouldRenderDocumentationHeader() {
+        String generatedHeader = new CukedoctorHeaderRenderer().renderDocumentHeader(GlobalConfig.newInstance().getDocumentAttributes());
+        assertThat(generatedHeader).isEqualToIgnoringWhitespace(":toc: right" + newLine() +
+                ":backend: html5" + newLine() +
+                ":doctitle: Living Documentation" + newLine() +
+                ":doctype: book" + newLine() +
+                ":icons: font" + newLine() +
+                ":!numbered:" + newLine() +
+                ":!linkcss:" + newLine() +
+                ":sectanchors:" + newLine() +
+                ":sectlink:" + newLine() +
+                ":docinfo:" + newLine() +
+                ":source-highlighter: highlightjs" + newLine() +
+                ":toclevels: 3" + newLine() +
+                ":hardbreaks:" + newLine() +
+                ":chapter-label: Chapter" + newLine() +
+                ":version-label: Version" + newLine());
     }
 }
