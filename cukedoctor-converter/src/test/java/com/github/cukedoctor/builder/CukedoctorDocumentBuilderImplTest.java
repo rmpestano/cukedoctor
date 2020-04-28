@@ -1,5 +1,6 @@
 package com.github.cukedoctor.builder;
 
+import com.github.cukedoctor.api.CukedoctorDocumentBuilder;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -27,11 +28,10 @@ public class CukedoctorDocumentBuilderImplTest {
 
     @Test
     public void shouldConstructAtSpecifiedTitleNestingLevel() {
-        builder = new CukedoctorDocumentBuilderImpl(createInstanceWithNestingLevel2());
+        builder = createInstanceWithNestingLevel2();
         builder.title("My Title");
         assertDocumentEquals("=== My Title");
     }
-
 
 
     // Rendering named section titles
@@ -79,6 +79,7 @@ public class CukedoctorDocumentBuilderImplTest {
         builder.title(level0Title);
         assertDocumentEquals("= " + level0Title + newLine());
     }
+
     @Test
     public void shouldRenderTitleAtLevel1AfterNestingOnce() {
         builder.title(level0Title).nestTitle()
@@ -198,7 +199,7 @@ public class CukedoctorDocumentBuilderImplTest {
 
     @Test(expected = CukedoctorDocumentBuilderImpl.NestingUnderflowException.class)
     public void shouldThrowIfUnNestingBeyondInitialLevel() {
-        builder = new CukedoctorDocumentBuilderImpl(createInstanceWithNestingLevel2());
+        builder = createInstanceWithNestingLevel2();
         builder.unNestTitle();
     }
 
@@ -212,8 +213,40 @@ public class CukedoctorDocumentBuilderImplTest {
 
 
     @Test
+    public void nestedBuilderShouldRenderAtLevel2IfParentWasAtLevel1() {
+        // Assert root builder is at level 0
+        assertEquals("= My Level 0 Title" + newLine() + newLine(), builder.title("My Level 0 Title").toString());
+
+        // Assert child builder is at level 1
+        CukedoctorDocumentBuilder child = builder.createNestedBuilder();
+        assertEquals("== My Level 1 Title" + newLine(), child.title("My Level 1 Title").toString());
+
+        // Assert root buidler remains at level 0
+        assertEquals(
+                "= My Level 0 Title" + newLine() + newLine()
+                        + "= My Other Level 0 Title" + newLine() + newLine(),
+                builder.title("My Other Level 0 Title").toString());
+    }
+
+    @Test(expected = CukedoctorDocumentBuilderImpl.NestingOverflowException.class)
+    public void createNestedBuilderShouldThrowIfParentIsAtMaximumNestingDepth() {
+        builder.createNestedBuilder().createNestedBuilder().createNestedBuilder().createNestedBuilder().createNestedBuilder().createNestedBuilder();
+    }
+
+
+    @Test
+    public void peerBuilderShouldRenderAtSameLevelAsParent() {
+        CukedoctorDocumentBuilder parent = builder.createNestedBuilder();
+        assertEquals("== Parent Level 1 Title" + newLine(), parent.title("Parent Level 1 Title").toString());
+
+        CukedoctorDocumentBuilder peer = parent.createPeerBuilder();
+        assertEquals("== Peer Level 1 Title" + newLine(), peer.title("Peer Level 1 Title").toString());
+    }
+
+
+    @Test
     public void clearShouldResetNestingLevel() {
-        builder = new CukedoctorDocumentBuilderImpl(createInstanceWithNestingLevel2());
+        builder = createInstanceWithNestingLevel2();
         builder.nestTitle().nestTitle().title("My Title");
         builder.clear();
         builder.title("My Title");
@@ -230,9 +263,7 @@ public class CukedoctorDocumentBuilderImplTest {
 
 
     private CukedoctorDocumentBuilderImpl createInstanceWithNestingLevel2() {
-        CukedoctorDocumentBuilderImpl instance = new CukedoctorDocumentBuilderImpl();
-        instance.nestTitle().nestTitle();
-        return instance;
+        return (CukedoctorDocumentBuilderImpl) new CukedoctorDocumentBuilderImpl().createNestedBuilder().createNestedBuilder();
     }
 
     private void assertDocumentEquals(String content) {

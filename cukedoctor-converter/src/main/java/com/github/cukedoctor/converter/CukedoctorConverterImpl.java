@@ -108,7 +108,7 @@ public class CukedoctorConverterImpl implements CukedoctorConverter {
         addCustomPdfTheme();//needs to be added before renderAttributes because it adds pdf-style doc attr
         renderAttributes();
         docBuilder.newLine();
-        docBuilder.titleThenNest(bold(getDocumentationTitle()));
+        docBuilder.title(bold(getDocumentationTitle()));
         renderIntro();
         if (!cukedoctorConfig.isHideSummarySection()) {
             renderSummary();
@@ -140,7 +140,7 @@ public class CukedoctorConverterImpl implements CukedoctorConverter {
     }
 
     public CukedoctorConverter renderAttributes() {
-        headerRenderer.setDocumentBuilder(docBuilder.createNestedBuilder());
+        headerRenderer.setDocumentBuilder(docBuilder.createPeerBuilder());
         docBuilder.append(headerRenderer.renderDocumentHeader(documentAttributes));
         return this;
     }

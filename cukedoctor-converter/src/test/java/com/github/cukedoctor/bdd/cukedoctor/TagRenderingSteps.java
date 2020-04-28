@@ -21,7 +21,7 @@ public class TagRenderingSteps {
         URL featureFile = getClass().getResource("/com/github/cukedoctor/json-output/tag-rendering.json");
         assertThat(featureFile).isNotNull();
         List<Feature> features = FeatureParser.parse(featureFile.getPath());
-        documentation = new CukedoctorFeatureRenderer(new CukedoctorDocumentBuilderImpl().nestTitle().createNestedBuilder()).renderFeatures(features);
+        documentation = new CukedoctorFeatureRenderer(new CukedoctorDocumentBuilderImpl().createNestedBuilder()).renderFeatures(features);
     }
 
     @Then("^the tags displayed under each scenario should not have duplicates$")

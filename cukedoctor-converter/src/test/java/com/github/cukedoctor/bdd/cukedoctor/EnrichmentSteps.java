@@ -56,6 +56,6 @@ public class EnrichmentSteps {
         assertThat(featureFile).isNotNull();
         List<Feature> features = FeatureParser.parse(featureFile.getPath());
         assertThat(features).isNotNull().hasSize(1);
-        documentation = new CukedoctorFeatureRenderer(new CukedoctorDocumentBuilderImpl().nestTitle().createNestedBuilder()).renderFeatures(features);
+        documentation = new CukedoctorFeatureRenderer(new CukedoctorDocumentBuilderImpl().createNestedBuilder()).renderFeatures(features);
     }
 }

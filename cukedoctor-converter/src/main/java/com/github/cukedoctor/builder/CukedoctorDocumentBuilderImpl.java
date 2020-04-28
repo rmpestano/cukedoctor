@@ -21,12 +21,11 @@ public class CukedoctorDocumentBuilderImpl extends AsciiDocBuilder implements Cu
 
 
     public CukedoctorDocumentBuilderImpl() {
-        this.initialTitleNestingLevel = 0;
-        initialiseTitleNesting();
+        this(0);
     }
 
-    CukedoctorDocumentBuilderImpl(CukedoctorDocumentBuilderImpl parent) {
-        this.initialTitleNestingLevel = parent.currentTitleNestingLevel;
+    private CukedoctorDocumentBuilderImpl(int initialTitleNestingLevel) {
+        this.initialTitleNestingLevel = initialTitleNestingLevel;
         initialiseTitleNesting();
     }
 
@@ -100,15 +99,15 @@ public class CukedoctorDocumentBuilderImpl extends AsciiDocBuilder implements Cu
 
     @Override
     public CukedoctorDocumentBuilder nestTitle() {
-        if (currentTitleNestingLevel == 5) throw new NestingOverflowException();
+        checkNestingOverflow();
 
         currentTitleNestingLevel += 1;
         return this;
     }
 
-    @Override
     public CukedoctorDocumentBuilder unNestTitle() {
-        if (currentTitleNestingLevel == initialTitleNestingLevel) throw new NestingUnderflowException(initialTitleNestingLevel);
+        if (currentTitleNestingLevel == initialTitleNestingLevel)
+            throw new NestingUnderflowException(initialTitleNestingLevel);
 
         currentTitleNestingLevel -= 1;
         return this;
@@ -126,10 +125,21 @@ public class CukedoctorDocumentBuilderImpl extends AsciiDocBuilder implements Cu
 
     @Override
     public CukedoctorDocumentBuilder createNestedBuilder() {
-        return new CukedoctorDocumentBuilderImpl(this);
+        checkNestingOverflow();
+
+        return new CukedoctorDocumentBuilderImpl(currentTitleNestingLevel + 1);
     }
 
-    public void initialiseTitleNesting() {
+    @Override
+    public CukedoctorDocumentBuilder createPeerBuilder() {
+        return new CukedoctorDocumentBuilderImpl(currentTitleNestingLevel);
+    }
+
+    private void checkNestingOverflow() {
+        if (currentTitleNestingLevel == 5) throw new NestingOverflowException();
+    }
+
+    private void initialiseTitleNesting() {
         currentTitleNestingLevel = initialTitleNestingLevel;
     }
 
