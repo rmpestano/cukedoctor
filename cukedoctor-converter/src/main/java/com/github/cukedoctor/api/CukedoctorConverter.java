@@ -24,10 +24,6 @@ public interface CukedoctorConverter {
 
 	String getDocumentationTitle();
 
-	CukedoctorConverter renderFeatures(List<Feature> features);
-
-	CukedoctorConverter renderFeatures();
-
 	CukedoctorConverter renderAttributes();
 
 	/**

@@ -181,11 +181,6 @@ public class CukedoctorConverterImpl implements CukedoctorConverter {
     }
 
     @Override
-    public CukedoctorConverter renderFeatures() {
-        return this.renderFeatures(features);
-    }
-
-    @Override
     public CukedoctorConverter setFilename(String filename) {
         if (filename == null) {
             filename = getDocumentationTitle();
