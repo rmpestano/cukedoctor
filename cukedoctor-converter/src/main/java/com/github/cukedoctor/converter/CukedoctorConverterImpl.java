@@ -87,6 +87,9 @@ public class CukedoctorConverterImpl implements CukedoctorConverter {
         featureRenderer.setDocumentAttributes(documentAttributes);
     }
 
+    public DocumentAttributes getDocumentAttributes() {
+        return documentAttributes;
+    }
 
     public List<Feature> getFeatures() {
         return features;
@@ -174,6 +177,11 @@ public class CukedoctorConverterImpl implements CukedoctorConverter {
         featureRenderer.setDocumentBuilder(docBuilder.createNestedBuilder());
         docBuilder.append(featureRenderer.renderFeatures(features));
         return this;
+    }
+
+    @Override
+    public CukedoctorConverter renderFeatures() {
+        return this.renderFeatures(features);
     }
 
     @Override
