@@ -7,7 +7,6 @@ import com.github.cukedoctor.api.DocumentAttributes;
 import com.github.cukedoctor.api.model.Feature;
 import com.github.cukedoctor.config.GlobalConfig;
 import com.github.cukedoctor.parser.FeatureParser;
-import com.github.cukedoctor.util.Constants;
 import com.github.cukedoctor.util.FileUtil;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -18,8 +17,8 @@ import java.io.File;
 import java.util.List;
 
 import static com.github.cukedoctor.util.Constants.newLine;
-import static org.assertj.core.api.Assertions.assertThat;
 import static com.github.cukedoctor.util.StringUtil.trimAllLines;
+import static org.assertj.core.api.Assertions.assertThat;
 
 /**
  * Created by pestano on 27/02/16.
@@ -46,8 +45,8 @@ public class CustomRendererTest {
 
         CukedoctorConverter converter = Cukedoctor.instance(features, attrs);
 
-        String resultDoc = converter.renderSummary().getDocumentation();
-        assertThat(resultDoc).isEqualTo("== *Summary*" + newLine() +
+        String resultDoc = converter.renderDocumentation();
+        assertThat(resultDoc).contains("== *Summary*" + newLine() +
                 "This is a custom summary renderer" + newLine() +
                 "" + newLine() +
                 "Number of features: 1" + newLine() +
