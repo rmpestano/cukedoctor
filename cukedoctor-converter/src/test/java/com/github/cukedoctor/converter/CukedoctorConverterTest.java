@@ -136,9 +136,7 @@ public class CukedoctorConverterTest {
 
     @Test
     public void shouldGeneratePdfTheme() {
-        final Feature feature = FeatureBuilder.instance().aFeatureWithTwoScenarios();
-        List<Feature> features = new ArrayList<>();
-        features.add(feature);
+        List<Feature> features = FeatureParser.parse(onePassingOneFailing);
         CukedoctorConverter converter = Cukedoctor.instance(features, new DocumentAttributes().backend("pdf"));
         converter.setFilename("target/pdf/living documentation.adoc");
         String pdfStylePath = Paths.get("").toAbsolutePath().toString().replace("\\", "/") /* Windows path hack */ + "/target/pdf/cukedoctor-pdf.yml";
@@ -161,8 +159,8 @@ public class CukedoctorConverterTest {
                 ":version-label: Version" + newLine() +
                 ":pdf-style: " + pdfStylePath + newLine();
 
-        String doc = converter.renderAttributes().getDocumentation();
-        assertThat(doc).isEqualTo(expected);
+        String doc = converter.renderDocumentation();
+        assertThat(doc).contains(expected);
         File file = FileUtil.loadFile("target/pdf/cukedoctor-pdf.yml");
         assertThat(file).exists();
         assertTrue(file.delete());

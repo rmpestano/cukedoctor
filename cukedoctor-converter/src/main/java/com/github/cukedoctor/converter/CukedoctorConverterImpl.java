@@ -88,10 +88,6 @@ public class CukedoctorConverterImpl implements CukedoctorConverter {
     }
 
 
-    public DocumentAttributes getDocumentAttributes() {
-        return documentAttributes;
-    }
-
     public List<Feature> getFeatures() {
         return features;
     }

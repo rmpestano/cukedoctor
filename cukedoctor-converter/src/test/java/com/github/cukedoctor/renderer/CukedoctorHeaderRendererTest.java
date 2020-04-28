@@ -1,28 +1,20 @@
-package com.github.cukedoctor.converter;
+package com.github.cukedoctor.renderer;
 
 import com.github.cukedoctor.Cukedoctor;
 import com.github.cukedoctor.api.DocumentAttributes;
-import com.github.cukedoctor.api.model.Feature;
 import com.github.cukedoctor.config.GlobalConfig;
-import com.github.cukedoctor.util.builder.FeatureBuilder;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;
-
-import java.util.ArrayList;
-import java.util.List;
 
 import static com.github.cukedoctor.util.Constants.newLine;
 import static org.junit.Assert.assertEquals;
 
 @RunWith(JUnit4.class)
-public class AttributesTest {
+public class CukedoctorHeaderRendererTest {
 
     @Test
     public void shouldRenderAttributes() {
-        List<Feature> features = new ArrayList<>();
-        features.add(FeatureBuilder.instance().id("id").name("name").build());
-
         DocumentAttributes attrs = new DocumentAttributes();
         attrs.toc("right").backend("html5")
                 .docType("article").docTitle("Title")
@@ -46,20 +38,13 @@ public class AttributesTest {
                         ":chapter-label: Chapter" + newLine() +
                         ":version-label: Version" + newLine();
 
-
-        attrs.docTitle("Title");
-        String document = Cukedoctor.instance(features, attrs).renderAttributes().
-                getDocumentation().toString();
+        String document = new CukedoctorHeaderRenderer().renderDocumentHeader(attrs);
         assertEquals(expected.replace("\r", ""), document.replace("\r", ""));
     }
 
 
     @Test
     public void shouldRenderAttributesUsingDefaultConfig() {
-        List<Feature> features = new ArrayList<>();
-        features.add(FeatureBuilder.instance().id("id").name("name").build());
-
-
         String expected = ":toc: right" + newLine() +
                 ":backend: html5" + newLine() +
                 ":doctitle: Living Documentation" + newLine() +
@@ -74,18 +59,12 @@ public class AttributesTest {
                 ":chapter-label: Chapter" + newLine() +
                 ":version-label: Version" + newLine();
 
-
-        String document = Cukedoctor.instance(features, new DocumentAttributes()).renderAttributes().
-                getDocumentation().toString();
+        String document = new CukedoctorHeaderRenderer().renderDocumentHeader(new DocumentAttributes());
         assertEquals(expected, document);
     }
 
     @Test
     public void shouldRenderAttributesUsingGlobalConfig() {
-        List<Feature> features = new ArrayList<>();
-        features.add(FeatureBuilder.instance().id("id").name("name").build());
-
-
         String expected = ":toc: right" + newLine() +
                 ":backend: html5" + newLine() +
                 ":doctitle: Living Documentation" + newLine() +
@@ -100,38 +79,24 @@ public class AttributesTest {
                 ":chapter-label: Chapter" + newLine() +
                 ":version-label: Version" + newLine();
 
-
-        String document = Cukedoctor.instance(features, GlobalConfig.newInstance().getDocumentAttributes()).renderAttributes().
-                getDocumentation().toString();
+        String document = new CukedoctorHeaderRenderer().renderDocumentHeader(GlobalConfig.newInstance().getDocumentAttributes());
         assertEquals(expected, document);
     }
 
     @Test
     public void shouldNotRenderAttributesWhenNoDocAttrIsProvided() {
-        List<Feature> features = new ArrayList<>();
-        features.add(FeatureBuilder.instance().id("id").name("name").build());
-
-
-        String document = Cukedoctor.instance(features).renderAttributes().
-                getDocumentation();
+        String document = new CukedoctorHeaderRenderer().renderDocumentHeader(Cukedoctor.getDefaultDocumentAttributes());
         assertEquals("", document);
     }
 
     @Test
     public void shouldNotRenderAttributesPassingNullDocAttrs() {
-        List<Feature> features = new ArrayList<>();
-        features.add(FeatureBuilder.instance().id("id").name("name").build());
-
-        String document = Cukedoctor.instance(features, (DocumentAttributes) null).renderAttributes().
-                getDocumentation();
+        String document = new CukedoctorHeaderRenderer().renderDocumentHeader(null);
         assertEquals("", document);
     }
 
     @Test
     public void shouldRenderAttributesWithoutToc() {
-        List<Feature> features = new ArrayList<>();
-        features.add(FeatureBuilder.instance().id("id").name("name").build());
-
         DocumentAttributes attrs = new DocumentAttributes();
         attrs.toc("").backend("html5")
                 .docType("article").docTitle("Title")
@@ -154,17 +119,12 @@ public class AttributesTest {
                         ":chapter-label: Chapter" + newLine() +
                         ":version-label: Version" + newLine();
 
-        attrs.docTitle("Title");
-        String document = Cukedoctor.instance(features, attrs).renderAttributes().
-                getDocumentation().toString();
+        String document = new CukedoctorHeaderRenderer().renderDocumentHeader(attrs);
         assertEquals(expected.replace("\r", ""), document.replace("\r", ""));
     }
 
     @Test
     public void shouldRenderAttributesWithoutHardbreaks() {
-        List<Feature> features = new ArrayList<>();
-        features.add(FeatureBuilder.instance().id("id").name("name").build());
-
         DocumentAttributes attrs = new DocumentAttributes();
         attrs.toc("").backend("html5")
                 .docType("article").docTitle("Title")
@@ -187,17 +147,12 @@ public class AttributesTest {
                         ":chapter-label: Chapter" + newLine() +
                         ":version-label: Version" + newLine();
 
-        attrs.docTitle("Title");
-        String document = Cukedoctor.instance(features, attrs).renderAttributes().
-                getDocumentation().toString();
+        String document = new CukedoctorHeaderRenderer().renderDocumentHeader(attrs);
         assertEquals(expected.replace("\r", ""), document.replace("\r", ""));
     }
 
     @Test
     public void shouldRenderAttributesWithTocLevels2() {
-        List<Feature> features = new ArrayList<>();
-        features.add(FeatureBuilder.instance().id("id").name("name").build());
-
         DocumentAttributes attrs = new DocumentAttributes();
         attrs.toc("").backend("html5")
                 .docType("article").docTitle("Title")
@@ -224,21 +179,15 @@ public class AttributesTest {
                         ":chapter-label: Chapter" + newLine() +
                         ":version-label: Version" + newLine();
 
-
-        attrs.docTitle("Title");
-        String document = Cukedoctor.instance(features, attrs).renderAttributes().
-                getDocumentation().toString();
+        String document = new CukedoctorHeaderRenderer().renderDocumentHeader(attrs);
         assertEquals(expected, document);
     }
 
     @Test
     public void shouldUseDocumentationTitleAsDocTitleAttribute() {
-        List<Feature> features = new ArrayList<>();
-        features.add(FeatureBuilder.instance().id("id").name("name").build());
-
         DocumentAttributes attrs = new DocumentAttributes();
         attrs.toc("right").backend("html5")
-                .docType("book")
+                .docType("book").docTitle("Documentation Title")
                 .linkCss(true)
                 .icons("font").numbered(false)
                 .sectAnchors(true).sectLink(true)
@@ -262,18 +211,12 @@ public class AttributesTest {
                         ":chapter-label: Chapter" + newLine() +
                         ":version-label: Version" + newLine();
 
-
-        attrs.docTitle("Documentation Title");
-        String document = Cukedoctor.instance(features, attrs).renderAttributes().
-                getDocumentation().toString();
+        String document = new CukedoctorHeaderRenderer().renderDocumentHeader(attrs);
         assertEquals(expected.replace("\r", ""), document.replace("\r", ""));
     }
 
     @Test
     public void shouldRenderStemAttribute() {
-        List<Feature> features = new ArrayList<>();
-        features.add(FeatureBuilder.instance().id("id").name("name").build());
-
         DocumentAttributes attrs = new DocumentAttributes()
                 .stem("latexmath")
                 .toc("right")
@@ -305,16 +248,12 @@ public class AttributesTest {
                         ":version-label: Version" + newLine() +
                         ":stem: latexmath" + newLine();
 
-        String document = Cukedoctor.instance(features, attrs).renderAttributes().getDocumentation();
-
+        String document = new CukedoctorHeaderRenderer().renderDocumentHeader(attrs);
         assertEquals(expected.replace("\r", ""), document.replace("\r", ""));
     }
 
     @Test
     public void shouldRenderAllowUriAttribute() {
-        List<Feature> features = new ArrayList<>();
-        features.add(FeatureBuilder.instance().id("id").name("name").build());
-
         DocumentAttributes attrs = new DocumentAttributes()
                 .stem("latexmath")
                 .toc("right")
@@ -348,16 +287,12 @@ public class AttributesTest {
                         ":stem: latexmath" + newLine() +
                         ":allow-uri-read:" + newLine();
 
-        String document = Cukedoctor.instance(features, attrs).renderAttributes().getDocumentation();
-
+        String document = new CukedoctorHeaderRenderer().renderDocumentHeader(attrs);
         assertEquals(expected.replace("\r", ""), document.replace("\r", ""));
     }
 
     @Test
     public void shouldDisableAllowUriAttribute() {
-        List<Feature> features = new ArrayList<>();
-        features.add(FeatureBuilder.instance().id("id").name("name").build());
-
         DocumentAttributes attrs = new DocumentAttributes()
                 .stem("latexmath")
                 .toc("right")
@@ -391,16 +326,12 @@ public class AttributesTest {
                         ":stem: latexmath" + newLine() +
                         ":!allow-uri-read:" + newLine();
 
-        String document = Cukedoctor.instance(features, attrs).renderAttributes().getDocumentation();
-
+        String document = new CukedoctorHeaderRenderer().renderDocumentHeader(attrs);
         assertEquals(expected.replace("\r", ""), document.replace("\r", ""));
     }
 
     @Test
     public void shouldNotRenderAllowUriAttribute() {
-        List<Feature> features = new ArrayList<>();
-        features.add(FeatureBuilder.instance().id("id").name("name").build());
-
         DocumentAttributes attrs = new DocumentAttributes()
                 .stem("latexmath")
                 .toc("right")
@@ -432,8 +363,7 @@ public class AttributesTest {
                         ":version-label: Version" + newLine() +
                         ":stem: latexmath" + newLine();
 
-        String document = Cukedoctor.instance(features, attrs).renderAttributes().getDocumentation();
-
+        String document = new CukedoctorHeaderRenderer().renderDocumentHeader(attrs);
         assertEquals(expected.replace("\r", ""), document.replace("\r", ""));
     }
 }
