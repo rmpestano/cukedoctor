@@ -42,7 +42,7 @@ public interface Expectations {
 			"|[red]#*failed*#" + newLine() +
 			"12+^|*Totals*" + newLine() +
 			"|1|1|2|1|1|0|0|0|0|2 2+|010ms" + newLine() +
-			"|==="+newLine()+newLine();
+			"|==="+newLine();
 
 	String SUMMARY_FOR_MULTIPLE_FEATURES =
 			"== *Summary*"+newLine() +
@@ -106,7 +106,7 @@ public interface Expectations {
 					"|[red]#*failed*#"+newLine() +
 					"12+^|*Totals*"+newLine() +
 					"|4|1|5|4|1|0|0|0|0|5 2+|010ms"+newLine() +
-					"|==="+newLine()+newLine();
+					"|==="+newLine();
 
 	String DOCUMENTATION_FOR_ONE_FEATURE = ":toc: left"+newLine()+ 
 			":backend: html5"+newLine()+ 

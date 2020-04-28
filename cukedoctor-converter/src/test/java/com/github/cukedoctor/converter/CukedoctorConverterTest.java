@@ -6,13 +6,10 @@ import com.github.cukedoctor.api.DocumentAttributes;
 import com.github.cukedoctor.api.model.Feature;
 import com.github.cukedoctor.config.GlobalConfig;
 import com.github.cukedoctor.parser.FeatureParser;
-import com.github.cukedoctor.renderer.CukedoctorSummaryRenderer;
-import com.github.cukedoctor.spi.SummaryRenderer;
 import com.github.cukedoctor.util.Expectations;
 import com.github.cukedoctor.util.FileUtil;
 import com.github.cukedoctor.util.builder.FeatureBuilder;
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;
@@ -24,6 +21,7 @@ import java.util.List;
 
 import static com.github.cukedoctor.extension.CukedoctorExtensionRegistry.DISABLE_ALL_EXT_KEY;
 import static com.github.cukedoctor.extension.CukedoctorExtensionRegistry.MINMAX_DISABLE_EXT_KEY;
+import static com.github.cukedoctor.renderer.Fixtures.*;
 import static com.github.cukedoctor.util.Constants.newLine;
 import static com.github.cukedoctor.util.StringUtil.trimAllLines;
 import static org.assertj.core.api.Assertions.assertThat;
@@ -36,19 +34,6 @@ import static org.junit.Assert.assertTrue;
  */
 @RunWith(JUnit4.class)
 public class CukedoctorConverterTest {
-
-    private static String onePassingOneFailing;
-    private static String embedDataDirectly;
-    private static String outline;
-    private static String invalidFeatureResult;
-
-    @BeforeClass
-    public static void loadFeatures() {
-        onePassingOneFailing = FileUtil.findJsonFile("target/test-classes/json-output/one_passing_one_failing.json");
-        embedDataDirectly = FileUtil.findJsonFile("target/test-classes/json-output/embed_data_directly.json");
-        outline = FileUtil.findJsonFile("target/test-classes/json-output/outline.json");
-        invalidFeatureResult = FileUtil.findJsonFile("target/test-classes/json-output/invalid_feature_result.json");
-    }
 
     @Before
     public void initProperties() {
@@ -72,67 +57,6 @@ public class CukedoctorConverterTest {
         assertEquals("No features found", msg);
     }
 
-
-    // renderSummary() tests
-
-    @Test
-    public void shouldRenderSummaryForOneFeature() {
-        List<Feature> features = FeatureParser.parse(onePassingOneFailing);
-        String resultDoc = Cukedoctor.instance(features, new DocumentAttributes().docTitle("Title")).renderSummary().getDocumentation().toString();
-        assertThat(resultDoc).isNotNull().
-                containsOnlyOnce("<<One-passing-scenario-one-failing-scenario>>").
-                containsOnlyOnce("|[red]#*failed*#").
-                contains("2+|010ms");
-
-        assertThat(resultDoc).isEqualTo(Expectations.SUMMARY_FOR_ONE_FEATURE);
-    }
-
-
-    @Test
-    public void shouldRenderSummaryForMultipleFeatures() {
-        List<Feature> features = FeatureParser.parse(onePassingOneFailing, embedDataDirectly, outline, invalidFeatureResult);
-        String resultDoc = Cukedoctor.instance(features, new DocumentAttributes().docTitle("Title")).renderSummary().getDocumentation().toString();
-        assertThat(resultDoc).isNotNull().
-                containsOnlyOnce("<<One-passing-scenario-one-failing-scenario>>").
-                containsOnlyOnce("<<An-embed-data-directly-feature>>").
-                containsOnlyOnce("<<An-outline-feature>>").
-                doesNotContain("<<invalid feature result>>").
-                contains("|[green]#*passed*#").
-                contains("|[red]#*failed*#").
-                containsOnlyOnce("2+|010ms");
-        assertThat(resultDoc).isEqualTo(Expectations.SUMMARY_FOR_MULTIPLE_FEATURES);
-    }
-
-
-    @Test
-    public void shouldRenderSummaryForFeatureWithBackground() {
-        List<Feature> features = FeatureParser.parse(getClass().getResource("/json-output/feature_with_background.json").getPath());
-        String resultDoc = Cukedoctor.instance(features, new DocumentAttributes().docTitle("Title")).renderSummary().getDocumentation().toString();
-        assertThat(resultDoc).isNotNull().
-                containsOnlyOnce("<<A-feature-with-background>>").
-                contains("*Totals*" + newLine() +
-                        "|2|0|2|4|0|0|0|0|0|4");
-    }
-
-    // renderTotalsRow() tests
-
-    @Test
-    public void shouldRenderTotalRowForOneFeature() {
-        List<Feature> features = FeatureParser.parse(onePassingOneFailing);
-        SummaryRenderer summaryRenderer = new CukedoctorSummaryRenderer();
-        assertThat(summaryRenderer.renderSummary(features)).isNotNull().
-                containsOnlyOnce("12+^|*Totals*").
-                contains("|1|1|2|1|1|0|0|0|0|2 2+|010ms");
-    }
-
-    @Test
-    public void shouldRenderTotalRowForMultipleFeature() {
-        List<Feature> features = FeatureParser.parse(onePassingOneFailing, embedDataDirectly, outline, invalidFeatureResult);
-        SummaryRenderer summaryRenderer = new CukedoctorSummaryRenderer();
-        assertThat(summaryRenderer.renderSummary(features)).isNotNull().
-                containsOnlyOnce("12+^|*Totals*").
-                contains("|4|1|5|4|1|0|0|0|0|5 2+|010ms");
-    }
 
     @Test
     public void shouldGeneratePdfTheme() {

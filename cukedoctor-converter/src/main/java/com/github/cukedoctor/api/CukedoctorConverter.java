@@ -23,9 +23,14 @@ public interface CukedoctorConverter {
 	String getDocumentationTitle();
 
 	/**
+	 * @deprecated
+	 * Use an appropriate instance of SummaryRenderer to render the summary only
+	 * e.g. CukedoctorSummaryRenderer
+	 *
 	 * @return document overall summary which gathers information about all features like
 	 * number of steps, execution time, total passed scenarios and so on
 	 */
+	@Deprecated
 	CukedoctorConverter renderSummary();
 
 
