@@ -411,5 +411,11 @@ public class CukedoctorConverterTest {
         }
     }
 
-
+    @Test
+    public void shouldRenderFeatureWithTableInSteps() {
+        List<Feature> features = FeatureParser.parse(featureWithTableInStep);
+        CukedoctorConverter converter = Cukedoctor.instance(features, GlobalConfig.getInstance().getDocumentAttributes().docTitle("Doc Title"));
+        String resultDoc = converter.renderDocumentation();
+        assertThat(resultDoc.replaceAll("\r", "")).isEqualTo(Expectations.FEATURE_WITH_STEP_TABLE_IN_PT_BR.replaceAll("\r", ""));
+    }
 }
