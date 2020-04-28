@@ -3,14 +3,16 @@ package com.github.cukedoctor.i18n;
 import com.github.cukedoctor.api.model.Feature;
 import com.github.cukedoctor.parser.FeatureParser;
 import com.github.cukedoctor.util.FileUtil;
+import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;
-import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.Assert.assertNotNull;
 
 import java.util.List;
+
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.Assert.assertNotNull;
 
 /**
  * Created by pestano on 19/02/16.
@@ -39,6 +41,11 @@ public class I18nLoaderTest {
         assertNotNull(portugueseFeatures);
         assertNotNull(spanishFeatures);
         assertNotNull(noLanguageFeatures);
+    }
+
+    @AfterClass
+    public static void resetBackToDefaultLanguage() {
+        I18nLoader.newInstance(null);
     }
 
     @Test
