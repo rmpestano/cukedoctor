@@ -1,8 +1,11 @@
 package com.github.cukedoctor.api.model;
 
 
-import static com.github.cukedoctor.util.Assert.hasText;
-import static com.github.cukedoctor.util.Assert.notEmpty;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.github.cukedoctor.api.ScenarioResults;
+import com.github.cukedoctor.api.StepResults;
+import com.github.cukedoctor.util.Constants;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -11,11 +14,8 @@ import java.util.Map;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.logging.Logger;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.github.cukedoctor.api.ScenarioResults;
-import com.github.cukedoctor.api.StepResults;
-import com.github.cukedoctor.util.Constants;
+import static com.github.cukedoctor.util.Assert.hasText;
+import static com.github.cukedoctor.util.Assert.notEmpty;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Feature implements Comparable<Feature> {
@@ -275,7 +275,7 @@ public class Feature implements Comparable<Feature> {
         return language;
     }
 
-    public Integer getOrder() {
+    public int getOrder() {
         if (order == null && comments != null) {
             for (Comment comment : comments) {
                 trySetOrder(comment.getOrder(), "comment");
@@ -289,7 +289,7 @@ public class Feature implements Comparable<Feature> {
         }
 
         if (order == null) {
-            this.order = -1;
+            this.order = Integer.MAX_VALUE;
         }
 
         return order;
@@ -339,10 +339,7 @@ public class Feature implements Comparable<Feature> {
 
     @Override
     public int compareTo(Feature other) {
-        int result = 0;
-        if (this.getOrder() != null && other.getOrder() != null) {
-            result = getOrder().compareTo(other.getOrder());
-        }
+        int result = Integer.compare(getOrder(), other.getOrder());
 
         //same order or no-order use name
         if (result == 0) {

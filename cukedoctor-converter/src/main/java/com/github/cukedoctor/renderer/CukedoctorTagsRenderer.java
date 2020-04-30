@@ -45,10 +45,13 @@ public class CukedoctorTagsRenderer extends AbstractBaseRenderer implements Tags
         if (tags == null) return;
 
         for (Tag tag : tags) {
-            if (!tag.isOrder() && !tag.isDiscrete()) {
+            if (!isCukedoctorTag(tag)) {
                 tagNames.add(tag.getName());
             }
         }
     }
 
+    protected boolean isCukedoctorTag(Tag tag) {
+        return tag.isOrder() || tag.isDiscrete();
+    }
 }
