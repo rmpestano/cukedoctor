@@ -1,13 +1,9 @@
 package com.github.cukedoctor.util.builder;
 
-import java.util.ArrayList;
+import com.github.cukedoctor.api.model.*;
 
-import com.github.cukedoctor.api.model.Feature;
-import com.github.cukedoctor.api.model.Match;
-import com.github.cukedoctor.api.model.Result;
-import com.github.cukedoctor.api.model.Scenario;
-import com.github.cukedoctor.api.model.Status;
-import com.github.cukedoctor.api.model.Type;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by pestano on 04/06/15.
@@ -68,6 +64,18 @@ public class FeatureBuilder {
 	public FeatureBuilder keyword(String keyword) {
 		feature.setKeyword(keyword);
 		return instance;
+	}
+
+	public FeatureBuilder tag(String tag) {
+		if (feature.hasTags()) {
+			feature.getTags().add(new Tag(tag));
+			return this;
+		}
+
+		List<Tag> tags = new ArrayList<>(1);
+		tags.add(new Tag(tag));
+		feature.setTags(tags);
+		return this;
 	}
 
 	public Feature build() {
@@ -191,5 +199,12 @@ public class FeatureBuilder {
 				name("Feature name").build();
 		return feature;
 
+	}
+
+	public Feature aFeatureWithNoScenarios() {
+		return FeatureBuilder.instance()
+				.description("Feature description")
+				.name("Feature name")
+				.build();
 	}
 }

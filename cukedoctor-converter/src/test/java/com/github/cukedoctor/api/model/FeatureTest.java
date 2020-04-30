@@ -9,6 +9,7 @@ import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.Assert.assertEquals;
 
 /**
  * Created by pestano on 06/06/15.
@@ -89,4 +90,9 @@ public class FeatureTest {
 		invalidFeature.processSteps();
 	}
 
+	@Test
+	public void orderShouldBeIntMaxIfNotOtherwiseSet() {
+		Feature feature = new Feature();
+		assertEquals(Integer.MAX_VALUE, feature.getOrder());
+	}
 }
