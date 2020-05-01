@@ -13,7 +13,7 @@ import static com.github.cukedoctor.util.Constants.newLine;
 import static org.junit.Assert.assertEquals;
 
 @RunWith(JUnit4.class)
-public class RootSectionTest {
+public class DocumentSectionTest {
     @BeforeClass
     public static void beforeClass() {
         System.setProperty("HIDE_STEP_TIME", "true");
@@ -24,7 +24,7 @@ public class RootSectionTest {
     public void shouldRenderFeaturesNotTaggedWithASectionInTheFeaturesSection() {
         System.setProperty("HIDE_FEATURES_SECTION", "false");
 
-        RootSection root = new RootSection();
+        DocumentSection root = new DocumentSection();
         root.addFeature(FeatureBuilder.instance().id("My Feature").name("My Feature").build());
         root.addFeature(FeatureBuilder.instance().id("My Other Feature").name("My Other Feature").build());
 
@@ -42,7 +42,7 @@ public class RootSectionTest {
 
     @Test
     public void shouldRenderFeaturesTaggedWithASectionInTheirAssignedSections() {
-        RootSection root = new RootSection();
+        DocumentSection root = new DocumentSection();
         root.addFeature(FeatureBuilder.instance().id("Yet Another Feature").name("Yet Another Feature").tag("@section-SectionTwo").build());
         root.addFeature(FeatureBuilder.instance().id("My Feature").name("My Feature").tag("@section-SectionOne").build());
         root.addFeature(FeatureBuilder.instance().id("My Other Feature").name("My Other Feature").tag("@section-SectionOne").build());
@@ -66,7 +66,7 @@ public class RootSectionTest {
 
     @Test
     public void shouldRenderFeaturesSectionAfterForeSections() {
-        RootSection root = new RootSection();
+        DocumentSection root = new DocumentSection();
         root.addFeature(FeatureBuilder.instance().id("My Feature").name("My Feature").tag("@section-SectionOne").build());
         root.addFeature(FeatureBuilder.instance().id("My Other Feature").name("My Other Feature").build());
 
@@ -86,7 +86,7 @@ public class RootSectionTest {
 
     @Test
     public void shouldRenderForeSectionsInOrder() {
-        RootSection root = new RootSection();
+        DocumentSection root = new DocumentSection();
         root.addFeature(FeatureBuilder.instance().id("My Feature").name("My Feature").tag("@section-SectionOne").tag("@order-1").build());
         root.addFeature(FeatureBuilder.instance().id("Yet Another Feature").name("Yet Another Feature").tag("@section-SectionTwo").tag("@order-2").build());
 
@@ -106,7 +106,7 @@ public class RootSectionTest {
 
     @Test
     public void shouldNotRenderFeaturesMarkedWithSkipDocs() {
-        RootSection root = new RootSection();
+        DocumentSection root = new DocumentSection();
         root.addFeature(FeatureBuilder.instance().id("My Feature").name("My Feature").tag("@section-SectionOne").tag("@skipDocs").build());
         root.addFeature(FeatureBuilder.instance().id("My Other Feature").name("My Other Feature").tag("@skipDocs").build());
 
@@ -115,6 +115,6 @@ public class RootSectionTest {
 
     @Test
     public void orderShouldBeIntMax() {
-        assertEquals(Integer.MAX_VALUE, new RootSection().getOrder());
+        assertEquals(Integer.MAX_VALUE, new DocumentSection().getOrder());
     }
 }

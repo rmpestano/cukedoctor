@@ -21,7 +21,7 @@ public class SectionFeatureRenderer implements FeatureRenderer {
     @Override
     public String renderFeatures(List<Feature> features) {
         documentBuilder.clear();
-        new RootSection(features).render(documentBuilder, i18nProvider, documentAttributes);
+        new DocumentSection(features).render(documentBuilder, i18nProvider, documentAttributes);
         return documentBuilder.toString();
     }
 
