@@ -117,3 +117,48 @@ I do not mind getting mucky icon:thumbs-up[role="green",title="Passed"]
 
 
 """
+
+  Scenario: Skipping Sections
+  Sections where all assigned Features are marked with the tag `@skipDocs` will themselves be skipped.
+
+    Given I have the Feature
+"""
+@section-Anatomy
+Feature: Head Adornments
+
+  Scenario: Parasaurolophus
+
+    Given I have an implausible head adornment
+"""
+    And I have the Feature
+"""
+@skipDocs
+@section-Behaviour
+Feature: Hunters
+
+  Scenario: Tyranosaurus Rex
+
+    Given I am the best hunter
+"""
+    And I am showing the Features Section
+    And I am hiding step timings
+    And all Cukedoctor extensions are disabled
+    When I convert the Feature
+    Then they will be rendered as
+"""asciidoc
+[[Anatomy, Anatomy]]
+= *Anatomy*
+
+
+[[Head-Adornments, Head Adornments]]
+== *Head Adornments*
+
+=== Scenario: Parasaurolophus
+
+==========
+Given ::
+I have an implausible head adornment icon:thumbs-up[role="green",title="Passed"]
+==========
+
+
+"""

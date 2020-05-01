@@ -27,6 +27,8 @@ public class RootSection implements Section {
 
     @Override
     public void addFeature(Feature feature) {
+        if (feature.hasIgnoreDocsTag()) return;
+
         String sectionId = getSectionId(feature);
 
         if (sectionId == null || sectionId.isEmpty()) {
