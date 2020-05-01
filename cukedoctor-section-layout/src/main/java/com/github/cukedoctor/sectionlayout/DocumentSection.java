@@ -13,13 +13,13 @@ import java.util.Map;
 
 import static com.github.cukedoctor.sectionlayout.Constants.SectionTagPattern;
 
-public class RootSection implements Section {
+public class DocumentSection implements Section {
     private final Map<String, Section> foreSectionsById = new HashMap<>();
     private final BuiltInFeaturesSection featuresSection = new BuiltInFeaturesSection();
 
-    public RootSection() {}
+    public DocumentSection() {}
 
-    public RootSection(Iterable<Feature> features) {
+    public DocumentSection(Iterable<Feature> features) {
         for (Feature feature : features) {
             addFeature(feature);
         }
