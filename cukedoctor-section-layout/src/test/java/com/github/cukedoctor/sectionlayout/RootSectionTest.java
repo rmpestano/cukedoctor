@@ -105,6 +105,15 @@ public class RootSectionTest {
     }
 
     @Test
+    public void shouldNotRenderFeaturesMarkedWithSkipDocs() {
+        RootSection root = new RootSection();
+        root.addFeature(FeatureBuilder.instance().id("My Feature").name("My Feature").tag("@section-SectionOne").tag("@skipDocs").build());
+        root.addFeature(FeatureBuilder.instance().id("My Other Feature").name("My Other Feature").tag("@skipDocs").build());
+
+        assertEquals("", root.render(CukedoctorDocumentBuilder.Factory.instance(), I18nLoader.instance(null), new DocumentAttributes()));
+    }
+
+    @Test
     public void orderShouldBeIntMax() {
         assertEquals(Integer.MAX_VALUE, new RootSection().getOrder());
     }
