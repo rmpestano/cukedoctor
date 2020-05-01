@@ -1,7 +1,6 @@
-Feature: Sections
-Features can be assigned to user-defined Sections using the `@section-' tag.
-Sections are the top level of the document hierarchy below the document title itself.
-Cukedoctor already has many in-built sections, such as the Summary section.
+@section-Sections
+@order-2
+Feature: Grouping Features in Sections
 
   Scenario: Assigning a Feature to a Section
     Given I have the Feature
@@ -112,7 +111,8 @@ I have an implausible head adornment icon:thumbs-up[role="green",title="Passed"]
 """
 
   Scenario: Ordering
-  Sections are ordered by the earliest feature within. The built-in Features Section is always rendered after other sections, irrespective of `@order-' tags applied to Features therein.
+  Sections are ordered by their Features, which themselves are ordered using the `@order-` tag .
+  The built-in Features Section is always rendered after other sections, irrespective of `@order-' tags applied to Features therein.
 
     Given I have the Feature
 """
