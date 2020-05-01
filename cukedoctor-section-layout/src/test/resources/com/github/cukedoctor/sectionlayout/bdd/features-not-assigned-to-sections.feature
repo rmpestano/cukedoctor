@@ -1,3 +1,5 @@
+@section-Sections
+@order-3
 Feature: Features not assigned to Sections
   Features not assigned to Sections are rendered exactly as in the classic (default) Cukedoctor layout, with all its capabilities supported.
 
