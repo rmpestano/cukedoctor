@@ -63,7 +63,7 @@ public abstract class BasicSection implements Section {
         return root != null;
     }
 
-    private void renderSectionName(CukedoctorDocumentBuilder docBuilder, I18nLoader i18n, DocumentAttributes documentAttributes) {
+    protected void renderSectionName(CukedoctorDocumentBuilder docBuilder, I18nLoader i18n, DocumentAttributes documentAttributes) {
         Section titleSection = getTitleSection(i18n);
         docBuilder.append(titleSection.render(docBuilder.createPeerBuilder(), i18n, documentAttributes)).nestTitle();
     }

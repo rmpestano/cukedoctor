@@ -2,6 +2,8 @@ package com.github.cukedoctor.api.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+import java.util.Optional;
+
 import static com.github.cukedoctor.util.Assert.hasText;
 
 /**
@@ -20,7 +22,7 @@ public class Comment {
     public void setValue(String value) {
         this.value = value;
     }
-    
+
 
     public Integer getLine() {
         return line;
@@ -30,22 +32,23 @@ public class Comment {
         this.line = line;
     }
 
-    public String getLanguage(){
-        int indexOfLanguage = value.indexOf("language:");
-        if(hasText(value) && indexOfLanguage != -1){
-            return value.substring(indexOfLanguage+10).trim();
-        }
-        return null;
+    public Optional<String> getLanguage() {
+        return extractPattern("language: ");
     }
 
-    public String getOrder(){
-        int indexOfOrder = value.indexOf("order:");
-        if(hasText(value) && indexOfOrder != -1){
-            return value.substring(indexOfOrder+7).trim();
+    protected Optional<String> extractPattern(String pattern) {
+        int indexOfLanguage = value.indexOf(pattern);
+        if (hasText(value) && indexOfLanguage != -1) {
+            return Optional.of(value.substring(indexOfLanguage + pattern.length()).trim());
         }
-        return null;
+
+        return Optional.empty();
     }
-    
+
+    public Optional<String> getOrder() {
+        return extractPattern("order: ");
+    }
+
     @Override
     public String toString() {
         // TODO Auto-generated method stub

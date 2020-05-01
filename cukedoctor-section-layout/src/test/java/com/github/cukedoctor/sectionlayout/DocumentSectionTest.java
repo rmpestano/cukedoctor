@@ -105,6 +105,34 @@ public class DocumentSectionTest {
     }
 
     @Test
+    public void shouldRenderAppendicesInOrderAfterFeaturesSection() {
+        DocumentSection root = new DocumentSection();
+        root.addFeature(FeatureBuilder.instance().id("My Feature").name("My Feature").tag("@section-Beta").tag("@order-2").tag("@appendix").build());
+        root.addFeature(FeatureBuilder.instance().id("Yet Another Feature").name("Yet Another Feature").tag("@section-Alpha").tag("@order-1").tag("@appendix").build());
+        root.addFeature(FeatureBuilder.instance().id("Exciting Feature").name("Exciting Feature").build());
+
+        final String expectedDocument = "[[Features, Features]]" + newLine() +
+                "= *Features*" + newLine() + newLine() + newLine() +
+                "[[Exciting-Feature, Exciting Feature]]" + newLine() +
+                "== *Exciting Feature*" + newLine() +
+                newLine() +
+                "[appendix]" + newLine() +
+                "[[Alpha, Alpha]]" + newLine() +
+                "= *Alpha*" + newLine() + newLine() + newLine() +
+                "[[Yet-Another-Feature, Yet Another Feature]]" + newLine() +
+                "== *Yet Another Feature*" + newLine() +
+                newLine() +
+                "[appendix]" + newLine() +
+                "[[Beta, Beta]]" + newLine() +
+                "= *Beta*" + newLine() + newLine() + newLine() +
+                "[[My-Feature, My Feature]]" + newLine() +
+                "== *My Feature*" + newLine() +
+                newLine();
+
+        assertEquals(expectedDocument, root.render(CukedoctorDocumentBuilder.Factory.instance(), I18nLoader.instance(null), new DocumentAttributes()));
+    }
+
+    @Test
     public void shouldNotRenderFeaturesMarkedWithSkipDocs() {
         DocumentSection root = new DocumentSection();
         root.addFeature(FeatureBuilder.instance().id("My Feature").name("My Feature").tag("@section-SectionOne").tag("@skipDocs").build());

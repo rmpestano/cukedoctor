@@ -7,10 +7,7 @@ import com.github.cukedoctor.api.ScenarioResults;
 import com.github.cukedoctor.api.StepResults;
 import com.github.cukedoctor.util.Constants;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.logging.Logger;
 
@@ -57,6 +54,10 @@ public class Feature implements Comparable<Feature> {
         return this.uri;
     }
 
+    public void setUri(String uri) {
+        this.uri = uri;
+    }
+
     public boolean hasTags() {
         return notEmpty(tags);
     }
@@ -73,16 +74,12 @@ public class Feature implements Comparable<Feature> {
         return name;
     }
 
-    public String getDescription() {
-        return description;
-    }
-
     public void setName(String name) {
         this.name = name;
     }
 
-    public void setUri(String uri) {
-        this.uri = uri;
+    public String getDescription() {
+        return description;
     }
 
     public void setDescription(String description) {
@@ -141,10 +138,10 @@ public class Feature implements Comparable<Feature> {
 
 
     /**
-     * @deprecated use {@link Feature#getScenarioResults()}
      * @return total number of scenarios
+     * @deprecated use {@link Feature#getScenarioResults()}
      */
-      @Deprecated
+    @Deprecated
     public Integer getNumberOfScenarios() {
         Integer result = 0;
         if (scenarios != null) {
@@ -245,7 +242,7 @@ public class Feature implements Comparable<Feature> {
     }
 
     private void calculateScenarioStats(List<Scenario> passedScenarios, List<Scenario> failedScenarios, Scenario element) {
-        if(element.isBackground()) {
+        if (element.isBackground()) {
             return;//background scenarios are not considered as scenrario
         }
         if (element.getStatus() == Status.passed) {
@@ -263,8 +260,9 @@ public class Feature implements Comparable<Feature> {
     public String getLanguage() {
         if (language == null && comments != null) {
             for (Comment comment : comments) {
-                if (hasText(comment.getLanguage())) {
-                    this.language = comment.getLanguage();
+                final Optional<String> lang = comment.getLanguage();
+                if (lang.isPresent() && hasText(lang.get())) {
+                    language = lang.get();
                 }
             }
         }
@@ -295,10 +293,10 @@ public class Feature implements Comparable<Feature> {
         return order;
     }
 
-    private void trySetOrder(String order, String source) {
-        if (hasText(order)) {
+    private void trySetOrder(Optional<String> order, String source) {
+        if (order.isPresent() && hasText(order.get())) {
             try {
-                this.order = Integer.parseInt(order);
+                this.order = Integer.parseInt(order.get());
             } catch (Exception e) {
                 Logger.getLogger(getClass().getName()).warning(String.format("Could not get order of feature %s from %s cause: %s", name, source, e.getMessage()));
             }
@@ -360,5 +358,22 @@ public class Feature implements Comparable<Feature> {
             }
         }
         return null;
+    }
+
+    public boolean hasTag(String pattern) {
+        return extractTag(pattern).isPresent();
+    }
+
+    public Optional<String> extractTag(String pattern) {
+        if (!hasTags()) return Optional.empty();
+
+        for (Tag tag : getTags()) {
+            Optional<String> candidate = tag.extractPattern(pattern);
+            if (candidate.isPresent()) {
+                return candidate;
+            }
+        }
+
+        return Optional.empty();
     }
 }
