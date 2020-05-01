@@ -14,4 +14,9 @@ public class SectionTagsRendererTests {
     public void shouldIdentifySectionAsBuiltInTag() {
         assertTrue(new SectionTagsRenderer().isCukedoctorTag(new Tag("@section-Dinosaurs")));
     }
+
+    @Test
+    public void shouldIdentifyAppendixAsBuiltInTag() {
+        assertTrue(new SectionTagsRenderer().isCukedoctorTag(new Tag("@appendix")));
+    }
 }

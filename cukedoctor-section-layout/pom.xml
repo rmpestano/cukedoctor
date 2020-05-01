@@ -50,6 +50,13 @@
                 <groupId>com.github.cukedoctor</groupId>
                 <artifactId>cukedoctor-maven-plugin</artifactId>
                 <version>${project.parent.version}</version>
+                <configuration>
+                    <documentTitle>Section Layout</documentTitle>
+                    <format>all</format>
+                    <docVersion>${project.parent.version}</docVersion>
+                    <numbered>true</numbered>
+                    <hideScenarioKeyword>true</hideScenarioKeyword>
+                </configuration>
                 <executions>
                     <execution>
                         <goals>
