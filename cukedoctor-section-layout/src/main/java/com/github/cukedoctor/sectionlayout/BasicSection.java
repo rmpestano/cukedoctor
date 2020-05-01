@@ -3,6 +3,7 @@ package com.github.cukedoctor.sectionlayout;
 import com.github.cukedoctor.api.CukedoctorDocumentBuilder;
 import com.github.cukedoctor.api.DocumentAttributes;
 import com.github.cukedoctor.api.model.Feature;
+import com.github.cukedoctor.api.model.Scenario;
 import com.github.cukedoctor.i18n.I18nLoader;
 import com.github.cukedoctor.util.builder.FeatureBuilder;
 
@@ -11,20 +12,39 @@ import java.util.Collections;
 
 public abstract class BasicSection implements Section {
     private final ArrayList<Section> children = new ArrayList<>();
+    private Section root;
     private int order = Integer.MAX_VALUE;
 
     @Override
     public void addFeature(Feature feature) {
+        if (hadRootScenario(feature)) {
+            root = new FeatureSection(feature);
+            return;
+        }
+
         final Section childSection = createChildSection(feature);
         children.add(childSection);
         order = Math.min(order, childSection.getOrder());
+    }
+
+    private boolean hadRootScenario(Feature feature) {
+        if (!feature.hasScenarios()) return false;
+
+        for (Scenario scenario : feature.getScenarios()) {
+            if (scenario.getName().equals("Root")) {
+                feature.getScenarios().remove(scenario);
+                return true;
+            }
+        }
+
+        return false;
     }
 
     protected abstract Section createChildSection(Feature feature);
 
     @Override
     public String render(CukedoctorDocumentBuilder docBuilder, I18nLoader i18n, DocumentAttributes documentAttributes) {
-        if (children.isEmpty()) return "";
+        if (!hasRoot() && children.isEmpty()) return "";
 
         if (shouldRenderSectionName()) {
             renderSectionName(docBuilder, i18n, documentAttributes);
@@ -35,15 +55,29 @@ public abstract class BasicSection implements Section {
         return docBuilder.toString();
     }
 
-    protected abstract boolean shouldRenderSectionName();
+    protected boolean shouldRenderSectionName() {
+        return hasRoot();
+    }
+
+    private boolean hasRoot() {
+        return root != null;
+    }
 
     private void renderSectionName(CukedoctorDocumentBuilder docBuilder, I18nLoader i18n, DocumentAttributes documentAttributes) {
-        final String sectionName = getSectionName(i18n);
-        final FeatureSection titleSection = new FeatureSection(FeatureBuilder.instance().name(sectionName).build());
+        Section titleSection = getTitleSection(i18n);
         docBuilder.append(titleSection.render(docBuilder.createPeerBuilder(), i18n, documentAttributes)).nestTitle();
     }
 
-    protected abstract String getSectionName(I18nLoader i18n);
+    private Section getTitleSection(I18nLoader i18n) {
+        if (!hasRoot()) {
+            final String sectionName = getDefaultSectionName(i18n);
+            return new FeatureSection(FeatureBuilder.instance().name(sectionName).build());
+        }
+
+        return root;
+    }
+
+    protected abstract String getDefaultSectionName(I18nLoader i18n);
 
     private void renderChildren(CukedoctorDocumentBuilder docBuilder, I18nLoader i18n, DocumentAttributes documentAttributes) {
         Collections.sort(children);

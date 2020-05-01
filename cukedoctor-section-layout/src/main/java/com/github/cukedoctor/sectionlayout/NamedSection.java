@@ -22,7 +22,7 @@ public class NamedSection extends BasicSection {
     }
 
     @Override
-    protected String getSectionName(I18nLoader i18n) {
+    protected String getDefaultSectionName(I18nLoader i18n) {
         return id;
     }
 }

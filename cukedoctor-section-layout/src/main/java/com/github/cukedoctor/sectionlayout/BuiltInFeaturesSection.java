@@ -18,7 +18,7 @@ public class BuiltInFeaturesSection extends BasicSection {
     }
 
     @Override
-    protected String getSectionName(I18nLoader i18n) {
+    protected String getDefaultSectionName(I18nLoader i18n) {
         return i18n.getMessage("title.features");
     }
 }
