@@ -8,6 +8,14 @@ import com.github.cukedoctor.i18n.I18nLoader;
 public interface Section extends Comparable<Section> {
     void addFeature(Feature feature);
 
+    default Section addFeatures(Iterable<Feature> features) {
+        for (Feature feature : features) {
+            addFeature(feature);
+        }
+
+        return this;
+    }
+
     String render(CukedoctorDocumentBuilder docBuilder, I18nLoader i18n, DocumentAttributes documentAttributes);
 
     int getOrder();

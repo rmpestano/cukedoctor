@@ -4,36 +4,27 @@ import com.github.cukedoctor.api.CukedoctorDocumentBuilder;
 import com.github.cukedoctor.api.DocumentAttributes;
 import com.github.cukedoctor.api.model.Feature;
 import com.github.cukedoctor.i18n.I18nLoader;
+import com.google.common.collect.LinkedListMultimap;
+import com.google.common.collect.Multimap;
 
+import java.util.Collection;
+import java.util.HashSet;
 import java.util.Optional;
+import java.util.Set;
 
 import static com.github.cukedoctor.sectionlayout.Constants.AppendixTagPattern;
 import static com.github.cukedoctor.sectionlayout.Constants.SectionTagPattern;
 
 public class DocumentSection implements Section {
-    private final MapSection foreSections = new MapSection() {
-        @Override
-        protected String getSectionId(Feature feature) {
-            return feature.extractTag(SectionTagPattern).get();
-        }
 
+    private final BuiltInFeaturesSection featuresSection = new BuiltInFeaturesSection() {
         @Override
-        protected Section createChildSection(String sectionId) {
-            return new NamedSection(sectionId);
+        public int getOrder() {
+            return 2;
         }
     };
-    private final BuiltInFeaturesSection featuresSection = new BuiltInFeaturesSection();
-    private final MapSection appendices = new MapSection() {
-        @Override
-        protected String getSectionId(Feature feature) {
-            return feature.extractTag(SectionTagPattern).get();
-        }
-
-        @Override
-        protected Section createChildSection(String sectionId) {
-            return new StyledSection(sectionId, "appendix");
-        }
-    };
+    private final Multimap<String, Feature> featuresBySectionId = LinkedListMultimap.create();
+    private final Set<String> appendixIds = new HashSet<>();
 
     public DocumentSection() {
     }
@@ -55,20 +46,44 @@ public class DocumentSection implements Section {
             return;
         }
 
-        if (feature.hasTag(AppendixTagPattern)) {
-            appendices.addFeature(feature);
-            return;
-        }
+        featuresBySectionId.put(sectionId.get(), feature);
 
-        foreSections.addFeature(feature);
+        if (feature.hasTag(AppendixTagPattern)) {
+            appendixIds.add(sectionId.get());
+        }
     }
 
     @Override
     public String render(CukedoctorDocumentBuilder docBuilder, I18nLoader i18n, DocumentAttributes documentAttributes) {
-        docBuilder.append(foreSections.render(docBuilder.createPeerBuilder(), i18n, documentAttributes));
-        docBuilder.append(featuresSection.render(docBuilder.createPeerBuilder(), i18n, documentAttributes));
-        docBuilder.append(appendices.render(docBuilder.createPeerBuilder(), i18n, documentAttributes));
+        AnonymousSection document = buildDocument();
+        docBuilder.append(document.render(docBuilder.createPeerBuilder(), i18n, documentAttributes));
         return docBuilder.toString();
+    }
+
+    protected AnonymousSection buildDocument() {
+        AnonymousSection foreSections = new AnonymousSection() {
+            @Override
+            public int getOrder() {
+                return 1;
+            }
+        };
+        AnonymousSection appendices = new AnonymousSection() {
+            @Override
+            public int getOrder() {
+                return 3;
+            }
+        };
+
+        featuresBySectionId.asMap().forEach((String sectionId, Collection<Feature> features) -> {
+            if (appendixIds.contains(sectionId)) {
+                appendices.addSection(new StyledSection(sectionId, "appendix").addFeatures(features));
+                return;
+            }
+
+            foreSections.addSection(new NamedSection(sectionId).addFeatures(features));
+        });
+
+        return new AnonymousSection().addSection(foreSections).addSection(featuresSection).addSection(appendices);
     }
 
     @Override
