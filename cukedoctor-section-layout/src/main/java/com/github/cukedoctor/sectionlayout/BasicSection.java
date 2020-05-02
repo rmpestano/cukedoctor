@@ -4,14 +4,17 @@ import com.github.cukedoctor.api.CukedoctorDocumentBuilder;
 import com.github.cukedoctor.api.DocumentAttributes;
 import com.github.cukedoctor.api.model.Feature;
 import com.github.cukedoctor.api.model.Scenario;
+import com.github.cukedoctor.api.model.Tag;
 import com.github.cukedoctor.i18n.I18nLoader;
 import com.github.cukedoctor.util.builder.FeatureBuilder;
 
 import java.util.ArrayList;
 import java.util.Collections;
 
+import static com.github.cukedoctor.util.Constants.SKIP_DOCS;
+
 public abstract class BasicSection implements Section {
-    private final ArrayList<Section> children = new ArrayList<>();
+    protected final ArrayList<Section> children = new ArrayList<>();
     private Section root;
     private int order = Integer.MAX_VALUE;
 
@@ -28,11 +31,13 @@ public abstract class BasicSection implements Section {
     }
 
     private boolean hadRootScenario(Feature feature) {
-        if (!feature.hasScenarios()) return false;
+        if (!feature.hasScenarios()) {
+            return false;
+        }
 
         for (Scenario scenario : feature.getScenarios()) {
             if (scenario.getName().equals("Root")) {
-                feature.getScenarios().remove(scenario);
+                addSkipDocsTag(scenario);
                 return true;
             }
         }
@@ -40,11 +45,28 @@ public abstract class BasicSection implements Section {
         return false;
     }
 
+    private void addSkipDocsTag(Scenario scenario) {
+        if (scenario.hasTags()) {
+            scenario.getTags().add(createSkipDocsTag());
+            return;
+        }
+
+        ArrayList<Tag> tags = new ArrayList<>(1);
+        tags.add(createSkipDocsTag());
+        scenario.setTags(tags);
+    }
+
+    private Tag createSkipDocsTag() {
+        return new Tag(SKIP_DOCS);
+    }
+
     protected abstract Section createChildSection(Feature feature);
 
     @Override
     public String render(CukedoctorDocumentBuilder docBuilder, I18nLoader i18n, DocumentAttributes documentAttributes) {
-        if (!hasRoot() && children.isEmpty()) return "";
+        if (!hasRoot() && children.isEmpty()) {
+            return "";
+        }
 
         if (shouldRenderSectionName()) {
             renderSectionName(docBuilder, i18n, documentAttributes);

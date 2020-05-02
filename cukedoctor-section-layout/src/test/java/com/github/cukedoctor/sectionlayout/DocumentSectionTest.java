@@ -4,6 +4,7 @@ import com.github.cukedoctor.api.CukedoctorDocumentBuilder;
 import com.github.cukedoctor.api.DocumentAttributes;
 import com.github.cukedoctor.i18n.I18nLoader;
 import com.github.cukedoctor.util.builder.FeatureBuilder;
+import com.github.cukedoctor.util.builder.ScenarioBuilder;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -47,18 +48,18 @@ public class DocumentSectionTest {
         root.addFeature(FeatureBuilder.instance().id("My Feature").name("My Feature").tag("@section-SectionOne").build());
         root.addFeature(FeatureBuilder.instance().id("My Other Feature").name("My Other Feature").tag("@section-SectionOne").build());
 
-        final String expectedDocument = "[[SectionOne, SectionOne]]" + newLine() +
+        final String expectedDocument = "[[SectionTwo, SectionTwo]]" + newLine() +
+                "= *SectionTwo*" + newLine() + newLine() + newLine() +
+                "[[Yet-Another-Feature, Yet Another Feature]]" + newLine() +
+                "== *Yet Another Feature*" + newLine() +
+                newLine() +
+                "[[SectionOne, SectionOne]]" + newLine() +
                 "= *SectionOne*" + newLine() + newLine() + newLine() +
                 "[[My-Feature, My Feature]]" + newLine() +
                 "== *My Feature*" + newLine() +
                 newLine() +
                 "[[My-Other-Feature, My Other Feature]]" + newLine() +
                 "== *My Other Feature*" + newLine() +
-                newLine() +
-                "[[SectionTwo, SectionTwo]]" + newLine() +
-                "= *SectionTwo*" + newLine() + newLine() + newLine() +
-                "[[Yet-Another-Feature, Yet Another Feature]]" + newLine() +
-                "== *Yet Another Feature*" + newLine() +
                 newLine();
 
         assertEquals(expectedDocument, root.render(CukedoctorDocumentBuilder.Factory.instance(), I18nLoader.instance(null), new DocumentAttributes()));
@@ -107,8 +108,10 @@ public class DocumentSectionTest {
     @Test
     public void shouldRenderAppendicesInOrderAfterFeaturesSection() {
         DocumentSection root = new DocumentSection();
-        root.addFeature(FeatureBuilder.instance().id("My Feature").name("My Feature").tag("@section-Beta").tag("@order-2").tag("@appendix").build());
+        root.addFeature(FeatureBuilder.instance().id("Amazing Feature").name("Amazing Feature").tag("@section-Beta").tag("@order-4").build());
+        root.addFeature(FeatureBuilder.instance().id("My Feature").name("My Feature").tag("@section-Beta").tag("@order-3").tag("@appendix").build());
         root.addFeature(FeatureBuilder.instance().id("Yet Another Feature").name("Yet Another Feature").tag("@section-Alpha").tag("@order-1").tag("@appendix").build());
+        root.addFeature(FeatureBuilder.instance().id("Alpha: The Beginning").name("Alpha: The Beginning").tag("@section-Alpha").tag("@order-2").tag("@appendix").scenario(ScenarioBuilder.instance().name("Root").build()).build());
         root.addFeature(FeatureBuilder.instance().id("Exciting Feature").name("Exciting Feature").build());
 
         final String expectedDocument = "[[Features, Features]]" + newLine() +
@@ -117,8 +120,8 @@ public class DocumentSectionTest {
                 "== *Exciting Feature*" + newLine() +
                 newLine() +
                 "[appendix]" + newLine() +
-                "[[Alpha, Alpha]]" + newLine() +
-                "= *Alpha*" + newLine() + newLine() + newLine() +
+                "[[Alpha:-The-Beginning, Alpha: The Beginning]]" + newLine() +
+                "= *Alpha: The Beginning*" + newLine() + newLine() + newLine() +
                 "[[Yet-Another-Feature, Yet Another Feature]]" + newLine() +
                 "== *Yet Another Feature*" + newLine() +
                 newLine() +
@@ -126,7 +129,9 @@ public class DocumentSectionTest {
                 "[[Beta, Beta]]" + newLine() +
                 "= *Beta*" + newLine() + newLine() + newLine() +
                 "[[My-Feature, My Feature]]" + newLine() +
-                "== *My Feature*" + newLine() +
+                "== *My Feature*" + newLine() + newLine() +
+                "[[Amazing-Feature, Amazing Feature]]" + newLine() +
+                "== *Amazing Feature*" + newLine() +
                 newLine();
 
         assertEquals(expectedDocument, root.render(CukedoctorDocumentBuilder.Factory.instance(), I18nLoader.instance(null), new DocumentAttributes()));
