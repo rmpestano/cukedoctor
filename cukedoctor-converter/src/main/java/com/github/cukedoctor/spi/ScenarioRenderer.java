@@ -1,5 +1,6 @@
 package com.github.cukedoctor.spi;
 
+import com.github.cukedoctor.api.CukedoctorDocumentBuilder;
 import com.github.cukedoctor.api.model.Feature;
 import com.github.cukedoctor.api.model.Scenario;
 import com.github.cukedoctor.renderer.BaseRenderer;
@@ -9,5 +10,14 @@ import com.github.cukedoctor.renderer.BaseRenderer;
  */
 public interface ScenarioRenderer extends BaseRenderer {
 
+    /**
+     * @deprecated Use renderScenario(Scenario, Feature, CukedoctorDocumentBuilder) instead
+     */
+    @Deprecated
     String renderScenario(Scenario scenario, Feature feature);
+
+    default String renderScenario(Scenario scenario, Feature feature, CukedoctorDocumentBuilder documentBuilder) {
+        setDocumentBuilder(documentBuilder);
+        return renderScenario(scenario, feature);
+    }
 }
