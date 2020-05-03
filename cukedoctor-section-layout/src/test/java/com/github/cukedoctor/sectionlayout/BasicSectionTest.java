@@ -2,7 +2,6 @@ package com.github.cukedoctor.sectionlayout;
 
 import com.github.cukedoctor.api.CukedoctorDocumentBuilder;
 import com.github.cukedoctor.api.DocumentAttributes;
-import com.github.cukedoctor.api.model.Feature;
 import com.github.cukedoctor.i18n.I18nLoader;
 import com.github.cukedoctor.util.builder.FeatureBuilder;
 import com.github.cukedoctor.util.builder.ScenarioBuilder;
@@ -84,6 +83,98 @@ public class BasicSectionTest {
         assertEquals(expectedDocument, result);
     }
 
+    @Test
+    public void shouldRenderFeaturesWithGroup() {
+        final BasicSection section = new BasicSection("My Section", "SomeStyle", "@grouptag-");
+        section.addFeature(FeatureBuilder.instance().name("My First Child").tag("@grouptag-Group1").build());
+        final String expectedDocument = "[SomeStyle]" + newLine() +
+                "[[My-Section, My Section]]" + newLine() +
+                "= *My Section*" + newLine() + newLine() + newLine() +
+                "[[Group1, Group1]]" + newLine() +
+                "== *Group1*" + newLine() + newLine() +
+                "[[My-First-Child, My First Child]]" + newLine() +
+                "=== *My First Child*" + newLine() +
+                newLine();
+
+        final String result = section.render(CukedoctorDocumentBuilder.Factory.instance(), I18nLoader.instance(null), new DocumentAttributes());
+
+        assertEquals(expectedDocument, result);
+    }
+
+    @Test
+    public void shouldRenderFeaturesInOrder() {
+        final BasicSection section = new BasicSection("My Section", "SomeStyle", "@grouptag-");
+        section.addFeature(FeatureBuilder.instance().name("My First Child").tag("@grouptag-Group1").build());
+        section.addFeature(FeatureBuilder.instance().name("My Second Child").tag("@grouptag-Group1").tag("@order-1").build());
+        section.addFeature(FeatureBuilder.instance().name("My Third Child").tag("@order-2").build());
+        section.addFeature(FeatureBuilder.instance().name("My Fourth Child").tag("@grouptag-Group2").tag("@order-3").scenario(ScenarioBuilder.instance().name("Root").build()).build());
+        section.addFeature(FeatureBuilder.instance().name("My Fifth Child").build());
+
+        final String expectedDocument = "[SomeStyle]" + newLine() +
+                "[[My-Section, My Section]]" + newLine() +
+                "= *My Section*" + newLine() + newLine() + newLine() +
+                "[[Group1, Group1]]" + newLine() +
+                "== *Group1*" + newLine() + newLine() +
+                "[[My-Second-Child, My Second Child]]" + newLine() +
+                "=== *My Second Child*" + newLine() +
+                newLine() +
+                "[[My-First-Child, My First Child]]" + newLine() +
+                "=== *My First Child*" + newLine() +
+                newLine() +
+                "[[My-Third-Child, My Third Child]]" + newLine() +
+                "== *My Third Child*" + newLine() +
+                newLine() +
+                "[[My-Fourth-Child, My Fourth Child]]" + newLine() +
+                "== *My Fourth Child*" + newLine() +
+                newLine() +
+                "[[My-Fifth-Child, My Fifth Child]]" + newLine() +
+                "== *My Fifth Child*" + newLine() + newLine();
+
+        final String result = section.render(CukedoctorDocumentBuilder.Factory.instance(), I18nLoader.instance(null), new DocumentAttributes());
+
+        assertEquals(expectedDocument, result);
+    }
+
+    @Test
+    public void shouldStyle() {
+        final BasicSection section = new BasicSection("My Section", "SomeStyle");
+        section.addFeature(FeatureBuilder.instance().name("My First Child").build());
+        section.addFeature(FeatureBuilder.instance().name("My Second Child").build());
+
+        final String expectedDocument = "[SomeStyle]" + newLine() +
+                "[[My-Section, My Section]]" + newLine() +
+                "= *My Section*" + newLine() + newLine() + newLine() +
+                "[[My-First-Child, My First Child]]" + newLine() +
+                "== *My First Child*" + newLine() +
+                newLine() +
+                "[[My-Second-Child, My Second Child]]" + newLine() +
+                "== *My Second Child*" + newLine() +
+                newLine();
+
+        final String result = section.render(CukedoctorDocumentBuilder.Factory.instance(), I18nLoader.instance(null), new DocumentAttributes());
+
+        assertEquals(expectedDocument, result);
+    }
+
+    @Test
+    public void styleShouldBeOptional() {
+        final BasicSection section = new BasicSection("My Section");
+        section.addFeature(FeatureBuilder.instance().name("My First Child").build());
+        section.addFeature(FeatureBuilder.instance().name("My Second Child").build());
+
+        final String expectedDocument = "[[My-Section, My Section]]" + newLine() +
+                "= *My Section*" + newLine() + newLine() + newLine() +
+                "[[My-First-Child, My First Child]]" + newLine() +
+                "== *My First Child*" + newLine() +
+                newLine() +
+                "[[My-Second-Child, My Second Child]]" + newLine() +
+                "== *My Second Child*" + newLine() +
+                newLine();
+
+        final String result = section.render(CukedoctorDocumentBuilder.Factory.instance(), I18nLoader.instance(null), new DocumentAttributes());
+
+        assertEquals(expectedDocument, result);
+    }
 
     @Test
     public void shouldRenderRootFeatureEvenIfThereAreNoChildFeatures() {
@@ -123,27 +214,22 @@ public class BasicSectionTest {
         final BasicSection section = createSection();
 
         section.addFeature(FeatureBuilder.instance().tag("@order-42").build());
-        section.addFeature(FeatureBuilder.instance().tag("@order--13").build());
+        section.addFeature(FeatureBuilder.instance().tag("@order--13").tag("@grouptag-Group1").build());
+
+        assertEquals(-13, section.getOrder());
+    }
+
+    @Test
+    public void orderShouldRespectRoot() {
+        final BasicSection section = createSection();
+
+        section.addFeature(FeatureBuilder.instance().tag("@order-42").build());
+        section.addFeature(FeatureBuilder.instance().tag("@order--13").scenario(ScenarioBuilder.instance().name("Root").build()).build());
 
         assertEquals(-13, section.getOrder());
     }
 
     private BasicSection createSection() {
-        return new BasicSection() {
-            @Override
-            protected Section createChildSection(Feature feature) {
-                return new FeatureSection(feature);
-            }
-
-            @Override
-            protected boolean shouldRenderSectionName() {
-                return true;
-            }
-
-            @Override
-            protected String getDefaultSectionName(I18nLoader i18n) {
-                return "My Section";
-            }
-        };
+        return new BasicSection("My Section");
     }
 }

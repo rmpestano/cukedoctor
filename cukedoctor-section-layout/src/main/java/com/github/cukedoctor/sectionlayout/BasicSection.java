@@ -8,26 +8,64 @@ import com.github.cukedoctor.api.model.Tag;
 import com.github.cukedoctor.i18n.I18nLoader;
 import com.github.cukedoctor.util.builder.FeatureBuilder;
 
-import java.util.ArrayList;
-import java.util.Collections;
+import java.util.*;
 
 import static com.github.cukedoctor.util.Constants.SKIP_DOCS;
 
-public abstract class BasicSection implements Section {
-    protected final ArrayList<Section> children = new ArrayList<>();
-    private Section root;
+public class BasicSection implements Section {
+    private final Map<String, Section> sectionsByGroup = new HashMap<>();
+    private final List<Section> grouplessFeatures = new LinkedList<>();
+    private final String id;
+    private final String style;
+    private final String groupingTagPattern;
     private int order = Integer.MAX_VALUE;
+    private Section root;
+
+    public BasicSection(String id) {
+        this(id, null);
+    }
+
+    public BasicSection(String id, String style) {
+        this(id, style, null);
+    }
+
+    public BasicSection(String id, String style, String groupingTagPattern) {
+        this.id = id;
+        this.style = style;
+        this.groupingTagPattern = groupingTagPattern;
+    }
 
     @Override
-    public void addFeature(Feature feature) {
-        if (hadRootScenario(feature)) {
-            root = new FeatureSection(feature);
-            return;
+    public Section addFeature(Feature feature) {
+        Optional<String> groupId = getGroupId(feature);
+        if (groupId.isPresent()) {
+            addToGroup(feature, groupId.get());
+        } else if (hadRootScenario(feature)) {
+            addAsRoot(feature);
+        } else {
+            addToGroupless(feature);
         }
 
-        final Section childSection = createChildSection(feature);
-        children.add(childSection);
-        order = Math.min(order, childSection.getOrder());
+        updateOrder(feature);
+        return this;
+    }
+
+    private Optional<String> getGroupId(Feature feature) {
+        return groupingTagPattern == null ? Optional.empty() : feature.extractTag(groupingTagPattern);
+    }
+
+    private void addToGroup(Feature feature, String groupId) {
+        getGroupSection(groupId).addFeature(feature);
+    }
+
+    private Section getGroupSection(String groupId) {
+        if (sectionsByGroup.containsKey(groupId)) {
+            return sectionsByGroup.get(groupId);
+        }
+
+        final Section newGroup = new BasicSection(groupId);
+        sectionsByGroup.put(groupId, newGroup);
+        return newGroup;
     }
 
     private boolean hadRootScenario(Feature feature) {
@@ -60,52 +98,77 @@ public abstract class BasicSection implements Section {
         return new Tag(SKIP_DOCS);
     }
 
-    protected abstract Section createChildSection(Feature feature);
+    private void addAsRoot(Feature feature) {
+        root = new FeatureSection(feature);
+    }
+
+    private void addToGroupless(Feature feature) {
+        grouplessFeatures.add(new FeatureSection(feature));
+    }
+
+    private void updateOrder(Feature feature) {
+        order = Math.min(order, feature.getOrder());
+    }
 
     @Override
     public String render(CukedoctorDocumentBuilder docBuilder, I18nLoader i18n, DocumentAttributes documentAttributes) {
-        if (!hasRoot() && children.isEmpty()) {
-            return "";
-        }
+        if (!hasRoot() && sectionsByGroup.isEmpty() && grouplessFeatures.isEmpty()) return "";
 
-        if (shouldRenderSectionName()) {
-            renderSectionName(docBuilder, i18n, documentAttributes);
-        }
-
+        renderName(docBuilder, i18n, documentAttributes);
         renderChildren(docBuilder, i18n, documentAttributes);
 
         return docBuilder.toString();
-    }
-
-    protected boolean shouldRenderSectionName() {
-        return hasRoot();
     }
 
     private boolean hasRoot() {
         return root != null;
     }
 
-    protected void renderSectionName(CukedoctorDocumentBuilder docBuilder, I18nLoader i18n, DocumentAttributes documentAttributes) {
+    protected boolean shouldRenderSectionName() {
+        return true;
+    }
+
+    private void renderName(CukedoctorDocumentBuilder docBuilder, I18nLoader i18n, DocumentAttributes documentAttributes) {
+        if (!shouldRenderSectionName()) return;
+
+        renderStyle(docBuilder);
+        renderTitle(docBuilder, i18n, documentAttributes);
+    }
+
+    private void renderStyle(CukedoctorDocumentBuilder docBuilder) {
+        if (style != null) {
+            docBuilder.textLine("[" + style + "]");
+        }
+    }
+
+    private void renderTitle(CukedoctorDocumentBuilder docBuilder, I18nLoader i18n, DocumentAttributes documentAttributes) {
         Section titleSection = getTitleSection(i18n);
         docBuilder.append(titleSection.render(docBuilder.createPeerBuilder(), i18n, documentAttributes)).nestTitle();
     }
 
     private Section getTitleSection(I18nLoader i18n) {
-        if (!hasRoot()) {
-            final String sectionName = getDefaultSectionName(i18n);
-            return new FeatureSection(FeatureBuilder.instance().name(sectionName).build());
-        }
+        if (hasRoot()) return root;
 
-        return root;
+        final String name = getName(i18n);
+        return new FeatureSection(FeatureBuilder.instance().name(name).build());
     }
 
-    protected abstract String getDefaultSectionName(I18nLoader i18n);
+    protected String getName(I18nLoader i18n) {
+        return id;
+    }
 
     private void renderChildren(CukedoctorDocumentBuilder docBuilder, I18nLoader i18n, DocumentAttributes documentAttributes) {
-        Collections.sort(children);
-        for (Section child : children) {
+        for (Section child : getChildren()) {
             docBuilder.append(child.render(docBuilder.createPeerBuilder(), i18n, documentAttributes));
         }
+    }
+
+    private Iterable<Section> getChildren() {
+        ArrayList<Section> children = new ArrayList<>(sectionsByGroup.size() + grouplessFeatures.size());
+        children.addAll(sectionsByGroup.values());
+        children.addAll(grouplessFeatures);
+        Collections.sort(children);
+        return children;
     }
 
     @Override

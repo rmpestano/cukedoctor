@@ -6,7 +6,7 @@ import com.github.cukedoctor.api.model.Feature;
 import com.github.cukedoctor.i18n.I18nLoader;
 
 public interface Section extends Comparable<Section> {
-    void addFeature(Feature feature);
+    Section addFeature(Feature feature);
 
     default Section addFeatures(Iterable<Feature> features) {
         for (Feature feature : features) {
