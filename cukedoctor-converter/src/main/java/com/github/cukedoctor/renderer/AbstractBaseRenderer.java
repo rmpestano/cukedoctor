@@ -28,6 +28,7 @@ public abstract class AbstractBaseRenderer {
         this.i18n = i18n;
     }
 
+    @Deprecated
     public void setDocumentBuilder(CukedoctorDocumentBuilder documentBuilder) {
         this.docBuilder = documentBuilder;
     }

@@ -10,6 +10,12 @@ import com.github.cukedoctor.i18n.I18nLoader;
 public interface BaseRenderer {
 
     void setI18n(I18nLoader i18nProvider);
+
+    /**
+     * @deprecated Use renderX calls that pass the documentBuilder as a parameter instead
+     */
+    @Deprecated
     void setDocumentBuilder(CukedoctorDocumentBuilder documentBuilder);
+
     void setDocumentAttributes(DocumentAttributes documentAttributes);
 }

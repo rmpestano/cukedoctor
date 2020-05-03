@@ -1,5 +1,6 @@
 package com.github.cukedoctor.spi;
 
+import com.github.cukedoctor.api.CukedoctorDocumentBuilder;
 import com.github.cukedoctor.api.DocumentAttributes;
 import com.github.cukedoctor.renderer.BaseRenderer;
 
@@ -12,10 +13,15 @@ import com.github.cukedoctor.renderer.BaseRenderer;
 public interface HeaderRenderer extends BaseRenderer {
 
     /**
-     *
+     * @deprecated Use renderDocumentHeader(DocumentAttributes, CukedoctorDocumentBuilder) instead
      * @param cukedoctorAttributes cukedoctor attributes
      * @return
      */
+    @Deprecated
     String renderDocumentHeader(DocumentAttributes cukedoctorAttributes);
 
+    default String renderDocumentHeader(DocumentAttributes cukedoctorAttributes, CukedoctorDocumentBuilder documentBuilder) {
+        setDocumentBuilder(documentBuilder);
+        return renderDocumentHeader(cukedoctorAttributes);
+    }
 }
