@@ -15,7 +15,7 @@ public class FeatureSection implements Section {
     }
 
     @Override
-    public void addFeature(Feature feature) {
+    public Section addFeature(Feature feature) {
         throw new UnsupportedOperationException();
     }
 

@@ -194,7 +194,7 @@ I do not mind getting mucky icon:thumbs-up[role="green",title="Passed"]
 
 """
 
-  Scenario: Skipping Sections
+  Scenario: Skipping
   Sections where all assigned Features are marked with the tag `@skipDocs` will themselves be skipped.
 
     Given I have the Feature

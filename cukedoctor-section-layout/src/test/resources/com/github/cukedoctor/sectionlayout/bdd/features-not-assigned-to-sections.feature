@@ -1,5 +1,5 @@
 @section-Sections
-@order-3
+@order-4
 Feature: Features not assigned to Sections
 Features not assigned to Sections are rendered exactly as in the classic (default) Cukedoctor layout, with all its capabilities supported.
 
@@ -112,6 +112,46 @@ I am the best hunter icon:thumbs-up[role="green",title="Passed"]
 
 
 == Scenario: Parasaurolophus
+
+==========
+Given ::
+I have an implausible head adornment icon:thumbs-up[role="green",title="Passed"]
+==========
+
+
+"""
+
+
+    Scenario: Subsections
+Features assigned to Subsections, but not Sections, will be shown under Subsections under the built-in Features Section.
+
+  Given I have the Feature
+  """
+@order-2
+@subsection-Appearance
+Feature: Head Adornments
+
+  Scenario: Parasaurolophus
+
+    Given I have an implausible head adornment
+"""
+  And I am showing the Features Section
+  And I am hiding step timings
+  And all Cukedoctor extensions are disabled
+  When I convert the Feature
+  Then they will be rendered as
+  """asciidoc
+[[Features, Features]]
+= *Features*
+
+
+[[Appearance, Appearance]]
+== *Appearance*
+
+[[Head-Adornments, Head Adornments]]
+=== *Head Adornments*
+
+==== Scenario: Parasaurolophus
 
 ==========
 Given ::

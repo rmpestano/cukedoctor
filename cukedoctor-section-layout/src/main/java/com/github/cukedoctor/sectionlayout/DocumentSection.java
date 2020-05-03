@@ -12,8 +12,7 @@ import java.util.HashSet;
 import java.util.Optional;
 import java.util.Set;
 
-import static com.github.cukedoctor.sectionlayout.Constants.AppendixTagPattern;
-import static com.github.cukedoctor.sectionlayout.Constants.SectionTagPattern;
+import static com.github.cukedoctor.sectionlayout.Constants.*;
 
 public class DocumentSection implements Section {
 
@@ -36,14 +35,14 @@ public class DocumentSection implements Section {
     }
 
     @Override
-    public void addFeature(Feature feature) {
-        if (feature.hasIgnoreDocsTag()) return;
+    public Section addFeature(Feature feature) {
+        if (feature.hasIgnoreDocsTag()) return this;
 
         Optional<String> sectionId = feature.extractTag(SectionTagPattern);
 
         if (!sectionId.isPresent()) {
             featuresSection.addFeature(feature);
-            return;
+            return this;
         }
 
         featuresBySectionId.put(sectionId.get(), feature);
@@ -51,6 +50,8 @@ public class DocumentSection implements Section {
         if (feature.hasTag(AppendixTagPattern)) {
             appendixIds.add(sectionId.get());
         }
+
+        return this;
     }
 
     @Override
@@ -76,11 +77,11 @@ public class DocumentSection implements Section {
 
         featuresBySectionId.asMap().forEach((String sectionId, Collection<Feature> features) -> {
             if (appendixIds.contains(sectionId)) {
-                appendices.addSection(new StyledSection(sectionId, "appendix").addFeatures(features));
+                appendices.addSection(new BasicSection(sectionId, "appendix", SubsectionTagPattern).addFeatures(features));
                 return;
             }
 
-            foreSections.addSection(new NamedSection(sectionId).addFeatures(features));
+            foreSections.addSection(new BasicSection(sectionId, null, SubsectionTagPattern).addFeatures(features));
         });
 
         return new AnonymousSection().addSection(foreSections).addSection(featuresSection).addSection(appendices);

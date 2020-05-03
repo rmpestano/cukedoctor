@@ -6,4 +6,5 @@ public class Constants {
 
     public static final String SectionTagPattern = "@section-";
     public static final String AppendixTagPattern = "@appendix";
+    public static final String SubsectionTagPattern = "@subsection-";
 }
