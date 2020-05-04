@@ -1,5 +1,6 @@
 package com.github.cukedoctor.bdd.cukedoctor;
 
+import com.github.cukedoctor.api.DocumentAttributes;
 import com.github.cukedoctor.api.model.Feature;
 import com.github.cukedoctor.builder.CukedoctorDocumentBuilderImpl;
 import com.github.cukedoctor.parser.FeatureParser;
@@ -21,7 +22,7 @@ public class TagRenderingSteps {
         URL featureFile = getClass().getResource("/com/github/cukedoctor/json-output/tag-rendering.json");
         assertThat(featureFile).isNotNull();
         List<Feature> features = FeatureParser.parse(featureFile.getPath());
-        documentation = new CukedoctorFeatureRenderer(new CukedoctorDocumentBuilderImpl().createNestedBuilder()).renderFeatures(features);
+        documentation = new CukedoctorFeatureRenderer((DocumentAttributes) null).renderFeatures(features, new CukedoctorDocumentBuilderImpl().createNestedBuilder());
     }
 
     @Then("^the tags displayed under each scenario should not have duplicates$")

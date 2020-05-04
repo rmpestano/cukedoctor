@@ -7,9 +7,9 @@ import com.github.cukedoctor.api.model.Scenario;
 import com.github.cukedoctor.config.CukedoctorConfig;
 import com.github.cukedoctor.spi.FeatureRenderer;
 import com.github.cukedoctor.spi.ScenarioRenderer;
+import com.github.cukedoctor.util.ServiceLoaderUtil;
 
 import java.util.List;
-import java.util.ServiceLoader;
 
 import static com.github.cukedoctor.util.Assert.*;
 import static com.github.cukedoctor.util.Constants.Markup.bold;
@@ -27,26 +27,13 @@ public class CukedoctorFeatureRenderer extends AbstractBaseRenderer implements F
         loadDependentRenderers();
     }
 
-    // For testing convenience. Mimics the instance that would be built via Cukedoctor.instance(someFeatures)
-    public CukedoctorFeatureRenderer(CukedoctorDocumentBuilder builder) {
-        this(builder, null);
-    }
-
-    public CukedoctorFeatureRenderer(CukedoctorDocumentBuilder builder, DocumentAttributes documentAttributes) {
+    public CukedoctorFeatureRenderer(DocumentAttributes documentAttributes) {
         loadDependentRenderers();
-        setDocumentBuilder(builder);
         setDocumentAttributes(documentAttributes);
     }
 
     private void loadDependentRenderers() {
-        ServiceLoader<ScenarioRenderer> scenarioRenderers = ServiceLoader.load(ScenarioRenderer.class);
-
-        if (scenarioRenderers.iterator().hasNext()) {
-            scenarioRenderer = scenarioRenderers.iterator().next();
-        } else {
-            scenarioRenderer = new CukedoctorScenarioRenderer();
-            scenarioRenderer.setI18n(i18n);
-        }
+        scenarioRenderer = new ServiceLoaderUtil<ScenarioRenderer>().initialise(ScenarioRenderer.class, CukedoctorScenarioRenderer.class, i18n, documentAttributes);
     }
 
     public CukedoctorFeatureRenderer(CukedoctorConfig cukedoctorConfig) {
@@ -114,8 +101,7 @@ public class CukedoctorFeatureRenderer extends AbstractBaseRenderer implements F
                 ", " + feature.getName() + "]]";
     }
 
-    protected String renderFeatureScenario(Scenario scenario, Feature feature, CukedoctorDocumentBuilder builder){
-        scenarioRenderer.setDocumentBuilder(builder.createNestedBuilder());
-        return scenarioRenderer.renderScenario(scenario,feature);
+    protected String renderFeatureScenario(Scenario scenario, Feature feature, CukedoctorDocumentBuilder builder) {
+        return scenarioRenderer.renderScenario(scenario, feature, builder.createNestedBuilder());
     }
 }

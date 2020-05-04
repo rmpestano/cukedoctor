@@ -1,5 +1,6 @@
 package com.github.cukedoctor.renderer;
 
+import com.github.cukedoctor.api.CukedoctorDocumentBuilder;
 import com.github.cukedoctor.api.model.Feature;
 import com.github.cukedoctor.api.model.Scenario;
 import com.github.cukedoctor.api.model.Tag;
@@ -29,7 +30,7 @@ public class CukedoctorTagsRendererTest {
     public void shouldNotRenderIfNeitherFeatureNorScenarioHasTags() {
         assertEquals(
                 "",
-                tagsRenderer.renderScenarioTags(createEmptyFeature(), createEmptyScenario())
+                tagsRenderer.renderScenarioTags(createEmptyFeature(), createEmptyScenario(), CukedoctorDocumentBuilder.Factory.newInstance())
         );
     }
 
@@ -38,7 +39,7 @@ public class CukedoctorTagsRendererTest {
     public void shouldRenderIfScenarioHasTags() {
         assertEquals(
                 "[small]#tags: " + someTag + "#" + newLine() + newLine(),
-                tagsRenderer.renderScenarioTags(createEmptyFeature(), createScenario(someTag))
+                tagsRenderer.renderScenarioTags(createEmptyFeature(), createScenario(someTag), CukedoctorDocumentBuilder.Factory.newInstance())
         );
     }
 
@@ -46,7 +47,7 @@ public class CukedoctorTagsRendererTest {
     public void shouldRenderIfScenarioHasOrderAndNotOrderTags() {
         assertEquals(
                 "[small]#tags: " + someTag +  "#" + newLine() + newLine(),
-                tagsRenderer.renderScenarioTags(createEmptyFeature(), createScenario(someTag, order42))
+                tagsRenderer.renderScenarioTags(createEmptyFeature(), createScenario(someTag, order42), CukedoctorDocumentBuilder.Factory.newInstance())
         );
     }
 
@@ -54,7 +55,7 @@ public class CukedoctorTagsRendererTest {
     public void shouldNotRenderIfScenarioOnlyHasSingleOrderTagAndFeatureHasNoTags() {
         assertEquals(
                 "",
-                tagsRenderer.renderScenarioTags(createEmptyFeature(), createScenario(order42))
+                tagsRenderer.renderScenarioTags(createEmptyFeature(), createScenario(order42), CukedoctorDocumentBuilder.Factory.newInstance())
         );
     }
 
@@ -62,7 +63,7 @@ public class CukedoctorTagsRendererTest {
     public void shouldNotRenderIfScenarioOnlyHasOrderTagsAndFeatureHasNoTags() {
         assertEquals(
                 "",
-                tagsRenderer.renderScenarioTags(createEmptyFeature(), createScenario(order42, order1))
+                tagsRenderer.renderScenarioTags(createEmptyFeature(), createScenario(order42, order1), CukedoctorDocumentBuilder.Factory.newInstance())
         );
     }
 
@@ -70,7 +71,7 @@ public class CukedoctorTagsRendererTest {
     public void shouldNotRenderIfScenarioOnlyHasDiscreteTagAndFeatureHasNoTags() {
         assertEquals(
                 "",
-                tagsRenderer.renderScenarioTags(createEmptyFeature(), createScenario(discrete))
+                tagsRenderer.renderScenarioTags(createEmptyFeature(), createScenario(discrete), CukedoctorDocumentBuilder.Factory.newInstance())
         );
     }
 
@@ -79,7 +80,7 @@ public class CukedoctorTagsRendererTest {
     public void shouldRenderIfFeatureHasTagsButNotOrderTags() {
         assertEquals(
                 "[small]#tags: " + someTag + "#" + newLine() + newLine(),
-                tagsRenderer.renderScenarioTags(createFeature(someTag), createEmptyScenario())
+                tagsRenderer.renderScenarioTags(createFeature(someTag), createEmptyScenario(), CukedoctorDocumentBuilder.Factory.newInstance())
         );
     }
 
@@ -87,7 +88,7 @@ public class CukedoctorTagsRendererTest {
     public void shouldRenderIfFeatureHasOrderAndNotOrderTags() {
         assertEquals(
                 "[small]#tags: " + someTag + "#" + newLine() + newLine(),
-                tagsRenderer.renderScenarioTags(createFeature(someTag, order42), createEmptyScenario())
+                tagsRenderer.renderScenarioTags(createFeature(someTag, order42), createEmptyScenario(), CukedoctorDocumentBuilder.Factory.newInstance())
         );
     }
 
@@ -95,7 +96,7 @@ public class CukedoctorTagsRendererTest {
     public void shouldNotRenderIfFeatureOnlyHasSingleOrderTagAndScenarioHasNoTags() {
         assertEquals(
                 "",
-                tagsRenderer.renderScenarioTags(createFeature(order42), createEmptyScenario())
+                tagsRenderer.renderScenarioTags(createFeature(order42), createEmptyScenario(), CukedoctorDocumentBuilder.Factory.newInstance())
         );
     }
 
@@ -103,7 +104,7 @@ public class CukedoctorTagsRendererTest {
     public void shouldNotRenderIfFeatureOnlyHasOrderTagsAndScenarioHasNoTags() {
         assertEquals(
                 "",
-                tagsRenderer.renderScenarioTags(createFeature(order42, order1), createEmptyScenario())
+                tagsRenderer.renderScenarioTags(createFeature(order42, order1), createEmptyScenario(), CukedoctorDocumentBuilder.Factory.newInstance())
         );
     }
 
@@ -111,7 +112,7 @@ public class CukedoctorTagsRendererTest {
     public void shouldNotRenderIfFeatureOnlyHasDiscreteTagAndScenarioHasNoTags() {
         assertEquals(
                 "",
-                tagsRenderer.renderScenarioTags(createFeature(discrete), createEmptyScenario())
+                tagsRenderer.renderScenarioTags(createFeature(discrete), createEmptyScenario(), CukedoctorDocumentBuilder.Factory.newInstance())
         );
     }
 
@@ -120,7 +121,7 @@ public class CukedoctorTagsRendererTest {
     public void shouldRenderIfFeatureAndScenarioHaveTags() {
         assertEquals(
                 "[small]#tags: " + someTag + "," + otherTag + "#" + newLine() + newLine(),
-                tagsRenderer.renderScenarioTags(createFeature(someTag), createScenario(otherTag))
+                tagsRenderer.renderScenarioTags(createFeature(someTag), createScenario(otherTag), CukedoctorDocumentBuilder.Factory.newInstance())
         );
     }
 
@@ -128,7 +129,7 @@ public class CukedoctorTagsRendererTest {
     public void shouldRenderTagOnceIfPresentOnBothFeatureAndScenario() {
         assertEquals(
                 "[small]#tags: " + someTag + "," + otherTag + "#" + newLine() + newLine(),
-                tagsRenderer.renderScenarioTags(createFeature(someTag), createScenario(otherTag, someTag))
+                tagsRenderer.renderScenarioTags(createFeature(someTag), createScenario(otherTag, someTag), CukedoctorDocumentBuilder.Factory.newInstance())
         );
     }
 
@@ -136,7 +137,7 @@ public class CukedoctorTagsRendererTest {
     public void shouldNotRenderIfFeatureAndScenarioOnlyHaveOrderTags() {
         assertEquals(
                 "",
-                tagsRenderer.renderScenarioTags(createFeature(order42), createScenario(order42))
+                tagsRenderer.renderScenarioTags(createFeature(order42), createScenario(order42), CukedoctorDocumentBuilder.Factory.newInstance())
         );
     }
 

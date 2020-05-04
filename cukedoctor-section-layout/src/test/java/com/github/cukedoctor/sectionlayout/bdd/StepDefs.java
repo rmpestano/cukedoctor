@@ -1,5 +1,6 @@
 package com.github.cukedoctor.sectionlayout.bdd;
 
+import com.github.cukedoctor.api.CukedoctorDocumentBuilder;
 import com.github.cukedoctor.api.model.Feature;
 import com.github.cukedoctor.parser.FeatureParser;
 import com.github.cukedoctor.sectionlayout.SectionFeatureRenderer;
@@ -155,6 +156,6 @@ public class StepDefs {
     }
 
     public void renderFeatures(List<Feature> features) {
-        renderedDocument = new SectionFeatureRenderer().renderFeatures(features);
+        renderedDocument = new SectionFeatureRenderer().renderFeatures(features, CukedoctorDocumentBuilder.Factory.newInstance());
     }
 }

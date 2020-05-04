@@ -1,5 +1,6 @@
 package com.github.cukedoctor.renderer;
 
+import com.github.cukedoctor.api.CukedoctorDocumentBuilder;
 import com.github.cukedoctor.api.model.Feature;
 import com.github.cukedoctor.api.model.Step;
 import com.github.cukedoctor.spi.StepsRenderer;
@@ -26,7 +27,7 @@ public class CukedoctorStepsRendererTest {
         StepsRenderer stepsRenderer = new CukedoctorStepsRenderer();
 
         List<Step> steps = feature.getScenarios().get(0).getSteps();
-        String resultDoc = stepsRenderer.renderSteps(steps, feature.getScenarios().get(0), feature);
+        String resultDoc = stepsRenderer.renderSteps(steps, feature.getScenarios().get(0), feature, CukedoctorDocumentBuilder.Factory.newInstance());
         assertThat(resultDoc).isEqualTo("==========" + newLine() +
                 "Given::" + newLine() +
 
@@ -44,7 +45,7 @@ public class CukedoctorStepsRendererTest {
         List<Step> steps = feature.getScenarios().get(0).getSteps();
         StepsRenderer stepsRenderer = new CukedoctorStepsRenderer();
 
-        String resultDoc = stepsRenderer.renderSteps(steps, feature.getScenarios().get(0), feature);
+        String resultDoc = stepsRenderer.renderSteps(steps, feature.getScenarios().get(0), feature, CukedoctorDocumentBuilder.Factory.newInstance());
         assertThat(resultDoc).isEqualTo("==========" + newLine() +
                 "Given::" + newLine() +
 

@@ -1,5 +1,6 @@
 package com.github.cukedoctor.bdd.cukedoctor;
 
+import com.github.cukedoctor.api.DocumentAttributes;
 import com.github.cukedoctor.api.model.Feature;
 import com.github.cukedoctor.builder.CukedoctorDocumentBuilderImpl;
 import com.github.cukedoctor.parser.FeatureParser;
@@ -56,6 +57,6 @@ public class EnrichmentSteps {
         assertThat(featureFile).isNotNull();
         List<Feature> features = FeatureParser.parse(featureFile.getPath());
         assertThat(features).isNotNull().hasSize(1);
-        documentation = new CukedoctorFeatureRenderer(new CukedoctorDocumentBuilderImpl().createNestedBuilder()).renderFeatures(features);
+        documentation = new CukedoctorFeatureRenderer((DocumentAttributes) null).renderFeatures(features, new CukedoctorDocumentBuilderImpl().createNestedBuilder());
     }
 }

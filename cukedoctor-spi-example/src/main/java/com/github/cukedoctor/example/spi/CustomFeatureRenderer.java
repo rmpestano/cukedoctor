@@ -55,7 +55,7 @@ public class CustomFeatureRenderer extends CukedoctorFeatureRenderer {
 
             ScenarioRenderer scenarioRenderer = new CustomScenarioRenderer();
             for (Scenario scenario : feature.getScenarios()) {
-                builder.append(scenarioRenderer.renderScenario(scenario,feature));
+                builder.append(scenarioRenderer.renderScenario(scenario, feature, docBuilder.createPeerBuilder()));
             }
         }
 

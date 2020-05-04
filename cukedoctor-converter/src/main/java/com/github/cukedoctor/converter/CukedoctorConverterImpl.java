@@ -14,10 +14,10 @@ import com.github.cukedoctor.spi.HeaderRenderer;
 import com.github.cukedoctor.spi.SummaryRenderer;
 import com.github.cukedoctor.util.Constants;
 import com.github.cukedoctor.util.FileUtil;
+import com.github.cukedoctor.util.ServiceLoaderUtil;
 
 import java.util.Collections;
 import java.util.List;
-import java.util.ServiceLoader;
 
 import static com.github.cukedoctor.util.Assert.*;
 import static com.github.cukedoctor.util.Constants.Markup.bold;
@@ -61,30 +61,9 @@ public class CukedoctorConverterImpl implements CukedoctorConverter {
 
 
     private void loadRenderers() {
-        ServiceLoader<HeaderRenderer> headRenderers = ServiceLoader.load(HeaderRenderer.class);
-        ServiceLoader<SummaryRenderer> summaryRenderers = ServiceLoader.load(SummaryRenderer.class);
-        ServiceLoader<FeatureRenderer> featureRenderers = ServiceLoader.load(FeatureRenderer.class);
-
-        if (headRenderers.iterator().hasNext()) {
-            headerRenderer = headRenderers.iterator().next();
-        } else {
-            headerRenderer = new CukedoctorHeaderRenderer();
-        }
-
-        if (summaryRenderers.iterator().hasNext()) {
-            summaryRenderer = summaryRenderers.iterator().next();
-        } else {
-            summaryRenderer = new CukedoctorSummaryRenderer();
-        }
-        summaryRenderer.setI18n(i18n);
-
-        if (featureRenderers.iterator().hasNext()) {
-            featureRenderer = featureRenderers.iterator().next();
-        } else {
-            featureRenderer = new CukedoctorFeatureRenderer();
-        }
-        featureRenderer.setI18n(i18n);
-        featureRenderer.setDocumentAttributes(documentAttributes);
+        headerRenderer = new ServiceLoaderUtil<HeaderRenderer>().initialise(HeaderRenderer.class, CukedoctorHeaderRenderer.class, i18n, documentAttributes);
+        summaryRenderer = new ServiceLoaderUtil<SummaryRenderer>().initialise(SummaryRenderer.class, CukedoctorSummaryRenderer.class, i18n, documentAttributes);
+        featureRenderer = new ServiceLoaderUtil<FeatureRenderer>().initialise(FeatureRenderer.class, CukedoctorFeatureRenderer.class, i18n, documentAttributes);
     }
 
     public DocumentAttributes getDocumentAttributes() {
@@ -140,8 +119,7 @@ public class CukedoctorConverterImpl implements CukedoctorConverter {
     }
 
     public CukedoctorConverter renderAttributes() {
-        headerRenderer.setDocumentBuilder(docBuilder.createPeerBuilder());
-        docBuilder.append(headerRenderer.renderDocumentHeader(documentAttributes));
+        docBuilder.append(headerRenderer.renderDocumentHeader(documentAttributes, docBuilder.createPeerBuilder()));
         return this;
     }
 
@@ -167,15 +145,13 @@ public class CukedoctorConverterImpl implements CukedoctorConverter {
     }
 
     public CukedoctorConverter renderSummary() {
-        summaryRenderer.setDocumentBuilder(docBuilder.createNestedBuilder());
-        docBuilder.textLine(summaryRenderer.renderSummary(features));
+        docBuilder.textLine(summaryRenderer.renderSummary(features, docBuilder.createNestedBuilder()));
         return this;
     }
 
 
     public CukedoctorConverter renderFeatures(List<Feature> features) {
-        featureRenderer.setDocumentBuilder(docBuilder.createNestedBuilder());
-        docBuilder.append(featureRenderer.renderFeatures(features));
+        docBuilder.append((featureRenderer.renderFeatures(features, docBuilder.createNestedBuilder())));
         return this;
     }
 
