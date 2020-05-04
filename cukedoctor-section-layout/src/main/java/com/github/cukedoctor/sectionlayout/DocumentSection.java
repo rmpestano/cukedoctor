@@ -4,13 +4,11 @@ import com.github.cukedoctor.api.CukedoctorDocumentBuilder;
 import com.github.cukedoctor.api.DocumentAttributes;
 import com.github.cukedoctor.api.model.Feature;
 import com.github.cukedoctor.i18n.I18nLoader;
+import com.google.common.collect.Iterables;
 import com.google.common.collect.LinkedListMultimap;
 import com.google.common.collect.Multimap;
 
-import java.util.Collection;
-import java.util.HashSet;
-import java.util.Optional;
-import java.util.Set;
+import java.util.*;
 
 import static com.github.cukedoctor.sectionlayout.Constants.*;
 
@@ -56,35 +54,29 @@ public class DocumentSection implements Section {
 
     @Override
     public String render(CukedoctorDocumentBuilder docBuilder, I18nLoader i18n, DocumentAttributes documentAttributes) {
-        AnonymousSection document = buildDocument();
-        docBuilder.append(document.render(docBuilder.createPeerBuilder(), i18n, documentAttributes));
+        for (Section section : buildDocument()) {
+            docBuilder.append(section.render(docBuilder.createPeerBuilder(), i18n, documentAttributes));
+        }
+
         return docBuilder.toString();
     }
 
-    protected AnonymousSection buildDocument() {
-        AnonymousSection foreSections = new AnonymousSection() {
-            @Override
-            public int getOrder() {
-                return 1;
-            }
-        };
-        AnonymousSection appendices = new AnonymousSection() {
-            @Override
-            public int getOrder() {
-                return 3;
-            }
-        };
+    protected Iterable<Section> buildDocument() {
+        List<Section> foreSections = new LinkedList<>();
+        List<Section> appendices = new LinkedList<>();
 
         featuresBySectionId.asMap().forEach((String sectionId, Collection<Feature> features) -> {
             if (appendixIds.contains(sectionId)) {
-                appendices.addSection(new BasicSection(sectionId, "appendix", SubsectionTagPattern).addFeatures(features));
+                appendices.add(new BasicSection(sectionId, "appendix", SubsectionTagPattern).addFeatures(features));
                 return;
             }
 
-            foreSections.addSection(new BasicSection(sectionId, null, SubsectionTagPattern).addFeatures(features));
+            foreSections.add(new BasicSection(sectionId, null, SubsectionTagPattern).addFeatures(features));
         });
 
-        return new AnonymousSection().addSection(foreSections).addSection(featuresSection).addSection(appendices);
+        Collections.sort(foreSections);
+        Collections.sort(appendices);
+        return Iterables.concat(foreSections, Collections.singletonList(featuresSection), appendices);
     }
 
     @Override
