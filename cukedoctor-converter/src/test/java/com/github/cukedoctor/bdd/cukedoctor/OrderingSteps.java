@@ -1,6 +1,7 @@
 package com.github.cukedoctor.bdd.cukedoctor;
 
 import com.github.cukedoctor.Cukedoctor;
+import com.github.cukedoctor.api.DocumentAttributes;
 import com.github.cukedoctor.api.model.Feature;
 import com.github.cukedoctor.builder.CukedoctorDocumentBuilderImpl;
 import com.github.cukedoctor.parser.FeatureParser;
@@ -33,7 +34,7 @@ public class OrderingSteps {
         assertThat(featureFile).isNotNull();
         List<Feature> features = FeatureParser.parse(featureFile.getPath());
         assertThat(features).isNotNull().hasSize(2);
-        documentation = new CukedoctorFeatureRenderer(new CukedoctorDocumentBuilderImpl().createNestedBuilder()).renderFeatures(features);
+        documentation = new CukedoctorFeatureRenderer((DocumentAttributes) null).renderFeatures(features, new CukedoctorDocumentBuilderImpl().createNestedBuilder());
     }
 
     @Then("^Features should be ordered by name in resulting documentation$")

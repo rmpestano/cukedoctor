@@ -1,6 +1,7 @@
 package com.github.cukedoctor.renderer;
 
 import com.github.cukedoctor.Cukedoctor;
+import com.github.cukedoctor.api.CukedoctorDocumentBuilder;
 import com.github.cukedoctor.api.DocumentAttributes;
 import com.github.cukedoctor.config.GlobalConfig;
 import org.junit.Test;
@@ -39,7 +40,7 @@ public class CukedoctorHeaderRendererTest {
                         ":chapter-label: Chapter" + newLine() +
                         ":version-label: Version" + newLine();
 
-        String document = new CukedoctorHeaderRenderer().renderDocumentHeader(attrs);
+        String document = new CukedoctorHeaderRenderer().renderDocumentHeader(attrs, CukedoctorDocumentBuilder.Factory.newInstance());
         assertEquals(expected.replace("\r", ""), document.replace("\r", ""));
     }
 
@@ -60,7 +61,7 @@ public class CukedoctorHeaderRendererTest {
                 ":chapter-label: Chapter" + newLine() +
                 ":version-label: Version" + newLine();
 
-        String document = new CukedoctorHeaderRenderer().renderDocumentHeader(new DocumentAttributes());
+        String document = new CukedoctorHeaderRenderer().renderDocumentHeader(new DocumentAttributes(), CukedoctorDocumentBuilder.Factory.newInstance());
         assertEquals(expected, document);
     }
 
@@ -80,19 +81,19 @@ public class CukedoctorHeaderRendererTest {
                 ":chapter-label: Chapter" + newLine() +
                 ":version-label: Version" + newLine();
 
-        String document = new CukedoctorHeaderRenderer().renderDocumentHeader(GlobalConfig.newInstance().getDocumentAttributes());
+        String document = new CukedoctorHeaderRenderer().renderDocumentHeader(GlobalConfig.newInstance().getDocumentAttributes(), CukedoctorDocumentBuilder.Factory.newInstance());
         assertEquals(expected, document);
     }
 
     @Test
     public void shouldNotRenderAttributesWhenNoDocAttrIsProvided() {
-        String document = new CukedoctorHeaderRenderer().renderDocumentHeader(Cukedoctor.getDefaultDocumentAttributes());
+        String document = new CukedoctorHeaderRenderer().renderDocumentHeader(Cukedoctor.getDefaultDocumentAttributes(), CukedoctorDocumentBuilder.Factory.newInstance());
         assertEquals("", document);
     }
 
     @Test
     public void shouldNotRenderAttributesPassingNullDocAttrs() {
-        String document = new CukedoctorHeaderRenderer().renderDocumentHeader(null);
+        String document = new CukedoctorHeaderRenderer().renderDocumentHeader(null, CukedoctorDocumentBuilder.Factory.newInstance());
         assertEquals("", document);
     }
 
@@ -120,7 +121,7 @@ public class CukedoctorHeaderRendererTest {
                         ":chapter-label: Chapter" + newLine() +
                         ":version-label: Version" + newLine();
 
-        String document = new CukedoctorHeaderRenderer().renderDocumentHeader(attrs);
+        String document = new CukedoctorHeaderRenderer().renderDocumentHeader(attrs, CukedoctorDocumentBuilder.Factory.newInstance());
         assertEquals(expected.replace("\r", ""), document.replace("\r", ""));
     }
 
@@ -148,7 +149,7 @@ public class CukedoctorHeaderRendererTest {
                         ":chapter-label: Chapter" + newLine() +
                         ":version-label: Version" + newLine();
 
-        String document = new CukedoctorHeaderRenderer().renderDocumentHeader(attrs);
+        String document = new CukedoctorHeaderRenderer().renderDocumentHeader(attrs, CukedoctorDocumentBuilder.Factory.newInstance());
         assertEquals(expected.replace("\r", ""), document.replace("\r", ""));
     }
 
@@ -180,7 +181,7 @@ public class CukedoctorHeaderRendererTest {
                         ":chapter-label: Chapter" + newLine() +
                         ":version-label: Version" + newLine();
 
-        String document = new CukedoctorHeaderRenderer().renderDocumentHeader(attrs);
+        String document = new CukedoctorHeaderRenderer().renderDocumentHeader(attrs, CukedoctorDocumentBuilder.Factory.newInstance());
         assertEquals(expected, document);
     }
 
@@ -212,7 +213,7 @@ public class CukedoctorHeaderRendererTest {
                         ":chapter-label: Chapter" + newLine() +
                         ":version-label: Version" + newLine();
 
-        String document = new CukedoctorHeaderRenderer().renderDocumentHeader(attrs);
+        String document = new CukedoctorHeaderRenderer().renderDocumentHeader(attrs, CukedoctorDocumentBuilder.Factory.newInstance());
         assertEquals(expected.replace("\r", ""), document.replace("\r", ""));
     }
 
@@ -249,7 +250,7 @@ public class CukedoctorHeaderRendererTest {
                         ":version-label: Version" + newLine() +
                         ":stem: latexmath" + newLine();
 
-        String document = new CukedoctorHeaderRenderer().renderDocumentHeader(attrs);
+        String document = new CukedoctorHeaderRenderer().renderDocumentHeader(attrs, CukedoctorDocumentBuilder.Factory.newInstance());
         assertEquals(expected.replace("\r", ""), document.replace("\r", ""));
     }
 
@@ -288,7 +289,7 @@ public class CukedoctorHeaderRendererTest {
                         ":stem: latexmath" + newLine() +
                         ":allow-uri-read:" + newLine();
 
-        String document = new CukedoctorHeaderRenderer().renderDocumentHeader(attrs);
+        String document = new CukedoctorHeaderRenderer().renderDocumentHeader(attrs, CukedoctorDocumentBuilder.Factory.newInstance());
         assertEquals(expected.replace("\r", ""), document.replace("\r", ""));
     }
 
@@ -327,7 +328,7 @@ public class CukedoctorHeaderRendererTest {
                         ":stem: latexmath" + newLine() +
                         ":!allow-uri-read:" + newLine();
 
-        String document = new CukedoctorHeaderRenderer().renderDocumentHeader(attrs);
+        String document = new CukedoctorHeaderRenderer().renderDocumentHeader(attrs, CukedoctorDocumentBuilder.Factory.newInstance());
         assertEquals(expected.replace("\r", ""), document.replace("\r", ""));
     }
 
@@ -364,13 +365,13 @@ public class CukedoctorHeaderRendererTest {
                         ":version-label: Version" + newLine() +
                         ":stem: latexmath" + newLine();
 
-        String document = new CukedoctorHeaderRenderer().renderDocumentHeader(attrs);
+        String document = new CukedoctorHeaderRenderer().renderDocumentHeader(attrs, CukedoctorDocumentBuilder.Factory.newInstance());
         assertEquals(expected.replace("\r", ""), document.replace("\r", ""));
     }
 
     @Test
     public void shouldRenderDocumentationHeader() {
-        String generatedHeader = new CukedoctorHeaderRenderer().renderDocumentHeader(GlobalConfig.newInstance().getDocumentAttributes());
+        String generatedHeader = new CukedoctorHeaderRenderer().renderDocumentHeader(GlobalConfig.newInstance().getDocumentAttributes(), CukedoctorDocumentBuilder.Factory.newInstance());
         assertThat(generatedHeader).isEqualToIgnoringWhitespace(":toc: right" + newLine() +
                 ":backend: html5" + newLine() +
                 ":doctitle: Living Documentation" + newLine() +

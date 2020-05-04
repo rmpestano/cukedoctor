@@ -5,9 +5,10 @@ import com.github.cukedoctor.api.DocumentAttributes;
 import com.github.cukedoctor.api.model.Feature;
 import com.github.cukedoctor.i18n.I18nLoader;
 import com.github.cukedoctor.renderer.CukedoctorFeatureRenderer;
+import com.github.cukedoctor.spi.FeatureRenderer;
+import com.github.cukedoctor.util.ServiceLoaderUtil;
 
 public class FeatureSection implements Section {
-    private final CukedoctorFeatureRenderer featureRenderer = new CukedoctorFeatureRenderer();
     private final Feature feature;
 
     public FeatureSection(Feature feature) {
@@ -21,10 +22,8 @@ public class FeatureSection implements Section {
 
     @Override
     public String render(CukedoctorDocumentBuilder docBuilder, I18nLoader i18n, DocumentAttributes documentAttributes) {
-        featureRenderer.setDocumentAttributes(documentAttributes);
-        featureRenderer.setDocumentBuilder(docBuilder);
-        featureRenderer.setI18n(i18n);
-        return featureRenderer.renderFeature(feature);
+        final FeatureRenderer featureRenderer = new ServiceLoaderUtil<FeatureRenderer>().initialise(FeatureRenderer.class, CukedoctorFeatureRenderer.class, i18n, documentAttributes, SectionFeatureRenderer.class);
+        return featureRenderer.renderFeature(feature, docBuilder);
     }
 
     @Override

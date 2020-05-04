@@ -9,9 +9,9 @@ import com.github.cukedoctor.spi.ExamplesRenderer;
 import com.github.cukedoctor.spi.ScenarioRenderer;
 import com.github.cukedoctor.spi.StepsRenderer;
 import com.github.cukedoctor.spi.TagsRenderer;
+import com.github.cukedoctor.util.ServiceLoaderUtil;
 
 import java.util.List;
-import java.util.ServiceLoader;
 
 import static com.github.cukedoctor.util.Assert.hasText;
 import static com.github.cukedoctor.util.Assert.notNull;
@@ -40,30 +40,9 @@ public class CukedoctorScenarioRenderer extends AbstractBaseRenderer implements 
     }
 
     private void loadDependentRenderers() {
-        ServiceLoader<TagsRenderer> tagsRenderers = ServiceLoader.load(TagsRenderer.class);
-        ServiceLoader<ExamplesRenderer> examplesRenderers = ServiceLoader.load(ExamplesRenderer.class);
-        ServiceLoader<StepsRenderer> stepsRenderers = ServiceLoader.load(StepsRenderer.class);
-
-        if (tagsRenderers.iterator().hasNext()) {
-            tagsRenderer = tagsRenderers.iterator().next();
-        } else {
-            tagsRenderer = new CukedoctorTagsRenderer();
-            tagsRenderer.setI18n(i18n);
-        }
-
-        if (examplesRenderers.iterator().hasNext()) {
-            examplesRenderer = examplesRenderers.iterator().next();
-        } else {
-            examplesRenderer = new CukedoctorExamplesRenderer();
-            examplesRenderer.setI18n(i18n);
-        }
-
-        if (stepsRenderers.iterator().hasNext()) {
-            stepsRenderer = stepsRenderers.iterator().next();
-        } else {
-            stepsRenderer = new CukedoctorStepsRenderer();
-            stepsRenderer.setI18n(i18n);
-        }
+        tagsRenderer = new ServiceLoaderUtil<TagsRenderer>().initialise(TagsRenderer.class, CukedoctorTagsRenderer.class, i18n, documentAttributes);
+        examplesRenderer = new ServiceLoaderUtil<ExamplesRenderer>().initialise(ExamplesRenderer.class, CukedoctorExamplesRenderer.class, i18n, documentAttributes);
+        stepsRenderer = new ServiceLoaderUtil<StepsRenderer>().initialise(StepsRenderer.class, CukedoctorStepsRenderer.class, i18n, documentAttributes);
     }
 
     @Override
@@ -123,19 +102,14 @@ public class CukedoctorScenarioRenderer extends AbstractBaseRenderer implements 
     }
 
     String renderScenarioSteps(List<Step> scenarioSteps, Scenario scenario, Feature feature) {
-        stepsRenderer.setDocumentBuilder(docBuilder.createNestedBuilder());
-        return stepsRenderer.renderSteps(scenarioSteps, scenario, feature);
+        return stepsRenderer.renderSteps(scenarioSteps, scenario, feature, docBuilder.createNestedBuilder());
     }
 
     String renderScenarioExamples(Scenario scenario) {
-        examplesRenderer.setDocumentBuilder(docBuilder.createNestedBuilder());
-        return examplesRenderer.renderScenarioExamples(scenario);
+        return examplesRenderer.renderScenarioExamples(scenario, docBuilder.createNestedBuilder());
     }
 
     String renderScenarioTags(Scenario scenario, Feature feature) {
-        tagsRenderer.setDocumentBuilder(docBuilder.createPeerBuilder());
-        return tagsRenderer.renderScenarioTags(feature, scenario);
+        return tagsRenderer.renderScenarioTags(feature, scenario, docBuilder.createPeerBuilder());
     }
-
-
 }

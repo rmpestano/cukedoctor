@@ -1,5 +1,6 @@
 package com.github.cukedoctor.renderer;
 
+import com.github.cukedoctor.api.CukedoctorDocumentBuilder;
 import com.github.cukedoctor.api.model.Feature;
 import com.github.cukedoctor.parser.FeatureParser;
 import com.github.cukedoctor.spi.SummaryRenderer;
@@ -19,7 +20,7 @@ public class CukedoctorSummaryRendererTest {
     @Test
     public void shouldRenderSummaryForOneFeature() {
         List<Feature> features = FeatureParser.parse(onePassingOneFailing);
-        String resultDoc = new CukedoctorSummaryRenderer().renderSummary(features);
+        String resultDoc = new CukedoctorSummaryRenderer().renderSummary(features, CukedoctorDocumentBuilder.Factory.newInstance());
         assertThat(resultDoc).isNotNull().
                 containsOnlyOnce("<<One-passing-scenario-one-failing-scenario>>").
                 containsOnlyOnce("|[red]#*failed*#").
@@ -31,7 +32,7 @@ public class CukedoctorSummaryRendererTest {
     @Test
     public void shouldRenderSummaryForMultipleFeatures() {
         List<Feature> features = FeatureParser.parse(embedDataDirectly, outline, onePassingOneFailing, invalidFeatureResult);
-        String resultDoc = new CukedoctorSummaryRenderer().renderSummary(features);
+        String resultDoc = new CukedoctorSummaryRenderer().renderSummary(features, CukedoctorDocumentBuilder.Factory.newInstance());
         assertThat(resultDoc).isNotNull().
                 containsOnlyOnce("<<One-passing-scenario-one-failing-scenario>>").
                 containsOnlyOnce("<<An-embed-data-directly-feature>>").
@@ -46,7 +47,7 @@ public class CukedoctorSummaryRendererTest {
     @Test
     public void shouldRenderSummaryForFeatureWithBackground() {
         List<Feature> features = FeatureParser.parse(getClass().getResource("/json-output/feature_with_background.json").getPath());
-        String resultDoc = new CukedoctorSummaryRenderer().renderSummary(features);
+        String resultDoc = new CukedoctorSummaryRenderer().renderSummary(features, CukedoctorDocumentBuilder.Factory.newInstance());
         assertThat(resultDoc).isNotNull().
                 containsOnlyOnce("<<A-feature-with-background>>").
                 contains("*Totals*" + newLine() +
@@ -58,7 +59,7 @@ public class CukedoctorSummaryRendererTest {
     public void shouldRenderTotalRowForOneFeature() {
         List<Feature> features = FeatureParser.parse(onePassingOneFailing);
         SummaryRenderer summaryRenderer = new CukedoctorSummaryRenderer();
-        assertThat(summaryRenderer.renderSummary(features)).isNotNull().
+        assertThat(summaryRenderer.renderSummary(features, CukedoctorDocumentBuilder.Factory.newInstance())).isNotNull().
                 containsOnlyOnce("12+^|*Totals*").
                 contains("|1|1|2|1|1|0|0|0|0|2 2+|010ms");
     }
@@ -67,7 +68,7 @@ public class CukedoctorSummaryRendererTest {
     public void shouldRenderTotalRowForMultipleFeature() {
         List<Feature> features = FeatureParser.parse(onePassingOneFailing, embedDataDirectly, outline, invalidFeatureResult);
         SummaryRenderer summaryRenderer = new CukedoctorSummaryRenderer();
-        assertThat(summaryRenderer.renderSummary(features)).isNotNull().
+        assertThat(summaryRenderer.renderSummary(features, CukedoctorDocumentBuilder.Factory.newInstance())).isNotNull().
                 containsOnlyOnce("12+^|*Totals*").
                 contains("|4|1|5|4|1|0|0|0|0|5 2+|010ms");
     }

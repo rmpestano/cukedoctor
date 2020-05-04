@@ -27,7 +27,7 @@ public class CustomScenarioRenderer extends CukedoctorScenarioRenderer{
             //here we will reuse builtin step renderer
             docBuilder.textLine("+");
             StepsRenderer stepsRenderer = new CukedoctorStepsRenderer();
-            docBuilder.append(stepsRenderer.renderSteps(scenario.getSteps(), scenario, feature));
+            docBuilder.append(stepsRenderer.renderSteps(scenario.getSteps(), scenario, feature, docBuilder.createPeerBuilder()));
         }
         return docBuilder.toString();
     }
