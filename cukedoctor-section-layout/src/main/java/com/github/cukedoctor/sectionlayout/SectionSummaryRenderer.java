@@ -34,8 +34,7 @@ public class SectionSummaryRenderer extends AbstractBaseRenderer implements Summ
 
     @Override
     public String renderSummary(List<Feature> features) {
-        docBuilder.append(renderer.get().renderSummary(getSortedFeatures(features), docBuilder));
-        return docBuilder.toString();
+        return renderer.get().renderSummary(getSortedFeatures(features), docBuilder);
     }
 
     private List<Feature> getSortedFeatures(List<Feature> features) {
