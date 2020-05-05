@@ -367,10 +367,8 @@ Carnivore:: an animal that feeds solely on other animals
 """
 @bibliography
 Feature: My Bibliography
-- [[[pp]]] Andy Hunt & Dave Thomas. The Pragmatic Programmer:
-  From Journeyman to Master. Addison-Wesley. 1999.
-- [[[gof,2]]] Erich Gamma, Richard Helm, Ralph Johnson & John Vlissides. Design Patterns:
-  Elements of Reusable Object-Oriented Software. Addison-Wesley. 1994.
+- [[[pp]]] Andy Hunt & Dave Thomas. The Pragmatic Programmer: From Journeyman to Master. Addison-Wesley. 1999.
+- [[[gof,2]]] Erich Gamma, Richard Helm, Ralph Johnson & John Vlissides. Design Patterns: Elements of Reusable Object-Oriented Software. Addison-Wesley. 1994.
 
   Scenario: Root
 
@@ -383,10 +381,8 @@ Feature: My Bibliography
 = *My Bibliography*
 
 
-- [[[pp]]] Andy Hunt & Dave Thomas. The Pragmatic Programmer:
-  From Journeyman to Master. Addison-Wesley. 1999.
-- [[[gof,2]]] Erich Gamma, Richard Helm, Ralph Johnson & John Vlissides. Design Patterns:
-  Elements of Reusable Object-Oriented Software. Addison-Wesley. 1994.
+- [[[pp]]] Andy Hunt & Dave Thomas. The Pragmatic Programmer: From Journeyman to Master. Addison-Wesley. 1999.
+- [[[gof,2]]] Erich Gamma, Richard Helm, Ralph Johnson & John Vlissides. Design Patterns: Elements of Reusable Object-Oriented Software. Addison-Wesley. 1994.
 
 
 """
