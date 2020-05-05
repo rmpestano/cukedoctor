@@ -12,12 +12,9 @@ import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;
 
 import java.util.Arrays;
-import java.util.stream.Collectors;
 
 import static com.github.cukedoctor.util.Constants.newLine;
-import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.contains;
-import static org.hamcrest.Matchers.empty;
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.Assert.assertEquals;
 
 @RunWith(JUnit4.class)
@@ -237,7 +234,7 @@ public class BasicSectionTest {
     public void shouldGetNoFeaturesIfEmpty() {
         final BasicSection section = createSection();
 
-        assertThat(section.getFeatures().collect(Collectors.toList()), empty());
+        assertThat(section.getFeatures()).isEmpty();
     }
 
     @Test
@@ -251,7 +248,7 @@ public class BasicSectionTest {
         final BasicSection section = new BasicSection("My Section", null, "@group-");
         section.addFeatures(Arrays.asList(five, three, four, one, two));
 
-        assertThat(section.getFeatures().collect(Collectors.toList()), contains(one, two, three, four, five));
+        assertThat(section.getFeatures()).containsExactly(one, two, three, four, five);
     }
 
 
