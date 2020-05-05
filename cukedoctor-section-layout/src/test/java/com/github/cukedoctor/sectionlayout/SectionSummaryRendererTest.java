@@ -17,8 +17,7 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
-import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.contains;
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.Assert.assertEquals;
 import static org.mockito.Matchers.any;
 import static org.mockito.Mockito.*;
@@ -54,6 +53,6 @@ public class SectionSummaryRendererTest {
         verify(underlyingRenderer).renderSummary(argumentCaptor.<List<Feature>>capture(), any(CukedoctorDocumentBuilder.class));
 
         List<Feature> features = argumentCaptor.<List<Feature>>getValue();
-        assertThat(features, contains(one, two, three, four, five, six, seven, eight));
+        assertThat(features).containsExactly(one, two, three, four, five, six, seven, eight);
     }
 }

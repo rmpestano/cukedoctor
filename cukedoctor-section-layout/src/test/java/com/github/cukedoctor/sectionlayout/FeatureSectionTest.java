@@ -10,11 +10,8 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;
 
-import java.util.stream.Collectors;
-
 import static com.github.cukedoctor.util.Constants.newLine;
-import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.contains;
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.Assert.assertEquals;
 
 @RunWith(JUnit4.class)
@@ -65,6 +62,6 @@ public class FeatureSectionTest {
         final Feature feature = new Feature();
         final FeatureSection section = new FeatureSection(feature);
 
-        assertThat(section.getFeatures().collect(Collectors.toList()), contains(feature));
+        assertThat(section.getFeatures()).containsExactly(feature);
     }
 }

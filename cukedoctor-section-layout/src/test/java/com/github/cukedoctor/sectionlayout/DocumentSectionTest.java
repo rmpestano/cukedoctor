@@ -12,12 +12,9 @@ import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;
 
 import java.util.Arrays;
-import java.util.stream.Collectors;
 
 import static com.github.cukedoctor.util.Constants.newLine;
-import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.contains;
-import static org.hamcrest.Matchers.empty;
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.Assert.assertEquals;
 
 @RunWith(JUnit4.class)
@@ -184,7 +181,7 @@ public class DocumentSectionTest {
     public void shouldGetNoFeaturesIfEmpty() {
         final DocumentSection root = new DocumentSection();
 
-        assertThat(root.getFeatures().collect(Collectors.toList()), empty());
+        assertThat(root.getFeatures()).isEmpty();
     }
 
     @Test
@@ -201,7 +198,7 @@ public class DocumentSectionTest {
         final DocumentSection root = new DocumentSection();
         root.addFeatures(Arrays.asList(six, five, three, four, one, two, seven, eight));
 
-        assertThat(root.getFeatures().collect(Collectors.toList()), contains(one, two, three, four, five, six, seven, eight));
+        assertThat(root.getFeatures()).containsExactly(one, two, three, four, five, six, seven, eight);
     }
 
     private String renderDocument(DocumentSection root) {
