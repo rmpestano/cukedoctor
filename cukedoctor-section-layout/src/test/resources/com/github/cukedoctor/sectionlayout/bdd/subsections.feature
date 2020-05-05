@@ -1,5 +1,5 @@
 @section-Sections
-@order-3
+@order-40
 Feature: Subsections
 
   Scenario: Assigning a Feature to a Subsection

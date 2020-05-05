@@ -1,5 +1,5 @@
 @section-Sections
-@order-2
+@order-30
 Feature: Grouping Features in Sections
 
   Scenario: Assigning a Feature to a Section

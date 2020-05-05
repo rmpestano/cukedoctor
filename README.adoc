@@ -621,6 +621,16 @@ image::calc-custom-output.png[]
 IMPORTANT: Don't forget to register your custom implementations in https://github.com/rmpestano/cukedoctor/tree/master/cukedoctor-spi-example/src/main/resources/META-INF/services[META-INF/services] directory.
 
 
+== Section Layout
+
+An optional, alternative layout is available; the "Section" layout.
+This allows you to organise your features in to Sections and Subsections.
+Sections can be shown in the main body of the document, or as appendices.
+You can also specify a glossary, bibliography and index.
+
+A detailed description with examples is available in the documentation https://rmpestano.github.io/cukedoctor/[here].
+
+
 == Maven plugin
 
 This module brings the ability to execute Cukedoctor converter through a maven plugin.
