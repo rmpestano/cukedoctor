@@ -20,6 +20,8 @@ public class DocumentSection implements Section {
     };
     private final Map<String, Collection<Feature>> featuresBySectionId = new HashMap<>();
     private final Section glossary = new BasicSection("Glossary", "glossary", null);
+    private final Section bibliography = new BasicSection("Bibliography", "bibliography", null);
+    private final Section index = new BasicSection("Index", "index", null);
     private final Set<String> appendixIds = new HashSet<>();
 
     public DocumentSection() {
@@ -40,6 +42,16 @@ public class DocumentSection implements Section {
             return this;
         }
 
+        if (isBibliography(feature)) {
+            bibliography.addFeature(feature);
+            return this;
+        }
+
+        if (isIndex(feature)) {
+            index.addFeature(feature);
+            return this;
+        }
+
         Optional<String> sectionId = feature.extractTag(SectionTagPattern);
         if (!sectionId.isPresent()) {
             featuresSection.addFeature(feature);
@@ -56,6 +68,14 @@ public class DocumentSection implements Section {
 
     private boolean isGlossary(Feature feature) {
         return feature.hasTag(GlossaryTagPattern);
+    }
+
+    private boolean isBibliography(Feature feature) {
+        return feature.hasTag(BibliographyTagPattern);
+    }
+
+    private boolean isIndex(Feature feature) {
+        return feature.hasTag(IndexTagPattern);
     }
 
     private void addFeatureForSection(Feature feature, String sectionId) {
@@ -94,7 +114,11 @@ public class DocumentSection implements Section {
                         Stream.of(featuresSection),
                         Stream.concat(
                                 appendices.stream().sorted(),
-                                Stream.of(glossary))));
+                                Stream.concat(
+                                        Stream.of(glossary),
+                                        Stream.concat(
+                                                Stream.of(bibliography),
+                                                Stream.of(index))))));
     }
 
     @Override
@@ -104,6 +128,6 @@ public class DocumentSection implements Section {
 
     @Override
     public Stream<Feature> getFeatures() {
-        return buildDocument().flatMap(section -> section.getFeatures());
+        return buildDocument().flatMap(Section::getFeatures);
     }
 }

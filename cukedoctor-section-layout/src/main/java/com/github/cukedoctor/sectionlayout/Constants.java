@@ -8,4 +8,6 @@ public class Constants {
     public static final String AppendixTagPattern = "@appendix";
     public static final String SubsectionTagPattern = "@subsection-";
     public static final String GlossaryTagPattern = "@glossary";
+    public static final String BibliographyTagPattern = "@bibliography";
+    public static final String IndexTagPattern = "@index";
 }

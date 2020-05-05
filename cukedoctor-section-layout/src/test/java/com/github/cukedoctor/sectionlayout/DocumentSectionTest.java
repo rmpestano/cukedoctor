@@ -173,6 +173,48 @@ public class DocumentSectionTest {
     }
 
     @Test
+    public void shouldRenderBibliographyAfterGlossary() {
+        DocumentSection root = new DocumentSection();
+        root.addFeature(FeatureBuilder.instance().id("My Glossary").name("My Glossary").tag("@glossary").description("This is my glossary.").scenario(ScenarioBuilder.instance().name("Root").build()).build());
+        root.addFeature(FeatureBuilder.instance().id("My Bibliography").name("My Bibliography").tag("@bibliography").description("This is my bibliography.").scenario(ScenarioBuilder.instance().name("Root").build()).build());
+
+        String expectedDocument = "[glossary]" + newLine() +
+                "[[My-Glossary, My Glossary]]" + newLine() +
+                "= *My Glossary*" + newLine() +
+                newLine() + newLine() +
+                "This is my glossary." +
+                newLine() + newLine() +
+                "[bibliography]" + newLine() +
+                "[[My-Bibliography, My Bibliography]]" + newLine() +
+                "= *My Bibliography*" + newLine() +
+                newLine() + newLine() +
+                "This is my bibliography." +
+                newLine() + newLine();
+
+        assertEquals(expectedDocument, renderDocument(root));
+    }
+
+    @Test
+    public void shouldRenderIndexAfterBibliography() {
+        DocumentSection root = new DocumentSection();
+        root.addFeature(FeatureBuilder.instance().id("My Bibliography").name("My Bibliography").tag("@bibliography").description("This is my bibliography.").scenario(ScenarioBuilder.instance().name("Root").build()).build());
+        root.addFeature(FeatureBuilder.instance().id("My Index").name("My Index").tag("@index").scenario(ScenarioBuilder.instance().name("Root").build()).build());
+
+        String expectedDocument = "[bibliography]" + newLine() +
+                "[[My-Bibliography, My Bibliography]]" + newLine() +
+                "= *My Bibliography*" + newLine() +
+                newLine() + newLine() +
+                "This is my bibliography." +
+                newLine() + newLine() +
+                "[index]" + newLine() +
+                "[[My-Index, My Index]]" + newLine() +
+                "= *My Index*" + newLine() +
+                newLine() + newLine();
+
+        assertEquals(expectedDocument, renderDocument(root));
+    }
+
+    @Test
     public void orderShouldBeIntMax() {
         assertEquals(Integer.MAX_VALUE, new DocumentSection().getOrder());
     }
