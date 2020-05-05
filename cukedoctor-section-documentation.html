@@ -1,0 +1,2017 @@
+<!doctype html>
+<html lang="en">
+ <head> 
+  <meta charset="UTF-8"> 
+  <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]--> 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+  <meta name="generator" content="Asciidoctor 1.5.8"> 
+  <title>Cukedoctor Section Layout</title> 
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700"> 
+  <link rel="stylesheet" href="./asciidoctor.css"> 
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> 
+ </head> 
+ <body class="book toc2 toc-right"> 
+  <div name="themes" id="themes" style="width:150px;font-size:10px;position:relative;top:0;right:0px"> 
+   <b>Theme:&nbsp;</b> 
+   <select style="width:100px;font-size:10px;" name="select" onchange="window.location.href = window.location.href.substring(0,window.location.href.indexOf('?')) + '?theme='+ this.value"> <option value="asciidoctor" selected>Asciidoctor</option> <option value="colony">Colony</option> <option value="foundation">Foundation</option> <option value="github">Github</option> <option value="iconic">Iconic</option> <option value="maker">Maker</option> <option value="rocket-panda">Rocket Panda</option> <option value="readthedocs">Read the Docs</option> <option value="rubygems">Rubygems</option> </select> 
+  </div> 
+  <div id="header"> 
+   <h1>Cukedoctor Section Layout</h1> 
+   <div class="details"> 
+    <span id="revnumber">version 2.2-SNAPSHOT</span> 
+   </div> 
+   <div id="toc" class="toc2"> 
+    <div id="toctitle">
+      Table of Contents 
+    </div> 
+    <ul class="sectlevel1"> 
+     <li><a href="#Usage">1. <strong>Usage</strong></a> 
+      <ul class="sectlevel2"> 
+       <li><a href="#_maven_plugin">1.1. Maven plugin</a></li> 
+       <li><a href="#_cli">1.2. CLI</a></li> 
+       <li><a href="#_spi">1.3. SPI</a></li> 
+      </ul> </li> 
+     <li><a href="#User-Defined-Sections">2. <strong>User-Defined Sections</strong></a> 
+      <ul class="sectlevel2"> 
+       <li><a href="#Grouping-Features-in-Sections">2.1. <strong>Grouping Features in Sections</strong></a> 
+        <ul class="sectlevel3"> 
+         <li><a href="#_assigning_a_feature_to_a_section">2.1.1. Assigning a Feature to a Section</a></li> 
+         <li><a href="#_title_and_preamble">2.1.2. Title and Preamble</a></li> 
+         <li><a href="#_ordering">2.1.3. Ordering</a></li> 
+         <li><a href="#_skipping">2.1.4. Skipping</a></li> 
+         <li><a href="#_appendices">2.1.5. Appendices</a></li> 
+         <li><a href="#_glossary">2.1.6. Glossary</a></li> 
+         <li><a href="#_bibliography">2.1.7. Bibliography</a></li> 
+         <li><a href="#_index_catalog">2.1.8. Index Catalog</a></li> 
+        </ul> </li> 
+       <li><a href="#Subsections">2.2. <strong>Subsections</strong></a> 
+        <ul class="sectlevel3"> 
+         <li><a href="#_assigning_a_feature_to_a_subsection">2.2.1. Assigning a Feature to a Subsection</a></li> 
+         <li><a href="#_title_and_preamble_2">2.2.2. Title and Preamble</a></li> 
+         <li><a href="#_ordering_2">2.2.3. Ordering</a></li> 
+         <li><a href="#_skipping_2">2.2.4. Skipping</a></li> 
+        </ul> </li> 
+       <li><a href="#Features-not-assigned-to-Sections">2.3. <strong>Features not assigned to Sections</strong></a> 
+        <ul class="sectlevel3"> 
+         <li><a href="#_the_built_in_features_section">2.3.1. The built-in Features Section</a></li> 
+         <li><a href="#_when_the_features_section_is_hidden">2.3.2. When the Features Section is hidden</a></li> 
+         <li><a href="#_ordering_3">2.3.3. Ordering</a></li> 
+         <li><a href="#_subsections">2.3.4. Subsections</a></li> 
+        </ul> </li> 
+      </ul> </li> 
+    </ul> 
+   </div> 
+  </div> 
+  <div id="content"> 
+   <span style="float:right"> <input value="Filter..." onclick="this.value=''" title="Filter features by title" onblur="searchFeature(this.value);"> </span> 
+   <div class="sect1"> 
+    <h2 id="Usage"><a class="anchor" href="#Usage"></a>1. <strong>Usage</strong></h2> 
+    <div class="sectionbody"> 
+     <span class="fa fa-minus-square fa-fw" style="cursor:pointer;float:right;margin-top:-30px" title="Minimize" onclick="hideFeatureScenarios('Usage');document.getElementById('hidden-Usage').style.display = 'inline';this.style.display = 'none'"> </span> 
+     <span id="hidden-Usage" class="fa fa-plus-square fa-fw" style="cursor:pointer;float:right;display:none;margin-top:-30px" title="Maximize feature" onclick="showFeatureScenarios('Usage');this.style.display = 'none'"> </span> 
+     <div class="sect2"> 
+      <h3 id="_maven_plugin"><a class="anchor" href="#_maven_plugin"></a>1.1. Maven plugin</h3> 
+      <div class="paragraph"> 
+       <p>Add cukedoctor-section-layout as a dependency in the Cukedoctor Maven Plugin configuration in your <em>pom.xml</em>:</p> 
+      </div> 
+      <div class="listingblock"> 
+       <div class="content"> 
+        <pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;plugin&gt;
+  &lt;groupId&gt;com.github.cukedoctor&lt;/groupId&gt;
+  &lt;artifactId&gt;cukedoctor-maven-plugin&lt;/artifactId&gt;
+  &lt;version&gt;2.0&lt;/version&gt;
+  &lt;executions&gt;
+    &lt;execution&gt;
+      &lt;goals&gt;
+        &lt;goal&gt;execute&lt;/goal&gt;
+      &lt;/goals&gt;
+      &lt;phase&gt;install&lt;/phase&gt;
+    &lt;/execution&gt;
+  &lt;/executions&gt;
+  &lt;dependencies&gt;
+    &lt;dependency&gt;
+      &lt;groupId&gt;com.github.cukedoctor&lt;/groupId&gt;
+      &lt;artifactId&gt;cukedoctor-section-layout&lt;/artifactId&gt;
+      &lt;version&gt;2.0&lt;/version&gt;
+    &lt;/dependency&gt;
+  &lt;/dependencies&gt;
+&lt;/plugin&gt;</code></pre> 
+       </div> 
+      </div> 
+     </div> 
+     <div class="sect2"> 
+      <h3 id="_cli"><a class="anchor" href="#_cli"></a>1.2. CLI</h3> 
+      <div class="paragraph"> 
+       <p>Add cukedoctor-section-layout.jar to your classpath:</p> 
+      </div> 
+      <div class="listingblock"> 
+       <div class="content"> 
+        <pre>java -jar cukedoctor-main.jar
+  -cp "path/to/cukedoctor-section-layout.jar;."
+  -o "target/document-one"
+  -p "target/test-classes/json-output/one_passing_one_failing.json"
+  -t "Living Documentation"
+  -f html
+  -numbered
+  -hideSummarySection
+  -hideScenarioKeyword</pre> 
+       </div> 
+      </div> 
+      <div class="admonitionblock note"> 
+       <table> 
+        <tbody> 
+         <tr> 
+          <td class="icon"> <i class="fa icon-note" title="Note"></i> </td> 
+          <td class="content"> The separator used in the <code>-cp</code> argument may not be ";" on your OS. </td> 
+         </tr> 
+        </tbody> 
+       </table> 
+      </div> 
+     </div> 
+     <div class="sect2"> 
+      <h3 id="_spi"><a class="anchor" href="#_spi"></a>1.3. SPI</h3> 
+      <div class="paragraph"> 
+       <p>Register the Cukedoctor Section Layout renderer implementations in your <a href="https://github.com/rmpestano/cukedoctor/tree/master/cukedoctor-section-layout/src/main/resources/META-INF/services">META-INF/services</a> directory.</p> 
+      </div> 
+     </div> 
+    </div> 
+   </div> 
+   <div class="sect1"> 
+    <h2 id="User-Defined-Sections"><a class="anchor" href="#User-Defined-Sections"></a>2. <strong>User-Defined Sections</strong></h2> 
+    <div class="sectionbody"> 
+     <span class="fa fa-minus-square fa-fw" style="cursor:pointer;float:right;margin-top:-30px" title="Minimize" onclick="hideFeatureScenarios('User-Defined-Sections');document.getElementById('hidden-User-Defined-Sections').style.display = 'inline';this.style.display = 'none'"> </span> 
+     <span id="hidden-User-Defined-Sections" class="fa fa-plus-square fa-fw" style="cursor:pointer;float:right;display:none;margin-top:-30px" title="Maximize feature" onclick="showFeatureScenarios('User-Defined-Sections');this.style.display = 'none'"> </span> 
+     <div class="paragraph"> 
+      <p>Cukedoctor has some built-in Sections, such as the Summary and Features Sections.<br> User-Defined Sections allow you to provide your own grouping of Features, rather than include them in the built-in Features Section.<br> User-Defined Sections are included after the Summary and Introduction Sections, but before the Features Section.</p> 
+     </div> 
+     <div class="sect2"> 
+      <h3 id="Grouping-Features-in-Sections"><a class="anchor" href="#Grouping-Features-in-Sections"></a>2.1. <strong>Grouping Features in Sections</strong></h3> 
+      <span class="fa fa-minus-square fa-fw" style="cursor:pointer;float:right;margin-top:-30px" title="Minimize" onclick="hideFeatureScenarios('Grouping-Features-in-Sections');document.getElementById('hidden-Grouping-Features-in-Sections').style.display = 'inline';this.style.display = 'none'"> </span> 
+      <span id="hidden-Grouping-Features-in-Sections" class="fa fa-plus-square fa-fw" style="cursor:pointer;float:right;display:none;margin-top:-30px" title="Maximize feature" onclick="showFeatureScenarios('Grouping-Features-in-Sections');this.style.display = 'none'"> </span> 
+      <div class="sect3"> 
+       <h4 id="_assigning_a_feature_to_a_section"><a class="anchor" href="#_assigning_a_feature_to_a_section"></a>2.1.1. Assigning a Feature to a Section</h4> 
+       <div class="exampleblock"> 
+        <div class="content"> 
+         <div class="dlist"> 
+          <dl> 
+           <dt class="hdlist1">
+             Given 
+           </dt> 
+           <dd> 
+            <p>I have the Feature <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span></p> 
+           </dd> 
+          </dl> 
+         </div> 
+         <div class="listingblock"> 
+          <div class="content"> 
+           <pre>@section-Dinosaurs
+Feature: Head Adornments
+
+  Scenario: Parasaurolophus
+
+    Given I have an implausible head adornment</pre> 
+          </div> 
+         </div> 
+         <div class="dlist"> 
+          <dl> 
+           <dt class="hdlist1">
+             And 
+           </dt> 
+           <dd> 
+            <p>I am hiding step timings <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span></p> 
+           </dd> 
+           <dt class="hdlist1">
+             And 
+           </dt> 
+           <dd> 
+            <p>all Cukedoctor extensions are disabled <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span></p> 
+           </dd> 
+           <dt class="hdlist1">
+             When 
+           </dt> 
+           <dd> 
+            <p>I convert the Feature <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span></p> 
+           </dd> 
+           <dt class="hdlist1">
+             Then 
+           </dt> 
+           <dd> 
+            <p>it will be rendered as <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span></p> 
+           </dd> 
+          </dl> 
+         </div> 
+         <div class="sidebarblock"> 
+          <div class="content"> 
+           <h1 id="Dinosaurs" class="discrete"><strong>Dinosaurs</strong></h1> 
+           <h2 id="Head-Adornments" class="discrete"><strong>Head Adornments</strong></h2> 
+           <h3 id="_scenario_parasaurolophus" class="discrete">Scenario: Parasaurolophus</h3> 
+           <div class="exampleblock"> 
+            <div class="content"> 
+             <div class="dlist discrete"> 
+              <dl> 
+               <dt>
+                 Given 
+               </dt> 
+              </dl> 
+             </div> 
+             <div class="paragraph"> 
+              <p>I have an implausible head adornment <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span></p> 
+             </div> 
+            </div> 
+           </div> 
+          </div> 
+         </div> 
+        </div> 
+       </div> 
+      </div> 
+      <div class="sect3"> 
+       <h4 id="_title_and_preamble"><a class="anchor" href="#_title_and_preamble"></a>2.1.2. Title and Preamble</h4> 
+       <div class="paragraph"> 
+        <p>A Feature tagged with a Section, containing a Scenario named 'Root' will be used as the Root of a Section. The name of this Feature will be used to render the Section’s name and the Feature’s description will be rendered immediately underneath.<br> You can use full AsciiDoc markup in a Feature’s description to provide as much of a preamble to the Section as you wish, or none at all. You can also provide other Scenarios in the Feature, which will be rendered as normal.</p> 
+       </div> 
+       <div class="paragraph"> 
+        <p>If multiple Roots are defined for a Section, the result is undefined.</p> 
+       </div> 
+       <div class="exampleblock"> 
+        <div class="content"> 
+         <div class="dlist"> 
+          <dl> 
+           <dt class="hdlist1">
+             Given 
+           </dt> 
+           <dd> 
+            <p>I have the Feature <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span></p> 
+           </dd> 
+          </dl> 
+         </div> 
+         <div class="listingblock"> 
+          <div class="content"> 
+           <pre>@section-Dinosaurs
+@order-2
+Feature: Head Adornments
+
+  Scenario: Parasaurolophus
+
+    Given I have an implausible head adornment</pre> 
+          </div> 
+         </div> 
+         <div class="dlist"> 
+          <dl> 
+           <dt class="hdlist1">
+             And 
+           </dt> 
+           <dd> 
+            <p>I have the Feature <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span></p> 
+           </dd> 
+          </dl> 
+         </div> 
+         <div class="listingblock"> 
+          <div class="content"> 
+           <pre>@section-Dinosaurs
+@order-1
+Feature: Dinosaurs: Reality or Myth?
+As children, we all come to know and love these alleged ancient titans, but _did they ever really exist_?
+
+  Scenario: Root
+
+  Scenario: Their demise
+  If they did once exist, how did they cease to?
+
+    Given a big enough meteor</pre> 
+          </div> 
+         </div> 
+         <div class="dlist"> 
+          <dl> 
+           <dt class="hdlist1">
+             And 
+           </dt> 
+           <dd> 
+            <p>I have the Feature <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span></p> 
+           </dd> 
+          </dl> 
+         </div> 
+         <div class="listingblock"> 
+          <div class="content"> 
+           <pre>@section-Birds
+@order-3
+Feature: Birds: Descendents of Titans?
+
+  Scenario: Root</pre> 
+          </div> 
+         </div> 
+         <div class="dlist"> 
+          <dl> 
+           <dt class="hdlist1">
+             And 
+           </dt> 
+           <dd> 
+            <p>I am hiding step timings <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span></p> 
+           </dd> 
+           <dt class="hdlist1">
+             And 
+           </dt> 
+           <dd> 
+            <p>all Cukedoctor extensions are disabled <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span></p> 
+           </dd> 
+           <dt class="hdlist1">
+             When 
+           </dt> 
+           <dd> 
+            <p>I convert the Feature <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span></p> 
+           </dd> 
+           <dt class="hdlist1">
+             Then 
+           </dt> 
+           <dd> 
+            <p>it will be rendered as <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span></p> 
+           </dd> 
+          </dl> 
+         </div> 
+         <div class="sidebarblock"> 
+          <div class="content"> 
+           <div class="paragraph"> 
+            <p>[[Dinosaurs:-Reality-or-Myth?, Dinosaurs: Reality or Myth?]]</p> 
+           </div> 
+           <h1 id="_dinosaurs_reality_or_myth" class="discrete"><strong>Dinosaurs: Reality or Myth?</strong></h1> 
+           <div class="paragraph"> 
+            <p>As children, we all come to know and love these alleged ancient titans, but <em>did they ever really exist</em>?</p> 
+           </div> 
+           <h2 id="_scenario_their_demise" class="discrete">Scenario: Their demise</h2> 
+           <div class="paragraph"> 
+            <p>If they did once exist, how did they cease to?</p> 
+           </div> 
+           <div class="exampleblock"> 
+            <div class="content"> 
+             <div class="dlist discrete"> 
+              <dl> 
+               <dt>
+                 Given 
+               </dt> 
+              </dl> 
+             </div> 
+             <div class="paragraph"> 
+              <p>a big enough meteor <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span></p> 
+             </div> 
+            </div> 
+           </div> 
+           <h2 id="Head-Adornments" class="discrete"><strong>Head Adornments</strong></h2> 
+           <h3 id="_scenario_parasaurolophus_2" class="discrete">Scenario: Parasaurolophus</h3> 
+           <div class="exampleblock"> 
+            <div class="content"> 
+             <div class="dlist discrete"> 
+              <dl> 
+               <dt>
+                 Given 
+               </dt> 
+              </dl> 
+             </div> 
+             <div class="paragraph"> 
+              <p>I have an implausible head adornment <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span></p> 
+             </div> 
+            </div> 
+           </div> 
+           <div class="paragraph"> 
+            <p>[[Birds:-Descendents-of-Titans?, Birds: Descendents of Titans?]]</p> 
+           </div> 
+           <h1 id="_birds_descendents_of_titans" class="discrete"><strong>Birds: Descendents of Titans?</strong></h1> 
+          </div> 
+         </div> 
+        </div> 
+       </div> 
+      </div> 
+      <div class="sect3"> 
+       <h4 id="_ordering"><a class="anchor" href="#_ordering"></a>2.1.3. Ordering</h4> 
+       <div class="paragraph"> 
+        <p>Sections are ordered by their Features, which themselves are ordered using the <code>@order-</code> tag .<br> The built-in Features Section is always rendered after other sections, irrespective of `@order-' tags applied to Features therein.</p> 
+       </div> 
+       <div class="exampleblock"> 
+        <div class="content"> 
+         <div class="dlist"> 
+          <dl> 
+           <dt class="hdlist1">
+             Given 
+           </dt> 
+           <dd> 
+            <p>I have the Feature <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span></p> 
+           </dd> 
+          </dl> 
+         </div> 
+         <div class="listingblock"> 
+          <div class="content"> 
+           <pre>@order-1
+Feature: Habitat
+
+  Scenario: Tar Pits
+
+    Given I do not mind getting mucky</pre> 
+          </div> 
+         </div> 
+         <div class="dlist"> 
+          <dl> 
+           <dt class="hdlist1">
+             And 
+           </dt> 
+           <dd> 
+            <p>I have the Feature <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span></p> 
+           </dd> 
+          </dl> 
+         </div> 
+         <div class="listingblock"> 
+          <div class="content"> 
+           <pre>@section-Anatomy
+@order-100
+Feature: Head Adornments
+
+  Scenario: Parasaurolophus
+
+    Given I have an implausible head adornment</pre> 
+          </div> 
+         </div> 
+         <div class="dlist"> 
+          <dl> 
+           <dt class="hdlist1">
+             And 
+           </dt> 
+           <dd> 
+            <p>I have the Feature <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span></p> 
+           </dd> 
+          </dl> 
+         </div> 
+         <div class="listingblock"> 
+          <div class="content"> 
+           <pre>@section-Behaviour
+@order-10
+Feature: Hunters
+
+  Scenario: Tyranosaurus Rex
+
+    Given I am the best hunter</pre> 
+          </div> 
+         </div> 
+         <div class="dlist"> 
+          <dl> 
+           <dt class="hdlist1">
+             And 
+           </dt> 
+           <dd> 
+            <p>I am showing the Features Section <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span></p> 
+           </dd> 
+           <dt class="hdlist1">
+             And 
+           </dt> 
+           <dd> 
+            <p>I am hiding step timings <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span></p> 
+           </dd> 
+           <dt class="hdlist1">
+             And 
+           </dt> 
+           <dd> 
+            <p>all Cukedoctor extensions are disabled <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span></p> 
+           </dd> 
+           <dt class="hdlist1">
+             When 
+           </dt> 
+           <dd> 
+            <p>I convert the Feature <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span></p> 
+           </dd> 
+           <dt class="hdlist1">
+             Then 
+           </dt> 
+           <dd> 
+            <p>they will be rendered as <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span></p> 
+           </dd> 
+          </dl> 
+         </div> 
+         <div class="sidebarblock"> 
+          <div class="content"> 
+           <h1 id="Behaviour" class="discrete"><strong>Behaviour</strong></h1> 
+           <h2 id="Hunters" class="discrete"><strong>Hunters</strong></h2> 
+           <h3 id="_scenario_tyranosaurus_rex" class="discrete">Scenario: Tyranosaurus Rex</h3> 
+           <div class="exampleblock"> 
+            <div class="content"> 
+             <div class="dlist discrete"> 
+              <dl> 
+               <dt>
+                 Given 
+               </dt> 
+              </dl> 
+             </div> 
+             <div class="paragraph"> 
+              <p>I am the best hunter <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span></p> 
+             </div> 
+            </div> 
+           </div> 
+           <h1 id="Anatomy" class="discrete"><strong>Anatomy</strong></h1> 
+           <h2 id="Head-Adornments" class="discrete"><strong>Head Adornments</strong></h2> 
+           <h3 id="_scenario_parasaurolophus_3" class="discrete">Scenario: Parasaurolophus</h3> 
+           <div class="exampleblock"> 
+            <div class="content"> 
+             <div class="dlist discrete"> 
+              <dl> 
+               <dt>
+                 Given 
+               </dt> 
+              </dl> 
+             </div> 
+             <div class="paragraph"> 
+              <p>I have an implausible head adornment <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span></p> 
+             </div> 
+            </div> 
+           </div> 
+           <h1 id="Features" class="discrete"><strong>Features</strong></h1> 
+           <h2 id="Habitat" class="discrete"><strong>Habitat</strong></h2> 
+           <h3 id="_scenario_tar_pits" class="discrete">Scenario: Tar Pits</h3> 
+           <div class="exampleblock"> 
+            <div class="content"> 
+             <div class="dlist discrete"> 
+              <dl> 
+               <dt>
+                 Given 
+               </dt> 
+              </dl> 
+             </div> 
+             <div class="paragraph"> 
+              <p>I do not mind getting mucky <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span></p> 
+             </div> 
+            </div> 
+           </div> 
+          </div> 
+         </div> 
+        </div> 
+       </div> 
+      </div> 
+      <div class="sect3"> 
+       <h4 id="_skipping"><a class="anchor" href="#_skipping"></a>2.1.4. Skipping</h4> 
+       <div class="paragraph"> 
+        <p>Sections where all assigned Features are marked with the tag <code>@skipDocs</code> will themselves be skipped.</p> 
+       </div> 
+       <div class="exampleblock"> 
+        <div class="content"> 
+         <div class="dlist"> 
+          <dl> 
+           <dt class="hdlist1">
+             Given 
+           </dt> 
+           <dd> 
+            <p>I have the Feature <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span></p> 
+           </dd> 
+          </dl> 
+         </div> 
+         <div class="listingblock"> 
+          <div class="content"> 
+           <pre>@section-Anatomy
+Feature: Head Adornments
+
+  Scenario: Parasaurolophus
+
+    Given I have an implausible head adornment</pre> 
+          </div> 
+         </div> 
+         <div class="dlist"> 
+          <dl> 
+           <dt class="hdlist1">
+             And 
+           </dt> 
+           <dd> 
+            <p>I have the Feature <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span></p> 
+           </dd> 
+          </dl> 
+         </div> 
+         <div class="listingblock"> 
+          <div class="content"> 
+           <pre>@skipDocs
+@section-Behaviour
+Feature: Hunters
+
+  Scenario: Tyranosaurus Rex
+
+    Given I am the best hunter</pre> 
+          </div> 
+         </div> 
+         <div class="dlist"> 
+          <dl> 
+           <dt class="hdlist1">
+             And 
+           </dt> 
+           <dd> 
+            <p>I am showing the Features Section <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span></p> 
+           </dd> 
+           <dt class="hdlist1">
+             And 
+           </dt> 
+           <dd> 
+            <p>I am hiding step timings <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span></p> 
+           </dd> 
+           <dt class="hdlist1">
+             And 
+           </dt> 
+           <dd> 
+            <p>all Cukedoctor extensions are disabled <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span></p> 
+           </dd> 
+           <dt class="hdlist1">
+             When 
+           </dt> 
+           <dd> 
+            <p>I convert the Feature <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span></p> 
+           </dd> 
+           <dt class="hdlist1">
+             Then 
+           </dt> 
+           <dd> 
+            <p>they will be rendered as <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span></p> 
+           </dd> 
+          </dl> 
+         </div> 
+         <div class="sidebarblock"> 
+          <div class="content"> 
+           <h1 id="Anatomy" class="discrete"><strong>Anatomy</strong></h1> 
+           <h2 id="Head-Adornments" class="discrete"><strong>Head Adornments</strong></h2> 
+           <h3 id="_scenario_parasaurolophus_4" class="discrete">Scenario: Parasaurolophus</h3> 
+           <div class="exampleblock"> 
+            <div class="content"> 
+             <div class="dlist discrete"> 
+              <dl> 
+               <dt>
+                 Given 
+               </dt> 
+              </dl> 
+             </div> 
+             <div class="paragraph"> 
+              <p>I have an implausible head adornment <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span></p> 
+             </div> 
+            </div> 
+           </div> 
+          </div> 
+         </div> 
+        </div> 
+       </div> 
+      </div> 
+      <div class="sect3"> 
+       <h4 id="_appendices"><a class="anchor" href="#_appendices"></a>2.1.5. Appendices</h4> 
+       <div class="paragraph"> 
+        <p>A Section can be made into an <a href="https://asciidoctor.org/docs/user-manual/#user-appendix">Appendix</a> by applying the <code>@appendix</code> tag.<br> Appendix Sections are rendered after the Features Section.<br> They are otherwise identical in behaviour to non-Appendix Sections (e.g. how they are ordered).</p> 
+       </div> 
+       <div class="exampleblock"> 
+        <div class="content"> 
+         <div class="dlist"> 
+          <dl> 
+           <dt class="hdlist1">
+             Given 
+           </dt> 
+           <dd> 
+            <p>I have the Feature <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span></p> 
+           </dd> 
+          </dl> 
+         </div> 
+         <div class="listingblock"> 
+          <div class="content"> 
+           <pre>Feature: Habitat
+
+  Scenario: Tar Pits
+
+    Given I do not mind getting mucky</pre> 
+          </div> 
+         </div> 
+         <div class="dlist"> 
+          <dl> 
+           <dt class="hdlist1">
+             And 
+           </dt> 
+           <dd> 
+            <p>I have the Feature <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span></p> 
+           </dd> 
+          </dl> 
+         </div> 
+         <div class="listingblock"> 
+          <div class="content"> 
+           <pre>@section-Anatomy
+@appendix
+Feature: Head Adornments
+
+  Scenario: Parasaurolophus
+
+    Given I have an implausible head adornment</pre> 
+          </div> 
+         </div> 
+         <div class="dlist"> 
+          <dl> 
+           <dt class="hdlist1">
+             And 
+           </dt> 
+           <dd> 
+            <p>I have the Feature <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span></p> 
+           </dd> 
+          </dl> 
+         </div> 
+         <div class="listingblock"> 
+          <div class="content"> 
+           <pre>@section-Behaviour
+Feature: Hunters
+
+  Scenario: Tyranosaurus Rex
+
+    Given I am the best hunter</pre> 
+          </div> 
+         </div> 
+         <div class="dlist"> 
+          <dl> 
+           <dt class="hdlist1">
+             And 
+           </dt> 
+           <dd> 
+            <p>I am showing the Features Section <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span></p> 
+           </dd> 
+           <dt class="hdlist1">
+             And 
+           </dt> 
+           <dd> 
+            <p>I am hiding step timings <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span></p> 
+           </dd> 
+           <dt class="hdlist1">
+             And 
+           </dt> 
+           <dd> 
+            <p>all Cukedoctor extensions are disabled <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span></p> 
+           </dd> 
+           <dt class="hdlist1">
+             When 
+           </dt> 
+           <dd> 
+            <p>I convert the Feature <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span></p> 
+           </dd> 
+           <dt class="hdlist1">
+             Then 
+           </dt> 
+           <dd> 
+            <p>they will be rendered as <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span></p> 
+           </dd> 
+          </dl> 
+         </div> 
+         <div class="sidebarblock"> 
+          <div class="content"> 
+           <h1 id="Behaviour" class="discrete"><strong>Behaviour</strong></h1> 
+           <h2 id="Hunters" class="discrete"><strong>Hunters</strong></h2> 
+           <h3 id="_scenario_tyranosaurus_rex_2" class="discrete">Scenario: Tyranosaurus Rex</h3> 
+           <div class="exampleblock"> 
+            <div class="content"> 
+             <div class="dlist discrete"> 
+              <dl> 
+               <dt>
+                 Given 
+               </dt> 
+              </dl> 
+             </div> 
+             <div class="paragraph"> 
+              <p>I am the best hunter <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span></p> 
+             </div> 
+            </div> 
+           </div> 
+           <h1 id="Features" class="discrete"><strong>Features</strong></h1> 
+           <h2 id="Habitat" class="discrete"><strong>Habitat</strong></h2> 
+           <h3 id="_scenario_tar_pits_2" class="discrete">Scenario: Tar Pits</h3> 
+           <div class="exampleblock"> 
+            <div class="content"> 
+             <div class="dlist discrete"> 
+              <dl> 
+               <dt>
+                 Given 
+               </dt> 
+              </dl> 
+             </div> 
+             <div class="paragraph"> 
+              <p>I do not mind getting mucky <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span></p> 
+             </div> 
+            </div> 
+           </div> 
+           <h1 id="Anatomy" class="discrete"><strong>Anatomy</strong></h1> 
+           <h2 id="Head-Adornments" class="discrete"><strong>Head Adornments</strong></h2> 
+           <h3 id="_scenario_parasaurolophus_5" class="discrete">Scenario: Parasaurolophus</h3> 
+           <div class="exampleblock"> 
+            <div class="content"> 
+             <div class="dlist discrete"> 
+              <dl> 
+               <dt>
+                 Given 
+               </dt> 
+              </dl> 
+             </div> 
+             <div class="paragraph"> 
+              <p>I have an implausible head adornment <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span></p> 
+             </div> 
+            </div> 
+           </div> 
+          </div> 
+         </div> 
+        </div> 
+       </div> 
+      </div> 
+      <div class="sect3"> 
+       <h4 id="_glossary"><a class="anchor" href="#_glossary"></a>2.1.6. Glossary</h4> 
+       <div class="paragraph"> 
+        <p>A Feature will be rendered as a <a href="https://asciidoctor.org/docs/user-manual/#user-glossary">Glossary</a> Section if it is tagged with the <code>@glossary</code> Feature tag.<br> Only a single Feature should be tagged with <code>@glossary</code>. The behaviour when multiple Features are tagged is undefined.</p> 
+       </div> 
+       <div class="admonitionblock note"> 
+        <table> 
+         <tbody> 
+          <tr> 
+           <td class="icon"> <i class="fa icon-note" title="Note"></i> </td> 
+           <td class="content"> As per the AsciiDoc documentation, you must add the <code>[glossary]</code> style <em>before</em> the first definition. Cukedoctor will add the style to the title automatically. </td> 
+          </tr> 
+         </tbody> 
+        </table> 
+       </div> 
+       <div class="exampleblock"> 
+        <div class="content"> 
+         <div class="dlist"> 
+          <dl> 
+           <dt class="hdlist1">
+             Given 
+           </dt> 
+           <dd> 
+            <p>I have the Feature <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span></p> 
+           </dd> 
+          </dl> 
+         </div> 
+         <div class="listingblock"> 
+          <div class="content"> 
+           <pre>@glossary
+Feature: My Glossary
+ Below are definitions for term used throughout this book.
+
+[glossary]
+Dinosaur:: fictitious giant reptile of old
+Carnivore:: an animal that feeds solely on other animals
+
+  Scenario: Root</pre> 
+          </div> 
+         </div> 
+         <div class="dlist"> 
+          <dl> 
+           <dt class="hdlist1">
+             When 
+           </dt> 
+           <dd> 
+            <p>I convert the Feature <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span></p> 
+           </dd> 
+           <dt class="hdlist1">
+             Then 
+           </dt> 
+           <dd> 
+            <p>it will be rendered as <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span></p> 
+           </dd> 
+          </dl> 
+         </div> 
+         <div class="sidebarblock"> 
+          <div class="content"> 
+           <h1 id="My-Glossary" class="discrete"><strong>My Glossary</strong></h1> 
+           <div class="paragraph"> 
+            <p>Below are definitions for term used throughout this book.</p> 
+           </div> 
+           <div class="dlist discrete"> 
+            <dl> 
+             <dt>
+               Dinosaur 
+             </dt> 
+             <dd> 
+              <p>fictitious giant reptile of old</p> 
+             </dd> 
+            </dl> 
+           </div> 
+           <div class="dlist discrete"> 
+            <dl> 
+             <dt>
+               Carnivore 
+             </dt> 
+             <dd> 
+              <p>an animal that feeds solely on other animals</p> 
+             </dd> 
+            </dl> 
+           </div> 
+          </div> 
+         </div> 
+        </div> 
+       </div> 
+      </div> 
+      <div class="sect3"> 
+       <h4 id="_bibliography"><a class="anchor" href="#_bibliography"></a>2.1.7. Bibliography</h4> 
+       <div class="paragraph"> 
+        <p>A Feature will be rendered as a <a href="https://asciidoctor.org/docs/user-manual/#user-biblio">Bibliography</a> Section if it is tagged with the <code>@bibliography</code> Feature tag.<br> Only a single Feature should be tagged with <code>@bibliography</code>. The behaviour when multiple Features are tagged is undefined.</p> 
+       </div> 
+       <div class="exampleblock"> 
+        <div class="content"> 
+         <div class="dlist"> 
+          <dl> 
+           <dt class="hdlist1">
+             Given 
+           </dt> 
+           <dd> 
+            <p>I have the Feature <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span></p> 
+           </dd> 
+          </dl> 
+         </div> 
+         <div class="listingblock"> 
+          <div class="content"> 
+           <pre>@bibliography
+Feature: My Bibliography
+- [[[pp]]] Andy Hunt &amp; Dave Thomas. The Pragmatic Programmer: From Journeyman to Master. Addison-Wesley. 1999.
+- [[[gof,2]]] Erich Gamma, Richard Helm, Ralph Johnson &amp; John Vlissides. Design Patterns: Elements of Reusable Object-Oriented Software. Addison-Wesley. 1994.
+
+  Scenario: Root</pre> 
+          </div> 
+         </div> 
+         <div class="dlist"> 
+          <dl> 
+           <dt class="hdlist1">
+             When 
+           </dt> 
+           <dd> 
+            <p>I convert the Feature <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span></p> 
+           </dd> 
+           <dt class="hdlist1">
+             Then 
+           </dt> 
+           <dd> 
+            <p>it will be rendered as <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span></p> 
+           </dd> 
+          </dl> 
+         </div> 
+         <div class="sidebarblock"> 
+          <div class="content"> 
+           <h1 id="My-Bibliography" class="discrete"><strong>My Bibliography</strong></h1> 
+           <div class="ulist discrete"> 
+            <ul class="discrete"> 
+             <li> <p>[<a id="pp"></a>] Andy Hunt &amp; Dave Thomas. The Pragmatic Programmer: From Journeyman to Master. Addison-Wesley. 1999.</p> </li> 
+             <li> <p>[<a id="gof"></a>] Erich Gamma, Richard Helm, Ralph Johnson &amp; John Vlissides. Design Patterns: Elements of Reusable Object-Oriented Software. Addison-Wesley. 1994.</p> </li> 
+            </ul> 
+           </div> 
+          </div> 
+         </div> 
+        </div> 
+       </div> 
+      </div> 
+      <div class="sect3"> 
+       <h4 id="_index_catalog"><a class="anchor" href="#_index_catalog"></a>2.1.8. Index Catalog</h4> 
+       <div class="paragraph"> 
+        <p>A Feature will be rendered as an <a href="https://asciidoctor.org/docs/user-manual/#index-catalog">Index Catalog</a> Section if it is tagged with the <code>@index</code> Feature tag.<br> Only a single Feature should be tagged with <code>@index</code>. The behaviour when multiple Features are tagged is undefined.</p> 
+       </div> 
+       <div class="exampleblock"> 
+        <div class="content"> 
+         <div class="dlist"> 
+          <dl> 
+           <dt class="hdlist1">
+             Given 
+           </dt> 
+           <dd> 
+            <p>I have the Feature <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span></p> 
+           </dd> 
+          </dl> 
+         </div> 
+         <div class="listingblock"> 
+          <div class="content"> 
+           <pre>@index
+Feature: My Index
+
+  Scenario: Root</pre> 
+          </div> 
+         </div> 
+         <div class="dlist"> 
+          <dl> 
+           <dt class="hdlist1">
+             When 
+           </dt> 
+           <dd> 
+            <p>I convert the Feature <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span></p> 
+           </dd> 
+           <dt class="hdlist1">
+             Then 
+           </dt> 
+           <dd> 
+            <p>it will be rendered as <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span></p> 
+           </dd> 
+          </dl> 
+         </div> 
+         <div class="sidebarblock"> 
+          <div class="content"> 
+           <h1 id="My-Index" class="discrete"><strong>My Index</strong></h1> 
+          </div> 
+         </div> 
+        </div> 
+       </div> 
+      </div> 
+     </div> 
+     <div class="sect2"> 
+      <h3 id="Subsections"><a class="anchor" href="#Subsections"></a>2.2. <strong>Subsections</strong></h3> 
+      <span class="fa fa-minus-square fa-fw" style="cursor:pointer;float:right;margin-top:-30px" title="Minimize" onclick="hideFeatureScenarios('Subsections');document.getElementById('hidden-Subsections').style.display = 'inline';this.style.display = 'none'"> </span> 
+      <span id="hidden-Subsections" class="fa fa-plus-square fa-fw" style="cursor:pointer;float:right;display:none;margin-top:-30px" title="Maximize feature" onclick="showFeatureScenarios('Subsections');this.style.display = 'none'"> </span> 
+      <div class="sect3"> 
+       <h4 id="_assigning_a_feature_to_a_subsection"><a class="anchor" href="#_assigning_a_feature_to_a_subsection"></a>2.2.1. Assigning a Feature to a Subsection</h4> 
+       <div class="paragraph"> 
+        <p>Features are assigned to Subsections using the <code>@subsection-</code> tag</p> 
+       </div> 
+       <div class="exampleblock"> 
+        <div class="content"> 
+         <div class="dlist"> 
+          <dl> 
+           <dt class="hdlist1">
+             Given 
+           </dt> 
+           <dd> 
+            <p>I have the Feature <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span></p> 
+           </dd> 
+          </dl> 
+         </div> 
+         <div class="listingblock"> 
+          <div class="content"> 
+           <pre>@section-Dinosaurs
+@subsection-Behaviour
+Feature: Eating Habits
+
+  Scenario: Hunting</pre> 
+          </div> 
+         </div> 
+         <div class="dlist"> 
+          <dl> 
+           <dt class="hdlist1">
+             And 
+           </dt> 
+           <dd> 
+            <p>I have the Feature <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span></p> 
+           </dd> 
+          </dl> 
+         </div> 
+         <div class="listingblock"> 
+          <div class="content"> 
+           <pre>@section-Dinosaurs
+@subsection-Appearance
+Feature: Head Adornments
+
+  Scenario: Frills</pre> 
+          </div> 
+         </div> 
+         <div class="dlist"> 
+          <dl> 
+           <dt class="hdlist1">
+             And 
+           </dt> 
+           <dd> 
+            <p>I have the Feature <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span></p> 
+           </dd> 
+          </dl> 
+         </div> 
+         <div class="listingblock"> 
+          <div class="content"> 
+           <pre>@subsection-Relatives
+Feature: Direct descendents
+
+  Scenario: Birds</pre> 
+          </div> 
+         </div> 
+         <div class="dlist"> 
+          <dl> 
+           <dt class="hdlist1">
+             And 
+           </dt> 
+           <dd> 
+            <p>I am showing the Features Section <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span></p> 
+           </dd> 
+           <dt class="hdlist1">
+             And 
+           </dt> 
+           <dd> 
+            <p>I am hiding step timings <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span></p> 
+           </dd> 
+           <dt class="hdlist1">
+             And 
+           </dt> 
+           <dd> 
+            <p>all Cukedoctor extensions are disabled <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span></p> 
+           </dd> 
+           <dt class="hdlist1">
+             When 
+           </dt> 
+           <dd> 
+            <p>I convert the Feature <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span></p> 
+           </dd> 
+           <dt class="hdlist1">
+             Then 
+           </dt> 
+           <dd> 
+            <p>they will be rendered as <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span></p> 
+           </dd> 
+          </dl> 
+         </div> 
+         <div class="sidebarblock"> 
+          <div class="content"> 
+           <h1 id="Dinosaurs" class="discrete"><strong>Dinosaurs</strong></h1> 
+           <h2 id="Behaviour" class="discrete"><strong>Behaviour</strong></h2> 
+           <h3 id="Eating-Habits" class="discrete"><strong>Eating Habits</strong></h3> 
+           <h4 id="_scenario_hunting" class="discrete">Scenario: Hunting</h4> 
+           <h2 id="Appearance" class="discrete"><strong>Appearance</strong></h2> 
+           <h3 id="Head-Adornments" class="discrete"><strong>Head Adornments</strong></h3> 
+           <h4 id="_scenario_frills" class="discrete">Scenario: Frills</h4> 
+           <h1 id="Features" class="discrete"><strong>Features</strong></h1> 
+           <h2 id="Relatives" class="discrete"><strong>Relatives</strong></h2> 
+           <h3 id="Direct-descendents" class="discrete"><strong>Direct descendents</strong></h3> 
+           <h4 id="_scenario_birds" class="discrete">Scenario: Birds</h4> 
+          </div> 
+         </div> 
+        </div> 
+       </div> 
+      </div> 
+      <div class="sect3"> 
+       <h4 id="_title_and_preamble_2"><a class="anchor" href="#_title_and_preamble_2"></a>2.2.2. Title and Preamble</h4> 
+       <div class="paragraph"> 
+        <p>In the same manner as Sections, a Feature tagged with a Subsection, containing a Scenario named 'Root' will be used as the Root of the Subsection. The name of this Feature will be used to render the Subsection’s name and the Feature’s description will be rendered immediately underneath.<br> You can use full AsciiDoc markup in a Feature’s description to provide as much of a preamble to the Subsection as you wish, or none at all. You can also provide other Scenarios in the Feature, which will be rendered as normal.</p> 
+       </div> 
+       <div class="paragraph"> 
+        <p>If multiple Roots are defined for a Section, the result is undefined.</p> 
+       </div> 
+       <div class="exampleblock"> 
+        <div class="content"> 
+         <div class="dlist"> 
+          <dl> 
+           <dt class="hdlist1">
+             Given 
+           </dt> 
+           <dd> 
+            <p>I have the Feature <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span></p> 
+           </dd> 
+          </dl> 
+         </div> 
+         <div class="listingblock"> 
+          <div class="content"> 
+           <pre>@section-Dinosaurs
+@subsection-HeadAdornments
+Feature: Sonic Phenomenon
+
+  Scenario: Parasaurolophus</pre> 
+          </div> 
+         </div> 
+         <div class="dlist"> 
+          <dl> 
+           <dt class="hdlist1">
+             And 
+           </dt> 
+           <dd> 
+            <p>I have the Feature <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span></p> 
+           </dd> 
+          </dl> 
+         </div> 
+         <div class="listingblock"> 
+          <div class="content"> 
+           <pre>@section-Dinosaurs
+Feature: Dinosaurs: Reality or Myth?
+As children, we all come to know and love these alleged ancient titans, but _did they ever really exist_?
+
+  Scenario: Root</pre> 
+          </div> 
+         </div> 
+         <div class="dlist"> 
+          <dl> 
+           <dt class="hdlist1">
+             And 
+           </dt> 
+           <dd> 
+            <p>I have the Feature <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span></p> 
+           </dd> 
+          </dl> 
+         </div> 
+         <div class="listingblock"> 
+          <div class="content"> 
+           <pre>@section-Dinosaurs
+@subsection-HeadAdornments
+Feature: Head Adornments
+Big ones, small ones...
+
+  Scenario: Root</pre> 
+          </div> 
+         </div> 
+         <div class="dlist"> 
+          <dl> 
+           <dt class="hdlist1">
+             And 
+           </dt> 
+           <dd> 
+            <p>I am hiding step timings <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span></p> 
+           </dd> 
+           <dt class="hdlist1">
+             And 
+           </dt> 
+           <dd> 
+            <p>all Cukedoctor extensions are disabled <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span></p> 
+           </dd> 
+           <dt class="hdlist1">
+             When 
+           </dt> 
+           <dd> 
+            <p>I convert the Feature <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span></p> 
+           </dd> 
+           <dt class="hdlist1">
+             Then 
+           </dt> 
+           <dd> 
+            <p>it will be rendered as <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span></p> 
+           </dd> 
+          </dl> 
+         </div> 
+         <div class="sidebarblock"> 
+          <div class="content"> 
+           <div class="paragraph"> 
+            <p>[[Dinosaurs:-Reality-or-Myth?, Dinosaurs: Reality or Myth?]]</p> 
+           </div> 
+           <h1 id="_dinosaurs_reality_or_myth_2" class="discrete"><strong>Dinosaurs: Reality or Myth?</strong></h1> 
+           <div class="paragraph"> 
+            <p>As children, we all come to know and love these alleged ancient titans, but <em>did they ever really exist</em>?</p> 
+           </div> 
+           <h2 id="Head-Adornments" class="discrete"><strong>Head Adornments</strong></h2> 
+           <div class="paragraph"> 
+            <p>Big ones, small ones…​</p> 
+           </div> 
+           <h3 id="Sonic-Phenomenon" class="discrete"><strong>Sonic Phenomenon</strong></h3> 
+           <h4 id="_scenario_parasaurolophus_6" class="discrete">Scenario: Parasaurolophus</h4> 
+          </div> 
+         </div> 
+        </div> 
+       </div> 
+      </div> 
+      <div class="sect3"> 
+       <h4 id="_ordering_2"><a class="anchor" href="#_ordering_2"></a>2.2.3. Ordering</h4> 
+       <div class="paragraph"> 
+        <p>Subsections are ordered by their Features, which themselves are ordered using the <code>@order-</code> tag .</p> 
+       </div> 
+       <div class="exampleblock"> 
+        <div class="content"> 
+         <div class="dlist"> 
+          <dl> 
+           <dt class="hdlist1">
+             Given 
+           </dt> 
+           <dd> 
+            <p>I have the Feature <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span></p> 
+           </dd> 
+          </dl> 
+         </div> 
+         <div class="listingblock"> 
+          <div class="content"> 
+           <pre>@section-Dinosaurs
+@subsection-HeadAdornments
+@order-2
+Feature: Sonic Phenomenon
+
+  Scenario: Parasaurolophus</pre> 
+          </div> 
+         </div> 
+         <div class="dlist"> 
+          <dl> 
+           <dt class="hdlist1">
+             And 
+           </dt> 
+           <dd> 
+            <p>I have the Feature <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span></p> 
+           </dd> 
+          </dl> 
+         </div> 
+         <div class="listingblock"> 
+          <div class="content"> 
+           <pre>@section-Dinosaurs
+@subsection-Behaviour
+@order-1
+Feature: Hunters
+
+  Scenario: Tyranosaurus Rex</pre> 
+          </div> 
+         </div> 
+         <div class="dlist"> 
+          <dl> 
+           <dt class="hdlist1">
+             And 
+           </dt> 
+           <dd> 
+            <p>I am hiding step timings <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span></p> 
+           </dd> 
+           <dt class="hdlist1">
+             And 
+           </dt> 
+           <dd> 
+            <p>all Cukedoctor extensions are disabled <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span></p> 
+           </dd> 
+           <dt class="hdlist1">
+             When 
+           </dt> 
+           <dd> 
+            <p>I convert the Feature <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span></p> 
+           </dd> 
+           <dt class="hdlist1">
+             Then 
+           </dt> 
+           <dd> 
+            <p>it will be rendered as <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span></p> 
+           </dd> 
+          </dl> 
+         </div> 
+         <div class="sidebarblock"> 
+          <div class="content"> 
+           <h1 id="Dinosaurs" class="discrete"><strong>Dinosaurs</strong></h1> 
+           <h2 id="Behaviour" class="discrete"><strong>Behaviour</strong></h2> 
+           <h3 id="Hunters" class="discrete"><strong>Hunters</strong></h3> 
+           <h4 id="_scenario_tyranosaurus_rex_3" class="discrete">Scenario: Tyranosaurus Rex</h4> 
+           <h2 id="HeadAdornments" class="discrete"><strong>HeadAdornments</strong></h2> 
+           <h3 id="Sonic-Phenomenon" class="discrete"><strong>Sonic Phenomenon</strong></h3> 
+           <h4 id="_scenario_parasaurolophus_7" class="discrete">Scenario: Parasaurolophus</h4> 
+          </div> 
+         </div> 
+        </div> 
+       </div> 
+      </div> 
+      <div class="sect3"> 
+       <h4 id="_skipping_2"><a class="anchor" href="#_skipping_2"></a>2.2.4. Skipping</h4> 
+       <div class="paragraph"> 
+        <p>Subsections where all assigned Features are marked with the tag <code>@skipDocs</code> will themselves be skipped.</p> 
+       </div> 
+       <div class="exampleblock"> 
+        <div class="content"> 
+         <div class="dlist"> 
+          <dl> 
+           <dt class="hdlist1">
+             Given 
+           </dt> 
+           <dd> 
+            <p>I have the Feature <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span></p> 
+           </dd> 
+          </dl> 
+         </div> 
+         <div class="listingblock"> 
+          <div class="content"> 
+           <pre>@skipDocs
+@section-Dinosaurs
+@subsection-Behaviour
+@order-2
+Feature: Foragers
+
+  Scenario: Diplodocus</pre> 
+          </div> 
+         </div> 
+         <div class="dlist"> 
+          <dl> 
+           <dt class="hdlist1">
+             And 
+           </dt> 
+           <dd> 
+            <p>I have the Feature <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span></p> 
+           </dd> 
+          </dl> 
+         </div> 
+         <div class="listingblock"> 
+          <div class="content"> 
+           <pre>@skipDocs
+@section-Dinosaurs
+@subsection-Behaviour
+@order-1
+Feature: Hunters
+
+  Scenario: Tyranosaurus Rex</pre> 
+          </div> 
+         </div> 
+         <div class="dlist"> 
+          <dl> 
+           <dt class="hdlist1">
+             And 
+           </dt> 
+           <dd> 
+            <p>I have the Feature <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span></p> 
+           </dd> 
+          </dl> 
+         </div> 
+         <div class="listingblock"> 
+          <div class="content"> 
+           <pre>@section-Dinosaurs
+@subsection-Flavour
+@order-3
+Feature: Modern References
+
+  Scenario: Chicken</pre> 
+          </div> 
+         </div> 
+         <div class="dlist"> 
+          <dl> 
+           <dt class="hdlist1">
+             And 
+           </dt> 
+           <dd> 
+            <p>I am hiding step timings <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span></p> 
+           </dd> 
+           <dt class="hdlist1">
+             And 
+           </dt> 
+           <dd> 
+            <p>all Cukedoctor extensions are disabled <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span></p> 
+           </dd> 
+           <dt class="hdlist1">
+             When 
+           </dt> 
+           <dd> 
+            <p>I convert the Feature <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span></p> 
+           </dd> 
+           <dt class="hdlist1">
+             Then 
+           </dt> 
+           <dd> 
+            <p>it will be rendered as <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span></p> 
+           </dd> 
+          </dl> 
+         </div> 
+         <div class="sidebarblock"> 
+          <div class="content"> 
+           <h1 id="Dinosaurs" class="discrete"><strong>Dinosaurs</strong></h1> 
+           <h2 id="Flavour" class="discrete"><strong>Flavour</strong></h2> 
+           <h3 id="Modern-References" class="discrete"><strong>Modern References</strong></h3> 
+           <h4 id="_scenario_chicken" class="discrete">Scenario: Chicken</h4> 
+          </div> 
+         </div> 
+        </div> 
+       </div> 
+      </div> 
+     </div> 
+     <div class="sect2"> 
+      <h3 id="Features-not-assigned-to-Sections"><a class="anchor" href="#Features-not-assigned-to-Sections"></a>2.3. <strong>Features not assigned to Sections</strong></h3> 
+      <span class="fa fa-minus-square fa-fw" style="cursor:pointer;float:right;margin-top:-30px" title="Minimize" onclick="hideFeatureScenarios('Features-not-assigned-to-Sections');document.getElementById('hidden-Features-not-assigned-to-Sections').style.display = 'inline';this.style.display = 'none'"> </span> 
+      <span id="hidden-Features-not-assigned-to-Sections" class="fa fa-plus-square fa-fw" style="cursor:pointer;float:right;display:none;margin-top:-30px" title="Maximize feature" onclick="showFeatureScenarios('Features-not-assigned-to-Sections');this.style.display = 'none'"> </span> 
+      <div class="paragraph"> 
+       <p>Features not assigned to Sections are rendered exactly as in the classic (default) Cukedoctor layout, with all its capabilities supported.</p> 
+      </div> 
+      <div class="sect3"> 
+       <h4 id="_the_built_in_features_section"><a class="anchor" href="#_the_built_in_features_section"></a>2.3.1. The built-in Features Section</h4> 
+       <div class="paragraph"> 
+        <p>If the Features Section is enabled, Features will be rendered by default in the Features Section unless otherwise assigned.</p> 
+       </div> 
+       <div class="exampleblock"> 
+        <div class="content"> 
+         <div class="dlist"> 
+          <dl> 
+           <dt class="hdlist1">
+             Given 
+           </dt> 
+           <dd> 
+            <p>I have the Feature <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span></p> 
+           </dd> 
+          </dl> 
+         </div> 
+         <div class="listingblock"> 
+          <div class="content"> 
+           <pre>Feature: Head Adornments
+
+  Scenario: Parasaurolophus
+
+    Given I have an implausible head adornment</pre> 
+          </div> 
+         </div> 
+         <div class="dlist"> 
+          <dl> 
+           <dt class="hdlist1">
+             And 
+           </dt> 
+           <dd> 
+            <p>I am showing the Features Section <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span></p> 
+           </dd> 
+           <dt class="hdlist1">
+             And 
+           </dt> 
+           <dd> 
+            <p>I am hiding step timings <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span></p> 
+           </dd> 
+           <dt class="hdlist1">
+             And 
+           </dt> 
+           <dd> 
+            <p>all Cukedoctor extensions are disabled <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span></p> 
+           </dd> 
+           <dt class="hdlist1">
+             When 
+           </dt> 
+           <dd> 
+            <p>I convert the Feature <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span></p> 
+           </dd> 
+           <dt class="hdlist1">
+             Then 
+           </dt> 
+           <dd> 
+            <p>it will be rendered as a Subsection of the Features Section <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span></p> 
+           </dd> 
+          </dl> 
+         </div> 
+         <div class="sidebarblock"> 
+          <div class="content"> 
+           <h1 id="Features" class="discrete"><strong>Features</strong></h1> 
+           <h2 id="Head-Adornments" class="discrete"><strong>Head Adornments</strong></h2> 
+           <h3 id="_scenario_parasaurolophus_8" class="discrete">Scenario: Parasaurolophus</h3> 
+           <div class="exampleblock"> 
+            <div class="content"> 
+             <div class="dlist discrete"> 
+              <dl> 
+               <dt>
+                 Given 
+               </dt> 
+              </dl> 
+             </div> 
+             <div class="paragraph"> 
+              <p>I have an implausible head adornment <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span></p> 
+             </div> 
+            </div> 
+           </div> 
+          </div> 
+         </div> 
+        </div> 
+       </div> 
+      </div> 
+      <div class="sect3"> 
+       <h4 id="_when_the_features_section_is_hidden"><a class="anchor" href="#_when_the_features_section_is_hidden"></a>2.3.2. When the Features Section is hidden</h4> 
+       <div class="paragraph"> 
+        <p>If the Features Section is hidden, each Feature not assigned to a Section will be rendered as a Section of its own.</p> 
+       </div> 
+       <div class="exampleblock"> 
+        <div class="content"> 
+         <div class="dlist"> 
+          <dl> 
+           <dt class="hdlist1">
+             Given 
+           </dt> 
+           <dd> 
+            <p>I have the Feature <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span></p> 
+           </dd> 
+          </dl> 
+         </div> 
+         <div class="listingblock"> 
+          <div class="content"> 
+           <pre>Feature: Head Adornments
+
+  Scenario: Parasaurolophus
+
+    Given I have an implausible head adornment</pre> 
+          </div> 
+         </div> 
+         <div class="dlist"> 
+          <dl> 
+           <dt class="hdlist1">
+             And 
+           </dt> 
+           <dd> 
+            <p>I am hiding the Features Section <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span></p> 
+           </dd> 
+           <dt class="hdlist1">
+             And 
+           </dt> 
+           <dd> 
+            <p>I am hiding step timings <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span></p> 
+           </dd> 
+           <dt class="hdlist1">
+             And 
+           </dt> 
+           <dd> 
+            <p>all Cukedoctor extensions are disabled <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span></p> 
+           </dd> 
+           <dt class="hdlist1">
+             When 
+           </dt> 
+           <dd> 
+            <p>I convert the Feature <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span></p> 
+           </dd> 
+           <dt class="hdlist1">
+             Then 
+           </dt> 
+           <dd> 
+            <p>it will be rendered as a Section <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span></p> 
+           </dd> 
+          </dl> 
+         </div> 
+         <div class="sidebarblock"> 
+          <div class="content"> 
+           <h1 id="Head-Adornments" class="discrete"><strong>Head Adornments</strong></h1> 
+           <h2 id="_scenario_parasaurolophus_9" class="discrete">Scenario: Parasaurolophus</h2> 
+           <div class="exampleblock"> 
+            <div class="content"> 
+             <div class="dlist discrete"> 
+              <dl> 
+               <dt>
+                 Given 
+               </dt> 
+              </dl> 
+             </div> 
+             <div class="paragraph"> 
+              <p>I have an implausible head adornment <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span></p> 
+             </div> 
+            </div> 
+           </div> 
+          </div> 
+         </div> 
+        </div> 
+       </div> 
+      </div> 
+      <div class="sect3"> 
+       <h4 id="_ordering_3"><a class="anchor" href="#_ordering_3"></a>2.3.3. Ordering</h4> 
+       <div class="paragraph"> 
+        <p>Features not assigned to Sections are ordered by their <code>@order-</code> tag<br> NOTE: If Features do not have an <code>@order-</code> tag, their order is not guaranteed.</p> 
+       </div> 
+       <div class="exampleblock"> 
+        <div class="content"> 
+         <div class="dlist"> 
+          <dl> 
+           <dt class="hdlist1">
+             Given 
+           </dt> 
+           <dd> 
+            <p>I have the Feature <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span></p> 
+           </dd> 
+          </dl> 
+         </div> 
+         <div class="listingblock"> 
+          <div class="content"> 
+           <pre>@order-2
+Feature: Head Adornments
+
+Scenario: Parasaurolophus
+
+  Given I have an implausible head adornment</pre> 
+          </div> 
+         </div> 
+         <div class="dlist"> 
+          <dl> 
+           <dt class="hdlist1">
+             And 
+           </dt> 
+           <dd> 
+            <p>I have the Feature <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span></p> 
+           </dd> 
+          </dl> 
+         </div> 
+         <div class="listingblock"> 
+          <div class="content"> 
+           <pre>@order-1
+Feature: Hunters
+
+Scenario: Tyranosaurus Rex
+
+  Given I am the best hunter</pre> 
+          </div> 
+         </div> 
+         <div class="dlist"> 
+          <dl> 
+           <dt class="hdlist1">
+             And 
+           </dt> 
+           <dd> 
+            <p>I am hiding the Features Section <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span></p> 
+           </dd> 
+           <dt class="hdlist1">
+             And 
+           </dt> 
+           <dd> 
+            <p>I am hiding step timings <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span></p> 
+           </dd> 
+           <dt class="hdlist1">
+             And 
+           </dt> 
+           <dd> 
+            <p>all Cukedoctor extensions are disabled <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span></p> 
+           </dd> 
+           <dt class="hdlist1">
+             When 
+           </dt> 
+           <dd> 
+            <p>I convert the Feature <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span></p> 
+           </dd> 
+           <dt class="hdlist1">
+             Then 
+           </dt> 
+           <dd> 
+            <p>they will be rendered as <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span></p> 
+           </dd> 
+          </dl> 
+         </div> 
+         <div class="sidebarblock"> 
+          <div class="content"> 
+           <h1 id="Hunters" class="discrete"><strong>Hunters</strong></h1> 
+           <h2 id="_scenario_tyranosaurus_rex_4" class="discrete">Scenario: Tyranosaurus Rex</h2> 
+           <div class="exampleblock"> 
+            <div class="content"> 
+             <div class="dlist discrete"> 
+              <dl> 
+               <dt>
+                 Given 
+               </dt> 
+              </dl> 
+             </div> 
+             <div class="paragraph"> 
+              <p>I am the best hunter <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span></p> 
+             </div> 
+            </div> 
+           </div> 
+           <h1 id="Head-Adornments" class="discrete"><strong>Head Adornments</strong></h1> 
+           <h2 id="_scenario_parasaurolophus_10" class="discrete">Scenario: Parasaurolophus</h2> 
+           <div class="exampleblock"> 
+            <div class="content"> 
+             <div class="dlist discrete"> 
+              <dl> 
+               <dt>
+                 Given 
+               </dt> 
+              </dl> 
+             </div> 
+             <div class="paragraph"> 
+              <p>I have an implausible head adornment <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span></p> 
+             </div> 
+            </div> 
+           </div> 
+          </div> 
+         </div> 
+        </div> 
+       </div> 
+      </div> 
+      <div class="sect3"> 
+       <h4 id="_subsections"><a class="anchor" href="#_subsections"></a>2.3.4. Subsections</h4> 
+       <div class="paragraph"> 
+        <p>Features assigned to Subsections, but not Sections, will be shown under Subsections under the built-in Features Section.</p> 
+       </div> 
+       <div class="exampleblock"> 
+        <div class="content"> 
+         <div class="dlist"> 
+          <dl> 
+           <dt class="hdlist1">
+             Given 
+           </dt> 
+           <dd> 
+            <p>I have the Feature <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span></p> 
+           </dd> 
+          </dl> 
+         </div> 
+         <div class="listingblock"> 
+          <div class="content"> 
+           <pre>@order-2
+@subsection-Appearance
+Feature: Head Adornments
+
+Scenario: Parasaurolophus
+
+  Given I have an implausible head adornment</pre> 
+          </div> 
+         </div> 
+         <div class="dlist"> 
+          <dl> 
+           <dt class="hdlist1">
+             And 
+           </dt> 
+           <dd> 
+            <p>I am showing the Features Section <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span></p> 
+           </dd> 
+           <dt class="hdlist1">
+             And 
+           </dt> 
+           <dd> 
+            <p>I am hiding step timings <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span></p> 
+           </dd> 
+           <dt class="hdlist1">
+             And 
+           </dt> 
+           <dd> 
+            <p>all Cukedoctor extensions are disabled <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span></p> 
+           </dd> 
+           <dt class="hdlist1">
+             When 
+           </dt> 
+           <dd> 
+            <p>I convert the Feature <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span></p> 
+           </dd> 
+           <dt class="hdlist1">
+             Then 
+           </dt> 
+           <dd> 
+            <p>they will be rendered as <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span></p> 
+           </dd> 
+          </dl> 
+         </div> 
+         <div class="sidebarblock"> 
+          <div class="content"> 
+           <h1 id="Features" class="discrete"><strong>Features</strong></h1> 
+           <h2 id="Appearance" class="discrete"><strong>Appearance</strong></h2> 
+           <h3 id="Head-Adornments" class="discrete"><strong>Head Adornments</strong></h3> 
+           <h4 id="_scenario_parasaurolophus_11" class="discrete">Scenario: Parasaurolophus</h4> 
+           <div class="exampleblock"> 
+            <div class="content"> 
+             <div class="dlist discrete"> 
+              <dl> 
+               <dt>
+                 Given 
+               </dt> 
+              </dl> 
+             </div> 
+             <div class="paragraph"> 
+              <p>I have an implausible head adornment <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span></p> 
+             </div> 
+            </div> 
+           </div> 
+          </div> 
+         </div> 
+        </div> 
+       </div> 
+      </div> 
+     </div> 
+    </div> 
+   </div> 
+  </div> 
+  <div id="footer" style="color:gray;font-size:11px">
+    Generated by 
+   <a href="https://github.com/rmpestano/cukedoctor" target="_blank"> Cukedoctor 2.2-SNAPSHOT</a> - May 5, 2020 8:20:20 PM 
+   <span style="float:right;font-size:11px"> Execution time: 7.283 seconds</span> 
+  </div> 
+  <style>  
+
+#content:padding:0!important;
+.sidebarblock, .sectionbody, .content{
+overflow:auto!important;
+}
+div.sidebarblock {overflow-y:hidden;overflow-x:auto}
+ body .exampleblock > .content{ background:#fff}</style> 
+  <script type="text/javascript">  
+
+document.addEventListener("DOMContentLoaded", function(event) { 
+  themefy();
+});
+	function themefy() {
+ 						var theme = getThemeFromQueryParameters() || 'asciidoctor';
+ 						var themeLink = document.createElement('link');
+					 if('asciidoctor' !== theme) { 						themeLink.rel = 'stylesheet';
+ 						themeLink.id = 'asciidoctor-style';
+ 						themeLink.href = 'themes/' + theme + '.css';
+ 						 document.head.appendChild(themeLink);
+				 }}
+
+
+	function getThemeFromQueryParameters() {
+		var query = location.search.substr(1);
+		var result = 'asciidoctor';
+	query.split("&").forEach(function (part) {
+				// part can be empty
+				if (part) {
+					var item = part.split("=");
+					var key = item[0];
+				var value = item[1];
+				if (typeof value !== 'undefined') {
+						if(key == 'theme'){
+								result = value;
+								}
+			}
+		}
+ 	});
+	if(!result){
+		result = 'asciidoctor';
+		
+	}
+	document.getElementById('themes').value = result;  
+	var els = document.querySelector('select[name="select"] option[value="' + result + '"]');  
+	if(els){
+    els.selected = true;
+	}	return result;
+}
+ 
+</script> 
+  <script type="text/javascript">
+	function showFeatureScenarios(featureId){
+		var element = document.getElementById(featureId).parentNode;
+		for (var i = 0; i < element.childNodes.length; i++) {
+    		if (element.childNodes[i].className == "sect3" || element.childNodes[i].className == "fa fa-minus-square fa-fw") {
+      		     element.childNodes[i].style.display = 'inline';
+    			}
+    		if (element.childNodes[i].className == "sidebarblock") {
+      		     element.childNodes[i].style.display = 'block';
+    			}			        
+		}
+		 
+ 		document.getElementById(featureId).children[0].click();
+	}
+
+	function hideFeatureScenarios(featureId){
+		var element = document.getElementById(featureId).parentNode;
+		for (var i = 0; i < element.childNodes.length; i++) {
+    		if (element.childNodes[i].className == "sect3" || element.childNodes[i].className == "sidebarblock") { 
+      		     element.childNodes[i].style.display = 'none';	   		    
+                 	}
+		      
+		}
+	   document.getElementById(featureId).children[0].click();
+ 	}
+
+</script> 
+  <script type="text/javascript">
+var allLevel2ListItens = null;
+
+function searchFeature(criteria) {
+    if (criteria != null && criteria.length >= 3) {
+        var sect2List = document.getElementsByClassName("sect2");
+        var firstMatch = null;
+        if (sect2List != null) {
+            for (var i = 0; i < sect2List.length; i++) {
+                var h3 = null;
+                for (var j = 0; j < sect2List[i].childNodes.length; j++) {
+                    if (sect2List[i].childNodes[j].tagName && sect2List[i].childNodes[j].tagName.toUpperCase() == "H3") {
+                        h3 = sect2List[i].childNodes[j];
+                        break;
+                    }
+                }
+                if (h3 != null && h3.id != null) {
+                    if (!h3.id.toLowerCase().match(criteria.toLowerCase())) {
+                        sect2List[i].style.display = 'none';
+                    } else {//match
+                        sect2List[i].style.display = 'inline';
+                        if (firstMatch == null) {
+                            //used to scroll to after search
+                            firstMatch = h3;
+                        }
+                        //filter toc
+                        filterToc(criteria);
+                    }
+                }
+            }//end for
+
+        }//sect2List != null
+        if (firstMatch != null) {
+            animate(document.body, "scrollTop", "", 0, firstMatch.offsetTop, 200, true);
+        }
+
+
+    }//end criteria.length >=3
+    else {//clear search
+        clearSearch();
+    }
+}
+
+function clearSearch() {
+    var sect2List = document.getElementsByClassName("sect2");
+    if (sect2List != null) {
+        for (var i = 0; i < sect2List.length; i++) {
+            sect2List[i].style.display = 'inline';
+        }//end for
+    }//end elements != null
+
+    if (allLevel2ListItens == null) {
+        collectallLevel2IListItens();
+    }
+    for (var z = 0; z < allLevel2ListItens.length; z++) {
+        allLevel2ListItens[z].style.display = 'inline';
+    }
+    if (document.getElementById('input-search')) {
+        document.getElementById('input-search').value = 'Filter...';
+    }
+}
+
+function filterToc(criteria) {
+    if (allLevel2ListItens == null) {
+        collectallLevel2IListItens();
+    }
+    for (var z = 0; z < allLevel2ListItens.length; z++) {
+        if (allLevel2ListItens[z].childNodes[0].tagName && allLevel2ListItens[z].childNodes[0].tagName.toLowerCase() == "a") {
+            if (allLevel2ListItens[z].childNodes[0].getAttribute("href").toUpperCase().substring(1).match(criteria.toUpperCase())) {
+                allLevel2ListItens[z].style.display = 'inline';
+            } else {
+                allLevel2ListItens[z].style.display = 'none';
+            }
+        }
+    }//end for allListItens
+}
+
+function animate(elem, style, unit, from, to, time, prop) {
+    if (!elem) return;
+    var start = new Date().getTime(),
+        timer = setInterval(function () {
+            var step = Math.min(1, (new Date().getTime() - start) / time);
+            if (prop) {
+                elem[style] = (from + step * (to - from)) + unit;
+            } else {
+                elem.style[style] = (from + step * (to - from)) + unit;
+            }
+            if (step == 1) clearInterval(timer);
+        }, 25);
+    elem.style[style] = from + unit;
+}
+
+function collectallLevel2IListItens() {
+    allLevel2ListItens = new Array();
+    var uls = document.getElementsByClassName('sectlevel2');
+    for (var i = 0; i < uls.length; i++) {
+        for (var j = 0; j < uls[i].childNodes.length; j++) {
+            if (uls[i].childNodes[j].tagName) {
+                if (uls[i].childNodes[j].tagName.toLowerCase() == 'li') {
+                    allLevel2ListItens.push(uls[i].childNodes[j]);
+                }
+
+            }
+
+
+        } //end for uls child
+    }//end for uls
+
+}
+</script> 
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/styles/github.min.css"> 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/highlight.min.js"></script> 
+  <script>hljs.initHighlighting()</script>  
+ </body>
+</html>

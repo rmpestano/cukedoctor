@@ -1,0 +1,1244 @@
+:toc: right
+:backend: pdf
+:doctitle: Cukedoctor Section Layout
+:doctype: book
+:icons: font
+:numbered:
+:!linkcss:
+:sectanchors:
+:sectlink:
+:docinfo:
+:source-highlighter: highlightjs
+:toclevels: 3
+:revnumber: 2.2-SNAPSHOT
+:hardbreaks:
+:chapter-label: Chapter
+:version-label: Version
+
+= *Cukedoctor Section Layout*
+
+
+[[Usage, Usage]]
+== *Usage*
+
+=== Maven plugin
+Add cukedoctor-section-layout as a dependency in the Cukedoctor Maven Plugin configuration in your _pom.xml_:
+
+[source, xml]
+----
+<plugin>
+  <groupId>com.github.cukedoctor</groupId>
+  <artifactId>cukedoctor-maven-plugin</artifactId>
+  <version>2.0</version>
+  <executions>
+    <execution>
+      <goals>
+        <goal>execute</goal>
+      </goals>
+      <phase>install</phase>
+    </execution>
+  </executions>
+  <dependencies>
+    <dependency>
+      <groupId>com.github.cukedoctor</groupId>
+      <artifactId>cukedoctor-section-layout</artifactId>
+      <version>2.0</version>
+    </dependency>
+  </dependencies>
+</plugin>
+----
+
+=== CLI
+Add cukedoctor-section-layout.jar to your classpath:
+
+----
+java -jar cukedoctor-main.jar
+  -cp "path/to/cukedoctor-section-layout.jar;."
+  -o "target/document-one"
+  -p "target/test-classes/json-output/one_passing_one_failing.json"
+  -t "Living Documentation"
+  -f html
+  -numbered
+  -hideSummarySection
+  -hideScenarioKeyword
+----
+
+NOTE: The separator used in the `-cp` argument may not be ";" on your OS.
+
+=== SPI
+Register the Cukedoctor Section Layout renderer implementations in your https://github.com/rmpestano/cukedoctor/tree/master/cukedoctor-section-layout/src/main/resources/META-INF/services[META-INF/services] directory.
+
+[[User-Defined-Sections, User-Defined Sections]]
+== *User-Defined Sections*
+
+Cukedoctor has some built-in Sections, such as the Summary and Features Sections.
+User-Defined Sections allow you to provide your own grouping of Features, rather than include them in the built-in Features Section.
+User-Defined Sections are included after the Summary and Introduction Sections, but before the Features Section.
+
+[[Grouping-Features-in-Sections, Grouping Features in Sections]]
+=== *Grouping Features in Sections*
+
+==== Assigning a Feature to a Section
+
+==========
+Given ::
+I have the Feature icon:thumbs-up[role="green",title="Passed"]
+----
+
+@section-Dinosaurs
+Feature: Head Adornments
+
+  Scenario: Parasaurolophus
+
+    Given I have an implausible head adornment
+
+----
+And ::
+I am hiding step timings icon:thumbs-up[role="green",title="Passed"]
+And ::
+all Cukedoctor extensions are disabled icon:thumbs-up[role="green",title="Passed"]
+When ::
+I convert the Feature icon:thumbs-up[role="green",title="Passed"]
+Then ::
+it will be rendered as icon:thumbs-up[role="green",title="Passed"]
+******
+
+[discrete]
+[[Dinosaurs, Dinosaurs]]
+[discrete]
+= *Dinosaurs*
+[discrete]
+[discrete]
+[discrete]
+[[Head-Adornments, Head Adornments]]
+[discrete]
+== *Head Adornments*
+[discrete]
+[discrete]
+=== Scenario: Parasaurolophus
+[discrete]
+============
+[discrete]
+Given ::
+[discrete]
+I have an implausible head adornment icon:thumbs-up[role="green",title="Passed"]
+============
+
+
+******
+==========
+
+==== Title and Preamble
+A Feature tagged with a Section, containing a Scenario named 'Root' will be used as the Root of a Section. The name of this Feature will be used to render the Section's name and the Feature's description will be rendered immediately underneath.
+You can use full AsciiDoc markup in a Feature's description to provide as much of a preamble to the Section as you wish, or none at all. You can also provide other Scenarios in the Feature, which will be rendered as normal.
+
+If multiple Roots are defined for a Section, the result is undefined.
+
+==========
+Given ::
+I have the Feature icon:thumbs-up[role="green",title="Passed"]
+----
+
+@section-Dinosaurs
+@order-2
+Feature: Head Adornments
+
+  Scenario: Parasaurolophus
+
+    Given I have an implausible head adornment
+
+----
+And ::
+I have the Feature icon:thumbs-up[role="green",title="Passed"]
+----
+
+@section-Dinosaurs
+@order-1
+Feature: Dinosaurs: Reality or Myth?
+As children, we all come to know and love these alleged ancient titans, but _did they ever really exist_?
+
+  Scenario: Root
+
+  Scenario: Their demise
+  If they did once exist, how did they cease to?
+
+    Given a big enough meteor
+
+----
+And ::
+I have the Feature icon:thumbs-up[role="green",title="Passed"]
+----
+
+@section-Birds
+@order-3
+Feature: Birds: Descendents of Titans?
+
+  Scenario: Root
+
+----
+And ::
+I am hiding step timings icon:thumbs-up[role="green",title="Passed"]
+And ::
+all Cukedoctor extensions are disabled icon:thumbs-up[role="green",title="Passed"]
+When ::
+I convert the Feature icon:thumbs-up[role="green",title="Passed"]
+Then ::
+it will be rendered as icon:thumbs-up[role="green",title="Passed"]
+******
+
+[discrete]
+[[Dinosaurs:-Reality-or-Myth?, Dinosaurs: Reality or Myth?]]
+[discrete]
+= *Dinosaurs: Reality or Myth?*
+[discrete]
+[discrete]
+[discrete]
+As children, we all come to know and love these alleged ancient titans, but _did they ever really exist_?
+[discrete]
+[discrete]
+== Scenario: Their demise
+[discrete]
+If they did once exist, how did they cease to?
+[discrete]
+============
+[discrete]
+Given ::
+[discrete]
+a big enough meteor icon:thumbs-up[role="green",title="Passed"]
+============
+[discrete]
+[discrete]
+[[Head-Adornments, Head Adornments]]
+[discrete]
+== *Head Adornments*
+[discrete]
+[discrete]
+=== Scenario: Parasaurolophus
+[discrete]
+============
+[discrete]
+Given ::
+[discrete]
+I have an implausible head adornment icon:thumbs-up[role="green",title="Passed"]
+============
+[discrete]
+[discrete]
+[[Birds:-Descendents-of-Titans?, Birds: Descendents of Titans?]]
+[discrete]
+= *Birds: Descendents of Titans?*
+
+
+******
+==========
+
+==== Ordering
+Sections are ordered by their Features, which themselves are ordered using the `@order-` tag .
+The built-in Features Section is always rendered after other sections, irrespective of `@order-' tags applied to Features therein.
+
+==========
+Given ::
+I have the Feature icon:thumbs-up[role="green",title="Passed"]
+----
+
+@order-1
+Feature: Habitat
+
+  Scenario: Tar Pits
+
+    Given I do not mind getting mucky
+
+----
+And ::
+I have the Feature icon:thumbs-up[role="green",title="Passed"]
+----
+
+@section-Anatomy
+@order-100
+Feature: Head Adornments
+
+  Scenario: Parasaurolophus
+
+    Given I have an implausible head adornment
+
+----
+And ::
+I have the Feature icon:thumbs-up[role="green",title="Passed"]
+----
+
+@section-Behaviour
+@order-10
+Feature: Hunters
+
+  Scenario: Tyranosaurus Rex
+
+    Given I am the best hunter
+
+----
+And ::
+I am showing the Features Section icon:thumbs-up[role="green",title="Passed"]
+And ::
+I am hiding step timings icon:thumbs-up[role="green",title="Passed"]
+And ::
+all Cukedoctor extensions are disabled icon:thumbs-up[role="green",title="Passed"]
+When ::
+I convert the Feature icon:thumbs-up[role="green",title="Passed"]
+Then ::
+they will be rendered as icon:thumbs-up[role="green",title="Passed"]
+******
+
+[discrete]
+[[Behaviour, Behaviour]]
+[discrete]
+= *Behaviour*
+[discrete]
+[discrete]
+[discrete]
+[[Hunters, Hunters]]
+[discrete]
+== *Hunters*
+[discrete]
+[discrete]
+=== Scenario: Tyranosaurus Rex
+[discrete]
+============
+[discrete]
+Given ::
+[discrete]
+I am the best hunter icon:thumbs-up[role="green",title="Passed"]
+============
+[discrete]
+[discrete]
+[[Anatomy, Anatomy]]
+[discrete]
+= *Anatomy*
+[discrete]
+[discrete]
+[discrete]
+[[Head-Adornments, Head Adornments]]
+[discrete]
+== *Head Adornments*
+[discrete]
+[discrete]
+=== Scenario: Parasaurolophus
+[discrete]
+============
+[discrete]
+Given ::
+[discrete]
+I have an implausible head adornment icon:thumbs-up[role="green",title="Passed"]
+============
+[discrete]
+[discrete]
+[[Features, Features]]
+[discrete]
+= *Features*
+[discrete]
+[discrete]
+[discrete]
+[[Habitat, Habitat]]
+[discrete]
+== *Habitat*
+[discrete]
+[discrete]
+=== Scenario: Tar Pits
+[discrete]
+============
+[discrete]
+Given ::
+[discrete]
+I do not mind getting mucky icon:thumbs-up[role="green",title="Passed"]
+============
+
+
+******
+==========
+
+==== Skipping
+Sections where all assigned Features are marked with the tag `@skipDocs` will themselves be skipped.
+
+==========
+Given ::
+I have the Feature icon:thumbs-up[role="green",title="Passed"]
+----
+
+@section-Anatomy
+Feature: Head Adornments
+
+  Scenario: Parasaurolophus
+
+    Given I have an implausible head adornment
+
+----
+And ::
+I have the Feature icon:thumbs-up[role="green",title="Passed"]
+----
+
+@skipDocs
+@section-Behaviour
+Feature: Hunters
+
+  Scenario: Tyranosaurus Rex
+
+    Given I am the best hunter
+
+----
+And ::
+I am showing the Features Section icon:thumbs-up[role="green",title="Passed"]
+And ::
+I am hiding step timings icon:thumbs-up[role="green",title="Passed"]
+And ::
+all Cukedoctor extensions are disabled icon:thumbs-up[role="green",title="Passed"]
+When ::
+I convert the Feature icon:thumbs-up[role="green",title="Passed"]
+Then ::
+they will be rendered as icon:thumbs-up[role="green",title="Passed"]
+******
+
+[discrete]
+[[Anatomy, Anatomy]]
+[discrete]
+= *Anatomy*
+[discrete]
+[discrete]
+[discrete]
+[[Head-Adornments, Head Adornments]]
+[discrete]
+== *Head Adornments*
+[discrete]
+[discrete]
+=== Scenario: Parasaurolophus
+[discrete]
+============
+[discrete]
+Given ::
+[discrete]
+I have an implausible head adornment icon:thumbs-up[role="green",title="Passed"]
+============
+
+
+******
+==========
+
+==== Appendices
+A Section can be made into an https://asciidoctor.org/docs/user-manual/#user-appendix[Appendix] by applying the `@appendix` tag.
+Appendix Sections are rendered after the Features Section.
+They are otherwise identical in behaviour to non-Appendix Sections (e.g. how they are ordered).
+
+==========
+Given ::
+I have the Feature icon:thumbs-up[role="green",title="Passed"]
+----
+
+Feature: Habitat
+
+  Scenario: Tar Pits
+
+    Given I do not mind getting mucky
+
+----
+And ::
+I have the Feature icon:thumbs-up[role="green",title="Passed"]
+----
+
+@section-Anatomy
+@appendix
+Feature: Head Adornments
+
+  Scenario: Parasaurolophus
+
+    Given I have an implausible head adornment
+
+----
+And ::
+I have the Feature icon:thumbs-up[role="green",title="Passed"]
+----
+
+@section-Behaviour
+Feature: Hunters
+
+  Scenario: Tyranosaurus Rex
+
+    Given I am the best hunter
+
+----
+And ::
+I am showing the Features Section icon:thumbs-up[role="green",title="Passed"]
+And ::
+I am hiding step timings icon:thumbs-up[role="green",title="Passed"]
+And ::
+all Cukedoctor extensions are disabled icon:thumbs-up[role="green",title="Passed"]
+When ::
+I convert the Feature icon:thumbs-up[role="green",title="Passed"]
+Then ::
+they will be rendered as icon:thumbs-up[role="green",title="Passed"]
+******
+
+[discrete]
+[[Behaviour, Behaviour]]
+[discrete]
+= *Behaviour*
+[discrete]
+[discrete]
+[discrete]
+[[Hunters, Hunters]]
+[discrete]
+== *Hunters*
+[discrete]
+[discrete]
+=== Scenario: Tyranosaurus Rex
+[discrete]
+============
+[discrete]
+Given ::
+[discrete]
+I am the best hunter icon:thumbs-up[role="green",title="Passed"]
+============
+[discrete]
+[discrete]
+[[Features, Features]]
+[discrete]
+= *Features*
+[discrete]
+[discrete]
+[discrete]
+[[Habitat, Habitat]]
+[discrete]
+== *Habitat*
+[discrete]
+[discrete]
+=== Scenario: Tar Pits
+[discrete]
+============
+[discrete]
+Given ::
+[discrete]
+I do not mind getting mucky icon:thumbs-up[role="green",title="Passed"]
+============
+[discrete]
+[discrete]
+[appendix]
+[discrete]
+[[Anatomy, Anatomy]]
+[discrete]
+= *Anatomy*
+[discrete]
+[discrete]
+[discrete]
+[[Head-Adornments, Head Adornments]]
+[discrete]
+== *Head Adornments*
+[discrete]
+[discrete]
+=== Scenario: Parasaurolophus
+[discrete]
+============
+[discrete]
+Given ::
+[discrete]
+I have an implausible head adornment icon:thumbs-up[role="green",title="Passed"]
+============
+
+
+******
+==========
+
+==== Glossary
+A Feature will be rendered as a https://asciidoctor.org/docs/user-manual/#user-glossary[Glossary] Section if it is tagged with the `@glossary` Feature tag.
+Only a single Feature should be tagged with `@glossary`. The behaviour when multiple Features are tagged is undefined.
+
+NOTE: As per the AsciiDoc documentation, you must add the `[glossary]` style _before_ the first definition. Cukedoctor will add the style to the title automatically.
+
+==========
+Given ::
+I have the Feature icon:thumbs-up[role="green",title="Passed"]
+----
+
+@glossary
+Feature: My Glossary
+ Below are definitions for term used throughout this book.
+
+[glossary]
+Dinosaur:: fictitious giant reptile of old
+Carnivore:: an animal that feeds solely on other animals
+
+  Scenario: Root
+
+
+----
+When ::
+I convert the Feature icon:thumbs-up[role="green",title="Passed"]
+Then ::
+it will be rendered as icon:thumbs-up[role="green",title="Passed"]
+******
+
+[discrete]
+[glossary]
+[discrete]
+[[My-Glossary, My Glossary]]
+[discrete]
+= *My Glossary*
+[discrete]
+[discrete]
+[discrete]
+Below are definitions for term used throughout this book.
+[discrete]
+[discrete]
+[glossary]
+[discrete]
+Dinosaur:: fictitious giant reptile of old
+[discrete]
+Carnivore:: an animal that feeds solely on other animals
+
+
+******
+==========
+
+==== Bibliography
+A Feature will be rendered as a https://asciidoctor.org/docs/user-manual/#user-biblio[Bibliography] Section if it is tagged with the `@bibliography` Feature tag.
+Only a single Feature should be tagged with `@bibliography`. The behaviour when multiple Features are tagged is undefined.
+
+==========
+Given ::
+I have the Feature icon:thumbs-up[role="green",title="Passed"]
+----
+
+@bibliography
+Feature: My Bibliography
+- [[[pp]]] Andy Hunt & Dave Thomas. The Pragmatic Programmer: From Journeyman to Master. Addison-Wesley. 1999.
+- [[[gof,2]]] Erich Gamma, Richard Helm, Ralph Johnson & John Vlissides. Design Patterns: Elements of Reusable Object-Oriented Software. Addison-Wesley. 1994.
+
+  Scenario: Root
+
+
+----
+When ::
+I convert the Feature icon:thumbs-up[role="green",title="Passed"]
+Then ::
+it will be rendered as icon:thumbs-up[role="green",title="Passed"]
+******
+
+[discrete]
+[bibliography]
+[discrete]
+[[My-Bibliography, My Bibliography]]
+[discrete]
+= *My Bibliography*
+[discrete]
+[discrete]
+[discrete]
+- [[[pp]]] Andy Hunt & Dave Thomas. The Pragmatic Programmer: From Journeyman to Master. Addison-Wesley. 1999.
+[discrete]
+- [[[gof,2]]] Erich Gamma, Richard Helm, Ralph Johnson & John Vlissides. Design Patterns: Elements of Reusable Object-Oriented Software. Addison-Wesley. 1994.
+
+
+******
+==========
+
+==== Index Catalog
+A Feature will be rendered as an https://asciidoctor.org/docs/user-manual/#index-catalog[Index Catalog] Section if it is tagged with the `@index` Feature tag.
+Only a single Feature should be tagged with `@index`. The behaviour when multiple Features are tagged is undefined.
+
+==========
+Given ::
+I have the Feature icon:thumbs-up[role="green",title="Passed"]
+----
+
+@index
+Feature: My Index
+
+  Scenario: Root
+
+
+----
+When ::
+I convert the Feature icon:thumbs-up[role="green",title="Passed"]
+Then ::
+it will be rendered as icon:thumbs-up[role="green",title="Passed"]
+******
+
+[discrete]
+[index]
+[discrete]
+[[My-Index, My Index]]
+[discrete]
+= *My Index*
+
+
+******
+==========
+
+[[Subsections, Subsections]]
+=== *Subsections*
+
+==== Assigning a Feature to a Subsection
+Features are assigned to Subsections using the `@subsection-` tag
+
+==========
+Given ::
+I have the Feature icon:thumbs-up[role="green",title="Passed"]
+----
+
+@section-Dinosaurs
+@subsection-Behaviour
+Feature: Eating Habits
+
+  Scenario: Hunting
+
+----
+And ::
+I have the Feature icon:thumbs-up[role="green",title="Passed"]
+----
+
+@section-Dinosaurs
+@subsection-Appearance
+Feature: Head Adornments
+
+  Scenario: Frills
+
+----
+And ::
+I have the Feature icon:thumbs-up[role="green",title="Passed"]
+----
+
+@subsection-Relatives
+Feature: Direct descendents
+
+  Scenario: Birds
+
+----
+And ::
+I am showing the Features Section icon:thumbs-up[role="green",title="Passed"]
+And ::
+I am hiding step timings icon:thumbs-up[role="green",title="Passed"]
+And ::
+all Cukedoctor extensions are disabled icon:thumbs-up[role="green",title="Passed"]
+When ::
+I convert the Feature icon:thumbs-up[role="green",title="Passed"]
+Then ::
+they will be rendered as icon:thumbs-up[role="green",title="Passed"]
+******
+
+[discrete]
+[[Dinosaurs, Dinosaurs]]
+[discrete]
+= *Dinosaurs*
+[discrete]
+[discrete]
+[discrete]
+[[Behaviour, Behaviour]]
+[discrete]
+== *Behaviour*
+[discrete]
+[discrete]
+[[Eating-Habits, Eating Habits]]
+[discrete]
+=== *Eating Habits*
+[discrete]
+[discrete]
+==== Scenario: Hunting
+[discrete]
+[discrete]
+[[Appearance, Appearance]]
+[discrete]
+== *Appearance*
+[discrete]
+[discrete]
+[[Head-Adornments, Head Adornments]]
+[discrete]
+=== *Head Adornments*
+[discrete]
+[discrete]
+==== Scenario: Frills
+[discrete]
+[discrete]
+[[Features, Features]]
+[discrete]
+= *Features*
+[discrete]
+[discrete]
+[discrete]
+[[Relatives, Relatives]]
+[discrete]
+== *Relatives*
+[discrete]
+[discrete]
+[[Direct-descendents, Direct descendents]]
+[discrete]
+=== *Direct descendents*
+[discrete]
+[discrete]
+==== Scenario: Birds
+
+
+******
+==========
+
+==== Title and Preamble
+In the same manner as Sections, a Feature tagged with a Subsection, containing a Scenario named 'Root' will be used as the Root of the Subsection. The name of this Feature will be used to render the Subsection's name and the Feature's description will be rendered immediately underneath.
+You can use full AsciiDoc markup in a Feature's description to provide as much of a preamble to the Subsection as you wish, or none at all. You can also provide other Scenarios in the Feature, which will be rendered as normal.
+
+If multiple Roots are defined for a Section, the result is undefined.
+
+==========
+Given ::
+I have the Feature icon:thumbs-up[role="green",title="Passed"]
+----
+
+@section-Dinosaurs
+@subsection-HeadAdornments
+Feature: Sonic Phenomenon
+
+  Scenario: Parasaurolophus
+
+----
+And ::
+I have the Feature icon:thumbs-up[role="green",title="Passed"]
+----
+
+@section-Dinosaurs
+Feature: Dinosaurs: Reality or Myth?
+As children, we all come to know and love these alleged ancient titans, but _did they ever really exist_?
+
+  Scenario: Root
+
+----
+And ::
+I have the Feature icon:thumbs-up[role="green",title="Passed"]
+----
+
+@section-Dinosaurs
+@subsection-HeadAdornments
+Feature: Head Adornments
+Big ones, small ones...
+
+  Scenario: Root
+
+----
+And ::
+I am hiding step timings icon:thumbs-up[role="green",title="Passed"]
+And ::
+all Cukedoctor extensions are disabled icon:thumbs-up[role="green",title="Passed"]
+When ::
+I convert the Feature icon:thumbs-up[role="green",title="Passed"]
+Then ::
+it will be rendered as icon:thumbs-up[role="green",title="Passed"]
+******
+
+[discrete]
+[[Dinosaurs:-Reality-or-Myth?, Dinosaurs: Reality or Myth?]]
+[discrete]
+= *Dinosaurs: Reality or Myth?*
+[discrete]
+[discrete]
+[discrete]
+As children, we all come to know and love these alleged ancient titans, but _did they ever really exist_?
+[discrete]
+[discrete]
+[[Head-Adornments, Head Adornments]]
+[discrete]
+== *Head Adornments*
+[discrete]
+[discrete]
+Big ones, small ones...
+[discrete]
+[discrete]
+[[Sonic-Phenomenon, Sonic Phenomenon]]
+[discrete]
+=== *Sonic Phenomenon*
+[discrete]
+[discrete]
+==== Scenario: Parasaurolophus
+
+
+******
+==========
+
+==== Ordering
+Subsections are ordered by their Features, which themselves are ordered using the `@order-` tag .
+
+==========
+Given ::
+I have the Feature icon:thumbs-up[role="green",title="Passed"]
+----
+
+@section-Dinosaurs
+@subsection-HeadAdornments
+@order-2
+Feature: Sonic Phenomenon
+
+  Scenario: Parasaurolophus
+
+----
+And ::
+I have the Feature icon:thumbs-up[role="green",title="Passed"]
+----
+
+@section-Dinosaurs
+@subsection-Behaviour
+@order-1
+Feature: Hunters
+
+  Scenario: Tyranosaurus Rex
+
+----
+And ::
+I am hiding step timings icon:thumbs-up[role="green",title="Passed"]
+And ::
+all Cukedoctor extensions are disabled icon:thumbs-up[role="green",title="Passed"]
+When ::
+I convert the Feature icon:thumbs-up[role="green",title="Passed"]
+Then ::
+it will be rendered as icon:thumbs-up[role="green",title="Passed"]
+******
+
+[discrete]
+[[Dinosaurs, Dinosaurs]]
+[discrete]
+= *Dinosaurs*
+[discrete]
+[discrete]
+[discrete]
+[[Behaviour, Behaviour]]
+[discrete]
+== *Behaviour*
+[discrete]
+[discrete]
+[[Hunters, Hunters]]
+[discrete]
+=== *Hunters*
+[discrete]
+[discrete]
+==== Scenario: Tyranosaurus Rex
+[discrete]
+[discrete]
+[[HeadAdornments, HeadAdornments]]
+[discrete]
+== *HeadAdornments*
+[discrete]
+[discrete]
+[[Sonic-Phenomenon, Sonic Phenomenon]]
+[discrete]
+=== *Sonic Phenomenon*
+[discrete]
+[discrete]
+==== Scenario: Parasaurolophus
+
+
+******
+==========
+
+==== Skipping
+Subsections where all assigned Features are marked with the tag `@skipDocs` will themselves be skipped.
+
+==========
+Given ::
+I have the Feature icon:thumbs-up[role="green",title="Passed"]
+----
+
+@skipDocs
+@section-Dinosaurs
+@subsection-Behaviour
+@order-2
+Feature: Foragers
+
+  Scenario: Diplodocus
+
+----
+And ::
+I have the Feature icon:thumbs-up[role="green",title="Passed"]
+----
+
+@skipDocs
+@section-Dinosaurs
+@subsection-Behaviour
+@order-1
+Feature: Hunters
+
+  Scenario: Tyranosaurus Rex
+
+----
+And ::
+I have the Feature icon:thumbs-up[role="green",title="Passed"]
+----
+
+@section-Dinosaurs
+@subsection-Flavour
+@order-3
+Feature: Modern References
+
+  Scenario: Chicken
+
+----
+And ::
+I am hiding step timings icon:thumbs-up[role="green",title="Passed"]
+And ::
+all Cukedoctor extensions are disabled icon:thumbs-up[role="green",title="Passed"]
+When ::
+I convert the Feature icon:thumbs-up[role="green",title="Passed"]
+Then ::
+it will be rendered as icon:thumbs-up[role="green",title="Passed"]
+******
+
+[discrete]
+[[Dinosaurs, Dinosaurs]]
+[discrete]
+= *Dinosaurs*
+[discrete]
+[discrete]
+[discrete]
+[[Flavour, Flavour]]
+[discrete]
+== *Flavour*
+[discrete]
+[discrete]
+[[Modern-References, Modern References]]
+[discrete]
+=== *Modern References*
+[discrete]
+[discrete]
+==== Scenario: Chicken
+
+
+******
+==========
+
+[[Features-not-assigned-to-Sections, Features not assigned to Sections]]
+=== *Features not assigned to Sections*
+
+Features not assigned to Sections are rendered exactly as in the classic (default) Cukedoctor layout, with all its capabilities supported.
+
+==== The built-in Features Section
+If the Features Section is enabled, Features will be rendered by default in the Features Section unless otherwise assigned.
+
+==========
+Given ::
+I have the Feature icon:thumbs-up[role="green",title="Passed"]
+----
+
+Feature: Head Adornments
+
+  Scenario: Parasaurolophus
+
+    Given I have an implausible head adornment
+
+----
+And ::
+I am showing the Features Section icon:thumbs-up[role="green",title="Passed"]
+And ::
+I am hiding step timings icon:thumbs-up[role="green",title="Passed"]
+And ::
+all Cukedoctor extensions are disabled icon:thumbs-up[role="green",title="Passed"]
+When ::
+I convert the Feature icon:thumbs-up[role="green",title="Passed"]
+Then ::
+it will be rendered as a Subsection of the Features Section icon:thumbs-up[role="green",title="Passed"]
+******
+
+[discrete]
+[[Features, Features]]
+[discrete]
+= *Features*
+[discrete]
+[discrete]
+[discrete]
+[[Head-Adornments, Head Adornments]]
+[discrete]
+== *Head Adornments*
+[discrete]
+[discrete]
+=== Scenario: Parasaurolophus
+[discrete]
+============
+[discrete]
+Given ::
+[discrete]
+I have an implausible head adornment icon:thumbs-up[role="green",title="Passed"]
+============
+
+
+******
+==========
+
+==== When the Features Section is hidden
+If the Features Section is hidden, each Feature not assigned to a Section will be rendered as a Section of its own.
+
+==========
+Given ::
+I have the Feature icon:thumbs-up[role="green",title="Passed"]
+----
+
+Feature: Head Adornments
+
+  Scenario: Parasaurolophus
+
+    Given I have an implausible head adornment
+
+----
+And ::
+I am hiding the Features Section icon:thumbs-up[role="green",title="Passed"]
+And ::
+I am hiding step timings icon:thumbs-up[role="green",title="Passed"]
+And ::
+all Cukedoctor extensions are disabled icon:thumbs-up[role="green",title="Passed"]
+When ::
+I convert the Feature icon:thumbs-up[role="green",title="Passed"]
+Then ::
+it will be rendered as a Section icon:thumbs-up[role="green",title="Passed"]
+******
+
+[discrete]
+[[Head-Adornments, Head Adornments]]
+[discrete]
+= *Head Adornments*
+[discrete]
+[discrete]
+[discrete]
+== Scenario: Parasaurolophus
+[discrete]
+============
+[discrete]
+Given ::
+[discrete]
+I have an implausible head adornment icon:thumbs-up[role="green",title="Passed"]
+============
+
+
+******
+==========
+
+==== Ordering
+Features not assigned to Sections are ordered by their `@order-` tag
+NOTE: If Features do not have an `@order-` tag, their order is not guaranteed.
+
+==========
+Given ::
+I have the Feature icon:thumbs-up[role="green",title="Passed"]
+----
+
+@order-2
+Feature: Head Adornments
+
+Scenario: Parasaurolophus
+
+  Given I have an implausible head adornment
+
+----
+And ::
+I have the Feature icon:thumbs-up[role="green",title="Passed"]
+----
+
+@order-1
+Feature: Hunters
+
+Scenario: Tyranosaurus Rex
+
+  Given I am the best hunter
+
+----
+And ::
+I am hiding the Features Section icon:thumbs-up[role="green",title="Passed"]
+And ::
+I am hiding step timings icon:thumbs-up[role="green",title="Passed"]
+And ::
+all Cukedoctor extensions are disabled icon:thumbs-up[role="green",title="Passed"]
+When ::
+I convert the Feature icon:thumbs-up[role="green",title="Passed"]
+Then ::
+they will be rendered as icon:thumbs-up[role="green",title="Passed"]
+******
+
+[discrete]
+[[Hunters, Hunters]]
+[discrete]
+= *Hunters*
+[discrete]
+[discrete]
+[discrete]
+== Scenario: Tyranosaurus Rex
+[discrete]
+============
+[discrete]
+Given ::
+[discrete]
+I am the best hunter icon:thumbs-up[role="green",title="Passed"]
+============
+[discrete]
+[discrete]
+[[Head-Adornments, Head Adornments]]
+[discrete]
+= *Head Adornments*
+[discrete]
+[discrete]
+[discrete]
+== Scenario: Parasaurolophus
+[discrete]
+============
+[discrete]
+Given ::
+[discrete]
+I have an implausible head adornment icon:thumbs-up[role="green",title="Passed"]
+============
+
+
+******
+==========
+
+==== Subsections
+Features assigned to Subsections, but not Sections, will be shown under Subsections under the built-in Features Section.
+
+==========
+Given ::
+I have the Feature icon:thumbs-up[role="green",title="Passed"]
+----
+
+@order-2
+@subsection-Appearance
+Feature: Head Adornments
+
+Scenario: Parasaurolophus
+
+  Given I have an implausible head adornment
+
+----
+And ::
+I am showing the Features Section icon:thumbs-up[role="green",title="Passed"]
+And ::
+I am hiding step timings icon:thumbs-up[role="green",title="Passed"]
+And ::
+all Cukedoctor extensions are disabled icon:thumbs-up[role="green",title="Passed"]
+When ::
+I convert the Feature icon:thumbs-up[role="green",title="Passed"]
+Then ::
+they will be rendered as icon:thumbs-up[role="green",title="Passed"]
+******
+
+[discrete]
+[[Features, Features]]
+[discrete]
+= *Features*
+[discrete]
+[discrete]
+[discrete]
+[[Appearance, Appearance]]
+[discrete]
+== *Appearance*
+[discrete]
+[discrete]
+[[Head-Adornments, Head Adornments]]
+[discrete]
+=== *Head Adornments*
+[discrete]
+[discrete]
+==== Scenario: Parasaurolophus
+[discrete]
+============
+[discrete]
+Given ::
+[discrete]
+I have an implausible head adornment icon:thumbs-up[role="green",title="Passed"]
+============
+
+
+******
+==========
+
