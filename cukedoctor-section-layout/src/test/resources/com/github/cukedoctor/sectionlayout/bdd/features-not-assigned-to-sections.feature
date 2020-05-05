@@ -70,7 +70,7 @@ I have an implausible head adornment icon:thumbs-up[role="green",title="Passed"]
 
   Scenario: Ordering
   Features not assigned to Sections are ordered by their `@order-` tag
-  [NOTE] If Features do not have an `@order-` tag, their order is not guaranteed.
+  NOTE: If Features do not have an `@order-` tag, their order is not guaranteed.
 
   Given I have the Feature
   """
