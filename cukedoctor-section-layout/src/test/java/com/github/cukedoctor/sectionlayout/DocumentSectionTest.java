@@ -12,11 +12,12 @@ import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;
 
 import java.util.Arrays;
+import java.util.stream.Collectors;
 
 import static com.github.cukedoctor.util.Constants.newLine;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.contains;
-import static org.hamcrest.Matchers.emptyIterable;
+import static org.hamcrest.Matchers.empty;
 import static org.junit.Assert.assertEquals;
 
 @RunWith(JUnit4.class)
@@ -54,18 +55,18 @@ public class DocumentSectionTest {
         root.addFeature(FeatureBuilder.instance().id("My Feature").name("My Feature").tag("@section-SectionOne").build());
         root.addFeature(FeatureBuilder.instance().id("My Other Feature").name("My Other Feature").tag("@section-SectionOne").build());
 
-        final String expectedDocument = "[[SectionTwo, SectionTwo]]" + newLine() +
-                "= *SectionTwo*" + newLine() + newLine() + newLine() +
-                "[[Yet-Another-Feature, Yet Another Feature]]" + newLine() +
-                "== *Yet Another Feature*" + newLine() +
-                newLine() +
-                "[[SectionOne, SectionOne]]" + newLine() +
+        final String expectedDocument = "[[SectionOne, SectionOne]]" + newLine() +
                 "= *SectionOne*" + newLine() + newLine() + newLine() +
                 "[[My-Feature, My Feature]]" + newLine() +
                 "== *My Feature*" + newLine() +
                 newLine() +
                 "[[My-Other-Feature, My Other Feature]]" + newLine() +
                 "== *My Other Feature*" + newLine() +
+                newLine() +
+                "[[SectionTwo, SectionTwo]]" + newLine() +
+                "= *SectionTwo*" + newLine() + newLine() + newLine() +
+                "[[Yet-Another-Feature, Yet Another Feature]]" + newLine() +
+                "== *Yet Another Feature*" + newLine() +
                 newLine();
 
         assertEquals(expectedDocument, root.render(CukedoctorDocumentBuilder.Factory.newInstance(), I18nLoader.instance(null), new DocumentAttributes()));
@@ -161,7 +162,7 @@ public class DocumentSectionTest {
     public void shouldGetNoFeaturesIfEmpty() {
         final DocumentSection root = new DocumentSection();
 
-        assertThat(root.getFeatures(), emptyIterable());
+        assertThat(root.getFeatures().collect(Collectors.toList()), empty());
     }
 
     @Test
@@ -178,6 +179,6 @@ public class DocumentSectionTest {
         final DocumentSection root = new DocumentSection();
         root.addFeatures(Arrays.asList(six, five, three, four, one, two, seven, eight));
 
-        assertThat(root.getFeatures(), contains(one, two, three, four, five, six, seven, eight));
+        assertThat(root.getFeatures().collect(Collectors.toList()), contains(one, two, three, four, five, six, seven, eight));
     }
 }

@@ -10,6 +10,8 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;
 
+import java.util.stream.Collectors;
+
 import static com.github.cukedoctor.util.Constants.newLine;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.contains;
@@ -26,7 +28,7 @@ public class FeatureSectionTest {
 
     @Test
     public void shouldRender() {
-        final Feature feature = FeatureBuilder.instance(). aFeatureWithNoScenarios();
+        final Feature feature = FeatureBuilder.instance().aFeatureWithNoScenarios();
         final FeatureSection section = new FeatureSection(feature);
 
         final String expected = "[[Feature-name, Feature name]]" + newLine() +
@@ -65,6 +67,6 @@ public class FeatureSectionTest {
         final Feature feature = new Feature();
         final FeatureSection section = new FeatureSection(feature);
 
-        assertThat(section.getFeatures(), contains(feature));
+        assertThat(section.getFeatures().collect(Collectors.toList()), contains(feature));
     }
 }

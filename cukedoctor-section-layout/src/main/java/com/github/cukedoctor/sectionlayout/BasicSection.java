@@ -7,9 +7,9 @@ import com.github.cukedoctor.api.model.Scenario;
 import com.github.cukedoctor.api.model.Tag;
 import com.github.cukedoctor.i18n.I18nLoader;
 import com.github.cukedoctor.util.builder.FeatureBuilder;
-import com.google.common.collect.Iterables;
 
 import java.util.*;
+import java.util.stream.Stream;
 
 import static com.github.cukedoctor.util.Constants.SKIP_DOCS;
 
@@ -159,17 +159,12 @@ public class BasicSection implements Section {
     }
 
     private void renderChildren(CukedoctorDocumentBuilder docBuilder, I18nLoader i18n, DocumentAttributes documentAttributes) {
-        for (Section child : getChildren()) {
-            docBuilder.append(child.render(docBuilder.createPeerBuilder(), i18n, documentAttributes));
-        }
+        getChildren().forEach(
+                child -> docBuilder.append(child.render(docBuilder.createPeerBuilder(), i18n, documentAttributes)));
     }
 
-    private Iterable<Section> getChildren() {
-        ArrayList<Section> children = new ArrayList<>(sectionsByGroup.size() + grouplessFeatures.size());
-        children.addAll(sectionsByGroup.values());
-        children.addAll(grouplessFeatures);
-        Collections.sort(children);
-        return children;
+    private Stream<Section> getChildren() {
+        return Stream.concat(sectionsByGroup.values().stream(), grouplessFeatures.stream()).sorted();
     }
 
     @Override
@@ -178,12 +173,9 @@ public class BasicSection implements Section {
     }
 
     @Override
-    public Iterable<Feature> getFeatures() {
-        Iterable<Feature> aggregate = hasRoot() ? root.getFeatures() : Collections.emptyList();
-        for (Section section : getChildren()) {
-            aggregate = Iterables.concat(aggregate, section.getFeatures());
-        }
-
-        return aggregate;
+    public Stream<Feature> getFeatures() {
+        return Stream.concat(
+                hasRoot() ? root.getFeatures() : Stream.empty(),
+                getChildren().flatMap(Section::getFeatures));
     }
 }

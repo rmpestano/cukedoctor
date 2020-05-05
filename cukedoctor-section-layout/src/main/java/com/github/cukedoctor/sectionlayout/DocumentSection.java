@@ -4,11 +4,9 @@ import com.github.cukedoctor.api.CukedoctorDocumentBuilder;
 import com.github.cukedoctor.api.DocumentAttributes;
 import com.github.cukedoctor.api.model.Feature;
 import com.github.cukedoctor.i18n.I18nLoader;
-import com.google.common.collect.Iterables;
-import com.google.common.collect.LinkedListMultimap;
-import com.google.common.collect.Multimap;
 
 import java.util.*;
+import java.util.stream.Stream;
 
 import static com.github.cukedoctor.sectionlayout.Constants.*;
 
@@ -20,7 +18,7 @@ public class DocumentSection implements Section {
             return 2;
         }
     };
-    private final Multimap<String, Feature> featuresBySectionId = LinkedListMultimap.create();
+    private final Map<String, Collection<Feature>> featuresBySectionId = new HashMap<>();
     private final Set<String> appendixIds = new HashSet<>();
 
     public DocumentSection() {
@@ -43,7 +41,7 @@ public class DocumentSection implements Section {
             return this;
         }
 
-        featuresBySectionId.put(sectionId.get(), feature);
+        addFeatureForSection(feature, sectionId.get());
 
         if (feature.hasTag(AppendixTagPattern)) {
             appendixIds.add(sectionId.get());
@@ -52,20 +50,28 @@ public class DocumentSection implements Section {
         return this;
     }
 
-    @Override
-    public String render(CukedoctorDocumentBuilder docBuilder, I18nLoader i18n, DocumentAttributes documentAttributes) {
-        for (Section section : buildDocument()) {
-            docBuilder.append(section.render(docBuilder.createPeerBuilder(), i18n, documentAttributes));
+    private void addFeatureForSection(Feature feature, String sectionId) {
+        if (featuresBySectionId.containsKey(sectionId)) {
+            featuresBySectionId.get(sectionId).add(feature);
+            return;
         }
 
+        List<Feature> features = new LinkedList<>();
+        features.add(feature);
+        featuresBySectionId.put(sectionId, features);
+    }
+
+    @Override
+    public String render(CukedoctorDocumentBuilder docBuilder, I18nLoader i18n, DocumentAttributes documentAttributes) {
+        buildDocument().forEach(section -> docBuilder.append(section.render(docBuilder.createPeerBuilder(), i18n, documentAttributes)));
         return docBuilder.toString();
     }
 
-    protected Iterable<Section> buildDocument() {
+    private Stream<Section> buildDocument() {
         List<Section> foreSections = new LinkedList<>();
         List<Section> appendices = new LinkedList<>();
 
-        featuresBySectionId.asMap().forEach((String sectionId, Collection<Feature> features) -> {
+        featuresBySectionId.forEach((String sectionId, Collection<Feature> features) -> {
             if (appendixIds.contains(sectionId)) {
                 appendices.add(new BasicSection(sectionId, "appendix", SubsectionTagPattern).addFeatures(features));
                 return;
@@ -74,9 +80,11 @@ public class DocumentSection implements Section {
             foreSections.add(new BasicSection(sectionId, null, SubsectionTagPattern).addFeatures(features));
         });
 
-        Collections.sort(foreSections);
-        Collections.sort(appendices);
-        return Iterables.concat(foreSections, Collections.singletonList(featuresSection), appendices);
+        return Stream.concat(
+                Stream.concat(
+                        foreSections.stream().sorted(),
+                        Stream.of(featuresSection)),
+                appendices.stream().sorted());
     }
 
     @Override
@@ -85,12 +93,7 @@ public class DocumentSection implements Section {
     }
 
     @Override
-    public Iterable<Feature> getFeatures() {
-        Iterable<Feature> aggregate = Collections.emptyList();
-        for (Section section : buildDocument()) {
-            aggregate = Iterables.concat(aggregate, section.getFeatures());
-        }
-
-        return aggregate;
+    public Stream<Feature> getFeatures() {
+        return buildDocument().flatMap(section -> section.getFeatures());
     }
 }
