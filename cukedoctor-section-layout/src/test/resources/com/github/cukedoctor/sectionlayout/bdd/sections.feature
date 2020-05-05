@@ -1,5 +1,5 @@
 @section-Sections
-@order-1
+@order-20
 Feature: User-Defined Sections
   Cukedoctor has some built-in Sections, such as the Summary and Features Sections.
   User-Defined Sections allow you to provide your own grouping of Features, rather than include them in the built-in Features Section.
