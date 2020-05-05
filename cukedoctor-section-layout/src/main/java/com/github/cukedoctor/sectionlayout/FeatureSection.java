@@ -8,8 +8,8 @@ import com.github.cukedoctor.renderer.CukedoctorFeatureRenderer;
 import com.github.cukedoctor.spi.FeatureRenderer;
 import com.github.cukedoctor.util.ServiceLoaderUtil;
 
-import java.util.Collections;
 import java.util.function.Supplier;
+import java.util.stream.Stream;
 
 public class FeatureSection implements Section {
     private static Supplier<FeatureRenderer> featureRenderer;
@@ -47,7 +47,7 @@ public class FeatureSection implements Section {
     }
 
     @Override
-    public Iterable<Feature> getFeatures() {
-        return Collections.singletonList(feature);
+    public Stream<Feature> getFeatures() {
+        return Stream.of(feature);
     }
 }

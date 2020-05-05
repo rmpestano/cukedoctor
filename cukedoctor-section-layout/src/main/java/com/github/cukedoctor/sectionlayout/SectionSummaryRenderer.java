@@ -8,10 +8,10 @@ import com.github.cukedoctor.renderer.AbstractBaseRenderer;
 import com.github.cukedoctor.renderer.CukedoctorSummaryRenderer;
 import com.github.cukedoctor.spi.SummaryRenderer;
 import com.github.cukedoctor.util.ServiceLoaderUtil;
-import com.google.common.collect.Lists;
 
 import java.util.List;
 import java.util.function.Supplier;
+import java.util.stream.Collectors;
 
 public class SectionSummaryRenderer extends AbstractBaseRenderer implements SummaryRenderer {
 
@@ -34,8 +34,12 @@ public class SectionSummaryRenderer extends AbstractBaseRenderer implements Summ
 
     @Override
     public String renderSummary(List<Feature> features) {
-        docBuilder.append(renderer.get().renderSummary(Lists.newArrayList(new DocumentSection(features).getFeatures()), docBuilder));
+        docBuilder.append(renderer.get().renderSummary(getSortedFeatures(features), docBuilder));
         return docBuilder.toString();
+    }
+
+    private List<Feature> getSortedFeatures(List<Feature> features) {
+        return new DocumentSection(features).getFeatures().collect(Collectors.toList());
     }
 
     @Override

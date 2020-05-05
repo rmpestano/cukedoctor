@@ -5,6 +5,8 @@ import com.github.cukedoctor.api.DocumentAttributes;
 import com.github.cukedoctor.api.model.Feature;
 import com.github.cukedoctor.i18n.I18nLoader;
 
+import java.util.stream.Stream;
+
 public interface Section extends Comparable<Section> {
     Section addFeature(Feature feature);
 
@@ -26,5 +28,5 @@ public interface Section extends Comparable<Section> {
         return Integer.compare(getOrder(), other.getOrder());
     }
 
-    Iterable<Feature> getFeatures();
+    Stream<Feature> getFeatures();
 }
