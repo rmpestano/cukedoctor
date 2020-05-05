@@ -24,6 +24,7 @@ import static org.mockito.Mockito.spy;
 
 @RunWith(JUnit4.class)
 public class CukedoctorFeatureRendererTest {
+
     @Test
     public void shouldNotRenderFeatureWithSkipDocsTag() {
         final Feature feature = FeatureBuilder.instance().aFeatureWithTwoScenarios();
@@ -449,5 +450,73 @@ public class CukedoctorFeatureRendererTest {
                 "Feature description" + newLine() +
                 "****" + newLine() +
                 "" + newLine());
+    }
+
+    @Test
+    public void shouldNotTrimFeatureWithCodeListingInDescription() {
+        final String descriptionWithListing = "[source, xml]"+newLine() +
+                "----" + newLine() +
+                "<plugin>" + newLine() +
+                "  <groupId>com.github.cukedoctor</groupId>" + newLine() +
+                "  <artifactId>cukedoctor-maven-plugin</artifactId>" + newLine() +
+                "  <version>2.0</version>" + newLine() +
+                "  <executions>" + newLine() +
+                "    <execution>" + newLine() +
+                "      <goals>" + newLine() +
+                "        <goal>execute</goal>" + newLine() +
+                "      </goals>" + newLine() +
+                "      <phase>install</phase>" + newLine() +
+                "    </execution>" + newLine() +
+                "  </executions>" + newLine() +
+                "  <dependencies>" + newLine() +
+                "    <dependency>" + newLine() +
+                "      <groupId>com.github.cukedoctor</groupId>" + newLine() +
+                "      <artifactId>cukedoctor-section-layout</artifactId>" + newLine() +
+                "      <version>2.0</version>" + newLine() +
+                "    </dependency>" + newLine() +
+                "  </dependencies>" + newLine() +
+                "</plugin>" + newLine() +
+                "----";
+        final Feature featureWithCodeInDescription = FeatureBuilder.instance().description(descriptionWithListing)
+                .name("A feature with listing")
+                .build();
+        final String resultDoc = new CukedoctorFeatureRenderer(new DocumentAttributes())
+                .renderFeature(featureWithCodeInDescription, CukedoctorDocumentBuilder.Factory.newInstance().createNestedBuilder());
+        assertThat(resultDoc).contains(descriptionWithListing);
+    }
+
+    @Test
+    public void shouldNotTrimScenarioWithCodeListingInDescription() {
+        final String descriptionWithListing = "[source, xml]"+newLine() +
+                "----" + newLine() +
+                "<plugin>" + newLine() +
+                "  <groupId>com.github.cukedoctor</groupId>" + newLine() +
+                "  <artifactId>cukedoctor-maven-plugin</artifactId>" + newLine() +
+                "  <version>2.0</version>" + newLine() +
+                "  <executions>" + newLine() +
+                "    <execution>" + newLine() +
+                "      <goals>" + newLine() +
+                "        <goal>execute</goal>" + newLine() +
+                "      </goals>" + newLine() +
+                "      <phase>install</phase>" + newLine() +
+                "    </execution>" + newLine() +
+                "  </executions>" + newLine() +
+                "  <dependencies>" + newLine() +
+                "    <dependency>" + newLine() +
+                "      <groupId>com.github.cukedoctor</groupId>" + newLine() +
+                "      <artifactId>cukedoctor-section-layout</artifactId>" + newLine() +
+                "      <version>2.0</version>" + newLine() +
+                "    </dependency>" + newLine() +
+                "  </dependencies>" + newLine() +
+                "</plugin>" + newLine() +
+                "----";
+        final Feature feature = FeatureBuilder.instance().description("Feature description")
+                .name("A feature")
+                .scenario(ScenarioBuilder.instance().name("Scenario with listing in description")
+                .description(descriptionWithListing).build())
+                .build();
+        final String resultDoc = new CukedoctorFeatureRenderer(new DocumentAttributes())
+                .renderFeature(feature, CukedoctorDocumentBuilder.Factory.newInstance().createNestedBuilder());
+        assertThat(resultDoc).contains(descriptionWithListing);
     }
 }
