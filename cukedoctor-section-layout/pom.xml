@@ -38,7 +38,7 @@
     </dependencies>
 
     <build>
-        <finalName>cukedoctor-spi-example</finalName>
+        <finalName>cukedoctor-section-layout</finalName>
         <plugins>
             <plugin>
                 <groupId>com.github.cukedoctor</groupId>
