@@ -192,10 +192,8 @@ public class StepDefs {
     }
 
     private CukedoctorConfig getConfig() {
-        CukedoctorConfig config = new CukedoctorConfig();
-        // Avoid picking up intro docs in source tree
-        config.setIntroChapterDir(introDirectory.getAbsolutePath());
-        config.setIntroChapterRelativePath(introDirectory.getAbsolutePath());
-        return config;
+        return new CukedoctorConfig().setHideSummarySection(true)
+          .setIntroChapterDir(introDirectory.getAbsolutePath())// Avoid picking up intro docs in source tree
+          .setIntroChapterRelativePath(introDirectory.getAbsolutePath());
     }
 }

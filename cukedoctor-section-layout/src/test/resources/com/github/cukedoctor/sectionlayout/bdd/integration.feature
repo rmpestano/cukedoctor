@@ -55,68 +55,6 @@ Feature: Hunters
 
 = *Living Documentation*
 
-== *Summary*
-[cols="12*^m", options="header,footer"]
-|===
-3+|Scenarios 7+|Steps 2+|Features: 3
-
-|[green]#*Passed*#
-|[red]#*Failed*#
-|Total
-|[green]#*Passed*#
-|[red]#*Failed*#
-|[purple]#*Skipped*#
-|[maroon]#*Pending*#
-|[yellow]#*Undefined*#
-|[blue]#*Missing*#
-|Total
-|Duration
-|Status
-
-12+^|*<<Hunters>>*
-|1
-|0
-|1
-|1
-|0
-|0
-|0
-|0
-|0
-|1
-|000ms
-|[green]#*passed*#
-
-12+^|*<<Habitat>>*
-|1
-|0
-|1
-|1
-|0
-|0
-|0
-|0
-|0
-|1
-|000ms
-|[green]#*passed*#
-
-12+^|*<<Head-Adornments>>*
-|1
-|0
-|1
-|1
-|0
-|0
-|0
-|0
-|0
-|1
-|000ms
-|[green]#*passed*#
-12+^|*Totals*
-|3|0|3|3|0|0|0|0|0|3 2+|000ms
-|===
 
 [[Behaviour, Behaviour]]
 == *Behaviour*
