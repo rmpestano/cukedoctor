@@ -628,7 +628,9 @@ This allows you to organise your features in to Sections and Subsections.
 Sections can be shown in the main body of the document, or as appendices.
 You can also specify a glossary, bibliography and index.
 
-A detailed description with examples is available in the documentation https://rmpestano.github.io/cukedoctor/[here].
+A detailed description with examples is available in the documentation https://rmpestano.github.io/cukedoctor/#cukedoctor-with-section[here].
+
+Feature files for the example above can be https://github.com/rmpestano/cukedoctor/tree/master/cukedoctor-section-layout/src/test/java/com/github/cukedoctor/sectionlayout[found here].
 
 
 == Maven plugin

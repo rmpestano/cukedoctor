@@ -149,7 +149,6 @@
                             <scmBranch>gh-pages</scmBranch>
                         </configuration>
                     </plugin>
-
                 </plugins>
             </build>
 
@@ -185,48 +184,6 @@
                                 <phase>install</phase>
                             </execution>
                         </executions>
-                    </plugin>
-                </plugins>
-            </build>
-        </profile>
-
-        <profile>
-            <id>docs-with-section-layout</id>
-            <build>
-                <plugins>
-                    <plugin>
-                        <groupId>com.github.cukedoctor</groupId>
-                        <artifactId>cukedoctor-maven-plugin</artifactId>
-                        <version>${project.parent.version}</version>
-                        <configuration>
-                            <outputFileName>cukedoctor-section-documentation</outputFileName>
-                            <documentTitle>Cukedoctor Documentation with Section layout</documentTitle>
-                            <featuresDir>target/cukedoctor</featuresDir>
-                            <outputDir>cukedoctor</outputDir>
-                            <format>all</format>
-                            <toc>center</toc>
-                            <numbered>true</numbered>
-                            <hideSummarySection>true</hideSummarySection>
-                            <hideScenarioKeyword>true</hideScenarioKeyword>
-                            <sourceHighlighter>coderay</sourceHighlighter>
-                            <docVersion>${project.parent.version}</docVersion>
-                            <allowUriRead>true</allowUriRead>
-                        </configuration>
-                        <executions>
-                            <execution>
-                                <goals>
-                                    <goal>execute</goal>
-                                </goals>
-                                <phase>install</phase>
-                            </execution>
-                        </executions>
-                        <dependencies>
-                            <dependency>
-                                <groupId>com.github.cukedoctor</groupId>
-                                <artifactId>cukedoctor-section-layout</artifactId>
-                                <version>${project.parent.version}</version>
-                            </dependency>
-                        </dependencies>
                     </plugin>
                 </plugins>
             </build>

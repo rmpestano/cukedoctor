@@ -45,10 +45,12 @@
                 <artifactId>cukedoctor-maven-plugin</artifactId>
                 <version>${project.parent.version}</version>
                 <configuration>
-                    <documentTitle>Section Layout</documentTitle>
+                    <documentTitle>Cukedoctor Section Layout</documentTitle>
+                    <outputFileName>cukedoctor-section-documentation</outputFileName>
                     <format>all</format>
                     <docVersion>${project.parent.version}</docVersion>
                     <numbered>true</numbered>
+                    <hideSummarySection>true</hideSummarySection>
                     <hideFeaturesSection>false</hideFeaturesSection>
                     <hideScenarioKeyword>true</hideScenarioKeyword>
                 </configuration>
@@ -67,6 +69,20 @@
                         <version>${project.parent.version}</version>
                     </dependency>
                 </dependencies>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-scm-publish-plugin</artifactId>
+                <version>1.1</version>
+                <configuration>
+                    <checkoutDirectory>${project.build.outputDirectory}</checkoutDirectory>
+                    <checkinComment>Publishing Cukedoctor-${project.parent.version} living documentation.
+                    </checkinComment>
+                    <content>target/cukedoctor</content>
+                    <skipDeletedFiles>true</skipDeletedFiles>
+                    <pubScmUrl>scm:git:https://${GH_TOKEN}@github.com/rmpestano/cukedoctor.git</pubScmUrl>
+                    <scmBranch>gh-pages</scmBranch>
+                </configuration>
             </plugin>
         </plugins>
     </build>
