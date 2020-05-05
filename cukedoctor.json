@@ -3,7 +3,7 @@
     "line": 2,
     "elements": [
       {
-        "start_timestamp": "2020-05-05T18:08:37.048Z",
+        "start_timestamp": "2020-05-05T20:12:49.218Z",
         "line": 11,
         "name": "Convert features test output into documentation",
         "description": "",
@@ -28,7 +28,7 @@
           },
           {
             "result": {
-              "duration": 11000000,
+              "duration": 15000000,
               "status": "passed"
             },
             "line": 27,
@@ -45,6 +45,7 @@
           },
           {
             "result": {
+              "duration": 1000000,
               "status": "passed"
             },
             "line": 43,
@@ -87,7 +88,7 @@
     "line": 2,
     "elements": [
       {
-        "start_timestamp": "2020-05-05T18:08:37.064Z",
+        "start_timestamp": "2020-05-05T20:12:49.250Z",
         "line": 26,
         "name": "DocString enrichment activated by the content type",
         "description": "  Asciidoc markup can be used in feature *DocStrings*. To do so you can enable it by using the content type *[asciidoc]* in the DocString.",
@@ -113,7 +114,7 @@
           },
           {
             "result": {
-              "duration": 5000000,
+              "duration": 8000000,
               "status": "passed"
             },
             "line": 61,
@@ -125,6 +126,7 @@
           },
           {
             "result": {
+              "duration": 1000000,
               "status": "passed"
             },
             "line": 63,
@@ -147,7 +149,7 @@
         ]
       },
       {
-        "start_timestamp": "2020-05-05T18:08:37.076Z",
+        "start_timestamp": "2020-05-05T20:12:49.273Z",
         "line": 113,
         "name": "DocString enrichment activated by a feature tag",
         "description": "  Asciidoc markup can be used in feature *DocStrings*. You can enable this by applying the tag [@asciidoc] to the feature. Note this enables the enrichment for all DocStrings within the feature.",
@@ -206,7 +208,7 @@
         ]
       },
       {
-        "start_timestamp": "2020-05-05T18:08:37.085Z",
+        "start_timestamp": "2020-05-05T20:12:49.280Z",
         "line": 201,
         "name": "DocString enrichment activated by a scenario tag",
         "description": "  Asciidoc markup can be used in feature *DocStrings*. You can enable this by applying the tag [@asciidoc] to the scenario. Note this enables the enrichment for all DocStrings within the scenario.",
@@ -231,7 +233,7 @@
           },
           {
             "result": {
-              "duration": 4000000,
+              "duration": 5000000,
               "status": "passed"
             },
             "line": 238,
@@ -243,6 +245,7 @@
           },
           {
             "result": {
+              "duration": 1000000,
               "status": "passed"
             },
             "line": 241,
@@ -285,7 +288,7 @@
     "line": 2,
     "elements": [
       {
-        "start_timestamp": "2020-05-05T18:08:37.092Z",
+        "start_timestamp": "2020-05-05T20:12:49.297Z",
         "line": 11,
         "name": "Introduction chapter in classpath",
         "description": "  NOTE: The introduction file must be named *intro-chapter.adoc* and can be in any package of your application,\n\n  [TIP]\n  \u003d\u003d\u003d\u003d\n  By default Cukedoctor will look into application folders but you can make Cukedoctor look into external folder by setting the following system property:\n  [source,java]\n  ----\n  System.setProperty(\"INTRO_CHAPTER_DIR\",\"/home/some/external/folder\");\n  ----\n  \u003d\u003d\u003d\u003d",
@@ -310,7 +313,7 @@
           },
           {
             "result": {
-              "duration": 8000000,
+              "duration": 19000000,
               "status": "passed"
             },
             "line": 39,
@@ -380,7 +383,7 @@
     "line": 2,
     "elements": [
       {
-        "start_timestamp": "2020-05-05T18:08:37.104Z",
+        "start_timestamp": "2020-05-05T20:12:49.324Z",
         "line": 12,
         "name": "Default ordering",
         "description": "",
@@ -405,7 +408,7 @@
           },
           {
             "result": {
-              "duration": 5000000,
+              "duration": 6000000,
               "status": "passed"
             },
             "line": 28,
@@ -439,7 +442,7 @@
         ]
       },
       {
-        "start_timestamp": "2020-05-05T18:08:37.113Z",
+        "start_timestamp": "2020-05-05T20:12:49.341Z",
         "line": 57,
         "name": "Custom ordering with tags",
         "description": "    NOTE: Ordering is done using feature tag *@order-*",
@@ -464,7 +467,7 @@
           },
           {
             "result": {
-              "duration": 12000000,
+              "duration": 11000000,
               "status": "passed"
             },
             "line": 77,
@@ -476,6 +479,7 @@
           },
           {
             "result": {
+              "duration": 1000000,
               "status": "passed"
             },
             "line": 79,
@@ -518,7 +522,7 @@
     "line": 2,
     "elements": [
       {
-        "start_timestamp": "2020-05-05T18:08:37.127Z",
+        "start_timestamp": "2020-05-05T20:12:49.359Z",
         "line": 4,
         "name": "Render feature tags in that feature\u0027s scenarios",
         "description": "",
@@ -543,7 +547,7 @@
           },
           {
             "result": {
-              "duration": 13000000,
+              "duration": 5000000,
               "status": "passed"
             },
             "line": 22,
@@ -578,7 +582,7 @@
         ]
       },
       {
-        "start_timestamp": "2020-05-05T18:08:37.145Z",
+        "start_timestamp": "2020-05-05T20:12:49.373Z",
         "line": 52,
         "name": "Ignore cukedoctor tags in resulting documentation",
         "description": "   Cukedoctor specific tags like `@asciidoc` and `@order` *should not* be rendered in resulting documentation.",
@@ -615,6 +619,7 @@
           },
           {
             "result": {
+              "duration": 1000000,
               "status": "passed"
             },
             "line": 74,
