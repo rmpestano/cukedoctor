@@ -323,7 +323,7 @@ I have an implausible head adornment icon:thumbs-up[role="green",title="Passed"]
 """
 
   Scenario: Glossary
-  A Feature rendered as a https://asciidoctor.org/docs/user-manual/#user-glossary[Glossary] Section if it is tagged with teh `@glossary` Feature tag.
+  A Feature will be rendered as a https://asciidoctor.org/docs/user-manual/#user-glossary[Glossary] Section if it is tagged with the `@glossary` Feature tag.
   Only a single Feature should be tagged with `@glossary`. The behaviour when multiple Features are tagged is undefined.
 
   NOTE: As per the AsciiDoc documentation, you must add the `[glossary]` style _before_ the first definition. Cukedoctor will add the style to the title automatically.
@@ -341,8 +341,6 @@ Carnivore:: an animal that feeds solely on other animals
   Scenario: Root
 
 """
-    And I am hiding step timings
-    And all Cukedoctor extensions are disabled
     When I convert the Feature
     Then it will be rendered as
 """asciidoc
@@ -356,6 +354,63 @@ Below are definitions for term used throughout this book.
 [glossary]
 Dinosaur:: fictitious giant reptile of old
 Carnivore:: an animal that feeds solely on other animals
+
+
+"""
+
+
+  Scenario: Bibliography
+  A Feature will be rendered as a https://asciidoctor.org/docs/user-manual/#user-biblio[Bibliography] Section if it is tagged with the `@bibliography` Feature tag.
+  Only a single Feature should be tagged with `@bibliography`. The behaviour when multiple Features are tagged is undefined.
+
+    Given I have the Feature
+"""
+@bibliography
+Feature: My Bibliography
+- [[[pp]]] Andy Hunt & Dave Thomas. The Pragmatic Programmer:
+  From Journeyman to Master. Addison-Wesley. 1999.
+- [[[gof,2]]] Erich Gamma, Richard Helm, Ralph Johnson & John Vlissides. Design Patterns:
+  Elements of Reusable Object-Oriented Software. Addison-Wesley. 1994.
+
+  Scenario: Root
+
+"""
+    When I convert the Feature
+    Then it will be rendered as
+"""asciidoc
+[bibliography]
+[[My-Bibliography, My Bibliography]]
+= *My Bibliography*
+
+
+- [[[pp]]] Andy Hunt & Dave Thomas. The Pragmatic Programmer:
+  From Journeyman to Master. Addison-Wesley. 1999.
+- [[[gof,2]]] Erich Gamma, Richard Helm, Ralph Johnson & John Vlissides. Design Patterns:
+  Elements of Reusable Object-Oriented Software. Addison-Wesley. 1994.
+
+
+"""
+
+
+  Scenario: Index Catalog
+  A Feature will be rendered as an https://asciidoctor.org/docs/user-manual/#index-catalog[Index Catalog] Section if it is tagged with the `@index` Feature tag.
+  Only a single Feature should be tagged with `@index`. The behaviour when multiple Features are tagged is undefined.
+
+    Given I have the Feature
+"""
+@index
+Feature: My Index
+
+  Scenario: Root
+
+"""
+    When I convert the Feature
+    Then it will be rendered as
+"""asciidoc
+[index]
+[[My-Index, My Index]]
+= *My Index*
+
 
 
 """
