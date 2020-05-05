@@ -50,8 +50,9 @@
                     <format>all</format>
                     <docVersion>${project.parent.version}</docVersion>
                     <numbered>true</numbered>
-                    <hideSummarySection>true</hideSummarySection>
                     <hideFeaturesSection>false</hideFeaturesSection>
+                    <hideSummarySection>true</hideSummarySection>
+                    <hideStepTime>true</hideStepTime>
                     <hideScenarioKeyword>true</hideScenarioKeyword>
                 </configuration>
                 <executions>
