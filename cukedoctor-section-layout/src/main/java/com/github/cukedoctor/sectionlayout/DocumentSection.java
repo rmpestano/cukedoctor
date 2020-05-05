@@ -19,6 +19,7 @@ public class DocumentSection implements Section {
         }
     };
     private final Map<String, Collection<Feature>> featuresBySectionId = new HashMap<>();
+    private final Section glossary = new BasicSection("Glossary", "glossary", null);
     private final Set<String> appendixIds = new HashSet<>();
 
     public DocumentSection() {
@@ -34,20 +35,27 @@ public class DocumentSection implements Section {
     public Section addFeature(Feature feature) {
         if (feature.hasIgnoreDocsTag()) return this;
 
-        Optional<String> sectionId = feature.extractTag(SectionTagPattern);
+        if (isGlossary(feature)) {
+            glossary.addFeature(feature);
+            return this;
+        }
 
+        Optional<String> sectionId = feature.extractTag(SectionTagPattern);
         if (!sectionId.isPresent()) {
             featuresSection.addFeature(feature);
             return this;
         }
 
         addFeatureForSection(feature, sectionId.get());
-
         if (feature.hasTag(AppendixTagPattern)) {
             appendixIds.add(sectionId.get());
         }
 
         return this;
+    }
+
+    private boolean isGlossary(Feature feature) {
+        return feature.hasTag(GlossaryTagPattern);
     }
 
     private void addFeatureForSection(Feature feature, String sectionId) {
@@ -81,10 +89,12 @@ public class DocumentSection implements Section {
         });
 
         return Stream.concat(
+                foreSections.stream().sorted(),
                 Stream.concat(
-                        foreSections.stream().sorted(),
-                        Stream.of(featuresSection)),
-                appendices.stream().sorted());
+                        Stream.of(featuresSection),
+                        Stream.concat(
+                                appendices.stream().sorted(),
+                                Stream.of(glossary))));
     }
 
     @Override

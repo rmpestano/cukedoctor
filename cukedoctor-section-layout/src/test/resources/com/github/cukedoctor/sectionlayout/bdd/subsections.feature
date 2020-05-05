@@ -110,16 +110,12 @@ Big ones, small ones...
 = *Dinosaurs: Reality or Myth?*
 
 
-****
 As children, we all come to know and love these alleged ancient titans, but _did they ever really exist_?
-****
 
 [[Head-Adornments, Head Adornments]]
 == *Head Adornments*
 
-****
 Big ones, small ones...
-****
 
 [[Sonic-Phenomenon, Sonic Phenomenon]]
 === *Sonic Phenomenon*

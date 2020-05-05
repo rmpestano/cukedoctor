@@ -32,9 +32,7 @@ public class BuiltInFeaturesSectionTest {
                 "= *Feature name*" + newLine() +
                 newLine() +
                 newLine() +
-                "****" + newLine() +
                 "Feature description" + newLine() +
-                "****" + newLine() +
                 newLine();
         final String expectedDocument = oneScenario + oneScenario;
 
@@ -54,9 +52,7 @@ public class BuiltInFeaturesSectionTest {
         final String oneScenario = "[[Feature-name, Feature name]]" + newLine() +
                 "== *Feature name*" + newLine() +
                 newLine() +
-                "****" + newLine() +
                 "Feature description" + newLine() +
-                "****" + newLine() +
                 newLine();
         final String expectedDocument = "[[Features, Features]]" + newLine() +
                 "= *Features*" + newLine() + newLine() + newLine()
