@@ -61,7 +61,8 @@ public class CukedoctorFeatureRenderer extends AbstractBaseRenderer implements F
 
         }
         if (hasText(feature.getDescription())) {
-            builder.sideBarBlock(trimAllLines(feature.getDescription()).replaceAll("\\\\", "").replaceAll("\\n", newLine()));
+            final String description = trimAllLines(feature.getDescription()).replaceAll("\\\\", "").replaceAll("\\n", newLine());
+            renderDescription(builder, description);
         }
 
         if(feature.hasScenarios()){
@@ -69,6 +70,10 @@ public class CukedoctorFeatureRenderer extends AbstractBaseRenderer implements F
         }
 
         return builder.toString();
+    }
+
+    protected void renderDescription(CukedoctorDocumentBuilder builder, String description) {
+        builder.sideBarBlock(description);
     }
 
     @Override

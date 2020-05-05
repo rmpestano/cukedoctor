@@ -35,9 +35,7 @@ public class FeatureSectionTest {
                 "= *Feature name*" + newLine() +
                 newLine() +
                 newLine() +
-                "****" + newLine() +
                 "Feature description" + newLine() +
-                "****" + newLine() +
                 newLine();
 
         final String result = section.render(CukedoctorDocumentBuilder.Factory.newInstance(), I18nLoader.instance(null), new DocumentAttributes());

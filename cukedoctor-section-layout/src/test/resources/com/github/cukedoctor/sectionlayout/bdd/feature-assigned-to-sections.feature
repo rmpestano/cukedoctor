@@ -81,9 +81,7 @@ Feature: Birds: Descendents of Titans?
 = *Dinosaurs: Reality or Myth?*
 
 
-****
 As children, we all come to know and love these alleged ancient titans, but _did they ever really exist_?
-****
 
 == Scenario: Their demise
 If they did once exist, how did they cease to?
@@ -241,7 +239,7 @@ I have an implausible head adornment icon:thumbs-up[role="green",title="Passed"]
 
 
   Scenario: Appendices
-  A Section can be made into an Appendix by applying the `@appendix` tag.
+  A Section can be made into an https://asciidoctor.org/docs/user-manual/#user-appendix[Appendix] by applying the `@appendix` tag.
   Appendix Sections are rendered after the Features Section.
   They are otherwise identical in behaviour to non-Appendix Sections (e.g. how they are ordered).
 
@@ -320,6 +318,44 @@ I do not mind getting mucky icon:thumbs-up[role="green",title="Passed"]
 Given ::
 I have an implausible head adornment icon:thumbs-up[role="green",title="Passed"]
 ==========
+
+
+"""
+
+  Scenario: Glossary
+  A Feature rendered as a https://asciidoctor.org/docs/user-manual/#user-glossary[Glossary] Section if it is tagged with teh `@glossary` Feature tag.
+  Only a single Feature should be tagged with `@glossary`. The behaviour when multiple Features are tagged is undefined.
+
+  NOTE: As per the AsciiDoc documentation, you must add the `[glossary]` style _before_ the first definition. Cukedoctor will add the style to the title automatically.
+
+    Given I have the Feature
+"""
+@glossary
+Feature: My Glossary
+ Below are definitions for term used throughout this book.
+
+[glossary]
+Dinosaur:: fictitious giant reptile of old
+Carnivore:: an animal that feeds solely on other animals
+
+  Scenario: Root
+
+"""
+    And I am hiding step timings
+    And all Cukedoctor extensions are disabled
+    When I convert the Feature
+    Then it will be rendered as
+"""asciidoc
+[glossary]
+[[My-Glossary, My Glossary]]
+= *My Glossary*
+
+
+Below are definitions for term used throughout this book.
+
+[glossary]
+Dinosaur:: fictitious giant reptile of old
+Carnivore:: an animal that feeds solely on other animals
 
 
 """

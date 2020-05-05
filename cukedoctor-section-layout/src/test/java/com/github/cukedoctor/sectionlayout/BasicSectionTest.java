@@ -79,9 +79,7 @@ public class BasicSectionTest {
 
         final String expectedDocument = "[[My-Cool-Section, My Cool Section]]" + newLine() +
                 "= *My Cool Section*" + newLine() + newLine() + newLine() +
-                "****" + newLine() +
-                "This tells you all about my really cool section." + newLine() +
-                "****" + newLine() + newLine() +
+                "This tells you all about my really cool section." + newLine() + newLine() +
                 "[[My-First-Child, My First Child]]" + newLine() +
                 "== *My First Child*" + newLine() + newLine();
 
@@ -191,9 +189,7 @@ public class BasicSectionTest {
 
         final String expectedDocument = "[[My-Cool-Section, My Cool Section]]" + newLine() +
                 "= *My Cool Section*" + newLine() + newLine() + newLine() +
-                "****" + newLine() +
-                "This tells you all about my really cool section." + newLine() +
-                "****" + newLine() + newLine();
+                "This tells you all about my really cool section." + newLine() + newLine();
 
         final String result = section.render(CukedoctorDocumentBuilder.Factory.newInstance(), I18nLoader.instance(null), new DocumentAttributes());
 

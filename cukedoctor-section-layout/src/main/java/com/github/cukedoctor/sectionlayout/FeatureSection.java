@@ -4,7 +4,6 @@ import com.github.cukedoctor.api.CukedoctorDocumentBuilder;
 import com.github.cukedoctor.api.DocumentAttributes;
 import com.github.cukedoctor.api.model.Feature;
 import com.github.cukedoctor.i18n.I18nLoader;
-import com.github.cukedoctor.renderer.CukedoctorFeatureRenderer;
 import com.github.cukedoctor.spi.FeatureRenderer;
 import com.github.cukedoctor.util.ServiceLoaderUtil;
 
@@ -16,7 +15,7 @@ public class FeatureSection implements Section {
 
     static {
         featureRenderer = () -> {
-            FeatureRenderer val = new ServiceLoaderUtil<FeatureRenderer>().load(FeatureRenderer.class, CukedoctorFeatureRenderer.class, SectionFeatureRenderer.class);
+            FeatureRenderer val = new ServiceLoaderUtil<FeatureRenderer>().load(FeatureRenderer.class, NoSideBarBlockFeatureRenderer.class, SectionFeatureRenderer.class);
             featureRenderer = () -> val;
             return val;
         };

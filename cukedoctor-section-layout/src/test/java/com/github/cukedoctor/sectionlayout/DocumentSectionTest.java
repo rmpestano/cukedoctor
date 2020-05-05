@@ -45,7 +45,7 @@ public class DocumentSectionTest {
                 "== *My Other Feature*" + newLine() +
                 newLine();
 
-        assertEquals(expectedDocument, root.render(CukedoctorDocumentBuilder.Factory.newInstance(), I18nLoader.instance(null), new DocumentAttributes()));
+        assertEquals(expectedDocument, renderDocument(root));
     }
 
     @Test
@@ -69,7 +69,7 @@ public class DocumentSectionTest {
                 "== *Yet Another Feature*" + newLine() +
                 newLine();
 
-        assertEquals(expectedDocument, root.render(CukedoctorDocumentBuilder.Factory.newInstance(), I18nLoader.instance(null), new DocumentAttributes()));
+        assertEquals(expectedDocument, renderDocument(root));
     }
 
     @Test
@@ -89,7 +89,7 @@ public class DocumentSectionTest {
                 "== *My Other Feature*" + newLine() +
                 newLine();
 
-        assertEquals(expectedDocument, root.render(CukedoctorDocumentBuilder.Factory.newInstance(), I18nLoader.instance(null), new DocumentAttributes()));
+        assertEquals(expectedDocument, renderDocument(root));
     }
 
     @Test
@@ -109,7 +109,7 @@ public class DocumentSectionTest {
                 "== *Yet Another Feature*" + newLine() +
                 newLine();
 
-        assertEquals(expectedDocument, root.render(CukedoctorDocumentBuilder.Factory.newInstance(), I18nLoader.instance(null), new DocumentAttributes()));
+        assertEquals(expectedDocument, renderDocument(root));
     }
 
     @Test
@@ -141,7 +141,7 @@ public class DocumentSectionTest {
                 "== *Amazing Feature*" + newLine() +
                 newLine();
 
-        assertEquals(expectedDocument, root.render(CukedoctorDocumentBuilder.Factory.newInstance(), I18nLoader.instance(null), new DocumentAttributes()));
+        assertEquals(expectedDocument, renderDocument(root));
     }
 
     @Test
@@ -150,7 +150,29 @@ public class DocumentSectionTest {
         root.addFeature(FeatureBuilder.instance().id("My Feature").name("My Feature").tag("@section-SectionOne").tag("@skipDocs").build());
         root.addFeature(FeatureBuilder.instance().id("My Other Feature").name("My Other Feature").tag("@skipDocs").build());
 
-        assertEquals("", root.render(CukedoctorDocumentBuilder.Factory.newInstance(), I18nLoader.instance(null), new DocumentAttributes()));
+        assertEquals("", renderDocument(root));
+    }
+
+    @Test
+    public void shouldRenderGlossaryAfterAppendices() {
+        DocumentSection root = new DocumentSection();
+        root.addFeature(FeatureBuilder.instance().id("Appendix Subtitle").name("Appendix Subtitle").tag("@section-MyAppendix").tag("@appendix").build());
+        root.addFeature(FeatureBuilder.instance().id("My Glossary").name("My Glossary").tag("@glossary").description("This is my glossary.").scenario(ScenarioBuilder.instance().name("Root").build()).build());
+
+        String expectedDocument = "[appendix]" + newLine() +
+                "[[MyAppendix, MyAppendix]]" + newLine() +
+                "= *MyAppendix*" + newLine() +
+                newLine() + newLine() +
+                "[[Appendix-Subtitle, Appendix Subtitle]]" + newLine() +
+                "== *Appendix Subtitle*" + newLine() +
+                newLine() +
+                "[glossary]" + newLine() +
+                "[[My-Glossary, My Glossary]]" + newLine() +
+                "= *My Glossary*" + newLine() +
+                newLine() + newLine() +
+                "This is my glossary." + newLine() + newLine();
+
+        assertEquals(expectedDocument, renderDocument(root));
     }
 
     @Test
@@ -180,5 +202,9 @@ public class DocumentSectionTest {
         root.addFeatures(Arrays.asList(six, five, three, four, one, two, seven, eight));
 
         assertThat(root.getFeatures().collect(Collectors.toList()), contains(one, two, three, four, five, six, seven, eight));
+    }
+
+    private String renderDocument(DocumentSection root) {
+        return root.render(CukedoctorDocumentBuilder.Factory.newInstance(), I18nLoader.instance(null), new DocumentAttributes());
     }
 }
