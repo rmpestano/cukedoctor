@@ -7,6 +7,7 @@ import com.github.cukedoctor.api.model.Scenario;
 import com.github.cukedoctor.api.model.Tag;
 import com.github.cukedoctor.i18n.I18nLoader;
 import com.github.cukedoctor.util.builder.FeatureBuilder;
+import com.google.common.collect.Iterables;
 
 import java.util.*;
 
@@ -174,5 +175,15 @@ public class BasicSection implements Section {
     @Override
     public int getOrder() {
         return order;
+    }
+
+    @Override
+    public Iterable<Feature> getFeatures() {
+        Iterable<Feature> aggregate = hasRoot() ? root.getFeatures() : Collections.emptyList();
+        for (Section section : getChildren()) {
+            aggregate = Iterables.concat(aggregate, section.getFeatures());
+        }
+
+        return aggregate;
     }
 }

@@ -25,4 +25,6 @@ public interface Section extends Comparable<Section> {
 
         return Integer.compare(getOrder(), other.getOrder());
     }
+
+    Iterable<Feature> getFeatures();
 }

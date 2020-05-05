@@ -80,6 +80,7 @@ public class FeatureBuilder {
 
 	public Feature build() {
 		feature.initScenarios();
+		feature.processSteps();
 		return instance.getFeature();
 	}
 

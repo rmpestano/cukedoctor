@@ -84,4 +84,13 @@ public class DocumentSection implements Section {
         return Integer.MAX_VALUE;
     }
 
+    @Override
+    public Iterable<Feature> getFeatures() {
+        Iterable<Feature> aggregate = Collections.emptyList();
+        for (Section section : buildDocument()) {
+            aggregate = Iterables.concat(aggregate, section.getFeatures());
+        }
+
+        return aggregate;
+    }
 }

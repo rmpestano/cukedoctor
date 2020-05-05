@@ -2,6 +2,7 @@ package com.github.cukedoctor.sectionlayout;
 
 import com.github.cukedoctor.api.CukedoctorDocumentBuilder;
 import com.github.cukedoctor.api.DocumentAttributes;
+import com.github.cukedoctor.api.model.Feature;
 import com.github.cukedoctor.i18n.I18nLoader;
 import com.github.cukedoctor.util.builder.FeatureBuilder;
 import com.github.cukedoctor.util.builder.ScenarioBuilder;
@@ -10,7 +11,12 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;
 
+import java.util.Arrays;
+
 import static com.github.cukedoctor.util.Constants.newLine;
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.contains;
+import static org.hamcrest.Matchers.emptyIterable;
 import static org.junit.Assert.assertEquals;
 
 @RunWith(JUnit4.class)
@@ -37,7 +43,7 @@ public class BasicSectionTest {
                 "== *My Second Child*" + newLine() +
                 newLine();
 
-        final String result = section.render(CukedoctorDocumentBuilder.Factory.instance(), I18nLoader.instance(null), new DocumentAttributes());
+        final String result = section.render(CukedoctorDocumentBuilder.Factory.newInstance(), I18nLoader.instance(null), new DocumentAttributes());
 
         assertEquals(expectedDocument, result);
     }
@@ -58,7 +64,7 @@ public class BasicSectionTest {
                 "== *My Second Child*" + newLine() +
                 newLine();
 
-        final String result = section.render(CukedoctorDocumentBuilder.Factory.instance(), I18nLoader.instance(null), new DocumentAttributes());
+        final String result = section.render(CukedoctorDocumentBuilder.Factory.newInstance(), I18nLoader.instance(null), new DocumentAttributes());
 
         assertEquals(expectedDocument, result);
     }
@@ -78,7 +84,7 @@ public class BasicSectionTest {
                 "[[My-First-Child, My First Child]]" + newLine() +
                 "== *My First Child*" + newLine() + newLine();
 
-        final String result = section.render(CukedoctorDocumentBuilder.Factory.instance(), I18nLoader.instance(null), new DocumentAttributes());
+        final String result = section.render(CukedoctorDocumentBuilder.Factory.newInstance(), I18nLoader.instance(null), new DocumentAttributes());
 
         assertEquals(expectedDocument, result);
     }
@@ -96,7 +102,7 @@ public class BasicSectionTest {
                 "=== *My First Child*" + newLine() +
                 newLine();
 
-        final String result = section.render(CukedoctorDocumentBuilder.Factory.instance(), I18nLoader.instance(null), new DocumentAttributes());
+        final String result = section.render(CukedoctorDocumentBuilder.Factory.newInstance(), I18nLoader.instance(null), new DocumentAttributes());
 
         assertEquals(expectedDocument, result);
     }
@@ -130,7 +136,7 @@ public class BasicSectionTest {
                 "[[My-Fifth-Child, My Fifth Child]]" + newLine() +
                 "== *My Fifth Child*" + newLine() + newLine();
 
-        final String result = section.render(CukedoctorDocumentBuilder.Factory.instance(), I18nLoader.instance(null), new DocumentAttributes());
+        final String result = section.render(CukedoctorDocumentBuilder.Factory.newInstance(), I18nLoader.instance(null), new DocumentAttributes());
 
         assertEquals(expectedDocument, result);
     }
@@ -151,7 +157,7 @@ public class BasicSectionTest {
                 "== *My Second Child*" + newLine() +
                 newLine();
 
-        final String result = section.render(CukedoctorDocumentBuilder.Factory.instance(), I18nLoader.instance(null), new DocumentAttributes());
+        final String result = section.render(CukedoctorDocumentBuilder.Factory.newInstance(), I18nLoader.instance(null), new DocumentAttributes());
 
         assertEquals(expectedDocument, result);
     }
@@ -171,7 +177,7 @@ public class BasicSectionTest {
                 "== *My Second Child*" + newLine() +
                 newLine();
 
-        final String result = section.render(CukedoctorDocumentBuilder.Factory.instance(), I18nLoader.instance(null), new DocumentAttributes());
+        final String result = section.render(CukedoctorDocumentBuilder.Factory.newInstance(), I18nLoader.instance(null), new DocumentAttributes());
 
         assertEquals(expectedDocument, result);
     }
@@ -188,7 +194,7 @@ public class BasicSectionTest {
                 "This tells you all about my really cool section." + newLine() +
                 "****" + newLine() + newLine();
 
-        final String result = section.render(CukedoctorDocumentBuilder.Factory.instance(), I18nLoader.instance(null), new DocumentAttributes());
+        final String result = section.render(CukedoctorDocumentBuilder.Factory.newInstance(), I18nLoader.instance(null), new DocumentAttributes());
 
         assertEquals(expectedDocument, result);
     }
@@ -197,7 +203,7 @@ public class BasicSectionTest {
     public void shouldNotRenderIfSectionHasNoChildren() {
         final BasicSection section = createSection();
 
-        final String result = section.render(CukedoctorDocumentBuilder.Factory.instance(), I18nLoader.instance(null), new DocumentAttributes());
+        final String result = section.render(CukedoctorDocumentBuilder.Factory.newInstance(), I18nLoader.instance(null), new DocumentAttributes());
 
         assertEquals("", result);
     }
@@ -228,6 +234,29 @@ public class BasicSectionTest {
 
         assertEquals(-13, section.getOrder());
     }
+
+
+    @Test
+    public void shouldGetNoFeaturesIfEmpty() {
+        final BasicSection section = createSection();
+
+        assertThat(section.getFeatures(), emptyIterable());
+    }
+
+    @Test
+    public void shouldGetFeaturesInOrder() {
+        final Feature one = FeatureBuilder.instance().tag("@order-1").scenario(ScenarioBuilder.instance().name("Root").build()).build();
+        final Feature two = FeatureBuilder.instance().tag("order-2").build();
+        final Feature three = FeatureBuilder.instance().tag("order-3").tag("@group-one").scenario(ScenarioBuilder.instance().name("Root").build()).build();
+        final Feature four = FeatureBuilder.instance().tag("order-4").tag("@group-one").build();
+        final Feature five = FeatureBuilder.instance().tag("order-5").build();
+
+        final BasicSection section = new BasicSection("My Section", null, "@group-");
+        section.addFeatures(Arrays.asList(five, three, four, one, two));
+
+        assertThat(section.getFeatures(), contains(one, two, three, four, five));
+    }
+
 
     private BasicSection createSection() {
         return new BasicSection("My Section");

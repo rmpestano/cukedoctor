@@ -1,7 +1,12 @@
 package com.github.cukedoctor.sectionlayout.bdd;
 
+import com.github.cukedoctor.Cukedoctor;
 import com.github.cukedoctor.api.CukedoctorDocumentBuilder;
+import com.github.cukedoctor.api.DocumentAttributes;
 import com.github.cukedoctor.api.model.Feature;
+import com.github.cukedoctor.api.model.Scenario;
+import com.github.cukedoctor.api.model.Step;
+import com.github.cukedoctor.config.CukedoctorConfig;
 import com.github.cukedoctor.parser.FeatureParser;
 import com.github.cukedoctor.sectionlayout.SectionFeatureRenderer;
 import io.cucumber.java.Before;
@@ -23,12 +28,16 @@ import static org.junit.Assert.assertEquals;
 
 public class StepDefs {
 
+    private final File introDirectory;
     private final File tempDirectory;
     private final LinkedList<Path> featureFilePaths = new LinkedList<>();
     private Path reportFilePath;
     private String renderedDocument;
 
     public StepDefs() throws IOException {
+        introDirectory = Files.createTempDirectory("Intro").toFile();
+        introDirectory.deleteOnExit();
+
         tempDirectory = Files.createTempDirectory("Features").toFile();
         tempDirectory.deleteOnExit();
     }
@@ -80,6 +89,14 @@ public class StepDefs {
         runCucumber();
         List<Feature> features = parseFeatures();
         renderFeatures(features);
+    }
+
+    @When("I run Cukedoctor")
+    public void i_run_cukedoctor() {
+        runCucumber();
+        List<Feature> features = parseFeatures();
+        setAllStepDurationsToZero(features);
+        runCukedoctor(features);
     }
 
     @Then("it will be rendered as a Section")
@@ -157,5 +174,28 @@ public class StepDefs {
 
     public void renderFeatures(List<Feature> features) {
         renderedDocument = new SectionFeatureRenderer().renderFeatures(features, CukedoctorDocumentBuilder.Factory.newInstance());
+    }
+
+    public void runCukedoctor(List<Feature> features) {
+        CukedoctorConfig config = getConfig();
+        renderedDocument = Cukedoctor.instance(features, new DocumentAttributes(), config).renderDocumentation();
+    }
+
+    private void setAllStepDurationsToZero(List<Feature> features) {
+        for (Feature feature : features) {
+            for (Scenario scenario : feature.getScenarios()) {
+                for (Step step : scenario.getSteps()) {
+                    step.getResult().setDuration(0L);
+                }
+            }
+        }
+    }
+
+    private CukedoctorConfig getConfig() {
+        CukedoctorConfig config = new CukedoctorConfig();
+        // Avoid picking up intro docs in source tree
+        config.setIntroChapterDir(introDirectory.getAbsolutePath());
+        config.setIntroChapterRelativePath(introDirectory.getAbsolutePath());
+        return config;
     }
 }

@@ -17,6 +17,10 @@ public final class ServiceLoaderUtil<R extends BaseRenderer> {
         this(c -> ServiceLoader.load(c).iterator());
     }
 
+    public ServiceLoaderUtil(Iterable<R> services) {
+        this(x -> services.iterator());
+    }
+
     public ServiceLoaderUtil(Function<Class<R>, Iterator<R>> loader) {
         this.loader = loader;
     }
