@@ -11,6 +11,8 @@ import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;
 
 import static com.github.cukedoctor.util.Constants.newLine;
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.contains;
 import static org.junit.Assert.assertEquals;
 
 @RunWith(JUnit4.class)
@@ -36,7 +38,7 @@ public class FeatureSectionTest {
                 "****" + newLine() +
                 newLine();
 
-        final String result = section.render(CukedoctorDocumentBuilder.Factory.instance(), I18nLoader.instance(null), new DocumentAttributes());
+        final String result = section.render(CukedoctorDocumentBuilder.Factory.newInstance(), I18nLoader.instance(null), new DocumentAttributes());
 
         assertEquals(expected, result);
     }
@@ -56,5 +58,13 @@ public class FeatureSectionTest {
     public void orderShouldBeMinimumOfOrderTags() {
         final FeatureSection section = new FeatureSection(FeatureBuilder.instance().tag("@order-42").build());
         assertEquals(42, section.getOrder());
+    }
+
+    @Test
+    public void shouldGetFeature() {
+        final Feature feature = new Feature();
+        final FeatureSection section = new FeatureSection(feature);
+
+        assertThat(section.getFeatures(), contains(feature));
     }
 }

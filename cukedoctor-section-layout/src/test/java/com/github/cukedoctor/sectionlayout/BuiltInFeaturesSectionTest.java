@@ -38,7 +38,7 @@ public class BuiltInFeaturesSectionTest {
                 newLine();
         final String expectedDocument = oneScenario + oneScenario;
 
-        final String result = section.render(CukedoctorDocumentBuilder.Factory.instance(), I18nLoader.instance(null), new DocumentAttributes());
+        final String result = section.render(CukedoctorDocumentBuilder.Factory.newInstance(), I18nLoader.instance(null), new DocumentAttributes());
 
         assertEquals(expectedDocument, result);
     }
@@ -63,7 +63,7 @@ public class BuiltInFeaturesSectionTest {
                 + oneScenario
                 + oneScenario;
 
-        final String result = section.render(CukedoctorDocumentBuilder.Factory.instance(), I18nLoader.instance(null), new DocumentAttributes());
+        final String result = section.render(CukedoctorDocumentBuilder.Factory.newInstance(), I18nLoader.instance(null), new DocumentAttributes());
 
         assertEquals(expectedDocument, result);
     }

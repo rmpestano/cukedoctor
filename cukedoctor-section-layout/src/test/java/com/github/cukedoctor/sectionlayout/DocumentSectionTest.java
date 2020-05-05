@@ -2,6 +2,7 @@ package com.github.cukedoctor.sectionlayout;
 
 import com.github.cukedoctor.api.CukedoctorDocumentBuilder;
 import com.github.cukedoctor.api.DocumentAttributes;
+import com.github.cukedoctor.api.model.Feature;
 import com.github.cukedoctor.i18n.I18nLoader;
 import com.github.cukedoctor.util.builder.FeatureBuilder;
 import com.github.cukedoctor.util.builder.ScenarioBuilder;
@@ -10,7 +11,12 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;
 
+import java.util.Arrays;
+
 import static com.github.cukedoctor.util.Constants.newLine;
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.contains;
+import static org.hamcrest.Matchers.emptyIterable;
 import static org.junit.Assert.assertEquals;
 
 @RunWith(JUnit4.class)
@@ -38,7 +44,7 @@ public class DocumentSectionTest {
                 "== *My Other Feature*" + newLine() +
                 newLine();
 
-        assertEquals(expectedDocument, root.render(CukedoctorDocumentBuilder.Factory.instance(), I18nLoader.instance(null), new DocumentAttributes()));
+        assertEquals(expectedDocument, root.render(CukedoctorDocumentBuilder.Factory.newInstance(), I18nLoader.instance(null), new DocumentAttributes()));
     }
 
     @Test
@@ -62,7 +68,7 @@ public class DocumentSectionTest {
                 "== *My Other Feature*" + newLine() +
                 newLine();
 
-        assertEquals(expectedDocument, root.render(CukedoctorDocumentBuilder.Factory.instance(), I18nLoader.instance(null), new DocumentAttributes()));
+        assertEquals(expectedDocument, root.render(CukedoctorDocumentBuilder.Factory.newInstance(), I18nLoader.instance(null), new DocumentAttributes()));
     }
 
     @Test
@@ -82,7 +88,7 @@ public class DocumentSectionTest {
                 "== *My Other Feature*" + newLine() +
                 newLine();
 
-        assertEquals(expectedDocument, root.render(CukedoctorDocumentBuilder.Factory.instance(), I18nLoader.instance(null), new DocumentAttributes()));
+        assertEquals(expectedDocument, root.render(CukedoctorDocumentBuilder.Factory.newInstance(), I18nLoader.instance(null), new DocumentAttributes()));
     }
 
     @Test
@@ -102,7 +108,7 @@ public class DocumentSectionTest {
                 "== *Yet Another Feature*" + newLine() +
                 newLine();
 
-        assertEquals(expectedDocument, root.render(CukedoctorDocumentBuilder.Factory.instance(), I18nLoader.instance(null), new DocumentAttributes()));
+        assertEquals(expectedDocument, root.render(CukedoctorDocumentBuilder.Factory.newInstance(), I18nLoader.instance(null), new DocumentAttributes()));
     }
 
     @Test
@@ -134,7 +140,7 @@ public class DocumentSectionTest {
                 "== *Amazing Feature*" + newLine() +
                 newLine();
 
-        assertEquals(expectedDocument, root.render(CukedoctorDocumentBuilder.Factory.instance(), I18nLoader.instance(null), new DocumentAttributes()));
+        assertEquals(expectedDocument, root.render(CukedoctorDocumentBuilder.Factory.newInstance(), I18nLoader.instance(null), new DocumentAttributes()));
     }
 
     @Test
@@ -143,11 +149,35 @@ public class DocumentSectionTest {
         root.addFeature(FeatureBuilder.instance().id("My Feature").name("My Feature").tag("@section-SectionOne").tag("@skipDocs").build());
         root.addFeature(FeatureBuilder.instance().id("My Other Feature").name("My Other Feature").tag("@skipDocs").build());
 
-        assertEquals("", root.render(CukedoctorDocumentBuilder.Factory.instance(), I18nLoader.instance(null), new DocumentAttributes()));
+        assertEquals("", root.render(CukedoctorDocumentBuilder.Factory.newInstance(), I18nLoader.instance(null), new DocumentAttributes()));
     }
 
     @Test
     public void orderShouldBeIntMax() {
         assertEquals(Integer.MAX_VALUE, new DocumentSection().getOrder());
+    }
+
+    @Test
+    public void shouldGetNoFeaturesIfEmpty() {
+        final DocumentSection root = new DocumentSection();
+
+        assertThat(root.getFeatures(), emptyIterable());
+    }
+
+    @Test
+    public void shouldGetFeaturesInOrder() {
+        final Feature one = FeatureBuilder.instance().tag("@order-1").tag("@section-one").scenario(ScenarioBuilder.instance().name("Root").build()).build();
+        final Feature two = FeatureBuilder.instance().tag("order-2").tag("@section-two").tag("@subsection-one").scenario(ScenarioBuilder.instance().name("Root").build()).build();
+        final Feature three = FeatureBuilder.instance().tag("order-3").tag("@section-two").tag("@subsection-one").build();
+        final Feature four = FeatureBuilder.instance().tag("order-4").tag("@section-three").build();
+        final Feature five = FeatureBuilder.instance().tag("order-5").build();
+        final Feature six = FeatureBuilder.instance().tag("order-6").tag("@subsection-one").build();
+        final Feature seven = FeatureBuilder.instance().tag("order-7").tag("@appendix").tag("@section-four").tag("@subsection-one").scenario(ScenarioBuilder.instance().name("Root").build()).build();
+        final Feature eight = FeatureBuilder.instance().tag("order-8").tag("@appendix").tag("@section-five").build();
+
+        final DocumentSection root = new DocumentSection();
+        root.addFeatures(Arrays.asList(six, five, three, four, one, two, seven, eight));
+
+        assertThat(root.getFeatures(), contains(one, two, three, four, five, six, seven, eight));
     }
 }
