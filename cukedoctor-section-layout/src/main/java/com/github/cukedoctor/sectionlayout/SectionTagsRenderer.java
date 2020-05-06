@@ -15,10 +15,10 @@ public class SectionTagsRenderer extends CukedoctorTagsRenderer {
     }
 
     private boolean isSectionTag(Tag tag) {
-        return tag.extractPattern(SectionTagPattern) != null;
+        return tag.extractPattern(SectionTagPattern).isPresent();
     }
 
     private boolean isAppendixTag(Tag tag) {
-        return tag.extractPattern(AppendixTagPattern) != null;
+        return tag.extractPattern(AppendixTagPattern).isPresent();
     }
 }
