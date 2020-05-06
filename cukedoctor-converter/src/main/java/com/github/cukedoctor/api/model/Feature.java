@@ -365,15 +365,13 @@ public class Feature implements Comparable<Feature> {
     }
 
     public Optional<String> extractTag(String pattern) {
-        if (!hasTags()) return Optional.empty();
-
-        for (Tag tag : getTags()) {
-            Optional<String> candidate = tag.extractPattern(pattern);
-            if (candidate.isPresent()) {
-                return candidate;
-            }
+        if (!hasTags()) {
+            return Optional.empty();
         }
-
-        return Optional.empty();
+        return getTags().stream()
+                .map(tag -> tag.extractPattern(pattern))
+                .filter(Optional::isPresent)
+                .map(Optional::get)
+                .findFirst();
     }
 }
