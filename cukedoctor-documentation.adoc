@@ -10,7 +10,7 @@
 :docinfo:
 :source-highlighter: coderay
 :toclevels: 3
-:revnumber: 2.2-SNAPSHOT
+:revnumber: 3.1-SNAPSHOT
 :hardbreaks:
 :chapter-label: Chapter
 :version-label: Version
