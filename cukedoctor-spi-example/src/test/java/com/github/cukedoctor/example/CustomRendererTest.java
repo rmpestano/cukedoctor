@@ -121,13 +121,13 @@ public class CustomRendererTest {
         		"I should have 0 as result icon:thumbs-down[role=\"red\",title=\"Failed\"] [small right]#(000ms)#"+newLine()+ 
         		""+newLine()+ 
         		"IMPORTANT: java.lang.AssertionError: expected:<0> but was:<1>"+newLine()+ 
-        		"at org.junit.Assert.fail(Assert.java:88)"+newLine()+ 
-        		"at org.junit.Assert.failNotEquals(Assert.java:743)"+newLine()+ 
-        		"at org.junit.Assert.assertEquals(Assert.java:118)"+newLine()+ 
-        		"at org.junit.Assert.assertEquals(Assert.java:555)"+newLine()+ 
-        		"at org.junit.Assert.assertEquals(Assert.java:542)"+newLine()+ 
-        		"at com.github.cukedoctor.example.bdd.CalcStepDef.I_should_have_result(CalcStepDef.java:37)"+newLine()+ 
-        		"at ✽.Then I should have 0 as result(src/test/resources/features/calc.feature:14)"+newLine()+ 
+        		"\tat org.junit.Assert.fail(Assert.java:88)"+newLine()+
+        		"\tat org.junit.Assert.failNotEquals(Assert.java:743)"+newLine()+
+        		"\tat org.junit.Assert.assertEquals(Assert.java:118)"+newLine()+
+        		"\tat org.junit.Assert.assertEquals(Assert.java:555)"+newLine()+
+        		"\tat org.junit.Assert.assertEquals(Assert.java:542)"+newLine()+
+        		"\tat com.github.cukedoctor.example.bdd.CalcStepDef.I_should_have_result(CalcStepDef.java:37)"+newLine()+
+        		"\tat ✽.Then I should have 0 as result(src/test/resources/features/calc.feature:14)"+newLine()+
         		""+newLine()+ 
         		"=========="+newLine()+ 
         		""+newLine()+ 

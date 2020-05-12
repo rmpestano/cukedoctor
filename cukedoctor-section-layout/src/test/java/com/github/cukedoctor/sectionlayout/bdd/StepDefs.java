@@ -9,59 +9,47 @@ import com.github.cukedoctor.api.model.Step;
 import com.github.cukedoctor.config.CukedoctorConfig;
 import com.github.cukedoctor.parser.FeatureParser;
 import com.github.cukedoctor.sectionlayout.SectionFeatureRenderer;
+import com.github.cukedoctor.sectionlayout.bdd.inception.InceptionStepDefs;
+import com.github.cukedoctor.util.MetaCuke;
+import com.github.cukedoctor.util.StringUtil;
 import io.cucumber.java.Before;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.After;
 
-import java.io.BufferedWriter;
 import java.io.File;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.file.Files;
-import java.nio.file.Path;
-import java.util.LinkedList;
 import java.util.List;
 
 import static org.junit.Assert.assertEquals;
 
 public class StepDefs {
+    private final MetaCuke metaCuke = new MetaCuke();
 
     private final File introDirectory;
-    private final File tempDirectory;
-    private final LinkedList<Path> featureFilePaths = new LinkedList<>();
-    private Path reportFilePath;
     private String renderedDocument;
 
     public StepDefs() throws IOException {
         introDirectory = Files.createTempDirectory("Intro").toFile();
         introDirectory.deleteOnExit();
-
-        tempDirectory = Files.createTempDirectory("Features").toFile();
-        tempDirectory.deleteOnExit();
     }
 
     @Before
     public void before() throws IOException {
-        featureFilePaths.clear();
-        reportFilePath = createTempFile("Report", ".json").toPath();
+        metaCuke.setUp();
         renderedDocument = null;
     }
 
     @After
     public void after() throws IOException {
-        for (Path path : featureFilePaths) {
-            Files.deleteIfExists(path);
-        }
-
-        Files.deleteIfExists(reportFilePath);
+        metaCuke.tearDown();
     }
-
 
     @Given("I have the Feature")
     public void i_have_the_feature(String featureText) throws IOException {
-        featureFilePaths.add(createFeatureFile(featureText));
+        metaCuke.addFeature(featureText);
     }
 
     @Given("I am hiding the Features Section")
@@ -124,52 +112,16 @@ public class StepDefs {
         assetDocumentEquals(expectedDocument);
     }
 
-
-    private File createTempFile(String prefix, String suffix) throws IOException {
-        File tempFile = File.createTempFile(prefix, suffix, tempDirectory);
-        tempFile.deleteOnExit();
-        return tempFile;
-    }
-
-    private Path createFeatureFile(String featureText) throws IOException {
-        File featureFile = createTempFile("Scenario", ".feature");
-        writeFeatureToFile(featureText, featureFile);
-        return featureFile.toPath();
-    }
-
-    private static void writeFeatureToFile(String featureText, File featureFile) throws IOException {
-        FileWriter fileWriter = new FileWriter(featureFile);
-        BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
-        bufferedWriter.write(featureText);
-        bufferedWriter.close();
-        fileWriter.close();
-    }
-
     private void runCucumber() {
-        io.cucumber.core.cli.Main.run(
-                new String[]{
-                        "--glue",
-                        "com/github/cukedoctor/sectionlayout/bdd/inception",
-                        // The below lines are helpful for debugging, but severely confuse general test output
-                        //  "--plugin",
-                        //  "pretty",
-                        "--plugin",
-                        "json:" + reportFilePath,
-                        tempDirectory.getAbsolutePath(),
-                },
-                Thread.currentThread().getContextClassLoader());
+        metaCuke.runCucumber(InceptionStepDefs.class);
     }
 
     public void assetDocumentEquals(String expectedDocument) {
-        assertEquals(normaliseLineEndings(expectedDocument), normaliseLineEndings(renderedDocument));
-    }
-
-    private static String normaliseLineEndings(String s) {
-        return s.replaceAll("\r\n|\r|\n", System.lineSeparator());
+        assertEquals(StringUtil.normaliseLineEndings(expectedDocument), StringUtil.normaliseLineEndings(renderedDocument));
     }
 
     public List<Feature> parseFeatures() {
-        return FeatureParser.parse(reportFilePath.toAbsolutePath().toString());
+        return FeatureParser.parse(metaCuke.getReport().getAbsolutePath());
     }
 
     public void renderFeatures(List<Feature> features) {
@@ -193,7 +145,8 @@ public class StepDefs {
 
     private CukedoctorConfig getConfig() {
         return new CukedoctorConfig().setHideSummarySection(true)
-          .setIntroChapterDir(introDirectory.getAbsolutePath())// Avoid picking up intro docs in source tree
-          .setIntroChapterRelativePath(introDirectory.getAbsolutePath());
+                .setIntroChapterDir(introDirectory.getAbsolutePath())// Avoid picking up intro docs in source tree
+                .setIntroChapterRelativePath(introDirectory.getAbsolutePath());
     }
 }
+

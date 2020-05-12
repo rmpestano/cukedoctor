@@ -61,7 +61,7 @@ public class CukedoctorFeatureRenderer extends AbstractBaseRenderer implements F
 
         }
         if (hasText(feature.getDescription())) {
-            final String description = trimAllLines(feature.getDescription()).replaceAll("\\\\", "").replaceAll("\\n", newLine());
+            final String description = trimAllLines(feature.getDescription()).replaceAll("\\\\", "");
             renderDescription(builder, description);
         }
 

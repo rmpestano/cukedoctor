@@ -287,3 +287,95 @@ the following table icon:thumbs-up[role="green",title="Passed"] [small right]#(0
 
 
 """
+
+
+    Scenario: Whitespace in descriptions
+      Features and Scenarios can have multi-line descriptions. In a feature file, these may be indented.
+      Cukedoctor uses the indentation of the first line non-blank line of the description to determine the difference
+      between the indentation _of_ the description in a feature file and your desired indentation _within_ the the
+      description itself.
+
+    Given the feature:
+"""
+  Feature: Feature One
+
+
+    This is the description for Feature One. The first non-blank line of this description in the feature file began with four whitespace characters.
+      Therefore, cukedoctor will ignore up to the first four
+whitespace characters
+  in all other lines in the same description,
+    if any are present.
+
+
+This includes
+  further lines
+    in a different
+      paragraph
+        in the same description.
+
+
+
+    Scenario: Scenario One
+
+    This is the description for Scenario One. The first non-blank line of this description in the feature file began with four whitespace characters.
+      Therefore, cukedoctor will ignore up to the first four
+whitespace characters
+  in all other lines in the same description,
+    if any are present.
+
+
+This includes
+  further lines
+    in a different
+      paragraph
+        in the same description.
+
+
+
+    Scenario: Scenario Two
+This scenario has no indentation. You don't have to use it, after all.
+      Indentation in subsequent lines is therefore fully preserved.
+
+"""
+  When I convert it
+  Then it should be rendered in AsciiDoc as
+"""asciidoc
+== *Features*
+
+[[Feature-One, Feature One]]
+=== *Feature One*
+
+****
+This is the description for Feature One. The first non-blank line of this description in the feature file began with four whitespace characters.
+  Therefore, cukedoctor will ignore up to the first four
+whitespace characters
+in all other lines in the same description,
+if any are present.
+
+
+This includes
+further lines
+in a different
+  paragraph
+    in the same description.
+****
+
+==== Scenario: Scenario One
+This is the description for Scenario One. The first non-blank line of this description in the feature file began with four whitespace characters.
+  Therefore, cukedoctor will ignore up to the first four
+whitespace characters
+in all other lines in the same description,
+if any are present.
+
+
+This includes
+further lines
+in a different
+  paragraph
+    in the same description.
+
+==== Scenario: Scenario Two
+This scenario has no indentation. You don't have to use it, after all.
+      Indentation in subsequent lines is therefore fully preserved.
+
+"""
