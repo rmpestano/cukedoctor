@@ -17,6 +17,13 @@
         </dependency>
         <dependency>
             <groupId>com.github.cukedoctor</groupId>
+            <artifactId>cukedoctor-converter</artifactId>
+            <version>${project.parent.version}</version>
+            <type>test-jar</type>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.github.cukedoctor</groupId>
             <artifactId>cukedoctor-main</artifactId>
             <version>${project.parent.version}</version>
             <scope>test</scope>
