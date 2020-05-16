@@ -685,6 +685,135 @@ the following table icon:thumbs-up[role="green",title="Passed"] [small right]#(0
 ******
 ==========
 
+==== Whitespace in descriptions
+Features and Scenarios can have multi-line descriptions. In a feature file, these may be indented.
+Cukedoctor uses the indentation of the first line non-blank line of the description to determine the difference
+between the indentation _of_ the description in a feature file and your desired indentation _within_ the the
+description itself.
+
+==========
+Given ::
+the feature: icon:thumbs-up[role="green",title="Passed"]
+----
+
+  Feature: Feature One
+
+
+    This is the description for Feature One. The first non-blank line of this description in the feature file began with four whitespace characters.
+      Therefore, cukedoctor will ignore up to the first four
+whitespace characters
+  in all other lines in the same description,
+    if any are present.
+
+
+This includes
+  further lines
+    in a different
+      paragraph
+        in the same description.
+
+
+
+    Scenario: Scenario One
+
+    This is the description for Scenario One. The first non-blank line of this description in the feature file began with four whitespace characters.
+      Therefore, cukedoctor will ignore up to the first four
+whitespace characters
+  in all other lines in the same description,
+    if any are present.
+
+
+This includes
+  further lines
+    in a different
+      paragraph
+        in the same description.
+
+
+
+    Scenario: Scenario Two
+This scenario has no indentation. You don't have to use it, after all.
+      Indentation in subsequent lines is therefore fully preserved.
+
+
+----
+When ::
+I convert it icon:thumbs-up[role="green",title="Passed"]
+Then ::
+it should be rendered in AsciiDoc as icon:thumbs-up[role="green",title="Passed"]
+******
+
+[discrete]
+== *Features*
+[discrete]
+[discrete]
+[[Feature-One, Feature One]]
+[discrete]
+=== *Feature One*
+[discrete]
+[discrete]
+*****
+[discrete]
+This is the description for Feature One. The first non-blank line of this description in the feature file began with four whitespace characters.
+[discrete]
+  Therefore, cukedoctor will ignore up to the first four
+[discrete]
+whitespace characters
+[discrete]
+in all other lines in the same description,
+[discrete]
+if any are present.
+[discrete]
+[discrete]
+[discrete]
+This includes
+[discrete]
+further lines
+[discrete]
+in a different
+[discrete]
+  paragraph
+[discrete]
+    in the same description.
+[discrete]
+*****
+[discrete]
+[discrete]
+==== Scenario: Scenario One
+[discrete]
+This is the description for Scenario One. The first non-blank line of this description in the feature file began with four whitespace characters.
+[discrete]
+  Therefore, cukedoctor will ignore up to the first four
+[discrete]
+whitespace characters
+[discrete]
+in all other lines in the same description,
+[discrete]
+if any are present.
+[discrete]
+[discrete]
+[discrete]
+This includes
+[discrete]
+further lines
+[discrete]
+in a different
+[discrete]
+  paragraph
+[discrete]
+    in the same description.
+[discrete]
+[discrete]
+==== Scenario: Scenario Two
+[discrete]
+This scenario has no indentation. You don't have to use it, after all.
+[discrete]
+      Indentation in subsequent lines is therefore fully preserved.
+
+
+******
+==========
+
 [[Documentation-introduction-chapter, Documentation introduction chapter]]
 === *Documentation introduction chapter*
 
@@ -706,8 +835,8 @@ NOTE: The introduction file must be named *intro-chapter.adoc* and can be in any
 ====
 By default Cukedoctor will look into application folders but you can make Cukedoctor look into external folder by setting the following system property:
 [source,java]
-  ----
-  System.setProperty("INTRO_CHAPTER_DIR","/home/some/external/folder");
+----
+System.setProperty("INTRO_CHAPTER_DIR","/home/some/external/folder");
 ----
 ====
 

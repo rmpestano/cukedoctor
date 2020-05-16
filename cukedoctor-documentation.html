@@ -43,6 +43,7 @@
          <li><a href="#_docstring_enrichment_activated_by_the_content_type">2.3.1. DocString enrichment activated by the content type</a></li> 
          <li><a href="#_docstring_enrichment_activated_by_a_feature_tag">2.3.2. DocString enrichment activated by a feature tag</a></li> 
          <li><a href="#_docstring_enrichment_activated_by_a_scenario_tag">2.3.3. DocString enrichment activated by a scenario tag</a></li> 
+         <li><a href="#_whitespace_in_descriptions">2.3.4. Whitespace in descriptions</a></li> 
         </ul> </li> 
        <li><a href="#Documentation-introduction-chapter">2.4. <strong>Documentation introduction chapter</strong></a> 
         <ul class="sectlevel3"> 
@@ -1045,6 +1046,176 @@ Feature: Discrete class feature
         </div> 
        </div> 
       </div> 
+      <div class="sect3"> 
+       <h4 id="_whitespace_in_descriptions"><a class="anchor" href="#_whitespace_in_descriptions"></a>2.3.4. Whitespace in descriptions</h4> 
+       <div class="paragraph"> 
+        <p>Features and Scenarios can have multi-line descriptions. In a feature file, these may be indented.<br> Cukedoctor uses the indentation of the first line non-blank line of the description to determine the difference<br> between the indentation <em>of</em> the description in a feature file and your desired indentation <em>within</em> the the<br> description itself.</p> 
+       </div> 
+       <div class="exampleblock"> 
+        <div class="content"> 
+         <div class="dlist"> 
+          <dl> 
+           <dt class="hdlist1">
+             Given 
+           </dt> 
+           <dd> 
+            <p>the feature: <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span></p> 
+           </dd> 
+          </dl> 
+         </div> 
+         <div class="listingblock"> 
+          <div class="content"> 
+           <pre>  Feature: Feature One
+
+
+    This is the description for Feature One. The first non-blank line of this description in the feature file began with four whitespace characters.
+      Therefore, cukedoctor will ignore up to the first four
+whitespace characters
+  in all other lines in the same description,
+    if any are present.
+
+
+This includes
+  further lines
+    in a different
+      paragraph
+        in the same description.
+
+
+
+    Scenario: Scenario One
+
+    This is the description for Scenario One. The first non-blank line of this description in the feature file began with four whitespace characters.
+      Therefore, cukedoctor will ignore up to the first four
+whitespace characters
+  in all other lines in the same description,
+    if any are present.
+
+
+This includes
+  further lines
+    in a different
+      paragraph
+        in the same description.
+
+
+
+    Scenario: Scenario Two
+This scenario has no indentation. You don't have to use it, after all.
+      Indentation in subsequent lines is therefore fully preserved.</pre> 
+          </div> 
+         </div> 
+         <div class="dlist"> 
+          <dl> 
+           <dt class="hdlist1">
+             When 
+           </dt> 
+           <dd> 
+            <p>I convert it <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span></p> 
+           </dd> 
+           <dt class="hdlist1">
+             Then 
+           </dt> 
+           <dd> 
+            <p>it should be rendered in AsciiDoc as <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span></p> 
+           </dd> 
+          </dl> 
+         </div> 
+         <div class="sidebarblock"> 
+          <div class="content"> 
+           <h2 id="_features_8" class="discrete"><strong>Features</strong></h2> 
+           <h3 id="Feature-One" class="discrete"><strong>Feature One</strong></h3> 
+           <div class="sidebarblock"> 
+            <div class="content"> 
+             <div class="paragraph"> 
+              <p>This is the description for Feature One. The first non-blank line of this description in the feature file began with four whitespace characters.</p> 
+             </div> 
+             <div class="literalblock"> 
+              <div class="content"> 
+               <pre>Therefore, cukedoctor will ignore up to the first four</pre> 
+              </div> 
+             </div> 
+             <div class="paragraph"> 
+              <p>whitespace characters</p> 
+             </div> 
+             <div class="paragraph"> 
+              <p>in all other lines in the same description,</p> 
+             </div> 
+             <div class="paragraph"> 
+              <p>if any are present.</p> 
+             </div> 
+             <div class="paragraph"> 
+              <p>This includes</p> 
+             </div> 
+             <div class="paragraph"> 
+              <p>further lines</p> 
+             </div> 
+             <div class="paragraph"> 
+              <p>in a different</p> 
+             </div> 
+             <div class="literalblock"> 
+              <div class="content"> 
+               <pre>paragraph</pre> 
+              </div> 
+             </div> 
+             <div class="literalblock"> 
+              <div class="content"> 
+               <pre>in the same description.</pre> 
+              </div> 
+             </div> 
+            </div> 
+           </div> 
+           <h4 id="_scenario_scenario_one" class="discrete">Scenario: Scenario One</h4> 
+           <div class="paragraph"> 
+            <p>This is the description for Scenario One. The first non-blank line of this description in the feature file began with four whitespace characters.</p> 
+           </div> 
+           <div class="literalblock"> 
+            <div class="content"> 
+             <pre>Therefore, cukedoctor will ignore up to the first four</pre> 
+            </div> 
+           </div> 
+           <div class="paragraph"> 
+            <p>whitespace characters</p> 
+           </div> 
+           <div class="paragraph"> 
+            <p>in all other lines in the same description,</p> 
+           </div> 
+           <div class="paragraph"> 
+            <p>if any are present.</p> 
+           </div> 
+           <div class="paragraph"> 
+            <p>This includes</p> 
+           </div> 
+           <div class="paragraph"> 
+            <p>further lines</p> 
+           </div> 
+           <div class="paragraph"> 
+            <p>in a different</p> 
+           </div> 
+           <div class="literalblock"> 
+            <div class="content"> 
+             <pre>paragraph</pre> 
+            </div> 
+           </div> 
+           <div class="literalblock"> 
+            <div class="content"> 
+             <pre>in the same description.</pre> 
+            </div> 
+           </div> 
+           <h4 id="_scenario_scenario_two" class="discrete">Scenario: Scenario Two</h4> 
+           <div class="paragraph"> 
+            <p>This scenario has no indentation. You don’t have to use it, after all.</p> 
+           </div> 
+           <div class="literalblock"> 
+            <div class="content"> 
+             <pre>Indentation in subsequent lines is therefore fully preserved.</pre> 
+            </div> 
+           </div> 
+          </div> 
+         </div> 
+        </div> 
+       </div> 
+      </div> 
      </div> 
      <div class="sect2"> 
       <h3 id="Documentation-introduction-chapter"><a class="anchor" href="#Documentation-introduction-chapter"></a>2.4. <strong>Documentation introduction chapter</strong></h3> 
@@ -1088,9 +1259,7 @@ Feature: Discrete class feature
             </div> 
             <div class="listingblock"> 
              <div class="content"> 
-              <pre class="CodeRay highlight"><code data-lang="java">  ----
-  <span class="predefined-type">System</span>.setProperty(<span class="string"><span class="delimiter">"</span><span class="content">INTRO_CHAPTER_DIR</span><span class="delimiter">"</span></span>,<span class="string"><span class="delimiter">"</span><span class="content">/home/some/external/folder</span><span class="delimiter">"</span></span>);
-----</code></pre> 
+              <pre class="CodeRay highlight"><code data-lang="java"><span class="predefined-type">System</span>.setProperty(<span class="string"><span class="delimiter">"</span><span class="content">INTRO_CHAPTER_DIR</span><span class="delimiter">"</span></span>,<span class="string"><span class="delimiter">"</span><span class="content">/home/some/external/folder</span><span class="delimiter">"</span></span>);</code></pre> 
              </div> 
             </div> </td> 
           </tr> 
@@ -1290,7 +1459,7 @@ Feature: Feature2
              </tr> 
             </tbody> 
            </table> 
-           <h2 id="_features_8" class="discrete"><strong>Features</strong></h2> 
+           <h2 id="_features_9" class="discrete"><strong>Features</strong></h2> 
            <h3 id="Feature1" class="discrete"><strong>Feature1</strong></h3> 
            <h4 id="_scenario_scenario_feature_1_4" class="discrete">Scenario: Scenario feature 1</h4> 
            <div class="exampleblock"> 
@@ -1381,7 +1550,7 @@ Feature: Feature1
          </div> 
          <div class="sidebarblock"> 
           <div class="content"> 
-           <h2 id="_features_9" class="discrete"><strong>Features</strong></h2> 
+           <h2 id="_features_10" class="discrete"><strong>Features</strong></h2> 
            <h3 id="Feature1" class="discrete"><strong>Feature1</strong></h3> 
            <h4 id="_scenario_scenario_feature_1_5" class="discrete">Scenario: Scenario feature 1</h4> 
            <div class="paragraph"> 
@@ -1475,7 +1644,7 @@ Feature: Feature1
          </div> 
          <div class="sidebarblock"> 
           <div class="content"> 
-           <h2 id="_features_10" class="discrete"><strong>Features</strong></h2> 
+           <h2 id="_features_11" class="discrete"><strong>Features</strong></h2> 
            <h3 id="Feature1" class="discrete"><strong>Feature1</strong></h3> 
            <h4 id="_scenario_scenario_feature_1_6" class="discrete">Scenario: Scenario feature 1</h4> 
            <div class="paragraph"> 
@@ -1524,8 +1693,8 @@ Feature: Feature1
   </div> 
   <div id="footer" style="color:gray;font-size:11px">
     Generated by 
-   <a href="https://github.com/rmpestano/cukedoctor" target="_blank"> Cukedoctor 3.1-SNAPSHOT</a> - May 16, 2020 9:06:40 AM 
-   <span style="float:right;font-size:11px"> Execution time: 7.273 seconds</span> 
+   <a href="https://github.com/rmpestano/cukedoctor" target="_blank"> Cukedoctor 3.1-SNAPSHOT</a> - May 16, 2020 1:56:59 PM 
+   <span style="float:right;font-size:11px"> Execution time: 7.576 seconds</span> 
   </div> 
   <style>  
 
