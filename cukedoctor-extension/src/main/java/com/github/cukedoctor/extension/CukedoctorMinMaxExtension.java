@@ -2,10 +2,7 @@ package com.github.cukedoctor.extension;
 
 import org.asciidoctor.ast.StructuralNode;
 import org.asciidoctor.extension.BlockMacroProcessor;
-import org.asciidoctor.extension.Reader;
 
-import java.util.Arrays;
-import java.util.HashMap;
 import java.util.Map;
 
 /**
@@ -13,14 +10,9 @@ import java.util.Map;
  */
 public class CukedoctorMinMaxExtension extends BlockMacroProcessor {
 
-    public CukedoctorMinMaxExtension(String name, Map<String, Object> config) {
-        super(name, config);
-    }
-
     @Override
     public Object process(StructuralNode parent, String target, Map<String, Object> map) {
-        String backend = parent.getAttribute("backend") != null ? parent.getAttribute("backend").toString() : "";
-        if (backend.contains("html")) {
+        if (!parent.getDocument().isBasebackend("pdf")) {
             StringBuilder minMax = new StringBuilder();
             minMax.append("<span class=\"fa fa-minus-square fa-fw\" style=\"cursor:pointer;float:right;margin-top:-30px\" ").
                     append(" title=\"Minimize\" onclick=\"hideFeatureScenarios('").
@@ -31,10 +23,9 @@ public class CukedoctorMinMaxExtension extends BlockMacroProcessor {
                     append("<span id=\"hidden-").append(target).append("\"").
                     append(" class=\"fa fa-plus-square fa-fw\" style=\"cursor:pointer;float:right;display:none;margin-top:-30px\" title=\"Maximize feature\" onclick=\"showFeatureScenarios('").
                     append(target).append("');").append("this.style.display = 'none'\">  </span>");
-
-            return createBlock(parent, "pass", Arrays.asList(minMax.toString()), this.getConfig(),new HashMap<Object, Object>());
+            return createBlock(parent, "pass", minMax.toString());
         } else {
-            return parent;
+            return null;
         }
     }
 

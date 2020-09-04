@@ -36,7 +36,6 @@
             <artifactId>cukedoctor-extension</artifactId>
             <version>${project.parent.version}</version>
         </dependency>
-
         <dependency>
             <groupId>io.github.robwin</groupId>
             <artifactId>markup-document-builder</artifactId>
@@ -52,7 +51,6 @@
             <version>1.11.3</version>
             <scope>provided</scope>
         </dependency>
-
         <dependency>
             <groupId>io.cucumber</groupId>
             <artifactId>cucumber-junit</artifactId>

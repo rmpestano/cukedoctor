@@ -10,7 +10,6 @@ import com.github.cukedoctor.config.GlobalConfig;
 import com.github.cukedoctor.parser.FeatureParser;
 import com.github.cukedoctor.util.FileUtil;
 import org.asciidoctor.Asciidoctor;
-import org.asciidoctor.Attributes;
 import org.asciidoctor.OptionsBuilder;
 import org.asciidoctor.SafeMode;
 import org.asciidoctor.extension.ExtensionGroup;
@@ -260,7 +259,6 @@ public class CukedoctorMain {
         if (documentAttributes.getBackend().equalsIgnoreCase("pdf")) {
             cukedoctorExtensionGroup.unregister();
         }
-        
         OptionsBuilder ob = OptionsBuilder.options()
                 .safe(SafeMode.UNSAFE)
                 .backend(documentAttributes.getBackend())

@@ -1,14 +1,12 @@
 package com.github.cukedoctor.extension;
 
-import static com.github.cukedoctor.extension.CukedoctorExtensionRegistry.*;
-
 import org.asciidoctor.ast.Document;
 import org.asciidoctor.extension.Postprocessor;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
-import java.util.Map;
+import static com.github.cukedoctor.extension.CukedoctorExtensionRegistry.FILTER_DISABLE_EXT_KEY;
 
 /**
  * Created by pestano on 20/07/15.
@@ -16,13 +14,9 @@ import java.util.Map;
  */
 public class CukedoctorFilterExtension extends Postprocessor {
 
-    public CukedoctorFilterExtension(Map<String, Object> config) {
-        super(config);
-    }
-
     @Override
     public String process(Document document, String output) {
-        if (document.basebackend("html") && System.getProperty(FILTER_DISABLE_EXT_KEY) == null) {
+        if (document.isBasebackend("html") && System.getProperty(FILTER_DISABLE_EXT_KEY) == null) {
             org.jsoup.nodes.Document doc = Jsoup.parse(output, "UTF-8");
 
             Elements sect1 = doc.getElementsByClass("sect1");
