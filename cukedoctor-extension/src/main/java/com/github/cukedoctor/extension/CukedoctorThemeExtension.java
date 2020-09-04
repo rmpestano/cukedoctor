@@ -16,10 +16,6 @@ import java.util.Map;
  */
 public class CukedoctorThemeExtension extends Postprocessor {
 
-    public CukedoctorThemeExtension(Map<String, Object> config) {
-        super(config);
-    }
-
     @Override
     public String process(Document document, String output) {
         if (document.basebackend("html") && System.getProperty(THEME_DISABLE_EXT_KEY) == null) {

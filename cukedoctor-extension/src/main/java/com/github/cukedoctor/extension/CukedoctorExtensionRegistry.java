@@ -2,7 +2,7 @@ package com.github.cukedoctor.extension;
 
 import org.asciidoctor.Asciidoctor;
 import org.asciidoctor.extension.ExtensionGroup;
-import org.asciidoctor.extension.spi.ExtensionRegistry;
+import org.asciidoctor.jruby.extension.spi.ExtensionRegistry;
 
 public class CukedoctorExtensionRegistry implements ExtensionRegistry {
 

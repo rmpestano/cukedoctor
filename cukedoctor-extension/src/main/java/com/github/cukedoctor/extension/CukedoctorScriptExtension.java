@@ -17,10 +17,6 @@ public class CukedoctorScriptExtension extends Postprocessor {
 
     private static final Boolean HIDE_FEATURES_SECTION = System.getProperty("HIDE_FEATURES_SECTION") == null ? Boolean.FALSE : Boolean.valueOf(System.getProperty("HIDE_FEATURES_SECTION"));
 
-    public CukedoctorScriptExtension(Map<String, Object> config) {
-        super(config);
-    }
-
     @Override
     public String process(Document document, String output) {
         if (document.isBasebackend("html")) {
@@ -171,7 +167,7 @@ public class CukedoctorScriptExtension extends Postprocessor {
 
     private void addSearchScript(Element contentElement) {
         String searchScripts = "<script type = \"text/javascript\" >\n" +
-                "var allLevel2ListItens = null;\n" +
+                "var allLevel2ListItems = null;\n" +
                 "\n" +
                 "function searchFeature(criteria) {\n" +
                 "    if (criteria != null && criteria.length >= 3) {\n" +
@@ -187,7 +183,7 @@ public class CukedoctorScriptExtension extends Postprocessor {
                 "                    }\n" +
                 "                }\n" +
                 "                if (h3 != null && h3.id != null) {\n" +
-                "                    if (!h3.id.toLowerCase().match(criteria.toLowerCase())) {\n" +
+                "                    if (h3.id.toLowerCase().replaceAll('-',' ').indexOf(criteria.toLowerCase()) == -1) {\n" +
                 "                        sect2List[i].style.display = 'none';\n" +
                 "                    } else {//match\n" +
                 "                        sect2List[i].style.display = 'inline';\n" +
@@ -221,11 +217,11 @@ public class CukedoctorScriptExtension extends Postprocessor {
                 "        }//end for\n" +
                 "    }//end elements != null\n" +
                 "\n" +
-                "    if (allLevel2ListItens == null) {\n" +
+                "    if (allLevel2ListItems == null) {\n" +
                 "        collectallLevel2IListItens();\n" +
                 "    }\n" +
-                "    for (var z = 0; z < allLevel2ListItens.length; z++) {\n" +
-                "        allLevel2ListItens[z].style.display = 'inline';\n" +
+                "    for (var z = 0; z < allLevel2ListItems.length; z++) {\n" +
+                "        allLevel2ListItems[z].style.display = 'inline';\n" +
                 "    }\n" +
                 "    if (document.getElementById('input-search')) {\n" +
                 "        document.getElementById('input-search').value = 'Filter...';\n" +
@@ -233,15 +229,15 @@ public class CukedoctorScriptExtension extends Postprocessor {
                 "}\n" +
                 "\n" +
                 "function filterToc(criteria) {\n" +
-                "    if (allLevel2ListItens == null) {\n" +
+                "    if (allLevel2ListItems == null) {\n" +
                 "        collectallLevel2IListItens();\n" +
                 "    }\n" +
-                "    for (var z = 0; z < allLevel2ListItens.length; z++) {\n" +
-                "        if (allLevel2ListItens[z].childNodes[0].tagName && allLevel2ListItens[z].childNodes[0].tagName.toLowerCase() == \"a\") {\n" +
-                "            if (allLevel2ListItens[z].childNodes[0].getAttribute(\"href\").toUpperCase().substring(1).match(criteria.toUpperCase())) {\n" +
-                "                allLevel2ListItens[z].style.display = 'inline';\n" +
+                "    for (var z = 0; z < allLevel2ListItems.length; z++) {\n" +
+                "        if (allLevel2ListItems[z].childNodes[0].tagName && allLevel2ListItems[z].childNodes[0].tagName.toLowerCase() == \"a\") {\n" +
+                "            if (allLevel2ListItems[z].childNodes[0].getAttribute(\"href\").toLowerCase().replaceAll('-',' ').substring(1).indexOf(criteria.toLowerCase()) !== -1) {\n" +
+                "                allLevel2ListItems[z].style.display = 'inline';\n" +
                 "            } else {\n" +
-                "                allLevel2ListItens[z].style.display = 'none';\n" +
+                "                allLevel2ListItems[z].style.display = 'none';\n" +
                 "            }\n" +
                 "        }\n" +
                 "    }//end for allListItens\n" +
@@ -263,13 +259,13 @@ public class CukedoctorScriptExtension extends Postprocessor {
                 "}\n" +
                 "\n" +
                 "function collectallLevel2IListItens() {\n" +
-                "    allLevel2ListItens = new Array();\n" +
+                "    allLevel2ListItems = new Array();\n" +
                 "    var uls = document.getElementsByClassName('sectlevel2');\n" +
                 "    for (var i = 0; i < uls.length; i++) {\n" +
                 "        for (var j = 0; j < uls[i].childNodes.length; j++) {\n" +
                 "            if (uls[i].childNodes[j].tagName) {\n" +
                 "                if (uls[i].childNodes[j].tagName.toLowerCase() == 'li') {\n" +
-                "                    allLevel2ListItens.push(uls[i].childNodes[j]);\n" +
+                "                    allLevel2ListItems.push(uls[i].childNodes[j]);\n" +
                 "                }\n" +
                 "\n" +
                 "            }\n" +
