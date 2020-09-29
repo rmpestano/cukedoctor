@@ -1,0 +1,50 @@
+[
+  {
+    "keyword": "Feature",
+    "name": "Attachments",
+    "line": 1,
+    "id": "attachments",
+    "tags": [],
+    "uri": "features\\attachments.feature",
+    "elements": [
+      {
+        "id": "attachments;cucumber-jvm-6.0.5-attach-string,-string",
+        "keyword": "Scenario",
+        "line": 3,
+        "name": "Multiple attachments",
+        "tags": [],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 5,
+            "name": "a Step that has multiple attachments",
+            "match": {
+              "location": "step-definitions\\attachments.ts:7"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 2000000
+            },
+            "embeddings": [
+              {
+                "data": "First attachment",
+                "mime_type": "text/plain"
+              },
+              {
+                "data": "U2Vjb25kIEF0dGFjaG1lbnQ\u003d",
+                "mime_type": "text/plain",
+                "name": "Second"
+              },
+              {
+                "data": "Third attachment",
+                "mime_type": "text/plain"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+]

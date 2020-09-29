@@ -23,6 +23,7 @@ public class Step {
 	@JsonProperty("doc_string")
 	private DocString docString;
 	private List<Output> output;
+	private List<Embedding> embeddings;
 
 
 	public String getName() {
@@ -97,6 +98,10 @@ public class Step {
 	public void setDocString(DocString docString) {
 		this.docString = docString;
 	}
+
+	public List<Embedding> getEmbeddings() { return embeddings; }
+
+	public void setEmbeddings(List<Embedding> embeddings) { this.embeddings = embeddings; }
 
 	public Long getDuration() {
 		if (result == null) {
@@ -179,4 +184,9 @@ public class Step {
 	public boolean hasOutput(){
 		 return output != null && !output.isEmpty();
 	}
+
+	public boolean hasEmbeddings() {
+		return embeddings != null && !embeddings.isEmpty();
+	}
 }
+

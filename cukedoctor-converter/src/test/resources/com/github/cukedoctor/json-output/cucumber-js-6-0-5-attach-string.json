@@ -1,0 +1,41 @@
+[
+  {
+    "keyword": "Feature",
+    "name": "Attachments",
+    "line": 1,
+    "id": "attachments",
+    "tags": [],
+    "uri": "features\\attachments.feature",
+    "elements": [
+      {
+        "id": "attachments;cucumber-jvm-6.0.5-attach-string",
+        "keyword": "Scenario",
+        "line": 3,
+        "name": "Cucumber JS 6.0.5 attach String",
+        "tags": [],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 5,
+            "name": "a Step that performs attach String",
+            "match": {
+              "location": "step-definitions\\attachments.ts:3"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 2000000
+            },
+            "embeddings": [
+              {
+                "data": "She sells sea shells on the sea shore",
+                "mime_type": "text/plain"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+]
