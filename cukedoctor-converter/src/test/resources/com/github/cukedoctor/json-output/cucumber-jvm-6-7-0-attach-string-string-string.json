@@ -1,0 +1,54 @@
+[
+  {
+    "line": 1,
+    "elements": [
+      {
+        "start_timestamp": "2020-09-28T13:36:46.433Z",
+        "before": [
+          {
+            "result": {
+              "duration": 2000000,
+              "status": "passed"
+            },
+            "match": {
+              "location": "org.example.StepDefinitions.before(io.cucumber.java.Scenario)"
+            }
+          }
+        ],
+        "line": 3,
+        "name": "Cucumber JVM 6.7.0 scenario.attach(String, String, String)",
+        "description": "",
+        "id": "attachments;cucumber-jvm-6.7.0-scenario.attach(string--string--string)",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "embeddings": [
+              {
+                "data": "U2hlIHNlbGxzIHNlYSBzaGVsbHMgb24gdGhlIHNlYSBzaG9yZQ\u003d\u003d",
+                "mime_type": "text/plain",
+                "name": "String plain text"
+              }
+            ],
+            "result": {
+              "duration": 4000000,
+              "status": "passed"
+            },
+            "line": 5,
+            "name": "a Step that performs scenario.attach(String, String, String)",
+            "match": {
+              "location": "org.example.StepDefinitions.attach_string_string_string()"
+            },
+            "keyword": "Given "
+          }
+        ]
+      }
+    ],
+    "name": "Attachments",
+    "description": "",
+    "id": "attachments",
+    "keyword": "Feature",
+    "uri": "classpath:org/example/Test.feature",
+    "tags": []
+  }
+]

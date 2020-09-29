@@ -1,0 +1,41 @@
+[
+  {
+    "keyword": "Feature",
+    "name": "Attachments",
+    "line": 1,
+    "id": "attachments",
+    "tags": [],
+    "uri": "features\\attachments.feature",
+    "elements": [
+      {
+        "id": "attachments;cucumber-jvm-6.0.5-attach-string",
+        "keyword": "Scenario",
+        "line": 3,
+        "name": "Attaching an image",
+        "tags": [],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 5,
+            "name": "a Step that attaches an image",
+            "match": {
+              "location": "step-definitions\\attachments.ts:3"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 2000000
+            },
+            "embeddings": [
+              {
+                "data": "U2hlIHNlbGxzIHNlYSBzaGVsbHMgb24gdGhlIHNlYSBzaG9yZQ==",
+                "mime_type": "image/png"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+]

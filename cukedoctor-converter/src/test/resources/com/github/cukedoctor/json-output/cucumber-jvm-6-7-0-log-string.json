@@ -1,0 +1,50 @@
+[
+  {
+    "line": 1,
+    "elements": [
+      {
+        "start_timestamp": "2020-09-28T13:41:17.991Z",
+        "before": [
+          {
+            "result": {
+              "duration": 4000000,
+              "status": "passed"
+            },
+            "match": {
+              "location": "org.example.StepDefinitions.before(io.cucumber.java.Scenario)"
+            }
+          }
+        ],
+        "line": 3,
+        "name": "Cucumber JVM 6.7.0 scenario.log(String)",
+        "description": "",
+        "id": "attachments;cucumber-jvm-6.7.0-scenario.log(bytearray)",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "output": [
+              "She sells sea shells on the sea shore"
+            ],
+            "result": {
+              "duration": 5000000,
+              "status": "passed"
+            },
+            "line": 5,
+            "name": "a Step that performs scenario.log(String)",
+            "match": {
+              "location": "org.example.StepDefinitions.log_string()"
+            },
+            "keyword": "Given "
+          }
+        ]
+      }
+    ],
+    "name": "Attachments",
+    "description": "",
+    "id": "attachments",
+    "keyword": "Feature",
+    "uri": "classpath:org/example/Test.feature",
+    "tags": []
+  }
+]

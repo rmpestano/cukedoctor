@@ -1,0 +1,41 @@
+[
+  {
+    "keyword": "Feature",
+    "name": "Attachments",
+    "line": 1,
+    "id": "attachments",
+    "tags": [],
+    "uri": "features\\attachments.feature",
+    "elements": [
+      {
+        "id": "attachments;cucumber-jvm-6.0.5-attach-buffer,-string",
+        "keyword": "Scenario",
+        "line": 3,
+        "name": "Cucumber JS 6.0.5 attach Buffer, String",
+        "tags": [],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 5,
+            "name": "a Step that performs attach Buffer, String",
+            "match": {
+              "location": "step-definitions\\attachments.ts:11"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            },
+            "embeddings": [
+              {
+                "data": "U2hlIHNlbGxzIHNlYSBzaGVsbHMgb24gdGhlIHNlYSBzaG9yZQ==",
+                "mime_type": "text/plain"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+]

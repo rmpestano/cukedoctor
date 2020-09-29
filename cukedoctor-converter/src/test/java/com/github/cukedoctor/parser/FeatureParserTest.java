@@ -10,6 +10,7 @@ import java.net.URL;
 import java.nio.file.Paths;
 import java.util.List;
 
+import com.github.cukedoctor.api.model.Embedding;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;
@@ -98,10 +99,43 @@ public class FeatureParserTest {
 		assertNotNull(scenarios);
 		Scenario scenario = features.get(0).getScenarioByName("Show the current version of sdkman");
 		assertThat(scenario).isNotNull();
-	  Step step = scenario.getStepByName("I see \"SDKMAN x.y.z\"");
+	  	Step step = scenario.getStepByName("I see \"SDKMAN x.y.z\"");
 		assertThat(step).isNotNull();
 		assertThat(step.getOutput()).isNotNull().hasSize(1);
 		assertThat(step.getOutput().get(0).getValue().replaceAll("\n","")).isEqualTo("Output: broadcast messageSDKMAN x.y.z");
+	}
+
+	@Test
+	public void shouldParseFeatureWithAttachments() throws IOException {
+		List<Feature> features = FeatureParser.parse("target/test-classes/json-output/attachments.json");
+		assertThat(features).hasSize(1);
+		List<Scenario> scenarios = features.get(0).getScenarios();
+		assertNotNull(scenarios);
+		Scenario scenario = features.get(0).getScenarioByName("Multiple attachments");
+		assertThat(scenario).isNotNull();
+		Step step = scenario.getStepByName("a Step that has multiple attachments");
+		assertThat(step).isNotNull();
+
+		List<Embedding> embeddings = step.getEmbeddings();
+		assertThat(embeddings).isNotNull().hasSize(3);
+
+		assertThat(embeddings.get(0))
+				.isNotNull()
+				.hasFieldOrPropertyWithValue("data", "First attachment")
+				.hasFieldOrPropertyWithValue("mimeType", "text/plain")
+				.hasFieldOrPropertyWithValue("name", null);
+
+		assertThat(embeddings.get(1))
+				.isNotNull()
+				.hasFieldOrPropertyWithValue("data", "U2Vjb25kIEF0dGFjaG1lbnQ\u003d")
+				.hasFieldOrPropertyWithValue("mimeType", "text/plain")
+				.hasFieldOrPropertyWithValue("name", "Second");
+
+		assertThat(embeddings.get(2))
+				.isNotNull()
+				.hasFieldOrPropertyWithValue("data", "Third attachment")
+				.hasFieldOrPropertyWithValue("mimeType", "text/plain")
+				.hasFieldOrPropertyWithValue("name", null);
 	}
 
 	@Test

@@ -7,7 +7,10 @@ import com.github.cukedoctor.spi.StepsRenderer;
 import com.github.cukedoctor.util.Constants;
 import com.github.cukedoctor.util.Formatter;
 
+import java.nio.charset.StandardCharsets;
+import java.util.Base64;
 import java.util.List;
+import java.util.concurrent.atomic.AtomicInteger;
 
 import static com.github.cukedoctor.api.CukedoctorDocumentBuilder.Factory.newInstance;
 import static com.github.cukedoctor.util.Assert.*;
@@ -58,6 +61,7 @@ public class CukedoctorStepsRenderer extends AbstractBaseRenderer implements Ste
                 }
             }
             renderOutput(step);
+            renderAttachments(step);
             enrichStep(step);
         }
         docBuilder.textLine("==========").newLine();
@@ -93,6 +97,64 @@ public class CukedoctorStepsRenderer extends AbstractBaseRenderer implements Ste
         }
     }
 
+    private void renderAttachments(Step step) {
+        if (!step.hasEmbeddings()) { return; }
+
+        // HACK to pass an int by ref
+        AtomicInteger notNamedCount = new AtomicInteger(1);
+        for (Embedding attachment : step.getEmbeddings()) {
+            if (!shouldRenderAttachment(attachment)) { continue; }
+            renderAttachmentTitle(attachment, notNamedCount);
+            renderAttachmentContent(attachment);
+        }
+    }
+
+    private boolean shouldRenderAttachment(Embedding attachment) {
+        return hasText(attachment.getMimeType()) && attachment.getMimeType().startsWith("text/");
+    }
+
+    private void renderAttachmentContent(Embedding attachment) {
+        docBuilder.textLine("[%collapsible]");
+        docBuilder.textLine(exampleBlock());
+
+        if (hasText(attachment.getData())) {
+            docBuilder.textLine(getAttachmentContent(attachment));
+        }
+
+        docBuilder.textLine(exampleBlock());
+    }
+
+    private String getAttachmentContent(Embedding attachment) {
+        // HACK When using the JSON formatter, there is no way to tell if the attachment has been base64-encoded
+        // or not. In this implementation, we assume that anything that could be base64-encoded actually is.
+        //
+        // The new message formatter (https://github.com/cucumber/cucumber/blob/master/messages/messages.proto)
+        // provides an explicit content_encoding field to make this unambiguous. Until we adopt it, the hack
+        // remains.
+
+        // Additionally, we assume UTF-8 encoding. An enterprising contributor may wish to parse the mime type
+        // to check if a charset parameter has been specified.
+        try {
+            return new String(Base64.getDecoder().decode(attachment.getData()), StandardCharsets.UTF_8);
+        } catch (IllegalArgumentException e) {
+            return attachment.getData();
+        }
+    }
+
+    private void renderAttachmentTitle(Embedding attachment, AtomicInteger notNamedCount) {
+        docBuilder.newLine();
+        docBuilder.append(".");
+        docBuilder.textLine(getAttachmentTitle(attachment, notNamedCount));
+    }
+
+    private String getAttachmentTitle(Embedding attachment, AtomicInteger notNamedCount) {
+        if (hasText(attachment.getName())) {
+            return attachment.getName();
+        }
+
+        return "Attachment " + notNamedCount.getAndIncrement();
+    }
+
     private void renderListingBlock(DocString docString) {
         if(docString.getContentType() != null && !docString.getContentType().equals("")) {
             docBuilder.append("[source,", docString.getContentType(), "]", newLine());
@@ -105,7 +167,7 @@ public class CukedoctorStepsRenderer extends AbstractBaseRenderer implements Ste
     private void renderDiscreteSidebarBlock(DocString docString) {
         docBuilder.append("******", newLine(), newLine());
 
-        String[] lines = docString.getValue().replaceAll("\\*\\*\\*\\*","*****").replaceAll(Constants.Markup.exampleBlock(),Constants.Markup.exampleBlock()+"=").split("\\n");
+        String[] lines = docString.getValue().replaceAll("\\*\\*\\*\\*","*****").replaceAll(exampleBlock(), exampleBlock()+"=").split("\\n");
 
         //every line that starts with \n and not contains pipe(|) will have discrete class
         // pipe is skipped because it denotes table cells in asciidoc and putting
