@@ -53,6 +53,18 @@
          <li><a href="#_render_feature_tags_in_that_features_scenarios">2.5.1. Render feature tags in that feature’s scenarios</a></li> 
          <li><a href="#_ignore_cukedoctor_tags_in_resulting_documentation">2.5.2. Ignore cukedoctor tags in resulting documentation</a></li> 
         </ul> </li> 
+       <li><a href="#Attachments">2.6. <strong>Attachments</strong></a> 
+        <ul class="sectlevel3"> 
+         <li><a href="#_logging_a_string_in_cucumber_jvm_6_7_0">2.6.1. Logging a string in Cucumber-JVM 6.7.0</a></li> 
+         <li><a href="#_attaching_plain_text_as_a_string_with_name_in_cucumber_jvm_6_7_0">2.6.2. Attaching plain text as a string with name in Cucumber-JVM 6.7.0</a></li> 
+         <li><a href="#_attaching_plain_text_as_a_byte_array_with_name_in_cucumber_jvm_6_7_0">2.6.3. Attaching plain text as a byte array with name in Cucumber-JVM 6.7.0</a></li> 
+         <li><a href="#_attaching_a_string_cucumberjs_6_0_5">2.6.4. Attaching a string CucumberJS 6.0.5</a></li> 
+         <li><a href="#_attaching_a_plain_text_string_cucumberjs_6_0_5">2.6.5. Attaching a plain text string CucumberJS 6.0.5</a></li> 
+         <li><a href="#_attaching_a_plain_text_buffer_cucumberjs_6_0_5">2.6.6. Attaching a plain text buffer CucumberJS 6.0.5</a></li> 
+         <li><a href="#_logged_text_should_appear_before_attachments">2.6.7. Logged text should appear before attachments</a></li> 
+         <li><a href="#_multiple_attachments">2.6.8. Multiple attachments</a></li> 
+         <li><a href="#_do_not_render_attachments_that_are_not_plain_text">2.6.9. Do not render attachments that are not plain text</a></li> 
+        </ul> </li> 
       </ul> </li> 
     </ul> 
    </div> 
@@ -1687,13 +1699,673 @@ Feature: Feature1
        </div> 
       </div> 
      </div> 
+     <div class="sect2"> 
+      <h3 id="Attachments"><a class="anchor" href="#Attachments"></a>2.6. <strong>Attachments</strong></h3> 
+      <span class="fa fa-minus-square fa-fw" style="cursor:pointer;float:right;margin-top:-30px" title="Minimize" onclick="hideFeatureScenarios('Attachments');document.getElementById('hidden-Attachments').style.display = 'inline';this.style.display = 'none'"> </span> 
+      <span id="hidden-Attachments" class="fa fa-plus-square fa-fw" style="cursor:pointer;float:right;display:none;margin-top:-30px" title="Maximize feature" onclick="showFeatureScenarios('Attachments');this.style.display = 'none'"> </span> 
+      <div class="sidebarblock"> 
+       <div class="content"> 
+        <div class="exampleblock"> 
+         <div class="content"> 
+          <div class="quoteblock"> 
+           <blockquote> 
+            <div class="paragraph"> 
+             <p>In order to capture dynamically-generated content from my tests<br> As a bdd developer<br> I want to render attachments from my Cucumber tests in my living documentation</p> 
+            </div> 
+           </blockquote> 
+          </div> 
+         </div> 
+        </div> 
+       </div> 
+      </div> 
+      <div class="sect3"> 
+       <h4 id="_logging_a_string_in_cucumber_jvm_6_7_0"><a class="anchor" href="#_logging_a_string_in_cucumber_jvm_6_7_0"></a>2.6.1. Logging a string in Cucumber-JVM 6.7.0</h4> 
+       <div class="exampleblock"> 
+        <div class="content"> 
+         <div class="dlist"> 
+          <dl> 
+           <dt class="hdlist1">
+             Given 
+           </dt> 
+           <dd> 
+            <p>a Step has logged a string in Cucumber-JVM 6.7.0 <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span></p> 
+           </dd> 
+           <dt class="hdlist1">
+             And 
+           </dt> 
+           <dd> 
+            <p>I am hiding step timings <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span></p> 
+           </dd> 
+           <dt class="hdlist1">
+             And 
+           </dt> 
+           <dd> 
+            <p>all Cukedoctor extensions are disabled <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span></p> 
+           </dd> 
+           <dt class="hdlist1">
+             When 
+           </dt> 
+           <dd> 
+            <p>I convert the Feature <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span></p> 
+           </dd> 
+           <dt class="hdlist1">
+             Then 
+           </dt> 
+           <dd> 
+            <p>it will be rendered as <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span></p> 
+           </dd> 
+          </dl> 
+         </div> 
+         <div class="sidebarblock"> 
+          <div class="content"> 
+           <h1 id="_features_12" class="discrete"><strong>Features</strong></h1> 
+           <h2 id="Attachments" class="discrete"><strong>Attachments</strong></h2> 
+           <h3 id="_scenario_cucumber_jvm_6_7_0_scenario_logstring" class="discrete">Scenario: Cucumber JVM 6.7.0 scenario.log(String)</h3> 
+           <div class="exampleblock"> 
+            <div class="content"> 
+             <div class="dlist discrete"> 
+              <dl> 
+               <dt>
+                 Given 
+               </dt> 
+              </dl> 
+             </div> 
+             <div class="paragraph"> 
+              <p>a Step that performs scenario.log(String) <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span></p> 
+             </div> 
+             <div class="listingblock"> 
+              <div class="content"> 
+               <pre>She sells sea shells on the sea shore</pre> 
+              </div> 
+             </div> 
+            </div> 
+           </div> 
+          </div> 
+         </div> 
+        </div> 
+       </div> 
+      </div> 
+      <div class="sect3"> 
+       <h4 id="_attaching_plain_text_as_a_string_with_name_in_cucumber_jvm_6_7_0"><a class="anchor" href="#_attaching_plain_text_as_a_string_with_name_in_cucumber_jvm_6_7_0"></a>2.6.2. Attaching plain text as a string with name in Cucumber-JVM 6.7.0</h4> 
+       <div class="exampleblock"> 
+        <div class="content"> 
+         <div class="dlist"> 
+          <dl> 
+           <dt class="hdlist1">
+             Given 
+           </dt> 
+           <dd> 
+            <p>a Step has attached plain text as a string with a title in Cucumber-JVM 6.7.0 <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span></p> 
+           </dd> 
+           <dt class="hdlist1">
+             And 
+           </dt> 
+           <dd> 
+            <p>I am hiding step timings <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span></p> 
+           </dd> 
+           <dt class="hdlist1">
+             And 
+           </dt> 
+           <dd> 
+            <p>all Cukedoctor extensions are disabled <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span></p> 
+           </dd> 
+           <dt class="hdlist1">
+             When 
+           </dt> 
+           <dd> 
+            <p>I convert the Feature <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span></p> 
+           </dd> 
+           <dt class="hdlist1">
+             Then 
+           </dt> 
+           <dd> 
+            <p>it will be rendered as <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span></p> 
+           </dd> 
+          </dl> 
+         </div> 
+         <div class="sidebarblock"> 
+          <div class="content"> 
+           <h1 id="_features_13" class="discrete"><strong>Features</strong></h1> 
+           <h2 id="Attachments" class="discrete"><strong>Attachments</strong></h2> 
+           <h3 id="_scenario_cucumber_jvm_6_7_0_scenario_attachstring_string_string" class="discrete">Scenario: Cucumber JVM 6.7.0 scenario.attach(String, String, String)</h3> 
+           <div class="exampleblock"> 
+            <div class="content"> 
+             <div class="dlist discrete"> 
+              <dl> 
+               <dt>
+                 Given 
+               </dt> 
+              </dl> 
+             </div> 
+             <div class="paragraph"> 
+              <p>a Step that performs scenario.attach(String, String, String) <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span></p> 
+             </div> 
+             <details> 
+              <summary class="title">String plain text</summary> 
+              <div class="content"> 
+               <div class="paragraph"> 
+                <p>She sells sea shells on the sea shore</p> 
+               </div> 
+              </div> 
+             </details> 
+            </div> 
+           </div> 
+          </div> 
+         </div> 
+        </div> 
+       </div> 
+      </div> 
+      <div class="sect3"> 
+       <h4 id="_attaching_plain_text_as_a_byte_array_with_name_in_cucumber_jvm_6_7_0"><a class="anchor" href="#_attaching_plain_text_as_a_byte_array_with_name_in_cucumber_jvm_6_7_0"></a>2.6.3. Attaching plain text as a byte array with name in Cucumber-JVM 6.7.0</h4> 
+       <div class="exampleblock"> 
+        <div class="content"> 
+         <div class="dlist"> 
+          <dl> 
+           <dt class="hdlist1">
+             Given 
+           </dt> 
+           <dd> 
+            <p>a Step has attached plain text as a byte array with a title in Cucumber-JVM 6.7.0 <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span></p> 
+           </dd> 
+           <dt class="hdlist1">
+             And 
+           </dt> 
+           <dd> 
+            <p>I am hiding step timings <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span></p> 
+           </dd> 
+           <dt class="hdlist1">
+             And 
+           </dt> 
+           <dd> 
+            <p>all Cukedoctor extensions are disabled <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span></p> 
+           </dd> 
+           <dt class="hdlist1">
+             When 
+           </dt> 
+           <dd> 
+            <p>I convert the Feature <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span></p> 
+           </dd> 
+           <dt class="hdlist1">
+             Then 
+           </dt> 
+           <dd> 
+            <p>it will be rendered as <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span></p> 
+           </dd> 
+          </dl> 
+         </div> 
+         <div class="sidebarblock"> 
+          <div class="content"> 
+           <h1 id="_features_14" class="discrete"><strong>Features</strong></h1> 
+           <h2 id="Attachments" class="discrete"><strong>Attachments</strong></h2> 
+           <h3 id="_scenario_cucumber_jvm_6_7_0_scenario_attachbytearray_string_string" class="discrete">Scenario: Cucumber JVM 6.7.0 scenario.attach(ByteArray, String, String)</h3> 
+           <div class="exampleblock"> 
+            <div class="content"> 
+             <div class="dlist discrete"> 
+              <dl> 
+               <dt>
+                 Given 
+               </dt> 
+              </dl> 
+             </div> 
+             <div class="paragraph"> 
+              <p>a Step that performs scenario.attach(ByteArray, String, String) <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span></p> 
+             </div> 
+             <details> 
+              <summary class="title">Byte[] plain text</summary> 
+              <div class="content"> 
+               <div class="paragraph"> 
+                <p>She sells sea shells on the sea shore</p> 
+               </div> 
+              </div> 
+             </details> 
+            </div> 
+           </div> 
+          </div> 
+         </div> 
+        </div> 
+       </div> 
+      </div> 
+      <div class="sect3"> 
+       <h4 id="_attaching_a_string_cucumberjs_6_0_5"><a class="anchor" href="#_attaching_a_string_cucumberjs_6_0_5"></a>2.6.4. Attaching a string CucumberJS 6.0.5</h4> 
+       <div class="exampleblock"> 
+        <div class="content"> 
+         <div class="dlist"> 
+          <dl> 
+           <dt class="hdlist1">
+             Given 
+           </dt> 
+           <dd> 
+            <p>a Step has attached a string in CucumberJS 6.0.5 <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span></p> 
+           </dd> 
+           <dt class="hdlist1">
+             And 
+           </dt> 
+           <dd> 
+            <p>I am hiding step timings <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span></p> 
+           </dd> 
+           <dt class="hdlist1">
+             And 
+           </dt> 
+           <dd> 
+            <p>all Cukedoctor extensions are disabled <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span></p> 
+           </dd> 
+           <dt class="hdlist1">
+             When 
+           </dt> 
+           <dd> 
+            <p>I convert the Feature <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span></p> 
+           </dd> 
+           <dt class="hdlist1">
+             Then 
+           </dt> 
+           <dd> 
+            <p>it will be rendered as <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span></p> 
+           </dd> 
+          </dl> 
+         </div> 
+         <div class="sidebarblock"> 
+          <div class="content"> 
+           <h1 id="_features_15" class="discrete"><strong>Features</strong></h1> 
+           <h2 id="Attachments" class="discrete"><strong>Attachments</strong></h2> 
+           <h3 id="_scenario_cucumber_js_6_0_5_attach_string" class="discrete">Scenario: Cucumber JS 6.0.5 attach String</h3> 
+           <div class="exampleblock"> 
+            <div class="content"> 
+             <div class="dlist discrete"> 
+              <dl> 
+               <dt>
+                 Given 
+               </dt> 
+              </dl> 
+             </div> 
+             <div class="paragraph"> 
+              <p>a Step that performs attach String <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span></p> 
+             </div> 
+             <details> 
+              <summary class="title">Attachment 1</summary> 
+              <div class="content"> 
+               <div class="paragraph"> 
+                <p>She sells sea shells on the sea shore</p> 
+               </div> 
+              </div> 
+             </details> 
+            </div> 
+           </div> 
+          </div> 
+         </div> 
+        </div> 
+       </div> 
+      </div> 
+      <div class="sect3"> 
+       <h4 id="_attaching_a_plain_text_string_cucumberjs_6_0_5"><a class="anchor" href="#_attaching_a_plain_text_string_cucumberjs_6_0_5"></a>2.6.5. Attaching a plain text string CucumberJS 6.0.5</h4> 
+       <div class="exampleblock"> 
+        <div class="content"> 
+         <div class="dlist"> 
+          <dl> 
+           <dt class="hdlist1">
+             Given 
+           </dt> 
+           <dd> 
+            <p>a Step has attached plain text as a string in CucumberJS 6.0.5 <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span></p> 
+           </dd> 
+           <dt class="hdlist1">
+             And 
+           </dt> 
+           <dd> 
+            <p>I am hiding step timings <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span></p> 
+           </dd> 
+           <dt class="hdlist1">
+             And 
+           </dt> 
+           <dd> 
+            <p>all Cukedoctor extensions are disabled <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span></p> 
+           </dd> 
+           <dt class="hdlist1">
+             When 
+           </dt> 
+           <dd> 
+            <p>I convert the Feature <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span></p> 
+           </dd> 
+           <dt class="hdlist1">
+             Then 
+           </dt> 
+           <dd> 
+            <p>it will be rendered as <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span></p> 
+           </dd> 
+          </dl> 
+         </div> 
+         <div class="sidebarblock"> 
+          <div class="content"> 
+           <h1 id="_features_16" class="discrete"><strong>Features</strong></h1> 
+           <h2 id="Attachments" class="discrete"><strong>Attachments</strong></h2> 
+           <h3 id="_scenario_cucumber_js_6_0_5_attach_string_string" class="discrete">Scenario: Cucumber JS 6.0.5 attach String, String</h3> 
+           <div class="exampleblock"> 
+            <div class="content"> 
+             <div class="dlist discrete"> 
+              <dl> 
+               <dt>
+                 Given 
+               </dt> 
+              </dl> 
+             </div> 
+             <div class="paragraph"> 
+              <p>a Step that performs attach String, String <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span></p> 
+             </div> 
+             <details> 
+              <summary class="title">Attachment 1</summary> 
+              <div class="content"> 
+               <div class="paragraph"> 
+                <p>She sells sea shells on the sea shore</p> 
+               </div> 
+              </div> 
+             </details> 
+            </div> 
+           </div> 
+          </div> 
+         </div> 
+        </div> 
+       </div> 
+      </div> 
+      <div class="sect3"> 
+       <h4 id="_attaching_a_plain_text_buffer_cucumberjs_6_0_5"><a class="anchor" href="#_attaching_a_plain_text_buffer_cucumberjs_6_0_5"></a>2.6.6. Attaching a plain text buffer CucumberJS 6.0.5</h4> 
+       <div class="exampleblock"> 
+        <div class="content"> 
+         <div class="dlist"> 
+          <dl> 
+           <dt class="hdlist1">
+             Given 
+           </dt> 
+           <dd> 
+            <p>a Step has attached plain text as a buffer in CucumberJS 6.0.5 <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span></p> 
+           </dd> 
+           <dt class="hdlist1">
+             And 
+           </dt> 
+           <dd> 
+            <p>I am hiding step timings <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span></p> 
+           </dd> 
+           <dt class="hdlist1">
+             And 
+           </dt> 
+           <dd> 
+            <p>all Cukedoctor extensions are disabled <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span></p> 
+           </dd> 
+           <dt class="hdlist1">
+             When 
+           </dt> 
+           <dd> 
+            <p>I convert the Feature <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span></p> 
+           </dd> 
+           <dt class="hdlist1">
+             Then 
+           </dt> 
+           <dd> 
+            <p>it will be rendered as <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span></p> 
+           </dd> 
+          </dl> 
+         </div> 
+         <div class="sidebarblock"> 
+          <div class="content"> 
+           <h1 id="_features_17" class="discrete"><strong>Features</strong></h1> 
+           <h2 id="Attachments" class="discrete"><strong>Attachments</strong></h2> 
+           <h3 id="_scenario_cucumber_js_6_0_5_attach_buffer_string" class="discrete">Scenario: Cucumber JS 6.0.5 attach Buffer, String</h3> 
+           <div class="exampleblock"> 
+            <div class="content"> 
+             <div class="dlist discrete"> 
+              <dl> 
+               <dt>
+                 Given 
+               </dt> 
+              </dl> 
+             </div> 
+             <div class="paragraph"> 
+              <p>a Step that performs attach Buffer, String <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span></p> 
+             </div> 
+             <details> 
+              <summary class="title">Attachment 1</summary> 
+              <div class="content"> 
+               <div class="paragraph"> 
+                <p>She sells sea shells on the sea shore</p> 
+               </div> 
+              </div> 
+             </details> 
+            </div> 
+           </div> 
+          </div> 
+         </div> 
+        </div> 
+       </div> 
+      </div> 
+      <div class="sect3"> 
+       <h4 id="_logged_text_should_appear_before_attachments"><a class="anchor" href="#_logged_text_should_appear_before_attachments"></a>2.6.7. Logged text should appear before attachments</h4> 
+       <div class="exampleblock"> 
+        <div class="content"> 
+         <div class="dlist"> 
+          <dl> 
+           <dt class="hdlist1">
+             Given 
+           </dt> 
+           <dd> 
+            <p>a Step has logged a string and attached a plain text string with a title <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span></p> 
+           </dd> 
+           <dt class="hdlist1">
+             And 
+           </dt> 
+           <dd> 
+            <p>I am hiding step timings <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span></p> 
+           </dd> 
+           <dt class="hdlist1">
+             And 
+           </dt> 
+           <dd> 
+            <p>all Cukedoctor extensions are disabled <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span></p> 
+           </dd> 
+           <dt class="hdlist1">
+             When 
+           </dt> 
+           <dd> 
+            <p>I convert the Feature <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span></p> 
+           </dd> 
+           <dt class="hdlist1">
+             Then 
+           </dt> 
+           <dd> 
+            <p>it will be rendered as <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span></p> 
+           </dd> 
+          </dl> 
+         </div> 
+         <div class="sidebarblock"> 
+          <div class="content"> 
+           <h1 id="_features_18" class="discrete"><strong>Features</strong></h1> 
+           <h2 id="Attachments" class="discrete"><strong>Attachments</strong></h2> 
+           <h3 id="_scenario_log_and_attach" class="discrete">Scenario: Log and attach</h3> 
+           <div class="exampleblock"> 
+            <div class="content"> 
+             <div class="dlist discrete"> 
+              <dl> 
+               <dt>
+                 Given 
+               </dt> 
+              </dl> 
+             </div> 
+             <div class="paragraph"> 
+              <p>a Step that logs and attaches <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span></p> 
+             </div> 
+             <div class="listingblock"> 
+              <div class="content"> 
+               <pre>Peter Piper picked a peck of pickled peppers</pre> 
+              </div> 
+             </div> 
+             <details> 
+              <summary class="title">String plain text</summary> 
+              <div class="content"> 
+               <div class="paragraph"> 
+                <p>She sells sea shells on the sea shore</p> 
+               </div> 
+              </div> 
+             </details> 
+            </div> 
+           </div> 
+          </div> 
+         </div> 
+        </div> 
+       </div> 
+      </div> 
+      <div class="sect3"> 
+       <h4 id="_multiple_attachments"><a class="anchor" href="#_multiple_attachments"></a>2.6.8. Multiple attachments</h4> 
+       <div class="exampleblock"> 
+        <div class="content"> 
+         <div class="dlist"> 
+          <dl> 
+           <dt class="hdlist1">
+             Given 
+           </dt> 
+           <dd> 
+            <p>a Step has three plain text attachments, two without a title <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span></p> 
+           </dd> 
+           <dt class="hdlist1">
+             And 
+           </dt> 
+           <dd> 
+            <p>I am hiding step timings <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span></p> 
+           </dd> 
+           <dt class="hdlist1">
+             And 
+           </dt> 
+           <dd> 
+            <p>all Cukedoctor extensions are disabled <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span></p> 
+           </dd> 
+           <dt class="hdlist1">
+             When 
+           </dt> 
+           <dd> 
+            <p>I convert the Feature <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span></p> 
+           </dd> 
+           <dt class="hdlist1">
+             Then 
+           </dt> 
+           <dd> 
+            <p>it will be rendered as <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span></p> 
+           </dd> 
+          </dl> 
+         </div> 
+         <div class="sidebarblock"> 
+          <div class="content"> 
+           <h1 id="_features_19" class="discrete"><strong>Features</strong></h1> 
+           <h2 id="Attachments" class="discrete"><strong>Attachments</strong></h2> 
+           <h3 id="_scenario_multiple_attachments" class="discrete">Scenario: Multiple attachments</h3> 
+           <div class="exampleblock"> 
+            <div class="content"> 
+             <div class="dlist discrete"> 
+              <dl> 
+               <dt>
+                 Given 
+               </dt> 
+              </dl> 
+             </div> 
+             <div class="paragraph"> 
+              <p>a Step that has multiple attachments <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span></p> 
+             </div> 
+             <details> 
+              <summary class="title">Attachment 1</summary> 
+              <div class="content"> 
+               <div class="paragraph"> 
+                <p>First attachment</p> 
+               </div> 
+              </div> 
+             </details> 
+             <details> 
+              <summary class="title">Second</summary> 
+              <div class="content"> 
+               <div class="paragraph"> 
+                <p>Second Attachment</p> 
+               </div> 
+              </div> 
+             </details> 
+             <details> 
+              <summary class="title">Attachment 2</summary> 
+              <div class="content"> 
+               <div class="paragraph"> 
+                <p>Third attachment</p> 
+               </div> 
+              </div> 
+             </details> 
+            </div> 
+           </div> 
+          </div> 
+         </div> 
+        </div> 
+       </div> 
+      </div> 
+      <div class="sect3"> 
+       <h4 id="_do_not_render_attachments_that_are_not_plain_text"><a class="anchor" href="#_do_not_render_attachments_that_are_not_plain_text"></a>2.6.9. Do not render attachments that are not plain text</h4> 
+       <div class="exampleblock"> 
+        <div class="content"> 
+         <div class="dlist"> 
+          <dl> 
+           <dt class="hdlist1">
+             Given 
+           </dt> 
+           <dd> 
+            <p>a Step has logged an image/png attachment <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span></p> 
+           </dd> 
+           <dt class="hdlist1">
+             And 
+           </dt> 
+           <dd> 
+            <p>I am hiding step timings <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span></p> 
+           </dd> 
+           <dt class="hdlist1">
+             And 
+           </dt> 
+           <dd> 
+            <p>all Cukedoctor extensions are disabled <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span></p> 
+           </dd> 
+           <dt class="hdlist1">
+             When 
+           </dt> 
+           <dd> 
+            <p>I convert the Feature <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span></p> 
+           </dd> 
+           <dt class="hdlist1">
+             Then 
+           </dt> 
+           <dd> 
+            <p>it will be rendered as <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span></p> 
+           </dd> 
+          </dl> 
+         </div> 
+         <div class="sidebarblock"> 
+          <div class="content"> 
+           <h1 id="_features_20" class="discrete"><strong>Features</strong></h1> 
+           <h2 id="Attachments" class="discrete"><strong>Attachments</strong></h2> 
+           <h3 id="_scenario_attaching_an_image" class="discrete">Scenario: Attaching an image</h3> 
+           <div class="exampleblock"> 
+            <div class="content"> 
+             <div class="dlist discrete"> 
+              <dl> 
+               <dt>
+                 Given 
+               </dt> 
+              </dl> 
+             </div> 
+             <div class="paragraph"> 
+              <p>a Step that attaches an image <span class="icon green"><i class="fa fa-thumbs-up" title="Passed"></i></span></p> 
+             </div> 
+            </div> 
+           </div> 
+          </div> 
+         </div> 
+        </div> 
+       </div> 
+      </div> 
+     </div> 
     </div> 
    </div> 
   </div> 
   <div id="footer" style="color:gray;font-size:11px">
     Generated by 
-   <a href="https://github.com/rmpestano/cukedoctor" target="_blank"> Cukedoctor 3.3-SNAPSHOT</a> - Sep 6, 2020 5:34:52 PM 
-   <span style="float:right;font-size:11px"> Execution time: 6.899 seconds</span> 
+   <a href="https://github.com/rmpestano/cukedoctor" target="_blank"> Cukedoctor 3.3-SNAPSHOT</a> - Sep 30, 2020 8:19:17 AM 
+   <span style="float:right;font-size:11px"> Execution time: 6.929 seconds</span> 
   </div> 
   <style>  
 

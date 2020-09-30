@@ -1,17 +1,1076 @@
 [
   {
-    "line": 2,
+    "line": 1,
     "elements": [
       {
-        "start_timestamp": "2020-09-06T17:28:43.795Z",
+        "start_timestamp": "2020-09-30T08:13:27.430Z",
         "before": [
           {
             "result": {
-              "duration": 4000000,
+              "duration": 3000000,
               "status": "passed"
             },
             "match": {
               "location": "com.github.cukedoctor.bdd.cukedoctor.EnrichmentSteps.before()"
+            }
+          },
+          {
+            "result": {
+              "status": "passed"
+            },
+            "match": {
+              "location": "com.github.cukedoctor.bdd.cukedoctor.AttachmentSteps.before()"
+            }
+          }
+        ],
+        "line": 12,
+        "name": "Logging a string in Cucumber-JVM 6.7.0",
+        "description": "",
+        "id": "attachments;logging-a-string-in-cucumber-jvm-6.7.0",
+        "after": [
+          {
+            "result": {
+              "status": "passed"
+            },
+            "match": {
+              "location": "com.github.cukedoctor.bdd.cukedoctor.AttachmentSteps.after()"
+            }
+          },
+          {
+            "result": {
+              "status": "passed"
+            },
+            "match": {
+              "location": "com.github.cukedoctor.bdd.cukedoctor.EnrichmentSteps.after()"
+            }
+          }
+        ],
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 2000000,
+              "status": "passed"
+            },
+            "line": 14,
+            "name": "a Step has logged a string in Cucumber-JVM 6.7.0",
+            "match": {
+              "arguments": [
+                {
+                  "val": "6.7",
+                  "offset": 43
+                },
+                {
+                  "val": "0",
+                  "offset": 47
+                }
+              ],
+              "location": "com.github.cukedoctor.bdd.cukedoctor.AttachmentSteps.a_Step_has_logged_a_string_in_Cucumber_JVM(java.lang.Double,java.lang.Integer)"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "status": "passed"
+            },
+            "line": 15,
+            "name": "I am hiding step timings",
+            "match": {
+              "location": "com.github.cukedoctor.bdd.cukedoctor.AttachmentSteps.i_am_hiding_step_timings()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "status": "passed"
+            },
+            "line": 16,
+            "name": "all Cukedoctor extensions are disabled",
+            "match": {
+              "location": "com.github.cukedoctor.bdd.cukedoctor.AttachmentSteps.all_cukedoctor_extensions_are_disabled()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 12000000,
+              "status": "passed"
+            },
+            "line": 17,
+            "name": "I convert the Feature",
+            "match": {
+              "location": "com.github.cukedoctor.bdd.cukedoctor.AttachmentSteps.i_convert_the_feature()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "status": "passed"
+            },
+            "line": 18,
+            "name": "it will be rendered as",
+            "match": {
+              "location": "com.github.cukedoctor.bdd.cukedoctor.AttachmentSteps.it_will_be_rendered_as(java.lang.String)"
+            },
+            "keyword": "Then ",
+            "doc_string": {
+              "content_type": "asciidoc",
+              "line": 19,
+              "value": "\u003d *Features*\n\n\n[[Attachments, Attachments]]\n\u003d\u003d *Attachments*\n\n\u003d\u003d\u003d Scenario: Cucumber JVM 6.7.0 scenario.log(String)\n\n\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\nGiven ::\na Step that performs scenario.log(String) icon:thumbs-up[role\u003d\"green\",title\u003d\"Passed\"]\n----\nShe sells sea shells on the sea shore\n----\n\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\n\n"
+            }
+          }
+        ]
+      },
+      {
+        "start_timestamp": "2020-09-30T08:13:27.472Z",
+        "before": [
+          {
+            "result": {
+              "status": "passed"
+            },
+            "match": {
+              "location": "com.github.cukedoctor.bdd.cukedoctor.EnrichmentSteps.before()"
+            }
+          },
+          {
+            "result": {
+              "duration": 1000000,
+              "status": "passed"
+            },
+            "match": {
+              "location": "com.github.cukedoctor.bdd.cukedoctor.AttachmentSteps.before()"
+            }
+          }
+        ],
+        "line": 39,
+        "name": "Attaching plain text as a string with name in Cucumber-JVM 6.7.0",
+        "description": "",
+        "id": "attachments;attaching-plain-text-as-a-string-with-name-in-cucumber-jvm-6.7.0",
+        "after": [
+          {
+            "result": {
+              "status": "passed"
+            },
+            "match": {
+              "location": "com.github.cukedoctor.bdd.cukedoctor.AttachmentSteps.after()"
+            }
+          },
+          {
+            "result": {
+              "duration": 1000000,
+              "status": "passed"
+            },
+            "match": {
+              "location": "com.github.cukedoctor.bdd.cukedoctor.EnrichmentSteps.after()"
+            }
+          }
+        ],
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "status": "passed"
+            },
+            "line": 41,
+            "name": "a Step has attached plain text as a string with a title in Cucumber-JVM 6.7.0",
+            "match": {
+              "arguments": [
+                {
+                  "val": "6.7",
+                  "offset": 72
+                },
+                {
+                  "val": "0",
+                  "offset": 76
+                }
+              ],
+              "location": "com.github.cukedoctor.bdd.cukedoctor.AttachmentSteps.a_Step_has_attached_plain_text_as_a_string_with_a_title_in_Cucumber_JVM(java.lang.Double,java.lang.Integer)"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "status": "passed"
+            },
+            "line": 42,
+            "name": "I am hiding step timings",
+            "match": {
+              "location": "com.github.cukedoctor.bdd.cukedoctor.AttachmentSteps.i_am_hiding_step_timings()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "status": "passed"
+            },
+            "line": 43,
+            "name": "all Cukedoctor extensions are disabled",
+            "match": {
+              "location": "com.github.cukedoctor.bdd.cukedoctor.AttachmentSteps.all_cukedoctor_extensions_are_disabled()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 9000000,
+              "status": "passed"
+            },
+            "line": 44,
+            "name": "I convert the Feature",
+            "match": {
+              "location": "com.github.cukedoctor.bdd.cukedoctor.AttachmentSteps.i_convert_the_feature()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "status": "passed"
+            },
+            "line": 45,
+            "name": "it will be rendered as",
+            "match": {
+              "location": "com.github.cukedoctor.bdd.cukedoctor.AttachmentSteps.it_will_be_rendered_as(java.lang.String)"
+            },
+            "keyword": "Then ",
+            "doc_string": {
+              "content_type": "asciidoc",
+              "line": 46,
+              "value": "\u003d *Features*\n\n\n[[Attachments, Attachments]]\n\u003d\u003d *Attachments*\n\n\u003d\u003d\u003d Scenario: Cucumber JVM 6.7.0 scenario.attach(String, String, String)\n\n\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\nGiven ::\na Step that performs scenario.attach(String, String, String) icon:thumbs-up[role\u003d\"green\",title\u003d\"Passed\"]\n\n.String plain text\n[%collapsible]\n\u003d\u003d\u003d\u003d\u003d\nShe sells sea shells on the sea shore\n\u003d\u003d\u003d\u003d\u003d\n\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\n\n"
+            }
+          }
+        ]
+      },
+      {
+        "start_timestamp": "2020-09-30T08:13:27.498Z",
+        "before": [
+          {
+            "result": {
+              "status": "passed"
+            },
+            "match": {
+              "location": "com.github.cukedoctor.bdd.cukedoctor.EnrichmentSteps.before()"
+            }
+          },
+          {
+            "result": {
+              "status": "passed"
+            },
+            "match": {
+              "location": "com.github.cukedoctor.bdd.cukedoctor.AttachmentSteps.before()"
+            }
+          }
+        ],
+        "line": 70,
+        "name": "Attaching plain text as a byte array with name in Cucumber-JVM 6.7.0",
+        "description": "",
+        "id": "attachments;attaching-plain-text-as-a-byte-array-with-name-in-cucumber-jvm-6.7.0",
+        "after": [
+          {
+            "result": {
+              "status": "passed"
+            },
+            "match": {
+              "location": "com.github.cukedoctor.bdd.cukedoctor.AttachmentSteps.after()"
+            }
+          },
+          {
+            "result": {
+              "status": "passed"
+            },
+            "match": {
+              "location": "com.github.cukedoctor.bdd.cukedoctor.EnrichmentSteps.after()"
+            }
+          }
+        ],
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "status": "passed"
+            },
+            "line": 72,
+            "name": "a Step has attached plain text as a byte array with a title in Cucumber-JVM 6.7.0",
+            "match": {
+              "arguments": [
+                {
+                  "val": "6.7",
+                  "offset": 76
+                },
+                {
+                  "val": "0",
+                  "offset": 80
+                }
+              ],
+              "location": "com.github.cukedoctor.bdd.cukedoctor.AttachmentSteps.a_Step_has_attached_plain_text_as_a_byte_array_with_a_title_in_Cucumber_JVM(java.lang.Double,java.lang.Integer)"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 1000000,
+              "status": "passed"
+            },
+            "line": 73,
+            "name": "I am hiding step timings",
+            "match": {
+              "location": "com.github.cukedoctor.bdd.cukedoctor.AttachmentSteps.i_am_hiding_step_timings()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "status": "passed"
+            },
+            "line": 74,
+            "name": "all Cukedoctor extensions are disabled",
+            "match": {
+              "location": "com.github.cukedoctor.bdd.cukedoctor.AttachmentSteps.all_cukedoctor_extensions_are_disabled()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 8000000,
+              "status": "passed"
+            },
+            "line": 75,
+            "name": "I convert the Feature",
+            "match": {
+              "location": "com.github.cukedoctor.bdd.cukedoctor.AttachmentSteps.i_convert_the_feature()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "status": "passed"
+            },
+            "line": 76,
+            "name": "it will be rendered as",
+            "match": {
+              "location": "com.github.cukedoctor.bdd.cukedoctor.AttachmentSteps.it_will_be_rendered_as(java.lang.String)"
+            },
+            "keyword": "Then ",
+            "doc_string": {
+              "content_type": "asciidoc",
+              "line": 77,
+              "value": "\u003d *Features*\n\n\n[[Attachments, Attachments]]\n\u003d\u003d *Attachments*\n\n\u003d\u003d\u003d Scenario: Cucumber JVM 6.7.0 scenario.attach(ByteArray, String, String)\n\n\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\nGiven ::\na Step that performs scenario.attach(ByteArray, String, String) icon:thumbs-up[role\u003d\"green\",title\u003d\"Passed\"]\n\n.Byte[] plain text\n[%collapsible]\n\u003d\u003d\u003d\u003d\u003d\nShe sells sea shells on the sea shore\n\u003d\u003d\u003d\u003d\u003d\n\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\n\n"
+            }
+          }
+        ]
+      },
+      {
+        "start_timestamp": "2020-09-30T08:13:27.518Z",
+        "before": [
+          {
+            "result": {
+              "status": "passed"
+            },
+            "match": {
+              "location": "com.github.cukedoctor.bdd.cukedoctor.EnrichmentSteps.before()"
+            }
+          },
+          {
+            "result": {
+              "status": "passed"
+            },
+            "match": {
+              "location": "com.github.cukedoctor.bdd.cukedoctor.AttachmentSteps.before()"
+            }
+          }
+        ],
+        "line": 101,
+        "name": "Attaching a string CucumberJS 6.0.5",
+        "description": "",
+        "id": "attachments;attaching-a-string-cucumberjs-6.0.5",
+        "after": [
+          {
+            "result": {
+              "status": "passed"
+            },
+            "match": {
+              "location": "com.github.cukedoctor.bdd.cukedoctor.AttachmentSteps.after()"
+            }
+          },
+          {
+            "result": {
+              "duration": 1000000,
+              "status": "passed"
+            },
+            "match": {
+              "location": "com.github.cukedoctor.bdd.cukedoctor.EnrichmentSteps.after()"
+            }
+          }
+        ],
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 1000000,
+              "status": "passed"
+            },
+            "line": 103,
+            "name": "a Step has attached a string in CucumberJS 6.0.5",
+            "match": {
+              "arguments": [
+                {
+                  "val": "6.0",
+                  "offset": 43
+                },
+                {
+                  "val": "5",
+                  "offset": 47
+                }
+              ],
+              "location": "com.github.cukedoctor.bdd.cukedoctor.AttachmentSteps.a_Step_has_attached_a_string_in_CucumberJS(java.lang.Double,java.lang.Integer)"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "status": "passed"
+            },
+            "line": 104,
+            "name": "I am hiding step timings",
+            "match": {
+              "location": "com.github.cukedoctor.bdd.cukedoctor.AttachmentSteps.i_am_hiding_step_timings()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "status": "passed"
+            },
+            "line": 105,
+            "name": "all Cukedoctor extensions are disabled",
+            "match": {
+              "location": "com.github.cukedoctor.bdd.cukedoctor.AttachmentSteps.all_cukedoctor_extensions_are_disabled()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 7000000,
+              "status": "passed"
+            },
+            "line": 106,
+            "name": "I convert the Feature",
+            "match": {
+              "location": "com.github.cukedoctor.bdd.cukedoctor.AttachmentSteps.i_convert_the_feature()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "status": "passed"
+            },
+            "line": 107,
+            "name": "it will be rendered as",
+            "match": {
+              "location": "com.github.cukedoctor.bdd.cukedoctor.AttachmentSteps.it_will_be_rendered_as(java.lang.String)"
+            },
+            "keyword": "Then ",
+            "doc_string": {
+              "content_type": "asciidoc",
+              "line": 108,
+              "value": "\u003d *Features*\n\n\n[[Attachments, Attachments]]\n\u003d\u003d *Attachments*\n\n\u003d\u003d\u003d Scenario: Cucumber JS 6.0.5 attach String\n\n\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\nGiven ::\na Step that performs attach String icon:thumbs-up[role\u003d\"green\",title\u003d\"Passed\"]\n\n.Attachment 1\n[%collapsible]\n\u003d\u003d\u003d\u003d\u003d\nShe sells sea shells on the sea shore\n\u003d\u003d\u003d\u003d\u003d\n\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\n\n"
+            }
+          }
+        ]
+      },
+      {
+        "start_timestamp": "2020-09-30T08:13:27.534Z",
+        "before": [
+          {
+            "result": {
+              "status": "passed"
+            },
+            "match": {
+              "location": "com.github.cukedoctor.bdd.cukedoctor.EnrichmentSteps.before()"
+            }
+          },
+          {
+            "result": {
+              "status": "passed"
+            },
+            "match": {
+              "location": "com.github.cukedoctor.bdd.cukedoctor.AttachmentSteps.before()"
+            }
+          }
+        ],
+        "line": 132,
+        "name": "Attaching a plain text string CucumberJS 6.0.5",
+        "description": "",
+        "id": "attachments;attaching-a-plain-text-string-cucumberjs-6.0.5",
+        "after": [
+          {
+            "result": {
+              "status": "passed"
+            },
+            "match": {
+              "location": "com.github.cukedoctor.bdd.cukedoctor.AttachmentSteps.after()"
+            }
+          },
+          {
+            "result": {
+              "status": "passed"
+            },
+            "match": {
+              "location": "com.github.cukedoctor.bdd.cukedoctor.EnrichmentSteps.after()"
+            }
+          }
+        ],
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "status": "passed"
+            },
+            "line": 134,
+            "name": "a Step has attached plain text as a string in CucumberJS 6.0.5",
+            "match": {
+              "arguments": [
+                {
+                  "val": "6.0",
+                  "offset": 57
+                },
+                {
+                  "val": "5",
+                  "offset": 61
+                }
+              ],
+              "location": "com.github.cukedoctor.bdd.cukedoctor.AttachmentSteps.a_Step_has_attached_plain_text_as_a_string_in_CucumberJS(java.lang.Double,java.lang.Integer)"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "status": "passed"
+            },
+            "line": 135,
+            "name": "I am hiding step timings",
+            "match": {
+              "location": "com.github.cukedoctor.bdd.cukedoctor.AttachmentSteps.i_am_hiding_step_timings()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "status": "passed"
+            },
+            "line": 136,
+            "name": "all Cukedoctor extensions are disabled",
+            "match": {
+              "location": "com.github.cukedoctor.bdd.cukedoctor.AttachmentSteps.all_cukedoctor_extensions_are_disabled()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 5000000,
+              "status": "passed"
+            },
+            "line": 137,
+            "name": "I convert the Feature",
+            "match": {
+              "location": "com.github.cukedoctor.bdd.cukedoctor.AttachmentSteps.i_convert_the_feature()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "status": "passed"
+            },
+            "line": 138,
+            "name": "it will be rendered as",
+            "match": {
+              "location": "com.github.cukedoctor.bdd.cukedoctor.AttachmentSteps.it_will_be_rendered_as(java.lang.String)"
+            },
+            "keyword": "Then ",
+            "doc_string": {
+              "content_type": "asciidoc",
+              "line": 139,
+              "value": "\u003d *Features*\n\n\n[[Attachments, Attachments]]\n\u003d\u003d *Attachments*\n\n\u003d\u003d\u003d Scenario: Cucumber JS 6.0.5 attach String, String\n\n\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\nGiven ::\na Step that performs attach String, String icon:thumbs-up[role\u003d\"green\",title\u003d\"Passed\"]\n\n.Attachment 1\n[%collapsible]\n\u003d\u003d\u003d\u003d\u003d\nShe sells sea shells on the sea shore\n\u003d\u003d\u003d\u003d\u003d\n\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\n\n"
+            }
+          }
+        ]
+      },
+      {
+        "start_timestamp": "2020-09-30T08:13:27.544Z",
+        "before": [
+          {
+            "result": {
+              "status": "passed"
+            },
+            "match": {
+              "location": "com.github.cukedoctor.bdd.cukedoctor.EnrichmentSteps.before()"
+            }
+          },
+          {
+            "result": {
+              "status": "passed"
+            },
+            "match": {
+              "location": "com.github.cukedoctor.bdd.cukedoctor.AttachmentSteps.before()"
+            }
+          }
+        ],
+        "line": 163,
+        "name": "Attaching a plain text buffer CucumberJS 6.0.5",
+        "description": "",
+        "id": "attachments;attaching-a-plain-text-buffer-cucumberjs-6.0.5",
+        "after": [
+          {
+            "result": {
+              "status": "passed"
+            },
+            "match": {
+              "location": "com.github.cukedoctor.bdd.cukedoctor.AttachmentSteps.after()"
+            }
+          },
+          {
+            "result": {
+              "status": "passed"
+            },
+            "match": {
+              "location": "com.github.cukedoctor.bdd.cukedoctor.EnrichmentSteps.after()"
+            }
+          }
+        ],
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "status": "passed"
+            },
+            "line": 165,
+            "name": "a Step has attached plain text as a buffer in CucumberJS 6.0.5",
+            "match": {
+              "arguments": [
+                {
+                  "val": "6.0",
+                  "offset": 57
+                },
+                {
+                  "val": "5",
+                  "offset": 61
+                }
+              ],
+              "location": "com.github.cukedoctor.bdd.cukedoctor.AttachmentSteps.a_Step_has_attached_plain_text_as_a_buffer_in_CucumberJS(java.lang.Double,java.lang.Integer)"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "status": "passed"
+            },
+            "line": 166,
+            "name": "I am hiding step timings",
+            "match": {
+              "location": "com.github.cukedoctor.bdd.cukedoctor.AttachmentSteps.i_am_hiding_step_timings()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "status": "passed"
+            },
+            "line": 167,
+            "name": "all Cukedoctor extensions are disabled",
+            "match": {
+              "location": "com.github.cukedoctor.bdd.cukedoctor.AttachmentSteps.all_cukedoctor_extensions_are_disabled()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 5000000,
+              "status": "passed"
+            },
+            "line": 168,
+            "name": "I convert the Feature",
+            "match": {
+              "location": "com.github.cukedoctor.bdd.cukedoctor.AttachmentSteps.i_convert_the_feature()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "status": "passed"
+            },
+            "line": 169,
+            "name": "it will be rendered as",
+            "match": {
+              "location": "com.github.cukedoctor.bdd.cukedoctor.AttachmentSteps.it_will_be_rendered_as(java.lang.String)"
+            },
+            "keyword": "Then ",
+            "doc_string": {
+              "content_type": "asciidoc",
+              "line": 170,
+              "value": "\u003d *Features*\n\n\n[[Attachments, Attachments]]\n\u003d\u003d *Attachments*\n\n\u003d\u003d\u003d Scenario: Cucumber JS 6.0.5 attach Buffer, String\n\n\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\nGiven ::\na Step that performs attach Buffer, String icon:thumbs-up[role\u003d\"green\",title\u003d\"Passed\"]\n\n.Attachment 1\n[%collapsible]\n\u003d\u003d\u003d\u003d\u003d\nShe sells sea shells on the sea shore\n\u003d\u003d\u003d\u003d\u003d\n\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\n\n"
+            }
+          }
+        ]
+      },
+      {
+        "start_timestamp": "2020-09-30T08:13:27.553Z",
+        "before": [
+          {
+            "result": {
+              "duration": 1000000,
+              "status": "passed"
+            },
+            "match": {
+              "location": "com.github.cukedoctor.bdd.cukedoctor.EnrichmentSteps.before()"
+            }
+          },
+          {
+            "result": {
+              "status": "passed"
+            },
+            "match": {
+              "location": "com.github.cukedoctor.bdd.cukedoctor.AttachmentSteps.before()"
+            }
+          }
+        ],
+        "line": 194,
+        "name": "Logged text should appear before attachments",
+        "description": "",
+        "id": "attachments;logged-text-should-appear-before-attachments",
+        "after": [
+          {
+            "result": {
+              "status": "passed"
+            },
+            "match": {
+              "location": "com.github.cukedoctor.bdd.cukedoctor.AttachmentSteps.after()"
+            }
+          },
+          {
+            "result": {
+              "status": "passed"
+            },
+            "match": {
+              "location": "com.github.cukedoctor.bdd.cukedoctor.EnrichmentSteps.after()"
+            }
+          }
+        ],
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "status": "passed"
+            },
+            "line": 196,
+            "name": "a Step has logged a string and attached a plain text string with a title",
+            "match": {
+              "location": "com.github.cukedoctor.bdd.cukedoctor.AttachmentSteps.a_Step_has_logged_a_string_and_attached_a_plain_text_string_with_a_title()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "status": "passed"
+            },
+            "line": 197,
+            "name": "I am hiding step timings",
+            "match": {
+              "location": "com.github.cukedoctor.bdd.cukedoctor.AttachmentSteps.i_am_hiding_step_timings()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "status": "passed"
+            },
+            "line": 198,
+            "name": "all Cukedoctor extensions are disabled",
+            "match": {
+              "location": "com.github.cukedoctor.bdd.cukedoctor.AttachmentSteps.all_cukedoctor_extensions_are_disabled()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 5000000,
+              "status": "passed"
+            },
+            "line": 199,
+            "name": "I convert the Feature",
+            "match": {
+              "location": "com.github.cukedoctor.bdd.cukedoctor.AttachmentSteps.i_convert_the_feature()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "status": "passed"
+            },
+            "line": 200,
+            "name": "it will be rendered as",
+            "match": {
+              "location": "com.github.cukedoctor.bdd.cukedoctor.AttachmentSteps.it_will_be_rendered_as(java.lang.String)"
+            },
+            "keyword": "Then ",
+            "doc_string": {
+              "content_type": "asciidoc",
+              "line": 201,
+              "value": "\u003d *Features*\n\n\n[[Attachments, Attachments]]\n\u003d\u003d *Attachments*\n\n\u003d\u003d\u003d Scenario: Log and attach\n\n\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\nGiven ::\na Step that logs and attaches icon:thumbs-up[role\u003d\"green\",title\u003d\"Passed\"]\n----\nPeter Piper picked a peck of pickled peppers\n----\n\n.String plain text\n[%collapsible]\n\u003d\u003d\u003d\u003d\u003d\nShe sells sea shells on the sea shore\n\u003d\u003d\u003d\u003d\u003d\n\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\n\n"
+            }
+          }
+        ]
+      },
+      {
+        "start_timestamp": "2020-09-30T08:13:27.568Z",
+        "before": [
+          {
+            "result": {
+              "status": "passed"
+            },
+            "match": {
+              "location": "com.github.cukedoctor.bdd.cukedoctor.EnrichmentSteps.before()"
+            }
+          },
+          {
+            "result": {
+              "status": "passed"
+            },
+            "match": {
+              "location": "com.github.cukedoctor.bdd.cukedoctor.AttachmentSteps.before()"
+            }
+          }
+        ],
+        "line": 228,
+        "name": "Multiple attachments",
+        "description": "",
+        "id": "attachments;multiple-attachments",
+        "after": [
+          {
+            "result": {
+              "status": "passed"
+            },
+            "match": {
+              "location": "com.github.cukedoctor.bdd.cukedoctor.AttachmentSteps.after()"
+            }
+          },
+          {
+            "result": {
+              "status": "passed"
+            },
+            "match": {
+              "location": "com.github.cukedoctor.bdd.cukedoctor.EnrichmentSteps.after()"
+            }
+          }
+        ],
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "status": "passed"
+            },
+            "line": 230,
+            "name": "a Step has three plain text attachments, two without a title",
+            "match": {
+              "location": "com.github.cukedoctor.bdd.cukedoctor.AttachmentSteps.a_Step_has_three_plain_text_attachments_two_without_a_title()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "status": "passed"
+            },
+            "line": 231,
+            "name": "I am hiding step timings",
+            "match": {
+              "location": "com.github.cukedoctor.bdd.cukedoctor.AttachmentSteps.i_am_hiding_step_timings()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "status": "passed"
+            },
+            "line": 232,
+            "name": "all Cukedoctor extensions are disabled",
+            "match": {
+              "location": "com.github.cukedoctor.bdd.cukedoctor.AttachmentSteps.all_cukedoctor_extensions_are_disabled()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 6000000,
+              "status": "passed"
+            },
+            "line": 233,
+            "name": "I convert the Feature",
+            "match": {
+              "location": "com.github.cukedoctor.bdd.cukedoctor.AttachmentSteps.i_convert_the_feature()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "status": "passed"
+            },
+            "line": 234,
+            "name": "it will be rendered as",
+            "match": {
+              "location": "com.github.cukedoctor.bdd.cukedoctor.AttachmentSteps.it_will_be_rendered_as(java.lang.String)"
+            },
+            "keyword": "Then ",
+            "doc_string": {
+              "content_type": "asciidoc",
+              "line": 235,
+              "value": "\u003d *Features*\n\n\n[[Attachments, Attachments]]\n\u003d\u003d *Attachments*\n\n\u003d\u003d\u003d Scenario: Multiple attachments\n\n\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\nGiven ::\na Step that has multiple attachments icon:thumbs-up[role\u003d\"green\",title\u003d\"Passed\"]\n\n.Attachment 1\n[%collapsible]\n\u003d\u003d\u003d\u003d\u003d\nFirst attachment\n\u003d\u003d\u003d\u003d\u003d\n\n.Second\n[%collapsible]\n\u003d\u003d\u003d\u003d\u003d\nSecond Attachment\n\u003d\u003d\u003d\u003d\u003d\n\n.Attachment 2\n[%collapsible]\n\u003d\u003d\u003d\u003d\u003d\nThird attachment\n\u003d\u003d\u003d\u003d\u003d\n\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\n\n"
+            }
+          }
+        ]
+      },
+      {
+        "start_timestamp": "2020-09-30T08:13:27.579Z",
+        "before": [
+          {
+            "result": {
+              "duration": 1000000,
+              "status": "passed"
+            },
+            "match": {
+              "location": "com.github.cukedoctor.bdd.cukedoctor.EnrichmentSteps.before()"
+            }
+          },
+          {
+            "result": {
+              "status": "passed"
+            },
+            "match": {
+              "location": "com.github.cukedoctor.bdd.cukedoctor.AttachmentSteps.before()"
+            }
+          }
+        ],
+        "line": 271,
+        "name": "Do not render attachments that are not plain text",
+        "description": "",
+        "id": "attachments;do-not-render-attachments-that-are-not-plain-text",
+        "after": [
+          {
+            "result": {
+              "status": "passed"
+            },
+            "match": {
+              "location": "com.github.cukedoctor.bdd.cukedoctor.AttachmentSteps.after()"
+            }
+          },
+          {
+            "result": {
+              "status": "passed"
+            },
+            "match": {
+              "location": "com.github.cukedoctor.bdd.cukedoctor.EnrichmentSteps.after()"
+            }
+          }
+        ],
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "status": "passed"
+            },
+            "line": 273,
+            "name": "a Step has logged an image/png attachment",
+            "match": {
+              "location": "com.github.cukedoctor.bdd.cukedoctor.AttachmentSteps.a_Step_has_logged_an_image_png_attachment()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "status": "passed"
+            },
+            "line": 274,
+            "name": "I am hiding step timings",
+            "match": {
+              "location": "com.github.cukedoctor.bdd.cukedoctor.AttachmentSteps.i_am_hiding_step_timings()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "status": "passed"
+            },
+            "line": 275,
+            "name": "all Cukedoctor extensions are disabled",
+            "match": {
+              "location": "com.github.cukedoctor.bdd.cukedoctor.AttachmentSteps.all_cukedoctor_extensions_are_disabled()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 5000000,
+              "status": "passed"
+            },
+            "line": 276,
+            "name": "I convert the Feature",
+            "match": {
+              "location": "com.github.cukedoctor.bdd.cukedoctor.AttachmentSteps.i_convert_the_feature()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "status": "passed"
+            },
+            "line": 277,
+            "name": "it will be rendered as",
+            "match": {
+              "location": "com.github.cukedoctor.bdd.cukedoctor.AttachmentSteps.it_will_be_rendered_as(java.lang.String)"
+            },
+            "keyword": "Then ",
+            "doc_string": {
+              "content_type": "asciidoc",
+              "line": 278,
+              "value": "\u003d *Features*\n\n\n[[Attachments, Attachments]]\n\u003d\u003d *Attachments*\n\n\u003d\u003d\u003d Scenario: Attaching an image\n\n\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\nGiven ::\na Step that attaches an image icon:thumbs-up[role\u003d\"green\",title\u003d\"Passed\"]\n\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\n\n"
+            }
+          }
+        ]
+      }
+    ],
+    "name": "Attachments",
+    "description": "  \u003d\u003d\u003d\u003d\n  [quote]\n  ____\n  In order to capture dynamically-generated content from my tests\n  As a bdd developer\n  I want to render attachments from my Cucumber tests in my living documentation\n  ____\n  \u003d\u003d\u003d\u003d",
+    "id": "attachments",
+    "keyword": "Feature",
+    "uri": "classpath:com/github/cukedoctor/bdd/cukedoctor/attachments.feature",
+    "tags": []
+  },
+  {
+    "line": 2,
+    "elements": [
+      {
+        "start_timestamp": "2020-09-30T08:13:27.594Z",
+        "before": [
+          {
+            "result": {
+              "status": "passed"
+            },
+            "match": {
+              "location": "com.github.cukedoctor.bdd.cukedoctor.EnrichmentSteps.before()"
+            }
+          },
+          {
+            "result": {
+              "status": "passed"
+            },
+            "match": {
+              "location": "com.github.cukedoctor.bdd.cukedoctor.AttachmentSteps.before()"
             }
           }
         ],
@@ -20,6 +1079,14 @@
         "description": "",
         "id": "cukedoctor-converter;convert-features-test-output-into-documentation",
         "after": [
+          {
+            "result": {
+              "status": "passed"
+            },
+            "match": {
+              "location": "com.github.cukedoctor.bdd.cukedoctor.AttachmentSteps.after()"
+            }
+          },
           {
             "result": {
               "status": "passed"
@@ -49,7 +1116,7 @@
           },
           {
             "result": {
-              "duration": 14000000,
+              "duration": 10000000,
               "status": "passed"
             },
             "line": 27,
@@ -66,7 +1133,6 @@
           },
           {
             "result": {
-              "duration": 1000000,
               "status": "passed"
             },
             "line": 43,
@@ -109,7 +1175,7 @@
     "line": 2,
     "elements": [
       {
-        "start_timestamp": "2020-09-06T17:28:43.828Z",
+        "start_timestamp": "2020-09-30T08:13:27.611Z",
         "before": [
           {
             "result": {
@@ -118,6 +1184,14 @@
             "match": {
               "location": "com.github.cukedoctor.bdd.cukedoctor.EnrichmentSteps.before()"
             }
+          },
+          {
+            "result": {
+              "status": "passed"
+            },
+            "match": {
+              "location": "com.github.cukedoctor.bdd.cukedoctor.AttachmentSteps.before()"
+            }
           }
         ],
         "line": 26,
@@ -125,6 +1199,14 @@
         "description": "  Asciidoc markup can be used in feature *DocStrings*. To do so you can enable it by using the content type *[asciidoc]* in the DocString.",
         "id": "enrich-features;docstring-enrichment-activated-by-the-content-type",
         "after": [
+          {
+            "result": {
+              "status": "passed"
+            },
+            "match": {
+              "location": "com.github.cukedoctor.bdd.cukedoctor.AttachmentSteps.after()"
+            }
+          },
           {
             "result": {
               "status": "passed"
@@ -154,7 +1236,7 @@
           },
           {
             "result": {
-              "duration": 6000000,
+              "duration": 5000000,
               "status": "passed"
             },
             "line": 61,
@@ -188,14 +1270,23 @@
         ]
       },
       {
-        "start_timestamp": "2020-09-06T17:28:43.846Z",
+        "start_timestamp": "2020-09-30T08:13:27.622Z",
         "before": [
+          {
+            "result": {
+              "duration": 1000000,
+              "status": "passed"
+            },
+            "match": {
+              "location": "com.github.cukedoctor.bdd.cukedoctor.EnrichmentSteps.before()"
+            }
+          },
           {
             "result": {
               "status": "passed"
             },
             "match": {
-              "location": "com.github.cukedoctor.bdd.cukedoctor.EnrichmentSteps.before()"
+              "location": "com.github.cukedoctor.bdd.cukedoctor.AttachmentSteps.before()"
             }
           }
         ],
@@ -204,6 +1295,14 @@
         "description": "  Asciidoc markup can be used in feature *DocStrings*. You can enable this by applying the tag [@asciidoc] to the feature. Note this enables the enrichment for all DocStrings within the feature.",
         "id": "enrich-features;docstring-enrichment-activated-by-a-feature-tag",
         "after": [
+          {
+            "result": {
+              "status": "passed"
+            },
+            "match": {
+              "location": "com.github.cukedoctor.bdd.cukedoctor.AttachmentSteps.after()"
+            }
+          },
           {
             "result": {
               "status": "passed"
@@ -233,7 +1332,7 @@
           },
           {
             "result": {
-              "duration": 6000000,
+              "duration": 5000000,
               "status": "passed"
             },
             "line": 149,
@@ -267,7 +1366,7 @@
         ]
       },
       {
-        "start_timestamp": "2020-09-06T17:28:43.854Z",
+        "start_timestamp": "2020-09-30T08:13:27.631Z",
         "before": [
           {
             "result": {
@@ -276,6 +1375,14 @@
             "match": {
               "location": "com.github.cukedoctor.bdd.cukedoctor.EnrichmentSteps.before()"
             }
+          },
+          {
+            "result": {
+              "status": "passed"
+            },
+            "match": {
+              "location": "com.github.cukedoctor.bdd.cukedoctor.AttachmentSteps.before()"
+            }
           }
         ],
         "line": 201,
@@ -283,6 +1390,14 @@
         "description": "  Asciidoc markup can be used in feature *DocStrings*. You can enable this by applying the tag [@asciidoc] to the scenario. Note this enables the enrichment for all DocStrings within the scenario.",
         "id": "enrich-features;docstring-enrichment-activated-by-a-scenario-tag",
         "after": [
+          {
+            "result": {
+              "status": "passed"
+            },
+            "match": {
+              "location": "com.github.cukedoctor.bdd.cukedoctor.AttachmentSteps.after()"
+            }
+          },
           {
             "result": {
               "status": "passed"
@@ -312,7 +1427,7 @@
           },
           {
             "result": {
-              "duration": 5000000,
+              "duration": 4000000,
               "status": "passed"
             },
             "line": 238,
@@ -346,7 +1461,7 @@
         ]
       },
       {
-        "start_timestamp": "2020-09-06T17:28:43.862Z",
+        "start_timestamp": "2020-09-30T08:13:27.638Z",
         "before": [
           {
             "result": {
@@ -354,6 +1469,14 @@
             },
             "match": {
               "location": "com.github.cukedoctor.bdd.cukedoctor.EnrichmentSteps.before()"
+            }
+          },
+          {
+            "result": {
+              "status": "passed"
+            },
+            "match": {
+              "location": "com.github.cukedoctor.bdd.cukedoctor.AttachmentSteps.before()"
             }
           }
         ],
@@ -364,7 +1487,14 @@
         "after": [
           {
             "result": {
-              "duration": 1000000,
+              "status": "passed"
+            },
+            "match": {
+              "location": "com.github.cukedoctor.bdd.cukedoctor.AttachmentSteps.after()"
+            }
+          },
+          {
+            "result": {
               "status": "passed"
             },
             "match": {
@@ -377,6 +1507,7 @@
         "steps": [
           {
             "result": {
+              "duration": 1000000,
               "status": "passed"
             },
             "line": 298,
@@ -392,7 +1523,7 @@
           },
           {
             "result": {
-              "duration": 40000000,
+              "duration": 67000000,
               "status": "passed"
             },
             "line": 340,
@@ -446,15 +1577,22 @@
     "line": 2,
     "elements": [
       {
-        "start_timestamp": "2020-09-06T17:28:43.911Z",
+        "start_timestamp": "2020-09-30T08:13:27.713Z",
         "before": [
           {
             "result": {
-              "duration": 1000000,
               "status": "passed"
             },
             "match": {
               "location": "com.github.cukedoctor.bdd.cukedoctor.EnrichmentSteps.before()"
+            }
+          },
+          {
+            "result": {
+              "status": "passed"
+            },
+            "match": {
+              "location": "com.github.cukedoctor.bdd.cukedoctor.AttachmentSteps.before()"
             }
           }
         ],
@@ -463,6 +1601,14 @@
         "description": "  NOTE: The introduction file must be named *intro-chapter.adoc* and can be in any package of your application,\n\n  [TIP]\n  \u003d\u003d\u003d\u003d\n  By default Cukedoctor will look into application folders but you can make Cukedoctor look into external folder by setting the following system property:\n  [source,java]\n  ----\n  System.setProperty(\"INTRO_CHAPTER_DIR\",\"/home/some/external/folder\");\n  ----\n  \u003d\u003d\u003d\u003d",
         "id": "documentation-introduction-chapter;introduction-chapter-in-classpath",
         "after": [
+          {
+            "result": {
+              "status": "passed"
+            },
+            "match": {
+              "location": "com.github.cukedoctor.bdd.cukedoctor.AttachmentSteps.after()"
+            }
+          },
           {
             "result": {
               "status": "passed"
@@ -492,7 +1638,7 @@
           },
           {
             "result": {
-              "duration": 13000000,
+              "duration": 9000000,
               "status": "passed"
             },
             "line": 39,
@@ -520,7 +1666,6 @@
           },
           {
             "result": {
-              "duration": 1000000,
               "status": "passed"
             },
             "line": 57,
@@ -563,7 +1708,7 @@
     "line": 2,
     "elements": [
       {
-        "start_timestamp": "2020-09-06T17:28:43.936Z",
+        "start_timestamp": "2020-09-30T08:13:27.734Z",
         "before": [
           {
             "result": {
@@ -572,6 +1717,14 @@
             },
             "match": {
               "location": "com.github.cukedoctor.bdd.cukedoctor.EnrichmentSteps.before()"
+            }
+          },
+          {
+            "result": {
+              "status": "passed"
+            },
+            "match": {
+              "location": "com.github.cukedoctor.bdd.cukedoctor.AttachmentSteps.before()"
             }
           }
         ],
@@ -582,6 +1735,16 @@
         "after": [
           {
             "result": {
+              "duration": 1000000,
+              "status": "passed"
+            },
+            "match": {
+              "location": "com.github.cukedoctor.bdd.cukedoctor.AttachmentSteps.after()"
+            }
+          },
+          {
+            "result": {
+              "duration": 1000000,
               "status": "passed"
             },
             "match": {
@@ -643,7 +1806,7 @@
         ]
       },
       {
-        "start_timestamp": "2020-09-06T17:28:43.955Z",
+        "start_timestamp": "2020-09-30T08:13:27.750Z",
         "before": [
           {
             "result": {
@@ -651,6 +1814,14 @@
             },
             "match": {
               "location": "com.github.cukedoctor.bdd.cukedoctor.EnrichmentSteps.before()"
+            }
+          },
+          {
+            "result": {
+              "status": "passed"
+            },
+            "match": {
+              "location": "com.github.cukedoctor.bdd.cukedoctor.AttachmentSteps.before()"
             }
           }
         ],
@@ -664,6 +1835,15 @@
               "status": "passed"
             },
             "match": {
+              "location": "com.github.cukedoctor.bdd.cukedoctor.AttachmentSteps.after()"
+            }
+          },
+          {
+            "result": {
+              "duration": 1000000,
+              "status": "passed"
+            },
+            "match": {
               "location": "com.github.cukedoctor.bdd.cukedoctor.EnrichmentSteps.after()"
             }
           }
@@ -673,7 +1853,6 @@
         "steps": [
           {
             "result": {
-              "duration": 1000000,
               "status": "passed"
             },
             "line": 61,
@@ -689,7 +1868,7 @@
           },
           {
             "result": {
-              "duration": 11000000,
+              "duration": 9000000,
               "status": "passed"
             },
             "line": 77,
@@ -743,15 +1922,22 @@
     "line": 2,
     "elements": [
       {
-        "start_timestamp": "2020-09-06T17:28:43.971Z",
+        "start_timestamp": "2020-09-30T08:13:27.763Z",
         "before": [
           {
             "result": {
-              "duration": 1000000,
               "status": "passed"
             },
             "match": {
               "location": "com.github.cukedoctor.bdd.cukedoctor.EnrichmentSteps.before()"
+            }
+          },
+          {
+            "result": {
+              "status": "passed"
+            },
+            "match": {
+              "location": "com.github.cukedoctor.bdd.cukedoctor.AttachmentSteps.before()"
             }
           }
         ],
@@ -760,6 +1946,14 @@
         "description": "",
         "id": "tag-rendering;render-feature-tags-in-that-feature-s-scenarios",
         "after": [
+          {
+            "result": {
+              "status": "passed"
+            },
+            "match": {
+              "location": "com.github.cukedoctor.bdd.cukedoctor.AttachmentSteps.after()"
+            }
+          },
           {
             "result": {
               "status": "passed"
@@ -789,7 +1983,7 @@
           },
           {
             "result": {
-              "duration": 9000000,
+              "duration": 6000000,
               "status": "passed"
             },
             "line": 22,
@@ -801,7 +1995,6 @@
           },
           {
             "result": {
-              "duration": 1000000,
               "status": "passed"
             },
             "line": 24,
@@ -824,15 +2017,22 @@
         ]
       },
       {
-        "start_timestamp": "2020-09-06T17:28:43.992Z",
+        "start_timestamp": "2020-09-30T08:13:27.787Z",
         "before": [
           {
             "result": {
-              "duration": 1000000,
               "status": "passed"
             },
             "match": {
               "location": "com.github.cukedoctor.bdd.cukedoctor.EnrichmentSteps.before()"
+            }
+          },
+          {
+            "result": {
+              "status": "passed"
+            },
+            "match": {
+              "location": "com.github.cukedoctor.bdd.cukedoctor.AttachmentSteps.before()"
             }
           }
         ],
@@ -841,6 +2041,14 @@
         "description": "   Cukedoctor specific tags like `@asciidoc` and `@order` *should not* be rendered in resulting documentation.",
         "id": "tag-rendering;ignore-cukedoctor-tags-in-resulting-documentation",
         "after": [
+          {
+            "result": {
+              "status": "passed"
+            },
+            "match": {
+              "location": "com.github.cukedoctor.bdd.cukedoctor.AttachmentSteps.after()"
+            }
+          },
           {
             "result": {
               "status": "passed"
@@ -855,7 +2063,6 @@
         "steps": [
           {
             "result": {
-              "duration": 1000000,
               "status": "passed"
             },
             "line": 56,
@@ -871,7 +2078,7 @@
           },
           {
             "result": {
-              "duration": 5000000,
+              "duration": 4000000,
               "status": "passed"
             },
             "line": 72,
@@ -883,6 +2090,7 @@
           },
           {
             "result": {
+              "duration": 1000000,
               "status": "passed"
             },
             "line": 74,

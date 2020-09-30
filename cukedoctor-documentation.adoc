@@ -1130,3 +1130,446 @@ scenario step icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ******
 ==========
 
+[[Attachments, Attachments]]
+=== *Attachments*
+
+****
+====
+[quote]
+____
+In order to capture dynamically-generated content from my tests
+As a bdd developer
+I want to render attachments from my Cucumber tests in my living documentation
+____
+====
+****
+
+==== Logging a string in Cucumber-JVM 6.7.0
+
+==========
+Given ::
+a Step has logged a string in Cucumber-JVM 6.7.0 icon:thumbs-up[role="green",title="Passed"]
+And ::
+I am hiding step timings icon:thumbs-up[role="green",title="Passed"]
+And ::
+all Cukedoctor extensions are disabled icon:thumbs-up[role="green",title="Passed"]
+When ::
+I convert the Feature icon:thumbs-up[role="green",title="Passed"]
+Then ::
+it will be rendered as icon:thumbs-up[role="green",title="Passed"]
+******
+
+[discrete]
+= *Features*
+[discrete]
+[discrete]
+[discrete]
+[[Attachments, Attachments]]
+[discrete]
+== *Attachments*
+[discrete]
+[discrete]
+=== Scenario: Cucumber JVM 6.7.0 scenario.log(String)
+[discrete]
+============
+[discrete]
+Given ::
+[discrete]
+a Step that performs scenario.log(String) icon:thumbs-up[role="green",title="Passed"]
+----
+She sells sea shells on the sea shore
+----
+============
+
+
+******
+==========
+
+==== Attaching plain text as a string with name in Cucumber-JVM 6.7.0
+
+==========
+Given ::
+a Step has attached plain text as a string with a title in Cucumber-JVM 6.7.0 icon:thumbs-up[role="green",title="Passed"]
+And ::
+I am hiding step timings icon:thumbs-up[role="green",title="Passed"]
+And ::
+all Cukedoctor extensions are disabled icon:thumbs-up[role="green",title="Passed"]
+When ::
+I convert the Feature icon:thumbs-up[role="green",title="Passed"]
+Then ::
+it will be rendered as icon:thumbs-up[role="green",title="Passed"]
+******
+
+[discrete]
+= *Features*
+[discrete]
+[discrete]
+[discrete]
+[[Attachments, Attachments]]
+[discrete]
+== *Attachments*
+[discrete]
+[discrete]
+=== Scenario: Cucumber JVM 6.7.0 scenario.attach(String, String, String)
+[discrete]
+============
+[discrete]
+Given ::
+[discrete]
+a Step that performs scenario.attach(String, String, String) icon:thumbs-up[role="green",title="Passed"]
+[discrete]
+[discrete]
+.String plain text
+[discrete]
+[%collapsible]
+======
+[discrete]
+She sells sea shells on the sea shore
+======
+============
+
+
+******
+==========
+
+==== Attaching plain text as a byte array with name in Cucumber-JVM 6.7.0
+
+==========
+Given ::
+a Step has attached plain text as a byte array with a title in Cucumber-JVM 6.7.0 icon:thumbs-up[role="green",title="Passed"]
+And ::
+I am hiding step timings icon:thumbs-up[role="green",title="Passed"]
+And ::
+all Cukedoctor extensions are disabled icon:thumbs-up[role="green",title="Passed"]
+When ::
+I convert the Feature icon:thumbs-up[role="green",title="Passed"]
+Then ::
+it will be rendered as icon:thumbs-up[role="green",title="Passed"]
+******
+
+[discrete]
+= *Features*
+[discrete]
+[discrete]
+[discrete]
+[[Attachments, Attachments]]
+[discrete]
+== *Attachments*
+[discrete]
+[discrete]
+=== Scenario: Cucumber JVM 6.7.0 scenario.attach(ByteArray, String, String)
+[discrete]
+============
+[discrete]
+Given ::
+[discrete]
+a Step that performs scenario.attach(ByteArray, String, String) icon:thumbs-up[role="green",title="Passed"]
+[discrete]
+[discrete]
+.Byte[] plain text
+[discrete]
+[%collapsible]
+======
+[discrete]
+She sells sea shells on the sea shore
+======
+============
+
+
+******
+==========
+
+==== Attaching a string CucumberJS 6.0.5
+
+==========
+Given ::
+a Step has attached a string in CucumberJS 6.0.5 icon:thumbs-up[role="green",title="Passed"]
+And ::
+I am hiding step timings icon:thumbs-up[role="green",title="Passed"]
+And ::
+all Cukedoctor extensions are disabled icon:thumbs-up[role="green",title="Passed"]
+When ::
+I convert the Feature icon:thumbs-up[role="green",title="Passed"]
+Then ::
+it will be rendered as icon:thumbs-up[role="green",title="Passed"]
+******
+
+[discrete]
+= *Features*
+[discrete]
+[discrete]
+[discrete]
+[[Attachments, Attachments]]
+[discrete]
+== *Attachments*
+[discrete]
+[discrete]
+=== Scenario: Cucumber JS 6.0.5 attach String
+[discrete]
+============
+[discrete]
+Given ::
+[discrete]
+a Step that performs attach String icon:thumbs-up[role="green",title="Passed"]
+[discrete]
+[discrete]
+.Attachment 1
+[discrete]
+[%collapsible]
+======
+[discrete]
+She sells sea shells on the sea shore
+======
+============
+
+
+******
+==========
+
+==== Attaching a plain text string CucumberJS 6.0.5
+
+==========
+Given ::
+a Step has attached plain text as a string in CucumberJS 6.0.5 icon:thumbs-up[role="green",title="Passed"]
+And ::
+I am hiding step timings icon:thumbs-up[role="green",title="Passed"]
+And ::
+all Cukedoctor extensions are disabled icon:thumbs-up[role="green",title="Passed"]
+When ::
+I convert the Feature icon:thumbs-up[role="green",title="Passed"]
+Then ::
+it will be rendered as icon:thumbs-up[role="green",title="Passed"]
+******
+
+[discrete]
+= *Features*
+[discrete]
+[discrete]
+[discrete]
+[[Attachments, Attachments]]
+[discrete]
+== *Attachments*
+[discrete]
+[discrete]
+=== Scenario: Cucumber JS 6.0.5 attach String, String
+[discrete]
+============
+[discrete]
+Given ::
+[discrete]
+a Step that performs attach String, String icon:thumbs-up[role="green",title="Passed"]
+[discrete]
+[discrete]
+.Attachment 1
+[discrete]
+[%collapsible]
+======
+[discrete]
+She sells sea shells on the sea shore
+======
+============
+
+
+******
+==========
+
+==== Attaching a plain text buffer CucumberJS 6.0.5
+
+==========
+Given ::
+a Step has attached plain text as a buffer in CucumberJS 6.0.5 icon:thumbs-up[role="green",title="Passed"]
+And ::
+I am hiding step timings icon:thumbs-up[role="green",title="Passed"]
+And ::
+all Cukedoctor extensions are disabled icon:thumbs-up[role="green",title="Passed"]
+When ::
+I convert the Feature icon:thumbs-up[role="green",title="Passed"]
+Then ::
+it will be rendered as icon:thumbs-up[role="green",title="Passed"]
+******
+
+[discrete]
+= *Features*
+[discrete]
+[discrete]
+[discrete]
+[[Attachments, Attachments]]
+[discrete]
+== *Attachments*
+[discrete]
+[discrete]
+=== Scenario: Cucumber JS 6.0.5 attach Buffer, String
+[discrete]
+============
+[discrete]
+Given ::
+[discrete]
+a Step that performs attach Buffer, String icon:thumbs-up[role="green",title="Passed"]
+[discrete]
+[discrete]
+.Attachment 1
+[discrete]
+[%collapsible]
+======
+[discrete]
+She sells sea shells on the sea shore
+======
+============
+
+
+******
+==========
+
+==== Logged text should appear before attachments
+
+==========
+Given ::
+a Step has logged a string and attached a plain text string with a title icon:thumbs-up[role="green",title="Passed"]
+And ::
+I am hiding step timings icon:thumbs-up[role="green",title="Passed"]
+And ::
+all Cukedoctor extensions are disabled icon:thumbs-up[role="green",title="Passed"]
+When ::
+I convert the Feature icon:thumbs-up[role="green",title="Passed"]
+Then ::
+it will be rendered as icon:thumbs-up[role="green",title="Passed"]
+******
+
+[discrete]
+= *Features*
+[discrete]
+[discrete]
+[discrete]
+[[Attachments, Attachments]]
+[discrete]
+== *Attachments*
+[discrete]
+[discrete]
+=== Scenario: Log and attach
+[discrete]
+============
+[discrete]
+Given ::
+[discrete]
+a Step that logs and attaches icon:thumbs-up[role="green",title="Passed"]
+----
+Peter Piper picked a peck of pickled peppers
+----
+[discrete]
+[discrete]
+.String plain text
+[discrete]
+[%collapsible]
+======
+[discrete]
+She sells sea shells on the sea shore
+======
+============
+
+
+******
+==========
+
+==== Multiple attachments
+
+==========
+Given ::
+a Step has three plain text attachments, two without a title icon:thumbs-up[role="green",title="Passed"]
+And ::
+I am hiding step timings icon:thumbs-up[role="green",title="Passed"]
+And ::
+all Cukedoctor extensions are disabled icon:thumbs-up[role="green",title="Passed"]
+When ::
+I convert the Feature icon:thumbs-up[role="green",title="Passed"]
+Then ::
+it will be rendered as icon:thumbs-up[role="green",title="Passed"]
+******
+
+[discrete]
+= *Features*
+[discrete]
+[discrete]
+[discrete]
+[[Attachments, Attachments]]
+[discrete]
+== *Attachments*
+[discrete]
+[discrete]
+=== Scenario: Multiple attachments
+[discrete]
+============
+[discrete]
+Given ::
+[discrete]
+a Step that has multiple attachments icon:thumbs-up[role="green",title="Passed"]
+[discrete]
+[discrete]
+.Attachment 1
+[discrete]
+[%collapsible]
+======
+[discrete]
+First attachment
+======
+[discrete]
+[discrete]
+.Second
+[discrete]
+[%collapsible]
+======
+[discrete]
+Second Attachment
+======
+[discrete]
+[discrete]
+.Attachment 2
+[discrete]
+[%collapsible]
+======
+[discrete]
+Third attachment
+======
+============
+
+
+******
+==========
+
+==== Do not render attachments that are not plain text
+
+==========
+Given ::
+a Step has logged an image/png attachment icon:thumbs-up[role="green",title="Passed"]
+And ::
+I am hiding step timings icon:thumbs-up[role="green",title="Passed"]
+And ::
+all Cukedoctor extensions are disabled icon:thumbs-up[role="green",title="Passed"]
+When ::
+I convert the Feature icon:thumbs-up[role="green",title="Passed"]
+Then ::
+it will be rendered as icon:thumbs-up[role="green",title="Passed"]
+******
+
+[discrete]
+= *Features*
+[discrete]
+[discrete]
+[discrete]
+[[Attachments, Attachments]]
+[discrete]
+== *Attachments*
+[discrete]
+[discrete]
+=== Scenario: Attaching an image
+[discrete]
+============
+[discrete]
+Given ::
+[discrete]
+a Step that attaches an image icon:thumbs-up[role="green",title="Passed"]
+============
+
+
+******
+==========
+
