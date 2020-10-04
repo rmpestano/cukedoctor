@@ -5,7 +5,7 @@
     <parent>
         <artifactId>cukedoctor</artifactId>
         <groupId>com.github.cukedoctor</groupId>
-        <version>3.3-SNAPSHOT</version>
+        <version>3.3</version>
     </parent>
 
     <artifactId>cukedoctor-maven-plugin</artifactId>
