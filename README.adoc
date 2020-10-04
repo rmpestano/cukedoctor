@@ -120,7 +120,7 @@ Just declare the plugin in your _pom.xml_:
   <dependency>
        <groupId>com.github.cukedoctor</groupId>
        <artifactId>cukedoctor-converter</artifactId>
-       <version>3.1</version>
+       <version>3.3</version>
    </dependency>
 ----
 
@@ -649,7 +649,7 @@ Just declare the plugin in your _pom.xml_:
 <plugin>
     <groupId>com.github.cukedoctor</groupId>
     <artifactId>cukedoctor-maven-plugin</artifactId>
-    <version>3.1</version>
+    <version>3.3</version>
     <executions>
         <execution>
             <goals>
@@ -682,7 +682,7 @@ NOTE: *plugin* option replaced *format* option which was deprecated in newer cuc
 <plugin>
     <groupId>com.github.cukedoctor</groupId>
     <artifactId>cukedoctor-maven-plugin</artifactId>
-    <version>3.1</version>
+    <version>3.3</version>
          <configuration>
             <outputFileName>documentation</outputFileName> <1>
             <outputDir>docs</outputDir> <2>
@@ -827,7 +827,7 @@ NOTE: The value doesn't matter, if there is something in the attribute the exten
 
 This module brings the ability to execute cukedoctor converter as a Java main application (using command line: *java -jar*).
 
-To use Cukedoctor as a standalone jar you can https://bintray.com/artifact/download/rmpestano/cukedoctor/com/github/cukedoctor/cukedoctor-main/3.1/cukedoctor-main-3.1.jar[download it here^].
+To use Cukedoctor as a standalone jar you can https://bintray.com/artifact/download/rmpestano/cukedoctor/com/github/cukedoctor/cukedoctor-main/3.3/cukedoctor-main-3.3.jar[download it here^].
 
 
 === Usage
@@ -930,13 +930,13 @@ You can disable https://github.com/rmpestano/cukedoctor/tree/master/cukedoctor-e
 
 ----
 java -jar -Dcukedoctor.disable.filter=123  -Dcukedoctor.disable.theme=abc
-		cukedoctor-main-3.1.jar
+		cukedoctor-main-3.3.jar
 		-p cucumber-output.json
 ----
 
-IMPORTANT: `-D` args must be declared *before* cukedoctor-main-3.1.jar otherwise they will be used as parameters for Cukedoctor and won't be recognized.
+IMPORTANT: `-D` args must be declared *before* cukedoctor-main-3.3.jar otherwise they will be used as parameters for Cukedoctor and won't be recognized.
 
-You can download Cukedoctor main https://bintray.com/artifact/download/rmpestano/cukedoctor/com/github/cukedoctor/cukedoctor-main/3.1/cukedoctor-main-3.1.jar[jar here^]
+You can download Cukedoctor main https://bintray.com/artifact/download/rmpestano/cukedoctor/com/github/cukedoctor/cukedoctor-main/3.3/cukedoctor-main-3.3.jar[jar here^]
 
 === Layout configuration
 
@@ -946,7 +946,7 @@ You can hide `Features` and `Summary` sections, as well as `scenario keyword` wh
 
 ----
 java -jar -Dcukedoctor.disable.filter=123  -Dcukedoctor.disable.theme=abc
-		cukedoctor-main-3.1.jar
+		cukedoctor-main-3.3.jar
 		-p cucumber-output.json
 		-hideFeaturesSection <1>
 		-hideSummarySection <2>
@@ -966,7 +966,7 @@ In order to customize generated documentation you can provide <<Custom css and p
 
 ----
 java -jar -D CUKEDOCTOR_CUSTOMIZATION_DIR=/home/custom
-        cukedoctor-main-3.1.jar
+        cukedoctor-main-3.3.jar
 
 ----
 
