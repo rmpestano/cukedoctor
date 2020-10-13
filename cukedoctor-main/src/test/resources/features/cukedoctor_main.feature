@@ -125,7 +125,7 @@ features/one_passing_one_failing.feature:10:in Given this step fails'
 == *Summary*
 [cols="12*^m", options="header,footer"]
 |===
-3+|Scenarios 7+|Steps 2+|Features: 4
+3+|Scenarios 7+|Steps 2+|Features: 5
 
 |[green]#*Passed*#
 |[red]#*Failed*#
@@ -139,6 +139,20 @@ features/one_passing_one_failing.feature:10:in Given this step fails'
 |Total
 |Duration
 |Status
+
+12+^|*<<A-feature-with-a-diagram>>*
+|1
+|0
+|1
+|1
+|0
+|0
+|0
+|0
+|0
+|1
+|001ms
+|[green]#*passed*#
 
 12+^|*<<An-embed-data-directly-feature>>*
 |3
@@ -196,10 +210,32 @@ features/one_passing_one_failing.feature:10:in Given this step fails'
 |10s 104ms
 |[red]#*failed*#
 12+^|*Totals*
-|5|2|7|7|2|0|0|0|0|9 2+|10s 114ms
+|6|2|8|8|2|0|0|0|0|10 2+|10s 116ms
 |===
 
 == *Features*
+
+[[A-feature-with-a-diagram, A feature with a diagram]]
+=== *A feature with a diagram*
+
+ifndef::backend-pdf[]
+minmax::A-feature-with-a-diagram[]
+endif::[]
+****
+[ditaa, target="test", format="svg"]
+----
+---->
+----
+****
+
+==== Scenario: Passing
+[small]#tags: @b#
+
+
+==========
+Given ::
+this step passes icon:thumbs-up[role="green",title="Passed"] [small right]#(001ms)#
+==========
 
 [[An-embed-data-directly-feature, An embed data directly feature]]
 === *An embed data directly feature*
@@ -286,8 +322,8 @@ ifndef::backend-pdf[]
 minmax::Sample-test[]
 endif::[]
 ****
-As a user 
-I want to do something 
+As a user
+I want to do something
 In order to achieve another thing
 ****
 
@@ -325,4 +361,5 @@ IMPORTANT: expected to find text "Hacienda" in "Home | Login Clinical Studies so
 features/test_outline.feature:15:in `Then I see the text 'Hacienda''
 ==========
 
-      """
+
+"""

@@ -255,6 +255,7 @@ public class CukedoctorMain {
         String doc = converter.renderDocumentation();
         File adocFile = FileUtil.saveFile(outputName, doc);
         Asciidoctor asciidoctor = Asciidoctor.Factory.create();
+        asciidoctor.requireLibrary("asciidoctor-diagram");
         ExtensionGroup cukedoctorExtensionGroup = asciidoctor.createGroup(CUKEDOCTOR_EXTENSION_GROUP_NAME);
         if (documentAttributes.getBackend().equalsIgnoreCase("pdf")) {
             cukedoctorExtensionGroup.unregister();
