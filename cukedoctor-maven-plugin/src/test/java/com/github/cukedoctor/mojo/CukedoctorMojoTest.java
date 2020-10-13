@@ -456,4 +456,20 @@ public class CukedoctorMojoTest extends AbstractMojoTestCase {
         assertThat(docHtml).isNotEmpty();
     }
 
+    /**
+     * @throws Exception
+     */
+    public void testGenerateAsciidoctorDiagram() throws Exception {
+
+        CukedoctorMojo mojo = (CukedoctorMojo) lookupMojo("execute", getTestFile("src/test/resources/html-docs-pom.xml"));
+
+        assertNotNull(mojo);
+        mojo.execute();
+
+        File adocFile = FileUtil.loadFile(mojo.getDocumentationDir() + mojo.outputFileName + ".adoc");
+        assertThat(adocFile).exists().hasParent("target/docs");
+
+        File diagramFile = FileUtil.loadFile(mojo.getDocumentationDir() + "test.svg");
+        assertThat(diagramFile).exists().hasParent("target/docs");
+    }
 }

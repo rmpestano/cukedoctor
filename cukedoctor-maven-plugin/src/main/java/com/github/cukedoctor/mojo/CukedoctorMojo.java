@@ -226,6 +226,7 @@ public class CukedoctorMojo extends AbstractMojo {
         generatedFile = converter.renderDocumentation();
         File adocFile = FileUtil.saveFile(pathToSave, generatedFile);
         Asciidoctor asciidoctor = Asciidoctor.Factory.create();
+        asciidoctor.requireLibrary("asciidoctor-diagram");
 
         if (format.equals(Format.all)) {
             documentAttributes.backend(Format.html5.name().toLowerCase());
