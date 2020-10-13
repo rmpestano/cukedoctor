@@ -1,0 +1,40 @@
+[
+  {
+    "uri": "features/diagram.feature",
+    "id": "feature-with-diagram",
+    "keyword": "Feature",
+    "name": "A feature with a diagram",
+    "line": 1,
+    "description": "[ditaa, target=\"test\", format=\"svg\"]\n----\n---->\n----",
+    "elements": [
+      {
+        "keyword": "Scenario",
+        "id": "eature-with-diagram;passing",
+        "name": "Passing",
+        "line": 5,
+        "description": "",
+        "tags": [
+          {
+            "name": "@b",
+            "line": 4
+          }
+        ],
+        "type": "scenario",
+        "steps": [
+          {
+            "keyword": "Given ",
+            "name": "this step passes",
+            "line": 6,
+            "match": {
+              "location": "features/step_definitions/steps.rb:1"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1996000
+            }
+          }
+        ]
+      }
+    ]
+  }
+]

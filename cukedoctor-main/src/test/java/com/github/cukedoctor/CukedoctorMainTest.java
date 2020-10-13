@@ -67,7 +67,7 @@ public class CukedoctorMainTest {
         });
         System.out.flush();
         String output = baos.toString();
-        assertThat(output).contains("Found 4 feature(s)");
+        assertThat(output).contains("Found 5 feature(s)");
         assertTrue(FileUtil.loadFile("target/test-classes/document-mult.adoc").exists());
     }
 
@@ -80,7 +80,7 @@ public class CukedoctorMainTest {
         System.out.flush();
         String output = baos.toString();
         assertThat(output).contains("-t: target/test-classes/Living Documentation").
-                contains("Found 4 feature(s)");
+                contains("Found 5 feature(s)");
         assertTrue(FileUtil.loadFile("target/test-classes/Living-Documentation.html").exists());
     }
 
@@ -318,7 +318,7 @@ public class CukedoctorMainTest {
         });
         String output = baos.toString();
 
-        assertThat(output).contains("Found 4 feature(s)");
+        assertThat(output).contains("Found 5 feature(s)");
 
 
     }
@@ -404,4 +404,24 @@ public class CukedoctorMainTest {
 
         }
     }
+
+    @Test
+    public void shouldCreateDiagramWithAsciidoctorJDiagram() {
+        new CukedoctorMain().execute(new String[]{
+                "-o", "\"target/test-classes/asciidoctorj-diagram\"",
+                "-p", "\"target/test-classes/json-output/diagram.json\"",
+                "-t", "Living Documentation"
+        });
+        File adoc = FileUtil.loadFile("target/test-classes/asciidoctorj-diagram.adoc");
+        File jpg = FileUtil.loadFile("target/test-classes/test.svg");
+
+        try {
+            assertTrue(adoc.exists());
+            assertTrue(jpg.exists());
+        } finally {
+            adoc.delete();
+            jpg.delete();
+        }
+    }
+
 }
