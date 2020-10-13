@@ -1,7 +1,7 @@
 [
   {
     "id": "eat-cukes-in-lot",
-    "description": "",
+    "description": "[ditaa, target=\"test\", format=\"svg\"]\n----\n---->\n----",
     "name": "Eat cukes in lot",
     "keyword": "Feature",
     "line": 1,
