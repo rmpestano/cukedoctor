@@ -59,11 +59,10 @@ public class CukedoctorConverterImpl implements CukedoctorConverter {
         loadRenderers();
     }
 
-
     private void loadRenderers() {
-        headerRenderer = new ServiceLoaderUtil<HeaderRenderer>().initialise(HeaderRenderer.class, CukedoctorHeaderRenderer.class, i18n, documentAttributes);
-        summaryRenderer = new ServiceLoaderUtil<SummaryRenderer>().initialise(SummaryRenderer.class, CukedoctorSummaryRenderer.class, i18n, documentAttributes);
-        featureRenderer = new ServiceLoaderUtil<FeatureRenderer>().initialise(FeatureRenderer.class, CukedoctorFeatureRenderer.class, i18n, documentAttributes);
+        headerRenderer = new ServiceLoaderUtil<HeaderRenderer>().initialise(HeaderRenderer.class, CukedoctorHeaderRenderer.class, i18n, documentAttributes, cukedoctorConfig);
+        summaryRenderer = new ServiceLoaderUtil<SummaryRenderer>().initialise(SummaryRenderer.class, CukedoctorSummaryRenderer.class, i18n, documentAttributes, cukedoctorConfig);
+        featureRenderer = new ServiceLoaderUtil<FeatureRenderer>().initialise(FeatureRenderer.class, CukedoctorFeatureRenderer.class, i18n, documentAttributes, cukedoctorConfig);
     }
 
     public DocumentAttributes getDocumentAttributes() {
@@ -108,21 +107,18 @@ public class CukedoctorConverterImpl implements CukedoctorConverter {
         }
     }
 
-
     public String getDocumentationTitle() {
         if (documentAttributes != null && hasText(documentAttributes.getDocTitle())) {
             return documentAttributes.getDocTitle();
         } else {
             return Constants.DOCUMENT_TITLE;
         }
-
     }
 
     public CukedoctorConverter renderAttributes() {
         docBuilder.append(headerRenderer.renderDocumentHeader(documentAttributes, docBuilder.createPeerBuilder()));
         return this;
     }
-
 
     public CukedoctorConverter addCustomPdfTheme() {
         if (notNull(documentAttributes) && documentAttributes.getBackend() != null && documentAttributes.getBackend().equalsIgnoreCase("pdf")) {

@@ -12,7 +12,7 @@ import static com.github.cukedoctor.util.Constants.newLine;
 /**
  * Created by pestano on 29/02/16.
  */
-public class CustomScenarioRenderer extends CukedoctorScenarioRenderer{
+public class CustomScenarioRenderer extends CukedoctorScenarioRenderer {
 
     @Override
     public String renderScenario(Scenario scenario, Feature feature) {

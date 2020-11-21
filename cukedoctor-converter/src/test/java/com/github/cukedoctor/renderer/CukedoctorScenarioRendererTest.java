@@ -24,8 +24,8 @@ public class CukedoctorScenarioRendererTest {
         List<Feature> features = new ArrayList<>();
         features.add(feature);
         List<Step> steps = feature.getScenarios().get(0).getSteps();
-        CukedoctorScenarioRenderer scenarioRenderer = new CukedoctorScenarioRenderer();
-        String resultDoc = scenarioRenderer.renderScenarioSteps(steps, feature.getScenarios().get(0), feature);
+        CukedoctorStepsRenderer stepsRenderer = new CukedoctorStepsRenderer();
+        String resultDoc = stepsRenderer.renderSteps(steps, feature.getScenarios().get(0), feature);
         assertThat(resultDoc).isEqualTo("==========" + newLine() +
                 "Given::" + newLine() +
                 "passing step icon:thumbs-up[role=\"green\",title=\"Passed\"] [small right]#(000ms)#" + newLine() +
@@ -55,8 +55,8 @@ public class CukedoctorScenarioRendererTest {
     public void shouldRenderScenarioExamples() {
         List<Feature> features = FeatureParser.parse(outline);
         assertThat(features).hasSize(1);
-        CukedoctorScenarioRenderer scenarioRenderer = new CukedoctorScenarioRenderer();
-        String resultDoc = scenarioRenderer.renderScenarioExamples(features.get(0).getElements().get(0));
+        CukedoctorExamplesRenderer examplesRenderer = new CukedoctorExamplesRenderer();
+        String resultDoc = examplesRenderer.renderScenarioExamples(features.get(0).getElements().get(0));
         assertThat(resultDoc).isEqualTo("" + newLine() +
                 ".examples1" + newLine() +
                 "[cols=\"1*\", options=\"header\"]" + newLine() +

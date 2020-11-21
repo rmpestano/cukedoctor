@@ -36,4 +36,8 @@ public abstract class AbstractBaseRenderer {
     public void setDocumentAttributes(DocumentAttributes documentAttributes) {
         this.documentAttributes = documentAttributes;
     }
+
+    public void setCukedoctorConfig(CukedoctorConfig cukedoctorConfig) {
+        this.cukedoctorConfig = cukedoctorConfig;
+    }
 }

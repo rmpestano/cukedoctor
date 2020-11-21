@@ -4,11 +4,12 @@ import com.github.cukedoctor.api.CukedoctorDocumentBuilder;
 import com.github.cukedoctor.api.DocumentAttributes;
 import com.github.cukedoctor.api.model.Feature;
 import com.github.cukedoctor.i18n.I18nLoader;
+import com.github.cukedoctor.renderer.AbstractBaseRenderer;
 import com.github.cukedoctor.spi.FeatureRenderer;
 
 import java.util.List;
 
-public class SectionFeatureRenderer implements FeatureRenderer {
+public class SectionFeatureRenderer extends AbstractBaseRenderer implements FeatureRenderer {
     private CukedoctorDocumentBuilder documentBuilder = CukedoctorDocumentBuilder.Factory.newInstance();
     private I18nLoader i18nProvider = I18nLoader.instance(null);
     private DocumentAttributes documentAttributes;

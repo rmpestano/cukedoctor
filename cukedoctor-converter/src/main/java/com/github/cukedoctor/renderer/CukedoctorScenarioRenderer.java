@@ -29,24 +29,22 @@ public class CukedoctorScenarioRenderer extends AbstractBaseRenderer implements 
 
     StepsRenderer stepsRenderer;
 
-
     public CukedoctorScenarioRenderer() {
-        loadDependentRenderers();
     }
 
     public CukedoctorScenarioRenderer(CukedoctorConfig cukedoctorConfig) {
         this.cukedoctorConfig = cukedoctorConfig;
-        loadDependentRenderers();
     }
 
     private void loadDependentRenderers() {
-        tagsRenderer = new ServiceLoaderUtil<TagsRenderer>().initialise(TagsRenderer.class, CukedoctorTagsRenderer.class, i18n, documentAttributes);
-        examplesRenderer = new ServiceLoaderUtil<ExamplesRenderer>().initialise(ExamplesRenderer.class, CukedoctorExamplesRenderer.class, i18n, documentAttributes);
-        stepsRenderer = new ServiceLoaderUtil<StepsRenderer>().initialise(StepsRenderer.class, CukedoctorStepsRenderer.class, i18n, documentAttributes);
+        tagsRenderer = new ServiceLoaderUtil<TagsRenderer>().initialise(TagsRenderer.class, CukedoctorTagsRenderer.class, i18n, documentAttributes, cukedoctorConfig);
+        examplesRenderer = new ServiceLoaderUtil<ExamplesRenderer>().initialise(ExamplesRenderer.class, CukedoctorExamplesRenderer.class, i18n, documentAttributes, cukedoctorConfig);
+        stepsRenderer = new ServiceLoaderUtil<StepsRenderer>().initialise(StepsRenderer.class, CukedoctorStepsRenderer.class, i18n, documentAttributes, cukedoctorConfig);
     }
 
     @Override
     public String renderScenario(Scenario scenario, Feature feature) {
+        loadDependentRenderers();
         docBuilder.clear();
         if (scenario.hasIgnoreDocsTag()) {
             return "";
@@ -101,15 +99,15 @@ public class CukedoctorScenarioRenderer extends AbstractBaseRenderer implements 
         return docBuilder.toString();
     }
 
-    String renderScenarioSteps(List<Step> scenarioSteps, Scenario scenario, Feature feature) {
+    private String renderScenarioSteps(List<Step> scenarioSteps, Scenario scenario, Feature feature) {
         return stepsRenderer.renderSteps(scenarioSteps, scenario, feature, docBuilder.createNestedBuilder());
     }
 
-    String renderScenarioExamples(Scenario scenario) {
+    private String renderScenarioExamples(Scenario scenario) {
         return examplesRenderer.renderScenarioExamples(scenario, docBuilder.createNestedBuilder());
     }
 
-    String renderScenarioTags(Scenario scenario, Feature feature) {
+    private String renderScenarioTags(Scenario scenario, Feature feature) {
         return tagsRenderer.renderScenarioTags(feature, scenario, docBuilder.createPeerBuilder());
     }
 }

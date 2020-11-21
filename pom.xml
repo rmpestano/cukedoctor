@@ -60,14 +60,14 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <jackson-core.version>2.11.0</jackson-core.version>
-        <asciidoctorj.version>2.4.0</asciidoctorj.version>
+        <asciidoctorj.version>2.4.2</asciidoctorj.version>
         <asciidoctorj-pdf.version>1.5.3</asciidoctorj-pdf.version>
         <asciidoctorj-diagram.version>2.0.4</asciidoctorj-diagram.version>
         <joda-time.version>2.9.2</joda-time.version>
         <cucumber.version>1.2.4</cucumber.version>
         <snakeyaml.version>1.26</snakeyaml.version>
         <jacoco.version>0.8.2</jacoco.version>
-        <jruby.version>9.1.15.0</jruby.version>
+        <jruby.version>9.2.13.0</jruby.version>
     </properties>
 
 
@@ -150,6 +150,11 @@
                 <groupId>org.asciidoctor</groupId>
                 <artifactId>asciidoctorj-diagram</artifactId>
                 <version>${asciidoctorj-diagram.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.jruby</groupId>
+                <artifactId>jruby-complete</artifactId>
+                <version>${jruby.version}</version>
             </dependency>
             <dependency>
                 <groupId>io.github.robwin</groupId>

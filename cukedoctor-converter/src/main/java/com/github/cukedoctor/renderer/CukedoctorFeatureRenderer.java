@@ -24,25 +24,19 @@ public class CukedoctorFeatureRenderer extends AbstractBaseRenderer implements F
     ScenarioRenderer scenarioRenderer;
 
     public CukedoctorFeatureRenderer() {
-        loadDependentRenderers();
     }
 
     public CukedoctorFeatureRenderer(DocumentAttributes documentAttributes) {
-        loadDependentRenderers();
         setDocumentAttributes(documentAttributes);
-    }
-
-    private void loadDependentRenderers() {
-        scenarioRenderer = new ServiceLoaderUtil<ScenarioRenderer>().initialise(ScenarioRenderer.class, CukedoctorScenarioRenderer.class, i18n, documentAttributes);
     }
 
     public CukedoctorFeatureRenderer(CukedoctorConfig cukedoctorConfig) {
         this.cukedoctorConfig = cukedoctorConfig;
-        loadDependentRenderers();
     }
 
     @Override
     public String renderFeature(Feature feature) {
+        loadDependentRenderers();
         CukedoctorDocumentBuilder builder = docBuilder.createPeerBuilder();
         if (feature.hasIgnoreDocsTag()) {
             return "";
@@ -52,7 +46,7 @@ public class CukedoctorFeatureRenderer extends AbstractBaseRenderer implements F
 
         if (notNull(documentAttributes) && hasText(documentAttributes.getBackend())) {
             String backend = documentAttributes.getBackend();
-            if((backend.toLowerCase().contains("html") ||  backend.toLowerCase().contains("all")) && !cukedoctorConfig.isDisableMinMaxExtension()) {
+            if ((backend.toLowerCase().contains("html") || backend.toLowerCase().contains("all")) && !cukedoctorConfig.isDisableMinMaxExtension()) {
                 //used by minimax extension @see com.github.cukedoctor.extension.CukedoctorMinMaxExtension
                 builder.append("ifndef::backend-pdf[]").append(newLine());
                 builder.append("minmax::", feature.getName().replaceAll(",", "").replaceAll(" ", "-")).append("[]").newLine();
@@ -65,7 +59,7 @@ public class CukedoctorFeatureRenderer extends AbstractBaseRenderer implements F
             renderDescription(builder, description);
         }
 
-        if(feature.hasScenarios()){
+        if (feature.hasScenarios()) {
             builder.append(renderFeatureScenarios(feature, builder));
         }
 
@@ -78,8 +72,9 @@ public class CukedoctorFeatureRenderer extends AbstractBaseRenderer implements F
 
     @Override
     public String renderFeatures(List<Feature> features) {
+        loadDependentRenderers();
         docBuilder.clear();
-        if(!cukedoctorConfig.isHideFeaturesSection()) {
+        if (!cukedoctorConfig.isHideFeaturesSection()) {
             docBuilder.titleThenNest(bold(i18n.getMessage("title.features"))).newLine();
         }
         for (Feature feature : features) {
@@ -107,6 +102,13 @@ public class CukedoctorFeatureRenderer extends AbstractBaseRenderer implements F
     }
 
     protected String renderFeatureScenario(Scenario scenario, Feature feature, CukedoctorDocumentBuilder builder) {
+        if (scenarioRenderer == null) {
+            loadDependentRenderers();
+        }
         return scenarioRenderer.renderScenario(scenario, feature, builder.createNestedBuilder());
+    }
+
+    private void loadDependentRenderers() {
+        scenarioRenderer = new ServiceLoaderUtil<ScenarioRenderer>().initialise(ScenarioRenderer.class, CukedoctorScenarioRenderer.class, i18n, documentAttributes, cukedoctorConfig);
     }
 }

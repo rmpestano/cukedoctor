@@ -6,20 +6,19 @@ import com.beust.jcommander.ParameterException;
 import com.github.cukedoctor.api.CukedoctorConverter;
 import com.github.cukedoctor.api.DocumentAttributes;
 import com.github.cukedoctor.api.model.Feature;
+import com.github.cukedoctor.config.CukedoctorConfig;
 import com.github.cukedoctor.config.GlobalConfig;
 import com.github.cukedoctor.parser.FeatureParser;
 import com.github.cukedoctor.util.FileUtil;
 import org.asciidoctor.Asciidoctor;
 import org.asciidoctor.OptionsBuilder;
 import org.asciidoctor.SafeMode;
-import org.asciidoctor.extension.ExtensionGroup;
 
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Pattern;
 
-import static com.github.cukedoctor.extension.CukedoctorExtensionRegistry.CUKEDOCTOR_EXTENSION_GROUP_NAME;
 import static com.github.cukedoctor.util.Assert.hasText;
 
 /**
@@ -45,10 +44,10 @@ public class CukedoctorMain {
 
     @Parameter(names = "-numbered", description = "Section numbering. Default is false ", required = false)
     private Boolean numbered;
-    
+
     @Parameter(names = "-chapterLabel", description = "Chapter Label. Default is 'Chapter' ", required = false)
     private String chapterLabel;
-    
+
     @Parameter(names = "-versionLabel", description = "Version Label. Default is 'Version' ", required = false)
     private String versionLabel;
 
@@ -120,7 +119,6 @@ public class CukedoctorMain {
             path = "";
         }
 
-
         if (!hasText(outputName)) {
             outputName = "documentation";
         }
@@ -128,11 +126,11 @@ public class CukedoctorMain {
         if (!hasText(toc)) {
             toc = "right";
         }
-        
+
         if (!hasText(chapterLabel)) {
             chapterLabel = "Chapter";
         }
-        
+
         if (!hasText(versionLabel)) {
             versionLabel = "Version";
         }
@@ -145,7 +143,6 @@ public class CukedoctorMain {
             hardBreaks = Boolean.TRUE;
         }
 
-
         System.out.println("Generating living documentation with args:");
 
         System.out.println("-f" + ": " + format);
@@ -155,7 +152,7 @@ public class CukedoctorMain {
 
         List<Feature> features = null;
         if (cucumberResultPaths != null) {
-            features = new ArrayList<Feature>();
+            features = new ArrayList<>();
             String[] resultPaths = cucumberResultPaths.split(Pattern.quote(File.pathSeparator));
             for (String resultPath : resultPaths) {
                 List<Feature> tempList = searchPathAndScan(resultPath);
@@ -174,8 +171,7 @@ public class CukedoctorMain {
             System.out.println("Found " + features.size() + " feature(s)");
         }
 
-
-        DocumentAttributes documentAttributes = GlobalConfig.newInstance().getDocumentAttributes().
+        final DocumentAttributes documentAttributes = GlobalConfig.newInstance().getDocumentAttributes().
                 backend(format).
                 toc(toc).
                 revNumber(docVersion).
@@ -185,11 +181,11 @@ public class CukedoctorMain {
                 versionLabel(versionLabel).
                 stem(stem);
 
-        if(sourceHighlighter != null){
+        if (sourceHighlighter != null) {
             documentAttributes.sourceHighlighter(sourceHighlighter);
         }
 
-        if(allowUriRead != null) {
+        if (allowUriRead != null) {
             documentAttributes.allowUriRead(allowUriRead);
         }
 
@@ -201,13 +197,14 @@ public class CukedoctorMain {
         documentAttributes.docTitle(title);
 
         String resultDoc = null;
+        final CukedoctorConfig cukedoctorConfig = cukedoctorConfig();
         if ("all".equals(format)) {
             documentAttributes.backend("html5");
-            resultDoc = this.execute(features, documentAttributes, outputName);
+            resultDoc = this.execute(features, documentAttributes, cukedoctorConfig, outputName);
             documentAttributes.backend("pdf");
-            this.execute(features, documentAttributes, outputName);
+            this.execute(features, documentAttributes, cukedoctorConfig, outputName);
         } else {
-            resultDoc = this.execute(features, documentAttributes, outputName);
+            resultDoc = this.execute(features, documentAttributes, cukedoctorConfig, outputName);
         }
         return resultDoc;
     }
@@ -217,7 +214,7 @@ public class CukedoctorMain {
         main.execute(args);
     }
 
-    public String execute(List<Feature> features, DocumentAttributes documentAttributes, String outputName) {
+    public String execute(List<Feature> features, DocumentAttributes documentAttributes, CukedoctorConfig cukedoctorConfig, String outputName) {
         if (title == null) {
             title = "Living Documentation";
         }
@@ -228,46 +225,58 @@ public class CukedoctorMain {
             documentAttributes.backend("html5");
         }
         if (outputName == null) {
-            outputName = title.replaceAll(" ", "_");
+            outputName = documentAttributes.getDocTitle().replaceAll(" ", "_");
         }
 
-        if (hideFeaturesSection != null) {
-            System.setProperty("HIDE_FEATURES_SECTION", Boolean.toString(hideFeaturesSection));
-        }
-
-        if (hideSummarySection != null) {
-            System.setProperty("HIDE_SUMMARY_SECTION", Boolean.toString(hideSummarySection));
-        }
-
-        if (hideScenarioKeyword != null) {
-            System.setProperty("HIDE_SCENARIO_KEYWORD", Boolean.toString(hideScenarioKeyword));
-        }
-
-        if (hideStepTime != null) {
-            System.setProperty("HIDE_STEP_TIME", Boolean.toString(hideStepTime));
-        }
-
-        if (hideTags != null) {
-            System.setProperty("HIDE_TAGS", Boolean.toString(hideTags));
-        }
-
-        CukedoctorConverter converter = Cukedoctor.instance(features, documentAttributes);
+        CukedoctorConverter converter = Cukedoctor.instance(features, documentAttributes, cukedoctorConfig);
         String doc = converter.renderDocumentation();
         File adocFile = FileUtil.saveFile(outputName, doc);
-        Asciidoctor asciidoctor = Asciidoctor.Factory.create();
+        final Asciidoctor asciidoctor = getAsciidoctor();
         asciidoctor.requireLibrary("asciidoctor-diagram");
-        ExtensionGroup cukedoctorExtensionGroup = asciidoctor.createGroup(CUKEDOCTOR_EXTENSION_GROUP_NAME);
         if (documentAttributes.getBackend().equalsIgnoreCase("pdf")) {
-            cukedoctorExtensionGroup.unregister();
+            asciidoctor.unregisterAllExtensions();
         }
         OptionsBuilder ob = OptionsBuilder.options()
                 .safe(SafeMode.UNSAFE)
                 .backend(documentAttributes.getBackend())
                 .attributes(documentAttributes.toMap());
-        System.out.println("Document attributes\n"+documentAttributes.toMap());
+        System.out.println("Document attributes\n" + documentAttributes.toMap());
         asciidoctor.convertFile(adocFile, ob);
         asciidoctor.shutdown();
         return doc;
+    }
+
+    private CukedoctorConfig cukedoctorConfig() {
+        CukedoctorConfig cukedoctorConfig = new CukedoctorConfig();
+        if (hideFeaturesSection != null) {
+            cukedoctorConfig.setHideFeaturesSection(hideFeaturesSection);
+        }
+        if (hideSummarySection != null) {
+            cukedoctorConfig.setHideSummarySection(hideSummarySection);
+        }
+        if (hideScenarioKeyword != null) {
+            cukedoctorConfig.setHideScenarioKeyword(hideScenarioKeyword);
+        }
+        if (hideStepTime != null) {
+            cukedoctorConfig.setHideStepTime(hideStepTime);
+        }
+        if (hideTags != null) {
+            cukedoctorConfig.setHideTags(hideTags);
+        }
+        return cukedoctorConfig;
+    }
+
+    private Asciidoctor getAsciidoctor() {
+        ClassLoader oldCl = Thread.currentThread().getContextClassLoader();
+        Asciidoctor asciidoctor;
+        try {
+            ClassLoader classLoader = getClass().getClassLoader();
+            Thread.currentThread().setContextClassLoader(classLoader);
+            asciidoctor = org.asciidoctor.jruby.AsciidoctorJRuby.Factory.create(classLoader);
+        } finally {
+            Thread.currentThread().setContextClassLoader(oldCl);
+        }
+        return asciidoctor;
     }
 
 }

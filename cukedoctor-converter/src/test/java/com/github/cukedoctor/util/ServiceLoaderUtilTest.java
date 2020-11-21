@@ -1,6 +1,8 @@
 package com.github.cukedoctor.util;
 
 import com.github.cukedoctor.api.DocumentAttributes;
+import com.github.cukedoctor.config.CukedoctorConfig;
+import com.github.cukedoctor.config.GlobalConfig;
 import com.github.cukedoctor.i18n.I18nLoader;
 import com.github.cukedoctor.renderer.BaseRenderer;
 import org.junit.Test;
@@ -15,6 +17,9 @@ import static org.junit.Assert.assertSame;
 
 @RunWith(JUnit4.class)
 public class ServiceLoaderUtilTest {
+
+    CukedoctorConfig cukedoctorConfig = new CukedoctorConfig();
+
     @Test
     public void shouldReturnFirstServiceLoaderResultIfAvailable() {
         final MyService1 expectedService = new MyService1();
@@ -24,7 +29,7 @@ public class ServiceLoaderUtilTest {
             return services.iterator();
         });
 
-        BaseRenderer service = loader.load(BaseRenderer.class, MyService2.class);
+        BaseRenderer service = loader.load(BaseRenderer.class, MyService2.class, cukedoctorConfig);
 
         assertEquals(expectedService, service);
     }
@@ -33,7 +38,7 @@ public class ServiceLoaderUtilTest {
     public void shouldReturnInstanceOfDefaultServiceImplementationIfServiceLoaderHasNoResult() {
         ServiceLoaderUtil<BaseRenderer> loader = new ServiceLoaderUtil<>(c -> Collections.emptyIterator());
 
-        BaseRenderer service = loader.load(BaseRenderer.class, MyService2.class);
+        BaseRenderer service = loader.load(BaseRenderer.class, MyService2.class, cukedoctorConfig);
 
         assertEquals(MyService2.class, service.getClass());
     }
@@ -42,7 +47,7 @@ public class ServiceLoaderUtilTest {
     public void shouldThrowIfDefaultConstructorHasNoDefaultConstructor() {
         ServiceLoaderUtil<BaseRenderer> loader = new ServiceLoaderUtil<>(c -> Collections.emptyIterator());
 
-        loader.load(BaseRenderer.class, MyService3.class);
+        loader.load(BaseRenderer.class, MyService3.class, cukedoctorConfig);
     }
 
     @Test
@@ -56,7 +61,7 @@ public class ServiceLoaderUtilTest {
             return services.iterator();
         });
 
-        BaseRenderer service = loader.load(BaseRenderer.class, MyService2.class, MyService1.class, MyService2.class);
+        BaseRenderer service = loader.load(BaseRenderer.class, MyService2.class, cukedoctorConfig, MyService1.class, MyService2.class);
 
         assertEquals(expectedService, service);
     }
@@ -74,7 +79,7 @@ public class ServiceLoaderUtilTest {
             return services.iterator();
         });
 
-        MyService3 renderer = (MyService3) loader.initialise(BaseRenderer.class, MyService1.class, i18n, attributes, MyService1.class, MyService2.class);
+        MyService3 renderer = (MyService3) loader.initialise(BaseRenderer.class, MyService1.class, i18n, attributes, new CukedoctorConfig(), MyService1.class, MyService2.class);
 
         assertSame(i18n, renderer.getI18nProvider());
         assertSame(attributes, renderer.getDocumentAttributes());

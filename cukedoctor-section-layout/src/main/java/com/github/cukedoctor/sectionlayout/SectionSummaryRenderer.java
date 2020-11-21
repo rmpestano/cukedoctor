@@ -26,7 +26,7 @@ public class SectionSummaryRenderer extends AbstractBaseRenderer implements Summ
         this.loader = loader;
 
         renderer = () -> {
-            SummaryRenderer val = loader.initialise(SummaryRenderer.class, CukedoctorSummaryRenderer.class, i18n, documentAttributes, SectionSummaryRenderer.class);
+            SummaryRenderer val = loader.initialise(SummaryRenderer.class, CukedoctorSummaryRenderer.class, i18n, documentAttributes, cukedoctorConfig, SectionSummaryRenderer.class);
             renderer = () -> val;
             return val;
         };

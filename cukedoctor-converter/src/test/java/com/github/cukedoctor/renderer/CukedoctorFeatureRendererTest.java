@@ -211,10 +211,6 @@ public class CukedoctorFeatureRendererTest {
 
         CukedoctorScenarioRenderer scenarioRenderer = new CukedoctorScenarioRenderer();
         scenarioRenderer = spy(scenarioRenderer);
-        doReturn("").when(scenarioRenderer).renderScenarioSteps(anyListOf(Step.class), any(Scenario.class), any(Feature.class));
-        doReturn("").when(scenarioRenderer).renderScenarioExamples(any(Scenario.class));
-        doReturn("").when(scenarioRenderer).renderScenarioTags(any(Scenario.class), eq(feature));
-
         CukedoctorFeatureRenderer featureRenderer = new CukedoctorFeatureRenderer();
         featureRenderer = spy(featureRenderer);
         featureRenderer.scenarioRenderer = scenarioRenderer;
@@ -234,8 +230,6 @@ public class CukedoctorFeatureRendererTest {
         }
         CukedoctorScenarioRenderer scenarioRenderer = new CukedoctorScenarioRenderer();
         scenarioRenderer = spy(scenarioRenderer);
-        doReturn("").when(scenarioRenderer).renderScenarioSteps(anyListOf(Step.class), any(Scenario.class), any(Feature.class));
-        doReturn("").when(scenarioRenderer).renderScenarioExamples(any(Scenario.class));
 
         CukedoctorFeatureRenderer featureRenderer = new CukedoctorFeatureRenderer();
         featureRenderer = spy(featureRenderer);
@@ -262,8 +256,6 @@ public class CukedoctorFeatureRendererTest {
 
         CukedoctorScenarioRenderer scenarioRenderer = new CukedoctorScenarioRenderer();
         scenarioRenderer = spy(scenarioRenderer);
-        doReturn("").when(scenarioRenderer).renderScenarioSteps(anyListOf(Step.class), any(Scenario.class), any(Feature.class));
-        doReturn("").when(scenarioRenderer).renderScenarioExamples(any(Scenario.class));
 
         CukedoctorFeatureRenderer featureRenderer = new CukedoctorFeatureRenderer();
         featureRenderer = spy(featureRenderer);
@@ -292,8 +284,6 @@ public class CukedoctorFeatureRendererTest {
 
         CukedoctorScenarioRenderer scenarioRenderer = new CukedoctorScenarioRenderer();
         scenarioRenderer = spy(scenarioRenderer);
-        doReturn("").when(scenarioRenderer).renderScenarioSteps(anyListOf(Step.class), any(Scenario.class), any(Feature.class));
-        doReturn("").when(scenarioRenderer).renderScenarioExamples(any(Scenario.class));
 
         CukedoctorFeatureRenderer featureRenderer = new CukedoctorFeatureRenderer();
         featureRenderer = spy(featureRenderer);
