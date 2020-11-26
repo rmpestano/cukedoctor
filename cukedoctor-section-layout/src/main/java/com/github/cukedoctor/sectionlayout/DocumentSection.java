@@ -3,6 +3,7 @@ package com.github.cukedoctor.sectionlayout;
 import com.github.cukedoctor.api.CukedoctorDocumentBuilder;
 import com.github.cukedoctor.api.DocumentAttributes;
 import com.github.cukedoctor.api.model.Feature;
+import com.github.cukedoctor.config.CukedoctorConfig;
 import com.github.cukedoctor.i18n.I18nLoader;
 
 import java.util.*;
@@ -90,8 +91,8 @@ public class DocumentSection implements Section {
     }
 
     @Override
-    public String render(CukedoctorDocumentBuilder docBuilder, I18nLoader i18n, DocumentAttributes documentAttributes) {
-        buildDocument().forEach(section -> docBuilder.append(section.render(docBuilder.createPeerBuilder(), i18n, documentAttributes)));
+    public String render(CukedoctorDocumentBuilder docBuilder, I18nLoader i18n, DocumentAttributes documentAttributes, CukedoctorConfig config) {
+        buildDocument().forEach(section -> docBuilder.append(section.render(docBuilder.createPeerBuilder(), i18n, documentAttributes, config)));
         return docBuilder.toString();
     }
 

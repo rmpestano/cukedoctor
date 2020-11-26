@@ -41,7 +41,7 @@ public final class ServiceLoaderUtil<R extends BaseRenderer> {
         try {
             R defaultImpl = defaultImplementation.getDeclaredConstructor().newInstance();
             defaultImpl.setCukedoctorConfig(cukedoctorConfig);
-            return defaultImplementation.getDeclaredConstructor().newInstance();
+            return defaultImpl;
         } catch (Throwable t) {
             throw new DefaultImplementationInstantiationException(defaultImplementation, t);
         }

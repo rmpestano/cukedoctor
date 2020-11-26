@@ -2,6 +2,7 @@ package com.github.cukedoctor.sectionlayout;
 
 import com.github.cukedoctor.api.CukedoctorDocumentBuilder;
 import com.github.cukedoctor.api.DocumentAttributes;
+import com.github.cukedoctor.config.CukedoctorConfig;
 import com.github.cukedoctor.i18n.I18nLoader;
 import com.github.cukedoctor.util.builder.FeatureBuilder;
 import org.junit.BeforeClass;
@@ -36,7 +37,7 @@ public class BuiltInFeaturesSectionTest {
                 newLine();
         final String expectedDocument = oneScenario + oneScenario;
 
-        final String result = section.render(CukedoctorDocumentBuilder.Factory.newInstance(), I18nLoader.instance(null), new DocumentAttributes());
+        final String result = section.render(CukedoctorDocumentBuilder.Factory.newInstance(), I18nLoader.instance(null), new DocumentAttributes(), new CukedoctorConfig());
 
         assertEquals(expectedDocument, result);
     }
@@ -59,7 +60,7 @@ public class BuiltInFeaturesSectionTest {
                 + oneScenario
                 + oneScenario;
 
-        final String result = section.render(CukedoctorDocumentBuilder.Factory.newInstance(), I18nLoader.instance(null), new DocumentAttributes());
+        final String result = section.render(CukedoctorDocumentBuilder.Factory.newInstance(), I18nLoader.instance(null), new DocumentAttributes(), new CukedoctorConfig());
 
         assertEquals(expectedDocument, result);
     }

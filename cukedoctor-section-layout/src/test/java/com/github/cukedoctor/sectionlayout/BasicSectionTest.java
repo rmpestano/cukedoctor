@@ -3,6 +3,7 @@ package com.github.cukedoctor.sectionlayout;
 import com.github.cukedoctor.api.CukedoctorDocumentBuilder;
 import com.github.cukedoctor.api.DocumentAttributes;
 import com.github.cukedoctor.api.model.Feature;
+import com.github.cukedoctor.config.CukedoctorConfig;
 import com.github.cukedoctor.i18n.I18nLoader;
 import com.github.cukedoctor.util.builder.FeatureBuilder;
 import com.github.cukedoctor.util.builder.ScenarioBuilder;
@@ -41,7 +42,7 @@ public class BasicSectionTest {
                 "== *My Second Child*" + newLine() +
                 newLine();
 
-        final String result = section.render(CukedoctorDocumentBuilder.Factory.newInstance(), I18nLoader.instance(null), new DocumentAttributes());
+        final String result = section.render(CukedoctorDocumentBuilder.Factory.newInstance(), I18nLoader.instance(null), new DocumentAttributes(), new CukedoctorConfig());
 
         assertEquals(expectedDocument, result);
     }
@@ -62,7 +63,7 @@ public class BasicSectionTest {
                 "== *My Second Child*" + newLine() +
                 newLine();
 
-        final String result = section.render(CukedoctorDocumentBuilder.Factory.newInstance(), I18nLoader.instance(null), new DocumentAttributes());
+        final String result = section.render(CukedoctorDocumentBuilder.Factory.newInstance(), I18nLoader.instance(null), new DocumentAttributes(), new CukedoctorConfig());
 
         assertEquals(expectedDocument, result);
     }
@@ -80,7 +81,7 @@ public class BasicSectionTest {
                 "[[My-First-Child, My First Child]]" + newLine() +
                 "== *My First Child*" + newLine() + newLine();
 
-        final String result = section.render(CukedoctorDocumentBuilder.Factory.newInstance(), I18nLoader.instance(null), new DocumentAttributes());
+        final String result = section.render(CukedoctorDocumentBuilder.Factory.newInstance(), I18nLoader.instance(null), new DocumentAttributes(), new CukedoctorConfig());
 
         assertEquals(expectedDocument, result);
     }
@@ -98,7 +99,7 @@ public class BasicSectionTest {
                 "=== *My First Child*" + newLine() +
                 newLine();
 
-        final String result = section.render(CukedoctorDocumentBuilder.Factory.newInstance(), I18nLoader.instance(null), new DocumentAttributes());
+        final String result = section.render(CukedoctorDocumentBuilder.Factory.newInstance(), I18nLoader.instance(null), new DocumentAttributes(), new CukedoctorConfig());
 
         assertEquals(expectedDocument, result);
     }
@@ -132,7 +133,7 @@ public class BasicSectionTest {
                 "[[My-Fifth-Child, My Fifth Child]]" + newLine() +
                 "== *My Fifth Child*" + newLine() + newLine();
 
-        final String result = section.render(CukedoctorDocumentBuilder.Factory.newInstance(), I18nLoader.instance(null), new DocumentAttributes());
+        final String result = section.render(CukedoctorDocumentBuilder.Factory.newInstance(), I18nLoader.instance(null), new DocumentAttributes(), new CukedoctorConfig());
 
         assertEquals(expectedDocument, result);
     }
@@ -153,7 +154,7 @@ public class BasicSectionTest {
                 "== *My Second Child*" + newLine() +
                 newLine();
 
-        final String result = section.render(CukedoctorDocumentBuilder.Factory.newInstance(), I18nLoader.instance(null), new DocumentAttributes());
+        final String result = section.render(CukedoctorDocumentBuilder.Factory.newInstance(), I18nLoader.instance(null), new DocumentAttributes(), new CukedoctorConfig());
 
         assertEquals(expectedDocument, result);
     }
@@ -173,7 +174,7 @@ public class BasicSectionTest {
                 "== *My Second Child*" + newLine() +
                 newLine();
 
-        final String result = section.render(CukedoctorDocumentBuilder.Factory.newInstance(), I18nLoader.instance(null), new DocumentAttributes());
+        final String result = section.render(CukedoctorDocumentBuilder.Factory.newInstance(), I18nLoader.instance(null), new DocumentAttributes(), new CukedoctorConfig());
 
         assertEquals(expectedDocument, result);
     }
@@ -188,7 +189,7 @@ public class BasicSectionTest {
                 "= *My Cool Section*" + newLine() + newLine() + newLine() +
                 "This tells you all about my really cool section." + newLine() + newLine();
 
-        final String result = section.render(CukedoctorDocumentBuilder.Factory.newInstance(), I18nLoader.instance(null), new DocumentAttributes());
+        final String result = section.render(CukedoctorDocumentBuilder.Factory.newInstance(), I18nLoader.instance(null), new DocumentAttributes(), new CukedoctorConfig());
 
         assertEquals(expectedDocument, result);
     }
@@ -197,7 +198,7 @@ public class BasicSectionTest {
     public void shouldNotRenderIfSectionHasNoChildren() {
         final BasicSection section = createSection();
 
-        final String result = section.render(CukedoctorDocumentBuilder.Factory.newInstance(), I18nLoader.instance(null), new DocumentAttributes());
+        final String result = section.render(CukedoctorDocumentBuilder.Factory.newInstance(), I18nLoader.instance(null), new DocumentAttributes(), new CukedoctorConfig());
 
         assertEquals("", result);
     }

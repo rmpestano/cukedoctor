@@ -5,6 +5,7 @@ import com.github.cukedoctor.api.DocumentAttributes;
 import com.github.cukedoctor.api.model.Feature;
 import com.github.cukedoctor.api.model.Scenario;
 import com.github.cukedoctor.api.model.Tag;
+import com.github.cukedoctor.config.CukedoctorConfig;
 import com.github.cukedoctor.i18n.I18nLoader;
 import com.github.cukedoctor.util.builder.FeatureBuilder;
 
@@ -112,11 +113,11 @@ public class BasicSection implements Section {
     }
 
     @Override
-    public String render(CukedoctorDocumentBuilder docBuilder, I18nLoader i18n, DocumentAttributes documentAttributes) {
+    public String render(CukedoctorDocumentBuilder docBuilder, I18nLoader i18n, DocumentAttributes documentAttributes, CukedoctorConfig config) {
         if (!hasRoot() && sectionsByGroup.isEmpty() && grouplessFeatures.isEmpty()) return "";
 
-        renderName(docBuilder, i18n, documentAttributes);
-        renderChildren(docBuilder, i18n, documentAttributes);
+        renderName(docBuilder, i18n, documentAttributes, config);
+        renderChildren(docBuilder, i18n, documentAttributes, config);
 
         return docBuilder.toString();
     }
@@ -125,15 +126,15 @@ public class BasicSection implements Section {
         return root != null;
     }
 
-    protected boolean shouldRenderSectionName() {
+    protected boolean shouldRenderSectionName(CukedoctorConfig config) {
         return true;
     }
 
-    private void renderName(CukedoctorDocumentBuilder docBuilder, I18nLoader i18n, DocumentAttributes documentAttributes) {
-        if (!shouldRenderSectionName()) return;
+    private void renderName(CukedoctorDocumentBuilder docBuilder, I18nLoader i18n, DocumentAttributes documentAttributes, CukedoctorConfig config) {
+        if (!shouldRenderSectionName(config)) return;
 
         renderStyle(docBuilder);
-        renderTitle(docBuilder, i18n, documentAttributes);
+        renderTitle(docBuilder, i18n, documentAttributes, config);
     }
 
     private void renderStyle(CukedoctorDocumentBuilder docBuilder) {
@@ -142,9 +143,9 @@ public class BasicSection implements Section {
         }
     }
 
-    private void renderTitle(CukedoctorDocumentBuilder docBuilder, I18nLoader i18n, DocumentAttributes documentAttributes) {
+    private void renderTitle(CukedoctorDocumentBuilder docBuilder, I18nLoader i18n, DocumentAttributes documentAttributes, CukedoctorConfig config) {
         Section titleSection = getTitleSection(i18n);
-        docBuilder.append(titleSection.render(docBuilder.createPeerBuilder(), i18n, documentAttributes)).nestTitle();
+        docBuilder.append(titleSection.render(docBuilder.createPeerBuilder(), i18n, documentAttributes, config)).nestTitle();
     }
 
     private Section getTitleSection(I18nLoader i18n) {
@@ -158,9 +159,9 @@ public class BasicSection implements Section {
         return id;
     }
 
-    private void renderChildren(CukedoctorDocumentBuilder docBuilder, I18nLoader i18n, DocumentAttributes documentAttributes) {
+    private void renderChildren(CukedoctorDocumentBuilder docBuilder, I18nLoader i18n, DocumentAttributes documentAttributes, CukedoctorConfig config) {
         getChildren().forEach(
-                child -> docBuilder.append(child.render(docBuilder.createPeerBuilder(), i18n, documentAttributes)));
+                child -> docBuilder.append(child.render(docBuilder.createPeerBuilder(), i18n, documentAttributes, config)));
     }
 
     private Stream<Section> getChildren() {
