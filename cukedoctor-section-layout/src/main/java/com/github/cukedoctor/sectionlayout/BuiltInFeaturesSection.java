@@ -6,14 +6,12 @@ import com.github.cukedoctor.i18n.I18nLoader;
 import static com.github.cukedoctor.sectionlayout.Constants.SubsectionTagPattern;
 
 public class BuiltInFeaturesSection extends BasicSection {
-    private final CukedoctorConfig config = new CukedoctorConfig();
-
     public BuiltInFeaturesSection() {
         super("Features", null, SubsectionTagPattern);
     }
 
     @Override
-    protected boolean shouldRenderSectionName() {
+    protected boolean shouldRenderSectionName(CukedoctorConfig config) {
         return !config.isHideFeaturesSection();
     }
 

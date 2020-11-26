@@ -3,6 +3,7 @@ package com.github.cukedoctor.sectionlayout;
 import com.github.cukedoctor.api.CukedoctorDocumentBuilder;
 import com.github.cukedoctor.api.DocumentAttributes;
 import com.github.cukedoctor.api.model.Feature;
+import com.github.cukedoctor.config.CukedoctorConfig;
 import com.github.cukedoctor.i18n.I18nLoader;
 
 import java.util.stream.Stream;
@@ -18,7 +19,7 @@ public interface Section extends Comparable<Section> {
         return this;
     }
 
-    String render(CukedoctorDocumentBuilder docBuilder, I18nLoader i18n, DocumentAttributes documentAttributes);
+    String render(CukedoctorDocumentBuilder docBuilder, I18nLoader i18n, DocumentAttributes documentAttributes, CukedoctorConfig config);
 
     int getOrder();
 

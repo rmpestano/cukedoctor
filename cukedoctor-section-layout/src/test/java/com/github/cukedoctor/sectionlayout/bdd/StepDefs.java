@@ -30,6 +30,7 @@ public class StepDefs {
 
     private final File introDirectory;
     private String renderedDocument;
+    private boolean hideScenarioKeyword;
 
     public StepDefs() throws IOException {
         introDirectory = Files.createTempDirectory("Intro").toFile();
@@ -70,6 +71,11 @@ public class StepDefs {
     @Given("all Cukedoctor extensions are disabled")
     public void all_cukedoctor_extensions_are_disabled() {
         System.setProperty("cukedoctor.disable-extensions", "true");
+    }
+
+    @Given("I have disabled the scenario keyword")
+    public void i_have_disabled_the_scenario_keyword() {
+        hideScenarioKeyword = true;
     }
 
     @When("I convert the Feature")
@@ -144,9 +150,11 @@ public class StepDefs {
     }
 
     private CukedoctorConfig getConfig() {
-        return new CukedoctorConfig().setHideSummarySection(true)
+        return new CukedoctorConfig()
+                .setHideSummarySection(true)
                 .setIntroChapterDir(introDirectory.getAbsolutePath())// Avoid picking up intro docs in source tree
-                .setIntroChapterRelativePath(introDirectory.getAbsolutePath());
+                .setIntroChapterRelativePath(introDirectory.getAbsolutePath())
+                .setHideScenarioKeyword(hideScenarioKeyword);
     }
 }
 

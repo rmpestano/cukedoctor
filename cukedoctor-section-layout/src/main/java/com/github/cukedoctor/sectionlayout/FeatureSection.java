@@ -8,19 +8,12 @@ import com.github.cukedoctor.i18n.I18nLoader;
 import com.github.cukedoctor.spi.FeatureRenderer;
 import com.github.cukedoctor.util.ServiceLoaderUtil;
 
-import java.util.function.Supplier;
+import java.util.function.Function;
 import java.util.stream.Stream;
 
 public class FeatureSection implements Section {
-    private static Supplier<FeatureRenderer> featureRenderer;
-
-    static {
-        featureRenderer = () -> {
-            FeatureRenderer val = new ServiceLoaderUtil<FeatureRenderer>().load(FeatureRenderer.class, NoSideBarBlockFeatureRenderer.class, new CukedoctorConfig(), SectionFeatureRenderer.class);
-            featureRenderer = () -> val;
-            return val;
-        };
-    }
+    private static final Function<CukedoctorConfig, FeatureRenderer> featureRenderer =
+            config -> new ServiceLoaderUtil<FeatureRenderer>().load(FeatureRenderer.class, NoSideBarBlockFeatureRenderer.class, config, SectionFeatureRenderer.class);
 
     private final Feature feature;
 
@@ -34,8 +27,8 @@ public class FeatureSection implements Section {
     }
 
     @Override
-    public String render(CukedoctorDocumentBuilder docBuilder, I18nLoader i18n, DocumentAttributes documentAttributes) {
-        final FeatureRenderer renderer = FeatureSection.featureRenderer.get();
+    public String render(CukedoctorDocumentBuilder docBuilder, I18nLoader i18n, DocumentAttributes documentAttributes, CukedoctorConfig config) {
+        final FeatureRenderer renderer = FeatureSection.featureRenderer.apply(config);
         renderer.setI18n(i18n);
         renderer.setDocumentAttributes(documentAttributes);
         return renderer.renderFeature(feature, docBuilder);
