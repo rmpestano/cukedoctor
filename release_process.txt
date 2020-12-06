@@ -15,10 +15,8 @@
 
 5 - upload jars published in local maven repo to version created in bintray
 
-6 - update cukedoctor docker image: from cukedoctor-main module execute:
-   docker build -t rmpestano/cukedoctor . && docker tag rmpestano/cukedoctor:latest rmpestano/cukedoctor:new_version
-   docker push rmpestano/cukedoctor:new_version
-   docker push rmpestano/cukedoctor:latest
+6 - update cukedoctor docker image: from cukedoctor-main/docker folder:
+  ./publish.sh new_version
 
 7 - manually revert the version number in each module pom
 

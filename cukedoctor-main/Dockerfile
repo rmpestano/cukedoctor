@@ -1,6 +1,6 @@
 FROM openjdk:8u111-jre-alpine
-
-ADD target/cukedoctor*.jar cukedoctor.jar
+ARG VERSION
+ADD target/cukedoctor-main-$VERSION.jar cukedoctor.jar
 ADD docker/entrypoint.sh /
 
 VOLUME /output
