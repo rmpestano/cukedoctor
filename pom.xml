@@ -67,9 +67,7 @@
         <cucumber.version>1.2.4</cucumber.version>
         <snakeyaml.version>1.26</snakeyaml.version>
         <jacoco.version>0.8.2</jacoco.version>
-        <jruby.version>9.2.14.0</jruby.version>
     </properties>
-
 
     <dependencies>
         <dependency>
@@ -114,7 +112,6 @@
                 <artifactId>jackson-core</artifactId>
                 <version>${jackson-core.version}</version>
             </dependency>
-
             <dependency>
                 <groupId>com.fasterxml.jackson.core</groupId>
                 <artifactId>jackson-databind</artifactId>
@@ -134,12 +131,6 @@
                 <groupId>org.asciidoctor</groupId>
                 <artifactId>asciidoctorj-pdf</artifactId>
                 <version>${asciidoctorj-pdf.version}</version>
-                <exclusions>
-                    <exclusion>
-                        <groupId>org.jruby</groupId>
-                        <artifactId>jruby-complete</artifactId>
-                    </exclusion>
-                </exclusions>
             </dependency>
             <dependency>
                 <groupId>org.asciidoctor</groupId>
@@ -150,11 +141,6 @@
                 <groupId>org.asciidoctor</groupId>
                 <artifactId>asciidoctorj-diagram</artifactId>
                 <version>${asciidoctorj-diagram.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.jruby</groupId>
-                <artifactId>jruby-complete</artifactId>
-                <version>${jruby.version}</version>
             </dependency>
             <dependency>
                 <groupId>io.github.robwin</groupId>
