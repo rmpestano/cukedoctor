@@ -36,6 +36,7 @@
         <module>cukedoctor-extension</module>
         <module>cukedoctor-spi-example</module>
         <module>cukedoctor-section-layout</module>
+        <module>cukedoctor-multipage-layout</module>
     </modules>
 
     <licenses>
