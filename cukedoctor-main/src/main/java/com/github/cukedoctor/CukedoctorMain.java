@@ -43,7 +43,7 @@ public class CukedoctorMain {
     private String toc;
 
     @Parameter(names = "-numbered", description = "Section numbering. Default is false ", required = false)
-    private Boolean numbered;
+    private Boolean numbered = null;
 
     @Parameter(names = "-chapterLabel", description = "Chapter Label. Default is 'Chapter' ", required = false)
     private String chapterLabel;
@@ -136,10 +136,6 @@ public class CukedoctorMain {
 
         if (!hasText(versionLabel)) {
             versionLabel = "Version";
-        }
-
-        if (numbered == null) {
-            numbered = false;
         }
 
         if (hardBreaks == null) {

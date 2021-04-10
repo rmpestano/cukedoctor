@@ -42,8 +42,6 @@ Feature: Hunters
 :doctitle: Living Documentation
 :doctype: book
 :icons: font
-:!numbered:
-:!linkcss:
 :sectanchors:
 :sectlink:
 :docinfo:
@@ -123,8 +121,6 @@ Feature: Habitat
 :doctitle: Living Documentation
 :doctype: book
 :icons: font
-:!numbered:
-:!linkcss:
 :sectanchors:
 :sectlink:
 :docinfo:

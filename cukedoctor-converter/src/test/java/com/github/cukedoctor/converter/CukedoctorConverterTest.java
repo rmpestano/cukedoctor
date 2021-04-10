@@ -71,8 +71,6 @@ public class CukedoctorConverterTest {
                 ":doctitle: Living Documentation" + newLine() +
                 ":doctype: book" + newLine() +
                 ":icons: font" + newLine() +
-                ":!numbered:" + newLine() +
-                ":!linkcss:" + newLine() +
                 ":sectanchors:" + newLine() +
                 ":sectlink:" + newLine() +
                 ":docinfo:" + newLine() +
@@ -145,7 +143,7 @@ public class CukedoctorConverterTest {
         DocumentAttributes attrs = new DocumentAttributes();
         attrs.toc("left").backend("html5")
                 .docType("book").docTitle("Living Documentation")
-                .icons("font").numbered(false)
+                .icons("font")
                 .sectAnchors(true).sectLink(true)
                 .chapterLabel("Chapter")
                 .versionLabel("Version");
@@ -174,7 +172,7 @@ public class CukedoctorConverterTest {
         DocumentAttributes attrs = new DocumentAttributes();
         attrs.toc("left").backend("html5")
                 .docType("book").docTitle("Living Documentation")
-                .icons("font").numbered(false)
+                .icons("font")
                 .sectAnchors(true).sectLink(true)
                 .chapterLabel("Chapter")
                 .versionLabel("Version");
@@ -206,7 +204,7 @@ public class CukedoctorConverterTest {
         DocumentAttributes attrs = new DocumentAttributes();
         attrs.toc("left").backend("html5")
                 .docType("book").docTitle("Living Documentation")
-                .icons("font").numbered(false)
+                .icons("font")
                 .sectAnchors(true).sectLink(true)
                 .chapterLabel("Chapter")
                 .versionLabel("Version");
@@ -236,7 +234,7 @@ public class CukedoctorConverterTest {
         DocumentAttributes attrs = new DocumentAttributes();
         attrs.toc("left").backend("html5")
                 .docType("book").docTitle("Living Documentation")
-                .icons("font").numbered(false)
+                .icons("font")
                 .sectAnchors(true).sectLink(true)
                 .chapterLabel("Chapter");
 
@@ -263,7 +261,7 @@ public class CukedoctorConverterTest {
         DocumentAttributes attrs = new DocumentAttributes();
         attrs.toc("left").backend("html5")
                 .docType("book").docTitle("Living Documentation")
-                .icons("font").numbered(false)
+                .icons("font")
                 .sectAnchors(true).sectLink(true)
                 .chapterLabel("Chapter")
                 .versionLabel("Version");
@@ -283,7 +281,7 @@ public class CukedoctorConverterTest {
         DocumentAttributes attrs = new DocumentAttributes();
         attrs.toc("left").backend("html5")
                 .docType("book").docTitle("Living Documentation")
-                .icons("font").numbered(false)
+                .icons("font")
                 .sectAnchors(true).sectLink(true)
                 .chapterLabel("Chapter")
                 .versionLabel("Version");
@@ -304,7 +302,7 @@ public class CukedoctorConverterTest {
         DocumentAttributes attrs = new DocumentAttributes();
         attrs.toc("left").backend("html5")
                 .docType("book").docTitle("Living Documentation")
-                .icons("font").numbered(false)
+                .icons("font")
                 .sectAnchors(true).sectLink(true)
                 .chapterLabel("Chapter")
                 .versionLabel("Version");

@@ -40,7 +40,7 @@ public class CustomRendererTest {
 
         DocumentAttributes attrs = GlobalConfig.getInstance().getDocumentAttributes();
                 attrs.docTitle("Living Documentation")
-                .icons("font").numbered(false)
+                .icons("font")
                 .sectAnchors(true).sectLink(true);
 
         CukedoctorConverter converter = Cukedoctor.instance(features, attrs);
@@ -62,7 +62,7 @@ public class CustomRendererTest {
 
         DocumentAttributes attrs = GlobalConfig.getInstance().getDocumentAttributes();
         attrs.docTitle("Living Documentation")
-                .icons("font").numbered(false)
+                .icons("font")
                 .sectAnchors(true).sectLink(true);
 
         CukedoctorConverter converter = Cukedoctor.instance(features, attrs);
@@ -71,9 +71,7 @@ public class CustomRendererTest {
         		":backend: html5"+newLine()+ 
         		":doctitle: Living Documentation"+newLine()+ 
         		":doctype: book"+newLine()+ 
-        		":icons: font"+newLine()+ 
-        		":!numbered:"+newLine()+ 
-        		":!linkcss:"+newLine()+ 
+        		":icons: font"+newLine()+
         		":sectanchors:"+newLine()+ 
         		":sectlink:"+newLine()+ 
         		":docinfo:"+newLine()+ 

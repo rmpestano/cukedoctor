@@ -36,7 +36,7 @@ public class DocumentAttributes {
     private String versionLabel = "Version";
     private String stem = null;
     private Boolean allowUriRead = null;
-    private Boolean dataUri = false;
+    private Boolean dataUri = null;
 
     public DocumentAttributes() {
     }
@@ -139,7 +139,7 @@ public class DocumentAttributes {
         return this;
     }
 
-    public DocumentAttributes dataUri(boolean dataUri) {
+    public DocumentAttributes dataUri(Boolean dataUri) {
         this.dataUri = dataUri;
         return this;
     }
@@ -304,7 +304,9 @@ public class DocumentAttributes {
         this.allowUriRead = allowUriRead;
     }
 
-    public void setDataUri(boolean dataUri) { this.dataUri = dataUri; }
+    public void setDataUri(Boolean dataUri) {
+        this.dataUri = dataUri;
+    }
 
     public Map<String, Object> toMap() {
         return createAttributesMap();

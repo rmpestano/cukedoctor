@@ -20,7 +20,7 @@ public class CukedoctorHeaderRendererTest {
         DocumentAttributes attrs = new DocumentAttributes();
         attrs.toc("right").backend("html5")
                 .docType("article").docTitle("Title")
-                .icons("font").numbered(false)
+                .icons("font")
                 .sectAnchors(true).sectLink(true)
                 .chapterLabel("Chapter")
                 .versionLabel("Version");
@@ -31,8 +31,6 @@ public class CukedoctorHeaderRendererTest {
                         ":doctitle: Title" + newLine() +
                         ":doctype: article" + newLine() +
                         ":icons: font" + newLine() +
-                        ":!numbered:" + newLine() +
-                        ":!linkcss:" + newLine() +
                         ":sectanchors:" + newLine() +
                         ":sectlink:" + newLine() +
                         ":docinfo:" + newLine() +
@@ -52,8 +50,6 @@ public class CukedoctorHeaderRendererTest {
                 ":doctitle: Living Documentation" + newLine() +
                 ":doctype: book" + newLine() +
                 ":icons: font" + newLine() +
-                ":!numbered:" + newLine() +
-                ":!linkcss:" + newLine() +
                 ":sectanchors:" + newLine() +
                 ":sectlink:" + newLine() +
                 ":docinfo:" + newLine() +
@@ -72,8 +68,6 @@ public class CukedoctorHeaderRendererTest {
                 ":doctitle: Living Documentation" + newLine() +
                 ":doctype: book" + newLine() +
                 ":icons: font" + newLine() +
-                ":!numbered:" + newLine() +
-                ":!linkcss:" + newLine() +
                 ":sectanchors:" + newLine() +
                 ":sectlink:" + newLine() +
                 ":docinfo:" + newLine() +
@@ -102,7 +96,7 @@ public class CukedoctorHeaderRendererTest {
         DocumentAttributes attrs = new DocumentAttributes();
         attrs.toc("").backend("html5")
                 .docType("article").docTitle("Title")
-                .icons("font").numbered(false)
+                .icons("font")
                 .sectAnchors(true).sectLink(true)
                 .chapterLabel("Chapter")
                 .versionLabel("Version");
@@ -112,8 +106,6 @@ public class CukedoctorHeaderRendererTest {
                         ":doctitle: Title" + newLine() +
                         ":doctype: article" + newLine() +
                         ":icons: font" + newLine() +
-                        ":!numbered:" + newLine() +
-                        ":!linkcss:" + newLine() +
                         ":sectanchors:" + newLine() +
                         ":sectlink:" + newLine() +
                         ":docinfo:" + newLine() +
@@ -130,7 +122,7 @@ public class CukedoctorHeaderRendererTest {
         DocumentAttributes attrs = new DocumentAttributes();
         attrs.toc("").backend("html5")
                 .docType("article").docTitle("Title")
-                .icons("font").numbered(false)
+                .icons("font")
                 .hardBreaks(false)
                 .sectAnchors(true).sectLink(true)
                 .chapterLabel("Chapter");
@@ -140,8 +132,6 @@ public class CukedoctorHeaderRendererTest {
                         ":doctitle: Title" + newLine() +
                         ":doctype: article" + newLine() +
                         ":icons: font" + newLine() +
-                        ":!numbered:" + newLine() +
-                        ":!linkcss:" + newLine() +
                         ":sectanchors:" + newLine() +
                         ":sectlink:" + newLine() +
                         ":docinfo:" + newLine() +
@@ -158,7 +148,7 @@ public class CukedoctorHeaderRendererTest {
         DocumentAttributes attrs = new DocumentAttributes();
         attrs.toc("").backend("html5")
                 .docType("article").docTitle("Title")
-                .icons("font").numbered(false)
+                .icons("font")
                 .sectAnchors(true).sectLink(true)
                 .tocLevels("2")
                 .chapterLabel("Chapter")
@@ -170,8 +160,6 @@ public class CukedoctorHeaderRendererTest {
                         ":doctitle: Title" + newLine() +
                         ":doctype: article" + newLine() +
                         ":icons: font" + newLine() +
-                        ":!numbered:" + newLine() +
-                        ":!linkcss:" + newLine() +
                         ":sectanchors:" + newLine() +
                         ":sectlink:" + newLine() +
                         ":docinfo:" + newLine() +
@@ -191,7 +179,7 @@ public class CukedoctorHeaderRendererTest {
         attrs.toc("right").backend("html5")
                 .docType("book").docTitle("Documentation Title")
                 .linkCss(true)
-                .icons("font").numbered(false)
+                .icons("font")
                 .sectAnchors(true).sectLink(true)
                 .chapterLabel("Chapter")
                 .versionLabel("Version");
@@ -202,7 +190,6 @@ public class CukedoctorHeaderRendererTest {
                         ":doctitle: Documentation Title" + newLine() +
                         ":doctype: book" + newLine() +
                         ":icons: font" + newLine() +
-                        ":!numbered:" + newLine() +
                         ":linkcss:" + newLine() +
                         ":sectanchors:" + newLine() +
                         ":sectlink:" + newLine() +
@@ -226,7 +213,6 @@ public class CukedoctorHeaderRendererTest {
                 .docType("article")
                 .docTitle("Title")
                 .icons("font")
-                .numbered(false)
                 .sectAnchors(true)
                 .sectLink(true)
                 .chapterLabel("Chapter")
@@ -238,8 +224,6 @@ public class CukedoctorHeaderRendererTest {
                         ":doctitle: Title" + newLine() +
                         ":doctype: article" + newLine() +
                         ":icons: font" + newLine() +
-                        ":!numbered:" + newLine() +
-                        ":!linkcss:" + newLine() +
                         ":sectanchors:" + newLine() +
                         ":sectlink:" + newLine() +
                         ":docinfo:" + newLine() +
@@ -263,7 +247,6 @@ public class CukedoctorHeaderRendererTest {
                 .docType("article")
                 .docTitle("Title")
                 .icons("font")
-                .numbered(false)
                 .sectAnchors(true)
                 .sectLink(true)
                 .allowUriRead(true)
@@ -276,8 +259,6 @@ public class CukedoctorHeaderRendererTest {
                         ":doctitle: Title" + newLine() +
                         ":doctype: article" + newLine() +
                         ":icons: font" + newLine() +
-                        ":!numbered:" + newLine() +
-                        ":!linkcss:" + newLine() +
                         ":sectanchors:" + newLine() +
                         ":sectlink:" + newLine() +
                         ":docinfo:" + newLine() +
@@ -302,7 +283,6 @@ public class CukedoctorHeaderRendererTest {
                 .docType("article")
                 .docTitle("Title")
                 .icons("font")
-                .numbered(false)
                 .sectAnchors(true)
                 .sectLink(true)
                 .allowUriRead(false)
@@ -315,8 +295,6 @@ public class CukedoctorHeaderRendererTest {
                         ":doctitle: Title" + newLine() +
                         ":doctype: article" + newLine() +
                         ":icons: font" + newLine() +
-                        ":!numbered:" + newLine() +
-                        ":!linkcss:" + newLine() +
                         ":sectanchors:" + newLine() +
                         ":sectlink:" + newLine() +
                         ":docinfo:" + newLine() +
@@ -341,7 +319,6 @@ public class CukedoctorHeaderRendererTest {
                 .docType("article")
                 .docTitle("Title")
                 .icons("font")
-                .numbered(false)
                 .sectAnchors(true)
                 .sectLink(true)
                 .chapterLabel("Chapter")
@@ -353,8 +330,6 @@ public class CukedoctorHeaderRendererTest {
                         ":doctitle: Title" + newLine() +
                         ":doctype: article" + newLine() +
                         ":icons: font" + newLine() +
-                        ":!numbered:" + newLine() +
-                        ":!linkcss:" + newLine() +
                         ":sectanchors:" + newLine() +
                         ":sectlink:" + newLine() +
                         ":docinfo:" + newLine() +
@@ -377,8 +352,6 @@ public class CukedoctorHeaderRendererTest {
                 ":doctitle: Living Documentation" + newLine() +
                 ":doctype: book" + newLine() +
                 ":icons: font" + newLine() +
-                ":!numbered:" + newLine() +
-                ":!linkcss:" + newLine() +
                 ":sectanchors:" + newLine() +
                 ":sectlink:" + newLine() +
                 ":docinfo:" + newLine() +
@@ -398,7 +371,6 @@ public class CukedoctorHeaderRendererTest {
                 .docType("article")
                 .docTitle("Title")
                 .icons("font")
-                .numbered(false)
                 .sectAnchors(true)
                 .sectLink(true)
                 .chapterLabel("Chapter")
@@ -410,8 +382,6 @@ public class CukedoctorHeaderRendererTest {
                         ":doctitle: Title" + newLine() +
                         ":doctype: article" + newLine() +
                         ":icons: font" + newLine() +
-                        ":!numbered:" + newLine() +
-                        ":!linkcss:" + newLine() +
                         ":sectanchors:" + newLine() +
                         ":sectlink:" + newLine() +
                         ":docinfo:" + newLine() +
@@ -435,7 +405,6 @@ public class CukedoctorHeaderRendererTest {
                 .docType("article")
                 .docTitle("Title")
                 .icons("font")
-                .numbered(false)
                 .sectAnchors(true)
                 .sectLink(true)
                 .chapterLabel("Chapter")
@@ -447,8 +416,6 @@ public class CukedoctorHeaderRendererTest {
                         ":doctitle: Title" + newLine() +
                         ":doctype: article" + newLine() +
                         ":icons: font" + newLine() +
-                        ":!numbered:" + newLine() +
-                        ":!linkcss:" + newLine() +
                         ":sectanchors:" + newLine() +
                         ":sectlink:" + newLine() +
                         ":docinfo:" + newLine() +

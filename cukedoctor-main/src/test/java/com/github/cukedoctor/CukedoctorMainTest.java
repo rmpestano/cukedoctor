@@ -111,8 +111,7 @@ public class CukedoctorMainTest {
                 "-o: Living-Documentation" + newLine());
 
         baos.close();
-        assertThat(generatedDoc).
-                contains(":!numbered:").contains(":toc: right").
+        assertThat(generatedDoc).contains(":toc: right").
                 contains(":sectlink:").
                 containsOnlyOnce("= *Living Documentation*");
 
@@ -359,8 +358,7 @@ public class CukedoctorMainTest {
                     "-o: Living-Documentation" + newLine());
 
             baos.close();
-            assertThat(generatedDoc).
-                    contains(":!numbered:").contains(":toc: right").
+            assertThat(generatedDoc).contains(":toc: right").
                     contains(":sectlink:").
                     containsOnlyOnce("= *Living Documentation*").
                     contains(":chapter-label: mychapter").
