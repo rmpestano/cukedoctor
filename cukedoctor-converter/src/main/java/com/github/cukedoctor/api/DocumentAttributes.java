@@ -23,14 +23,14 @@ public class DocumentAttributes {
     private String toc = "right";
     private String icons = "font";
     private String tocLevels = "3";
-    private boolean linkCss = false;
-    private boolean sectAnchors = true;
-    private boolean sectLink = true;
-    private boolean numbered = false;
-    private boolean docInfo = true;
+    private Boolean linkCss = null;
+    private Boolean sectAnchors = true;
+    private Boolean sectLink = true;
+    private Boolean numbered = null;
+    private Boolean docInfo = true;
     private String sourceHighlighter = "highlightjs";
     private String revNumber;
-    private boolean hardBreaks = true;
+    private Boolean hardBreaks = true;
     private String pdfStyle;
     private String chapterLabel = "Chapter";
     private String versionLabel = "Version";
@@ -83,27 +83,27 @@ public class DocumentAttributes {
     }
 
 
-    public DocumentAttributes sectAnchors(boolean sectAnchors) {
+    public DocumentAttributes sectAnchors(Boolean sectAnchors) {
         this.sectAnchors = sectAnchors;
         return this;
     }
 
-    public DocumentAttributes sectLink(boolean sectLink) {
+    public DocumentAttributes sectLink(Boolean sectLink) {
         this.sectLink = sectLink;
         return this;
     }
 
-    public DocumentAttributes numbered(boolean numbered) {
+    public DocumentAttributes numbered(Boolean numbered) {
         this.numbered = numbered;
         return this;
     }
 
-    public DocumentAttributes linkCss(boolean linkCss) {
+    public DocumentAttributes linkCss(Boolean linkCss) {
         this.linkCss = linkCss;
         return this;
     }
 
-    public DocumentAttributes docInfo(boolean docInfo) {
+    public DocumentAttributes docInfo(Boolean docInfo) {
         this.docInfo = docInfo;
         return this;
     }
@@ -119,7 +119,7 @@ public class DocumentAttributes {
         return this;
     }
 
-    public DocumentAttributes hardBreaks(boolean hardBreaks) {
+    public DocumentAttributes hardBreaks(Boolean hardBreaks) {
         this.hardBreaks = hardBreaks;
         return this;
     }
@@ -134,7 +134,7 @@ public class DocumentAttributes {
         return this;
     }
 
-    public DocumentAttributes allowUriRead(boolean allowUriRead) {
+    public DocumentAttributes allowUriRead(Boolean allowUriRead) {
         this.allowUriRead = allowUriRead;
         return this;
     }
@@ -189,27 +189,27 @@ public class DocumentAttributes {
         return pdfStyle;
     }
 
-    public boolean isSectAnchors() {
+    public Boolean isSectAnchors() {
         return sectAnchors;
     }
 
-    public boolean isSectLink() {
+    public Boolean isSectLink() {
         return sectLink;
     }
 
-    public boolean isNumbered() {
+    public Boolean isNumbered() {
         return numbered;
     }
 
-    public boolean isLinkCss() {
+    public Boolean isLinkCss() {
         return linkCss;
     }
 
-    public boolean isDocInfo() {
+    public Boolean isDocInfo() {
         return docInfo;
     }
 
-    public boolean isHardBreaks() {
+    public Boolean isHardBreaks() {
         return hardBreaks;
     }
 
@@ -264,23 +264,23 @@ public class DocumentAttributes {
         this.versionLabel = versionLabel;
     }
 
-    public void setLinkCss(boolean linkCss) {
+    public void setLinkCss(Boolean linkCss) {
         this.linkCss = linkCss;
     }
 
-    public void setSectAnchors(boolean sectAnchors) {
+    public void setSectAnchors(Boolean sectAnchors) {
         this.sectAnchors = sectAnchors;
     }
 
-    public void setSectLink(boolean sectLink) {
+    public void setSectLink(Boolean sectLink) {
         this.sectLink = sectLink;
     }
 
-    public void setNumbered(boolean numbered) {
+    public void setNumbered(Boolean numbered) {
         this.numbered = numbered;
     }
 
-    public void setDocInfo(boolean docInfo) {
+    public void setDocInfo(Boolean docInfo) {
         this.docInfo = docInfo;
     }
 
@@ -292,7 +292,7 @@ public class DocumentAttributes {
         this.revNumber = revNumber;
     }
 
-    public void setHardBreaks(boolean hardBreaks) {
+    public void setHardBreaks(Boolean hardBreaks) {
         this.hardBreaks = hardBreaks;
     }
 
@@ -300,7 +300,7 @@ public class DocumentAttributes {
         this.stem = stem;
     }
 
-    public void setAllowUriRead(boolean allowUriRead) {
+    public void setAllowUriRead(Boolean allowUriRead) {
         this.allowUriRead = allowUriRead;
     }
 

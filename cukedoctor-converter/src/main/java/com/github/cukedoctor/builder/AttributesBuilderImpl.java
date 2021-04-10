@@ -48,38 +48,56 @@ public class AttributesBuilderImpl implements AttributesBuilder {
     }
 
     @Override
-    public AttributesBuilder numbered(boolean value) {
-        docBuilder.textLine(Constants.Attributes.numbered(value));
+    public AttributesBuilder numbered(Boolean value) {
+        if (value != null) {
+            docBuilder.textLine(Constants.Attributes.numbered(value));
+        }
+
         return this;
     }
 
     @Override
-    public AttributesBuilder linkcss(boolean value) {
-        docBuilder.textLine(Constants.Attributes.linkcss(value));
+    public AttributesBuilder linkcss(Boolean value) {
+        if (value != null) {
+            docBuilder.textLine(Constants.Attributes.linkcss(value));
+        }
+
         return this;
     }
 
     @Override
-    public AttributesBuilder sectAnchors(boolean value) {
-        docBuilder.textLine(Constants.Attributes.sectAnchors(value));
+    public AttributesBuilder sectAnchors(Boolean value) {
+        if (value != null) {
+            docBuilder.textLine(Constants.Attributes.sectAnchors(value));
+        }
+
         return this;
     }
 
     @Override
-    public AttributesBuilder sectLink(boolean value) {
-        docBuilder.textLine(Constants.Attributes.sectLink(value));
+    public AttributesBuilder sectLink(Boolean value) {
+        if (value != null) {
+            docBuilder.textLine(Constants.Attributes.sectLink(value));
+        }
+
         return this;
     }
 
     @Override
-    public AttributesBuilder docInfo(boolean value) {
-        docBuilder.textLine(Constants.Attributes.docInfo(value));
+    public AttributesBuilder docInfo(Boolean value) {
+        if (value != null) {
+            docBuilder.textLine(Constants.Attributes.docInfo(value));
+        }
+
         return this;
     }
 
     @Override
-    public AttributesBuilder hardBreaks(boolean value) {
-        docBuilder.textLine(Constants.Attributes.hardBreaks(value));
+    public AttributesBuilder hardBreaks(Boolean value) {
+        if (value != null) {
+            docBuilder.textLine(Constants.Attributes.hardBreaks(value));
+        }
+
         return this;
     }
 
@@ -128,9 +146,10 @@ public class AttributesBuilderImpl implements AttributesBuilder {
 
     @Override
     public AttributesBuilder allowUriRead(Boolean value) {
-        if(value != null) {
+        if (value != null) {
             docBuilder.textLine(Constants.Attributes.allowUriRead(value));
         }
+
         return this;
     }
 
