@@ -17,17 +17,17 @@ public interface AttributesBuilder {
 
     AttributesBuilder icons(String value);
 
-    AttributesBuilder numbered(boolean value);
+    AttributesBuilder numbered(Boolean value);
 
-    AttributesBuilder linkcss(boolean value);
+    AttributesBuilder linkcss(Boolean value);
 
-    AttributesBuilder sectAnchors(boolean value);
+    AttributesBuilder sectAnchors(Boolean value);
 
-    AttributesBuilder sectLink(boolean value);
+    AttributesBuilder sectLink(Boolean value);
 
-    AttributesBuilder docInfo(boolean value);
+    AttributesBuilder docInfo(Boolean value);
 
-    AttributesBuilder hardBreaks(boolean value);
+    AttributesBuilder hardBreaks(Boolean value);
 
     AttributesBuilder sourceHighlighter(String value);
 
