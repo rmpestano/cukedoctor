@@ -424,4 +424,18 @@ public class CukedoctorMainTest {
         }
     }
 
+    @Test
+    public void shouldRenderDataUriWhenSpecifiedOnCommandLine()  throws IOException {
+        try {
+            String generatedDoc = new CukedoctorMain().execute(new String[]{
+                    "-dataUri"
+            });
+            System.out.flush();
+            baos.close();
+            assertThat(generatedDoc).contains(":data-uri:" + newLine());
+        } finally {
+            FileUtil.removeFile("Living-Documentation.adoc");
+            FileUtil.removeFile("Living-Documentation.html");
+        }
+    }
 }

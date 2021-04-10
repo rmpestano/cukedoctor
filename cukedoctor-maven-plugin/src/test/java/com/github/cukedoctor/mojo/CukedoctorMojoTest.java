@@ -472,4 +472,22 @@ public class CukedoctorMojoTest extends AbstractMojoTestCase {
         File diagramFile = FileUtil.loadFile(mojo.getDocumentationDir() + "test.svg");
         assertThat(diagramFile).exists().hasParent("target/docs");
     }
+
+    /**
+     * @throws Exception
+     */
+    public void testGenerateDataUri() throws Exception {
+
+        CukedoctorMojo mojo = (CukedoctorMojo) lookupMojo("execute", getTestFile("src/test/resources/html-docs-datauri-pom.xml"));
+
+        assertNotNull(mojo);
+        mojo.execute();
+
+        File file = FileUtil.loadFile(mojo.getDocumentationDir() + mojo.outputFileName + ".html");
+        assertThat(file).exists().hasParent("target/docs");
+        assertThat(mojo.getGeneratedFile()).contains(":data-uri:");
+
+        String docHtml = readFileContent(loadTestFile("documentation.html"));
+        assertThat(docHtml).isNotEmpty();
+    }
 }

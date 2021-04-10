@@ -38,6 +38,7 @@ public class CukedoctorHeaderRenderer extends AbstractBaseRenderer implements He
                 .stem(documentAttributes.getStem())
                 .allowUriRead(documentAttributes.isAllowUriRead())
                 .pdfStyle(documentAttributes.getPdfStyle())
+                .dataUri(documentAttributes.isDataUri())
                 .asciiDocBuilder().toString();
     }
 }

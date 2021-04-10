@@ -84,6 +84,9 @@ public class CukedoctorMain {
     @Parameter(names = "-stem", description = "Sets asciidoctor stem attribute with the specified interpreter. By default, the stem attribute is set using asciidoctor's default interpreter ", required = false)
     private String stem;
 
+    @Parameter(names = "-dataUri", description = "Sets AsciiDoc :data-uri: attribute, causing all images in the document to be embedded as data URIs. Default is false.", required = false)
+    private Boolean dataUri;
+
 
     private static List<Feature> searchPathAndScan(String path) {
         if (path.endsWith(".json")) {
@@ -187,6 +190,10 @@ public class CukedoctorMain {
 
         if (allowUriRead != null) {
             documentAttributes.allowUriRead(allowUriRead);
+        }
+
+        if (dataUri != null) {
+            documentAttributes.dataUri(dataUri);
         }
 
         if (outputName.contains(".")) {
