@@ -388,4 +388,77 @@ public class CukedoctorHeaderRendererTest {
                 ":chapter-label: Chapter" + newLine() +
                 ":version-label: Version" + newLine());
     }
+
+    @Test
+    public void shouldRenderDataUriAttributeIfDataUriSet() {
+        DocumentAttributes attrs = new DocumentAttributes()
+                .dataUri(true)
+                .toc("right")
+                .backend("html5")
+                .docType("article")
+                .docTitle("Title")
+                .icons("font")
+                .numbered(false)
+                .sectAnchors(true)
+                .sectLink(true)
+                .chapterLabel("Chapter")
+                .versionLabel("Version");
+
+        String expected =
+                ":toc: right" + newLine() +
+                        ":backend: html5" + newLine() +
+                        ":doctitle: Title" + newLine() +
+                        ":doctype: article" + newLine() +
+                        ":icons: font" + newLine() +
+                        ":!numbered:" + newLine() +
+                        ":!linkcss:" + newLine() +
+                        ":sectanchors:" + newLine() +
+                        ":sectlink:" + newLine() +
+                        ":docinfo:" + newLine() +
+                        ":source-highlighter: highlightjs" + newLine() +
+                        ":toclevels: 3" + newLine() +
+                        ":hardbreaks:" + newLine() +
+                        ":chapter-label: Chapter" + newLine() +
+                        ":version-label: Version" + newLine() +
+                        ":data-uri:" + newLine();
+
+        String document = new CukedoctorHeaderRenderer().renderDocumentHeader(attrs, CukedoctorDocumentBuilder.Factory.newInstance());
+        assertEquals(expected.replace("\r", ""), document.replace("\r", ""));
+    }
+
+
+    @Test
+    public void shouldNotRenderDataUriAttributeIfDataUriNotSet() {
+        DocumentAttributes attrs = new DocumentAttributes()
+                .toc("right")
+                .backend("html5")
+                .docType("article")
+                .docTitle("Title")
+                .icons("font")
+                .numbered(false)
+                .sectAnchors(true)
+                .sectLink(true)
+                .chapterLabel("Chapter")
+                .versionLabel("Version");
+
+        String expected =
+                ":toc: right" + newLine() +
+                        ":backend: html5" + newLine() +
+                        ":doctitle: Title" + newLine() +
+                        ":doctype: article" + newLine() +
+                        ":icons: font" + newLine() +
+                        ":!numbered:" + newLine() +
+                        ":!linkcss:" + newLine() +
+                        ":sectanchors:" + newLine() +
+                        ":sectlink:" + newLine() +
+                        ":docinfo:" + newLine() +
+                        ":source-highlighter: highlightjs" + newLine() +
+                        ":toclevels: 3" + newLine() +
+                        ":hardbreaks:" + newLine() +
+                        ":chapter-label: Chapter" + newLine() +
+                        ":version-label: Version" + newLine();
+
+        String document = new CukedoctorHeaderRenderer().renderDocumentHeader(attrs, CukedoctorDocumentBuilder.Factory.newInstance());
+        assertEquals(expected.replace("\r", ""), document.replace("\r", ""));
+    }
 }

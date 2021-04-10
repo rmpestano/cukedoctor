@@ -800,6 +800,10 @@ mvn cukedoctor:execute
 |When present, sets the asciidoc stem attribute to the specified interpreter e.g. `latexmath`
 |
 
+|dataUri
+|When present, sets the AsciiDoc 'data-uri' attribute which causes all images to be embedded in HTML output as https://docs.asciidoctor.org/asciidoctor/latest/html-backend/manage-images/[data URIs]
+|
+
 |====
 
 === Disable extensions

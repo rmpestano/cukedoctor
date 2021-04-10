@@ -94,7 +94,7 @@ public abstract class Constants {
             SECTLINK("sectlink"), BACKEND("backend"), REVNUMBER("revnumber"), DOCTITLE("doctitle"),
             DOCTYPE("doctype"), DOCINFO("docinfo"), SOURCEHIGHLIGHTER("source-highlighter"),
             PDFSTYLE("pdf-style"), VERSIONLABEL("version-label"), CHAPTERLABEL("chapter-label"),
-            STEM("stem"), ALLOWURIREAD("allow-uri-read");
+            STEM("stem"), ALLOWURIREAD("allow-uri-read"), DATAURI("data-uri");
 
             final String name;
 
@@ -203,6 +203,8 @@ public abstract class Constants {
         public static String allowUriRead(boolean allowUriRead) {
             return toAdocAttr(ALLOWURIREAD.name, allowUriRead);
         }
+
+        public static String dataUri(Boolean value) { return toAdocAttr(DATAURI.name, value); }
     }
 
     public static <T> T getProp(String property, Class<T> type) {

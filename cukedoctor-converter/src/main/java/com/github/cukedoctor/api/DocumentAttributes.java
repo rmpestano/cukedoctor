@@ -36,6 +36,7 @@ public class DocumentAttributes {
     private String versionLabel = "Version";
     private String stem = null;
     private Boolean allowUriRead = null;
+    private Boolean dataUri = false;
 
     public DocumentAttributes() {
     }
@@ -138,6 +139,12 @@ public class DocumentAttributes {
         return this;
     }
 
+    public DocumentAttributes dataUri(boolean dataUri) {
+        this.dataUri = dataUri;
+        return this;
+    }
+
+
     public String getBackend() {
         return backend;
     }
@@ -212,6 +219,10 @@ public class DocumentAttributes {
 
     public Boolean isAllowUriRead() {
         return allowUriRead;
+    }
+
+    public Boolean isDataUri() {
+        return dataUri;
     }
 
     //setters needed by snakeyml
@@ -293,6 +304,8 @@ public class DocumentAttributes {
         this.allowUriRead = allowUriRead;
     }
 
+    public void setDataUri(boolean dataUri) { this.dataUri = dataUri; }
+
     public Map<String, Object> toMap() {
         return createAttributesMap();
     }
@@ -313,6 +326,4 @@ public class DocumentAttributes {
         }
         return attributesMap;
     }
-
-
 }

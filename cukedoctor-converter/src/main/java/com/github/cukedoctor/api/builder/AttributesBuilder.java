@@ -45,6 +45,8 @@ public interface AttributesBuilder {
 
     AttributesBuilder allowUriRead(Boolean value);
 
+    AttributesBuilder dataUri(Boolean value);
+
     AsciiDocBuilder asciiDocBuilder();
 
 }

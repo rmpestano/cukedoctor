@@ -124,6 +124,9 @@ public class CukedoctorMojo extends AbstractMojo {
     @Parameter(property = "stem", required = false)
     String stem;
 
+    @Parameter(property = "dataUri", required = false)
+    Boolean dataUri;
+
 
     @Component
     MavenProject project;
@@ -201,6 +204,10 @@ public class CukedoctorMojo extends AbstractMojo {
 
         if(allowUriRead != null) {
             documentAttributes.allowUriRead(allowUriRead);
+        }
+
+        if (dataUri != null) {
+            documentAttributes.dataUri(dataUri);
         }
 
         if (documentTitle == null) {
