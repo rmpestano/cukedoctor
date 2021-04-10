@@ -12,10 +12,8 @@ documentAttributes:
   toc: "right"
   icons: "font"
   tocLevels: 3
-  linkCss: false
   sectAnchors: true
   sectLink: true
-  numbered: false
   docInfo: true
   pdfStyle:
   sourceHighlighter: "highlightjs"

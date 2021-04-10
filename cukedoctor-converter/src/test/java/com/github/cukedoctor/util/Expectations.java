@@ -112,9 +112,7 @@ public interface Expectations {
 			":backend: html5"+newLine()+ 
 			":doctitle: Living Documentation"+newLine()+ 
 			":doctype: book"+newLine()+ 
-			":icons: font"+newLine()+ 
-			":!numbered:"+newLine()+ 
-			":!linkcss:"+newLine()+ 
+			":icons: font"+newLine()+
 			":sectanchors:"+newLine()+ 
 			":sectlink:"+newLine()+ 
 			":docinfo:"+newLine()+ 
@@ -199,9 +197,7 @@ public interface Expectations {
 			":backend: html5"+newLine()+ 
 			":doctitle: Living Documentation"+newLine()+ 
 			":doctype: book"+newLine()+ 
-			":icons: font"+newLine()+ 
-			":!numbered:"+newLine()+ 
-			":!linkcss:"+newLine()+ 
+			":icons: font"+newLine()+
 			":sectanchors:"+newLine()+ 
 			":sectlink:"+newLine()+ 
 			":docinfo:"+newLine()+ 
@@ -284,9 +280,7 @@ public interface Expectations {
 			":backend: html5"+newLine()+ 
 			":doctitle: Living Documentation"+newLine()+ 
 			":doctype: book"+newLine()+ 
-			":icons: font"+newLine()+ 
-			":!numbered:"+newLine()+ 
-			":!linkcss:"+newLine()+ 
+			":icons: font"+newLine()+
 			":sectanchors:"+newLine()+ 
 			":sectlink:"+newLine()+ 
 			":docinfo:"+newLine()+ 
@@ -333,9 +327,7 @@ public interface Expectations {
 			":backend: html5"+newLine()+ 
 			":doctitle: Living Documentation"+newLine()+ 
 			":doctype: book"+newLine()+ 
-			":icons: font"+newLine()+ 
-			":!numbered:"+newLine()+ 
-			":!linkcss:"+newLine()+ 
+			":icons: font"+newLine()+
 			":sectanchors:"+newLine()+ 
 			":sectlink:"+newLine()+ 
 			":docinfo:"+newLine()+ 
@@ -384,9 +376,7 @@ public interface Expectations {
 			":backend: html5"+newLine()+ 
 			":doctitle: Living Documentation"+newLine()+ 
 			":doctype: book"+newLine()+ 
-			":icons: font"+newLine()+ 
-			":!numbered:"+newLine()+ 
-			":!linkcss:"+newLine()+ 
+			":icons: font"+newLine()+
 			":sectanchors:"+newLine()+ 
 			":sectlink:"+newLine()+ 
 			":docinfo:"+newLine()+ 
@@ -435,9 +425,7 @@ public interface Expectations {
 			":backend: html5"+newLine()+ 
 			":doctitle: Living Documentation"+newLine()+ 
 			":doctype: book"+newLine()+ 
-			":icons: font"+newLine()+ 
-			":!numbered:"+newLine()+ 
-			":!linkcss:"+newLine()+ 
+			":icons: font"+newLine()+
 			":sectanchors:"+newLine()+ 
 			":sectlink:"+newLine()+ 
 			":docinfo:"+newLine()+ 
@@ -483,9 +471,7 @@ public interface Expectations {
 			":backend: html5"+newLine()+ 
 			":doctitle: Living Documentation"+newLine()+ 
 			":doctype: book"+newLine()+ 
-			":icons: font"+newLine()+ 
-			":!numbered:"+newLine()+ 
-			":!linkcss:"+newLine()+ 
+			":icons: font"+newLine()+
 			":sectanchors:"+newLine()+ 
 			":sectlink:"+newLine()+ 
 			":docinfo:"+newLine()+ 
@@ -648,8 +634,6 @@ public interface Expectations {
 			":doctitle: Doc Title"+newLine() +
 			":doctype: book"+newLine() +
 			":icons: font"+newLine() +
-			":!numbered:"+newLine() +
-			":!linkcss:"+newLine() +
 			":sectanchors:"+newLine() +
 			":sectlink:"+newLine() +
 			":docinfo:"+newLine() +
@@ -729,9 +713,7 @@ public interface Expectations {
 			":backend: html5"+newLine()+ 
 			":doctitle: Doc Title"+newLine()+ 
 			":doctype: book"+newLine()+ 
-			":icons: font"+newLine()+ 
-			":!numbered:"+newLine()+ 
-			":!linkcss:"+newLine()+ 
+			":icons: font"+newLine()+
 			":sectanchors:"+newLine()+ 
 			":sectlink:"+newLine()+ 
 			":docinfo:"+newLine()+ 

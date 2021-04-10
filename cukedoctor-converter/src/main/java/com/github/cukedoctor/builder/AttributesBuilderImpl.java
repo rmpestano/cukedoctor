@@ -155,9 +155,10 @@ public class AttributesBuilderImpl implements AttributesBuilder {
 
     @Override
     public AttributesBuilder dataUri(Boolean value) {
-        if (value != null && value) {
-            docBuilder.textLine(Constants.Attributes.dataUri(true));
+        if (value != null) {
+            docBuilder.textLine(Constants.Attributes.dataUri(value));
         }
+
         return this;
     }
 

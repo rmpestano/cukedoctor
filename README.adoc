@@ -135,7 +135,7 @@ public void shouldSaveDocumentationIntoDisk(){
 	DocumentAttributes attrs = GlobalConfig.getInstance().getDocumentAttributes;
 	attrs.toc("left").backend("html5")
 			.docType("book")
-			.icons("font").numbered(false)
+			.icons("font")
 			.sourceHighlighter("coderay")
 			.docTitle("Documentation Title")
 		    .sectAnchors(true).sectLink(true);

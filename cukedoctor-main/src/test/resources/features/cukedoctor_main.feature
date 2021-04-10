@@ -15,8 +15,6 @@ Feature: Cukedoctor Main
 :doctitle: Documentation
 :doctype: book
 :icons: font
-:!numbered:
-:!linkcss:
 :sectanchors:
 :sectlink:
 :docinfo:
@@ -109,8 +107,6 @@ features/one_passing_one_failing.feature:10:in Given this step fails'
 :doctitle: Documentation
 :doctype: book
 :icons: font
-:!numbered:
-:!linkcss:
 :sectanchors:
 :sectlink:
 :docinfo:

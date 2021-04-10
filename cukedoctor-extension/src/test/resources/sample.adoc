@@ -3,8 +3,6 @@
 :doctitle: Living Documentation
 :doctype: book
 :icons: font
-:!numbered:
-:!linkcss:
 :sectanchors:
 :sectlink:
 :docinfo:
