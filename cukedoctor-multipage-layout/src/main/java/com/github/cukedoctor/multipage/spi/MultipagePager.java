@@ -1,7 +1,8 @@
-package cukedoctor.multipage.spi;
+package com.github.cukedoctor.multipage.spi;
 
+import com.github.cukedoctor.api.DocumentAttributes;
+import com.github.cukedoctor.multipage.model.Page;
 import com.github.cukedoctor.renderer.BaseRenderer;
-import cukedoctor.multipage.model.Page;
 
 import java.util.List;
 
@@ -11,5 +12,5 @@ import java.util.List;
  * TODO: Do not extend BaseRenderer since this is not a renderer
  */
 public interface MultipagePager extends BaseRenderer {
-    List<Page> pages(List<String> jsonPaths);
+    List<Page> pages(List<String> jsonPaths, DocumentAttributes attrs);
 }
