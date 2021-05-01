@@ -64,7 +64,7 @@
         <asciidoctorj-pdf.version>1.5.4</asciidoctorj-pdf.version>
         <asciidoctorj-diagram.version>2.0.4</asciidoctorj-diagram.version>
         <joda-time.version>2.9.2</joda-time.version>
-        <cucumber.version>1.2.4</cucumber.version>
+        <cucumber.version>6.10.3</cucumber.version>
         <snakeyaml.version>1.26</snakeyaml.version>
         <jacoco.version>0.8.2</jacoco.version>
     </properties>
@@ -95,12 +95,12 @@
             <scope>test</scope>
         </dependency>
         <dependency>
-            <groupId>info.cukes</groupId>
+            <groupId>io.cucumber</groupId>
             <artifactId>cucumber-junit</artifactId>
             <scope>test</scope>
         </dependency>
         <dependency>
-            <groupId>info.cukes</groupId>
+            <groupId>io.cucumber</groupId>
             <artifactId>cucumber-java</artifactId>
             <scope>test</scope>
         </dependency>
@@ -148,13 +148,13 @@
                 <version>0.1.5</version>
             </dependency>
             <dependency>
-                <groupId>info.cukes</groupId>
+                <groupId>io.cucumber</groupId>
                 <artifactId>cucumber-junit</artifactId>
                 <version>${cucumber.version}</version>
                 <scope>test</scope>
             </dependency>
             <dependency>
-                <groupId>info.cukes</groupId>
+                <groupId>io.cucumber</groupId>
                 <artifactId>cucumber-java</artifactId>
                 <version>${cucumber.version}</version>
                 <scope>test</scope>
