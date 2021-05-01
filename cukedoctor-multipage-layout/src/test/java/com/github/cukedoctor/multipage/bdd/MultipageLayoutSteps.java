@@ -57,10 +57,11 @@ public class MultipageLayoutSteps {
         File reportFile = metaCuke.getReport();
         FileUtil.copyFile(reportFile.getAbsolutePath(), "target/test-classes/json-output/result.json");
 
-        this.multipageConverter = new MultipageConverter()
+        this.multipageConverter = MultipageConverter.builder()
                 .attrs(attrs)
-                .setJsonFilesLocation("target/test-classes/json-output/")
-                .setOutputFolderLocation(outputFolderLocation);
+                .jsonFileLocation("target/test-classes/json-output/")
+                .outputFolderLocation(outputFolderLocation)
+                .build();
 
         this.multipageConverter.saveDocumentation();
     }
@@ -79,7 +80,7 @@ public class MultipageLayoutSteps {
 
     @Then("the generated pages have the {string} meta property set")
     public void theGeneratedPagesHaveTheMetaPropertySet(String attribute) {
-        for (Page page: multipageConverter.getPages()) {
+        for (Page page : multipageConverter.getPages()) {
             File target = new File(multipageConverter.getOutputFolderLocation() + File.separator + page.getPageTitle() + ".adoc");
             String fileContent = com.github.cukedoctor.extension.util.FileUtil.readFileContent(target);
             assertTrue(fileContent.contains(":toc:"));
