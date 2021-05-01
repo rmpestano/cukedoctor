@@ -4,7 +4,6 @@ import com.github.cukedoctor.api.CukedoctorDocumentBuilder;
 import com.github.cukedoctor.api.DocumentAttributes;
 import com.github.cukedoctor.api.model.Feature;
 import com.github.cukedoctor.config.CukedoctorConfig;
-import com.github.cukedoctor.config.GlobalConfig;
 import com.github.cukedoctor.i18n.I18nLoader;
 import com.github.cukedoctor.multipage.model.Page;
 import com.github.cukedoctor.multipage.spi.MultipagePager;
@@ -12,7 +11,9 @@ import com.github.cukedoctor.parser.FeatureParser;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * Default implementation for the {@link MultipagePager} that does a "one page per feature" grouping
@@ -20,17 +21,19 @@ import java.util.List;
  * To create a new implementation of this class - use the com.github.cukedoctor.multipage.spi.MultipagePager SPI
  */
 public class OnePagePerFeatureMultipagePager implements MultipagePager {
+    private DocumentAttributes documentAttributes;
+    private CukedoctorConfig cukedoctorConfig;
+
     @Override
-    public List<Page> pages(List<String> jsonPaths, DocumentAttributes attrs) {
+    public List<Page> pages(List<String> jsonPaths) {
         List<Feature> features = FeatureParser.parse(jsonPaths);
-        List<Page> resultPages = new ArrayList<>();
 
-        for(Feature feature: features) {
-            attrs.docTitle(feature.getName());
-            resultPages.add(new Page(feature.getName(), Collections.singletonList(feature), attrs));
-        }
-
-        return resultPages;
+        return features.stream()
+                .sorted(Comparator.comparing(Feature::getOrder))
+                .map(feature -> {
+                    documentAttributes.docTitle(feature.getName());
+                    return new Page(feature.getName(), Collections.singletonList(feature), documentAttributes);
+                }).collect(Collectors.toList());
     }
 
     @Override
@@ -45,11 +48,11 @@ public class OnePagePerFeatureMultipagePager implements MultipagePager {
 
     @Override
     public void setDocumentAttributes(DocumentAttributes documentAttributes) {
-
+        this.documentAttributes = documentAttributes;
     }
 
     @Override
     public void setCukedoctorConfig(CukedoctorConfig cukedoctorConfig) {
-
+        this.cukedoctorConfig = cukedoctorConfig;
     }
 }
