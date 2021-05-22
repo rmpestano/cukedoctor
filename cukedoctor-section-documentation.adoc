@@ -4,13 +4,12 @@
 :doctype: book
 :icons: font
 :numbered:
-:!linkcss:
 :sectanchors:
 :sectlink:
 :docinfo:
 :source-highlighter: highlightjs
 :toclevels: 3
-:revnumber: 3.5.2-SNAPSHOT
+:revnumber: 3.6.1-SNAPSHOT
 :hardbreaks:
 :chapter-label: Chapter
 :version-label: Version
