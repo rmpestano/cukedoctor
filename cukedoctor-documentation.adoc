@@ -4,13 +4,12 @@
 :doctype: book
 :icons: font
 :numbered:
-:!linkcss:
 :sectanchors:
 :sectlink:
 :docinfo:
 :source-highlighter: coderay
 :toclevels: 3
-:revnumber: 3.5.2-SNAPSHOT
+:revnumber: 3.6.1-SNAPSHOT
 :hardbreaks:
 :chapter-label: Chapter
 :version-label: Version
@@ -18,7 +17,7 @@
 
 = *Cukedoctor Documentation*
 
-include::/home/travis/build/rmpestano/cukedoctor/cukedoctor-converter/target/test-classes/cukedoctor-intro.adoc[leveloffset=+1]
+include::/home/runner/work/cukedoctor/cukedoctor/cukedoctor-converter/target/test-classes/cukedoctor-intro.adoc[leveloffset=+1]
 
 
 == *Features*
