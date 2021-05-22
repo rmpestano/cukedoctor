@@ -1,0 +1,100 @@
+name: Cukecdoctor Build
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build:
+    name: Cukedoctor Build
+    runs-on: ubuntu-18.04
+    strategy:
+      matrix:
+        # test against latest update of each major Java version, as well as specific updates of LTS versions:
+        java: [8, 11.0.4]
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up JDK
+        uses: actions/setup-java@v2.1.0
+        with:
+          distribution: 'adopt'
+          java-version: ${{ matrix.java }}
+      - uses: actions/cache@v1
+        with:
+          path: ~/.m2/repository
+          key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
+          restore-keys: |
+            ${{ runner.os }}-maven-
+      - name: Build
+        run: mvn install -DskipTests
+  test:
+    name: Cukedoctor Test, Coverage & Docs
+    runs-on: ubuntu-18.04
+    needs: build
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up JDK
+        uses: actions/setup-java@v2.1.0
+        with:
+          distribution: 'adopt'
+          java-version: '11'
+      - uses: actions/cache@v1
+        with:
+          path: ~/.m2/repository
+          key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
+          restore-keys: |
+            ${{ runner.os }}-maven-
+      - name: Test
+        run: mvn verify jacoco:report -Pcoverage
+      - name: Coverage
+        run: mvn coveralls:report -Pcoverage -DCOVERAGE_TOKEN=${{ secrets.COVERAGE_TOKEN }} -DskipTests
+        if: "contains(github.ref, 'master')"
+      - name: Sonar
+        env:
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+        run: mvn sonar:sonar -Psonar -Dsonar.organization=cukedoctor -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=${{ secrets.SONAR_TOKEN }} -Dsonar.scanner.force-deprecated-java-version-grace-period=true
+        if: "contains(github.ref, 'master')"
+      - name: Configure Git user
+        run: |
+          git config --globa user.email "${{ secrets.GIT_EMAIL }}"
+          git config --globa user.name "rmpestano"
+      - name: Docs
+        run: cd cukedoctor-converter && mvn -q cukedoctor:execute scm-publish:publish-scm -Pdocs -DGH_TOKEN=${{ secrets.GH_TOKEN }} && cd ../cukedoctor-section-layout && mvn -q cukedoctor:execute scm-publish:publish-scm -DGH_TOKEN=${{ secrets.GH_TOKEN }}
+        if: "contains(github.ref, 'master')"
+  release:
+    name: Release Cukedoctor to maven central
+    runs-on: ubuntu-18.04
+    needs: test
+    env:
+      MAVEN_USER: ${{ secrets.MAVEN_USER }}
+      MAVEN_PASS: ${{ secrets.MAVEN_PASS }}
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up JDK
+        uses: actions/setup-java@v2.1.0
+        with:
+          distribution: 'adopt'
+          java-version: '11'
+          server-id: releases
+          server-username: MAVEN_USER
+          server-password: MAVEN_PASS
+          gpg-private-key: ${{ secrets.GPG_PRIVATE_KEY }}
+          gpg-passphrase: GPG_PASSPHRASE
+      - uses: actions/cache@v1
+        with:
+          path: ~/.m2/repository
+          key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
+          restore-keys: |
+            ${{ runner.os }}-maven-
+      - name: Deploy snapshots
+        run: mvn deploy -Pfat-jar --settings settings.xml -DskipTests=true -Darguments="-DskipTests -Dmaven.test.skip=true"
+        if: "contains(github.ref, 'master') && !contains(github.event.head_commit.message, 'prepare release')"
+      - name: Release
+        run: mvn deploy -Pfat-jar -Prelease
+        if: "contains(github.ref, 'master') && contains(github.event.head_commit.message, 'prepare release')"
+        env:
+          MAVEN_USER: ${{ secrets.MAVEN_USER }}
+          MAVEN_PASS: ${{ secrets.MAVEN_PASS }}
+          GPG_PASSPHRASE: ${{ secrets.GPG_PASSPHRASE }}

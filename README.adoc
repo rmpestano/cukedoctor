@@ -22,7 +22,7 @@ Enabling Behaviour driven documentation!
 ____
 
 
-image:https://travis-ci.org/rmpestano/cukedoctor.svg[Build Status (Travis CI), link=https://travis-ci.org/rmpestano/cukedoctor]
+image:https://github.com/rmpestano/cukedoctor/actions/workflows/ci.yml/badge.svg[Build Status, link=https://github.com/rmpestano/cukedocor/actions/workflows/ci.yml]
 image:https://coveralls.io/repos/rmpestano/cukedoctor/badge.svg?branch=master&service=github[Coverage, link=https://coveralls.io/r/rmpestano/cukedoctor]
 image:https://maven-badges.herokuapp.com/maven-central/com.github.cukedoctor/cukedoctor/badge.svg["Maven Central",link="http://search.maven.org/#search|ga|1|cukedoctor"]
 image:https://sonarcloud.io/api/project_badges/measure?project=com.github.cukedoctor:cukedoctor&metric=alert_status["Sonar", link="https://sonarcloud.io/dashboard?id=com.github.cukedoctor%3Acukedoctor"]

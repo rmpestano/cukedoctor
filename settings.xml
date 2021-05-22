@@ -11,8 +11,8 @@
     <servers>
         <server>
             <id>snapshots</id>
-            <username>${env.USER}</username>
-            <password>${env.PASS}</password>
+            <username>${env.MAVEN_USER}</username>
+            <password>${env.MAVEN_PASS}</password>
         </server>
     </servers>
     <mirrors/>

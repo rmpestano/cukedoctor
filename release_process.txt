@@ -1,27 +1,3 @@
-1 - add bintray server to settings.xml
-<servers>
-	<server>
-	  <id>bintray</id>
-	  <username>rmpestano</username>
-	  <password>bintrayapikey</password>
-	</server>
-</servers>
+1 - run `mvn release:prepare -Prelease -Dresume=false`
 
-2 - create the new version at https://bintray.com/rmpestano/cukedoctor/cukedoctor
-
-3 - update manually each module pom to the version to be released
-
-4 - mvn clean install -Pfat-jar
-
-5 - upload jars published in local maven repo to version created in bintray
-
-6 - update cukedoctor docker image: from cukedoctor-main/docker folder:
-  ./publish.sh new_version
-
-7 - manually revert the version number in each module pom
-
-8 - mvn release:prepare -Prelease -Darguments="-DskipTests" -Dmaven.javadoc.skip=true -Dmaven.test.skip=true
-
-9 - update tag description on github with the release notes from the opened milestone
-
-10 - close the milestone in github
+Github actions will deploy a release to maven central and publish latest release docs to https://rmpestano.github.io/cukedoctor/

@@ -3,7 +3,7 @@
     <parent>
         <groupId>com.github.cukedoctor</groupId>
         <artifactId>cukedoctor</artifactId>
-        <version>3.5.3-SNAPSHOT</version>
+        <version>3.6.1-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
@@ -36,8 +36,6 @@
             <groupId>io.cucumber</groupId>
             <artifactId>cucumber-java</artifactId>
         </dependency>
-
-
     </dependencies>
 
     <build>

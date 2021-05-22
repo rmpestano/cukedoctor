@@ -5,10 +5,8 @@ import com.github.cukedoctor.config.GlobalConfig;
 import com.github.cukedoctor.multipage.api.MultipageConverter;
 import com.github.cukedoctor.multipage.bdd.inception.InceptionMultipageSteps;
 import com.github.cukedoctor.multipage.model.Page;
-import com.github.cukedoctor.multipage.spi.MultipagePager;
 import com.github.cukedoctor.util.FileUtil;
 import com.github.cukedoctor.util.MetaCuke;
-import gherkin.lexer.Fi;
 import io.cucumber.datatable.DataTable;
 import io.cucumber.java.Before;
 import io.cucumber.java.en.And;
@@ -22,13 +20,13 @@ import java.io.IOException;
 
 import static org.junit.Assert.assertTrue;
 
-public class MultipageLayoutSteps {
+public class MultiPageLayoutSteps {
     private String outputFolderLocation = "target/generated-sources/bdd";
     private final MetaCuke metaCuke = new MetaCuke();
     private DocumentAttributes attrs = GlobalConfig.getInstance().getDocumentAttributes();
     private MultipageConverter multipageConverter;
 
-    public MultipageLayoutSteps() throws IOException {
+    public MultiPageLayoutSteps() throws IOException {
     }
 
     @Before
