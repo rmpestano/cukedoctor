@@ -1,4 +1,4 @@
-name: Cukecdoctor Build
+name: Cukedoctor Build
 
 on:
   push:
