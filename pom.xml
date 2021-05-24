@@ -61,7 +61,7 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <jackson-core.version>2.11.0</jackson-core.version>
-        <asciidoctorj.version>2.4.3</asciidoctorj.version>
+        <asciidoctorj.version>2.5.1</asciidoctorj.version>
         <asciidoctorj-pdf.version>1.5.4</asciidoctorj-pdf.version>
         <asciidoctorj-diagram.version>2.0.4</asciidoctorj-diagram.version>
         <joda-time.version>2.9.2</joda-time.version>
