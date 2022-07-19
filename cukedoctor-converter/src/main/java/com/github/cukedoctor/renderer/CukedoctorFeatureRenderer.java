@@ -97,7 +97,10 @@ public class CukedoctorFeatureRenderer extends AbstractBaseRenderer implements F
             return "";
         }
         //Anchor must not have blanks neither commas to work
-        return "[[" + feature.getName().replaceAll(",", "").replaceAll(" ", "-") +
+        return "[[" + feature.getName()
+                             .replaceAll(",", "")
+                             .replaceAll("'", "-")
+                             .replaceAll(" ", "-") +
                 ", " + feature.getName() + "]]";
     }
 
