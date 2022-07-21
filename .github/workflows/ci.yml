@@ -15,7 +15,7 @@ jobs:
         # test against latest update of each major Java version, as well as specific updates of LTS versions:
         java: [8, 11.0.4]
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - name: Set up JDK
         uses: actions/setup-java@v3.4.1
         with:
@@ -34,7 +34,7 @@ jobs:
     runs-on: ubuntu-18.04
     needs: build
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - name: Set up JDK
         uses: actions/setup-java@v3.4.1
         with:
@@ -71,7 +71,7 @@ jobs:
       MAVEN_USER: ${{ secrets.MAVEN_USER }}
       MAVEN_PASS: ${{ secrets.MAVEN_PASS }}
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - name: Set up JDK
         uses: actions/setup-java@v3.4.1
         with:
