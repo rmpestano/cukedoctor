@@ -49,7 +49,7 @@ public class CukedoctorFeatureRenderer extends AbstractBaseRenderer implements F
             if ((backend.toLowerCase().contains("html") || backend.toLowerCase().contains("all")) && !cukedoctorConfig.isDisableMinMaxExtension()) {
                 //used by minimax extension @see com.github.cukedoctor.extension.CukedoctorMinMaxExtension
                 builder.append("ifndef::backend-pdf[]").append(newLine());
-                builder.append("minmax::", feature.getName().replaceAll(",", "").replaceAll(" ", "-")).append("[]").newLine();
+                builder.append("minmax::", renderFeatureId(feature)).append("[]").newLine();
                 builder.append("endif::[]").append(newLine());
             }
 
@@ -96,12 +96,15 @@ public class CukedoctorFeatureRenderer extends AbstractBaseRenderer implements F
         if (isNull(feature) || not(hasText(feature.getName()))) {
             return "";
         }
+        return "[[" + renderFeatureId(feature) + ", " + feature.getName() + "]]";
+    }
+
+    protected String renderFeatureId(Feature feature) {
         //Anchor must not have blanks neither commas to work
-        return "[[" + feature.getName()
-                             .replaceAll(",", "")
-                             .replaceAll("'", "-")
-                             .replaceAll(" ", "-") +
-                ", " + feature.getName() + "]]";
+        return feature.getName()
+                      .replaceAll(",", "")
+                      .replaceAll("'", "-")
+                      .replaceAll(" ", "-");
     }
 
     protected String renderFeatureScenario(Scenario scenario, Feature feature, CukedoctorDocumentBuilder builder) {
@@ -112,6 +115,10 @@ public class CukedoctorFeatureRenderer extends AbstractBaseRenderer implements F
     }
 
     private void loadDependentRenderers() {
-        scenarioRenderer = new ServiceLoaderUtil<ScenarioRenderer>().initialise(ScenarioRenderer.class, CukedoctorScenarioRenderer.class, i18n, documentAttributes, cukedoctorConfig);
+        scenarioRenderer = new ServiceLoaderUtil<ScenarioRenderer>().initialise(ScenarioRenderer.class,
+                                                                                CukedoctorScenarioRenderer.class,
+                                                                                i18n,
+                                                                                documentAttributes,
+                                                                                cukedoctorConfig);
     }
 }

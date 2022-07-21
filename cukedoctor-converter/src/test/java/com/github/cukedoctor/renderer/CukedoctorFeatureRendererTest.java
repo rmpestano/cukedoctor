@@ -509,4 +509,25 @@ public class CukedoctorFeatureRendererTest {
                 .renderFeature(feature, CukedoctorDocumentBuilder.Factory.newInstance().createNestedBuilder());
         assertThat(resultDoc).contains(descriptionWithListing);
     }
+
+    @Test
+    public void shouldRenderFeaturesIncludingSingleQuotes() {
+        final Feature feature = FeatureBuilder.instance()
+                                              .description("Feature description")
+                                              .name("L'API Open API est disponible sur demande")
+                                              .build();
+        final String resultDoc = new CukedoctorFeatureRenderer(new DocumentAttributes())
+                .renderFeature(feature, CukedoctorDocumentBuilder.Factory.newInstance().createNestedBuilder());
+        assertThat(resultDoc).isEqualTo("[[L-API-Open-API-est-disponible-sur-demande, " +
+                                        "L'API Open API est disponible sur demande]]" + newLine() +
+                                        "== *L'API Open API est disponible sur demande*" + newLine() +
+                                        "" + newLine() +
+                                        "ifndef::backend-pdf[]" + newLine() +
+                                        "minmax::L-API-Open-API-est-disponible-sur-demande[]" + newLine() +
+                                        "endif::[]" + newLine() +
+                                        "****" + newLine() +
+                                        "Feature description" + newLine() +
+                                        "****" + newLine() +
+                                        "" + newLine());
+    }
 }

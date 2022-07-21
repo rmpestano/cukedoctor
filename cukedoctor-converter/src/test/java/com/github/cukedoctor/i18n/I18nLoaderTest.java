@@ -24,6 +24,7 @@ public class I18nLoaderTest {
     private static List<Feature> noLanguageFeatures;
     private static List<Feature> portugueseFeatures;
     private static List<Feature> spanishFeatures;
+    private static List<Feature> frenchFeatures;
 
 
 
@@ -32,14 +33,17 @@ public class I18nLoaderTest {
         String englishFeature = FileUtil.findJsonFile("target/test-classes/json-output/i18n/english.json");
         String portugueseFeature = FileUtil.findJsonFile("target/test-classes/json-output/i18n/portuguese.json");
         String spanishFeature = FileUtil.findJsonFile("target/test-classes/json-output/i18n/spanish.json");
+        String frenchFeature = FileUtil.findJsonFile("target/test-classes/json-output/i18n/french.json");
         String noLanguageFeature = FileUtil.findJsonFile("target/test-classes/json-output/outline.json");
         englishFeatures = FeatureParser.parse(englishFeature);
         portugueseFeatures = FeatureParser.parse(portugueseFeature);
         spanishFeatures = FeatureParser.parse(spanishFeature);
+        frenchFeatures = FeatureParser.parse(frenchFeature);
         noLanguageFeatures = FeatureParser.parse(noLanguageFeature);
         assertNotNull(englishFeatures);
         assertNotNull(portugueseFeatures);
         assertNotNull(spanishFeatures);
+        assertNotNull(frenchFeatures);
         assertNotNull(noLanguageFeatures);
     }
 
@@ -70,6 +74,14 @@ public class I18nLoaderTest {
         assertThat(i18nLoader.getMessage("title.features")).isEqualTo("Características");
         assertThat(i18nLoader.getMessage("title.summary")).isEqualTo("Resumen");
         assertThat(i18nLoader.getMessage("summary.steps")).isEqualTo("Pasos");
+    }
+
+    @Test
+    public void shouldLoadFrenchBundle(){
+        I18nLoader i18nLoader = I18nLoader.newInstance(frenchFeatures);
+        assertThat(i18nLoader.getMessage("title.features")).isEqualTo("Fonctionnalités");
+        assertThat(i18nLoader.getMessage("title.summary")).isEqualTo("Sommaire");
+        assertThat(i18nLoader.getMessage("summary.steps")).isEqualTo("Étapes");
     }
 
     @Test
