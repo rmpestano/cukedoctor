@@ -60,7 +60,7 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <jackson-core.version>2.11.0</jackson-core.version>
+        <jackson-core.version>2.12.6.1</jackson-core.version>
         <asciidoctorj.version>2.5.1</asciidoctorj.version>
         <asciidoctorj-pdf.version>1.6.0</asciidoctorj-pdf.version>
         <asciidoctorj-diagram.version>2.0.4</asciidoctorj-diagram.version>
