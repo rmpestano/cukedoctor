@@ -10,13 +10,6 @@
     <artifactId>cukedoctor-spi-example</artifactId>
 
     <dependencies>
-
-        <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <version>4.13.1</version>
-            <scope>test</scope>
-        </dependency>
         <dependency>
             <groupId>com.github.cukedoctor</groupId>
             <artifactId>cukedoctor-converter</artifactId>
