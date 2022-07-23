@@ -4,6 +4,7 @@ import com.github.cukedoctor.api.model.Feature;
 import com.github.cukedoctor.util.FileUtil;
 
 import java.io.*;
+import java.nio.file.Files;
 import java.text.MessageFormat;
 import java.util.*;
 import java.util.logging.Level;
@@ -98,12 +99,12 @@ public class I18nLoader extends ResourceBundle.Control{
      */
     private InputStream findCukedoctorProperties(String baseDir) {
         List<String> files = FileUtil.findFiles(baseDir,"cukedoctor.properties",true);
-        if(files != null && !files.isEmpty()){
+        if(!files.isEmpty()){
             String path = files.get(0);
             log.fine("Loading cukedoctor resource bundle from: " + path);
             File file = new File(path);
             try {
-                return new FileInputStream(file);
+                return Files.newInputStream(file.toPath());
             } catch (Exception e) {
                 log.log(Level.WARNING, "Could not load resource bundle from target folder", e);
             }

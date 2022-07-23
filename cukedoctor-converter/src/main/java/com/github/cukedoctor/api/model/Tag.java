@@ -39,6 +39,10 @@ public class Tag {
         return extractPattern("@order-");
     }
 
+    public Optional<String> getLanguage() {
+        return extractPattern("@language-");
+    }
+
     public boolean isDiscrete() {
         return extractPattern("@asciidoc").isPresent();
     }
