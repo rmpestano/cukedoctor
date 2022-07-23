@@ -260,12 +260,16 @@ public class Feature implements Comparable<Feature> {
     public String getLanguage() {
         if (language == null && comments != null) {
             for (Comment comment : comments) {
-                final Optional<String> lang = comment.getLanguage();
-                if (lang.isPresent() && hasText(lang.get())) {
-                    language = lang.get();
-                }
+                trySetLanguage(comment.getLanguage(), "comment");
             }
         }
+
+        if (language == null && hasTags()) {
+            for (Tag tag : getTags()) {
+                trySetLanguage(tag.getLanguage(), "tag");
+            }
+        }
+
         if (language == null) {
             this.language = "";
         }
@@ -298,7 +302,25 @@ public class Feature implements Comparable<Feature> {
             try {
                 this.order = Integer.parseInt(order.get());
             } catch (Exception e) {
-                Logger.getLogger(getClass().getName()).warning(String.format("Could not get order of feature %s from %s cause: %s", name, source, e.getMessage()));
+                Logger.getLogger(getClass().getName())
+                      .warning(String.format("Could not get order of feature %s from %s cause: %s",
+                                             name,
+                                             source,
+                                             e.getMessage()));
+            }
+        }
+    }
+
+    private void trySetLanguage(Optional<String> language, String source) {
+        if (language.isPresent() && hasText(language.get())) {
+            try {
+                this.language = language.get();
+            } catch (Exception e) {
+                Logger.getLogger(getClass().getName())
+                      .warning(String.format("Could not get language of feature %s from %s cause: %s",
+                                             name,
+                                             source,
+                                             e.getMessage()));
             }
         }
     }
@@ -369,9 +391,9 @@ public class Feature implements Comparable<Feature> {
             return Optional.empty();
         }
         return getTags().stream()
-                .map(tag -> tag.extractPattern(pattern))
-                .filter(Optional::isPresent)
-                .map(Optional::get)
-                .findFirst();
+                        .map(tag -> tag.extractPattern(pattern))
+                        .filter(Optional::isPresent)
+                        .map(Optional::get)
+                        .findFirst();
     }
 }

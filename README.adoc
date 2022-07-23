@@ -29,10 +29,10 @@ image:https://sonarcloud.io/api/project_badges/measure?project=com.github.cukedo
 
 BDD living documentation using http://cukes.info/[Cucumber] and http://asciidoctor.org[Asciidoctor] based on Cucumber http://www.relishapp.com/cucumber/cucumber/docs/formatters/json-output-formatter[JSON execution output].
 
- 
+
 [.text-right]
 https://goo.gl/Yp3NiU[Read this page in asciidoc for better reading experience]
-  
+
 
 == Narrative
 
@@ -190,6 +190,21 @@ Cucumber feature languages are provided via comments in a feature file, https://
 
 If your feature language is *not* supported by Cukedoctor you can https://github.com/rmpestano/cukedoctor/tree/master/cukedoctor-converter/src/main/resources/i18n[contribute it here^] or use a custom bundle.
 
+Another way of setting the language is by using the `@language-<language>` tag:
+
+.i18n.feature.tag
+----
+@language-fr
+Fonctionnalité: Calculateur
+
+  Scénario: Addition de nombres
+
+----
+
+WARNING: Please notice that the tag `@language-<language>` is not part of Cucumber.
+Meaning that you still need to setup Cucumber for i18n. the `@language-<language>` tag is part of Cukedoctor and serves as a
+convenient replacement for the `# language: <language>` comment, which is not supported anymore by Cucumber in JSON files.
+
 ==== Custom resource bundle
 
 Another way of internationalization is to provide a custom bundle.
@@ -223,7 +238,7 @@ result.missing = Missing
 
 ==== Supported locales
 
-Cukdoctor currently supports the following locales *en*, *es*, *fr*, *ge* and *pt*.
+Cukedoctor currently supports the following locales *en*, *es*, *fr*, *ge* and *pt*.
 
 Here are the https://github.com/rmpestano/cukedoctor/tree/master/cukedoctor-converter/src/main/resources[supported locales^]
 
@@ -761,11 +776,11 @@ mvn cukedoctor:execute
 |false
 
 |featuresDir
-|Directory to start searching (recursively) for cucumber json output  
+|Directory to start searching (recursively) for cucumber json output
 |project root directory
 
 |disableFilter
-|When present, this flag disables features filtering 
+|When present, this flag disables features filtering
 |
 
 |disableMinimizable
@@ -1050,7 +1065,7 @@ docker run -v "$PWD:/output" rmpestano/cukedoctor -f pdf -o /output/generated_do
 
 It will search features (cucumber output in json format) in current folder (`$PWD`) and generate living documentation in  `/output/generated_doc`
 
-TIP: To change features folder just change first parameter of docker volume, ex: `docker run -v "/home:/output" ...` will search for cucumber features in `/home` directory.  
+TIP: To change features folder just change first parameter of docker volume, ex: `docker run -v "/home:/output" ...` will search for cucumber features in `/home` directory.
 
 NOTE: For Cukedoctor parameters details, see https://github.com/rmpestano/cukedoctor#usage-2[cukedoctor-cli^]
 

@@ -1,0 +1,64 @@
+[
+  {
+    "line": 2,
+    "elements": [
+      {
+        "start_timestamp": "2022-07-21T08:24:32.069Z",
+        "line": 11,
+        "name": "L'API Open API est disponible sur demande",
+        "description": "",
+        "id": "l-api-swagger-est-disponible;l-api-open-api-est-disponible-sur-demande",
+        "type": "scenario",
+        "keyword": "Scénario",
+        "steps": [
+          {
+            "result": {
+              "duration": 148430000,
+              "status": "passed"
+            },
+            "line": 12,
+            "name": "l'application est active",
+            "match": {
+              "location": "org.rdlopes.cukedoctor.features.steps.RestOperationsSteps.applicationIsUp()"
+            },
+            "keyword": "Etant donné que "
+          },
+          {
+            "result": {
+              "duration": 274399000,
+              "status": "passed"
+            },
+            "line": 13,
+            "name": "je demande à obtenir les spécifications de l'API",
+            "match": {
+              "location": "org.rdlopes.cukedoctor.features.steps.RestOperationsSteps.iRequestTheOpenAPISpecifications()"
+            },
+            "keyword": "Quand "
+          },
+          {
+            "result": {
+              "duration": 4886000,
+              "status": "passed"
+            },
+            "line": 14,
+            "name": "je reçois les spécifications",
+            "match": {
+              "location": "org.rdlopes.cukedoctor.features.steps.RestOperationsSteps.iReceiveTheSpecsForTheApplication()"
+            },
+            "keyword": "Alors "
+          }
+        ]
+      }
+    ],
+    "name": "L'API Swagger est disponible",
+    "description": "  [quote]\n  ====\n  En tant que développeur,\n  je veux pouvoir accéder aux spécifications de l'Open API\n  afin de comprendre comment interagir avec l'application\n  ====",
+    "id": "l-api-swagger-est-disponible",
+    "keyword": "Fonctionnalité",
+    "uri": "classpath:features/01_plateforme/01_documentation.feature",
+    "tags": [
+      {
+        "name": "@language-fr"
+      }
+    ]
+  }
+]
