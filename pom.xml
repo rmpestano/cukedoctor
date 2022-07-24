@@ -59,7 +59,8 @@
     </ciManagement>
 
     <properties>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.encoding>UTF-8</project.encoding>
+        <project.build.sourceEncoding>${project.encoding}</project.build.sourceEncoding>
         <jackson-core.version>2.13.3</jackson-core.version>
         <asciidoctorj.version>2.5.1</asciidoctorj.version>
         <asciidoctorj-pdf.version>1.6.0</asciidoctorj-pdf.version>
@@ -68,6 +69,8 @@
         <cucumber.version>6.10.3</cucumber.version>
         <snakeyaml.version>1.30</snakeyaml.version>
         <jacoco.version>0.8.7</jacoco.version>
+        <plugin.version.spotless>2.22.6</plugin.version.spotless>
+        <plugin.version.google-java-format>1.7</plugin.version.google-java-format>
     </properties>
 
     <dependencies>
@@ -172,7 +175,7 @@
                 <configuration>
                     <source>1.8</source>
                     <target>1.8</target>
-                    <encoding>UTF-8</encoding>
+                    <encoding>${project.encoding}</encoding>
                 </configuration>
             </plugin>
             <plugin>
@@ -220,7 +223,39 @@
                     <source>8</source>
                 </configuration>
             </plugin>
+            <plugin>
+                <groupId>com.diffplug.spotless</groupId>
+                <artifactId>spotless-maven-plugin</artifactId>
+            </plugin>
         </plugins>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>com.diffplug.spotless</groupId>
+                    <artifactId>spotless-maven-plugin</artifactId>
+                    <version>${plugin.version.spotless}</version>
+                    <configuration>
+                        <encoding>${project.encoding}</encoding>
+                        <pom>
+                            <sortPom></sortPom>
+                        </pom>
+                        <java>
+                            <googleJavaFormat>
+                                <version>${plugin.version.google-java-format}</version>
+                                <style>GOOGLE</style>
+                            </googleJavaFormat>
+                        </java>
+                    </configuration>
+                    <dependencies>
+                        <dependency>
+                            <groupId>com.google.googlejavaformat</groupId>
+                            <artifactId>google-java-format</artifactId>
+                            <version>${plugin.version.google-java-format}</version>
+                        </dependency>
+                    </dependencies>
+                </plugin>
+            </plugins>
+        </pluginManagement>
     </build>
 
     <profiles>
@@ -353,7 +388,7 @@
                 <sonar.core.codeCoveragePlugin>jacoco</sonar.core.codeCoveragePlugin>
                 <sonar.dynamicAnalysis>reuseReports</sonar.dynamicAnalysis>
             </properties>
-            
+
             <build>
                 <plugins>
                     <plugin>
@@ -362,7 +397,34 @@
                         <version>3.4.0.905</version>
                     </plugin>
                 </plugins>
-            </build>    
+            </build>
+        </profile>
+
+        <profile>
+            <id>javaFormat</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>com.diffplug.spotless</groupId>
+                        <artifactId>spotless-maven-plugin</artifactId>
+                        <configuration>
+                            <ratchetFrom>origin/master</ratchetFrom>
+                        </configuration>
+                        <executions>
+                            <execution>
+                                <id>spotless-format</id>
+                                <goals>
+                                    <goal>apply</goal>
+                                </goals>
+                                <phase>process-sources</phase>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
         </profile>
 
     </profiles>
