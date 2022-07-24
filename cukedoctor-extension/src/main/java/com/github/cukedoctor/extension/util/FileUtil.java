@@ -13,13 +13,16 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.regex.Pattern;
 
+import static java.nio.charset.Charset.*;
+import static java.nio.file.Files.*;
+
 /**
  * Created by pestano on 02/06/15.
  */
 public class FileUtil {
 
     private final static Logger LOG = Logger.getLogger(FileUtil.class.getName());
-    public static final Pattern ADOC_FILE_EXTENSION = Pattern.compile("([^\\s]+(\\.(?i)(ad|adoc|asciidoc|asc))$)");
+    public static final Pattern ADOC_FILE_EXTENSION = Pattern.compile("(\\S+(\\.(?i)(ad|adoc|asciidoc|asc))$)");
 
     /**
      * Saves a file into filesystem. Note that name can be saved as absolute (if it has a leading slash) or relative to current path.
@@ -35,11 +38,9 @@ public class FileUtil {
         }
         String fullyQualifiedName = name;
 
-        /**
-         * if filename is not absolute use current path as base dir
-         */
+        //if filename is not absolute use current path as base dir
         if (!new File(fullyQualifiedName).isAbsolute()) {
-            fullyQualifiedName = Paths.get("").toAbsolutePath().toString() + "/" + name;
+            fullyQualifiedName = Paths.get("").toAbsolutePath() + "/" + name;
         }
         try {
             //create subdirs (if there any)
@@ -71,7 +72,7 @@ public class FileUtil {
         if (!path.startsWith("/")) {
             path = "/" + path;
         }
-        return new File(Paths.get("").toAbsolutePath().toString() + path.trim());
+        return new File(Paths.get("").toAbsolutePath() + path.trim());
     }
 
     public static boolean removeFile(String path) {
@@ -80,16 +81,15 @@ public class FileUtil {
     }
 
 
-    public static File copyFile(String source, String dest) {
+    public static void copyFile(String source, String dest) {
 
         if (source != null && dest != null) {
             try (InputStream in = FileUtil.class.getResourceAsStream(source)) {
-                return saveFile(dest, IOUtils.toString(in));
+                saveFile(dest, IOUtils.toString(in, defaultCharset()));
             } catch (IOException e) {
                 LOG.log(Level.SEVERE, "Could not copy source file: " + source + " to dest file: " + dest, e);
             }
         }
-        return null;
     }
 
     public static List<String> findFiles(String startDir, final String sulfix) {
@@ -104,19 +104,19 @@ public class FileUtil {
 
         Path startPath = Paths.get(startDir);
 
-        if (!Files.exists(startPath)) {
+        if (!exists(startPath)) {
             if (startDir.startsWith("/")) {// try to find using relative paths
                 startDir = startDir.substring(1);
                 startPath = Paths.get(startDir);
             }
         }
 
-        if (!Files.exists(startPath)) {
+        if (!exists(startPath)) {
             startPath = Paths.get("");
         }
 
         try {
-            Files.walkFileTree(startPath, new SimpleFileVisitor<Path>() {
+            walkFileTree(startPath, new SimpleFileVisitor<Path>() {
                 @Override
                 public FileVisitResult visitFile(final Path file, final BasicFileAttributes attrs) throws IOException {
                     final String fileName = file.getFileName().toString();
@@ -142,32 +142,26 @@ public class FileUtil {
     /**
      * @param source resource from classpath
      * @param dest   dest path
-     * @return copied file
      */
-    public static File copyFileFromClassPath(String source, String dest) {
+    public static void copyFileFromClassPath(String source, String dest) {
         if (source != null && dest != null) {
             try {
                 InputStream in = FileUtil.class.getResourceAsStream(source);
-                return saveFile(dest, IOUtils.toString(in));
+                saveFile(dest, IOUtils.toString(in, defaultCharset()));
             } catch (IOException e) {
                 LOG.log(Level.SEVERE, "Could not copy source file: " + source + " to dest file: " + dest, e);
             }
         }
-        return null;
-
-
     }
 
     public static String readFileContent(File target) {
         StringBuilder content = new StringBuilder();
-        try (InputStream openStream = new FileInputStream(target)) {
+        try (InputStream openStream = newInputStream(target.toPath())) {
             try (BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(openStream))) {
-                String line = null;
+                String line;
                 while ((line = bufferedReader.readLine()) != null) {
                     content.append(line);
                 }
-                bufferedReader.close();
-
             } catch (Exception e) {
                 LOG.log(Level.WARNING, "Could not read file content: " + target);
             }
@@ -180,7 +174,7 @@ public class FileUtil {
     }
 
     public static File loadTestFile(String fileName) {
-        return new File(Paths.get("").toAbsolutePath().toString() + "/target/test-classes/" + fileName);
+        return new File(Paths.get("").toAbsolutePath() + "/target/test-classes/" + fileName);
     }
 
     public static String removeSpecialChars(String content) {

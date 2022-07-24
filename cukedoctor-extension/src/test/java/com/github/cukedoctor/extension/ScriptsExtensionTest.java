@@ -1,6 +1,7 @@
 package com.github.cukedoctor.extension;
 import static com.github.cukedoctor.extension.CukedoctorExtensionRegistry.*;
 import org.asciidoctor.Asciidoctor;
+import org.asciidoctor.Options;
 import org.asciidoctor.OptionsBuilder;
 import org.asciidoctor.SafeMode;
 import org.junit.*;
@@ -49,7 +50,7 @@ public class ScriptsExtensionTest {
     public void shouldAddScriptsToRenderedHtml(){
         File sampleAdoc = loadTestFile("sample.adoc");
         assertThat(sampleAdoc).exists();
-        asciidoctor.convertFile(sampleAdoc, OptionsBuilder.options().safe(SafeMode.UNSAFE).asMap());
+        asciidoctor.convertFile(sampleAdoc, Options.builder().safe(SafeMode.UNSAFE).build());
 
         String sampleHtml = readFileContent(loadTestFile("sample.html"));
         assertThat(sampleHtml).isNotEmpty().
@@ -65,7 +66,7 @@ public class ScriptsExtensionTest {
         System.setProperty(THEME_DISABLE_EXT_KEY,"anyValue");
         File sampleAdoc = loadTestFile("sample.adoc");
         assertThat(sampleAdoc).exists();
-        asciidoctor.convertFile(sampleAdoc, OptionsBuilder.options().safe(SafeMode.UNSAFE).asMap());
+        asciidoctor.convertFile(sampleAdoc, Options.builder().safe(SafeMode.UNSAFE).build());
 
         String sampleHtml = readFileContent(loadTestFile("sample.html"));
         assertThat(sampleHtml).isNotEmpty().
@@ -79,7 +80,7 @@ public class ScriptsExtensionTest {
         System.setProperty(FILTER_DISABLE_EXT_KEY,"anything");
         File sampleAdoc = loadTestFile("sample.adoc");
         assertThat(sampleAdoc).exists();
-        asciidoctor.convertFile(sampleAdoc, OptionsBuilder.options().safe(SafeMode.UNSAFE).asMap());
+        asciidoctor.convertFile(sampleAdoc, Options.builder().safe(SafeMode.UNSAFE).build());
 
         String sampleHtml = readFileContent(loadTestFile("sample.html"));
         assertThat(sampleHtml).isNotEmpty().
@@ -93,7 +94,7 @@ public class ScriptsExtensionTest {
         System.setProperty(MINMAX_DISABLE_EXT_KEY,"any");
         File sampleAdoc = loadTestFile("sample.adoc");
         assertThat(sampleAdoc).exists();
-        asciidoctor.convertFile(sampleAdoc, OptionsBuilder.options().safe(SafeMode.UNSAFE).asMap());
+        asciidoctor.convertFile(sampleAdoc, Options.builder().safe(SafeMode.UNSAFE).build());
 
         String sampleHtml = readFileContent(loadTestFile("sample.html"));
         assertThat(sampleHtml).isNotEmpty().

@@ -4,10 +4,12 @@ import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.IOUtils;
 
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.nio.file.*;
+import java.nio.file.FileVisitResult;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.nio.file.SimpleFileVisitor;
 import java.nio.file.attribute.BasicFileAttributes;
 import java.util.ArrayList;
 import java.util.List;
@@ -16,6 +18,8 @@ import java.util.logging.Logger;
 import java.util.regex.Pattern;
 
 import static com.github.cukedoctor.util.Assert.hasText;
+import static java.nio.charset.Charset.defaultCharset;
+import static java.nio.file.Files.*;
 
 /**
  * Created by pestano on 02/06/15.
@@ -23,7 +27,7 @@ import static com.github.cukedoctor.util.Assert.hasText;
 public class FileUtil {
 
     private final static Logger log = Logger.getLogger(FileUtil.class.getName());
-    public static final Pattern ADOC_FILE_EXTENSION = Pattern.compile("([^\\s]+(\\.(?i)(ad|adoc|asciidoc|asc))$)");
+    public static final Pattern ADOC_FILE_EXTENSION = Pattern.compile("(\\S+(\\.(?i)(ad|adoc|asciidoc|asc))$)");
 
     /**
      * @param path full path to the json feature result
@@ -73,19 +77,19 @@ public class FileUtil {
 
         Path startPath = Paths.get(startDir);
 
-        if (!Files.exists(startPath)) {
+        if (!exists(startPath)) {
             if (startDir.startsWith("/")) {// try to find using relative paths
                 startDir = startDir.substring(1);
                 startPath = Paths.get(startDir);
             }
 
-            if (!Files.exists(startPath)) {
+            if (!exists(startPath)) {
                 startPath = Paths.get("");
             }
         }
 
         try {
-            Files.walkFileTree(startPath, new SimpleFileVisitor<Path>() {
+            walkFileTree(startPath, new SimpleFileVisitor<Path>() {
                 @Override
                 public FileVisitResult visitFile(final Path file, final BasicFileAttributes attrs) throws IOException {
                     final String fileName = file.getFileName().toString();
@@ -94,7 +98,7 @@ public class FileUtil {
                             boolean isFile = file.toFile().isFile();
                             Path computedPath = Paths.get(relativePath).relativize(isFile ? file.getParent().toAbsolutePath() : file.toAbsolutePath());
                             if(isFile) {
-                                foundPaths.add(computedPath.toString()+"/"+file.toFile().getName());
+                                foundPaths.add(computedPath + "/" + file.toFile().getName());
                             } else {
                                 foundPaths.add(computedPath.toString());
                             }
@@ -133,11 +137,9 @@ public class FileUtil {
         }
         String fullyQualifiedName = name;
 
-        /**
-         * if filename is not absolute use current path as base dir
-         */
+        // if filename is not absolute use current path as base dir
         if (!new File(fullyQualifiedName).isAbsolute()) {
-            fullyQualifiedName = Paths.get("").toAbsolutePath().toString() + "/" + name;
+            fullyQualifiedName = Paths.get("").toAbsolutePath() + "/" + name;
         }
         try {
             //create subdirs (if there any)
@@ -170,7 +172,7 @@ public class FileUtil {
             path = "/" + path;
         }
 
-        return new File(Paths.get("").toAbsolutePath().toString() + path.trim());
+        return new File(Paths.get("").toAbsolutePath() + path.trim());
     }
 
     public static boolean removeFile(String path) {
@@ -190,7 +192,7 @@ public class FileUtil {
         if (source != null && dest != null) {
             try {
                 InputStream in = FileUtil.class.getResourceAsStream(source);
-                return saveFile(dest, IOUtils.toString(in));
+                return saveFile(dest, IOUtils.toString(in, defaultCharset()));
             } catch (IOException e) {
                 log.log(Level.SEVERE, "Could not copy source file: " + source + " to dest file: " + dest, e);
             }
@@ -215,8 +217,8 @@ public class FileUtil {
                 return null;
             }
             try {
-                InputStream in = new FileInputStream(source);
-                return saveFile(dest, IOUtils.toString(in));
+                InputStream in = newInputStream(Paths.get(source));
+                return saveFile(dest, IOUtils.toString(in, defaultCharset()));
             } catch (IOException e) {
                 log.log(Level.SEVERE, "Could not copy source file: " + source + " to dest file: " + dest, e);
             }

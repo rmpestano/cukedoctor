@@ -2,7 +2,6 @@ package com.github.cukedoctor.util;
 
 import com.github.cukedoctor.api.DocumentAttributes;
 import com.github.cukedoctor.config.CukedoctorConfig;
-import com.github.cukedoctor.config.GlobalConfig;
 import com.github.cukedoctor.i18n.I18nLoader;
 import com.github.cukedoctor.renderer.BaseRenderer;
 import org.junit.Test;

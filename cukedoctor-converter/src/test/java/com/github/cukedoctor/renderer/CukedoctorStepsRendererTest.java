@@ -21,9 +21,6 @@ public class CukedoctorStepsRendererTest {
     @Test
     public void shouldRenderFeatureStepsWithOnePassingStep() {
         final Feature feature = FeatureBuilder.instance().aFeatureWithOneScenarioWithOnePassingStep();
-        List<Feature> features = new ArrayList<>();
-        features.add(feature);
-
         StepsRenderer stepsRenderer = new CukedoctorStepsRenderer();
 
         List<Step> steps = feature.getScenarios().get(0).getSteps();
@@ -39,9 +36,6 @@ public class CukedoctorStepsRendererTest {
     @Test
     public void shouldRenderFeatureStepsWithOnePassingAndOneFailingStep() {
         final Feature feature = FeatureBuilder.instance().aFeatureWithOneScenarioWithOnePassingAndOneFailingStep();
-        List<Feature> features = new ArrayList<>();
-        features.add(feature);
-
         List<Step> steps = feature.getScenarios().get(0).getSteps();
         StepsRenderer stepsRenderer = new CukedoctorStepsRenderer();
 

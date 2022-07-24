@@ -19,7 +19,6 @@ import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.Assert.assertEquals;
-import static org.mockito.Matchers.any;
 import static org.mockito.Mockito.*;
 
 @RunWith(JUnit4.class)
@@ -42,17 +41,19 @@ public class SectionSummaryRendererTest {
         final Feature eight = FeatureBuilder.instance().name("eight").keyword("Feature").tag("order-8").tag("@appendix").tag("@section-five").scenario(ScenarioBuilder.instance().name("Fake").build()).build();
 
         SummaryRenderer underlyingRenderer = mock(SummaryRenderer.class);
-        when(underlyingRenderer.renderSummary(any(List.class), any(CukedoctorDocumentBuilder.class))).thenReturn("My Summary");
+        when(underlyingRenderer.renderSummary(anyListOf(Feature.class), any(CukedoctorDocumentBuilder.class))).thenReturn(
+                "My Summary");
 
-        final SectionSummaryRenderer renderer = new SectionSummaryRenderer(new ServiceLoaderUtil<SummaryRenderer>(Collections.singletonList(underlyingRenderer)));
+        final SectionSummaryRenderer renderer = new SectionSummaryRenderer(new ServiceLoaderUtil<>(Collections.singletonList(
+                underlyingRenderer)));
 
         String result = renderer.renderSummary(Arrays.asList(six, five, three, four, one, two, seven, eight), CukedoctorDocumentBuilder.Factory.newInstance());
         assertEquals("My Summary", result);
 
         ArgumentCaptor<List> argumentCaptor = ArgumentCaptor.forClass(List.class);
-        verify(underlyingRenderer).renderSummary(argumentCaptor.<List<Feature>>capture(), any(CukedoctorDocumentBuilder.class));
+        verify(underlyingRenderer).renderSummary(argumentCaptor.capture(), any(CukedoctorDocumentBuilder.class));
 
-        List<Feature> features = argumentCaptor.<List<Feature>>getValue();
+        List<Feature> features = argumentCaptor.getValue();
         assertThat(features).containsExactly(one, two, three, four, five, six, seven, eight);
     }
 }

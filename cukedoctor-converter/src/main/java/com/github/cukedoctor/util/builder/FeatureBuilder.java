@@ -10,7 +10,7 @@ import java.util.List;
  */
 public class FeatureBuilder {
 
-	private Feature feature;
+	private final Feature feature;
 	private static FeatureBuilder instance;
 
 
@@ -54,9 +54,7 @@ public class FeatureBuilder {
 	}
 
 	public FeatureBuilder scenario(Scenario scenario) {
-		if (feature.getElements() == null) {
-			feature.setElements(new ArrayList<Scenario>());
-		}
+		if (feature.getElements() == null) feature.setElements(new ArrayList<>());
 		feature.getElements().add(scenario);
 		return instance;
 	}
@@ -85,35 +83,28 @@ public class FeatureBuilder {
 	}
 
 	public Feature aFeatureWithTwoScenarios() {
-
-		final Feature feature = FeatureBuilder.instance().description("Feature description").
-				scenario(ScenarioBuilder.instance().name("scenario 1").description("description")
+		return FeatureBuilder.instance().description("Feature description").
+							 scenario(ScenarioBuilder.instance().name("scenario 1").description("description")
 						.keyword("Scenario").type(Type.scenario).build()).
-				scenario(ScenarioBuilder.instance().name("scenario 2").description("description 2")
+							 scenario(ScenarioBuilder.instance().name("scenario 2").description("description 2")
 						.keyword("Scenario").type(Type.scenario).build()).
-				name("Feature name").build();
-
-		return feature;
+							 name("Feature name").build();
 	}
 
 	public Feature aFeatureWithOneScenarioWithOnePassingStep() {
-
-		final Feature feature = FeatureBuilder.instance().description("Feature description").
-				scenario(ScenarioBuilder.instance().name("scenario").description("description")
+		return FeatureBuilder.instance().description("Feature description").
+							 scenario(ScenarioBuilder.instance().name("scenario").description("description")
 						.keyword("Scenario").type(Type.scenario).
 								step(StepBuilder.instance().name("passing step")
 										.result(new Result(Status.passed))
 										.keyword("Given").build()). //step
 								build()).//build scenario
 				name("Feature name").build();
-
-		return feature;
 	}
 
 	public Feature aFeatureWithOneScenarioWithOnePassingAndOneFailingStep() {
-
-		final Feature feature = FeatureBuilder.instance().description("Feature description").
-				scenario(ScenarioBuilder.instance().name("scenario").description("description")
+		return FeatureBuilder.instance().description("Feature description").
+							 scenario(ScenarioBuilder.instance().name("scenario").description("description")
 						.keyword("Scenario").type(Type.scenario).
 								step(StepBuilder.instance().name("passing step")
 										.result(new Result(Status.passed))
@@ -125,14 +116,11 @@ public class FeatureBuilder {
 										.keyword("When").build()).
 								build()).//build scenario
 				name("Feature name").build();
-
-		return feature;
 	}
 
 	public Feature aFeatureWithOneScenarioWithMultipleSteps() {
-
-		final Feature feature = FeatureBuilder.instance().description("Feature description").
-				scenario(ScenarioBuilder.instance().name("scenario").description("description")
+		return FeatureBuilder.instance().description("Feature description").
+							 scenario(ScenarioBuilder.instance().name("scenario").description("description")
 						.keyword("Scenario").type(Type.scenario).
 								step(StepBuilder.instance().name("passing step")
 										.result(new Result(Status.passed))
@@ -159,9 +147,7 @@ public class FeatureBuilder {
 										.match(new Match("match 6"))
 										.keyword("Then").build()).
 								build()).
-				name("Feature name").build();
-
-		return feature;
+							 name("Feature name").build();
 	}
 
 	public Feature aFeatureWithMultipleScenariosAndSteps() {
@@ -193,12 +179,11 @@ public class FeatureBuilder {
 								.keyword("Given").build()).
 						build();
 
-		final Feature feature = FeatureBuilder.instance().description("Feature description").
-				scenario(scenario1).
-				scenario(scenario2).
-				scenario(scenario3).
-				name("Feature name").build();
-		return feature;
+		return FeatureBuilder.instance().description("Feature description").
+							 scenario(scenario1).
+							 scenario(scenario2).
+							 scenario(scenario3).
+							 name("Feature name").build();
 
 	}
 

@@ -23,7 +23,7 @@ public class Feature implements Comparable<Feature> {
     private String description;
     private String keyword;
     private List<Scenario> elements = new ArrayList<>();
-    private List<Scenario> scenarios = new ArrayList<>();
+    private final List<Scenario> scenarios = new ArrayList<>();
     private List<Tag> tags = new ArrayList<>();
     private StepResults stepResults;
     private ScenarioResults scenarioResults;
@@ -136,26 +136,6 @@ public class Feature implements Comparable<Feature> {
         this.backgroundRendered = backgroundRendered;
     }
 
-
-    /**
-     * @return total number of scenarios
-     * @deprecated use {@link Feature#getScenarioResults()}
-     */
-    @Deprecated
-    public Integer getNumberOfScenarios() {
-        Integer result = 0;
-        if (scenarios != null) {
-            List<Scenario> elementList = new ArrayList<Scenario>();
-            for (Scenario element : scenarios) {
-                if (!element.hasExamples()) {
-                    elementList.add(element);
-                }
-            }
-            result = elementList.size();
-        }
-        return result;
-    }
-
     public Integer getNumberOfSteps() {
         return stepResults.getNumberOfSteps();
     }
@@ -202,38 +182,33 @@ public class Feature implements Comparable<Feature> {
 
     public void initScenarios() {
         if (elements != null) {
-            for (Scenario element : elements) {
-                scenarios.add(element);
-            }
+            scenarios.addAll(elements);
         }
-
     }
 
     public void processSteps() {
         if (!isCucumberFeature()) {
             return;
         }
-        List<Step> allSteps = new ArrayList<Step>();
+        List<Step> allSteps = new ArrayList<>();
         Map<Status, AtomicInteger> statusCounter = new HashMap<>();
         for (Status status : Status.values()) {
             statusCounter.put(status, new AtomicInteger(0));
         }
-        List<Scenario> passedScenarios = new ArrayList<Scenario>();
-        List<Scenario> failedScenarios = new ArrayList<Scenario>();
+        List<Scenario> passedScenarios = new ArrayList<>();
+        List<Scenario> failedScenarios = new ArrayList<>();
         long totalDuration = 0L;
 
-        if (scenarios != null) {
-            for (Scenario scenario : scenarios) {
-                if (scenario.hasExamples()) {
-                    continue;
-                }
-                calculateScenarioStats(passedScenarios, failedScenarios, scenario);
-                if (scenario.hasSteps()) {
-                    for (Step step : scenario.getSteps()) {
-                        allSteps.add(step);
-                        statusCounter.get(step.getStatus()).incrementAndGet();
-                        totalDuration += step.getDuration();
-                    }
+        for (Scenario scenario : scenarios) {
+            if (scenario.hasExamples()) {
+                continue;
+            }
+            calculateScenarioStats(passedScenarios, failedScenarios, scenario);
+            if (scenario.hasSteps()) {
+                for (Step step : scenario.getSteps()) {
+                    allSteps.add(step);
+                    statusCounter.get(step.getStatus()).incrementAndGet();
+                    totalDuration += step.getDuration();
                 }
             }
         }
@@ -332,7 +307,7 @@ public class Feature implements Comparable<Feature> {
 
         Feature feature = (Feature) o;
 
-        return !(id != null ? !id.equals(feature.id) : feature.id != null);
+        return Objects.equals(id, feature.id);
 
     }
 

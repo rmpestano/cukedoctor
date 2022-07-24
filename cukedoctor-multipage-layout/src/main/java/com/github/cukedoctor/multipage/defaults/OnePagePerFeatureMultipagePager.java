@@ -9,7 +9,6 @@ import com.github.cukedoctor.multipage.model.Page;
 import com.github.cukedoctor.multipage.spi.MultipagePager;
 import com.github.cukedoctor.parser.FeatureParser;
 
-import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
@@ -22,7 +21,6 @@ import java.util.stream.Collectors;
  */
 public class OnePagePerFeatureMultipagePager implements MultipagePager {
     private DocumentAttributes documentAttributes;
-    private CukedoctorConfig cukedoctorConfig;
 
     @Override
     public List<Page> pages(List<String> jsonPaths) {
@@ -53,6 +51,5 @@ public class OnePagePerFeatureMultipagePager implements MultipagePager {
 
     @Override
     public void setCukedoctorConfig(CukedoctorConfig cukedoctorConfig) {
-        this.cukedoctorConfig = cukedoctorConfig;
     }
 }

@@ -13,6 +13,11 @@
 
     <dependencies>
         <dependency>
+            <groupId>commons-io</groupId>
+            <artifactId>commons-io</artifactId>
+            <version>2.11.0</version>
+        </dependency>
+        <dependency>
             <groupId>com.github.cukedoctor</groupId>
             <artifactId>cukedoctor-converter</artifactId>
             <version>${project.parent.version}</version>
@@ -34,7 +39,6 @@
             <groupId>org.apache.maven</groupId>
             <artifactId>maven-plugin-api</artifactId>
             <version>3.3.3</version>
-            <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>org.apache.maven.plugin-tools</groupId>
@@ -57,12 +61,6 @@
         <dependency>
             <groupId>org.apache.maven</groupId>
             <artifactId>maven-model</artifactId>
-            <version>3.3.3</version>
-            <scope>provided</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.maven</groupId>
-            <artifactId>maven-plugin-api</artifactId>
             <version>3.3.3</version>
             <scope>provided</scope>
         </dependency>

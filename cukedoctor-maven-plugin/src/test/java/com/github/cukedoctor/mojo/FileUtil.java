@@ -1,6 +1,7 @@
 package com.github.cukedoctor.mojo;
 
 import java.io.*;
+import java.nio.file.Files;
 import java.nio.file.Paths;
 
 /**
@@ -12,22 +13,23 @@ public class FileUtil {
         StringBuilder content = new StringBuilder();
         try {
 
-            InputStream openStream = new FileInputStream(target);
+            InputStream openStream = Files.newInputStream(target.toPath());
             BufferedReader bufferedReader = new BufferedReader(
                     new InputStreamReader(openStream));
-            String line = null;
+            String line;
             while ((line = bufferedReader.readLine()) != null) {
                 content.append(line);
             }
             bufferedReader.close();
 
-        } catch (Exception e) {
+        } catch (Exception ignored) {
+            // noop
         }
         return content.toString();
     }
 
     public static File loadTestFile(String fileName) {
-        return new File(Paths.get("").toAbsolutePath().toString() + "/target/docs/" + fileName);
+        return new File(Paths.get("").toAbsolutePath() + "/target/docs/" + fileName);
     }
 
     public static String removeSpecialChars(String content) {

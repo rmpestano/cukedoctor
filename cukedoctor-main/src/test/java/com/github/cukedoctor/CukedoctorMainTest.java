@@ -151,7 +151,7 @@ public class CukedoctorMainTest {
     }
 
     @Test
-    public void shouldCreateDocumentationWithoutSummarySection() throws IOException {
+    public void shouldCreateDocumentationWithoutSummarySection() {
 
         try {
             new CukedoctorMain().execute(new String[]{
@@ -172,7 +172,7 @@ public class CukedoctorMainTest {
     }
 
     @Test
-    public void shouldCreateDocumentationWithoutScenarioKeyword() throws IOException {
+    public void shouldCreateDocumentationWithoutScenarioKeyword() {
         try {
             new CukedoctorMain().execute(new String[]{
                     "-hideScenarioKeyword", "",
@@ -193,7 +193,7 @@ public class CukedoctorMainTest {
     }
 
     @Test
-    public void shouldCreateDocumentationWithoutStepTime() throws IOException {
+    public void shouldCreateDocumentationWithoutStepTime() {
         try {
             new CukedoctorMain().execute(new String[]{
                     "-hideStepTime", "",
@@ -212,7 +212,7 @@ public class CukedoctorMainTest {
     }
 
     @Test
-    public void shouldCreateDocumentationUsingCoderaySourceHighlighter() throws IOException {
+    public void shouldCreateDocumentationUsingCoderaySourceHighlighter() {
         try {
             new CukedoctorMain().execute(new String[]{
                     "-hideStepTime", "",
@@ -233,7 +233,7 @@ public class CukedoctorMainTest {
 
 
     @Test
-    public void shouldCreateDocumentationWithoutTags() throws IOException {
+    public void shouldCreateDocumentationWithoutTags() {
         try {
             new CukedoctorMain().execute(new String[]{
                     "-hideTags", "",
@@ -304,7 +304,7 @@ public class CukedoctorMainTest {
     }
 
     @Test
-    public void shouldRestrictSearchPath() throws IOException {
+    public void shouldRestrictSearchPath() {
         CukedoctorMain main = new CukedoctorMain();
         System.out.flush();
         main.execute(new String[]{
@@ -323,7 +323,7 @@ public class CukedoctorMainTest {
     }
 
     @Test
-    public void shouldNotFindFeaturesByRestrictSearchPath() throws IOException {
+    public void shouldNotFindFeaturesByRestrictSearchPath() {
         CukedoctorMain main = new CukedoctorMain();
         System.out.flush();
         main.execute(new String[]{

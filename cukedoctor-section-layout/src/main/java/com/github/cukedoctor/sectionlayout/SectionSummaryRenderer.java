@@ -15,7 +15,6 @@ import java.util.stream.Collectors;
 
 public class SectionSummaryRenderer extends AbstractBaseRenderer implements SummaryRenderer {
 
-    private final ServiceLoaderUtil<SummaryRenderer> loader;
     private Supplier<SummaryRenderer> renderer;
 
     public SectionSummaryRenderer() {
@@ -23,7 +22,6 @@ public class SectionSummaryRenderer extends AbstractBaseRenderer implements Summ
     }
 
     public SectionSummaryRenderer(ServiceLoaderUtil<SummaryRenderer> loader) {
-        this.loader = loader;
 
         renderer = () -> {
             SummaryRenderer val = loader.initialise(SummaryRenderer.class, CukedoctorSummaryRenderer.class, i18n, documentAttributes, cukedoctorConfig, SectionSummaryRenderer.class);

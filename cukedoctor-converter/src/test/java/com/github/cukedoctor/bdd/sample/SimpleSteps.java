@@ -9,7 +9,7 @@ import static org.junit.Assert.assertTrue;
 public class SimpleSteps {
 
     @Given("^scenario step$")
-    public void scenario_step() throws Throwable {
+    public void scenario_step() {
         //it is just a sample, we are interested in json output report
         assertTrue(true);
     }

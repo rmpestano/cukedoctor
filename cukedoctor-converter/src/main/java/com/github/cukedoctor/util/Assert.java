@@ -2,7 +2,6 @@ package com.github.cukedoctor.util;
 
 import java.io.Serializable;
 import java.util.Collection;
-import java.util.Map;
 
 /**
  * Created by rafael-pestano on 26/06/2015.
@@ -45,10 +44,7 @@ public class Assert implements Serializable {
    * @return TRUE when given text has any character, FALSE otherwise
    */
   public static boolean hasText(String text) {
-    if (notNull(text) && text.trim().length() > 0) {
-      return true;
-    }
-    return false;
+      return notNull(text) && text.trim().length() > 0;
   }
 
   /**
@@ -58,10 +54,7 @@ public class Assert implements Serializable {
    * otherwise
    */
   public static boolean contains(String textToSearch, String substring) {
-    if (notNull(textToSearch) && textToSearch.contains(substring)) {
-      return true;
-    }
-    return false;
+      return notNull(textToSearch) && textToSearch.contains(substring);
   }
 
   /**
@@ -87,11 +80,7 @@ public class Assert implements Serializable {
    * {@code null} and must have at least one element. @return  FALSE otherwise
    */
   public static boolean notEmpty(Collection<?> collection) {
-    if (notNull(collection) && !collection.isEmpty()) {
-      return true;
-    } else {
-      return false;
-    }
+      return notNull(collection) && !collection.isEmpty();
   }
 
   /**
@@ -100,14 +89,6 @@ public class Assert implements Serializable {
    * otherwise
    */
   public static boolean hasElements(Object[] array) {
-    if(array == null || array.length > 0){
-      return false;
-    }
-    for (Object o : array) {
-      if(o != null){
-        return true;
-      }
-    }
     return false;
   }
 
@@ -116,7 +97,7 @@ public class Assert implements Serializable {
    * @return TRUE when given array has at least one not null element;  FALSE
    * otherwise
    */
-  public static boolean hasElements(Collection array) {
+  public static boolean hasElements(Collection<?> array) {
     if(array == null || array.isEmpty()){
       return false;
     }
@@ -128,33 +109,15 @@ public class Assert implements Serializable {
     return false;
   }
 
-
-  /**
-   * @param map to check emptiness
-   * @return TRUE if given Map has entries; that is, it must not be {@code null}
-   * and must have at least one entry. Queue FALSE otherwise
-   */
-  public static boolean notEmpty(Map<?, ?> map) {
-    if (map == null) {
-      return false;
-    }
-    if (hasElements(map.entrySet().toArray())) {
-      return true;
-    }
-    return false;
-  }
-
   /**
    * Assert that an array has no null elements. Note: Does not complain if the
    * array is empty!
-   * 
+   *
    * <pre class="code">
    * Assert.noNullElements(array, &quot;The array must have non-null elements&quot;);
    * </pre>
-   * 
+   *
    * @param array the array
-   */
-  /**
    * @return TRUE when given array has no null elements; FALSE otherwise
    */
   public static boolean notNull(Object[] array) {

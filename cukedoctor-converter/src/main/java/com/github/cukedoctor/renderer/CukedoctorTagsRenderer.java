@@ -52,6 +52,6 @@ public class CukedoctorTagsRenderer extends AbstractBaseRenderer implements Tags
     }
 
     protected boolean isCukedoctorTag(Tag tag) {
-        return tag.isOrder() || tag.isDiscrete();
+        return tag.isOrder() || tag.isLanguage() || tag.isDiscrete();
     }
 }

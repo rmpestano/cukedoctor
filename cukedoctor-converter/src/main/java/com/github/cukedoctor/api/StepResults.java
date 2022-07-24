@@ -14,9 +14,9 @@ import com.github.cukedoctor.util.Formatter;
 public class StepResults {
 
 
-	private List<Step> allSteps;
-	private Map<Status, AtomicInteger> statusCounter;
-	private long totalDuration;
+	private final List<Step> allSteps;
+	private final Map<Status, AtomicInteger> statusCounter;
+	private final long totalDuration;
 
 	public StepResults(List<Step> allSteps, Map<Status, AtomicInteger> statusCounter, long totalDuration) {
 		this.allSteps = allSteps;

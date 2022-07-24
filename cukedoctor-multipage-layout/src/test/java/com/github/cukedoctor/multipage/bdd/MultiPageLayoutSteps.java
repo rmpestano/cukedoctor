@@ -23,7 +23,7 @@ import static org.junit.Assert.assertTrue;
 public class MultiPageLayoutSteps {
     private String outputFolderLocation = "target/generated-sources/bdd";
     private final MetaCuke metaCuke = new MetaCuke();
-    private DocumentAttributes attrs = GlobalConfig.getInstance().getDocumentAttributes();
+    private final DocumentAttributes attrs = GlobalConfig.getInstance().getDocumentAttributes();
     private MultipageConverter multipageConverter;
 
     public MultiPageLayoutSteps() throws IOException {
