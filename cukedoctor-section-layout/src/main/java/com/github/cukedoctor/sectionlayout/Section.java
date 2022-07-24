@@ -5,29 +5,32 @@ import com.github.cukedoctor.api.DocumentAttributes;
 import com.github.cukedoctor.api.model.Feature;
 import com.github.cukedoctor.config.CukedoctorConfig;
 import com.github.cukedoctor.i18n.I18nLoader;
-
 import java.util.stream.Stream;
 
 public interface Section extends Comparable<Section> {
-    Section addFeature(Feature feature);
+  Section addFeature(Feature feature);
 
-    default Section addFeatures(Iterable<Feature> features) {
-        for (Feature feature : features) {
-            addFeature(feature);
-        }
-
-        return this;
+  default Section addFeatures(Iterable<Feature> features) {
+    for (Feature feature : features) {
+      addFeature(feature);
     }
 
-    String render(CukedoctorDocumentBuilder docBuilder, I18nLoader i18n, DocumentAttributes documentAttributes, CukedoctorConfig config);
+    return this;
+  }
 
-    int getOrder();
+  String render(
+      CukedoctorDocumentBuilder docBuilder,
+      I18nLoader i18n,
+      DocumentAttributes documentAttributes,
+      CukedoctorConfig config);
 
-    default int compareTo(Section other) {
-        if (other == null) return 1;
+  int getOrder();
 
-        return Integer.compare(getOrder(), other.getOrder());
-    }
+  default int compareTo(Section other) {
+    if (other == null) return 1;
 
-    Stream<Feature> getFeatures();
+    return Integer.compare(getOrder(), other.getOrder());
+  }
+
+  Stream<Feature> getFeatures();
 }

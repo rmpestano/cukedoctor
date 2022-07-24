@@ -7,21 +7,21 @@ import com.github.cukedoctor.renderer.BaseRenderer;
 /**
  * Created by rmpestano on 27/04/20.
  *
- * This renderer is responsible for generating the documentation header
- * such as attributes
+ * <p>This renderer is responsible for generating the documentation header such as attributes
  */
 public interface HeaderRenderer extends BaseRenderer {
 
-    /**
-     * @deprecated Use renderDocumentHeader(DocumentAttributes, CukedoctorDocumentBuilder) instead
-     * @param cukedoctorAttributes cukedoctor attributes
-     * @return
-     */
-    @Deprecated
-    String renderDocumentHeader(DocumentAttributes cukedoctorAttributes);
+  /**
+   * @deprecated Use renderDocumentHeader(DocumentAttributes, CukedoctorDocumentBuilder) instead
+   * @param cukedoctorAttributes cukedoctor attributes
+   * @return
+   */
+  @Deprecated
+  String renderDocumentHeader(DocumentAttributes cukedoctorAttributes);
 
-    default String renderDocumentHeader(DocumentAttributes cukedoctorAttributes, CukedoctorDocumentBuilder documentBuilder) {
-        setDocumentBuilder(documentBuilder);
-        return renderDocumentHeader(cukedoctorAttributes);
-    }
+  default String renderDocumentHeader(
+      DocumentAttributes cukedoctorAttributes, CukedoctorDocumentBuilder documentBuilder) {
+    setDocumentBuilder(documentBuilder);
+    return renderDocumentHeader(cukedoctorAttributes);
+  }
 }

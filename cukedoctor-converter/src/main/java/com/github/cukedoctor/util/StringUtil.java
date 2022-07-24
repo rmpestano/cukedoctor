@@ -5,96 +5,96 @@ import static com.github.cukedoctor.util.Constants.newLine;
 
 public class StringUtil {
 
-    private StringUtil() {}
+  private StringUtil() {}
 
-    public static String trimAllLines(String text) {
-        if (!hasText(text)) {
-            return text;
+  public static String trimAllLines(String text) {
+    if (!hasText(text)) {
+      return text;
+    }
+
+    StringBuilder trimmedDescription = new StringBuilder();
+    String[] lines = normaliseLineEndings(text).split(newLine());
+    boolean shouldTrim = true;
+    boolean foundFirstNotEmptyLine = false;
+    int leadingWhitespaceCharsToTrim = 0;
+    for (int i = 0; i < lines.length; i++) {
+      String line = lines[i];
+
+      if (!foundFirstNotEmptyLine) {
+        if (line != null && !line.isEmpty()) {
+          leadingWhitespaceCharsToTrim = countLeadingWhitespace(line);
+          foundFirstNotEmptyLine = true;
         }
+      }
 
-        StringBuilder trimmedDescription = new StringBuilder();
-        String[] lines = normaliseLineEndings(text).split(newLine());
-        boolean shouldTrim = true;
-        boolean foundFirstNotEmptyLine = false;
-        int leadingWhitespaceCharsToTrim = 0;
-        for (int i = 0; i < lines.length; i++) {
-            String line = lines[i];
+      line = trimStart(line, leadingWhitespaceCharsToTrim);
 
-            if (!foundFirstNotEmptyLine) {
-                if (line != null && !line.isEmpty()) {
-                    leadingWhitespaceCharsToTrim = countLeadingWhitespace(line);
-                    foundFirstNotEmptyLine = true;
-                }
-            }
-
-            line = trimStart(line, leadingWhitespaceCharsToTrim);
-
-            if (line.trim().startsWith(Constants.Markup.listing())) {
-                if (shouldTrim) {
-                    shouldTrim = false;//remove trimming on start listing
-                } else {
-                    shouldTrim = true; //enable trimming on end listing
-                }
-            }
-
-            if (shouldTrim) {
-                trimmedDescription.append(trimEnd(line));
-            } else {
-                trimmedDescription.append(line);
-            }
-
-            if (i < lines.length - 1) {
-                trimmedDescription.append(newLine());
-            }
+      if (line.trim().startsWith(Constants.Markup.listing())) {
+        if (shouldTrim) {
+          shouldTrim = false; // remove trimming on start listing
+        } else {
+          shouldTrim = true; // enable trimming on end listing
         }
+      }
 
-        return trimmedDescription.toString();
+      if (shouldTrim) {
+        trimmedDescription.append(trimEnd(line));
+      } else {
+        trimmedDescription.append(line);
+      }
+
+      if (i < lines.length - 1) {
+        trimmedDescription.append(newLine());
+      }
     }
 
-    static int countLeadingWhitespace(String text) {
-        if (text == null) return 0;
+    return trimmedDescription.toString();
+  }
 
-        int i = 0;
-        while (i < text.length()) {
-            char c = text.charAt(i);
-            if (c != ' ' && c != '\t') {
-                break;
-            }
+  static int countLeadingWhitespace(String text) {
+    if (text == null) return 0;
 
-            i += Character.charCount(c);
-        }
+    int i = 0;
+    while (i < text.length()) {
+      char c = text.charAt(i);
+      if (c != ' ' && c != '\t') {
+        break;
+      }
 
-        return i;
+      i += Character.charCount(c);
     }
 
-    static String trimStart(String text, int count) {
-        if (count < 1) return text;
+    return i;
+  }
 
-        if (text == null) return null;
+  static String trimStart(String text, int count) {
+    if (count < 1) return text;
 
-        int i = 0;
-        while (i < text.length() && i < count) {
-            char c = text.charAt(i);
-            if (c != ' ' && c != '\t') {
-                break;
-            }
+    if (text == null) return null;
 
-            i += Character.charCount(c);
-        }
+    int i = 0;
+    while (i < text.length() && i < count) {
+      char c = text.charAt(i);
+      if (c != ' ' && c != '\t') {
+        break;
+      }
 
-        return text.substring(i);
+      i += Character.charCount(c);
     }
 
-    static String trimEnd(String text) {
-        if (text == null) return null;
+    return text.substring(i);
+  }
 
-        // https://stackoverflow.com/a/48053234
-        return text.replaceFirst("\\s++$", "");
-    }
+  static String trimEnd(String text) {
+    if (text == null) return null;
 
-    public static String normaliseLineEndings(String s) {
-        if (s == null) return null;
+    // https://stackoverflow.com/a/48053234
+    return text.replaceFirst("\\s++$", "");
+  }
 
-        return s.replaceAll("\\r\\n|\\r|\\n", System.lineSeparator());
-    }
+  public static String normaliseLineEndings(String s) {
+    if (s == null) return null;
+
+    return s.replaceAll("\\r\\n|\\r|\\n", System.lineSeparator());
+  }
 }

@@ -1,17 +1,15 @@
 package com.github.cukedoctor.bdd.sample;
 
-import io.cucumber.java.en.Given;
-
 import static org.junit.Assert.assertNotNull;
 
-/**
- * Created by rafael-pestano on 07/03/2016.
- */
+import io.cucumber.java.en.Given;
+
+/** Created by rafael-pestano on 07/03/2016. */
 public class DiscreteSteps {
 
   @Given("^the following source code$")
   public void the_following_source_code(String code) throws Throwable {
-    //it is just a sample, we are interested in json output report
+    // it is just a sample, we are interested in json output report
     assertNotNull(code);
   }
 

@@ -1,72 +1,73 @@
 package com.github.cukedoctor.config;
 
 import com.github.cukedoctor.api.DocumentAttributes;
-import org.yaml.snakeyaml.Yaml;
-
 import java.io.InputStream;
+import org.yaml.snakeyaml.Yaml;
 
 /**
  * Created by pestano on 20/10/16.
  *
- * Cukedoctor default configuration loaded from a global cukedoctor.yaml file.
+ * <p>Cukedoctor default configuration loaded from a global cukedoctor.yaml file.
  *
- * It holds (global) static configuration which is used in {@link CukedoctorConfig}
+ * <p>It holds (global) static configuration which is used in {@link CukedoctorConfig}
  */
 public class GlobalConfig {
 
+  private static GlobalConfig instance;
 
-    private static GlobalConfig instance;
+  private DocumentAttributes documentAttributes;
 
-    private DocumentAttributes documentAttributes;
+  private LayoutConfig layoutConfig;
 
-    private LayoutConfig layoutConfig;
+  private GlobalConfig() {}
 
-    private GlobalConfig() {
+  public static GlobalConfig getInstance() {
+    if (instance == null) {
+      instance = createInstance();
     }
 
-    public static GlobalConfig getInstance() {
-        if (instance == null) {
-            instance = createInstance();
-        }
+    return instance;
+  }
 
-        return instance;
+  public static GlobalConfig newInstance() {
+
+    return createInstance();
+  }
+
+  private static GlobalConfig createInstance() {
+    GlobalConfig globalConfig = null;
+
+    // try to instance user provided cukedoctor.yml
+    InputStream customConfiguration =
+        Thread.currentThread().getContextClassLoader().getResourceAsStream("cukedoctor.yml");
+    if (customConfiguration != null) {
+      globalConfig = new Yaml().loadAs(customConfiguration, GlobalConfig.class);
     }
 
-    public static GlobalConfig newInstance() {
-
-        return createInstance();
+    if (globalConfig == null) {
+      // default config
+      globalConfig =
+          new Yaml()
+              .loadAs(
+                  GlobalConfig.class.getResourceAsStream("/config/cukedoctor.yml"),
+                  GlobalConfig.class);
     }
+    return globalConfig;
+  }
 
-    private static GlobalConfig createInstance() {
-        GlobalConfig globalConfig = null;
+  public DocumentAttributes getDocumentAttributes() {
+    return documentAttributes;
+  }
 
-        //try to instance user provided cukedoctor.yml
-        InputStream customConfiguration = Thread.currentThread().getContextClassLoader().getResourceAsStream("cukedoctor.yml");
-        if (customConfiguration != null) {
-            globalConfig = new Yaml().loadAs(customConfiguration, GlobalConfig.class);
-        }
+  public void setDocumentAttributes(DocumentAttributes documentAttributes) {
+    this.documentAttributes = documentAttributes;
+  }
 
-        if (globalConfig == null) {
-            //default config
-            globalConfig = new Yaml().loadAs(GlobalConfig.class.getResourceAsStream("/config/cukedoctor.yml"), GlobalConfig.class);
-        }
-        return globalConfig;
-    }
+  public LayoutConfig getLayoutConfig() {
+    return layoutConfig;
+  }
 
-    public DocumentAttributes getDocumentAttributes() {
-        return documentAttributes;
-    }
-
-    public void setDocumentAttributes(DocumentAttributes documentAttributes) {
-        this.documentAttributes = documentAttributes;
-    }
-
-    public LayoutConfig getLayoutConfig() {
-        return layoutConfig;
-    }
-
-    public void setLayoutConfig(LayoutConfig layoutConfig) {
-        this.layoutConfig = layoutConfig;
-    }
-
+  public void setLayoutConfig(LayoutConfig layoutConfig) {
+    this.layoutConfig = layoutConfig;
+  }
 }

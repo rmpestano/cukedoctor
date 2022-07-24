@@ -2,18 +2,14 @@ package com.github.cukedoctor.api.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
-@JsonIgnoreProperties({"line","id","comments"})
+@JsonIgnoreProperties({"line", "id", "comments"})
 public class Row {
 
-	private String[] cells;
+  private String[] cells;
 
-	public Row() {
+  public Row() {}
 
-	}
-
-	public String[] getCells() {
-		return cells;
-	}
-
+  public String[] getCells() {
+    return cells;
+  }
 }
-

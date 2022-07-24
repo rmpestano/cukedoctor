@@ -1,211 +1,297 @@
 package com.github.cukedoctor.util.builder;
 
 import com.github.cukedoctor.api.model.*;
-
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by pestano on 04/06/15.
- */
+/** Created by pestano on 04/06/15. */
 public class FeatureBuilder {
 
-	private Feature feature;
-	private static FeatureBuilder instance;
+  private Feature feature;
+  private static FeatureBuilder instance;
 
+  private FeatureBuilder(Feature feature) {
+    this.feature = feature;
+  }
 
-	private FeatureBuilder(Feature feature) {
-		this.feature = feature;
-	}
+  private Feature getFeature() {
+    return feature;
+  }
 
-	private Feature getFeature() {
-		return feature;
-	}
+  public static synchronized FeatureBuilder instance() {
+    instance = new FeatureBuilder(new Feature());
+    return instance;
+  }
 
-	public static synchronized FeatureBuilder instance() {
-		instance = new FeatureBuilder(new Feature());
-		return instance;
-	}
+  public static synchronized FeatureBuilder instance(Feature feature) {
+    instance = new FeatureBuilder(feature);
+    return instance;
+  }
 
-	public static synchronized FeatureBuilder instance(Feature feature) {
-		instance = new FeatureBuilder(feature);
-		return instance;
-	}
+  public FeatureBuilder id(String id) {
+    feature.setId(id);
+    return instance;
+  }
 
+  public FeatureBuilder name(String name) {
+    feature.setName(name);
+    return instance;
+  }
 
-	public FeatureBuilder id(String id) {
-		feature.setId(id);
-		return instance;
-	}
+  public FeatureBuilder uri(String uri) {
+    feature.setUri(uri);
+    return instance;
+  }
 
-	public FeatureBuilder name(String name) {
-		feature.setName(name);
-		return instance;
-	}
+  public FeatureBuilder description(String desc) {
+    feature.setDescription(desc);
+    return instance;
+  }
 
-	public FeatureBuilder uri(String uri) {
-		feature.setUri(uri);
-		return instance;
-	}
+  public FeatureBuilder scenario(Scenario scenario) {
+    if (feature.getElements() == null) {
+      feature.setElements(new ArrayList<Scenario>());
+    }
+    feature.getElements().add(scenario);
+    return instance;
+  }
 
-	public FeatureBuilder description(String desc) {
-		feature.setDescription(desc);
-		return instance;
-	}
+  public FeatureBuilder keyword(String keyword) {
+    feature.setKeyword(keyword);
+    return instance;
+  }
 
-	public FeatureBuilder scenario(Scenario scenario) {
-		if (feature.getElements() == null) {
-			feature.setElements(new ArrayList<Scenario>());
-		}
-		feature.getElements().add(scenario);
-		return instance;
-	}
+  public FeatureBuilder tag(String tag) {
+    if (feature.hasTags()) {
+      feature.getTags().add(new Tag(tag));
+      return this;
+    }
 
-	public FeatureBuilder keyword(String keyword) {
-		feature.setKeyword(keyword);
-		return instance;
-	}
+    List<Tag> tags = new ArrayList<>(1);
+    tags.add(new Tag(tag));
+    feature.setTags(tags);
+    return this;
+  }
 
-	public FeatureBuilder tag(String tag) {
-		if (feature.hasTags()) {
-			feature.getTags().add(new Tag(tag));
-			return this;
-		}
+  public Feature build() {
+    feature.initScenarios();
+    feature.processSteps();
+    return instance.getFeature();
+  }
 
-		List<Tag> tags = new ArrayList<>(1);
-		tags.add(new Tag(tag));
-		feature.setTags(tags);
-		return this;
-	}
+  public Feature aFeatureWithTwoScenarios() {
 
-	public Feature build() {
-		feature.initScenarios();
-		feature.processSteps();
-		return instance.getFeature();
-	}
+    final Feature feature =
+        FeatureBuilder.instance()
+            .description("Feature description")
+            .scenario(
+                ScenarioBuilder.instance()
+                    .name("scenario 1")
+                    .description("description")
+                    .keyword("Scenario")
+                    .type(Type.scenario)
+                    .build())
+            .scenario(
+                ScenarioBuilder.instance()
+                    .name("scenario 2")
+                    .description("description 2")
+                    .keyword("Scenario")
+                    .type(Type.scenario)
+                    .build())
+            .name("Feature name")
+            .build();
 
-	public Feature aFeatureWithTwoScenarios() {
+    return feature;
+  }
 
-		final Feature feature = FeatureBuilder.instance().description("Feature description").
-				scenario(ScenarioBuilder.instance().name("scenario 1").description("description")
-						.keyword("Scenario").type(Type.scenario).build()).
-				scenario(ScenarioBuilder.instance().name("scenario 2").description("description 2")
-						.keyword("Scenario").type(Type.scenario).build()).
-				name("Feature name").build();
+  public Feature aFeatureWithOneScenarioWithOnePassingStep() {
 
-		return feature;
-	}
+    final Feature feature =
+        FeatureBuilder.instance()
+            .description("Feature description")
+            .scenario(
+                ScenarioBuilder.instance()
+                    .name("scenario")
+                    .description("description")
+                    .keyword("Scenario")
+                    .type(Type.scenario)
+                    .step(
+                        StepBuilder.instance()
+                            .name("passing step")
+                            .result(new Result(Status.passed))
+                            .keyword("Given")
+                            .build())
+                    . // step
+                    build())
+            . // build scenario
+            name("Feature name")
+            .build();
 
-	public Feature aFeatureWithOneScenarioWithOnePassingStep() {
+    return feature;
+  }
 
-		final Feature feature = FeatureBuilder.instance().description("Feature description").
-				scenario(ScenarioBuilder.instance().name("scenario").description("description")
-						.keyword("Scenario").type(Type.scenario).
-								step(StepBuilder.instance().name("passing step")
-										.result(new Result(Status.passed))
-										.keyword("Given").build()). //step
-								build()).//build scenario
-				name("Feature name").build();
+  public Feature aFeatureWithOneScenarioWithOnePassingAndOneFailingStep() {
 
-		return feature;
-	}
+    final Feature feature =
+        FeatureBuilder.instance()
+            .description("Feature description")
+            .scenario(
+                ScenarioBuilder.instance()
+                    .name("scenario")
+                    .description("description")
+                    .keyword("Scenario")
+                    .type(Type.scenario)
+                    .step(
+                        StepBuilder.instance()
+                            .name("passing step")
+                            .result(new Result(Status.passed))
+                            .match(new Match("match 1"))
+                            .keyword("Given")
+                            .build())
+                    .step(
+                        StepBuilder.instance()
+                            .name("failing step")
+                            .result(new Result(Status.failed))
+                            .match(new Match("match 2"))
+                            .keyword("When")
+                            .build())
+                    .build())
+            . // build scenario
+            name("Feature name")
+            .build();
 
-	public Feature aFeatureWithOneScenarioWithOnePassingAndOneFailingStep() {
+    return feature;
+  }
 
-		final Feature feature = FeatureBuilder.instance().description("Feature description").
-				scenario(ScenarioBuilder.instance().name("scenario").description("description")
-						.keyword("Scenario").type(Type.scenario).
-								step(StepBuilder.instance().name("passing step")
-										.result(new Result(Status.passed))
-										.match(new Match("match 1"))
-										.keyword("Given").build()).
-								step(StepBuilder.instance().name("failing step")
-										.result(new Result(Status.failed))
-										.match(new Match("match 2"))
-										.keyword("When").build()).
-								build()).//build scenario
-				name("Feature name").build();
+  public Feature aFeatureWithOneScenarioWithMultipleSteps() {
 
-		return feature;
-	}
+    final Feature feature =
+        FeatureBuilder.instance()
+            .description("Feature description")
+            .scenario(
+                ScenarioBuilder.instance()
+                    .name("scenario")
+                    .description("description")
+                    .keyword("Scenario")
+                    .type(Type.scenario)
+                    .step(
+                        StepBuilder.instance()
+                            .name("passing step")
+                            .result(new Result(Status.passed))
+                            .match(new Match("match 1"))
+                            .keyword("Given")
+                            .build())
+                    .step(
+                        StepBuilder.instance()
+                            .name("failing step")
+                            .result(new Result(Status.failed))
+                            .match(new Match("match 2"))
+                            .keyword("When")
+                            .build())
+                    .step(
+                        StepBuilder.instance()
+                            .name("pending step")
+                            .result(new Result(Status.pending))
+                            .match(new Match("match 3"))
+                            .keyword("When")
+                            .build())
+                    .step(
+                        StepBuilder.instance()
+                            .name("missing step")
+                            .result(new Result(Status.missing))
+                            .match(new Match("match 4"))
+                            .keyword("When")
+                            .build())
+                    .step(
+                        StepBuilder.instance()
+                            .name("undefined step")
+                            .result(new Result(Status.undefined))
+                            .match(new Match("match 5"))
+                            .keyword("When")
+                            .build())
+                    .step(
+                        StepBuilder.instance()
+                            .name("skipped step")
+                            .result(new Result(Status.skipped))
+                            .match(new Match("match 6"))
+                            .keyword("Then")
+                            .build())
+                    .build())
+            .name("Feature name")
+            .build();
 
-	public Feature aFeatureWithOneScenarioWithMultipleSteps() {
+    return feature;
+  }
 
-		final Feature feature = FeatureBuilder.instance().description("Feature description").
-				scenario(ScenarioBuilder.instance().name("scenario").description("description")
-						.keyword("Scenario").type(Type.scenario).
-								step(StepBuilder.instance().name("passing step")
-										.result(new Result(Status.passed))
-										.match(new Match("match 1"))
-										.keyword("Given").build()).
-								step(StepBuilder.instance().name("failing step")
-										.result(new Result(Status.failed))
-										.match(new Match("match 2"))
-										.keyword("When").build()).
-								step(StepBuilder.instance().name("pending step")
-										.result(new Result(Status.pending))
-										.match(new Match("match 3"))
-										.keyword("When").build()).
-								step(StepBuilder.instance().name("missing step")
-										.result(new Result(Status.missing))
-										.match(new Match("match 4"))
-										.keyword("When").build()).
-								step(StepBuilder.instance().name("undefined step")
-										.result(new Result(Status.undefined))
-										.match(new Match("match 5"))
-										.keyword("When").build()).
-								step(StepBuilder.instance().name("skipped step")
-										.result(new Result(Status.skipped))
-										.match(new Match("match 6"))
-										.keyword("Then").build()).
-								build()).
-				name("Feature name").build();
+  public Feature aFeatureWithMultipleScenariosAndSteps() {
+    Scenario scenario1 =
+        ScenarioBuilder.instance()
+            .name("scenario")
+            .description("description")
+            .keyword("Scenario")
+            .type(Type.scenario)
+            .step(
+                StepBuilder.instance()
+                    .name("passing step")
+                    .result(new Result(Status.passed))
+                    .match(new Match("match 1"))
+                    .keyword("Given")
+                    .build())
+            .step(
+                StepBuilder.instance()
+                    .name("failing step")
+                    .result(new Result(Status.failed))
+                    .match(new Match("match 2"))
+                    .keyword("When")
+                    .build())
+            .build();
 
-		return feature;
-	}
+    Scenario scenario2 =
+        ScenarioBuilder.instance()
+            .name("scenario")
+            .description("description")
+            .keyword("Scenario")
+            .type(Type.scenario)
+            .step(
+                StepBuilder.instance()
+                    .name("skipped step")
+                    .result(new Result(Status.skipped))
+                    .match(new Match("match 6"))
+                    .keyword("Then")
+                    .build())
+            . // skipped step
+            build();
 
-	public Feature aFeatureWithMultipleScenariosAndSteps() {
-		Scenario scenario1 = ScenarioBuilder.instance().name("scenario").description("description")
-				.keyword("Scenario").type(Type.scenario).
-						step(StepBuilder.instance().name("passing step")
-								.result(new Result(Status.passed))
-								.match(new Match("match 1"))
-								.keyword("Given").build()).
-						step(StepBuilder.instance().name("failing step")
-								.result(new Result(Status.failed))
-								.match(new Match("match 2"))
-								.keyword("When").build()).
-						build();
+    Scenario scenario3 =
+        ScenarioBuilder.instance()
+            .name("scenario")
+            .description("description")
+            .keyword("Scenario")
+            .type(Type.scenario)
+            .step(
+                StepBuilder.instance()
+                    .name("undefined step")
+                    .result(new Result(Status.undefined))
+                    .match(new Match("match1"))
+                    .keyword("Given")
+                    .build())
+            .build();
 
-		Scenario scenario2 = ScenarioBuilder.instance().name("scenario").description("description")
-				.keyword("Scenario").type(Type.scenario).
-						step(StepBuilder.instance().name("skipped step")
-								.result(new Result(Status.skipped))
-								.match(new Match("match 6"))
-								.keyword("Then").build()). //skipped step
-						build();
+    final Feature feature =
+        FeatureBuilder.instance()
+            .description("Feature description")
+            .scenario(scenario1)
+            .scenario(scenario2)
+            .scenario(scenario3)
+            .name("Feature name")
+            .build();
+    return feature;
+  }
 
-		Scenario scenario3 = ScenarioBuilder.instance().name("scenario").description("description")
-				.keyword("Scenario").type(Type.scenario).
-						step(StepBuilder.instance().name("undefined step")
-								.result(new Result(Status.undefined))
-								.match(new Match("match1"))
-								.keyword("Given").build()).
-						build();
-
-		final Feature feature = FeatureBuilder.instance().description("Feature description").
-				scenario(scenario1).
-				scenario(scenario2).
-				scenario(scenario3).
-				name("Feature name").build();
-		return feature;
-
-	}
-
-	public Feature aFeatureWithNoScenarios() {
-		return FeatureBuilder.instance()
-				.description("Feature description")
-				.name("Feature name")
-				.build();
-	}
+  public Feature aFeatureWithNoScenarios() {
+    return FeatureBuilder.instance()
+        .description("Feature description")
+        .name("Feature name")
+        .build();
+  }
 }

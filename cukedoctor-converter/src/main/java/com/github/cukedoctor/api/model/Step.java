@@ -1,192 +1,194 @@
 package com.github.cukedoctor.api.model;
 
+import static com.github.cukedoctor.util.Assert.hasElements;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonRawValue;
-
-import static com.github.cukedoctor.util.Assert.hasElements;
-
 import java.util.List;
 import java.util.logging.Logger;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Step {
 
-	private String name;
-	private String keyword;
-	private String line;
-	private Result result;
-	private Row[] rows;
-	private Match match;
-	private List<Comment> comments;
-	@JsonProperty("doc_string")
-	private DocString docString;
-	private List<Output> output;
-	private List<Embedding> embeddings;
+  private String name;
+  private String keyword;
+  private String line;
+  private Result result;
+  private Row[] rows;
+  private Match match;
+  private List<Comment> comments;
 
+  @JsonProperty("doc_string")
+  private DocString docString;
 
-	public String getName() {
-		return name;
-	}
+  private List<Output> output;
+  private List<Embedding> embeddings;
 
-	public void setName(String name) {
-		this.name = name;
-	}
+  public String getName() {
+    return name;
+  }
 
-	public String getKeyword() {
-		return keyword;
-	}
+  public void setName(String name) {
+    this.name = name;
+  }
 
-	public void setKeyword(String keyword) {
-		this.keyword = keyword;
-	}
+  public String getKeyword() {
+    return keyword;
+  }
 
-	public String getLine() {
-		return line;
-	}
+  public void setKeyword(String keyword) {
+    this.keyword = keyword;
+  }
 
-	public void setLine(String line) {
-		this.line = line;
-	}
+  public String getLine() {
+    return line;
+  }
 
-	public Result getResult() {
-		return result;
-	}
+  public void setLine(String line) {
+    this.line = line;
+  }
 
-	public void setResult(Result result) {
-		this.result = result;
-	}
+  public Result getResult() {
+    return result;
+  }
 
-	public Row[] getRows() {
-		return rows;
-	}
+  public void setResult(Result result) {
+    this.result = result;
+  }
 
-	public void setRows(Row[] rows) {
-		this.rows = rows;
-	}
+  public Row[] getRows() {
+    return rows;
+  }
 
-	public Match getMatch() {
-		return match;
-	}
+  public void setRows(Row[] rows) {
+    this.rows = rows;
+  }
 
-	public void setMatch(Match match) {
-		this.match = match;
-	}
+  public Match getMatch() {
+    return match;
+  }
 
-	@JsonRawValue
-	public List<Output> getOutput() {
-		return output;
-	}
+  public void setMatch(Match match) {
+    this.match = match;
+  }
 
-	public void setOutput(List<Output> output) {
-		this.output = output;
-	}
+  @JsonRawValue
+  public List<Output> getOutput() {
+    return output;
+  }
 
-	public List<Comment> getComments() {
-        return comments;
+  public void setOutput(List<Output> output) {
+    this.output = output;
+  }
+
+  public List<Comment> getComments() {
+    return comments;
+  }
+
+  public void setComments(List<Comment> comments) {
+    this.comments = comments;
+  }
+
+  public DocString getDocString() {
+    return docString;
+  }
+
+  public void setDocString(DocString docString) {
+    this.docString = docString;
+  }
+
+  public List<Embedding> getEmbeddings() {
+    return embeddings;
+  }
+
+  public void setEmbeddings(List<Embedding> embeddings) {
+    this.embeddings = embeddings;
+  }
+
+  public Long getDuration() {
+    if (result == null) {
+      return 1L;
+    } else {
+      return result.getDuration();
     }
+  }
 
-    public void setComments(List<Comment> comments) {
-        this.comments = comments;
+  public Status getStatus() {
+    if (result == null || result.getStatus() == null) {
+      Logger.getLogger(getClass().getName())
+          .warning("Line " + line + " : " + "Step is missing Result: " + keyword + " : " + name);
+      return Status.missing;
+    } else {
+      return result.getStatus();
     }
+  }
 
-	public DocString getDocString() {
-		return docString;
-	}
+  public boolean isFailling() {
+    return getStatus().equals(Status.failed);
+  }
 
-	public void setDocString(DocString docString) {
-		this.docString = docString;
-	}
+  public boolean isMissing() {
+    return getStatus().equals(Status.missing);
+  }
 
-	public List<Embedding> getEmbeddings() { return embeddings; }
+  public boolean isPassing() {
+    return getStatus().equals(Status.passed);
+  }
 
-	public void setEmbeddings(List<Embedding> embeddings) { this.embeddings = embeddings; }
+  public boolean isPendding() {
+    return getStatus().equals(Status.pending);
+  }
 
-	public Long getDuration() {
-		if (result == null) {
-			return 1L;
-		} else {
-			return result.getDuration();
-		}
-	}
+  public boolean isUndefined() {
+    return getStatus().equals(Status.undefined);
+  }
 
-	public Status getStatus() {
-		if (result == null || result.getStatus() == null) {
-			Logger.getLogger(getClass().getName()).warning("Line " + line + " : " + "Step is missing Result: " + keyword + " : " + name);
-			return Status.missing;
-		} else {
-			return result.getStatus();
-		}
-	}
+  public boolean isSkipped() {
+    return getStatus().equals(Status.skipped);
+  }
 
-	public boolean isFailling() {
-		return getStatus().equals(Status.failed);
-	}
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) return true;
+    if (o == null || getClass() != o.getClass()) return false;
 
-	public boolean isMissing() {
-		return getStatus().equals(Status.missing);
-	}
+    Step step = (Step) o;
 
-	public boolean isPassing() {
-		return getStatus().equals(Status.passed);
-	}
+    if (!name.equals(step.name)) return false;
+    return match.equals(step.match);
+  }
 
-	public boolean isPendding() {
-		return getStatus().equals(Status.pending);
-	}
+  @Override
+  public int hashCode() {
+    return name.hashCode();
+  }
 
-	public boolean isUndefined() {
-		return getStatus().equals(Status.undefined);
-	}
+  public boolean hasComments() {
+    return hasElements(comments);
+  }
 
-	public boolean isSkipped() {
-		return getStatus().equals(Status.skipped);
-	}
-
-	@Override
-	public boolean equals(Object o) {
-		if (this == o) return true;
-		if (o == null || getClass() != o.getClass()) return false;
-
-		Step step = (Step) o;
-
-		if (!name.equals(step.name)) return false;
-		return match.equals(step.match);
-
-	}
-
-	@Override
-	public int hashCode() {
-		return name.hashCode();
-	}
-
-    public boolean hasComments() {
-        return hasElements(comments);
+  public boolean hasDiscreteComment() {
+    if (hasComments()) {
+      for (Comment comment : comments) {
+        if (comment.getValue().contains("cukedoctor-discrete")) {
+          return true;
+        }
+      }
     }
+    return false;
+  }
 
-	public boolean hasDiscreteComment() {
-		if(hasComments()){
-			for (Comment comment : comments) {
-				if(comment.getValue().contains("cukedoctor-discrete")){
-					return true;
-				}
-			}
-		}
-		return false;
-	}
+  @Override
+  public String toString() {
+    return name;
+  }
 
-	@Override
-	public String toString() {
-		return name;
-	}
+  public boolean hasOutput() {
+    return output != null && !output.isEmpty();
+  }
 
-	public boolean hasOutput(){
-		 return output != null && !output.isEmpty();
-	}
-
-	public boolean hasEmbeddings() {
-		return embeddings != null && !embeddings.isEmpty();
-	}
+  public boolean hasEmbeddings() {
+    return embeddings != null && !embeddings.isEmpty();
+  }
 }
-
