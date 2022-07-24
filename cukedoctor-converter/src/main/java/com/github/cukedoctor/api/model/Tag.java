@@ -37,7 +37,16 @@ public class Tag {
     return extractPattern("@order-");
   }
 
-  public boolean isDiscrete() {
-    return extractPattern("@asciidoc").isPresent();
-  }
+    public boolean isDiscrete() {
+        return extractPattern("@asciidoc").isPresent();
+    }
+
+    public boolean isLanguage() {
+        return getLanguage().isPresent();
+    }
+
+    public Optional<String> getLanguage() {
+        return extractPattern("@language-");
+    }
 }
+

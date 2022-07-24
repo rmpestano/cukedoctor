@@ -250,18 +250,22 @@ public class Feature implements Comparable<Feature> {
         && (this.elements != null && !this.elements.isEmpty());
   }
 
-  public String getLanguage() {
-    if (language == null && comments != null) {
-      for (Comment comment : comments) {
-        final Optional<String> lang = comment.getLanguage();
-        if (lang.isPresent() && hasText(lang.get())) {
-          language = lang.get();
+    public String getLanguage() {
+        if (language == null && comments != null) {
+            for (Comment comment : comments) {
+                trySetLanguage(comment.getLanguage(), "comment");
+            }
         }
-      }
-    }
-    if (language == null) {
-      this.language = "";
-    }
+
+        if (order == null && hasTags()) {
+            for (Tag tag : getTags()) {
+                trySetLanguage(tag.getLanguage(), "tag");
+            }
+        }
+
+        if (language == null) {
+            this.language = "";
+        }
 
     return language;
   }
@@ -286,19 +290,33 @@ public class Feature implements Comparable<Feature> {
     return order;
   }
 
-  private void trySetOrder(Optional<String> order, String source) {
-    if (order.isPresent() && hasText(order.get())) {
-      try {
-        this.order = Integer.parseInt(order.get());
-      } catch (Exception e) {
-        Logger.getLogger(getClass().getName())
-            .warning(
-                String.format(
-                    "Could not get order of feature %s from %s cause: %s",
-                    name, source, e.getMessage()));
-      }
+    private void trySetOrder(Optional<String> order, String source) {
+        if (order.isPresent() && hasText(order.get())) {
+            try {
+                this.order = Integer.parseInt(order.get());
+            } catch (Exception e) {
+                Logger.getLogger(getClass().getName())
+                      .warning(String.format("Could not get order of feature %s from %s cause: %s",
+                                             name,
+                                             source,
+                                             e.getMessage()));
+            }
+        }
     }
-  }
+
+    private void trySetLanguage(Optional<String> language, String source) {
+        if (language.isPresent() && hasText(language.get())) {
+            try {
+                this.language = language.get();
+            } catch (Exception e) {
+                Logger.getLogger(getClass().getName())
+                      .warning(String.format("Could not get language of feature %s from %s cause: %s",
+                                             name,
+                                             source,
+                                             e.getMessage()));
+            }
+        }
+    }
 
   @Override
   public boolean equals(Object o) {
@@ -359,14 +377,14 @@ public class Feature implements Comparable<Feature> {
     return extractTag(pattern).isPresent();
   }
 
-  public Optional<String> extractTag(String pattern) {
-    if (!hasTags()) {
-      return Optional.empty();
+    public Optional<String> extractTag(String pattern) {
+        if (!hasTags()) {
+            return Optional.empty();
+        }
+        return getTags().stream()
+                        .map(tag -> tag.extractPattern(pattern))
+                        .filter(Optional::isPresent)
+                        .map(Optional::get)
+                        .findFirst();
     }
-    return getTags().stream()
-        .map(tag -> tag.extractPattern(pattern))
-        .filter(Optional::isPresent)
-        .map(Optional::get)
-        .findFirst();
-  }
 }
