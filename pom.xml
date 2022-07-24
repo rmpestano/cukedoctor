@@ -353,7 +353,7 @@
                 <sonar.core.codeCoveragePlugin>jacoco</sonar.core.codeCoveragePlugin>
                 <sonar.dynamicAnalysis>reuseReports</sonar.dynamicAnalysis>
             </properties>
-            
+
             <build>
                 <plugins>
                     <plugin>
@@ -362,7 +362,7 @@
                         <version>3.4.0.905</version>
                     </plugin>
                 </plugins>
-            </build>    
+            </build>
         </profile>
 
     </profiles>

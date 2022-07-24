@@ -49,7 +49,7 @@ public class CukedoctorConverterTest {
     public void shouldFailToCreateDocumentationWithoutFeatures() {
         String msg = null;
         try {
-            Cukedoctor.instance(new ArrayList<Feature>());
+            Cukedoctor.instance(new ArrayList<>());
         } catch (RuntimeException re) {
             msg = re.getMessage();
         }

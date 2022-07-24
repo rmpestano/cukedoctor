@@ -35,6 +35,10 @@ public class Tag {
         return getOrder().isPresent();
     }
 
+    public boolean isLanguage() {
+        return getLanguage().isPresent();
+    }
+
     public Optional<String> getOrder() {
         return extractPattern("@order-");
     }

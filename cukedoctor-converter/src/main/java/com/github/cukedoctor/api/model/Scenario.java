@@ -6,7 +6,6 @@ import com.github.cukedoctor.util.Constants;
 import java.util.List;
 
 import static com.github.cukedoctor.util.Assert.hasText;
-import static com.github.cukedoctor.util.Assert.notEmpty;
 
 /**
  * represents a scenario is most of the cases but can be also a background

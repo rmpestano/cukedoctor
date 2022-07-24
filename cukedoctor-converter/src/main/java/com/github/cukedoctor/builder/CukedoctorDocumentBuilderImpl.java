@@ -49,7 +49,7 @@ public class CukedoctorDocumentBuilderImpl extends AsciiDocBuilder implements Cu
         if (notEmpty(text)) {
             for (Object o : text) {
                 if (o.equals(Constants.newLine()) || hasText(o.toString())) {
-                    documentBuilder.append(o.toString());
+                    documentBuilder.append(o);
                 }
             }
         }
@@ -144,13 +144,13 @@ public class CukedoctorDocumentBuilderImpl extends AsciiDocBuilder implements Cu
     }
 
 
-    public class NestingOverflowException extends RuntimeException {
+    public static class NestingOverflowException extends RuntimeException {
         public NestingOverflowException() {
             super("Nesting is currently at Section Title Level 5 (the deepest AsciiDoc allows). You cannot nest further titles below this level.");
         }
     }
 
-    public class NestingUnderflowException extends RuntimeException {
+    public static class NestingUnderflowException extends RuntimeException {
         public NestingUnderflowException(int currentLevel) {
             super(String.format("Nesting is current at Level %s, the top-most allowed for this instance. You cannot un-nest above this level.", currentLevel));
         }

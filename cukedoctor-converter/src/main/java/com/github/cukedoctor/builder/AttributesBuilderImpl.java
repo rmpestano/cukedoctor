@@ -11,7 +11,7 @@ import static com.github.cukedoctor.util.Assert.hasText;
  */
 public class AttributesBuilderImpl implements AttributesBuilder {
 
-    private AsciiDocBuilder docBuilder;
+    private final AsciiDocBuilder docBuilder;
 
     public AttributesBuilderImpl(AsciiDocBuilder docBuilder) {
         this.docBuilder = docBuilder;

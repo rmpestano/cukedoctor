@@ -18,8 +18,6 @@ import java.util.List;
 
 public class DefaultMultipagePersister implements MultipagePersister {
     private final static Logger logger = LoggerFactory.getLogger(DefaultMultipagePersister.class);
-    private DocumentAttributes documentAttributes;
-    private CukedoctorConfig cukedoctorConfig;
 
     @Override
     public void persist(MultipageDocumentation multipageDocumentation, File outputFolderLocation) {
@@ -43,7 +41,6 @@ public class DefaultMultipagePersister implements MultipagePersister {
 
     @Override
     public void setI18n(I18nLoader i18nProvider) {
-
     }
 
     @Override
@@ -53,11 +50,9 @@ public class DefaultMultipagePersister implements MultipagePersister {
 
     @Override
     public void setDocumentAttributes(DocumentAttributes documentAttributes) {
-        this.documentAttributes = documentAttributes;
     }
 
     @Override
     public void setCukedoctorConfig(CukedoctorConfig cukedoctorConfig) {
-        this.cukedoctorConfig = cukedoctorConfig;
     }
 }

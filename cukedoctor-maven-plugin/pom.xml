@@ -13,6 +13,11 @@
 
     <dependencies>
         <dependency>
+            <groupId>commons-io</groupId>
+            <artifactId>commons-io</artifactId>
+            <version>2.11.0</version>
+        </dependency>
+        <dependency>
             <groupId>com.github.cukedoctor</groupId>
             <artifactId>cukedoctor-converter</artifactId>
             <version>${project.parent.version}</version>

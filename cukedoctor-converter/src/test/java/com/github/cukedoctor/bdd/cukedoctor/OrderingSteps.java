@@ -24,12 +24,12 @@ public class OrderingSteps {
 
 
     @Given("^The following two features:$")
-    public void the_following_two_features(String features) throws Throwable {
+    public void the_following_two_features(String features) {
         assertThat(features).isNotNull();
     }
 
     @When("^I convert them using default order$")
-    public void I_convert_the_using_default_order() throws Throwable {
+    public void I_convert_the_using_default_order() {
         URL featureFile = getClass().getResource("/com/github/cukedoctor/json-output/non-ordered.json");
         assertThat(featureFile).isNotNull();
         List<Feature> features = FeatureParser.parse(featureFile.getPath());
@@ -38,27 +38,27 @@ public class OrderingSteps {
     }
 
     @Then("^Features should be ordered by name in resulting documentation$")
-    public void Features_should_be_ordered_by_name_in_resulting_documentation(String expected) throws Throwable {
+    public void Features_should_be_ordered_by_name_in_resulting_documentation(String expected) {
         assertThat(documentation.replaceAll("\r", "")).isNotNull().contains(expected.replaceAll("\r", ""));
     }
 
     @When("^I convert them using comment order$")
-    public void I_convert_them__using_comment_order() throws Throwable {
+    public void I_convert_them__using_comment_order() {
         convert("/com/github/cukedoctor/json-output/ordered-comments.json");
     }
 
     @Then("^Features should be ordered respecting order comment$")
-    public void Features_should_be_ordered_respecting_order_comment(String expected) throws Throwable {
+    public void Features_should_be_ordered_respecting_order_comment(String expected) {
         assertFeaturesShouldBeOrdered(expected);
     }
 
     @When("^I convert them using tag order$")
-    public void I_convert_them__using_tag_order() throws Throwable {
+    public void I_convert_them__using_tag_order() {
         convert("/com/github/cukedoctor/json-output/ordered-tags.json");
     }
 
     @Then("^Features should be ordered respecting order tag$")
-    public void Features_should_be_ordered_respecting_order_tag(String expected) throws Throwable {
+    public void Features_should_be_ordered_respecting_order_tag(String expected) {
         assertFeaturesShouldBeOrdered(expected);
     }
 

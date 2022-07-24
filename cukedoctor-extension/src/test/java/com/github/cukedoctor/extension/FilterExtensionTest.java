@@ -1,8 +1,8 @@
 package com.github.cukedoctor.extension;
 
 import org.asciidoctor.Asciidoctor;
+import org.asciidoctor.Options;
 import org.asciidoctor.OptionsBuilder;
-import static com.github.cukedoctor.extension.CukedoctorExtensionRegistry.*;
 import org.asciidoctor.SafeMode;
 import org.junit.*;
 import org.junit.runner.RunWith;
@@ -10,9 +10,10 @@ import org.junit.runners.JUnit4;
 
 import java.io.File;
 
+import static com.github.cukedoctor.extension.CukedoctorExtensionRegistry.FILTER_DISABLE_EXT_KEY;
 import static com.github.cukedoctor.extension.util.FileUtil.loadTestFile;
 import static com.github.cukedoctor.extension.util.FileUtil.readFileContent;
-import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.*;
 
 /**
  * Created by pestano on 16/08/15.
@@ -23,18 +24,18 @@ public class FilterExtensionTest {
     private static Asciidoctor asciidoctor;
 
     @BeforeClass
-    public static void init(){
+    public static void init() {
         asciidoctor = Asciidoctor.Factory.create();
     }
 
 
     @AfterClass
-    public static void shutdown(){
-        if(asciidoctor != null){
+    public static void shutdown() {
+        if (asciidoctor != null) {
             asciidoctor.shutdown();
         }
         File file = loadTestFile("sample.html");
-        if(file.exists()){
+        if (file.exists()) {
             file.delete();
         }
 
@@ -42,32 +43,32 @@ public class FilterExtensionTest {
 
     @Before
     @After
-    public void enableExtension(){
+    public void enableExtension() {
         System.clearProperty(FILTER_DISABLE_EXT_KEY);
     }
 
     @Test
-    public void shouldAddSearchInputToRenderedHtml(){
+    public void shouldAddSearchInputToRenderedHtml() {
         File sampleAdoc = loadTestFile("sample.adoc");
         assertThat(sampleAdoc).exists();
-        asciidoctor.convertFile(sampleAdoc, OptionsBuilder.options().safe(SafeMode.UNSAFE).asMap());
+        asciidoctor.convertFile(sampleAdoc, Options.builder().safe(SafeMode.UNSAFE).build());
 
         String sampleHtml = readFileContent(loadTestFile("sample.html"));
         assertThat(sampleHtml).isNotEmpty().
-                containsOnlyOnce("<input value=\"Filter...\"");
+                              containsOnlyOnce("<input value=\"Filter...\"");
 
     }
 
     @Test
-    public void shouldNotAddFilterToRenderedHtmlWhenExtensionDisabled(){
-        System.setProperty(FILTER_DISABLE_EXT_KEY,"anyValue");
+    public void shouldNotAddFilterToRenderedHtmlWhenExtensionDisabled() {
+        System.setProperty(FILTER_DISABLE_EXT_KEY, "anyValue");
         File sampleAdoc = loadTestFile("sample.adoc");
         assertThat(sampleAdoc).exists();
-        asciidoctor.convertFile(sampleAdoc, OptionsBuilder.options().safe(SafeMode.UNSAFE).asMap());
+        asciidoctor.convertFile(sampleAdoc, Options.builder().safe(SafeMode.UNSAFE).build());
 
         String sampleHtml = readFileContent(loadTestFile("sample.html"));
         assertThat(sampleHtml).isNotEmpty().
-            doesNotContain("<input value=\"Filter...\"");
+                              doesNotContain("<input value=\"Filter...\"");
     }
 
 }

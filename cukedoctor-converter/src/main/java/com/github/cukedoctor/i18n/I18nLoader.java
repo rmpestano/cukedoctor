@@ -12,6 +12,7 @@ import java.util.logging.Logger;
 import com.github.cukedoctor.util.Constants;
 
 import static com.github.cukedoctor.util.Assert.hasText;
+import static java.nio.charset.StandardCharsets.*;
 
 /**
  * This class is responsible for internationalization.
@@ -23,7 +24,7 @@ import static com.github.cukedoctor.util.Assert.hasText;
 public class I18nLoader extends ResourceBundle.Control{
 
     private static I18nLoader instance;
-    private static Logger log = Logger.getLogger(I18nLoader.class.getName());
+    private static final Logger log = Logger.getLogger(I18nLoader.class.getName());
 
     private ResourceBundle bundle;
 
@@ -70,11 +71,12 @@ public class I18nLoader extends ResourceBundle.Control{
                 stream = I18nLoader.class.getResourceAsStream(resourceName);
             }
             try {
-                bundle = new PropertyResourceBundle(new InputStreamReader(stream, "UTF-8"));
+                bundle = new PropertyResourceBundle(new InputStreamReader(stream, UTF_8));
             } catch (Exception e) {
                 log.warning(String.format("No resource bundle found for language %s. Using 'cukedoctor_en.properties' as default bundle.", lang));
                 try {
-                    bundle = new PropertyResourceBundle(new InputStreamReader(I18nLoader.class.getResourceAsStream("/i18n/cukedoctor_en.properties"), "UTF-8"));
+                    bundle = new PropertyResourceBundle(new InputStreamReader(I18nLoader.class.getResourceAsStream("/i18n/cukedoctor_en.properties"),
+                                                                              UTF_8));
                 } catch (Exception e1) {
                     throw new RuntimeException("Could not find cukedoctor resource bundle",e1);
                 }

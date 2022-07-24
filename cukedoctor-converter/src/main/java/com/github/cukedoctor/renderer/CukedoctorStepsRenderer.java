@@ -191,7 +191,7 @@ public class CukedoctorStepsRenderer extends AbstractBaseRenderer implements Ste
                 continue;
             }
 
-            if(!isListing && line.contains("----")){
+            if(line.contains("----")){
                 isListing = true;
                 docBuilder.textLine(line);
                 continue;
@@ -202,12 +202,12 @@ public class CukedoctorStepsRenderer extends AbstractBaseRenderer implements Ste
                 docBuilder.textLine(line);
                 continue;
             }
-            //do not add discrete to complex blocks otherwise it will produce invalid markup like below:
             /**
+             * do not add discrete to complex blocks otherwise it will produce invalid markup like below:
              * [discrete]
-               [IMPORTANT]
-               [discrete]
-                ======
+             * [IMPORTANT]
+             * [discrete]
+             * ======
              */
             if(line.startsWith("======")){
                 docBuilder.textLine(line);

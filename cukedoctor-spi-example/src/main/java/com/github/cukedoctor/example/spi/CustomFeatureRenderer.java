@@ -12,46 +12,44 @@ import static com.github.cukedoctor.util.Constants.newLine;
 
 /**
  * Created by pestano on 29/02/16.
- *
- * renders features as labeled list: http://asciidoctor.org/docs/user-manual/#labeled-list
- *
+ * <p>
+ * renders features as <a href="http://asciidoctor.org/docs/user-manual/#labeled-list">labeled list</a>
+ * <p>
  * Template
- *
+ * <p>
  * Feature1::
  * +
  * ****
  * feature description
  * ****
- *   Scenario1:::
- *     +
- *     ****
- *      * Step1
- *      * Step2
- *      * StepN
- *     ****
- *   Scenario2:::
- *     +
- *     ****
- *      * Step1
- *      * Step2
- *     ****
- *
- *  Feature2:::
- *    //same as above
- *
+ * Scenario1:::
+ * +
+ * ****
+ * * Step1
+ * * Step2
+ * * StepN
+ * ****
+ * Scenario2:::
+ * +
+ * ****
+ * * Step1
+ * * Step2
+ * ****
+ * <p>
+ * Feature2:::
+ * //same as above
  */
 public class CustomFeatureRenderer extends CukedoctorFeatureRenderer {
-
 
     @Override
     public String renderFeature(Feature feature) {
         CukedoctorDocumentBuilder builder = docBuilder.createPeerBuilder();
-        builder.textLine((bold(feature.getName()))+"::").newLine();
+        builder.textLine((bold(feature.getName())) + "::").newLine();
         if (hasText(feature.getDescription())) {
             builder.append("+").sideBarBlock(feature.getDescription().trim().replaceAll("\\n", " +" + newLine()));
         }
 
-        if(feature.hasScenarios()){
+        if (feature.hasScenarios()) {
 
             ScenarioRenderer scenarioRenderer = new CustomScenarioRenderer();
             for (Scenario scenario : feature.getScenarios()) {

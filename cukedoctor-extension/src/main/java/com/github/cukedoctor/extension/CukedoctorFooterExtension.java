@@ -21,7 +21,7 @@ public class CukedoctorFooterExtension extends Postprocessor {
     public String process(Document document, String output) {
         if (document.isBasebackend("html") && System.getProperty("cukedoctor.disable.footer") == null) {
             String stopWatch = System.getProperty("cukedoctor.stopwatch");
-            Double generationTimeInSeconds = new Double(0);
+            double generationTimeInSeconds = 0;
             String documentationDate = dateFormat.format(new Date());
             String cukedoctorVersion = "";
             try {
@@ -32,7 +32,7 @@ public class CukedoctorFooterExtension extends Postprocessor {
             }
 
             if (stopWatch != null && !"".equals(stopWatch)) {
-                long begin = 0;
+                long begin;
                 try {
                     begin = Long.parseLong(stopWatch);
                     generationTimeInSeconds = (System.currentTimeMillis() - begin) / 1000.0;
@@ -47,7 +47,7 @@ public class CukedoctorFooterExtension extends Postprocessor {
                     "</a>");
             contentElement.append(" - " + documentationDate);
             contentElement.append("<span style=\"float:right;font-size:11px\"> Execution time: " +
-                    +generationTimeInSeconds + " seconds</span>");
+                    generationTimeInSeconds + " seconds</span>");
             return doc.html();
         } else {
             return output;

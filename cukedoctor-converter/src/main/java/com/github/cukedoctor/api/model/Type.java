@@ -7,6 +7,6 @@ import com.fasterxml.jackson.annotation.JsonFormat;
  */
 @JsonFormat(shape = JsonFormat.Shape.OBJECT)
 public enum Type {
-	scenario, scenario_outline, background;
+	scenario, scenario_outline, background
 
 }

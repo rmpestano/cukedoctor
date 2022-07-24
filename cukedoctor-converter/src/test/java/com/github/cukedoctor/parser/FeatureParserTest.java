@@ -1,11 +1,9 @@
 package com.github.cukedoctor.parser;
 
-import static com.github.cukedoctor.util.Constants.newLine;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
 
-import java.io.IOException;
 import java.net.URL;
 import java.nio.file.Paths;
 import java.util.List;
@@ -15,12 +13,9 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;
 
-import com.github.cukedoctor.Cukedoctor;
-import com.github.cukedoctor.api.CukedoctorConverter;
 import com.github.cukedoctor.api.model.Feature;
 import com.github.cukedoctor.api.model.Scenario;
 import com.github.cukedoctor.api.model.Step;
-import com.github.cukedoctor.util.Expectations;
 import com.github.cukedoctor.util.FileUtil;
 import com.github.cukedoctor.util.builder.FeatureBuilder;
 
@@ -33,14 +28,14 @@ public class FeatureParserTest {
 	final String onePassingOneFailing = "one_passing_one_failing.json";
 
 	@Test
-	public void shouldParseFeature() throws IOException {
+	public void shouldParseFeature() {
 		String path = FileUtil.findJsonFile("target/test-classes/json-output/" + onePassingOneFailing);
 		List<Feature> features = FeatureParser.parse(path);
 		assertThat(features).isNotNull().hasSize(1).contains(FeatureBuilder.instance().name("One passing scenario, one failing scenario").id("one-passing-scenario,-one-failing-scenario").build());
 	}
 
 	@Test
-	public void shouldParseFeatureUsingResourcePath() throws IOException {
+	public void shouldParseFeatureUsingResourcePath() {
 		URL featureFile = getClass().getResource("/json-output/" + onePassingOneFailing);
 		String path = FileUtil.findJsonFile(featureFile.getPath());
 		List<Feature> features = FeatureParser.parse(path);
@@ -48,14 +43,14 @@ public class FeatureParserTest {
 	}
 
 	@Test
-	public void shouldParseFeatureUsingLeadingSlash() throws IOException {
+	public void shouldParseFeatureUsingLeadingSlash() {
 		String path = FileUtil.findJsonFile("/target/test-classes/json-output/" + onePassingOneFailing);
 		List<Feature> features = FeatureParser.parse(path);
 		assertThat(features).isNotNull().hasSize(1).contains(FeatureBuilder.instance().name("One passing scenario, one failing scenario").id("one-passing-scenario,-one-failing-scenario").build());
 	}
 
 	@Test
-	public void shouldParseFeaturesInDir() throws IOException {
+	public void shouldParseFeaturesInDir() {
 		List<String> paths = FileUtil.findJsonFiles("target/test-classes/json-output/parser");
 		assertThat(paths).hasSize(6);
 		List<Feature> features = FeatureParser.parse(paths);
@@ -63,13 +58,13 @@ public class FeatureParserTest {
 	}
 
 	@Test
-	public void shouldParseAndFindFeaturesInDir() throws IOException {
+	public void shouldParseAndFindFeaturesInDir() {
 		List<Feature> features = FeatureParser.findAndParse("target/test-classes/json-output/parser");
 		assertThat(features).hasSize(4).contains(FeatureBuilder.instance().name("An embed data directly feature").id("an-embed-data-directly-feature").build());
 	}
 
 	@Test
-	public void shouldParseFeatureWithDocstring() throws IOException {
+	public void shouldParseFeatureWithDocstring() {
 		List<Feature> features = FeatureParser.parse("target/test-classes/json-output/parser/feature_with_docstring.json");
 		assertThat(features).hasSize(1).contains(FeatureBuilder.instance().name("An embed data directly feature").id("an-embed-data-directly-feature").build());
 		List<Scenario> scenarios = features.get(0).getScenarios();
@@ -92,7 +87,7 @@ public class FeatureParserTest {
 	}
 
 	@Test
-	public void shouldParseFeatureWithOutput() throws IOException {
+	public void shouldParseFeatureWithOutput() {
 		List<Feature> features = FeatureParser.parse("target/test-classes/json-output/parser/feature_with_output.json");
 		assertThat(features).hasSize(1);
 		List<Scenario> scenarios = features.get(0).getScenarios();
@@ -106,7 +101,7 @@ public class FeatureParserTest {
 	}
 
 	@Test
-	public void shouldParseFeatureWithAttachments() throws IOException {
+	public void shouldParseFeatureWithAttachments() {
 		List<Feature> features = FeatureParser.parse("target/test-classes/json-output/attachments.json");
 		assertThat(features).hasSize(1);
 		List<Scenario> scenarios = features.get(0).getScenarios();
@@ -139,19 +134,19 @@ public class FeatureParserTest {
 	}
 
 	@Test
-	public void shouldParseAndFindFeaturesInDirUsingLeadingSlash() throws IOException {
+	public void shouldParseAndFindFeaturesInDirUsingLeadingSlash() {
 		List<Feature> features = FeatureParser.findAndParse("/target/test-classes/json-output/parser");
 		assertThat(features).hasSize(4).contains(FeatureBuilder.instance().name("An embed data directly feature").id("an-embed-data-directly-feature").build());
 	}
 
 	@Test
-	public void shouldParseAndFindFeaturesInDirUsingAbsoluteath() throws IOException {
-		List<Feature> features = FeatureParser.findAndParse(Paths.get("").toAbsolutePath().toString() +"/target/test-classes/json-output/parser");
+	public void shouldParseAndFindFeaturesInDirUsingAbsolutePath() {
+		List<Feature> features = FeatureParser.findAndParse(Paths.get("").toAbsolutePath() + "/target/test-classes/json-output/parser");
 		assertThat(features).hasSize(4).contains(FeatureBuilder.instance().name("An embed data directly feature").id("an-embed-data-directly-feature").build());
 	}
 
 	@Test
-	public void shouldParseFeatureInAbsolutePath() throws IOException {
+	public void shouldParseFeatureInAbsolutePath() {
 		String absolutePath = Paths.get("").toAbsolutePath() + "/target/test-classes/json-output/" + onePassingOneFailing;
 		String path = FileUtil.findJsonFile(absolutePath);
 		assertThat(path).isNotNull();
@@ -184,7 +179,7 @@ public class FeatureParserTest {
 		List<Feature> features = FeatureParser.parse(filePath);
 		assertNull(features);
 	}
-	
+
 	@Test
     public void shouldParseFeatureWithCommentsInScenariosExamples() {
         List<Feature> features = FeatureParser.parse(getClass().getResource("/json-output/feature_with_comments_in_examples.json").getPath());

@@ -30,15 +30,15 @@ import static com.github.cukedoctor.util.Constants.newLine;
 public class CukedoctorConverterImpl implements CukedoctorConverter {
 
 
-    private List<Feature> features;
-    private DocumentAttributes documentAttributes;
+    private final List<Feature> features;
+    private final DocumentAttributes documentAttributes;
     private String filename;
-    private CukedoctorDocumentBuilder docBuilder;
-    private I18nLoader i18n;
+    private final CukedoctorDocumentBuilder docBuilder;
+    private final I18nLoader i18n;
     private SummaryRenderer summaryRenderer;
     private FeatureRenderer featureRenderer;
     private HeaderRenderer headerRenderer;
-    private CukedoctorConfig cukedoctorConfig;
+    private final CukedoctorConfig cukedoctorConfig;
 
 
     public CukedoctorConverterImpl(List<Feature> features, DocumentAttributes attrs) {
@@ -100,7 +100,7 @@ public class CukedoctorConverterImpl implements CukedoctorConverter {
 
     private void renderIntro() {
         List<String> files = FileUtil.findFiles(cukedoctorConfig.getIntroChapterDir(), "cukedoctor-intro.adoc", true, cukedoctorConfig.getIntroChapterRelativePath());
-        if (files != null && !files.isEmpty()) {
+        if (!files.isEmpty()) {
             String introPath = files.get(0);
             introPath = introPath.replaceAll("\\\\", "/");
             docBuilder.append("include::", introPath, "[leveloffset=+1]", newLine(), newLine());

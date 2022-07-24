@@ -12,7 +12,7 @@ import static org.junit.Assert.assertEquals;
 public class EatCukesSteps {
 
 
-	private Belly belly = new Belly();
+	private final Belly belly = new Belly();
 
 	@Given("^I have (\\d+) cukes$")
 	public void haveCukes(int cukes) {

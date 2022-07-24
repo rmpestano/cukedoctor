@@ -9,7 +9,7 @@ import java.util.LinkedList;
 
 public class MetaCuke {
     private final LinkedList<File> featureFiles = new LinkedList<>();
-    private File featureDirectory;
+    private final File featureDirectory;
     private File reportFile;
 
     public MetaCuke() throws IOException {

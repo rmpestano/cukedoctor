@@ -122,7 +122,7 @@ public abstract class Constants {
                 }
                 adocAttr.append(attrName).append(":");
             } else {
-                adocAttr.append(attrName).append(":").append(" ").append(attrValue.toString());
+                adocAttr.append(attrName).append(":").append(" ").append(attrValue);
             }
             return adocAttr.toString();
         }

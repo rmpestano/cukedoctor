@@ -1,16 +1,5 @@
 package com.github.cukedoctor.extension;
 
-import static com.github.cukedoctor.extension.CukedoctorExtensionRegistry.*;
-
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Paths;
-import java.util.List;
-import java.util.Map;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
 import com.github.cukedoctor.extension.util.FileUtil;
 import org.apache.commons.io.IOUtils;
 import org.asciidoctor.ast.Document;
@@ -18,6 +7,18 @@ import org.asciidoctor.extension.Postprocessor;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
+
+import java.io.IOException;
+import java.nio.file.Paths;
+import java.util.List;
+import java.util.Optional;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
+import static com.github.cukedoctor.extension.CukedoctorExtensionRegistry.STYLE_DISABLE_EXT_KEY;
+import static java.nio.charset.Charset.defaultCharset;
+import static java.nio.file.Files.exists;
+import static java.nio.file.Files.newInputStream;
 
 /**
  * Created by pestano on 20/07/15.
@@ -27,14 +28,14 @@ public class CukedoctorStyleExtension extends Postprocessor {
 
     private static final Logger LOG = Logger.getLogger(CukedoctorStyleExtension.class.getName());
 
-    public static final String BASE_DIR = Files.exists(Paths.get("target")) ? Paths.get("target").toString() :
-            Files.exists(Paths.get("bin")) ? Paths.get("bin").toString() : Paths.get("").toString();
+    public static final String BASE_DIR = exists(Paths.get("target")) ? Paths.get("target").toString() :
+            exists(Paths.get("bin")) ? Paths.get("bin").toString() : Paths.get("").toString();
 
     public static final String CUKEDOCTOR_CUSTOMIZATION_DIR = getProperty("CUKEDOCTOR_CUSTOMIZATION_DIR") == null ? BASE_DIR : getProperty("CUKEDOCTOR_CUSTOMIZATION_DIR");
 
     @Override
     public String process(Document document, String output) {
-        if (document.basebackend("html")) {
+        if (document.isBasebackend("html")) {
             org.jsoup.nodes.Document doc = Jsoup.parse(output, "UTF-8");
             if (System.getProperty(STYLE_DISABLE_EXT_KEY) == null) {
                 Element contentElement = doc.getElementById("footer");
@@ -54,11 +55,11 @@ public class CukedoctorStyleExtension extends Postprocessor {
 
     private void addCukedoctorCss(org.jsoup.nodes.Document document) {
         List<String> files = FileUtil.findFiles(CUKEDOCTOR_CUSTOMIZATION_DIR, "cukedoctor.css", true);
-        if (files != null && !files.isEmpty()) {
+        if (!files.isEmpty()) {
             String themePath = files.get(0);
             themePath = themePath.replaceAll("\\\\", "/");
             try {
-                String customCss = IOUtils.toString(new FileInputStream(themePath));
+                String customCss = IOUtils.toString(newInputStream(Paths.get(themePath)), defaultCharset());
                 Elements head = document.getElementsByTag("head");
                 head.append(" <style> " + customCss + "</style>");
             } catch (IOException e) {
@@ -68,9 +69,6 @@ public class CukedoctorStyleExtension extends Postprocessor {
     }
 
     private static String getProperty(String property) {
-        if (System.getProperty(property) == null) {
-            return null;
-        }
         return System.getProperty(property);
     }
 

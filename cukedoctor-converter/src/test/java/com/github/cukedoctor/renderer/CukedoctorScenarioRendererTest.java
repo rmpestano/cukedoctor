@@ -21,8 +21,6 @@ public class CukedoctorScenarioRendererTest {
     @Test
     public void shouldRenderFeatureStepsWithOneScenarioWithMultipleStep() {
         final Feature feature = FeatureBuilder.instance().aFeatureWithOneScenarioWithMultipleSteps();
-        List<Feature> features = new ArrayList<>();
-        features.add(feature);
         List<Step> steps = feature.getScenarios().get(0).getSteps();
         CukedoctorStepsRenderer stepsRenderer = new CukedoctorStepsRenderer();
         String resultDoc = stepsRenderer.renderSteps(steps, feature.getScenarios().get(0), feature);

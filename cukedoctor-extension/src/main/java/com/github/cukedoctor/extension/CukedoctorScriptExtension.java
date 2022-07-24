@@ -7,8 +7,6 @@ import org.asciidoctor.extension.Postprocessor;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Element;
 
-import java.util.Map;
-
 /**
  * Created by pestano on 20/07/15.
  * adds javascript functions to html documentation

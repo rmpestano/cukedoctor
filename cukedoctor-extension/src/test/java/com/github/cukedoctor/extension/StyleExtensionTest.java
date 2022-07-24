@@ -9,6 +9,7 @@ import java.nio.file.Paths;
 
 import com.github.cukedoctor.extension.util.FileUtil;
 import org.asciidoctor.Asciidoctor;
+import org.asciidoctor.Options;
 import org.asciidoctor.OptionsBuilder;
 import org.asciidoctor.SafeMode;
 import org.junit.*;
@@ -53,7 +54,7 @@ public class StyleExtensionTest {
         assertThat(sampleAdoc).exists();
         String customCssPath = Paths.get("").toAbsolutePath() + "/target/cukedoctor.css";
         FileUtil.copyFileFromClassPath("/cukedoctor-test.css", customCssPath);
-        asciidoctor.convertFile(sampleAdoc, OptionsBuilder.options().safe(SafeMode.UNSAFE).asMap());
+        asciidoctor.convertFile(sampleAdoc, Options.builder().safe(SafeMode.UNSAFE).build());
 
         String sampleHtml = readFileContent(loadTestFile("sample.html"));
         assertThat(sampleHtml).isNotEmpty().
@@ -67,7 +68,7 @@ public class StyleExtensionTest {
         System.setProperty(STYLE_DISABLE_EXT_KEY,"anyValue");
         File sampleAdoc = loadTestFile("sample.adoc");
         assertThat(sampleAdoc).exists();
-        asciidoctor.convertFile(sampleAdoc, OptionsBuilder.options().safe(SafeMode.UNSAFE).asMap());
+        asciidoctor.convertFile(sampleAdoc, Options.builder().safe(SafeMode.UNSAFE).build());
 
         String sampleHtml = readFileContent(loadTestFile("sample.html"));
         assertThat(sampleHtml).isNotEmpty().
