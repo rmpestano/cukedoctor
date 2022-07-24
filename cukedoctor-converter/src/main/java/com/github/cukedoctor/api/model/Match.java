@@ -4,22 +4,20 @@ import java.util.List;
 
 public class Match {
 
-	private String location;
-	private List<Argument> arguments;
+  private String location;
+  private List<Argument> arguments;
 
-	public Match() {
-	}
+  public Match() {}
 
-	public Match(String location) {
-		this.location = location;
-	}
+  public Match(String location) {
+    this.location = location;
+  }
 
-	public List<Argument> getArguments() {
-		return arguments;
-	}
+  public List<Argument> getArguments() {
+    return arguments;
+  }
 
-	public String getLocation() {
-		return location;
-	}
-
+  public String getLocation() {
+    return location;
+  }
 }

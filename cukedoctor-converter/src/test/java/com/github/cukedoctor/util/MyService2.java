@@ -7,18 +7,12 @@ import com.github.cukedoctor.renderer.AbstractBaseRenderer;
 import com.github.cukedoctor.renderer.BaseRenderer;
 
 public class MyService2 extends AbstractBaseRenderer implements BaseRenderer {
-    @Override
-    public void setI18n(I18nLoader i18nProvider) {
+  @Override
+  public void setI18n(I18nLoader i18nProvider) {}
 
-    }
+  @Override
+  public void setDocumentBuilder(CukedoctorDocumentBuilder documentBuilder) {}
 
-    @Override
-    public void setDocumentBuilder(CukedoctorDocumentBuilder documentBuilder) {
-
-    }
-
-    @Override
-    public void setDocumentAttributes(DocumentAttributes documentAttributes) {
-
-    }
+  @Override
+  public void setDocumentAttributes(DocumentAttributes documentAttributes) {}
 }
