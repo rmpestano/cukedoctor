@@ -1,19 +1,22 @@
 package com.github.cukedoctor.i18n;
 
-import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.Assert.assertNotNull;
-
 import com.github.cukedoctor.api.model.Feature;
 import com.github.cukedoctor.parser.FeatureParser;
 import com.github.cukedoctor.util.FileUtil;
-import java.util.List;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;
 
-/** Created by pestano on 19/02/16. */
+import java.util.List;
+
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.Assert.assertNotNull;
+
+/**
+ * Created by pestano on 19/02/16.
+ */
 @RunWith(JUnit4.class)
 public class I18nLoaderTest {
 
@@ -57,34 +60,34 @@ public class I18nLoaderTest {
         assertNotNull(noLanguageFeatures);
     }
 
-  @AfterClass
-  public static void resetBackToDefaultLanguage() {
-    I18nLoader.newInstance(null);
-  }
+    @AfterClass
+    public static void resetBackToDefaultLanguage() {
+        I18nLoader.newInstance(null);
+    }
 
-  @Test
-  public void shouldLoadEnglishBundle() {
-    I18nLoader i18nLoader = I18nLoader.newInstance(englishFeatures);
-    assertThat(i18nLoader.getMessage("title.features")).isEqualTo("Features");
-    assertThat(i18nLoader.getMessage("title.summary")).isEqualTo("Summary");
-    assertThat(i18nLoader.getMessage("summary.steps")).isEqualTo("Steps");
-  }
+    @Test
+    public void shouldLoadEnglishBundle(){
+        I18nLoader i18nLoader = I18nLoader.newInstance(englishFeatures);
+        assertThat(i18nLoader.getMessage("title.features")).isEqualTo("Features");
+        assertThat(i18nLoader.getMessage("title.summary")).isEqualTo("Summary");
+        assertThat(i18nLoader.getMessage("summary.steps")).isEqualTo("Steps");
+    }
 
-  @Test
-  public void shouldLoadPortugueseBundle() {
-    I18nLoader i18nLoader = I18nLoader.newInstance(portugueseFeatures);
-    assertThat(i18nLoader.getMessage("title.features")).isEqualTo("Funcionalidades");
-    assertThat(i18nLoader.getMessage("title.summary")).isEqualTo("Resumo");
-    assertThat(i18nLoader.getMessage("summary.steps")).isEqualTo("Passos");
-  }
+    @Test
+    public void shouldLoadPortugueseBundle(){
+        I18nLoader i18nLoader = I18nLoader.newInstance(portugueseFeatures);
+        assertThat(i18nLoader.getMessage("title.features")).isEqualTo("Funcionalidades");
+        assertThat(i18nLoader.getMessage("title.summary")).isEqualTo("Resumo");
+        assertThat(i18nLoader.getMessage("summary.steps")).isEqualTo("Passos");
+    }
 
-  @Test
-  public void shouldLoadSpanishBundle() {
-    I18nLoader i18nLoader = I18nLoader.newInstance(spanishFeatures);
-    assertThat(i18nLoader.getMessage("title.features")).isEqualTo("Características");
-    assertThat(i18nLoader.getMessage("title.summary")).isEqualTo("Resumen");
-    assertThat(i18nLoader.getMessage("summary.steps")).isEqualTo("Pasos");
-  }
+    @Test
+    public void shouldLoadSpanishBundle(){
+        I18nLoader i18nLoader = I18nLoader.newInstance(spanishFeatures);
+        assertThat(i18nLoader.getMessage("title.features")).isEqualTo("Características");
+        assertThat(i18nLoader.getMessage("title.summary")).isEqualTo("Resumen");
+        assertThat(i18nLoader.getMessage("summary.steps")).isEqualTo("Pasos");
+    }
 
     @Test
     public void shouldLoadFrenchBundle(){
@@ -118,11 +121,11 @@ public class I18nLoaderTest {
         assertThat(i18nLoader.getMessage("summary.steps")).isEqualTo("Étapes");
     }
 
-  @Test
-  public void shouldLoadEnglishBundleForFeaturesWithNoLanguage() {
-    I18nLoader i18nLoader = I18nLoader.newInstance(noLanguageFeatures);
-    assertThat(i18nLoader.getMessage("title.features")).isEqualTo("Features");
-    assertThat(i18nLoader.getMessage("title.summary")).isEqualTo("Summary");
-    assertThat(i18nLoader.getMessage("summary.steps")).isEqualTo("Steps");
-  }
+    @Test
+    public void shouldLoadEnglishBundleForFeaturesWithNoLanguage(){
+        I18nLoader i18nLoader = I18nLoader.newInstance(noLanguageFeatures);
+        assertThat(i18nLoader.getMessage("title.features")).isEqualTo("Features");
+        assertThat(i18nLoader.getMessage("title.summary")).isEqualTo("Summary");
+        assertThat(i18nLoader.getMessage("summary.steps")).isEqualTo("Steps");
+    }
 }
