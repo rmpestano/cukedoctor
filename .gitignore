@@ -45,3 +45,8 @@ test-output/
 
 #linux te files
 *~
+
+# Cukedoctor
+/cukedoctor-main/test.svg
+/cukedoctor-main/.asciidoctor
+/cukedoctor-main/themes

@@ -415,11 +415,18 @@
                         </configuration>
                         <executions>
                             <execution>
-                                <id>spotless-format</id>
+                                <id>apply-format</id>
                                 <goals>
                                     <goal>apply</goal>
                                 </goals>
                                 <phase>process-sources</phase>
+                            </execution>
+                            <execution>
+                                <id>check-format</id>
+                                <goals>
+                                    <goal>check</goal>
+                                </goals>
+                                <phase>compile</phase>
                             </execution>
                         </executions>
                     </plugin>
