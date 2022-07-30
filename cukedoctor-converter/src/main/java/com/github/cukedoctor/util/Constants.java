@@ -116,10 +116,12 @@ public abstract class Constants {
         this.name = name;
       }
 
-      public String getName() {
-        return name;
-      }
-    }
+            public String getName() {
+                return name;
+            }
+
+
+        }
 
     private static String toAdocAttr(String attrName, Object attrValue) {
       if (attrValue == null || "".equals(attrValue.toString().trim())) {

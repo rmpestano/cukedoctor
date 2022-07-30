@@ -3,35 +3,34 @@ package com.github.cukedoctor.api;
 import static com.github.cukedoctor.util.ObjectUtil.getFieldValue;
 
 import com.github.cukedoctor.util.Constants;
+import org.slf4j.LoggerFactory;
+
 import java.lang.reflect.Field;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /** Created by pestano on 04/06/15. Document overall configuration */
 public class DocumentAttributes {
-
-  private String docTitle = "Living Documentation";
-  private String backend = "html5";
-  private String docType = "book";
-  private String toc = "right";
-  private String icons = "font";
-  private String tocLevels = "3";
-  private Boolean linkCss = null;
-  private Boolean sectAnchors = true;
-  private Boolean sectLink = true;
-  private Boolean numbered = null;
-  private Boolean docInfo = true;
-  private String sourceHighlighter = "highlightjs";
-  private String revNumber;
-  private Boolean hardBreaks = true;
-  private String pdfStyle;
-  private String chapterLabel = "Chapter";
-  private String versionLabel = "Version";
-  private String stem = null;
-  private Boolean allowUriRead = null;
-  private Boolean dataUri = null;
+    private String docTitle = "Living Documentation";
+    private String backend = "html5";
+    private String docType = "book";
+    private String toc = "right";
+    private String icons = "font";
+    private String tocLevels = "3";
+    private Boolean linkCss = null;
+    private Boolean sectAnchors = true;
+    private Boolean sectLink = true;
+    private Boolean numbered = null;
+    private Boolean docInfo = true;
+    private String sourceHighlighter = "highlightjs";
+    private String revNumber;
+    private Boolean hardBreaks = true;
+    private String pdfStyle;
+    private String chapterLabel = "Chapter";
+    private String versionLabel = "Version";
+    private String stem = null;
+    private Boolean allowUriRead = null;
+    private Boolean dataUri = null;
 
   public DocumentAttributes() {}
 
@@ -301,22 +300,21 @@ public class DocumentAttributes {
     return createAttributesMap();
   }
 
-  private Map<String, Object> createAttributesMap() {
-    Map<String, Object> attributesMap = new HashMap<>();
-    for (Field field : getClass().getDeclaredFields()) {
-      try {
-        String fieldName = field.getName();
-        Object fieldValue = getFieldValue(this, fieldName);
-        if (fieldValue != null) {
-          Constants.Attributes.Name asciidocAttrName =
-              Constants.Attributes.Name.valueOf(fieldName.toUpperCase());
-          attributesMap.put(asciidocAttrName.getName(), fieldValue.toString());
+    private Map<String, Object> createAttributesMap() {
+        Map<String, Object> attributesMap = new HashMap<>();
+        for (Field field : getClass().getDeclaredFields()) {
+            try {
+                String fieldName = field.getName();
+                Object fieldValue = getFieldValue(this, fieldName);
+                if (fieldValue != null) {
+                    Constants.Attributes.Name asciidocAttrName = Constants.Attributes.Name.valueOf(fieldName.toUpperCase());
+                    attributesMap.put(asciidocAttrName.getName(), fieldValue.toString());
+                }
+            } catch (Exception e) {
+                LoggerFactory.getLogger(DocumentAttributes.class)
+                             .warn("Could not get field value of attribute {}", field.getName(), e);
+            }
         }
-      } catch (Exception e) {
-        Logger.getLogger(getClass().getName())
-            .log(Level.WARNING, "Could not get field value of attribute: " + field.getName(), e);
-      }
+        return attributesMap;
     }
-    return attributesMap;
-  }
 }

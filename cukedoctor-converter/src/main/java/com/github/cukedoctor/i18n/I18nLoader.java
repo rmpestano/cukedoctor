@@ -1,15 +1,16 @@
 package com.github.cukedoctor.i18n;
 
-import static com.github.cukedoctor.util.Assert.hasText;
-
+import com.github.cukedoctor.api.DocumentAttributes;
 import com.github.cukedoctor.api.model.Feature;
 import com.github.cukedoctor.util.Constants;
 import com.github.cukedoctor.util.FileUtil;
 import java.io.*;
 import java.text.MessageFormat;
 import java.util.*;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import com.github.cukedoctor.util.Constants;
+import org.slf4j.LoggerFactory;
+
+import static com.github.cukedoctor.util.Assert.hasText;
 
 /**
  * This class is responsible for internationalization.
@@ -17,10 +18,10 @@ import java.util.logging.Logger;
  * <p>It uses features language to determine in which language the documentation will be generated.
  * Created by pestano on 19/02/16.
  */
-public class I18nLoader extends ResourceBundle.Control {
+public class I18nLoader extends ResourceBundle.Control{
+    private static final org.slf4j.Logger log = LoggerFactory.getLogger(I18nLoader.class);
 
-  private static I18nLoader instance;
-  private static Logger log = Logger.getLogger(I18nLoader.class.getName());
+    private static I18nLoader instance;
 
   private ResourceBundle bundle;
 
@@ -51,37 +52,31 @@ public class I18nLoader extends ResourceBundle.Control {
     return MessageFormat.format(getMessage(key), params);
   }
 
-  private void init(List<Feature> features) {
-    String lang = resolveFeatureLanguage(features);
-    if (!hasText(lang)) {
-      lang = "en";
-    }
-    if (lang != null && bundle == null) {
-      InputStream stream = findCukedoctorProperties(Constants.BASE_DIR);
-      if (stream == null) {
-        String bundleName = toBundleName("/i18n/cukedoctor", Locale.forLanguageTag(lang));
-        String resourceName = toResourceName(bundleName, "properties");
-        stream = I18nLoader.class.getResourceAsStream(resourceName);
-      }
-      try {
-        bundle = new PropertyResourceBundle(new InputStreamReader(stream, "UTF-8"));
-      } catch (Exception e) {
-        log.warning(
-            String.format(
-                "No resource bundle found for language %s. Using 'cukedoctor_en.properties' as default bundle.",
-                lang));
-        try {
-          bundle =
-              new PropertyResourceBundle(
-                  new InputStreamReader(
-                      I18nLoader.class.getResourceAsStream("/i18n/cukedoctor_en.properties"),
-                      "UTF-8"));
-        } catch (Exception e1) {
-          throw new RuntimeException("Could not find cukedoctor resource bundle", e1);
+    private void init(List<Feature> features) {
+        String lang = resolveFeatureLanguage(features);
+        if (!hasText(lang)) {
+            lang = "en";
         }
-      }
+        if (lang != null && bundle == null) {
+            InputStream stream = findCukedoctorProperties(Constants.BASE_DIR);
+            if(stream == null){
+                String bundleName = toBundleName("/i18n/cukedoctor", Locale.forLanguageTag(lang));
+                String resourceName = toResourceName(bundleName, "properties");
+                stream = I18nLoader.class.getResourceAsStream(resourceName);
+            }
+            try {
+                bundle = new PropertyResourceBundle(new InputStreamReader(stream, "UTF-8"));
+            } catch (Exception e) {
+                log.warn("No resource bundle found for language {}. " +
+                         "Using 'cukedoctor_en.properties' as default bundle.", lang);
+                try {
+                    bundle = new PropertyResourceBundle(new InputStreamReader(I18nLoader.class.getResourceAsStream("/i18n/cukedoctor_en.properties"), "UTF-8"));
+                } catch (Exception e1) {
+                    throw new RuntimeException("Could not find cukedoctor resource bundle",e1);
+                }
+            }
+        }
     }
-  }
 
   private String resolveFeatureLanguage(List<Feature> features) {
     if (features != null) {
@@ -94,19 +89,23 @@ public class I18nLoader extends ResourceBundle.Control {
     return null;
   }
 
-  /** looks for a file named cukedoctor.properties using @baseDir as starting point */
-  private InputStream findCukedoctorProperties(String baseDir) {
-    List<String> files = FileUtil.findFiles(baseDir, "cukedoctor.properties", true);
-    if (files != null && !files.isEmpty()) {
-      String path = files.get(0);
-      log.fine("Loading cukedoctor resource bundle from: " + path);
-      File file = new File(path);
-      try {
-        return new FileInputStream(file);
-      } catch (Exception e) {
-        log.log(Level.WARNING, "Could not load resource bundle from target folder", e);
-      }
+    /**
+     * looks for a file named cukedoctor.properties using @baseDir as starting point
+     *
+     */
+    private InputStream findCukedoctorProperties(String baseDir) {
+        List<String> files = FileUtil.findFiles(baseDir,"cukedoctor.properties",true);
+        if(files != null && !files.isEmpty()){
+            String path = files.get(0);
+            log.trace("Loading cukedoctor resource bundle from: " + path);
+            File file = new File(path);
+            try {
+                return new FileInputStream(file);
+            } catch (Exception e) {
+                log.warn("Could not load resource bundle from target folder", e);
+            }
+        }
+        return null;
     }
-    return null;
-  }
+
 }
