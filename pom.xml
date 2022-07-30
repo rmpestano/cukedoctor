@@ -20,6 +20,7 @@
     </description>
 
     <modules>
+        <module>cukedoctor-parent</module>
         <module>cukedoctor-converter</module>
         <module>cukedoctor-maven-plugin</module>
         <module>cukedoctor-main</module>
@@ -27,7 +28,6 @@
         <module>cukedoctor-spi-example</module>
         <module>cukedoctor-section-layout</module>
         <module>cukedoctor-multipage-layout</module>
-        <module>cukedoctor-parent</module>
     </modules>
 
     <dependencies>

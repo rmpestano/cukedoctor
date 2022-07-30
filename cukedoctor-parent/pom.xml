@@ -246,7 +246,7 @@
                 </plugin>
                 <plugin>
                     <artifactId>maven-surefire-report-plugin</artifactId>
-                    <version>2.19.1</version>
+                    <version>2.22.2</version>
                     <configuration>
                         <aggregate>true</aggregate>
                         <includes>
@@ -301,6 +301,7 @@
                     <artifactId>coveralls-maven-plugin</artifactId>
                     <version>4.3.0</version>
                     <configuration>
+                        <!--suppress UnresolvedMavenProperty -->
                         <repoToken>${COVERAGE_TOKEN}</repoToken>
                         <sourceDirectories>
                             <sourceDirectory>cukedoctor-maven-plugin/target/generated-sources/plugin</sourceDirectory>
