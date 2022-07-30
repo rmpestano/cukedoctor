@@ -1,14 +1,14 @@
 package com.github.cukedoctor.i18n;
 
+import com.github.cukedoctor.api.DocumentAttributes;
 import com.github.cukedoctor.api.model.Feature;
 import com.github.cukedoctor.util.FileUtil;
 
 import java.io.*;
 import java.text.MessageFormat;
 import java.util.*;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import com.github.cukedoctor.util.Constants;
+import org.slf4j.LoggerFactory;
 
 import static com.github.cukedoctor.util.Assert.hasText;
 
@@ -20,9 +20,9 @@ import static com.github.cukedoctor.util.Assert.hasText;
  * Created by pestano on 19/02/16.
  */
 public class I18nLoader extends ResourceBundle.Control{
+    private static final org.slf4j.Logger log = LoggerFactory.getLogger(I18nLoader.class);
 
     private static I18nLoader instance;
-    private static Logger log = Logger.getLogger(I18nLoader.class.getName());
 
     private ResourceBundle bundle;
 
@@ -71,7 +71,8 @@ public class I18nLoader extends ResourceBundle.Control{
             try {
                 bundle = new PropertyResourceBundle(new InputStreamReader(stream, "UTF-8"));
             } catch (Exception e) {
-                log.warning(String.format("No resource bundle found for language %s. Using 'cukedoctor_en.properties' as default bundle.", lang));
+                log.warn("No resource bundle found for language {}. " +
+                         "Using 'cukedoctor_en.properties' as default bundle.", lang);
                 try {
                     bundle = new PropertyResourceBundle(new InputStreamReader(I18nLoader.class.getResourceAsStream("/i18n/cukedoctor_en.properties"), "UTF-8"));
                 } catch (Exception e1) {
@@ -100,12 +101,12 @@ public class I18nLoader extends ResourceBundle.Control{
         List<String> files = FileUtil.findFiles(baseDir,"cukedoctor.properties",true);
         if(files != null && !files.isEmpty()){
             String path = files.get(0);
-            log.fine("Loading cukedoctor resource bundle from: " + path);
+            log.trace("Loading cukedoctor resource bundle from: " + path);
             File file = new File(path);
             try {
                 return new FileInputStream(file);
             } catch (Exception e) {
-                log.log(Level.WARNING, "Could not load resource bundle from target folder", e);
+                log.warn("Could not load resource bundle from target folder", e);
             }
         }
         return null;

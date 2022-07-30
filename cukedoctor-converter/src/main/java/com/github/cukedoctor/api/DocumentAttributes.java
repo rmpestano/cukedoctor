@@ -2,12 +2,11 @@ package com.github.cukedoctor.api;
 
 
 import com.github.cukedoctor.util.Constants;
+import org.slf4j.LoggerFactory;
 
 import java.lang.reflect.Field;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 import static com.github.cukedoctor.util.ObjectUtil.getFieldValue;
 
@@ -16,7 +15,6 @@ import static com.github.cukedoctor.util.ObjectUtil.getFieldValue;
  * Document overall configuration
  */
 public class DocumentAttributes {
-
     private String docTitle = "Living Documentation";
     private String backend = "html5";
     private String docType = "book";
@@ -323,7 +321,8 @@ public class DocumentAttributes {
                     attributesMap.put(asciidocAttrName.getName(), fieldValue.toString());
                 }
             } catch (Exception e) {
-                Logger.getLogger(getClass().getName()).log(Level.WARNING, "Could not get field value of attribute: " + field.getName(), e);
+                LoggerFactory.getLogger(DocumentAttributes.class)
+                             .warn("Could not get field value of attribute {}", field.getName(), e);
             }
         }
         return attributesMap;

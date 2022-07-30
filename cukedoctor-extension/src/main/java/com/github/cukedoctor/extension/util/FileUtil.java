@@ -3,6 +3,7 @@ package com.github.cukedoctor.extension.util;
 
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.IOUtils;
+import org.slf4j.LoggerFactory;
 
 import java.io.*;
 import java.nio.file.*;
@@ -10,7 +11,6 @@ import java.nio.file.attribute.BasicFileAttributes;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
-import java.util.logging.Logger;
 import java.util.regex.Pattern;
 
 /**
@@ -18,7 +18,7 @@ import java.util.regex.Pattern;
  */
 public class FileUtil {
 
-    private final static Logger LOG = Logger.getLogger(FileUtil.class.getName());
+    private final static org.slf4j.Logger log = LoggerFactory.getLogger(FileUtil.class.getName());
     public static final Pattern ADOC_FILE_EXTENSION = Pattern.compile("([^\\s]+(\\.(?i)(ad|adoc|asciidoc|asc))$)");
 
     /**
@@ -50,10 +50,10 @@ public class FileUtil {
             File file = new File(fullyQualifiedName);
             file.createNewFile();
             FileUtils.write(file, data, "UTF-8");
-            LOG.info("Wrote: " + file.getAbsolutePath());
+            log.info("Wrote: " + file.getAbsolutePath());
             return file;
         } catch (IOException e) {
-            LOG.log(Level.SEVERE, "Could not create file " + name, e);
+            log.error("Could not create file " + name, e);
             return null;
         }
     }
@@ -86,7 +86,7 @@ public class FileUtil {
             try (InputStream in = FileUtil.class.getResourceAsStream(source)) {
                 return saveFile(dest, IOUtils.toString(in));
             } catch (IOException e) {
-                LOG.log(Level.SEVERE, "Could not copy source file: " + source + " to dest file: " + dest, e);
+                log.error("Could not copy source file: " + source + " to dest file: " + dest, e);
             }
         }
         return null;
@@ -134,7 +134,7 @@ public class FileUtil {
                 }
             });
         } catch (IOException e) {
-            LOG.log(Level.WARNING, "Problems scanning " + sulfix + " files in path:" + startDir, e.getMessage());
+            log.warn("Problems scanning " + sulfix + " files in path:" + startDir, e.getMessage());
         }
         return absolutePaths;
     }
@@ -150,7 +150,7 @@ public class FileUtil {
                 InputStream in = FileUtil.class.getResourceAsStream(source);
                 return saveFile(dest, IOUtils.toString(in));
             } catch (IOException e) {
-                LOG.log(Level.SEVERE, "Could not copy source file: " + source + " to dest file: " + dest, e);
+                log.error("Could not copy source file: " + source + " to dest file: " + dest, e);
             }
         }
         return null;
@@ -169,11 +169,11 @@ public class FileUtil {
                 bufferedReader.close();
 
             } catch (Exception e) {
-                LOG.log(Level.WARNING, "Could not read file content: " + target);
+                log.warn("Could not read file content: " + target);
             }
 
         } catch (Exception e) {
-            LOG.log(Level.WARNING, "Could not read file content: " + target);
+            log.warn("Could not read file content: " + target);
         }
 
         return content.toString();
