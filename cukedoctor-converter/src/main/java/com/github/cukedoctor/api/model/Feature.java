@@ -5,21 +5,16 @@ import static com.github.cukedoctor.util.Assert.notEmpty;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.github.cukedoctor.api.DocumentAttributes;
 import com.github.cukedoctor.api.ScenarioResults;
 import com.github.cukedoctor.api.StepResults;
 import com.github.cukedoctor.util.Constants;
-import org.slf4j.LoggerFactory;
-
 import java.util.*;
 import java.util.concurrent.atomic.AtomicInteger;
-
-import static com.github.cukedoctor.util.Assert.hasText;
-import static com.github.cukedoctor.util.Assert.notEmpty;
+import org.slf4j.LoggerFactory;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Feature implements Comparable<Feature> {
-    private static final org.slf4j.Logger log = LoggerFactory.getLogger(Feature.class);
+  private static final org.slf4j.Logger log = LoggerFactory.getLogger(Feature.class);
 
   private String id;
   private String name;
@@ -292,16 +287,18 @@ public class Feature implements Comparable<Feature> {
     return order;
   }
 
-    private void trySetOrder(Optional<String> order, String source) {
-        if (order.isPresent() && hasText(order.get())) {
-            try {
-                this.order = Integer.parseInt(order.get());
-            } catch (Exception e) {
-                log.warn(String.format("Could not get order of feature %s from %s cause: %s", name, source,
-                                   e.getMessage()));
-            }
-        }
+  private void trySetOrder(Optional<String> order, String source) {
+    if (order.isPresent() && hasText(order.get())) {
+      try {
+        this.order = Integer.parseInt(order.get());
+      } catch (Exception e) {
+        log.warn(
+            String.format(
+                "Could not get order of feature %s from %s cause: %s",
+                name, source, e.getMessage()));
+      }
     }
+  }
 
   @Override
   public boolean equals(Object o) {

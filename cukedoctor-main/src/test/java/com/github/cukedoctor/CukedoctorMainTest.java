@@ -25,18 +25,27 @@ public class CukedoctorMainTest {
   PrintStream defaultOut;
   ByteArrayOutputStream baos;
 
-    @Before
-    public void setup() {
-        baos = new ByteArrayOutputStream();
-        newOut = new PrintStream(baos);
-        defaultOut = System.out;
-        System.setOut(newOut);
-        System.setProperty("HIDE_FEATURES_SECTION", Boolean.toString(GlobalConfig.getInstance().getLayoutConfig().isHideFeaturesSection()));
-        System.setProperty("HIDE_SUMMARY_SECTION", Boolean.toString(GlobalConfig.getInstance().getLayoutConfig().isHideSummarySection()));
-        System.setProperty("HIDE_SCENARIO_KEYWORD", Boolean.toString(GlobalConfig.getInstance().getLayoutConfig().isHideScenarioKeyword()));
-        System.setProperty("HIDE_STEP_TIME", Boolean.toString(GlobalConfig.getInstance().getLayoutConfig().isHideStepTime()));
-        System.setProperty("HIDE_TAGS", Boolean.toString(GlobalConfig.getInstance().getLayoutConfig().isHideTags()));
-    }
+  @Before
+  public void setup() {
+    baos = new ByteArrayOutputStream();
+    newOut = new PrintStream(baos);
+    defaultOut = System.out;
+    System.setOut(newOut);
+    System.setProperty(
+        "HIDE_FEATURES_SECTION",
+        Boolean.toString(GlobalConfig.getInstance().getLayoutConfig().isHideFeaturesSection()));
+    System.setProperty(
+        "HIDE_SUMMARY_SECTION",
+        Boolean.toString(GlobalConfig.getInstance().getLayoutConfig().isHideSummarySection()));
+    System.setProperty(
+        "HIDE_SCENARIO_KEYWORD",
+        Boolean.toString(GlobalConfig.getInstance().getLayoutConfig().isHideScenarioKeyword()));
+    System.setProperty(
+        "HIDE_STEP_TIME",
+        Boolean.toString(GlobalConfig.getInstance().getLayoutConfig().isHideStepTime()));
+    System.setProperty(
+        "HIDE_TAGS", Boolean.toString(GlobalConfig.getInstance().getLayoutConfig().isHideTags()));
+  }
 
   @After
   public void tearDown() throws IOException {
@@ -120,17 +129,18 @@ public class CukedoctorMainTest {
                 + "-o: Living-Documentation"
                 + newLine());
 
-        baos.close();
-        assertThat(generatedDoc).contains(":toc: right").
-                contains(":sectlink:").
-                containsOnlyOnce("= *Living Documentation*");
+    baos.close();
+    assertThat(generatedDoc)
+        .contains(":toc: right")
+        .contains(":sectlink:")
+        .containsOnlyOnce("= *Living Documentation*");
 
-        FileUtil.removeFile("Living-Documentation.adoc");
-        FileUtil.removeFile("Living-Documentation.html");
-        FileUtil.removeFile("test.svg");
-        FileUtil.removeDir(".asciidoctor");
-        FileUtil.removeDir("themes");
-    }
+    FileUtil.removeFile("Living-Documentation.adoc");
+    FileUtil.removeFile("Living-Documentation.html");
+    FileUtil.removeFile("test.svg");
+    FileUtil.removeDir(".asciidoctor");
+    FileUtil.removeDir("themes");
+  }
 
   @Test
   public void shouldCreateDocumentationWithoutFeaturesSection() throws IOException {
@@ -160,14 +170,14 @@ public class CukedoctorMainTest {
           .contains("<strong>Summary</strong>")
           .doesNotContain("<strong>Features</strong>");
 
-        } finally {
-            FileUtil.removeFile("Living-Documentation.adoc");
-            FileUtil.removeFile("Living-Documentation.html");
-            FileUtil.removeFile("test.svg");
-            FileUtil.removeDir(".asciidoctor");
-            FileUtil.removeDir("themes");
-        }
+    } finally {
+      FileUtil.removeFile("Living-Documentation.adoc");
+      FileUtil.removeFile("Living-Documentation.html");
+      FileUtil.removeFile("test.svg");
+      FileUtil.removeDir(".asciidoctor");
+      FileUtil.removeDir("themes");
     }
+  }
 
   @Test
   public void shouldCreateDocumentationWithoutSummarySection() throws IOException {
@@ -186,14 +196,14 @@ public class CukedoctorMainTest {
           .doesNotContain("<strong>Summary</strong>")
           .contains("<strong>Features</strong>");
 
-        } finally {
-            FileUtil.removeFile("Living-Documentation.adoc");
-            FileUtil.removeFile("Living-Documentation.html");
-            FileUtil.removeFile("test.svg");
-            FileUtil.removeDir(".asciidoctor");
-            FileUtil.removeDir("themes");
-        }
+    } finally {
+      FileUtil.removeFile("Living-Documentation.adoc");
+      FileUtil.removeFile("Living-Documentation.html");
+      FileUtil.removeFile("test.svg");
+      FileUtil.removeDir(".asciidoctor");
+      FileUtil.removeDir("themes");
     }
+  }
 
   @Test
   public void shouldCreateDocumentationWithoutScenarioKeyword() throws IOException {
@@ -211,14 +221,14 @@ public class CukedoctorMainTest {
           .doesNotContain("==== Scenario: Passing")
           .contains("==== Passing");
 
-        } finally {
-            FileUtil.removeFile("Living-Documentation.adoc");
-            FileUtil.removeFile("Living-Documentation.html");
-            FileUtil.removeFile("test.svg");
-            FileUtil.removeDir(".asciidoctor");
-            FileUtil.removeDir("themes");
-        }
+    } finally {
+      FileUtil.removeFile("Living-Documentation.adoc");
+      FileUtil.removeFile("Living-Documentation.html");
+      FileUtil.removeFile("test.svg");
+      FileUtil.removeDir(".asciidoctor");
+      FileUtil.removeDir("themes");
     }
+  }
 
   @Test
   public void shouldCreateDocumentationWithoutStepTime() throws IOException {
@@ -234,14 +244,14 @@ public class CukedoctorMainTest {
 
       assertThat(contentOf(generatedFile)).doesNotContain("[small right]#(001ms)#");
 
-        } finally {
-            FileUtil.removeFile("Living-Documentation.adoc");
-            FileUtil.removeFile("Living-Documentation.html");
-            FileUtil.removeFile("test.svg");
-            FileUtil.removeDir(".asciidoctor");
-            FileUtil.removeDir("themes");
-        }
+    } finally {
+      FileUtil.removeFile("Living-Documentation.adoc");
+      FileUtil.removeFile("Living-Documentation.html");
+      FileUtil.removeFile("test.svg");
+      FileUtil.removeDir(".asciidoctor");
+      FileUtil.removeDir("themes");
     }
+  }
 
   @Test
   public void shouldCreateDocumentationUsingCoderaySourceHighlighter() throws IOException {
@@ -258,14 +268,14 @@ public class CukedoctorMainTest {
 
       assertThat(contentOf(generatedFile)).contains(":source-highlighter: coderay");
 
-        } finally {
-            FileUtil.removeFile("Living-Documentation.adoc");
-            FileUtil.removeFile("Living-Documentation.html");
-            FileUtil.removeFile("test.svg");
-            FileUtil.removeDir(".asciidoctor");
-            FileUtil.removeDir("themes");
-        }
+    } finally {
+      FileUtil.removeFile("Living-Documentation.adoc");
+      FileUtil.removeFile("Living-Documentation.html");
+      FileUtil.removeFile("test.svg");
+      FileUtil.removeDir(".asciidoctor");
+      FileUtil.removeDir("themes");
     }
+  }
 
   @Test
   public void shouldCreateDocumentationWithoutTags() throws IOException {
@@ -281,14 +291,14 @@ public class CukedoctorMainTest {
 
       assertThat(contentOf(generatedFile)).doesNotContain("[small]#tags:");
 
-        } finally {
-            FileUtil.removeFile("Living-Documentation.adoc");
-            FileUtil.removeFile("Living-Documentation.html");
-            FileUtil.removeFile("test.svg");
-            FileUtil.removeDir(".asciidoctor");
-            FileUtil.removeDir("themes");
-        }
+    } finally {
+      FileUtil.removeFile("Living-Documentation.adoc");
+      FileUtil.removeFile("Living-Documentation.html");
+      FileUtil.removeFile("test.svg");
+      FileUtil.removeDir(".asciidoctor");
+      FileUtil.removeDir("themes");
     }
+  }
 
   @Test
   public void shouldRenderHtmlForOneFeature() {
@@ -398,20 +408,21 @@ public class CukedoctorMainTest {
                   + "-o: Living-Documentation"
                   + newLine());
 
-            baos.close();
-            assertThat(generatedDoc).contains(":toc: right").
-                    contains(":sectlink:").
-                    containsOnlyOnce("= *Living Documentation*").
-                    contains(":chapter-label: mychapter").
-                    contains(":version-label: myversion");
-        } finally {
-            FileUtil.removeFile("Living-Documentation.adoc");
-            FileUtil.removeFile("Living-Documentation.html");
-            FileUtil.removeFile("test.svg");
-            FileUtil.removeDir(".asciidoctor");
-            FileUtil.removeDir("themes");
-        }
+      baos.close();
+      assertThat(generatedDoc)
+          .contains(":toc: right")
+          .contains(":sectlink:")
+          .containsOnlyOnce("= *Living Documentation*")
+          .contains(":chapter-label: mychapter")
+          .contains(":version-label: myversion");
+    } finally {
+      FileUtil.removeFile("Living-Documentation.adoc");
+      FileUtil.removeFile("Living-Documentation.html");
+      FileUtil.removeFile("test.svg");
+      FileUtil.removeDir(".asciidoctor");
+      FileUtil.removeDir("themes");
     }
+  }
 
   @Test
   public void shouldRenderStemWhenSpecifiedOnCommandLine() throws IOException {
@@ -421,33 +432,31 @@ public class CukedoctorMainTest {
       baos.close();
       assertThat(generatedDoc).contains(":stem: latexmath" + newLine());
 
-        } finally {
-            FileUtil.removeFile("Living-Documentation.adoc");
-            FileUtil.removeFile("Living-Documentation.html");
-            FileUtil.removeFile("test.svg");
-            FileUtil.removeDir(".asciidoctor");
-            FileUtil.removeDir("themes");
-        }
+    } finally {
+      FileUtil.removeFile("Living-Documentation.adoc");
+      FileUtil.removeFile("Living-Documentation.html");
+      FileUtil.removeFile("test.svg");
+      FileUtil.removeDir(".asciidoctor");
+      FileUtil.removeDir("themes");
     }
+  }
 
-    @Test
-    public void shouldRenderAllowUriReadWhenSpecifiedOnCommandLine()  throws IOException {
-        try {
-            String generatedDoc = new CukedoctorMain().execute(new String[]{
-                    "-allowUriRead", ""
-            });
-            System.out.flush();
-            baos.close();
-            assertThat(generatedDoc).contains(":allow-uri-read:" + newLine());
+  @Test
+  public void shouldRenderAllowUriReadWhenSpecifiedOnCommandLine() throws IOException {
+    try {
+      String generatedDoc = new CukedoctorMain().execute(new String[] {"-allowUriRead", ""});
+      System.out.flush();
+      baos.close();
+      assertThat(generatedDoc).contains(":allow-uri-read:" + newLine());
 
-        } finally {
-            FileUtil.removeFile("Living-Documentation.adoc");
-            FileUtil.removeFile("Living-Documentation.html");
-            FileUtil.removeFile("test.svg");
-            FileUtil.removeDir(".asciidoctor");
-            FileUtil.removeDir("themes");
-        }
+    } finally {
+      FileUtil.removeFile("Living-Documentation.adoc");
+      FileUtil.removeFile("Living-Documentation.html");
+      FileUtil.removeFile("test.svg");
+      FileUtil.removeDir(".asciidoctor");
+      FileUtil.removeDir("themes");
     }
+  }
 
   @Test
   public void shouldCreateDiagramWithAsciidoctorJDiagram() {
@@ -470,21 +479,19 @@ public class CukedoctorMainTest {
     }
   }
 
-    @Test
-    public void shouldRenderDataUriWhenSpecifiedOnCommandLine()  throws IOException {
-        try {
-            String generatedDoc = new CukedoctorMain().execute(new String[]{
-                    "-dataUri"
-            });
-            System.out.flush();
-            baos.close();
-            assertThat(generatedDoc).contains(":data-uri:" + newLine());
-        } finally {
-            FileUtil.removeFile("Living-Documentation.adoc");
-            FileUtil.removeFile("Living-Documentation.html");
-            FileUtil.removeFile("test.svg");
-            FileUtil.removeDir(".asciidoctor");
-            FileUtil.removeDir("themes");
-        }
+  @Test
+  public void shouldRenderDataUriWhenSpecifiedOnCommandLine() throws IOException {
+    try {
+      String generatedDoc = new CukedoctorMain().execute(new String[] {"-dataUri"});
+      System.out.flush();
+      baos.close();
+      assertThat(generatedDoc).contains(":data-uri:" + newLine());
+    } finally {
+      FileUtil.removeFile("Living-Documentation.adoc");
+      FileUtil.removeFile("Living-Documentation.html");
+      FileUtil.removeFile("test.svg");
+      FileUtil.removeDir(".asciidoctor");
+      FileUtil.removeDir("themes");
     }
+  }
 }

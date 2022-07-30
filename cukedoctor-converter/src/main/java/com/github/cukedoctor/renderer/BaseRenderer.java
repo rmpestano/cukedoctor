@@ -1,7 +1,6 @@
 package com.github.cukedoctor.renderer;
 
 import com.github.cukedoctor.api.CukedoctorDocumentBuilder;
-import com.github.cukedoctor.api.DocumentAttributes;
 import com.github.cukedoctor.config.CukedoctorConfig;
 import com.github.cukedoctor.i18n.I18nLoader;
 
@@ -10,14 +9,14 @@ public interface BaseRenderer {
 
   void setI18n(I18nLoader i18nProvider);
 
-    /**
-     * @param documentBuilder the instance to use
-     * @deprecated Use renderX calls that pass the documentBuilder as a parameter instead
-     */
-    @Deprecated
-    void setDocumentBuilder(CukedoctorDocumentBuilder documentBuilder);
+  /**
+   * @param documentBuilder the instance to use
+   * @deprecated Use renderX calls that pass the documentBuilder as a parameter instead
+   */
+  @Deprecated
+  void setDocumentBuilder(CukedoctorDocumentBuilder documentBuilder);
 
-  void setDocumentAttributes(DocumentAttributes documentAttributes);
+  void setDocumentAttributes(com.github.cukedoctor.api.DocumentAttributes documentAttributes);
 
   void setCukedoctorConfig(CukedoctorConfig cukedoctorConfig);
 }

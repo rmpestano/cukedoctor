@@ -13,10 +13,9 @@ import java.io.Serializable;
 import java.util.List;
 
 /**
- * Created by pestano on 22/06/15.
- * Cukedoctor configuration, each Cukedoctor Converter ({@link com.github.cukedoctor.Cukedoctor#instance(List)}) instance holds a config instance.
- * For Documentation based attributes see {@link com.github.cukedoctor.api.DocumentAttributes}
- *
+ * Created by pestano on 22/06/15. Cukedoctor configuration, each Cukedoctor Converter ({@link
+ * com.github.cukedoctor.Cukedoctor#instance(List)}) instance holds a config instance. For
+ * Documentation based attributes see {@link com.github.cukedoctor.api.DocumentAttributes}
  */
 public class CukedoctorConfig implements Serializable {
 
@@ -114,14 +113,16 @@ public class CukedoctorConfig implements Serializable {
     return disableMinMaxExtension;
   }
 
-    /**
-     * Path to be used as relative when looking for introChapterAdoc see {@link CukedoctorConverterImpl#renderIntro()}.
-     * used by com.github.cukedoctor.util.{@link com.github.cukedoctor.util.FileUtil#findFiles(String, String, boolean, String)}
-     * @return the relative path to the intro chapter
-     */
-    public String getIntroChapterRelativePath() {
-        return introChapterRelativePath;
-    }
+  /**
+   * Path to be used as relative when looking for introChapterAdoc see {@link
+   * CukedoctorConverterImpl#renderIntro()}. used by com.github.cukedoctor.util.{@link
+   * com.github.cukedoctor.util.FileUtil#findFiles(String, String, boolean, String)}
+   *
+   * @return the relative path to the intro chapter
+   */
+  public String getIntroChapterRelativePath() {
+    return introChapterRelativePath;
+  }
 
   public CukedoctorConfig setCustomizationDir(String customizationDir) {
     this.customizationDir = customizationDir;

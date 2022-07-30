@@ -5,16 +5,12 @@ import static com.github.cukedoctor.util.Assert.hasElements;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonRawValue;
-import com.github.cukedoctor.api.DocumentAttributes;
-import org.slf4j.LoggerFactory;
-
-import static com.github.cukedoctor.util.Assert.hasElements;
-
 import java.util.List;
+import org.slf4j.LoggerFactory;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Step {
-	private static final org.slf4j.Logger log = LoggerFactory.getLogger(Step.class);
+  private static final org.slf4j.Logger log = LoggerFactory.getLogger(Step.class);
 
   private String name;
   private String keyword;
@@ -119,14 +115,14 @@ public class Step {
     }
   }
 
-	public Status getStatus() {
-		if (result == null || result.getStatus() == null) {
-			log.warn("Line " + line + " : " + "Step is missing Result: " + keyword + " : " + name);
-			return Status.missing;
-		} else {
-			return result.getStatus();
-		}
-	}
+  public Status getStatus() {
+    if (result == null || result.getStatus() == null) {
+      log.warn("Line " + line + " : " + "Step is missing Result: " + keyword + " : " + name);
+      return Status.missing;
+    } else {
+      return result.getStatus();
+    }
+  }
 
   public boolean isFailling() {
     return getStatus().equals(Status.failed);

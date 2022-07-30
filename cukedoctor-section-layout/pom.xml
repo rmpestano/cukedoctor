@@ -1,72 +1,71 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-    <modelVersion>4.0.0</modelVersion>
+  <modelVersion>4.0.0</modelVersion>
 
-    <parent>
-        <groupId>com.github.cukedoctor</groupId>
-        <artifactId>cukedoctor</artifactId>
-        <version>3.8.1-SNAPSHOT</version>
-        <relativePath>../pom.xml</relativePath>
-    </parent>
+  <parent>
+    <groupId>com.github.cukedoctor</groupId>
+    <artifactId>cukedoctor</artifactId>
+    <version>3.8.1-SNAPSHOT</version>
+    <relativePath>../pom.xml</relativePath>
+  </parent>
 
   <artifactId>cukedoctor-section-layout</artifactId>
 
-    <dependencies>
-        <dependency>
-            <groupId>com.github.cukedoctor</groupId>
-            <artifactId>cukedoctor-converter</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>com.github.cukedoctor</groupId>
-            <artifactId>cukedoctor-converter</artifactId>
-            <type>test-jar</type>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>com.github.cukedoctor</groupId>
-            <artifactId>cukedoctor-main</artifactId>
-            <scope>test</scope>
-        </dependency>
-    </dependencies>
+  <dependencies>
+    <dependency>
+      <groupId>com.github.cukedoctor</groupId>
+      <artifactId>cukedoctor-converter</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>com.github.cukedoctor</groupId>
+      <artifactId>cukedoctor-converter</artifactId>
+      <type>test-jar</type>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>com.github.cukedoctor</groupId>
+      <artifactId>cukedoctor-main</artifactId>
+      <scope>test</scope>
+    </dependency>
+  </dependencies>
 
-    <build>
-        <finalName>cukedoctor-section-layout</finalName>
-        <plugins>
-            <plugin>
-                <groupId>com.github.cukedoctor</groupId>
-                <artifactId>cukedoctor-maven-plugin</artifactId>
-                <configuration>
-                    <documentTitle>Cukedoctor Section Layout</documentTitle>
-                    <outputFileName>cukedoctor-section-documentation</outputFileName>
-                    <format>all</format>
-                    <docVersion>${project.parent.version}</docVersion>
-                    <numbered>true</numbered>
-                    <hideFeaturesSection>false</hideFeaturesSection>
-                    <hideSummarySection>true</hideSummarySection>
-                    <hideStepTime>true</hideStepTime>
-                    <hideScenarioKeyword>true</hideScenarioKeyword>
-                </configuration>
-                <dependencies>
-                    <dependency>
-                        <groupId>com.github.cukedoctor</groupId>
-                        <artifactId>cukedoctor-section-layout</artifactId>
-                        <version>${project.parent.version}</version>
-                    </dependency>
-                </dependencies>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-scm-publish-plugin</artifactId>
-                <configuration>
-                    <checkoutDirectory>${project.build.outputDirectory}</checkoutDirectory>
-                    <checkinComment>Publishing Cukedoctor-${project.parent.version} living documentation.
-                    </checkinComment>
-                    <content>target/cukedoctor</content>
-                    <skipDeletedFiles>true</skipDeletedFiles>
-                    <pubScmUrl>scm:git:https://${GH_TOKEN}@github.com/rmpestano/cukedoctor.git</pubScmUrl>
-                    <scmBranch>gh-pages</scmBranch>
-                </configuration>
-            </plugin>
-        </plugins>
-    </build>
+  <build>
+    <finalName>cukedoctor-section-layout</finalName>
+    <plugins>
+      <plugin>
+        <groupId>com.github.cukedoctor</groupId>
+        <artifactId>cukedoctor-maven-plugin</artifactId>
+        <configuration>
+          <documentTitle>Cukedoctor Section Layout</documentTitle>
+          <outputFileName>cukedoctor-section-documentation</outputFileName>
+          <format>all</format>
+          <docVersion>${project.parent.version}</docVersion>
+          <numbered>true</numbered>
+          <hideFeaturesSection>false</hideFeaturesSection>
+          <hideSummarySection>true</hideSummarySection>
+          <hideStepTime>true</hideStepTime>
+          <hideScenarioKeyword>true</hideScenarioKeyword>
+        </configuration>
+        <dependencies>
+          <dependency>
+            <groupId>com.github.cukedoctor</groupId>
+            <artifactId>cukedoctor-section-layout</artifactId>
+            <version>${project.parent.version}</version>
+          </dependency>
+        </dependencies>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-scm-publish-plugin</artifactId>
+        <configuration>
+          <checkoutDirectory>${project.build.outputDirectory}</checkoutDirectory>
+          <checkinComment>Publishing Cukedoctor-${project.parent.version} living documentation.</checkinComment>
+          <content>target/cukedoctor</content>
+          <skipDeletedFiles>true</skipDeletedFiles>
+          <pubScmUrl>scm:git:https://${GH_TOKEN}@github.com/rmpestano/cukedoctor.git</pubScmUrl>
+          <scmBranch>gh-pages</scmBranch>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
 </project>
