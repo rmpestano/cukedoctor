@@ -13,6 +13,7 @@ public interface BaseRenderer {
     void setI18n(I18nLoader i18nProvider);
 
     /**
+     * @param documentBuilder the instance to use
      * @deprecated Use renderX calls that pass the documentBuilder as a parameter instead
      */
     @Deprecated
