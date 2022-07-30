@@ -416,7 +416,7 @@
                 <plugin>
                     <groupId>com.github.cukedoctor</groupId>
                     <artifactId>cukedoctor-maven-plugin</artifactId>
-                    <version>${project.version}</version>
+                    <version>3.8.0</version>
                     <executions>
                         <execution>
                             <goals>

@@ -132,7 +132,6 @@
           <plugin>
             <groupId>com.github.cukedoctor</groupId>
             <artifactId>cukedoctor-maven-plugin</artifactId>
-            <version>LATEST</version>
             <configuration>
               <outputFileName>cukedoctor-documentation</outputFileName>
               <documentTitle>Cukedoctor Documentation</documentTitle>
