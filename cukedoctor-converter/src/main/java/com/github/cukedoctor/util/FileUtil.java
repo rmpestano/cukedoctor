@@ -179,12 +179,15 @@ public class FileUtil {
     return new File(Paths.get("").toAbsolutePath().toString() + path.trim());
   }
 
-  public static boolean removeFile(String path) {
+    public static boolean removeFile(String path) {
+        File fileToRemove = loadFile(path);
+        return fileToRemove.delete();
+    }
 
-    File fileToRemove = loadFile(path);
-
-    return fileToRemove.delete();
-  }
+    public static void removeDir(String path) throws IOException {
+        File directoryToRemove = loadFile(path);
+        FileUtils.deleteDirectory(directoryToRemove);
+    }
 
     /**
      * @param source resource from classpath
