@@ -9,12 +9,7 @@ import com.github.cukedoctor.api.ScenarioResults;
 import com.github.cukedoctor.api.StepResults;
 import com.github.cukedoctor.util.Assert;
 import com.github.cukedoctor.util.Constants;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Objects;
-import java.util.Optional;
+import java.util.*;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.function.Function;
 import org.slf4j.LoggerFactory;
@@ -35,19 +30,16 @@ public class Feature implements Comparable<Feature> {
   private StepResults stepResults;
   private ScenarioResults scenarioResults;
   private List<Comment> comments;
-  @JsonIgnore
-  private String language;
+  @JsonIgnore private String language;
 
-  @JsonIgnore
-  private Integer order;
+  @JsonIgnore private Integer order;
 
   @JsonIgnore
   private boolean
       backgroundRendered; // backgrounds runs for each scenario so we will render it only in the
   // first one
 
-  public Feature() {
-  }
+  public Feature() {}
 
   public String getId() {
     return id;
