@@ -14,7 +14,6 @@
         <dependency>
             <groupId>com.github.cukedoctor</groupId>
             <artifactId>cukedoctor-converter</artifactId>
-            <version>${project.parent.version}</version>
         </dependency>
         <dependency>
             <groupId>org.asciidoctor</groupId>
@@ -32,13 +31,6 @@
         <dependency>
             <groupId>com.beust</groupId>
             <artifactId>jcommander</artifactId>
-            <version>1.48</version>
-        </dependency>
-        <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <version>4.13.1</version>
-            <scope>test</scope>
         </dependency>
     </dependencies>
 
@@ -47,7 +39,6 @@
             <plugin>
                 <groupId>com.github.cukedoctor</groupId>
                 <artifactId>cukedoctor-maven-plugin</artifactId>
-                <version>${project.parent.version}</version>
                 <executions>
                     <execution>
                         <goals>
@@ -68,7 +59,6 @@
                     <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-assembly-plugin</artifactId>
-                        <version>2.4.1</version>
                         <configuration>
                             <appendAssemblyId>false</appendAssemblyId>
                         </configuration>
@@ -95,18 +85,6 @@
                     <plugin>
                         <groupId>com.ning.maven.plugins</groupId>
                         <artifactId>maven-duplicate-finder-plugin</artifactId>
-                        <version>1.0.9</version>
-                        <configuration>
-                            <failBuildInCaseOfConflict>false</failBuildInCaseOfConflict>
-                        </configuration>
-                        <executions>
-                            <execution>
-                                <phase>verify</phase>
-                                <goals>
-                                    <goal>check</goal>
-                                </goals>
-                            </execution>
-                        </executions>
                     </plugin>
                 </plugins>
             </build>
