@@ -85,7 +85,7 @@
                     </plugin>
                     <plugin>
                         <groupId>com.ning.maven.plugins</groupId>
-                        <artifactId>maven-duplicate-finder-plugin</artifactId>
+                        <artifactId>duplicate-finder-maven-plugin</artifactId>
                     </plugin>
                 </plugins>
             </build>
