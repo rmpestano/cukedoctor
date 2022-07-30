@@ -5,6 +5,7 @@
         <groupId>com.github.cukedoctor</groupId>
         <artifactId>cukedoctor</artifactId>
         <version>3.8.1-SNAPSHOT</version>
+        <relativePath>../pom.xml</relativePath>
     </parent>
 
     <artifactId>cukedoctor-converter</artifactId>
@@ -166,6 +167,7 @@
                             </checkinComment>
                             <content>target/cukedoctor</content>
                             <skipDeletedFiles>true</skipDeletedFiles>
+                            <!--suppress UnresolvedMavenProperty -->
                             <pubScmUrl>scm:git:https://${GH_TOKEN}@github.com/rmpestano/cukedoctor.git</pubScmUrl>
                             <scmBranch>gh-pages</scmBranch>
                         </configuration>
