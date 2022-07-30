@@ -3,15 +3,13 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>org.sonatype.oss</groupId>
-        <artifactId>oss-parent</artifactId>
-        <version>7</version>
-        <relativePath />
+        <groupId>com.github.cukedoctor</groupId>
+        <artifactId>cukedoctor-parent</artifactId>
+        <version>3.8.1-SNAPSHOT</version>
+        <relativePath>cukedoctor-parent/pom.xml</relativePath>
     </parent>
 
-    <groupId>com.github.cukedoctor</groupId>
     <artifactId>cukedoctor</artifactId>
-    <version>3.8.1-SNAPSHOT</version>
     <packaging>pom</packaging>
 
     <name>cukedoctor</name>
@@ -21,14 +19,6 @@
         BDD living documentation based on Cucumber and Asciidoctor.
     </description>
 
-    <developers>
-        <developer>
-            <name>Rafael M. Pestano</name>
-            <email>rmpestanoATgmail.com</email>
-        </developer>
-    </developers>
-
-
     <modules>
         <module>cukedoctor-converter</module>
         <module>cukedoctor-maven-plugin</module>
@@ -37,26 +27,8 @@
         <module>cukedoctor-spi-example</module>
         <module>cukedoctor-section-layout</module>
         <module>cukedoctor-multipage-layout</module>
+        <module>cukedoctor-parent</module>
     </modules>
-
-    <licenses>
-        <license>
-            <name>Apache 2</name>
-            <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
-            <distribution>repo</distribution>
-            <comments>A business-friendly OSS license</comments>
-        </license>
-    </licenses>
-    <scm>
-        <connection>scm:git:https://github.com/rmpestano/cukedoctor.git</connection>
-        <developerConnection>scm:git:git@github.com:rmpestano/cukedoctor.git</developerConnection>
-        <url>https://github.com/rmpestano/cukedoctor.git</url>
-    </scm>
-
-    <ciManagement>
-        <system>github actions</system>
-        <url>https://github.com/rmpestano/cukedocor/actions/workflows/ci.yml</url>
-    </ciManagement>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -104,6 +76,11 @@
             <groupId>io.cucumber</groupId>
             <artifactId>cucumber-java</artifactId>
             <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-simple</artifactId>
+            <version>1.7.12</version>
         </dependency>
     </dependencies>
     <dependencyManagement>
@@ -353,7 +330,7 @@
                 <sonar.core.codeCoveragePlugin>jacoco</sonar.core.codeCoveragePlugin>
                 <sonar.dynamicAnalysis>reuseReports</sonar.dynamicAnalysis>
             </properties>
-            
+
             <build>
                 <plugins>
                     <plugin>
@@ -362,16 +339,9 @@
                         <version>3.4.0.905</version>
                     </plugin>
                 </plugins>
-            </build>    
+            </build>
         </profile>
 
     </profiles>
-
-    <distributionManagement>
-        <snapshotRepository>
-            <id>snapshots</id>
-            <url>https://oss.sonatype.org/content/repositories/snapshots</url>
-        </snapshotRepository>
-    </distributionManagement>
 
 </project>
