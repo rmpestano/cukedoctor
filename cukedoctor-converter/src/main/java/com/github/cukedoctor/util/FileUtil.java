@@ -175,11 +175,13 @@ public class FileUtil {
     }
 
     public static boolean removeFile(String path) {
-
-
         File fileToRemove = loadFile(path);
-
         return fileToRemove.delete();
+    }
+
+    public static void removeDir(String path) throws IOException {
+        File directoryToRemove = loadFile(path);
+        FileUtils.deleteDirectory(directoryToRemove);
     }
 
     /**

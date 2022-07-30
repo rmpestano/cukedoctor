@@ -39,7 +39,6 @@ public class CukedoctorMainTest {
         System.setProperty("HIDE_SCENARIO_KEYWORD", Boolean.toString(GlobalConfig.getInstance().getLayoutConfig().isHideScenarioKeyword()));
         System.setProperty("HIDE_STEP_TIME", Boolean.toString(GlobalConfig.getInstance().getLayoutConfig().isHideStepTime()));
         System.setProperty("HIDE_TAGS", Boolean.toString(GlobalConfig.getInstance().getLayoutConfig().isHideTags()));
-
     }
 
     @After
@@ -115,9 +114,11 @@ public class CukedoctorMainTest {
                 contains(":sectlink:").
                 containsOnlyOnce("= *Living Documentation*");
 
-
         FileUtil.removeFile("Living-Documentation.adoc");
         FileUtil.removeFile("Living-Documentation.html");
+        FileUtil.removeFile("test.svg");
+        FileUtil.removeDir(".asciidoctor");
+        FileUtil.removeDir("themes");
     }
 
     @Test
@@ -146,7 +147,9 @@ public class CukedoctorMainTest {
         } finally {
             FileUtil.removeFile("Living-Documentation.adoc");
             FileUtil.removeFile("Living-Documentation.html");
-
+            FileUtil.removeFile("test.svg");
+            FileUtil.removeDir(".asciidoctor");
+            FileUtil.removeDir("themes");
         }
     }
 
@@ -168,6 +171,9 @@ public class CukedoctorMainTest {
         } finally {
             FileUtil.removeFile("Living-Documentation.adoc");
             FileUtil.removeFile("Living-Documentation.html");
+            FileUtil.removeFile("test.svg");
+            FileUtil.removeDir(".asciidoctor");
+            FileUtil.removeDir("themes");
         }
     }
 
@@ -188,7 +194,9 @@ public class CukedoctorMainTest {
         } finally {
             FileUtil.removeFile("Living-Documentation.adoc");
             FileUtil.removeFile("Living-Documentation.html");
-
+            FileUtil.removeFile("test.svg");
+            FileUtil.removeDir(".asciidoctor");
+            FileUtil.removeDir("themes");
         }
     }
 
@@ -208,6 +216,9 @@ public class CukedoctorMainTest {
         } finally {
             FileUtil.removeFile("Living-Documentation.adoc");
             FileUtil.removeFile("Living-Documentation.html");
+            FileUtil.removeFile("test.svg");
+            FileUtil.removeDir(".asciidoctor");
+            FileUtil.removeDir("themes");
         }
     }
 
@@ -228,6 +239,9 @@ public class CukedoctorMainTest {
         } finally {
             FileUtil.removeFile("Living-Documentation.adoc");
             FileUtil.removeFile("Living-Documentation.html");
+            FileUtil.removeFile("test.svg");
+            FileUtil.removeDir(".asciidoctor");
+            FileUtil.removeDir("themes");
         }
     }
 
@@ -248,6 +262,9 @@ public class CukedoctorMainTest {
         } finally {
             FileUtil.removeFile("Living-Documentation.adoc");
             FileUtil.removeFile("Living-Documentation.html");
+            FileUtil.removeFile("test.svg");
+            FileUtil.removeDir(".asciidoctor");
+            FileUtil.removeDir("themes");
         }
     }
 
@@ -366,6 +383,9 @@ public class CukedoctorMainTest {
         } finally {
             FileUtil.removeFile("Living-Documentation.adoc");
             FileUtil.removeFile("Living-Documentation.html");
+            FileUtil.removeFile("test.svg");
+            FileUtil.removeDir(".asciidoctor");
+            FileUtil.removeDir("themes");
         }
     }
 
@@ -382,12 +402,14 @@ public class CukedoctorMainTest {
         } finally {
             FileUtil.removeFile("Living-Documentation.adoc");
             FileUtil.removeFile("Living-Documentation.html");
-
+            FileUtil.removeFile("test.svg");
+            FileUtil.removeDir(".asciidoctor");
+            FileUtil.removeDir("themes");
         }
     }
 
     @Test
-    public void shouldRenderAllowIriReadWhenSpecifiedOnCommandLine()  throws IOException {
+    public void shouldRenderAllowUriReadWhenSpecifiedOnCommandLine()  throws IOException {
         try {
             String generatedDoc = new CukedoctorMain().execute(new String[]{
                     "-allowUriRead", ""
@@ -399,7 +421,9 @@ public class CukedoctorMainTest {
         } finally {
             FileUtil.removeFile("Living-Documentation.adoc");
             FileUtil.removeFile("Living-Documentation.html");
-
+            FileUtil.removeFile("test.svg");
+            FileUtil.removeDir(".asciidoctor");
+            FileUtil.removeDir("themes");
         }
     }
 
@@ -434,6 +458,9 @@ public class CukedoctorMainTest {
         } finally {
             FileUtil.removeFile("Living-Documentation.adoc");
             FileUtil.removeFile("Living-Documentation.html");
+            FileUtil.removeFile("test.svg");
+            FileUtil.removeDir(".asciidoctor");
+            FileUtil.removeDir("themes");
         }
     }
 }
