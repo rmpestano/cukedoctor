@@ -12,6 +12,8 @@ import java.util.List;
 public interface FeatureRenderer extends BaseRenderer {
 
     /**
+     * @param feature the feature to render
+     * @return the rendered {@link String}
      * @deprecated Use renderFeature(Feature, CukedoctorDocumentBuilder) instead
      */
     @Deprecated
@@ -24,6 +26,8 @@ public interface FeatureRenderer extends BaseRenderer {
 
 
     /**
+     * @param features the features to render
+     * @return the rendered {@link String}
      * @deprecated Use renderFeatures(List&lt;Feature&gt;, CukedoctorDocumentBuilder) instead
      */
     @Deprecated

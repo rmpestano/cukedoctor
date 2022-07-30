@@ -11,6 +11,9 @@ import com.github.cukedoctor.renderer.BaseRenderer;
 public interface TagsRenderer extends BaseRenderer {
 
     /**
+     * @param feature the feature containing the tags
+     * @param scenario the scenario containing the tags
+     * @return the rendered {@link String}
      * @deprecated Use renderScenarioTags(Scenario, CukedoctorDocumentBuilder) instead
      */
     @Deprecated

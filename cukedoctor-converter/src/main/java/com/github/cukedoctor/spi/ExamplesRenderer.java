@@ -10,6 +10,8 @@ import com.github.cukedoctor.renderer.BaseRenderer;
 public interface ExamplesRenderer extends BaseRenderer {
 
     /**
+     * @param scenario the scenario containing the examples
+     * @return the renderer {@link String}
      * @deprecated Use renderScenarioExamples(Scenario, CukedoctorDocumentBuilder) instead
      */
     @Deprecated

@@ -25,6 +25,8 @@ public interface CukedoctorConverter {
 	String getDocumentationTitle();
 
 	/**
+	 * @param features the features to render
+	 * @return underlying Converter instance
 	 * @deprecated
 	 * Use an appropriate instance of FeatureRenderer to render the document features only
 	 * e.g. CukedoctorFeatureRenderer
@@ -33,6 +35,7 @@ public interface CukedoctorConverter {
 	CukedoctorConverter renderFeatures(List<Feature> features);
 
 	/**
+	 * @return underlying Converter instance
 	 * @deprecated
 	 * Use an appropriate instance of FeatureRenderer to render the document features only
 	 * e.g. CukedoctorFeatureRenderer
@@ -41,6 +44,7 @@ public interface CukedoctorConverter {
 	CukedoctorConverter renderFeatures();
 
 	/**
+	 * @return underlying Converter instance
 	 * @deprecated
 	 * Use an appropriate instance of HeaderRenderer to render the document attributes only
 	 * e.g. CukedoctorHeaderRenderer
@@ -53,8 +57,7 @@ public interface CukedoctorConverter {
 	 * Use an appropriate instance of SummaryRenderer to render the document summary only
 	 * e.g. CukedoctorSummaryRenderer
 	 *
-	 * @return document overall summary which gathers information about all features like
-	 * number of steps, execution time, total passed scenarios and so on
+	 * @return underlying Converter instance
 	 */
 	@Deprecated
 	CukedoctorConverter renderSummary();

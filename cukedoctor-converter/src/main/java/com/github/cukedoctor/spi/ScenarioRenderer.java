@@ -11,6 +11,9 @@ import com.github.cukedoctor.renderer.BaseRenderer;
 public interface ScenarioRenderer extends BaseRenderer {
 
     /**
+     * @param scenario scenario to render
+     * @param feature the feature containing the scenario
+     * @return the renderer scenario
      * @deprecated Use renderScenario(Scenario, Feature, CukedoctorDocumentBuilder) instead
      */
     @Deprecated

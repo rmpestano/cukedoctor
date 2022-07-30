@@ -12,6 +12,8 @@ import java.util.List;
 public interface SummaryRenderer extends BaseRenderer{
 
     /**
+     * @param features the features to render
+     * @return the rendered {@link String}
      * @deprecated Use renderSummary(List&lt;Feature&gt;, CukedoctorDocumentBuilder) instead
      */
     @Deprecated

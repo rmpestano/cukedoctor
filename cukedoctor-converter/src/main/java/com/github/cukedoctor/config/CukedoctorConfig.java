@@ -15,9 +15,7 @@ import static java.lang.System.getProperty;
 
 /**
  * Created by pestano on 22/06/15.
- *
  * Cukedoctor configuration, each Cukedoctor Converter ({@link com.github.cukedoctor.Cukedoctor#instance(List)}) instance holds a config instance.
- *
  * For Documentation based attributes see {@link com.github.cukedoctor.api.DocumentAttributes}
  *
  */
@@ -121,9 +119,8 @@ public class CukedoctorConfig implements Serializable {
 
     /**
      * Path to be used as relative when looking for introChapterAdoc see {@link CukedoctorConverterImpl#renderIntro()}.
-     *
      * used by com.github.cukedoctor.util.{@link com.github.cukedoctor.util.FileUtil#findFiles(String, String, boolean, String)}
-     *
+     * @return the relative path to the intro chapter
      */
     public String getIntroChapterRelativePath() {
         return introChapterRelativePath;

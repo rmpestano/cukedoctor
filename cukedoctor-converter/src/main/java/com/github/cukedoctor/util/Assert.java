@@ -147,14 +147,11 @@ public class Assert implements Serializable {
   /**
    * Assert that an array has no null elements. Note: Does not complain if the
    * array is empty!
-   * 
    * <pre class="code">
    * Assert.noNullElements(array, &quot;The array must have non-null elements&quot;);
    * </pre>
-   * 
+   *
    * @param array the array
-   */
-  /**
    * @return TRUE when given array has no null elements; FALSE otherwise
    */
   public static boolean notNull(Object[] array) {
