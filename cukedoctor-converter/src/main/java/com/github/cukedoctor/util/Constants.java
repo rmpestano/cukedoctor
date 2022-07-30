@@ -120,7 +120,6 @@ public abstract class Constants {
                 return name;
             }
 
-
         }
 
     private static String toAdocAttr(String attrName, Object attrValue) {

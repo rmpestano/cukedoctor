@@ -37,10 +37,7 @@ import org.apache.maven.plugins.annotations.LifecyclePhase;
 import org.apache.maven.plugins.annotations.Mojo;
 import org.apache.maven.plugins.annotations.Parameter;
 import org.apache.maven.project.MavenProject;
-import org.asciidoctor.Asciidoctor;
-import org.asciidoctor.Attributes;
-import org.asciidoctor.OptionsBuilder;
-import org.asciidoctor.SafeMode;
+import org.asciidoctor.*;
 import org.asciidoctor.extension.ExtensionGroup;
 
 @Mojo(name = "execute", defaultPhase = LifecyclePhase.INSTALL)

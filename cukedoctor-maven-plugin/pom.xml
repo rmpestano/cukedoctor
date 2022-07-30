@@ -22,6 +22,16 @@
         <maven>${maven.version}</maven>
     </prerequisites>
 
+    <properties>
+        <maven.version>3.8.6</maven.version>
+        <maven-plugin.version>3.6.4</maven-plugin.version>
+        <maven-plugin-testing-harness.version>3.3.0</maven-plugin-testing-harness.version>
+    </properties>
+
+    <prerequisites>
+        <maven>${maven.version}</maven>
+    </prerequisites>
+
     <dependencies>
         <dependency>
             <groupId>com.github.cukedoctor</groupId>

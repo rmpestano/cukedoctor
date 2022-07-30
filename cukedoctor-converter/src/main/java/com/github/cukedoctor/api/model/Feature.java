@@ -14,6 +14,9 @@ import org.slf4j.LoggerFactory;
 import java.util.*;
 import java.util.concurrent.atomic.AtomicInteger;
 
+import static com.github.cukedoctor.util.Assert.hasText;
+import static com.github.cukedoctor.util.Assert.notEmpty;
+
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Feature implements Comparable<Feature> {
     private static final org.slf4j.Logger log = LoggerFactory.getLogger(Feature.class);

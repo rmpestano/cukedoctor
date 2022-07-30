@@ -23,3 +23,4 @@ public interface TagsRenderer extends BaseRenderer {
     return renderScenarioTags(feature, scenario);
   }
 }
+
