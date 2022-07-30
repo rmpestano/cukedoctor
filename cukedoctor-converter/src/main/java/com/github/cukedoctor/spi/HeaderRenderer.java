@@ -14,7 +14,7 @@ public interface HeaderRenderer extends BaseRenderer {
   /**
    * @deprecated Use renderDocumentHeader(DocumentAttributes, CukedoctorDocumentBuilder) instead
    * @param cukedoctorAttributes cukedoctor attributes
-   * @return
+   * @return the rendered {@link String}
    */
   @Deprecated
   String renderDocumentHeader(DocumentAttributes cukedoctorAttributes);
