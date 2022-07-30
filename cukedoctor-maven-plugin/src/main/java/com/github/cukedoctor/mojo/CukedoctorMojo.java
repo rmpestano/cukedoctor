@@ -124,7 +124,8 @@ public class CukedoctorMojo extends AbstractMojo {
   @Parameter(property = "dataUri", required = false)
   Boolean dataUri;
 
-  @Component MavenProject project;
+  @Parameter( defaultValue = "${project}", readonly = true )
+  MavenProject project;
 
   private String generatedFile = null; // only for tests
 
