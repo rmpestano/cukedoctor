@@ -7,13 +7,17 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.github.cukedoctor.api.ScenarioResults;
 import com.github.cukedoctor.api.StepResults;
+import com.github.cukedoctor.util.Assert;
 import com.github.cukedoctor.util.Constants;
 import java.util.*;
 import java.util.concurrent.atomic.AtomicInteger;
-import java.util.logging.Logger;
+import java.util.function.Function;
+import org.slf4j.LoggerFactory;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Feature implements Comparable<Feature> {
+
+  private static final org.slf4j.Logger log = LoggerFactory.getLogger(Feature.class);
 
   private String id;
   private String name;
@@ -251,14 +255,15 @@ public class Feature implements Comparable<Feature> {
   }
 
   public String getLanguage() {
+
     if (language == null && comments != null) {
-      for (Comment comment : comments) {
-        final Optional<String> lang = comment.getLanguage();
-        if (lang.isPresent() && hasText(lang.get())) {
-          language = lang.get();
-        }
-      }
+      this.language = stringExtractedFrom(comments, comment -> comment.getLanguage().orElse(null));
     }
+
+    if (language == null && hasTags()) {
+      this.language = stringExtractedFrom(getTags(), tag -> tag.getLanguage().orElse(null));
+    }
+
     if (language == null) {
       this.language = "";
     }
@@ -268,15 +273,11 @@ public class Feature implements Comparable<Feature> {
 
   public int getOrder() {
     if (order == null && comments != null) {
-      for (Comment comment : comments) {
-        trySetOrder(comment.getOrder(), "comment");
-      }
+      this.order = tryOrderExtractedFrom(comments, comment -> comment.getOrder().orElse(null));
     }
 
     if (order == null && hasTags()) {
-      for (Tag tag : getTags()) {
-        trySetOrder(tag.getOrder(), "tag");
-      }
+      this.order = tryOrderExtractedFrom(getTags(), tag -> tag.getOrder().orElse(null));
     }
 
     if (order == null) {
@@ -286,28 +287,36 @@ public class Feature implements Comparable<Feature> {
     return order;
   }
 
-  private void trySetOrder(Optional<String> order, String source) {
-    if (order.isPresent() && hasText(order.get())) {
-      try {
-        this.order = Integer.parseInt(order.get());
-      } catch (Exception e) {
-        Logger.getLogger(getClass().getName())
-            .warning(
-                String.format(
-                    "Could not get order of feature %s from %s cause: %s",
-                    name, source, e.getMessage()));
-      }
+  private <T> String stringExtractedFrom(List<T> elements, Function<T, String> extractor) {
+    return elements.stream().map(extractor).filter(Assert::hasText).findFirst().orElse(null);
+  }
+
+  private <T> Integer tryOrderExtractedFrom(List<T> elements, Function<T, String> extractor) {
+    String orderAsString = stringExtractedFrom(elements, extractor);
+    try {
+      return Integer.parseInt(orderAsString);
+    } catch (Exception e) {
+      log.warn(
+          "Could not get order of feature {} from {} cause: {}",
+          name,
+          orderAsString,
+          e.getMessage());
+      return null;
     }
   }
 
   @Override
   public boolean equals(Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
+    if (this == o) {
+      return true;
+    }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
 
     Feature feature = (Feature) o;
 
-    return !(id != null ? !id.equals(feature.id) : feature.id != null);
+    return Objects.equals(id, feature.id);
   }
 
   @Override
