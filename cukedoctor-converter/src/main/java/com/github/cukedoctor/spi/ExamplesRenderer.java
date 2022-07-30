@@ -7,9 +7,13 @@ import com.github.cukedoctor.renderer.BaseRenderer;
 /** Created by pestano on 28/02/16. */
 public interface ExamplesRenderer extends BaseRenderer {
 
-  /** @deprecated Use renderScenarioExamples(Scenario, CukedoctorDocumentBuilder) instead */
-  @Deprecated
-  String renderScenarioExamples(Scenario scenario);
+    /**
+     * @param scenario the scenario containing the examples
+     * @return the renderer {@link String}
+     * @deprecated Use renderScenarioExamples(Scenario, CukedoctorDocumentBuilder) instead
+     */
+    @Deprecated
+    String renderScenarioExamples(Scenario scenario);
 
   default String renderScenarioExamples(
       Scenario scenario, CukedoctorDocumentBuilder documentBuilder) {

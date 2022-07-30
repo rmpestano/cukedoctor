@@ -144,8 +144,8 @@ public class Assert implements Serializable {
    * </pre>
    *
    * @param array the array
+   * @return TRUE when given array has no null elements; FALSE otherwise
    */
-  /** @return TRUE when given array has no null elements; FALSE otherwise */
   public static boolean notNull(Object[] array) {
     if (array != null) {
       for (Object element : array) {

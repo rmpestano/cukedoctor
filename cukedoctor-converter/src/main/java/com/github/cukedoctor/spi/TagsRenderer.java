@@ -8,9 +8,14 @@ import com.github.cukedoctor.renderer.BaseRenderer;
 /** Created by pestano on 28/02/16. */
 public interface TagsRenderer extends BaseRenderer {
 
-  /** @deprecated Use renderScenarioTags(Scenario, CukedoctorDocumentBuilder) instead */
-  @Deprecated
-  String renderScenarioTags(Feature feature, Scenario scenario);
+    /**
+     * @param feature the feature containing the tags
+     * @param scenario the scenario containing the tags
+     * @return the rendered {@link String}
+     * @deprecated Use renderScenarioTags(Scenario, CukedoctorDocumentBuilder) instead
+     */
+    @Deprecated
+    String renderScenarioTags(Feature feature, Scenario scenario);
 
   default String renderScenarioTags(
       Feature feature, Scenario scenario, CukedoctorDocumentBuilder documentBuilder) {

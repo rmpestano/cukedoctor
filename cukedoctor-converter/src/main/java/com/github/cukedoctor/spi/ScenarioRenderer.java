@@ -8,9 +8,14 @@ import com.github.cukedoctor.renderer.BaseRenderer;
 /** Created by pestano on 24/02/16. */
 public interface ScenarioRenderer extends BaseRenderer {
 
-  /** @deprecated Use renderScenario(Scenario, Feature, CukedoctorDocumentBuilder) instead */
-  @Deprecated
-  String renderScenario(Scenario scenario, Feature feature);
+    /**
+     * @param scenario scenario to render
+     * @param feature the feature containing the scenario
+     * @return the renderer scenario
+     * @deprecated Use renderScenario(Scenario, Feature, CukedoctorDocumentBuilder) instead
+     */
+    @Deprecated
+    String renderScenario(Scenario scenario, Feature feature);
 
   default String renderScenario(
       Scenario scenario, Feature feature, CukedoctorDocumentBuilder documentBuilder) {

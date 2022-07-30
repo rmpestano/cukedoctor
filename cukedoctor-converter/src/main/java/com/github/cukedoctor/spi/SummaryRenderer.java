@@ -8,9 +8,13 @@ import java.util.List;
 /** Created by pestano on 24/02/16. */
 public interface SummaryRenderer extends BaseRenderer {
 
-  /** @deprecated Use renderSummary(List&lt;Feature&gt;, CukedoctorDocumentBuilder) instead */
-  @Deprecated
-  String renderSummary(List<Feature> features);
+    /**
+     * @param features the features to render
+     * @return the rendered {@link String}
+     * @deprecated Use renderSummary(List&lt;Feature&gt;, CukedoctorDocumentBuilder) instead
+     */
+    @Deprecated
+    String renderSummary(List<Feature> features);
 
   default String renderSummary(List<Feature> features, CukedoctorDocumentBuilder documentBuilder) {
     setDocumentBuilder(documentBuilder);

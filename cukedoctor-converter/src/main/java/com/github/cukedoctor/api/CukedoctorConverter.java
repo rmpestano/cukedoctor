@@ -17,35 +17,43 @@ public interface CukedoctorConverter {
 
   String getDocumentationTitle();
 
-  /**
-   * @deprecated Use an appropriate instance of FeatureRenderer to render the document features only
-   *     e.g. CukedoctorFeatureRenderer
-   */
-  @Deprecated
-  CukedoctorConverter renderFeatures(List<Feature> features);
+	/**
+	 * @param features the features to render
+	 * @return underlying Converter instance
+	 * @deprecated
+	 * Use an appropriate instance of FeatureRenderer to render the document features only
+	 * e.g. CukedoctorFeatureRenderer
+	 */
+	@Deprecated
+	CukedoctorConverter renderFeatures(List<Feature> features);
 
-  /**
-   * @deprecated Use an appropriate instance of FeatureRenderer to render the document features only
-   *     e.g. CukedoctorFeatureRenderer
-   */
-  @Deprecated
-  CukedoctorConverter renderFeatures();
+	/**
+	 * @return underlying Converter instance
+	 * @deprecated
+	 * Use an appropriate instance of FeatureRenderer to render the document features only
+	 * e.g. CukedoctorFeatureRenderer
+	 */
+	@Deprecated
+	CukedoctorConverter renderFeatures();
 
-  /**
-   * @deprecated Use an appropriate instance of HeaderRenderer to render the document attributes
-   *     only e.g. CukedoctorHeaderRenderer
-   */
-  @Deprecated
-  CukedoctorConverter renderAttributes();
+	/**
+	 * @return underlying Converter instance
+	 * @deprecated
+	 * Use an appropriate instance of HeaderRenderer to render the document attributes only
+	 * e.g. CukedoctorHeaderRenderer
+	 */
+	@Deprecated
+	CukedoctorConverter renderAttributes();
 
-  /**
-   * @deprecated Use an appropriate instance of SummaryRenderer to render the document summary only
-   *     e.g. CukedoctorSummaryRenderer
-   * @return document overall summary which gathers information about all features like number of
-   *     steps, execution time, total passed scenarios and so on
-   */
-  @Deprecated
-  CukedoctorConverter renderSummary();
+	/**
+	 * @deprecated
+	 * Use an appropriate instance of SummaryRenderer to render the document summary only
+	 * e.g. CukedoctorSummaryRenderer
+	 *
+	 * @return underlying Converter instance
+	 */
+	@Deprecated
+	CukedoctorConverter renderSummary();
 
   /**
    * set output file name without extension (should always be .adoc or other asciidoc compatible
