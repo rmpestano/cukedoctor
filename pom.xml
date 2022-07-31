@@ -6,12 +6,12 @@
     <groupId>org.sonatype.oss</groupId>
     <artifactId>oss-parent</artifactId>
     <version>7</version>
-    <relativePath></relativePath>
+    <relativePath />
   </parent>
 
   <groupId>com.github.cukedoctor</groupId>
   <artifactId>cukedoctor</artifactId>
-  <version>3.9.0</version>
+  <version>3.9.1-SNAPSHOT</version>
   <packaging>pom</packaging>
 
   <name>cukedoctor</name>
@@ -48,7 +48,7 @@
   <scm>
     <connection>scm:git:https://github.com/rmpestano/cukedoctor.git</connection>
     <developerConnection>scm:git:git@github.com:rmpestano/cukedoctor.git</developerConnection>
-    <tag>3.9.0</tag>
+    <tag>HEAD</tag>
     <url>https://github.com/rmpestano/cukedoctor.git</url>
   </scm>
 
@@ -280,7 +280,7 @@
           <configuration>
             <encoding>${project.encoding}</encoding>
             <pom>
-              <sortPom></sortPom>
+              <sortPom />
             </pom>
             <java>
               <googleJavaFormat>

@@ -4,7 +4,7 @@
   <parent>
     <groupId>com.github.cukedoctor</groupId>
     <artifactId>cukedoctor</artifactId>
-    <version>3.9.0</version>
+    <version>3.9.1-SNAPSHOT</version>
   </parent>
 
   <artifactId>cukedoctor-converter</artifactId>
@@ -95,7 +95,7 @@
               <executable>java</executable>
               <arguments>
                 <argument>-classpath</argument>
-                <classpath></classpath>
+                <classpath />
                 <argument>com.github.cukedoctor.CukedoctorBenchmark</argument>
                 <commandlineArgs>-Xms512m</commandlineArgs>
                 <commandlineArgs>-Xmx512m</commandlineArgs>
