@@ -14,7 +14,7 @@ import org.slf4j.LoggerFactory;
 /** Created by pestano on 04/06/15. Document overall configuration */
 public class DocumentAttributes {
 
-  public static final Logger log = LoggerFactory.getLogger(DocumentAttributes.class);
+  private static final Logger log = LoggerFactory.getLogger(DocumentAttributes.class);
 
   private String docTitle = "Living Documentation";
   private String backend = "html5";

@@ -12,7 +12,7 @@ import org.slf4j.LoggerFactory;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Step {
 
-  public static final Logger log = LoggerFactory.getLogger(Step.class);
+  private static final Logger log = LoggerFactory.getLogger(Step.class);
 
   private String name;
   private String keyword;

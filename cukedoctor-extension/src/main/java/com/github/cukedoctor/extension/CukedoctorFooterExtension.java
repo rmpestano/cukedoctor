@@ -12,7 +12,7 @@ import org.slf4j.LoggerFactory;
 /** Created by pestano on 20/07/15. adds search box to rendered html documentation */
 public class CukedoctorFooterExtension extends Postprocessor {
 
-  public static final Logger log = LoggerFactory.getLogger(CukedoctorFooterExtension.class);
+  private static final Logger log = LoggerFactory.getLogger(CukedoctorFooterExtension.class);
 
   private static final DateFormat dateFormat =
       DateFormat.getDateTimeInstance(DateFormat.DEFAULT, DateFormat.DEFAULT);
