@@ -33,7 +33,6 @@ import java.util.List;
 import org.apache.maven.plugin.AbstractMojo;
 import org.apache.maven.plugin.MojoExecutionException;
 import org.apache.maven.plugin.MojoFailureException;
-import org.apache.maven.plugins.annotations.Component;
 import org.apache.maven.plugins.annotations.LifecyclePhase;
 import org.apache.maven.plugins.annotations.Mojo;
 import org.apache.maven.plugins.annotations.Parameter;
@@ -124,7 +123,8 @@ public class CukedoctorMojo extends AbstractMojo {
   @Parameter(property = "dataUri", required = false)
   Boolean dataUri;
 
-  @Component MavenProject project;
+  @Parameter(defaultValue = "${project}", readonly = true)
+  MavenProject project;
 
   private String generatedFile = null; // only for tests
 

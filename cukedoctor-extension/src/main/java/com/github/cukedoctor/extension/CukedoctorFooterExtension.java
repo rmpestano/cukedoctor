@@ -2,14 +2,17 @@ package com.github.cukedoctor.extension;
 
 import java.text.DateFormat;
 import java.util.*;
-import java.util.logging.Logger;
 import org.asciidoctor.ast.Document;
 import org.asciidoctor.extension.Postprocessor;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Element;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /** Created by pestano on 20/07/15. adds search box to rendered html documentation */
 public class CukedoctorFooterExtension extends Postprocessor {
+
+  private static final Logger log = LoggerFactory.getLogger(CukedoctorFooterExtension.class);
 
   private static final DateFormat dateFormat =
       DateFormat.getDateTimeInstance(DateFormat.DEFAULT, DateFormat.DEFAULT);
@@ -28,8 +31,7 @@ public class CukedoctorFooterExtension extends Postprocessor {
                     "/cukedoctor-extension.properties"));
         cukedoctorVersion = bundle.getString("cukedoctor.version");
       } catch (Exception e) {
-        Logger.getLogger(getClass().getName())
-            .warning("Could not find bundle cukedoctor-extension");
+        log.warn("Could not find bundle cukedoctor-extension");
       }
 
       if (stopWatch != null && !"".equals(stopWatch)) {

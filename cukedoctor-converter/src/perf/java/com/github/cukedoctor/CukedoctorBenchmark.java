@@ -14,8 +14,8 @@ import org.openjdk.jmh.runner.options.TimeValue;
 import java.io.File;
 import java.util.List;
 import java.util.UUID;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * Created by pestano on 22/02/16.
@@ -23,6 +23,8 @@ import java.util.logging.Logger;
 @State(Scope.Benchmark)
 @BenchmarkMode(Mode.Throughput)
 public class CukedoctorBenchmark {
+
+    private static final Logger log = LoggerFactory.getLogger(CukedoctorBenchmark.class);
 
     private static CukedoctorConverter cukedoctorConverter;
     private static List<Feature> asciidoctorFeatures;
@@ -34,7 +36,7 @@ public class CukedoctorBenchmark {
 
         @Setup
         public void init() throws RunnerException {
-            Logger.getLogger(FileUtil.class.getName()).setLevel(Level.SEVERE);
+            System.setProperty("org.slf4j.simpleLogger.defaultLogLevel", "error");
             String asciidoctorFeaturesPath = FileUtil.findJsonFile(CukedoctorBenchmark.class.getResource("/asciidoctor-features.json").getPath());
             asciidoctorFeatures = FeatureParser.parse(asciidoctorFeaturesPath);
             cukedoctorConverter = Cukedoctor.instance(asciidoctorFeatures);
@@ -65,7 +67,7 @@ public class CukedoctorBenchmark {
             ).run();
         }finally {
             List<String> files = FileUtil.findFiles("target/benchmark", ".adoc");
-            Logger.getLogger(CukedoctorBenchmark.class.getName()).info("Number of files converted: " + files.size());
+            log.info("Number of files converted: {}", files.size());
             CukedoctorBenchmark.removeAdocFIles();
         }
 

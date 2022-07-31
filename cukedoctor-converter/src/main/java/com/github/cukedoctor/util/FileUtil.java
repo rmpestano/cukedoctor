@@ -10,16 +10,16 @@ import java.nio.file.*;
 import java.nio.file.attribute.BasicFileAttributes;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import java.util.regex.Pattern;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.IOUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /** Created by pestano on 02/06/15. */
 public class FileUtil {
 
-  private static final Logger log = Logger.getLogger(FileUtil.class.getName());
+  private static final Logger log = LoggerFactory.getLogger(FileUtil.class);
   public static final Pattern ADOC_FILE_EXTENSION =
       Pattern.compile("([^\\s]+(\\.(?i)(ad|adoc|asciidoc|asc))$)");
 
@@ -119,10 +119,7 @@ public class FileUtil {
             }
           });
     } catch (IOException e) {
-      log.log(
-          Level.WARNING,
-          "Problems scanning " + suffix + " files in path:" + startDir,
-          e.getMessage());
+      log.warn("Problems scanning {} files in path: {}", suffix, startDir, e);
     }
     return foundPaths;
   }
@@ -157,7 +154,7 @@ public class FileUtil {
       log.info("Wrote: " + file.getAbsolutePath());
       return file;
     } catch (IOException e) {
-      log.log(Level.SEVERE, "Could not create file " + name, e);
+      log.error("Could not create file {}", name, e);
       return null;
     }
   }
@@ -186,6 +183,11 @@ public class FileUtil {
     return fileToRemove.delete();
   }
 
+  public static void removeDir(String path) throws IOException {
+    File directoryToRemove = loadFile(path);
+    FileUtils.deleteDirectory(directoryToRemove);
+  }
+
   /**
    * @param source resource from classpath
    * @param dest dest path
@@ -197,8 +199,7 @@ public class FileUtil {
         InputStream in = FileUtil.class.getResourceAsStream(source);
         return saveFile(dest, IOUtils.toString(in));
       } catch (IOException e) {
-        log.log(
-            Level.SEVERE, "Could not copy source file: " + source + " to dest file: " + dest, e);
+        log.error("Could not copy source file: {} to dest file: {}", source, dest, e);
       }
     }
     return null;
@@ -214,15 +215,14 @@ public class FileUtil {
     if (source != null && dest != null) {
       File sourcefile = new File(source);
       if (!sourcefile.exists()) {
-        log.warning(String.format("File %s not found.", sourcefile.getAbsolutePath()));
+        log.warn("File {} not found.", sourcefile.getAbsolutePath());
         return null;
       }
       try {
         InputStream in = new FileInputStream(source);
         return saveFile(dest, IOUtils.toString(in));
       } catch (IOException e) {
-        log.log(
-            Level.SEVERE, "Could not copy source file: " + source + " to dest file: " + dest, e);
+        log.error("Could not copy source file: {} to dest file: {}", source, dest, e);
       }
     }
     return null;

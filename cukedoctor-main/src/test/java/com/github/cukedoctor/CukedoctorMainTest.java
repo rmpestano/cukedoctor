@@ -137,6 +137,9 @@ public class CukedoctorMainTest {
 
     FileUtil.removeFile("Living-Documentation.adoc");
     FileUtil.removeFile("Living-Documentation.html");
+    FileUtil.removeFile("test.svg");
+    FileUtil.removeDir(".asciidoctor");
+    FileUtil.removeDir("themes");
   }
 
   @Test
@@ -170,6 +173,9 @@ public class CukedoctorMainTest {
     } finally {
       FileUtil.removeFile("Living-Documentation.adoc");
       FileUtil.removeFile("Living-Documentation.html");
+      FileUtil.removeFile("test.svg");
+      FileUtil.removeDir(".asciidoctor");
+      FileUtil.removeDir("themes");
     }
   }
 
@@ -193,6 +199,9 @@ public class CukedoctorMainTest {
     } finally {
       FileUtil.removeFile("Living-Documentation.adoc");
       FileUtil.removeFile("Living-Documentation.html");
+      FileUtil.removeFile("test.svg");
+      FileUtil.removeDir(".asciidoctor");
+      FileUtil.removeDir("themes");
     }
   }
 
@@ -215,6 +224,9 @@ public class CukedoctorMainTest {
     } finally {
       FileUtil.removeFile("Living-Documentation.adoc");
       FileUtil.removeFile("Living-Documentation.html");
+      FileUtil.removeFile("test.svg");
+      FileUtil.removeDir(".asciidoctor");
+      FileUtil.removeDir("themes");
     }
   }
 
@@ -235,6 +247,9 @@ public class CukedoctorMainTest {
     } finally {
       FileUtil.removeFile("Living-Documentation.adoc");
       FileUtil.removeFile("Living-Documentation.html");
+      FileUtil.removeFile("test.svg");
+      FileUtil.removeDir(".asciidoctor");
+      FileUtil.removeDir("themes");
     }
   }
 
@@ -256,6 +271,9 @@ public class CukedoctorMainTest {
     } finally {
       FileUtil.removeFile("Living-Documentation.adoc");
       FileUtil.removeFile("Living-Documentation.html");
+      FileUtil.removeFile("test.svg");
+      FileUtil.removeDir(".asciidoctor");
+      FileUtil.removeDir("themes");
     }
   }
 
@@ -276,6 +294,9 @@ public class CukedoctorMainTest {
     } finally {
       FileUtil.removeFile("Living-Documentation.adoc");
       FileUtil.removeFile("Living-Documentation.html");
+      FileUtil.removeFile("test.svg");
+      FileUtil.removeDir(".asciidoctor");
+      FileUtil.removeDir("themes");
     }
   }
 
@@ -397,6 +418,9 @@ public class CukedoctorMainTest {
     } finally {
       FileUtil.removeFile("Living-Documentation.adoc");
       FileUtil.removeFile("Living-Documentation.html");
+      FileUtil.removeFile("test.svg");
+      FileUtil.removeDir(".asciidoctor");
+      FileUtil.removeDir("themes");
     }
   }
 
@@ -411,6 +435,9 @@ public class CukedoctorMainTest {
     } finally {
       FileUtil.removeFile("Living-Documentation.adoc");
       FileUtil.removeFile("Living-Documentation.html");
+      FileUtil.removeFile("test.svg");
+      FileUtil.removeDir(".asciidoctor");
+      FileUtil.removeDir("themes");
     }
   }
 
@@ -425,6 +452,9 @@ public class CukedoctorMainTest {
     } finally {
       FileUtil.removeFile("Living-Documentation.adoc");
       FileUtil.removeFile("Living-Documentation.html");
+      FileUtil.removeFile("test.svg");
+      FileUtil.removeDir(".asciidoctor");
+      FileUtil.removeDir("themes");
     }
   }
 
@@ -459,6 +489,9 @@ public class CukedoctorMainTest {
     } finally {
       FileUtil.removeFile("Living-Documentation.adoc");
       FileUtil.removeFile("Living-Documentation.html");
+      FileUtil.removeFile("test.svg");
+      FileUtil.removeDir(".asciidoctor");
+      FileUtil.removeDir("themes");
     }
   }
 }

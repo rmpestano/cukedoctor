@@ -8,8 +8,8 @@ import com.github.cukedoctor.util.FileUtil;
 import java.io.*;
 import java.text.MessageFormat;
 import java.util.*;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * This class is responsible for internationalization.
@@ -20,7 +20,7 @@ import java.util.logging.Logger;
 public class I18nLoader extends ResourceBundle.Control {
 
   private static I18nLoader instance;
-  private static Logger log = Logger.getLogger(I18nLoader.class.getName());
+  private static final Logger log = LoggerFactory.getLogger(I18nLoader.class);
 
   private ResourceBundle bundle;
 
@@ -66,10 +66,9 @@ public class I18nLoader extends ResourceBundle.Control {
       try {
         bundle = new PropertyResourceBundle(new InputStreamReader(stream, "UTF-8"));
       } catch (Exception e) {
-        log.warning(
-            String.format(
-                "No resource bundle found for language %s. Using 'cukedoctor_en.properties' as default bundle.",
-                lang));
+        log.warn(
+            "No resource bundle found for language {}. Using 'cukedoctor_en.properties' as default bundle.",
+            lang);
         try {
           bundle =
               new PropertyResourceBundle(
@@ -99,12 +98,12 @@ public class I18nLoader extends ResourceBundle.Control {
     List<String> files = FileUtil.findFiles(baseDir, "cukedoctor.properties", true);
     if (files != null && !files.isEmpty()) {
       String path = files.get(0);
-      log.fine("Loading cukedoctor resource bundle from: " + path);
+      log.trace("Loading cukedoctor resource bundle from: {}", path);
       File file = new File(path);
       try {
         return new FileInputStream(file);
       } catch (Exception e) {
-        log.log(Level.WARNING, "Could not load resource bundle from target folder", e);
+        log.warn("Could not load resource bundle from target folder", e);
       }
     }
     return null;

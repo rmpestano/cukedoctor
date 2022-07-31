@@ -4,13 +4,17 @@ import static com.github.cukedoctor.util.ObjectUtil.getFieldValue;
 
 import com.github.cukedoctor.util.Constants;
 import java.lang.reflect.Field;
+import java.util.Arrays;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /** Created by pestano on 04/06/15. Document overall configuration */
 public class DocumentAttributes {
+
+  private static final Logger log = LoggerFactory.getLogger(DocumentAttributes.class);
 
   private String docTitle = "Living Documentation";
   private String backend = "html5";
@@ -303,18 +307,19 @@ public class DocumentAttributes {
 
   private Map<String, Object> createAttributesMap() {
     Map<String, Object> attributesMap = new HashMap<>();
+    // fields can be added by instrumenting java class (e.g. jacoco or logger)
+    List<String> ignoredFieldNames = Arrays.asList("$jacocodata", "log");
     for (Field field : getClass().getDeclaredFields()) {
       try {
         String fieldName = field.getName();
         Object fieldValue = getFieldValue(this, fieldName);
-        if (fieldValue != null) {
+        if (fieldValue != null && !ignoredFieldNames.contains(fieldName.toLowerCase())) {
           Constants.Attributes.Name asciidocAttrName =
               Constants.Attributes.Name.valueOf(fieldName.toUpperCase());
           attributesMap.put(asciidocAttrName.getName(), fieldValue.toString());
         }
       } catch (Exception e) {
-        Logger.getLogger(getClass().getName())
-            .log(Level.WARNING, "Could not get field value of attribute: " + field.getName(), e);
+        log.warn("Could not get field value of attribute: {}", field.getName(), e);
       }
     }
     return attributesMap;

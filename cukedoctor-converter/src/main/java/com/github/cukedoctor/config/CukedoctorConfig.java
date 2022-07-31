@@ -118,10 +118,10 @@ public class CukedoctorConfig implements Serializable {
 
   /**
    * Path to be used as relative when looking for introChapterAdoc see {@link
-   * CukedoctorConverterImpl#renderIntro()}.
-   *
-   * <p>used by com.github.cukedoctor.util.{@link
+   * CukedoctorConverterImpl#renderIntro()}. used by com.github.cukedoctor.util.{@link
    * com.github.cukedoctor.util.FileUtil#findFiles(String, String, boolean, String)}
+   *
+   * @return the relative path to the intro chapter
    */
   public String getIntroChapterRelativePath() {
     return introChapterRelativePath;

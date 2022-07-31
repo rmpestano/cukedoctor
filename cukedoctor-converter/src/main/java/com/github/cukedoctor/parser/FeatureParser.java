@@ -8,12 +8,12 @@ import com.github.cukedoctor.api.model.Feature;
 import com.github.cukedoctor.util.FileUtil;
 import java.io.*;
 import java.util.*;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /** Created by pestano on 04/06/15. */
 public class FeatureParser {
-  static final Logger log = Logger.getLogger(FeatureParser.class.getName());
+  private static final Logger log = LoggerFactory.getLogger(FeatureParser.class);
 
   /**
    * @param json absolute path to cucumber json output file
@@ -27,8 +27,7 @@ public class FeatureParser {
       while (it.hasNext()) {
         Feature feature = it.next();
         if (!feature.isCucumberFeature()) {
-          log.warning(
-              "json:" + json + " is NOT a Cucumber feature result file and will be ignored");
+          log.warn("json: {} is NOT a Cucumber feature result file and will be ignored", json);
           it.remove();
         } else {
           feature.initScenarios();
@@ -37,13 +36,13 @@ public class FeatureParser {
       }
 
     } catch (FileNotFoundException e) {
-      log.log(Level.WARNING, "Could not find json file:" + json);
+      log.warn("Could not find json file: {}", json);
     } catch (JsonMappingException e) {
-      log.log(Level.WARNING, "Could not map json file:" + json);
+      log.warn("Could not map json file: {}", json);
     } catch (JsonParseException e) {
-      log.log(Level.WARNING, "Could not parse json file:" + json);
+      log.warn("Could not parse json file: {}", json);
     } catch (IOException e) {
-      log.log(Level.WARNING, "Could not read json file:" + json);
+      log.warn("Could not read json file: {}", json);
     }
 
     return features;
