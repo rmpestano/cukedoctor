@@ -203,7 +203,7 @@
       <dependency>
         <groupId>org.openjdk.jmh</groupId>
         <artifactId>jmh-generator-annprocess</artifactId>
-        <version>1.11.3</version>
+        <version>1.35</version>
       </dependency>
       <dependency>
         <groupId>javax.annotation</groupId>
