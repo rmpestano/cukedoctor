@@ -13,21 +13,11 @@
     <dependency>
       <groupId>com.github.cukedoctor</groupId>
       <artifactId>cukedoctor-converter</artifactId>
-      <version>${project.parent.version}</version>
     </dependency>
     <dependency>
       <groupId>com.github.cukedoctor</groupId>
       <artifactId>cukedoctor-main</artifactId>
-      <version>${project.parent.version}</version>
       <scope>test</scope>
-    </dependency>
-    <dependency>
-      <groupId>io.cucumber</groupId>
-      <artifactId>cucumber-junit</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>io.cucumber</groupId>
-      <artifactId>cucumber-java</artifactId>
     </dependency>
   </dependencies>
 
@@ -37,20 +27,10 @@
       <plugin>
         <groupId>com.github.cukedoctor</groupId>
         <artifactId>cukedoctor-maven-plugin</artifactId>
-        <version>${project.parent.version}</version>
-        <executions>
-          <execution>
-            <goals>
-              <goal>execute</goal>
-            </goals>
-            <phase>install</phase>
-          </execution>
-        </executions>
       </plugin>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-deploy-plugin</artifactId>
-        <version>2.7</version>
         <configuration>
           <skip>true</skip>
         </configuration>
