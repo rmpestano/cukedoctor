@@ -331,7 +331,9 @@
               <include>**/*Bdd.java</include>
             </includes>
             <systemPropertyVariables>
-              <java.util.logging.config.file>src/test/resources/logging.properties</java.util.logging.config.file>
+              <org.slf4j.simpleLogger.logFile>System.out</org.slf4j.simpleLogger.logFile>
+              <org.slf4j.simpleLogger.log.com.github.cukedoctor.converter>info</org.slf4j.simpleLogger.log.com.github.cukedoctor.converter>
+              <org.slf4j.simpleLogger.log.com.github.cukedoctor.parser>off</org.slf4j.simpleLogger.log.com.github.cukedoctor.parser>
             </systemPropertyVariables>
           </configuration>
         </plugin>

@@ -8,19 +8,19 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import org.apache.commons.io.IOUtils;
 import org.asciidoctor.ast.Document;
 import org.asciidoctor.extension.Postprocessor;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /** Created by pestano on 20/07/15. extends html document styles */
 public class CukedoctorStyleExtension extends Postprocessor {
 
-  private static final Logger LOG = Logger.getLogger(CukedoctorStyleExtension.class.getName());
+  private static final Logger log = LoggerFactory.getLogger(CukedoctorStyleExtension.class);
 
   public static final String BASE_DIR =
       Files.exists(Paths.get("target"))
@@ -68,7 +68,7 @@ public class CukedoctorStyleExtension extends Postprocessor {
         Elements head = document.getElementsByTag("head");
         head.append(" <style> " + customCss + "</style>");
       } catch (IOException e) {
-        LOG.log(Level.SEVERE, "Could not copy cukedoctor css from: " + themePath, e);
+        log.error("Could not copy cukedoctor css from: {}", themePath, e);
       }
     }
   }

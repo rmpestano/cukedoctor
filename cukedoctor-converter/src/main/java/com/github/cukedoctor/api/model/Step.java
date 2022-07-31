@@ -6,10 +6,13 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonRawValue;
 import java.util.List;
-import java.util.logging.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Step {
+
+  public static final Logger log = LoggerFactory.getLogger(Step.class);
 
   private String name;
   private String keyword;
@@ -116,8 +119,7 @@ public class Step {
 
   public Status getStatus() {
     if (result == null || result.getStatus() == null) {
-      Logger.getLogger(getClass().getName())
-          .warning("Line " + line + " : " + "Step is missing Result: " + keyword + " : " + name);
+      log.warn("Line {}: Step is missing Result: {}:{}", line, keyword, name);
       return Status.missing;
     } else {
       return result.getStatus();

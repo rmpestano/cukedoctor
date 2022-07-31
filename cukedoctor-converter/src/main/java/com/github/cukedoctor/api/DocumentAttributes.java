@@ -8,11 +8,13 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /** Created by pestano on 04/06/15. Document overall configuration */
 public class DocumentAttributes {
+
+  public static final Logger log = LoggerFactory.getLogger(DocumentAttributes.class);
 
   private String docTitle = "Living Documentation";
   private String backend = "html5";
@@ -317,8 +319,7 @@ public class DocumentAttributes {
           attributesMap.put(asciidocAttrName.getName(), fieldValue.toString());
         }
       } catch (Exception e) {
-        Logger.getLogger(getClass().getName())
-            .log(Level.WARNING, "Could not get field value of attribute: " + field.getName(), e);
+        log.warn("Could not get field value of attribute: {}", field.getName(), e);
       }
     }
     return attributesMap;
