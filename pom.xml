@@ -11,7 +11,7 @@
 
   <groupId>com.github.cukedoctor</groupId>
   <artifactId>cukedoctor</artifactId>
-  <version>3.8.1-SNAPSHOT</version>
+  <version>3.9.0</version>
   <packaging>pom</packaging>
 
   <name>cukedoctor</name>
@@ -48,6 +48,7 @@
   <scm>
     <connection>scm:git:https://github.com/rmpestano/cukedoctor.git</connection>
     <developerConnection>scm:git:git@github.com:rmpestano/cukedoctor.git</developerConnection>
+    <tag>3.9.0</tag>
     <url>https://github.com/rmpestano/cukedoctor.git</url>
   </scm>
 
