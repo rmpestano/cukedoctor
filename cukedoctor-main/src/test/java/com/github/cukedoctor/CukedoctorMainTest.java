@@ -349,7 +349,7 @@ public class CukedoctorMainTest {
   }
 
   @Test
-  public void shouldRestrictSearchPath() throws IOException {
+  public void shouldRestrictSearchPath() {
     CukedoctorMain main = new CukedoctorMain();
     System.out.flush();
     main.execute(
@@ -366,7 +366,7 @@ public class CukedoctorMainTest {
   }
 
   @Test
-  public void shouldNotFindFeaturesByRestrictSearchPath() throws IOException {
+  public void shouldNotFindFeaturesByRestrictSearchPath() {
     CukedoctorMain main = new CukedoctorMain();
     System.out.flush();
     main.execute(

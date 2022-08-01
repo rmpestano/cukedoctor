@@ -16,8 +16,7 @@ public class ConverterSteps {
   String documentation;
 
   @When("^I convert their json test output using cukedoctor converter$")
-  public void I_convert_their_json_output_report_using_cukedoctor_converter(String docstring)
-      throws Throwable {
+  public void I_convert_their_json_output_report_using_cukedoctor_converter(String docstring) {
     URL featureFile = getClass().getResource("/com/github/cukedoctor/json-output/simple.json");
     assertThat(featureFile).isNotNull();
     List<Feature> features = FeatureParser.parse(featureFile.getPath());
@@ -26,7 +25,7 @@ public class ConverterSteps {
   }
 
   @Then("^I should have awesome living documentation$")
-  public void I_should_have_awesome_living_documentation(String expected) throws Throwable {
+  public void I_should_have_awesome_living_documentation(String expected) {
     // remove include cause its resolved by asciidoctor converter
     assertThat(
             documentation

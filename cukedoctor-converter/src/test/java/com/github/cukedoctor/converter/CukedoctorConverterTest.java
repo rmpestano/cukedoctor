@@ -6,6 +6,7 @@ import static com.github.cukedoctor.renderer.Fixtures.*;
 import static com.github.cukedoctor.util.Constants.newLine;
 import static com.github.cukedoctor.util.StringUtil.trimAllLines;
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
@@ -142,23 +143,12 @@ public class CukedoctorConverterTest {
 
     converter.setFilename("test");
     assertThat(converter.getFilename()).isEqualTo("test.adoc");
-    try {
-      converter.setFilename("test.txt");
-    } catch (RuntimeException re) {
-      assertThat(re.getMessage())
-          .isEqualTo(
-              "Invalid filename extension for file: test.txt. Valid formats are: ad, adoc,"
-                  + " asciidoc and asc");
-    }
-
-    try {
-      converter.setFilename("test.doc");
-    } catch (RuntimeException re) {
-      assertThat(re.getMessage())
-          .isEqualTo(
-              "Invalid filename extension for file: test.doc. Valid formats are: ad, adoc,"
-                  + " asciidoc and asc");
-    }
+    assertThatThrownBy(() -> converter.setFilename("test.txt"))
+        .isInstanceOf(RuntimeException.class)
+        .hasMessage("Invalid filename extension for file: test.txt. Valid formats are: ad, adoc, asciidoc and asc");
+    assertThatThrownBy(() -> converter.setFilename("test.doc"))
+        .isInstanceOf(RuntimeException.class)
+        .hasMessage("Invalid filename extension for file: test.doc. Valid formats are: ad, adoc, asciidoc and asc");
 
     converter.setFilename("test.ad");
     assertThat(converter.getFilename()).isEqualTo("test.ad");

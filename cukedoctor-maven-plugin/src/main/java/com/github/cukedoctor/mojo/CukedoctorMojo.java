@@ -130,7 +130,7 @@ public class CukedoctorMojo extends AbstractMojo {
 
   private String generatedFile = null; // only for tests
 
-  public void execute() throws MojoExecutionException, MojoFailureException {
+  public void execute() {
     if (skip) {
       getLog().info("Skipping cukedoctor-maven-plugin");
       return;

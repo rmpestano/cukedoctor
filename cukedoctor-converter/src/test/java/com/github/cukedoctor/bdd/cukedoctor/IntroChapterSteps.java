@@ -18,8 +18,7 @@ public class IntroChapterSteps {
   String introChapterContent;
 
   @And("^The following asciidoc document is on your application classpath$")
-  public void I_convert_their_json_output_report_using_cukedoctor_converter(String docstring)
-      throws Throwable {
+  public void I_convert_their_json_output_report_using_cukedoctor_converter(String docstring) {
     introChapterContent = docstring;
     URL featureFile = getClass().getResource("/com/github/cukedoctor/json-output/simple.json");
     assertThat(featureFile).isNotNull();
@@ -32,7 +31,7 @@ public class IntroChapterSteps {
   public void Bdd_tests_results_are_converted_into_documentation_by_Cukedoctor() {}
 
   @Then("^Resulting documentation should have the provided introduction chapter$")
-  public void I_should_have_awesome_living_documentation(String expected) throws Throwable {
+  public void I_should_have_awesome_living_documentation(String expected) {
 
     assertThat(
             documentation

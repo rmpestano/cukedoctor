@@ -35,7 +35,7 @@ public class CukedoctorBenchmark {
     public static class BenchmarkContext {
 
         @Setup
-        public void init() throws RunnerException {
+        public void init() {
             System.setProperty("org.slf4j.simpleLogger.defaultLogLevel", "error");
             String asciidoctorFeaturesPath = FileUtil.findJsonFile(CukedoctorBenchmark.class.getResource("/asciidoctor-features.json").getPath());
             asciidoctorFeatures = FeatureParser.parse(asciidoctorFeaturesPath);
@@ -53,7 +53,7 @@ public class CukedoctorBenchmark {
     }
 
 
-    public static void main(String[] args) throws RunnerException, InterruptedException {
+    public static void main(String[] args) throws RunnerException {
         try {
             new Runner(new OptionsBuilder().
                     forks(3).
