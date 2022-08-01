@@ -74,7 +74,7 @@ public class CukedoctorScenarioRenderer extends AbstractBaseRenderer implements 
       feature.setBackgroundRendered(true);
       StringBuilder backgroundTitle = new StringBuilder(scenario.getKeyword());
       if (!Status.passed.equals(scenario.getStatus())) {
-        backgroundTitle.append(" " + Status.getStatusIcon(Status.failed));
+        backgroundTitle.append(" ").append(Status.getStatusIcon(Status.failed));
       }
       docBuilder.title(backgroundTitle.toString().replaceAll("\\\\", ""));
     }
@@ -88,7 +88,7 @@ public class CukedoctorScenarioRenderer extends AbstractBaseRenderer implements 
       }
 
       if (notNull(scenario.getStatus()) && !Status.passed.equals(scenario.getStatus())) {
-        scenarioTitle.append(" " + Status.getStatusIcon(Status.failed));
+        scenarioTitle.append(" ").append(Status.getStatusIcon(Status.failed));
       }
 
       docBuilder.title(scenarioTitle.toString());

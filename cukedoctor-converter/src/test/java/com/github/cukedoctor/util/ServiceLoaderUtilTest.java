@@ -16,7 +16,7 @@ import org.junit.runners.JUnit4;
 @RunWith(JUnit4.class)
 public class ServiceLoaderUtilTest {
 
-  CukedoctorConfig cukedoctorConfig = new CukedoctorConfig();
+  final CukedoctorConfig cukedoctorConfig = new CukedoctorConfig();
 
   @Test
   public void shouldReturnFirstServiceLoaderResultIfAvailable() {

@@ -1,13 +1,25 @@
 package com.github.cukedoctor.sectionlayout;
 
-import static com.github.cukedoctor.sectionlayout.Constants.*;
+import static com.github.cukedoctor.sectionlayout.Constants.AppendixTagPattern;
+import static com.github.cukedoctor.sectionlayout.Constants.BibliographyTagPattern;
+import static com.github.cukedoctor.sectionlayout.Constants.GlossaryTagPattern;
+import static com.github.cukedoctor.sectionlayout.Constants.IndexTagPattern;
+import static com.github.cukedoctor.sectionlayout.Constants.SectionTagPattern;
+import static com.github.cukedoctor.sectionlayout.Constants.SubsectionTagPattern;
 
 import com.github.cukedoctor.api.CukedoctorDocumentBuilder;
 import com.github.cukedoctor.api.DocumentAttributes;
 import com.github.cukedoctor.api.model.Feature;
 import com.github.cukedoctor.config.CukedoctorConfig;
 import com.github.cukedoctor.i18n.I18nLoader;
-import java.util.*;
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
+import java.util.Optional;
+import java.util.Set;
 import java.util.stream.Stream;
 
 public class DocumentSection implements Section {
@@ -53,7 +65,7 @@ public class DocumentSection implements Section {
     }
 
     Optional<String> sectionId = feature.extractTag(SectionTagPattern);
-    if (!sectionId.isPresent()) {
+    if (sectionId.isEmpty()) {
       featuresSection.addFeature(feature);
       return this;
     }

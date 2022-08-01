@@ -1,6 +1,9 @@
 package com.github.cukedoctor.renderer;
 
-import static com.github.cukedoctor.util.Assert.*;
+import static com.github.cukedoctor.util.Assert.hasText;
+import static com.github.cukedoctor.util.Assert.isNull;
+import static com.github.cukedoctor.util.Assert.not;
+import static com.github.cukedoctor.util.Assert.notNull;
 import static com.github.cukedoctor.util.Constants.Markup.bold;
 import static com.github.cukedoctor.util.Constants.newLine;
 import static com.github.cukedoctor.util.StringUtil.trimAllLines;

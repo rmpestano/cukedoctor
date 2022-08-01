@@ -1,6 +1,9 @@
 package com.github.cukedoctor.renderer;
 
-import static com.github.cukedoctor.util.Constants.Markup.*;
+import static com.github.cukedoctor.util.Constants.Markup.H2;
+import static com.github.cukedoctor.util.Constants.Markup.bold;
+import static com.github.cukedoctor.util.Constants.Markup.table;
+import static com.github.cukedoctor.util.Constants.Markup.tableCol;
 import static com.github.cukedoctor.util.Constants.newLine;
 
 import com.github.cukedoctor.api.ScenarioResults;

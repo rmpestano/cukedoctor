@@ -4,16 +4,20 @@ import com.github.cukedoctor.api.CukedoctorConverter;
 import com.github.cukedoctor.api.model.Feature;
 import com.github.cukedoctor.parser.FeatureParser;
 import com.github.cukedoctor.util.FileUtil;
+import java.io.File;
+import java.util.List;
+import java.util.UUID;
 import org.asciidoctor.Asciidoctor;
-import org.openjdk.jmh.annotations.*;
+import org.openjdk.jmh.annotations.Benchmark;
+import org.openjdk.jmh.annotations.BenchmarkMode;
+import org.openjdk.jmh.annotations.Mode;
+import org.openjdk.jmh.annotations.Scope;
+import org.openjdk.jmh.annotations.Setup;
+import org.openjdk.jmh.annotations.State;
 import org.openjdk.jmh.runner.Runner;
 import org.openjdk.jmh.runner.RunnerException;
 import org.openjdk.jmh.runner.options.OptionsBuilder;
 import org.openjdk.jmh.runner.options.TimeValue;
-
-import java.io.File;
-import java.util.List;
-import java.util.UUID;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -70,16 +74,11 @@ public class CukedoctorBenchmark {
             log.info("Number of files converted: {}", files.size());
             CukedoctorBenchmark.removeAdocFIles();
         }
-
     }
 
     private static void removeAdocFIles() {
-        List<String> files = FileUtil.findFiles("target/benchmark", ".adoc");
-        if (files != null) {
-            for (String file : files) {
-                FileUtil.removeFile(file);
-            }
-        }
+        FileUtil.findFiles("target/benchmark", ".adoc")
+            .forEach(FileUtil::removeFile);
     }
 
 }

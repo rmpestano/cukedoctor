@@ -1,6 +1,9 @@
 package com.github.cukedoctor.renderer;
 
-import static com.github.cukedoctor.renderer.Fixtures.*;
+import static com.github.cukedoctor.renderer.Fixtures.embedDataDirectly;
+import static com.github.cukedoctor.renderer.Fixtures.invalidFeatureResult;
+import static com.github.cukedoctor.renderer.Fixtures.onePassingOneFailing;
+import static com.github.cukedoctor.renderer.Fixtures.outline;
 import static com.github.cukedoctor.util.Constants.newLine;
 import static org.assertj.core.api.Assertions.assertThat;
 

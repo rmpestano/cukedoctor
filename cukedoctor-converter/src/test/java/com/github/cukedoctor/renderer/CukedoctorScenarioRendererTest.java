@@ -8,7 +8,6 @@ import com.github.cukedoctor.api.model.Feature;
 import com.github.cukedoctor.api.model.Step;
 import com.github.cukedoctor.parser.FeatureParser;
 import com.github.cukedoctor.util.builder.FeatureBuilder;
-import java.util.ArrayList;
 import java.util.List;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -20,8 +19,6 @@ public class CukedoctorScenarioRendererTest {
   @Test
   public void shouldRenderFeatureStepsWithOneScenarioWithMultipleStep() {
     final Feature feature = FeatureBuilder.instance().aFeatureWithOneScenarioWithMultipleSteps();
-    List<Feature> features = new ArrayList<>();
-    features.add(feature);
     List<Step> steps = feature.getScenarios().get(0).getSteps();
     CukedoctorStepsRenderer stepsRenderer = new CukedoctorStepsRenderer();
     String resultDoc = stepsRenderer.renderSteps(steps, feature.getScenarios().get(0), feature);

@@ -43,7 +43,7 @@ public class FileUtil {
     }
     String fullyQualifiedName = name;
 
-    /** if filename is not absolute use current path as base dir */
+    // if filename is not absolute use current path as base dir
     if (!new File(fullyQualifiedName).isAbsolute()) {
       fullyQualifiedName = Paths.get("").toAbsolutePath() + "/" + name;
     }
@@ -210,7 +210,7 @@ public class FileUtil {
     StringBuilder content = new StringBuilder();
     try (InputStream openStream = Files.newInputStream(target.toPath())) {
       try (BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(openStream))) {
-        String line = null;
+        String line;
         while ((line = bufferedReader.readLine()) != null) {
           content.append(line);
         }

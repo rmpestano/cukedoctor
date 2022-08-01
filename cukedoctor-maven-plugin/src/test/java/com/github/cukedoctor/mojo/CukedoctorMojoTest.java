@@ -32,7 +32,6 @@ public class CukedoctorMojoTest extends AbstractMojoTestCase {
     System.clearProperty("cukedoctor.disable.footer");
   }
 
-  /** @throws Exception */
   public void testGenerateHtmlDocs() throws Exception {
 
     CukedoctorMojo mojo =
@@ -58,7 +57,6 @@ public class CukedoctorMojoTest extends AbstractMojoTestCase {
         .containsOnlyOnce("function themefy()");
   }
 
-  /** @throws Exception */
   public void testGenerateHtmlDocsWithoutFilterExtension() throws Exception {
 
     CukedoctorMojo mojo =
@@ -83,7 +81,6 @@ public class CukedoctorMojoTest extends AbstractMojoTestCase {
         .containsOnlyOnce("function themefy()");
   }
 
-  /** @throws Exception */
   public void testGenerateHtmlDocsWithoutThemeExtension() throws Exception {
 
     CukedoctorMojo mojo =
@@ -112,7 +109,6 @@ public class CukedoctorMojoTest extends AbstractMojoTestCase {
         .doesNotContain("<div name=\"themes\" id=\"themes\"");
   }
 
-  /** @throws Exception */
   public void testGenerateHtmlDocsWithoutFeaturesSection() throws Exception {
 
     try {
@@ -139,7 +135,6 @@ public class CukedoctorMojoTest extends AbstractMojoTestCase {
     }
   }
 
-  /** @throws Exception */
   public void testGenerateHtmlDocsWithoutSummarySection() throws Exception {
 
     try {
@@ -166,7 +161,6 @@ public class CukedoctorMojoTest extends AbstractMojoTestCase {
     }
   }
 
-  /** @throws Exception */
   public void testGenerateHtmlDocsWithoutScenarioKeyword() throws Exception {
 
     try {
@@ -195,7 +189,6 @@ public class CukedoctorMojoTest extends AbstractMojoTestCase {
     }
   }
 
-  /** @throws Exception */
   public void testGenerateHtmlDocsWithoutTags() throws Exception {
 
     try {
@@ -219,7 +212,6 @@ public class CukedoctorMojoTest extends AbstractMojoTestCase {
     }
   }
 
-  /** @throws Exception */
   public void testGenerateHtmlDocsWithoutStepTime() throws Exception {
 
     try {
@@ -245,7 +237,6 @@ public class CukedoctorMojoTest extends AbstractMojoTestCase {
     }
   }
 
-  /** @throws Exception */
   public void testGenerateHtmlDocsWithoutFooterExtension() throws Exception {
 
     CukedoctorMojo mojo =
@@ -271,7 +262,6 @@ public class CukedoctorMojoTest extends AbstractMojoTestCase {
         .doesNotContain("Execution time:");
   }
 
-  /** @throws Exception */
   public void testGenerateHtmlDocsWithoutExtensions() throws Exception {
 
     CukedoctorMojo mojo =
@@ -296,7 +286,6 @@ public class CukedoctorMojoTest extends AbstractMojoTestCase {
         .doesNotContain("Execution time:");
   }
 
-  /** @throws Exception */
   public void testGeneratePdfDocs() throws Exception {
 
     CukedoctorMojo mojo =
@@ -309,7 +298,6 @@ public class CukedoctorMojoTest extends AbstractMojoTestCase {
     assertThat(mojo.getGeneratedFile()).contains(":toc: right").contains(":backend: pdf");
   }
 
-  /** @throws Exception */
   public void testGenerateHtmlDocsWithCoderayAsSourceHighlighter() throws Exception {
 
     CukedoctorMojo mojo =
@@ -324,7 +312,6 @@ public class CukedoctorMojoTest extends AbstractMojoTestCase {
     assertThat(contentOf(file)).contains(":source-highlighter: coderay");
   }
 
-  /** @throws Exception */
   public void testGenerateHtmlDocsUsingFeaturesDir() throws Exception {
 
     CukedoctorMojo mojo =
@@ -352,7 +339,6 @@ public class CukedoctorMojoTest extends AbstractMojoTestCase {
         .containsOnlyOnce("function themefy()");
   }
 
-  /** @throws Exception */
   public void testGenerateAllDocs() throws Exception {
 
     CukedoctorMojo mojo =
@@ -375,7 +361,6 @@ public class CukedoctorMojoTest extends AbstractMojoTestCase {
     assertThat(htmlFile).exists().hasParent("target/docs");
   }
 
-  /** @throws Exception */
   public void testGenerateAllDocsWithNoDefaultTitleInPdf() throws Exception {
 
     CukedoctorMojo mojo =
@@ -392,7 +377,6 @@ public class CukedoctorMojoTest extends AbstractMojoTestCase {
     assertThat(htmlFile).exists().hasParent("target/docs");
   }
 
-  /** @throws Exception */
   public void testSkipDocsGenerationTest() throws Exception {
     CukedoctorMojo mojo =
         (CukedoctorMojo) lookupMojo("execute", getTestFile("src/test/resources/skip-docs-pom.xml"));
@@ -403,7 +387,6 @@ public class CukedoctorMojoTest extends AbstractMojoTestCase {
     assertThat(outContent.toString()).contains("Skipping cukedoctor-maven-plugin");
   }
 
-  /** @throws Exception */
   public void testGenerateAllDocsWithChapterAndVersionLabel() throws Exception {
 
     CukedoctorMojo mojo =
@@ -428,7 +411,6 @@ public class CukedoctorMojoTest extends AbstractMojoTestCase {
     assertThat(htmlFile).exists().hasParent("target/docs");
   }
 
-  /** @throws Exception */
   public void testGenerateStem() throws Exception {
 
     CukedoctorMojo mojo =
@@ -446,7 +428,6 @@ public class CukedoctorMojoTest extends AbstractMojoTestCase {
     assertThat(docHtml).isNotEmpty();
   }
 
-  /** @throws Exception */
   public void testGenerateAllowUriRead() throws Exception {
 
     CukedoctorMojo mojo =
@@ -465,7 +446,6 @@ public class CukedoctorMojoTest extends AbstractMojoTestCase {
     assertThat(docHtml).isNotEmpty();
   }
 
-  /** @throws Exception */
   public void testGenerateAsciidoctorDiagram() throws Exception {
 
     CukedoctorMojo mojo =
@@ -481,7 +461,6 @@ public class CukedoctorMojoTest extends AbstractMojoTestCase {
     assertThat(diagramFile).exists().hasParent("target/docs");
   }
 
-  /** @throws Exception */
   public void testGenerateDataUri() throws Exception {
 
     CukedoctorMojo mojo =

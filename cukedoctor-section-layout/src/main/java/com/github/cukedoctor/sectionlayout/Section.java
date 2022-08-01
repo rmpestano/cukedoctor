@@ -14,7 +14,6 @@ public interface Section extends Comparable<Section> {
     for (Feature feature : features) {
       addFeature(feature);
     }
-
     return this;
   }
 

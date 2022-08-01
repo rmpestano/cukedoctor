@@ -2,7 +2,9 @@ package com.github.cukedoctor.example.bdd;
 
 import static org.junit.Assert.assertEquals;
 
-import io.cucumber.java.en.*;
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
 
 /** Created by pestano on 28/02/16. */
 public class CalcStepDef {

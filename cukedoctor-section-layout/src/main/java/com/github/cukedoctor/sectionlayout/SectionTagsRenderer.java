@@ -1,6 +1,8 @@
 package com.github.cukedoctor.sectionlayout;
 
-import static com.github.cukedoctor.sectionlayout.Constants.*;
+import static com.github.cukedoctor.sectionlayout.Constants.AppendixTagPattern;
+import static com.github.cukedoctor.sectionlayout.Constants.SectionTagPattern;
+import static com.github.cukedoctor.sectionlayout.Constants.SubsectionTagPattern;
 
 import com.github.cukedoctor.api.model.Tag;
 import com.github.cukedoctor.renderer.CukedoctorTagsRenderer;

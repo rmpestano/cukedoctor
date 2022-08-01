@@ -7,7 +7,11 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.nio.charset.StandardCharsets;
-import java.nio.file.*;
+import java.nio.file.FileVisitResult;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.nio.file.SimpleFileVisitor;
 import java.nio.file.attribute.BasicFileAttributes;
 import java.util.ArrayList;
 import java.util.List;
@@ -139,7 +143,7 @@ public class FileUtil {
     }
     String fullyQualifiedName = name;
 
-    /** if filename is not absolute use current path as base dir */
+    // if filename is not absolute use current path as base dir
     if (!new File(fullyQualifiedName).isAbsolute()) {
       fullyQualifiedName = Paths.get("").toAbsolutePath() + "/" + name;
     }

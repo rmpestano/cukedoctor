@@ -5,10 +5,17 @@ import static com.github.cukedoctor.util.Assert.hasText;
 import com.github.cukedoctor.api.model.Feature;
 import com.github.cukedoctor.util.Constants;
 import com.github.cukedoctor.util.FileUtil;
-import java.io.*;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;
 import java.text.MessageFormat;
-import java.util.*;
+import java.util.List;
+import java.util.Locale;
+import java.util.MissingResourceException;
+import java.util.PropertyResourceBundle;
+import java.util.ResourceBundle;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -98,7 +105,7 @@ public class I18nLoader extends ResourceBundle.Control {
   /** looks for a file named cukedoctor.properties using @baseDir as starting point */
   private InputStream findCukedoctorProperties(String baseDir) {
     List<String> files = FileUtil.findFiles(baseDir, "cukedoctor.properties", true);
-    if (files != null && !files.isEmpty()) {
+    if (!files.isEmpty()) {
       String path = files.get(0);
       log.trace("Loading cukedoctor resource bundle from: {}", path);
       File file = new File(path);

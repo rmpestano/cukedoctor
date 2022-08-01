@@ -1,6 +1,8 @@
 package com.github.cukedoctor.converter;
 
-import static com.github.cukedoctor.util.Assert.*;
+import static com.github.cukedoctor.util.Assert.hasElements;
+import static com.github.cukedoctor.util.Assert.hasText;
+import static com.github.cukedoctor.util.Assert.notNull;
 import static com.github.cukedoctor.util.Constants.Markup.bold;
 import static com.github.cukedoctor.util.Constants.newLine;
 
@@ -124,7 +126,7 @@ public class CukedoctorConverterImpl implements CukedoctorConverter {
             "cukedoctor-intro.adoc",
             true,
             cukedoctorConfig.getIntroChapterRelativePath());
-    if (files != null && !files.isEmpty()) {
+    if (!files.isEmpty()) {
       String introPath = files.get(0);
       introPath = introPath.replaceAll("\\\\", "/");
       docBuilder.append("include::", introPath, "[leveloffset=+1]", newLine(), newLine());

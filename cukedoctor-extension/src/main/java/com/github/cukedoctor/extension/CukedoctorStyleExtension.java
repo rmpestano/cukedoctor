@@ -1,6 +1,6 @@
 package com.github.cukedoctor.extension;
 
-import static com.github.cukedoctor.extension.CukedoctorExtensionRegistry.*;
+import static com.github.cukedoctor.extension.CukedoctorExtensionRegistry.STYLE_DISABLE_EXT_KEY;
 
 import com.github.cukedoctor.extension.util.FileUtil;
 import java.io.FileInputStream;
@@ -68,7 +68,7 @@ public class CukedoctorStyleExtension extends Postprocessor {
 
   private void addCukedoctorCss(org.jsoup.nodes.Document document) {
     List<String> files = FileUtil.findFiles(CUKEDOCTOR_CUSTOMIZATION_DIR, "cukedoctor.css", true);
-    if (files != null && !files.isEmpty()) {
+    if (!files.isEmpty()) {
       String themePath = files.get(0);
       themePath = themePath.replaceAll("\\\\", "/");
       try {

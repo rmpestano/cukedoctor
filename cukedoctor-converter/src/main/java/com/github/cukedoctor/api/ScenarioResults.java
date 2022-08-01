@@ -5,8 +5,8 @@ import java.util.List;
 
 /** Created by pestano on 04/06/15. */
 public class ScenarioResults {
-  List<Scenario> passedScenarios;
-  List<Scenario> failedScenarios;
+  final List<Scenario> passedScenarios;
+  final List<Scenario> failedScenarios;
 
   public ScenarioResults(List<Scenario> passedScenarios, List<Scenario> failedScenarios) {
     this.passedScenarios = passedScenarios;

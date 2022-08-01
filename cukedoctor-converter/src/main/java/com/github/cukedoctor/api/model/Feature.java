@@ -9,7 +9,12 @@ import com.github.cukedoctor.api.ScenarioResults;
 import com.github.cukedoctor.api.StepResults;
 import com.github.cukedoctor.util.Assert;
 import com.github.cukedoctor.util.Constants;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Objects;
+import java.util.Optional;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.function.Function;
 import org.slf4j.LoggerFactory;
@@ -139,16 +144,14 @@ public class Feature implements Comparable<Feature> {
    */
   @Deprecated
   public Integer getNumberOfScenarios() {
-    Integer result = 0;
-    if (scenarios != null) {
-      List<Scenario> elementList = new ArrayList<>();
-      for (Scenario element : scenarios) {
-        if (!element.hasExamples()) {
-          elementList.add(element);
-        }
+    int result;
+    List<Scenario> elementList = new ArrayList<>();
+    for (Scenario element : scenarios) {
+      if (!element.hasExamples()) {
+        elementList.add(element);
       }
-      result = elementList.size();
     }
+    result = elementList.size();
     return result;
   }
 
@@ -198,9 +201,7 @@ public class Feature implements Comparable<Feature> {
 
   public void initScenarios() {
     if (elements != null) {
-      for (Scenario element : elements) {
-        scenarios.add(element);
-      }
+      scenarios.addAll(elements);
     }
   }
 
@@ -217,18 +218,16 @@ public class Feature implements Comparable<Feature> {
     List<Scenario> failedScenarios = new ArrayList<>();
     long totalDuration = 0L;
 
-    if (scenarios != null) {
-      for (Scenario scenario : scenarios) {
-        if (scenario.hasExamples()) {
-          continue;
-        }
-        calculateScenarioStats(passedScenarios, failedScenarios, scenario);
-        if (scenario.hasSteps()) {
-          for (Step step : scenario.getSteps()) {
-            allSteps.add(step);
-            statusCounter.get(step.getStatus()).incrementAndGet();
-            totalDuration += step.getDuration();
-          }
+    for (Scenario scenario : scenarios) {
+      if (scenario.hasExamples()) {
+        continue;
+      }
+      calculateScenarioStats(passedScenarios, failedScenarios, scenario);
+      if (scenario.hasSteps()) {
+        for (Step step : scenario.getSteps()) {
+          allSteps.add(step);
+          statusCounter.get(step.getStatus()).incrementAndGet();
+          totalDuration += step.getDuration();
         }
       }
     }

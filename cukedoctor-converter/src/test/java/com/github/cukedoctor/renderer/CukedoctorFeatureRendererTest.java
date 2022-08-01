@@ -10,7 +10,10 @@ import static org.mockito.Mockito.spy;
 
 import com.github.cukedoctor.api.CukedoctorDocumentBuilder;
 import com.github.cukedoctor.api.DocumentAttributes;
-import com.github.cukedoctor.api.model.*;
+import com.github.cukedoctor.api.model.Feature;
+import com.github.cukedoctor.api.model.Scenario;
+import com.github.cukedoctor.api.model.Tag;
+import com.github.cukedoctor.api.model.Type;
 import com.github.cukedoctor.builder.CukedoctorDocumentBuilderImpl;
 import com.github.cukedoctor.parser.FeatureParser;
 import com.github.cukedoctor.util.Expectations;
@@ -543,9 +546,6 @@ public class CukedoctorFeatureRendererTest {
             .type(Type.scenario)
             .build();
     feature.getScenarios().add(scenarioToSkip);
-    List<Feature> features = new ArrayList<>();
-    features.add(feature);
-
     CukedoctorFeatureRenderer featureRenderer = new CukedoctorFeatureRenderer();
     String resultDoc =
         featureRenderer.renderFeatureScenarios(
@@ -576,8 +576,6 @@ public class CukedoctorFeatureRendererTest {
   @Test
   public void shouldRenderFeatureScenariosWithMultipleSteps() {
     final Feature feature = FeatureBuilder.instance().aFeatureWithMultipleScenariosAndSteps();
-    List<Feature> features = new ArrayList<>();
-    features.add(feature);
     CukedoctorFeatureRenderer featureRenderer = new CukedoctorFeatureRenderer();
     String resultDoc =
         featureRenderer.renderFeatureScenarios(
@@ -661,8 +659,6 @@ public class CukedoctorFeatureRendererTest {
   public void shouldNotGenerateSectionIdForFeatureBlankName() {
     final Feature feature = FeatureBuilder.instance().aFeatureWithOneScenarioWithOnePassingStep();
     feature.setName("    ");
-    List<Feature> features = new ArrayList<>();
-    features.add(feature);
     CukedoctorFeatureRenderer featureRenderer = new CukedoctorFeatureRenderer();
     assertThat(featureRenderer.renderFeatureSectionId(feature)).isEqualTo("");
   }
@@ -671,8 +667,6 @@ public class CukedoctorFeatureRendererTest {
   public void shouldNotRenderSectionIdForFeatureWithNullName() {
     final Feature feature = FeatureBuilder.instance().aFeatureWithOneScenarioWithOnePassingStep();
     feature.setName(null);
-    List<Feature> features = new ArrayList<>();
-    features.add(feature);
     CukedoctorFeatureRenderer featureRenderer = new CukedoctorFeatureRenderer();
     assertThat(featureRenderer.renderFeatureSectionId(feature)).isEqualTo("");
   }
@@ -681,8 +675,6 @@ public class CukedoctorFeatureRendererTest {
   public void shouldRenderSectionIdForFeatureWithNameWithSpaces() {
     final Feature feature = FeatureBuilder.instance().aFeatureWithOneScenarioWithOnePassingStep();
     feature.setName("Feature name");
-    List<Feature> features = new ArrayList<>();
-    features.add(feature);
     CukedoctorFeatureRenderer featureRenderer = new CukedoctorFeatureRenderer();
     assertThat(featureRenderer.renderFeatureSectionId(feature))
         .isEqualTo("[[Feature-name, Feature name]]");
@@ -692,8 +684,6 @@ public class CukedoctorFeatureRendererTest {
   public void shouldRenderSectionIdForFeatureWithNameWithSpacesAndComma() {
     final Feature feature = FeatureBuilder.instance().aFeatureWithOneScenarioWithOnePassingStep();
     feature.setName("Feature name, subname");
-    List<Feature> features = new ArrayList<>();
-    features.add(feature);
     CukedoctorFeatureRenderer featureRenderer = new CukedoctorFeatureRenderer();
     assertThat(featureRenderer.renderFeatureSectionId(feature))
         .isEqualTo("[[Feature-name-subname, Feature name, subname]]");
@@ -703,8 +693,6 @@ public class CukedoctorFeatureRendererTest {
   public void shouldRenderFeatureSectionId() {
     final Feature feature = FeatureBuilder.instance().aFeatureWithOneScenarioWithOnePassingStep();
     feature.setName("Name");
-    List<Feature> features = new ArrayList<>();
-    features.add(feature);
     CukedoctorFeatureRenderer featureRenderer = new CukedoctorFeatureRenderer();
     assertThat(featureRenderer.renderFeatureSectionId(feature)).isEqualTo("[[Name, Name]]");
   }

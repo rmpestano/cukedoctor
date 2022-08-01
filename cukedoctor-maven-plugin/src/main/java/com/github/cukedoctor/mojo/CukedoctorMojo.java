@@ -45,82 +45,71 @@ import org.asciidoctor.extension.ExtensionGroup;
 @Mojo(name = "execute", defaultPhase = LifecyclePhase.INSTALL)
 public class CukedoctorMojo extends AbstractMojo {
 
-  @Parameter(defaultValue = "documentation", required = false)
+  @Parameter(defaultValue = "documentation")
   String outputFileName;
 
-  @Parameter(defaultValue = "cukedoctor", required = false)
+  @Parameter(defaultValue = "cukedoctor")
   String outputDir;
 
-  @Parameter(required = false)
-  String featuresDir;
+  @Parameter() String featuresDir;
 
-  @Parameter(required = false)
-  String introChapterDir;
+  @Parameter() String introChapterDir;
 
-  @Parameter(required = false)
-  String documentTitle;
+  @Parameter() String documentTitle;
 
   @Parameter(defaultValue = "html5", required = true)
   Format format;
 
-  @Parameter(defaultValue = "right", required = false)
+  @Parameter(defaultValue = "right")
   Toc toc;
 
-  @Parameter(defaultValue = "false", required = false)
+  @Parameter(defaultValue = "false")
   boolean numbered;
 
-  @Parameter(defaultValue = "false", required = false)
+  @Parameter(defaultValue = "false")
   boolean disableTheme;
 
-  @Parameter(defaultValue = "false", required = false)
+  @Parameter(defaultValue = "false")
   boolean disableFilter;
 
-  @Parameter(defaultValue = "false", required = false)
+  @Parameter(defaultValue = "false")
   boolean disableMinimizable;
 
-  @Parameter(defaultValue = "false", required = false)
+  @Parameter(defaultValue = "false")
   boolean disableFooter;
 
-  @Parameter(defaultValue = "Chapter", required = false)
+  @Parameter(defaultValue = "Chapter")
   String chapterLabel;
 
-  @Parameter(defaultValue = "Version", required = false)
+  @Parameter(defaultValue = "Version")
   String versionLabel;
 
-  @Parameter(required = false)
-  String docVersion;
+  @Parameter() String docVersion;
 
-  @Parameter(defaultValue = "true", required = false)
+  @Parameter(defaultValue = "true")
   boolean hardBreaks;
 
-  @Parameter(required = false)
-  Boolean hideFeaturesSection;
+  @Parameter() Boolean hideFeaturesSection;
 
-  @Parameter(required = false)
-  Boolean hideSummarySection;
+  @Parameter() Boolean hideSummarySection;
 
-  @Parameter(required = false)
-  Boolean hideScenarioKeyword;
+  @Parameter() Boolean hideScenarioKeyword;
 
-  @Parameter(required = false)
-  Boolean hideStepTime;
+  @Parameter() Boolean hideStepTime;
 
-  @Parameter(required = false)
-  Boolean hideTags;
+  @Parameter() Boolean hideTags;
 
-  @Parameter(required = false)
-  String sourceHighlighter;
+  @Parameter() String sourceHighlighter;
 
-  @Parameter(required = false)
-  Boolean allowUriRead;
+  @Parameter() Boolean allowUriRead;
 
   @Parameter(property = "cukedoctor.skip", defaultValue = "false")
   private boolean skip;
 
-  @Parameter(property = "stem", required = false)
+  @Parameter(property = "stem")
   String stem;
 
-  @Parameter(property = "dataUri", required = false)
+  @Parameter(property = "dataUri")
   Boolean dataUri;
 
   @Parameter(defaultValue = "${project}", readonly = true)
@@ -173,7 +162,7 @@ public class CukedoctorMojo extends AbstractMojo {
 
     getLog().info("Searching cucumber features in path: " + startDir);
     List<Feature> featuresFound = FeatureParser.findAndParse(startDir);
-    if (featuresFound == null || featuresFound.isEmpty()) {
+    if (featuresFound.isEmpty()) {
       getLog().warn("No cucumber json files found in " + startDir);
       return;
     } else {

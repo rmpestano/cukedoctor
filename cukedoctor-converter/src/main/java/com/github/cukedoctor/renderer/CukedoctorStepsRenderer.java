@@ -1,12 +1,27 @@
 package com.github.cukedoctor.renderer;
 
 import static com.github.cukedoctor.api.CukedoctorDocumentBuilder.Factory.newInstance;
-import static com.github.cukedoctor.util.Assert.*;
-import static com.github.cukedoctor.util.Constants.Markup.*;
+import static com.github.cukedoctor.util.Assert.hasElements;
+import static com.github.cukedoctor.util.Assert.hasText;
+import static com.github.cukedoctor.util.Assert.notNull;
+import static com.github.cukedoctor.util.Constants.Markup.exampleBlock;
+import static com.github.cukedoctor.util.Constants.Markup.listing;
+import static com.github.cukedoctor.util.Constants.Markup.table;
+import static com.github.cukedoctor.util.Constants.Markup.tableCol;
 import static com.github.cukedoctor.util.Constants.newLine;
 
 import com.github.cukedoctor.api.CukedoctorDocumentBuilder;
-import com.github.cukedoctor.api.model.*;
+import com.github.cukedoctor.api.model.Comment;
+import com.github.cukedoctor.api.model.DocString;
+import com.github.cukedoctor.api.model.Embedding;
+import com.github.cukedoctor.api.model.Feature;
+import com.github.cukedoctor.api.model.Output;
+import com.github.cukedoctor.api.model.Result;
+import com.github.cukedoctor.api.model.Row;
+import com.github.cukedoctor.api.model.Scenario;
+import com.github.cukedoctor.api.model.Status;
+import com.github.cukedoctor.api.model.Step;
+import com.github.cukedoctor.api.model.Tag;
 import com.github.cukedoctor.config.CukedoctorConfig;
 import com.github.cukedoctor.spi.StepsRenderer;
 import com.github.cukedoctor.util.Constants;
@@ -203,7 +218,7 @@ public class CukedoctorStepsRenderer extends AbstractBaseRenderer implements Ste
         continue;
       }
 
-      if (!isListing && line.contains("----")) {
+      if (line.contains("----")) {
         isListing = true;
         docBuilder.textLine(line);
         continue;
@@ -215,7 +230,7 @@ public class CukedoctorStepsRenderer extends AbstractBaseRenderer implements Ste
         continue;
       }
       // do not add discrete to complex blocks otherwise it will produce invalid markup like below:
-      /** [discrete] [IMPORTANT] [discrete] ====== */
+      // [discrete] [IMPORTANT] [discrete] ======
       if (line.startsWith("======")) {
         docBuilder.textLine(line);
         continue;
@@ -284,7 +299,7 @@ public class CukedoctorStepsRenderer extends AbstractBaseRenderer implements Ste
     // TODO convert to AsciidocBuilder
     CukedoctorDocumentBuilder builder = newInstance();
     builder.newLine();
-    if (notEmpty(step.getRows())) {
+    if (hasElements(step.getRows())) {
       builder.newLine();
       builder
           .append("[cols=\"" + step.getRows()[0].getCells().length + "*\", options=\"header\"]")

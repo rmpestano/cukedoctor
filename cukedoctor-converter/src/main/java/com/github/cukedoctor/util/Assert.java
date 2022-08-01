@@ -1,8 +1,11 @@
 package com.github.cukedoctor.util;
 
 import java.io.Serializable;
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.Map;
+import java.util.Objects;
+import java.util.Optional;
 
 /** Created by rafael-pestano on 26/06/2015. */
 public class Assert implements Serializable {
@@ -54,23 +57,6 @@ public class Assert implements Serializable {
   }
 
   /**
-   * @param array list to check emptiness
-   * @return TRUE when given array has elements; that is, it must not be {@code null} and must have
-   *     at least one element. FALSE otherwise
-   */
-  public static boolean notEmpty(Object[] array) {
-    if (array == null || array.length == 0) {
-      return false;
-    }
-    for (Object element : array) {
-      if (element != null) {
-        return true;
-      }
-    }
-    return false;
-  }
-
-  /**
    * @param collection collection to check emptiness
    * @return TRUE when given collection has elements; that is, it must not be {@code null} and must
    *     have at least one element. @return FALSE otherwise
@@ -84,15 +70,9 @@ public class Assert implements Serializable {
    * @return TRUE when given array has at least one not null element; FALSE otherwise
    */
   public static boolean hasElements(Object[] array) {
-    if (array == null || array.length > 0) {
-      return false;
-    }
-    for (Object o : array) {
-      if (o != null) {
-        return true;
-      }
-    }
-    return false;
+    return Optional.ofNullable(array)
+        .map(objects -> Arrays.stream(objects).anyMatch(Objects::nonNull))
+        .orElse(false);
   }
 
   /**
@@ -100,15 +80,9 @@ public class Assert implements Serializable {
    * @return TRUE when given array has at least one not null element; FALSE otherwise
    */
   public static boolean hasElements(Collection<?> collection) {
-    if (collection == null || collection.isEmpty()) {
-      return false;
-    }
-    for (Object o : collection) {
-      if (o != null) {
-        return true;
-      }
-    }
-    return false;
+    return Optional.ofNullable(collection)
+        .map(objects -> objects.stream().anyMatch(Objects::nonNull))
+        .orElse(false);
   }
 
   /**
