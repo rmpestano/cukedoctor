@@ -79,6 +79,9 @@
     <plugin.version.spotless>2.22.6</plugin.version.spotless>
     <plugin.version.google-java-format>1.7</plugin.version.google-java-format>
     <jaxb.version>2.3.1</jaxb.version>
+    <mockito.version>4.6.1</mockito.version>
+    <junit-jupiter.version>5.8.2</junit-jupiter.version>
+    <assertj.version>3.22.0</assertj.version>
   </properties>
 
   <dependencyManagement>
@@ -106,6 +109,13 @@
         <version>${project.version}</version>
       </dependency>
       <!-- Third-party libraries -->
+      <dependency>
+        <groupId>org.junit</groupId>
+        <artifactId>junit-bom</artifactId>
+        <version>${junit-jupiter.version}</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
       <dependency>
         <groupId>org.slf4j</groupId>
         <artifactId>slf4j-api</artifactId>
@@ -177,19 +187,14 @@
         <version>${jaxb.version}</version>
       </dependency>
       <dependency>
-        <groupId>junit</groupId>
-        <artifactId>junit</artifactId>
-        <version>4.13.1</version>
-      </dependency>
-      <dependency>
         <groupId>org.assertj</groupId>
         <artifactId>assertj-core</artifactId>
-        <version>3.15.0</version>
+        <version>${assertj.version}</version>
       </dependency>
       <dependency>
         <groupId>org.mockito</groupId>
-        <artifactId>mockito-all</artifactId>
-        <version>1.10.19</version>
+        <artifactId>mockito-junit-jupiter</artifactId>
+        <version>${mockito.version}</version>
       </dependency>
       <dependency>
         <groupId>commons-lang</groupId>
@@ -239,8 +244,13 @@
       <artifactId>slf4j-simple</artifactId>
     </dependency>
     <dependency>
-      <groupId>junit</groupId>
-      <artifactId>junit</artifactId>
+      <groupId>org.junit.jupiter</groupId>
+      <artifactId>junit-jupiter</artifactId>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.junit.vintage</groupId>
+      <artifactId>junit-vintage-engine</artifactId>
       <scope>test</scope>
     </dependency>
     <dependency>
@@ -250,7 +260,7 @@
     </dependency>
     <dependency>
       <groupId>org.mockito</groupId>
-      <artifactId>mockito-all</artifactId>
+      <artifactId>mockito-junit-jupiter</artifactId>
       <scope>test</scope>
     </dependency>
     <dependency>

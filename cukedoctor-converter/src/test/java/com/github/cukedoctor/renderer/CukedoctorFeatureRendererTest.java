@@ -3,7 +3,8 @@ package com.github.cukedoctor.renderer;
 import static com.github.cukedoctor.renderer.Fixtures.featureWithSourceDocStringInStep;
 import static com.github.cukedoctor.util.Constants.newLine;
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.mockito.Matchers.*;
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.Mockito.doReturn;
 import static org.mockito.Mockito.spy;
 

@@ -2,7 +2,6 @@ package com.github.cukedoctor.sectionlayout;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.Assert.assertEquals;
-import static org.mockito.Matchers.any;
 import static org.mockito.Mockito.*;
 
 import com.github.cukedoctor.api.CukedoctorDocumentBuilder;
@@ -106,7 +105,7 @@ public class SectionSummaryRendererTest {
 
     final SectionSummaryRenderer renderer =
         new SectionSummaryRenderer(
-            new ServiceLoaderUtil<SummaryRenderer>(Collections.singletonList(underlyingRenderer)));
+            new ServiceLoaderUtil<>(Collections.singletonList(underlyingRenderer)));
 
     String result =
         renderer.renderSummary(
@@ -116,10 +115,9 @@ public class SectionSummaryRendererTest {
 
     ArgumentCaptor<List> argumentCaptor = ArgumentCaptor.forClass(List.class);
     verify(underlyingRenderer)
-        .renderSummary(
-            argumentCaptor.<List<Feature>>capture(), any(CukedoctorDocumentBuilder.class));
+        .renderSummary(argumentCaptor.capture(), any(CukedoctorDocumentBuilder.class));
 
-    List<Feature> features = argumentCaptor.<List<Feature>>getValue();
+    List<Feature> features = argumentCaptor.getValue();
     assertThat(features).containsExactly(one, two, three, four, five, six, seven, eight);
   }
 }
