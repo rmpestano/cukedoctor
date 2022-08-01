@@ -42,7 +42,10 @@ public class CukedoctorThemeExtension extends Postprocessor {
               + ""
               + (!isTocRight ? "float:right;" : "")
               + "width:150px;font-size:10px;position:relative;top:0;right:0px\"><b>Theme:&nbsp;</b>\n"
-              + "<select style=\"width:100px;font-size:10px;\" name=\"select\" onchange=\"window.location.href = window.location.href.substring(0,window.location.href.indexOf('?')) + '?theme='+ this.value\">\n"
+              + "<select style=\"width:100px;font-size:10px;\" name=\"select\""
+              + " onchange=\"window.location.href ="
+              + " window.location.href.substring(0,window.location.href.indexOf('?')) + '?theme='+"
+              + " this.value\">\n"
               + "  <option value=\"asciidoctor\" selected>Asciidoctor</option> \n"
               + "  <option value=\"colony\">Colony</option>\n"
               + "  <option value=\"foundation\" >Foundation</option>\n"

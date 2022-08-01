@@ -31,27 +31,33 @@ public class CukedoctorScenarioRendererTest {
                 + newLine()
                 + "Given::"
                 + newLine()
-                + "passing step icon:thumbs-up[role=\"green\",title=\"Passed\"] [small right]#(000ms)#"
+                + "passing step icon:thumbs-up[role=\"green\",title=\"Passed\"] [small"
+                + " right]#(000ms)#"
                 + newLine()
                 + "When::"
                 + newLine()
-                + "failing step icon:thumbs-down[role=\"red\",title=\"Failed\"] [small right]#(000ms)#"
+                + "failing step icon:thumbs-down[role=\"red\",title=\"Failed\"] [small"
+                + " right]#(000ms)#"
                 + newLine()
                 + "When::"
                 + newLine()
-                + "pending step icon:thumbs-down[role=\"maroon\",title=\"Pending\"] [small right]#(000ms)#"
+                + "pending step icon:thumbs-down[role=\"maroon\",title=\"Pending\"] [small"
+                + " right]#(000ms)#"
                 + newLine()
                 + "When::"
                 + newLine()
-                + "missing step icon:thumbs-down[role=\"blue\",title=\"Missing\"] [small right]#(000ms)#"
+                + "missing step icon:thumbs-down[role=\"blue\",title=\"Missing\"] [small"
+                + " right]#(000ms)#"
                 + newLine()
                 + "When::"
                 + newLine()
-                + "undefined step icon:thumbs-down[role=\"yellow\",title=\"Undefined\"] [small right]#(000ms)#"
+                + "undefined step icon:thumbs-down[role=\"yellow\",title=\"Undefined\"] [small"
+                + " right]#(000ms)#"
                 + newLine()
                 + "Then::"
                 + newLine()
-                + "skipped step icon:thumbs-down[role=\"purple\",title=\"Skipped\"] [small right]#(000ms)#"
+                + "skipped step icon:thumbs-down[role=\"purple\",title=\"Skipped\"] [small"
+                + " right]#(000ms)#"
                 + newLine()
                 + "=========="
                 + newLine()

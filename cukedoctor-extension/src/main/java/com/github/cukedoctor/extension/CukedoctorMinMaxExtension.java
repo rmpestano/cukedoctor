@@ -13,7 +13,8 @@ public class CukedoctorMinMaxExtension extends BlockMacroProcessor {
       StringBuilder minMax = new StringBuilder();
       minMax
           .append(
-              "<span class=\"fa fa-minus-square fa-fw\" style=\"cursor:pointer;float:right;margin-top:-30px\" ")
+              "<span class=\"fa fa-minus-square fa-fw\""
+                  + " style=\"cursor:pointer;float:right;margin-top:-30px\" ")
           .append(" title=\"Minimize\" onclick=\"hideFeatureScenarios('")
           .append(target)
           .append("');document.getElementById('hidden-")
@@ -23,7 +24,9 @@ public class CukedoctorMinMaxExtension extends BlockMacroProcessor {
           .append(target)
           .append("\"")
           .append(
-              " class=\"fa fa-plus-square fa-fw\" style=\"cursor:pointer;float:right;display:none;margin-top:-30px\" title=\"Maximize feature\" onclick=\"showFeatureScenarios('")
+              " class=\"fa fa-plus-square fa-fw\""
+                  + " style=\"cursor:pointer;float:right;display:none;margin-top:-30px\""
+                  + " title=\"Maximize feature\" onclick=\"showFeatureScenarios('")
           .append(target)
           .append("');")
           .append("this.style.display = 'none'\">  </span>");

@@ -27,30 +27,65 @@ public class Page {
     this.documentAttributes = documentAttributes;
   }
 
+  /**
+   * getter
+   *
+   * @return the list of {@link Feature}s
+   */
   public List<Feature> getFeatures() {
     return features;
   }
 
+  /**
+   * setter
+   *
+   * @param features the list of {@link Feature}s to parse
+   */
   public void setFeatures(List<Feature> features) {
     this.features = features;
   }
 
+  /**
+   * getter
+   *
+   * @return the {@link DocumentAttributes} for doc generation
+   */
   public DocumentAttributes getDocumentAttributes() {
     return documentAttributes;
   }
 
+  /**
+   * setter
+   *
+   * @param documentAttributes the {@link DocumentAttributes} to use
+   */
   public void setDocumentAttributes(DocumentAttributes documentAttributes) {
     this.documentAttributes = documentAttributes;
   }
 
+  /**
+   * getter
+   *
+   * @return the page title
+   */
   public String getPageTitle() {
     return pageTitle;
   }
 
+  /**
+   * setter
+   *
+   * @param pageTitle the page title
+   */
   public void setPageTitle(String pageTitle) {
     this.pageTitle = pageTitle;
   }
 
+  /**
+   * getter
+   *
+   * @return the rendered doc by the classic {@link com.github.cukedoctor.api.CukedoctorConverter}
+   */
   public String getRender() {
     return render;
   }

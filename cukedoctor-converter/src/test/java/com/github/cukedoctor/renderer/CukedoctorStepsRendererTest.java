@@ -38,7 +38,8 @@ public class CukedoctorStepsRendererTest {
                 + newLine()
                 + "Given::"
                 + newLine()
-                + "passing step icon:thumbs-up[role=\"green\",title=\"Passed\"] [small right]#(000ms)#"
+                + "passing step icon:thumbs-up[role=\"green\",title=\"Passed\"] [small"
+                + " right]#(000ms)#"
                 + newLine()
                 + "=========="
                 + newLine()
@@ -67,11 +68,13 @@ public class CukedoctorStepsRendererTest {
                 + newLine()
                 + "Given::"
                 + newLine()
-                + "passing step icon:thumbs-up[role=\"green\",title=\"Passed\"] [small right]#(000ms)#"
+                + "passing step icon:thumbs-up[role=\"green\",title=\"Passed\"] [small"
+                + " right]#(000ms)#"
                 + newLine()
                 + "When::"
                 + newLine()
-                + "failing step icon:thumbs-down[role=\"red\",title=\"Failed\"] [small right]#(000ms)#"
+                + "failing step icon:thumbs-down[role=\"red\",title=\"Failed\"] [small"
+                + " right]#(000ms)#"
                 + newLine()
                 + "=========="
                 + newLine()

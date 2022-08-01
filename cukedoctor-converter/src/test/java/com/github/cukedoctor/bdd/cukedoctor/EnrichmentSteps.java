@@ -41,7 +41,8 @@ public class EnrichmentSteps {
   }
 
   @When(
-      "^I convert docstring enriched json output activated with a step comment using cukedoctor converter$")
+      "^I convert docstring enriched json output activated with a step comment using cukedoctor"
+          + " converter$")
   public void
       I_convert_docstring_enriched_json_output_activated_with_a_step_comment_using_cukedoctor_converter()
           throws Throwable {
