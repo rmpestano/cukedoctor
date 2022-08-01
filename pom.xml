@@ -6,7 +6,7 @@
     <groupId>org.sonatype.oss</groupId>
     <artifactId>oss-parent</artifactId>
     <version>7</version>
-    <relativePath />
+    <relativePath></relativePath>
   </parent>
 
   <groupId>com.github.cukedoctor</groupId>
@@ -280,7 +280,7 @@
           <configuration>
             <encoding>${project.encoding}</encoding>
             <pom>
-              <sortPom />
+              <sortPom></sortPom>
             </pom>
             <java>
               <googleJavaFormat>
@@ -345,12 +345,6 @@
           <version>2.19.1</version>
           <configuration>
             <aggregate>true</aggregate>
-            <includes>
-              <include>**/*It.java</include>
-              <include>**/*Test.java</include>
-              <include>**/*Feature.java</include>
-              <include>**/*Bdd.java</include>
-            </includes>
           </configuration>
         </plugin>
         <plugin>
