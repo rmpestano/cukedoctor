@@ -21,6 +21,8 @@ import org.slf4j.LoggerFactory;
 public class FeatureParser {
   private static final Logger log = LoggerFactory.getLogger(FeatureParser.class);
 
+  private FeatureParser() {}
+
   /**
    * @param json absolute path to cucumber json output file
    * @return list of cucumber features found in json output files

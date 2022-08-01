@@ -18,7 +18,7 @@ public interface StepsRenderer extends BaseRenderer {
    * @deprecated Use renderSteps(List&lt;Step&gt;, Scenario, Feature, CukedoctorDocumentBuilder)
    *     instead
    */
-  @Deprecated
+  @Deprecated(forRemoval = true)
   String renderSteps(List<Step> steps, Scenario scenario, Feature feature);
 
   default String renderSteps(

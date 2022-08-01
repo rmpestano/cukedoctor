@@ -117,9 +117,9 @@ public class FeatureTest {
     assertThat(feature.getNumberOfFailures()).isEqualTo(1); // 1 in scenario 2
     assertThat(feature.getNumberOfPasses()).isEqualTo(4); // 2 passes in each scenario
     assertThat(feature.getNumberOfPending()).isEqualTo(1);
-    assertThat(feature.getNumberOfSkipped()).isEqualTo(0);
+    assertThat(feature.getNumberOfSkipped()).isZero();
     assertThat(feature.getNumberOfMissing()).isEqualTo(1);
-    assertThat(feature.getNumberOfUndefined()).isEqualTo(0);
+    assertThat(feature.getNumberOfUndefined()).isZero();
     assertThat(feature.getNumberOfScenariosPassed()).isEqualTo(1);
     assertThat(feature.getNumberOfScenariosFailed()).isEqualTo(3);
   }

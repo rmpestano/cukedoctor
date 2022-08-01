@@ -27,6 +27,7 @@ import java.nio.file.Paths;
 
 /** Created by pestano on 04/06/15. */
 public abstract class Constants {
+  private Constants() {}
 
   public static final String SKIP_DOCS = "@skipDocs";
   public static final String BASE_DIR =
@@ -64,6 +65,8 @@ public abstract class Constants {
 
   public abstract static class Markup {
 
+    private Markup() {}
+
     public static String bold(String value) {
       return "*" + value + "*";
     }
@@ -72,19 +75,19 @@ public abstract class Constants {
       return "[" + style + "]#" + value + "#";
     }
 
-    public static String H1(String value) {
+    public static String h1(String value) {
       return "= " + value;
     }
 
-    public static String H2(String value) {
+    public static String h2(String value) {
       return "== " + value;
     }
 
-    public static String H3(String value) {
+    public static String h3(String value) {
       return "=== " + value;
     }
 
-    public static String H4(String value) {
+    public static String h4(String value) {
       return "==== " + value;
     }
 

@@ -47,7 +47,6 @@ public class Comment {
 
   @Override
   public String toString() {
-    // TODO Auto-generated method stub
     return value;
   }
 }

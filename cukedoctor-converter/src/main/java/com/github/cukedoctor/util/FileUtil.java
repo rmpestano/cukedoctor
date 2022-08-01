@@ -28,6 +28,8 @@ public class FileUtil {
   public static final Pattern ADOC_FILE_EXTENSION =
       Pattern.compile("([^\\s]+(\\.(?i)(ad|adoc|asciidoc|asc))$)");
 
+  private FileUtil() {}
+
   /**
    * @param path full path to the json feature result
    * @return absolute path to to json result file
@@ -156,7 +158,7 @@ public class FileUtil {
       File file = new File(fullyQualifiedName);
       file.createNewFile();
       FileUtils.write(file, data, "UTF-8");
-      log.info("Wrote: " + file.getAbsolutePath());
+      log.info("Wrote: {}", file.getAbsolutePath());
       return file;
     } catch (IOException e) {
       log.error("Could not create file {}", name, e);
@@ -182,10 +184,14 @@ public class FileUtil {
   }
 
   public static boolean removeFile(String path) {
-
     File fileToRemove = loadFile(path);
-
-    return fileToRemove.delete();
+    try {
+      Files.delete(fileToRemove.toPath());
+      return true;
+    } catch (IOException e) {
+      log.error("could not delete path {}", path);
+      return false;
+    }
   }
 
   public static void removeDir(String path) throws IOException {

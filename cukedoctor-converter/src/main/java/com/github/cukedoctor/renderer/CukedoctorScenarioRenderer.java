@@ -76,7 +76,7 @@ public class CukedoctorScenarioRenderer extends AbstractBaseRenderer implements 
       if (!Status.passed.equals(scenario.getStatus())) {
         backgroundTitle.append(" ").append(Status.getStatusIcon(Status.failed));
       }
-      docBuilder.title(backgroundTitle.toString().replaceAll("\\\\", ""));
+      docBuilder.title(backgroundTitle.toString().replace("\\", ""));
     }
 
     if (hasText(scenario.getName())) {
@@ -99,7 +99,7 @@ public class CukedoctorScenarioRenderer extends AbstractBaseRenderer implements 
     }
 
     if (hasText(scenario.getDescription())) {
-      docBuilder.textLine(trimAllLines(scenario.getDescription()).replaceAll("\\\\", "")).newLine();
+      docBuilder.textLine(trimAllLines(scenario.getDescription()).replace("\\", "")).newLine();
     } else {
       docBuilder.textLine("").newLine();
     }

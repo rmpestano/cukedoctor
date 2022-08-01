@@ -14,7 +14,7 @@ public abstract class AbstractBaseRenderer {
   protected DocumentAttributes documentAttributes;
   protected CukedoctorConfig cukedoctorConfig;
 
-  public AbstractBaseRenderer() {
+  protected AbstractBaseRenderer() {
     i18n = I18nLoader.instance(null);
     docBuilder = CukedoctorDocumentBuilder.Factory.newInstance();
     documentAttributes = GlobalConfig.getInstance().getDocumentAttributes();
@@ -25,7 +25,11 @@ public abstract class AbstractBaseRenderer {
     this.i18n = i18n;
   }
 
-  @Deprecated
+  /**
+   * @param documentBuilder document builder
+   * @deprecated Use renderX calls that pass the documentBuilder as a parameter instead
+   */
+  @Deprecated(forRemoval = true)
   public void setDocumentBuilder(CukedoctorDocumentBuilder documentBuilder) {
     this.docBuilder = documentBuilder;
   }

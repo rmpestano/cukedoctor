@@ -10,7 +10,7 @@ import com.github.cukedoctor.api.StepResults;
 import com.github.cukedoctor.util.Assert;
 import com.github.cukedoctor.util.Constants;
 import java.util.ArrayList;
-import java.util.HashMap;
+import java.util.EnumMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
@@ -142,7 +142,7 @@ public class Feature implements Comparable<Feature> {
    * @return total number of scenarios
    * @deprecated use {@link Feature#getScenarioResults()}
    */
-  @Deprecated
+  @Deprecated(forRemoval = true)
   public Integer getNumberOfScenarios() {
     int result;
     List<Scenario> elementList = new ArrayList<>();
@@ -210,7 +210,7 @@ public class Feature implements Comparable<Feature> {
       return;
     }
     List<Step> allSteps = new ArrayList<>();
-    Map<Status, AtomicInteger> statusCounter = new HashMap<>();
+    Map<Status, AtomicInteger> statusCounter = new EnumMap<>(Status.class);
     for (Status status : Status.values()) {
       statusCounter.put(status, new AtomicInteger(0));
     }

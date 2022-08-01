@@ -32,7 +32,7 @@ public class CustomFeatureRenderer extends CukedoctorFeatureRenderer {
     if (hasText(feature.getDescription())) {
       builder
           .append("+")
-          .sideBarBlock(feature.getDescription().trim().replaceAll("\\n", " +" + newLine()));
+          .sideBarBlock(feature.getDescription().trim().replace("\n", " +" + newLine()));
     }
 
     if (feature.hasScenarios()) {

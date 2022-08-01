@@ -28,6 +28,8 @@ import org.asciidoctor.SafeMode;
  */
 public class CukedoctorMain {
 
+  public static final String HTML_5 = "html5";
+
   @Parameter(
       names = "-f",
       description = "Document format - supported html, pdf and all. Default is 'html'",
@@ -155,11 +157,11 @@ public class CukedoctorMain {
     }
 
     if (outputName == null) {
-      outputName = title.replaceAll(" ", "-");
+      outputName = title.replace(" ", "-");
     }
 
     if (format == null || format.equals("html")) {
-      format = "html5";
+      format = HTML_5;
     }
 
     if (!hasText(path)) {
@@ -248,7 +250,7 @@ public class CukedoctorMain {
     String resultDoc;
     final CukedoctorConfig cukedoctorConfig = cukedoctorConfig();
     if ("all".equals(format)) {
-      documentAttributes.backend("html5");
+      documentAttributes.backend(HTML_5);
       resultDoc = this.execute(features, documentAttributes, cukedoctorConfig, outputName);
       documentAttributes.backend("pdf");
       this.execute(features, documentAttributes, cukedoctorConfig, outputName);
@@ -289,10 +291,10 @@ public class CukedoctorMain {
       documentAttributes = new DocumentAttributes().docTitle(title);
     }
     if (!hasText(documentAttributes.getBackend())) {
-      documentAttributes.backend("html5");
+      documentAttributes.backend(HTML_5);
     }
     if (outputName == null) {
-      outputName = documentAttributes.getDocTitle().replaceAll(" ", "_");
+      outputName = documentAttributes.getDocTitle().replace(" ", "_");
     }
 
     CukedoctorConverter converter =

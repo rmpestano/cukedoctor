@@ -1,13 +1,13 @@
 package com.github.cukedoctor.sectionlayout;
 
-import static com.github.cukedoctor.sectionlayout.Constants.SubsectionTagPattern;
+import static com.github.cukedoctor.sectionlayout.Constants.SUBSECTION_TAG_PATTERN;
 
 import com.github.cukedoctor.config.CukedoctorConfig;
 import com.github.cukedoctor.i18n.I18nLoader;
 
 public class BuiltInFeaturesSection extends BasicSection {
   public BuiltInFeaturesSection() {
-    super("Features", null, SubsectionTagPattern);
+    super("Features", null, SUBSECTION_TAG_PATTERN);
   }
 
   @Override

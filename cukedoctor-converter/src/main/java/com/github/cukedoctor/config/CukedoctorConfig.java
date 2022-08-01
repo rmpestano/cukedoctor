@@ -31,7 +31,7 @@ public class CukedoctorConfig implements Serializable {
   private Boolean hideSummarySection;
   private Boolean hideScenarioKeyword;
   private Boolean hideTags;
-  private Boolean disableMinMaxExtension;
+  private boolean disableMinMaxExtension;
 
   public CukedoctorConfig() {
     errorMessageSize = getProp("ERROR_MESSAGE_SIZE", Integer.class);
@@ -100,7 +100,7 @@ public class CukedoctorConfig implements Serializable {
     return hideStepTime;
   }
 
-  public Boolean isHideSummarySection() {
+  public boolean isHideSummarySection() {
     return hideSummarySection;
   }
 

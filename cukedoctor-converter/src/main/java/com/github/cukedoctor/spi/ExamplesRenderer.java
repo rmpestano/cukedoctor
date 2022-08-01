@@ -12,7 +12,7 @@ public interface ExamplesRenderer extends BaseRenderer {
    * @return the renderer {@link String}
    * @deprecated Use renderScenarioExamples(Scenario, CukedoctorDocumentBuilder) instead
    */
-  @Deprecated
+  @Deprecated(forRemoval = true)
   String renderScenarioExamples(Scenario scenario);
 
   default String renderScenarioExamples(

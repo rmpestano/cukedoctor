@@ -54,7 +54,7 @@ public class CukedoctorFeatureRenderer extends AbstractBaseRenderer implements F
       }
     }
     if (hasText(feature.getDescription())) {
-      final String description = trimAllLines(feature.getDescription()).replaceAll("\\\\", "");
+      final String description = trimAllLines(feature.getDescription()).replace("\\", "");
       renderDescription(builder, description);
     }
 
@@ -100,7 +100,7 @@ public class CukedoctorFeatureRenderer extends AbstractBaseRenderer implements F
 
   protected String renderFeatureId(Feature feature) {
     // Anchor must not have blanks neither commas to work
-    return feature.getName().replaceAll(",", "").replaceAll("'", "-").replaceAll(" ", "-");
+    return feature.getName().replace(",", "").replace("'", "-").replace(" ", "-");
   }
 
   protected String renderFeatureScenario(

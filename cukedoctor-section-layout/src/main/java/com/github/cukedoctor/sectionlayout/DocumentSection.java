@@ -1,11 +1,11 @@
 package com.github.cukedoctor.sectionlayout;
 
-import static com.github.cukedoctor.sectionlayout.Constants.AppendixTagPattern;
-import static com.github.cukedoctor.sectionlayout.Constants.BibliographyTagPattern;
-import static com.github.cukedoctor.sectionlayout.Constants.GlossaryTagPattern;
-import static com.github.cukedoctor.sectionlayout.Constants.IndexTagPattern;
-import static com.github.cukedoctor.sectionlayout.Constants.SectionTagPattern;
-import static com.github.cukedoctor.sectionlayout.Constants.SubsectionTagPattern;
+import static com.github.cukedoctor.sectionlayout.Constants.APPENDIX_TAG_PATTERN;
+import static com.github.cukedoctor.sectionlayout.Constants.BIBLIOGRAPHY_TAG_PATTERN;
+import static com.github.cukedoctor.sectionlayout.Constants.GLOSSARY_TAG_PATTERN;
+import static com.github.cukedoctor.sectionlayout.Constants.INDEX_TAG_PATTERN;
+import static com.github.cukedoctor.sectionlayout.Constants.SECTION_TAG_PATTERN;
+import static com.github.cukedoctor.sectionlayout.Constants.SUBSECTION_TAG_PATTERN;
 
 import com.github.cukedoctor.api.CukedoctorDocumentBuilder;
 import com.github.cukedoctor.api.DocumentAttributes;
@@ -64,14 +64,14 @@ public class DocumentSection implements Section {
       return this;
     }
 
-    Optional<String> sectionId = feature.extractTag(SectionTagPattern);
+    Optional<String> sectionId = feature.extractTag(SECTION_TAG_PATTERN);
     if (sectionId.isEmpty()) {
       featuresSection.addFeature(feature);
       return this;
     }
 
     addFeatureForSection(feature, sectionId.get());
-    if (feature.hasTag(AppendixTagPattern)) {
+    if (feature.hasTag(APPENDIX_TAG_PATTERN)) {
       appendixIds.add(sectionId.get());
     }
 
@@ -79,15 +79,15 @@ public class DocumentSection implements Section {
   }
 
   private boolean isGlossary(Feature feature) {
-    return feature.hasTag(GlossaryTagPattern);
+    return feature.hasTag(GLOSSARY_TAG_PATTERN);
   }
 
   private boolean isBibliography(Feature feature) {
-    return feature.hasTag(BibliographyTagPattern);
+    return feature.hasTag(BIBLIOGRAPHY_TAG_PATTERN);
   }
 
   private boolean isIndex(Feature feature) {
-    return feature.hasTag(IndexTagPattern);
+    return feature.hasTag(INDEX_TAG_PATTERN);
   }
 
   private void addFeatureForSection(Feature feature, String sectionId) {
@@ -124,13 +124,13 @@ public class DocumentSection implements Section {
         (String sectionId, Collection<Feature> features) -> {
           if (appendixIds.contains(sectionId)) {
             appendices.add(
-                new BasicSection(sectionId, "appendix", SubsectionTagPattern)
+                new BasicSection(sectionId, "appendix", SUBSECTION_TAG_PATTERN)
                     .addFeatures(features));
             return;
           }
 
           foreSections.add(
-              new BasicSection(sectionId, null, SubsectionTagPattern).addFeatures(features));
+              new BasicSection(sectionId, null, SUBSECTION_TAG_PATTERN).addFeatures(features));
         });
 
     return Stream.concat(

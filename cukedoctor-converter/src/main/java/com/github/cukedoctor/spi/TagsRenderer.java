@@ -14,7 +14,7 @@ public interface TagsRenderer extends BaseRenderer {
    * @return the rendered {@link String}
    * @deprecated Use renderScenarioTags(Scenario, CukedoctorDocumentBuilder) instead
    */
-  @Deprecated
+  @Deprecated(forRemoval = true)
   String renderScenarioTags(Feature feature, Scenario scenario);
 
   default String renderScenarioTags(

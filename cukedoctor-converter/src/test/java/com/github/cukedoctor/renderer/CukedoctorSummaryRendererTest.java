@@ -25,12 +25,6 @@ public class CukedoctorSummaryRendererTest {
     String resultDoc =
         new CukedoctorSummaryRenderer()
             .renderSummary(features, CukedoctorDocumentBuilder.Factory.newInstance());
-    assertThat(resultDoc)
-        .isNotNull()
-        .containsOnlyOnce("<<One-passing-scenario-one-failing-scenario>>")
-        .containsOnlyOnce("|[red]#*failed*#")
-        .contains("2+|010ms");
-
     assertThat(resultDoc).isEqualTo(Expectations.SUMMARY_FOR_ONE_FEATURE);
   }
 
@@ -41,15 +35,6 @@ public class CukedoctorSummaryRendererTest {
     String resultDoc =
         new CukedoctorSummaryRenderer()
             .renderSummary(features, CukedoctorDocumentBuilder.Factory.newInstance());
-    assertThat(resultDoc)
-        .isNotNull()
-        .containsOnlyOnce("<<One-passing-scenario-one-failing-scenario>>")
-        .containsOnlyOnce("<<An-embed-data-directly-feature>>")
-        .containsOnlyOnce("<<An-outline-feature>>")
-        .doesNotContain("<<invalid feature result>>")
-        .contains("|[green]#*passed*#")
-        .contains("|[red]#*failed*#")
-        .containsOnlyOnce("2+|010ms");
     assertThat(resultDoc).isEqualTo(Expectations.SUMMARY_FOR_MULTIPLE_FEATURES);
   }
 

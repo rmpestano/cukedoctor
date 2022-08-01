@@ -13,7 +13,7 @@ public interface FeatureRenderer extends BaseRenderer {
    * @return the rendered {@link String}
    * @deprecated Use renderFeature(Feature, CukedoctorDocumentBuilder) instead
    */
-  @Deprecated
+  @Deprecated(forRemoval = true)
   String renderFeature(Feature feature);
 
   default String renderFeature(Feature feature, CukedoctorDocumentBuilder documentBuilder) {
@@ -26,7 +26,7 @@ public interface FeatureRenderer extends BaseRenderer {
    * @return the rendered {@link String}
    * @deprecated Use renderFeatures(List&lt;Feature&gt;, CukedoctorDocumentBuilder) instead
    */
-  @Deprecated
+  @Deprecated(forRemoval = true)
   String renderFeatures(List<Feature> features);
 
   default String renderFeatures(List<Feature> features, CukedoctorDocumentBuilder documentBuilder) {

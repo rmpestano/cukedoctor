@@ -1,7 +1,7 @@
 package com.github.cukedoctor.renderer;
 
-import static com.github.cukedoctor.util.Constants.Markup.H2;
 import static com.github.cukedoctor.util.Constants.Markup.bold;
+import static com.github.cukedoctor.util.Constants.Markup.h2;
 import static com.github.cukedoctor.util.Constants.Markup.table;
 import static com.github.cukedoctor.util.Constants.Markup.tableCol;
 import static com.github.cukedoctor.util.Constants.newLine;
@@ -32,7 +32,7 @@ public class CukedoctorSummaryRenderer extends AbstractBaseRenderer implements S
     docBuilder.clear();
 
     calculateTotalizations(features);
-    docBuilder.textLine(H2(bold(i18n.getMessage("title.summary"))));
+    docBuilder.textLine(h2(bold(i18n.getMessage("title.summary"))));
 
     // TODO convert to AsciidocMarkupBuilder
     docBuilder
@@ -98,7 +98,7 @@ public class CukedoctorSummaryRenderer extends AbstractBaseRenderer implements S
           "12+^",
           tableCol(),
           "*<<",
-          feature.getName().replaceAll(",", "").replaceAll(" ", "-"),
+          feature.getName().replace(",", "").replace(" ", "-"),
           ">>*",
           newLine());
       StepResults stepResults = feature.getStepResults();

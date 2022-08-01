@@ -20,11 +20,9 @@ public class StringUtil {
     for (int i = 0; i < lines.length; i++) {
       String line = lines[i];
 
-      if (!foundFirstNotEmptyLine) {
-        if (line != null && !line.isEmpty()) {
-          leadingWhitespaceCharsToTrim = countLeadingWhitespace(line);
-          foundFirstNotEmptyLine = true;
-        }
+      if (!foundFirstNotEmptyLine && line != null && !line.isEmpty()) {
+        leadingWhitespaceCharsToTrim = countLeadingWhitespace(line);
+        foundFirstNotEmptyLine = true;
       }
 
       line = trimStart(line, leadingWhitespaceCharsToTrim);

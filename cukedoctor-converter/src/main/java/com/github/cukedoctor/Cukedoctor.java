@@ -17,6 +17,8 @@ import java.util.List;
  */
 public class Cukedoctor {
 
+  private Cukedoctor() {}
+
   /**
    * @param features used to generate the documentation
    * @param attrs document attributes
@@ -37,9 +39,8 @@ public class Cukedoctor {
     CukedoctorConverter instance =
         new CukedoctorConverterImpl(features, attrs, cukedoctorConfig, docBuilder);
 
-    instance.setFilename(
-        instance.getDocumentationTitle().replaceAll(" ", "_")
-            + ".adoc"); // by default use documentTitle as filename
+    // by default use documentTitle as filename
+    instance.setFilename(instance.getDocumentationTitle().replace(" ", "_") + ".adoc");
 
     return instance;
   }

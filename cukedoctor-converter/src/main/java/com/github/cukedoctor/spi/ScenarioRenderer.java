@@ -14,7 +14,7 @@ public interface ScenarioRenderer extends BaseRenderer {
    * @return the renderer scenario
    * @deprecated Use renderScenario(Scenario, Feature, CukedoctorDocumentBuilder) instead
    */
-  @Deprecated
+  @Deprecated(forRemoval = true)
   String renderScenario(Scenario scenario, Feature feature);
 
   default String renderScenario(

@@ -67,11 +67,10 @@ public class CukedoctorStepsRenderer extends AbstractBaseRenderer implements Ste
         }
       }
 
-      if (step.getResult() != null && !Status.passed.equals(step.getStatus())) {
-        if (step.getResult().getErrorMessage() != null) {
-          docBuilder.append(
-              newLine(), "IMPORTANT: ", step.getResult().getErrorMessage(), newLine());
-        }
+      if (step.getResult() != null
+          && !Status.passed.equals(step.getStatus())
+          && step.getResult().getErrorMessage() != null) {
+        docBuilder.append(newLine(), "IMPORTANT: ", step.getResult().getErrorMessage(), newLine());
       }
       renderOutput(step);
       renderAttachments(step);
@@ -182,7 +181,7 @@ public class CukedoctorStepsRenderer extends AbstractBaseRenderer implements Ste
       docBuilder.append("[source,", docString.getContentType(), "]", newLine());
     }
     docBuilder.append(listing(), newLine(), newLine());
-    docBuilder.append(docString.getValue().replaceAll("\\n", newLine()));
+    docBuilder.append(docString.getValue().replace("\n", newLine()));
     docBuilder.append(newLine(), newLine(), listing(), newLine());
   }
 
@@ -193,7 +192,7 @@ public class CukedoctorStepsRenderer extends AbstractBaseRenderer implements Ste
         docString
             .getValue()
             .replaceAll("\\*\\*\\*\\*", "*****")
-            .replaceAll(exampleBlock(), exampleBlock() + "=")
+            .replace(exampleBlock(), exampleBlock() + "=")
             .split("\\n");
 
     // every line that starts with \n and not contains pipe(|) will have discrete class
@@ -207,7 +206,7 @@ public class CukedoctorStepsRenderer extends AbstractBaseRenderer implements Ste
     for (String line : lines) {
 
       if (!isListing) {
-        line = line.replaceAll("\r", "");
+        line = line.replace("\r", "");
       }
       if (isListing) {
         if (line.contains("----")) {
@@ -268,16 +267,16 @@ public class CukedoctorStepsRenderer extends AbstractBaseRenderer implements Ste
               || line.contains(Constants.Markup.listing())
               || (line.startsWith("<") && line.endsWith(">"))) {
             docBuilder.textLine(
-                line.replaceAll("\\n", newLine())
-                    .replaceAll("#\\{", "")
-                    .replaceAll("# \\{", "")
-                    .replaceAll("}", ""));
+                line.replace("\n", newLine())
+                    .replace("#{", "")
+                    .replace("# {", "")
+                    .replace("}", ""));
           } else {
             docBuilder.textLine(
-                line.replaceAll("\\n", newLine())
-                    .replaceAll("#\\{", newLine())
-                    .replaceAll("# \\{", newLine())
-                    .replaceAll("}", ""));
+                line.replace("\n", newLine())
+                    .replace("#{", newLine())
+                    .replace("# {", newLine())
+                    .replace("}", ""));
           }
         }
         // add new line to last comment

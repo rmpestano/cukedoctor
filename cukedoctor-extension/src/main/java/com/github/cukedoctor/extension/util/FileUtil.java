@@ -56,7 +56,7 @@ public class FileUtil {
       File file = new File(fullyQualifiedName);
       file.createNewFile();
       FileUtils.write(file, data, "UTF-8");
-      log.info("Wrote: " + file.getAbsolutePath());
+      log.info("Wrote: {}", file.getAbsolutePath());
       return file;
     } catch (IOException e) {
       log.error("Could not create file {}", name, e);
@@ -94,7 +94,13 @@ public class FileUtil {
    */
   public static boolean removeFile(String path) {
     File fileToRemove = loadFile(path);
-    return fileToRemove.delete();
+    try {
+      Files.delete(fileToRemove.toPath());
+      return true;
+    } catch (IOException e) {
+      log.error("could not delete path {}", path);
+      return false;
+    }
   }
 
   /**
@@ -145,11 +151,10 @@ public class FileUtil {
 
     Path startPath = Paths.get(startDir);
 
-    if (!Files.exists(startPath)) {
-      if (startDir.startsWith("/")) { // try to find using relative paths
-        startDir = startDir.substring(1);
-        startPath = Paths.get(startDir);
-      }
+    if (!Files.exists(startPath) && startDir.startsWith("/")) {
+      // try to find using relative paths
+      startDir = startDir.substring(1);
+      startPath = Paths.get(startDir);
     }
 
     if (!Files.exists(startPath)) {
@@ -241,6 +246,6 @@ public class FileUtil {
    * @return the clean content.
    */
   public static String removeSpecialChars(String content) {
-    return content.replaceAll(" ", "").replaceAll("\n", "").replaceAll("\t", "");
+    return content.replace(" ", "").replace("\n", "").replace("\t", "");
   }
 }

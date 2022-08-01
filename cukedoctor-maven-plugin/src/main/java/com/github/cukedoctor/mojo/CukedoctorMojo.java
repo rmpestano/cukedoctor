@@ -45,6 +45,8 @@ import org.asciidoctor.extension.ExtensionGroup;
 @Mojo(name = "execute", defaultPhase = LifecyclePhase.INSTALL)
 public class CukedoctorMojo extends AbstractMojo {
 
+  public static final String DISABLED = "disabled";
+
   @Parameter(defaultValue = "documentation")
   String outputFileName;
 
@@ -243,22 +245,22 @@ public class CukedoctorMojo extends AbstractMojo {
 
   private void configExtensions() {
     if (disableFilter) {
-      System.setProperty(FILTER_DISABLE_EXT_KEY, "disabled");
+      System.setProperty(FILTER_DISABLE_EXT_KEY, DISABLED);
     } else {
       System.clearProperty(FILTER_DISABLE_EXT_KEY);
     }
     if (disableMinimizable) {
-      System.setProperty("cukedoctor.disable.minmax", "disabled");
+      System.setProperty("cukedoctor.disable.minmax", DISABLED);
     } else {
       System.clearProperty("cukedoctor.disable.minmax");
     }
     if (disableTheme) {
-      System.setProperty("cukedoctor.disable.theme", "disabled");
+      System.setProperty("cukedoctor.disable.theme", DISABLED);
     } else {
       System.clearProperty("cukedoctor.disable.theme");
     }
     if (disableFooter) {
-      System.setProperty("cukedoctor.disable.footer", "disabled");
+      System.setProperty("cukedoctor.disable.footer", DISABLED);
     } else {
       System.clearProperty("cukedoctor.disable.footer");
     }

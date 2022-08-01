@@ -4,6 +4,8 @@ import java.lang.reflect.Field;
 
 public class ObjectUtil {
 
+  private ObjectUtil() {}
+
   public static Object getFieldValue(Object obj, String fieldName)
       throws NoSuchFieldException, IllegalAccessException {
     Field field = obj.getClass().getDeclaredField(fieldName);

@@ -660,7 +660,7 @@ public class CukedoctorFeatureRendererTest {
     final Feature feature = FeatureBuilder.instance().aFeatureWithOneScenarioWithOnePassingStep();
     feature.setName("    ");
     CukedoctorFeatureRenderer featureRenderer = new CukedoctorFeatureRenderer();
-    assertThat(featureRenderer.renderFeatureSectionId(feature)).isEqualTo("");
+    assertThat(featureRenderer.renderFeatureSectionId(feature)).isEmpty();
   }
 
   @Test
@@ -668,7 +668,7 @@ public class CukedoctorFeatureRendererTest {
     final Feature feature = FeatureBuilder.instance().aFeatureWithOneScenarioWithOnePassingStep();
     feature.setName(null);
     CukedoctorFeatureRenderer featureRenderer = new CukedoctorFeatureRenderer();
-    assertThat(featureRenderer.renderFeatureSectionId(feature)).isEqualTo("");
+    assertThat(featureRenderer.renderFeatureSectionId(feature)).isEmpty();
   }
 
   @Test

@@ -17,8 +17,6 @@ import org.slf4j.LoggerFactory;
 
 public class DefaultMultipagePersister implements MultipagePersister {
   private static final Logger logger = LoggerFactory.getLogger(DefaultMultipagePersister.class);
-  private DocumentAttributes documentAttributes;
-  private CukedoctorConfig cukedoctorConfig;
 
   @Override
   public void persist(MultipageDocumentation multipageDocumentation, File outputFolderLocation) {
@@ -48,12 +46,8 @@ public class DefaultMultipagePersister implements MultipagePersister {
   public void setDocumentBuilder(CukedoctorDocumentBuilder documentBuilder) {}
 
   @Override
-  public void setDocumentAttributes(DocumentAttributes documentAttributes) {
-    this.documentAttributes = documentAttributes;
-  }
+  public void setDocumentAttributes(DocumentAttributes documentAttributes) {}
 
   @Override
-  public void setCukedoctorConfig(CukedoctorConfig cukedoctorConfig) {
-    this.cukedoctorConfig = cukedoctorConfig;
-  }
+  public void setCukedoctorConfig(CukedoctorConfig cukedoctorConfig) {}
 }

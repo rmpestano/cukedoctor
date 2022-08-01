@@ -128,7 +128,7 @@ public class CukedoctorConverterImpl implements CukedoctorConverter {
             cukedoctorConfig.getIntroChapterRelativePath());
     if (!files.isEmpty()) {
       String introPath = files.get(0);
-      introPath = introPath.replaceAll("\\\\", "/");
+      introPath = introPath.replace("\\", "/");
       docBuilder.append("include::", introPath, "[leveloffset=+1]", newLine(), newLine());
     }
   }
@@ -158,7 +158,7 @@ public class CukedoctorConverterImpl implements CukedoctorConverter {
           FileUtil.findFiles(cukedoctorConfig.getCustomizationDir(), pdfThemeName, true);
       if (hasElements(files)) {
         String themePath = files.get(0);
-        themePath = themePath.replaceAll("\\\\", "/");
+        themePath = themePath.replace("\\", "/");
         documentAttributes.pdfStyle(themePath);
       }
     }
@@ -193,7 +193,7 @@ public class CukedoctorConverterImpl implements CukedoctorConverter {
     if (!filename.contains(".")) {
       filename = filename + ".adoc";
     }
-    filename = filename.replaceAll(" ", "_"); // remove blank spaces with underline
+    filename = filename.replace(" ", "_"); // remove blank spaces with underline
 
     if (!FileUtil.ADOC_FILE_EXTENSION.matcher(filename).matches()) {
       throw new RuntimeException(

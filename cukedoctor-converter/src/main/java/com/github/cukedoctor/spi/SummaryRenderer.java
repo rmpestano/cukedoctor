@@ -13,7 +13,7 @@ public interface SummaryRenderer extends BaseRenderer {
    * @return the rendered {@link String}
    * @deprecated Use renderSummary(List&lt;Feature&gt;, CukedoctorDocumentBuilder) instead
    */
-  @Deprecated
+  @Deprecated(forRemoval = true)
   String renderSummary(List<Feature> features);
 
   default String renderSummary(List<Feature> features, CukedoctorDocumentBuilder documentBuilder) {

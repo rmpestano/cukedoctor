@@ -1,7 +1,7 @@
 package com.github.cukedoctor.multipage.api;
 
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotEquals;
 
 import org.junit.Test;
 
@@ -46,24 +46,18 @@ public class MultipageConverterTest {
   @Test
   public void should_instantiate_cukedoctorConfig() {
     MultipageConverter converter = MultipageConverter.builder().cukedoctorConfig(null).build();
-
-    assertNotEquals(converter.getCukedoktorConfig(), null);
-    assertNotEquals(converter.getCukedoktorConfig(), "");
+    assertThat(converter.getCukedoktorConfig()).isNotNull().doesNotHaveToString("");
   }
 
   @Test
   public void should_have_jsonFileLocation() {
     MultipageConverter converter = MultipageConverter.builder().build();
-
-    assertNotEquals(converter.getJsonFilesLocation(), null);
-    assertNotEquals(converter.getJsonFilesLocation(), "");
+    assertThat(converter.getJsonFilesLocation()).isNotNull().doesNotHaveToString("");
   }
 
   @Test
   public void should_have_outputFolder() {
     MultipageConverter converter = MultipageConverter.builder().build();
-
-    assertNotEquals(converter.getJsonFilesLocation(), null);
-    assertNotEquals(converter.getJsonFilesLocation(), "");
+    assertThat(converter.getJsonFilesLocation()).isNotNull().doesNotHaveToString("");
   }
 }

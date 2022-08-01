@@ -294,9 +294,9 @@ public class CukedoctorScriptExtension extends Postprocessor {
     if (HIDE_FEATURES_SECTION) {
       searchScripts =
           searchScripts
-              .replaceAll("sectlevel2", "sectlevel1")
-              .replaceAll("sect2", "sect1")
-              .replaceAll("H3", "H2");
+              .replace("sectlevel2", "sectlevel1")
+              .replace("sect2", "sect1")
+              .replace("H3", "H2");
     }
     contentElement.after(searchScripts);
   }
