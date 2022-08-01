@@ -5,6 +5,7 @@ import static com.github.cukedoctor.extension.CukedoctorExtensionRegistry.*;
 import com.github.cukedoctor.extension.util.FileUtil;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.List;
@@ -39,7 +40,7 @@ public class CukedoctorStyleExtension extends Postprocessor {
 
   @Override
   public String process(Document document, String output) {
-    if (document.basebackend("html")) {
+    if (document.isBasebackend("html")) {
       org.jsoup.nodes.Document doc = Jsoup.parse(output, "UTF-8");
       if (System.getProperty(STYLE_DISABLE_EXT_KEY) == null) {
         Element contentElement = doc.getElementById("footer");
@@ -71,7 +72,7 @@ public class CukedoctorStyleExtension extends Postprocessor {
       String themePath = files.get(0);
       themePath = themePath.replaceAll("\\\\", "/");
       try {
-        String customCss = IOUtils.toString(new FileInputStream(themePath));
+        String customCss = IOUtils.toString(new FileInputStream(themePath), StandardCharsets.UTF_8);
         Elements head = document.getElementsByTag("head");
         head.append(" <style> " + customCss + "</style>");
       } catch (IOException e) {

@@ -21,7 +21,7 @@ public class CukedoctorFooterExtension extends Postprocessor {
   public String process(Document document, String output) {
     if (document.isBasebackend("html") && System.getProperty("cukedoctor.disable.footer") == null) {
       String stopWatch = System.getProperty("cukedoctor.stopwatch");
-      Double generationTimeInSeconds = new Double(0);
+      double generationTimeInSeconds = (double) 0;
       String documentationDate = dateFormat.format(new Date());
       String cukedoctorVersion = "";
       try {

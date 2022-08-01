@@ -9,6 +9,7 @@ import static org.junit.Assert.assertNotNull;
 
 import java.io.File;
 import org.asciidoctor.Asciidoctor;
+import org.asciidoctor.Options;
 import org.asciidoctor.OptionsBuilder;
 import org.asciidoctor.SafeMode;
 import org.junit.*;
@@ -47,7 +48,7 @@ public class MinMaxExtensionTest {
   public void shouldAddSearchInputToRenderedHtml() {
     File sampleAdoc = loadTestFile("sample.adoc");
     assertThat(sampleAdoc).exists();
-    asciidoctor.convertFile(sampleAdoc, OptionsBuilder.options().safe(SafeMode.UNSAFE).asMap());
+    asciidoctor.convertFile(sampleAdoc, Options.builder().safe(SafeMode.UNSAFE).build());
 
     String sampleHtml = readFileContent(loadTestFile("sample.html"));
     assertNotNull(sampleHtml);
@@ -72,7 +73,7 @@ public class MinMaxExtensionTest {
     System.setProperty(MINMAX_DISABLE_EXT_KEY, "anyValue");
     File sampleAdoc = loadTestFile("sample.adoc");
     assertThat(sampleAdoc).exists();
-    asciidoctor.convertFile(sampleAdoc, OptionsBuilder.options().safe(SafeMode.UNSAFE).asMap());
+    asciidoctor.convertFile(sampleAdoc, Options.builder().safe(SafeMode.UNSAFE).build());
 
     String sampleHtml = readFileContent(loadTestFile("sample.html"));
     assertNotNull(sampleHtml);

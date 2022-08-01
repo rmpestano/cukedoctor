@@ -5,6 +5,7 @@ import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.nio.charset.StandardCharsets;
 import java.nio.file.FileVisitResult;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -107,7 +108,7 @@ public class FileUtil {
 
     if (source != null && dest != null) {
       try (InputStream in = FileUtil.class.getResourceAsStream(source)) {
-        return saveFile(dest, IOUtils.toString(in));
+        return saveFile(dest, IOUtils.toString(in, StandardCharsets.UTF_8));
       } catch (IOException e) {
         log.error("Could not copy source file: {} to dest file: {}", dest, e);
       }
@@ -191,7 +192,7 @@ public class FileUtil {
     if (source != null && dest != null) {
       try {
         InputStream in = FileUtil.class.getResourceAsStream(source);
-        return saveFile(dest, IOUtils.toString(in));
+        return saveFile(dest, IOUtils.toString(in, StandardCharsets.UTF_8));
       } catch (IOException e) {
         log.error("Could not copy source file: {} to dest file: {}", source, dest, e);
       }

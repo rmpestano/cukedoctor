@@ -17,6 +17,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Pattern;
 import org.asciidoctor.Asciidoctor;
+import org.asciidoctor.Attributes;
+import org.asciidoctor.Options;
 import org.asciidoctor.OptionsBuilder;
 import org.asciidoctor.SafeMode;
 
@@ -334,12 +336,12 @@ public class CukedoctorMain {
       asciidoctor.unregisterAllExtensions();
     }
     OptionsBuilder ob =
-        OptionsBuilder.options()
+        Options.builder()
             .safe(SafeMode.UNSAFE)
             .backend(documentAttributes.getBackend())
-            .attributes(documentAttributes.toMap());
+            .attributes(Attributes.builder().attributes(documentAttributes.toMap()).build());
     System.out.println("Document attributes\n" + documentAttributes.toMap());
-    asciidoctor.convertFile(adocFile, ob);
+    asciidoctor.convertFile(adocFile, ob.build());
     asciidoctor.shutdown();
     return doc;
   }

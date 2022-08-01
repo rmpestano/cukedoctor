@@ -34,7 +34,7 @@ public class CukedoctorThemeExtension extends Postprocessor {
       }
 
       org.jsoup.nodes.Document doc = Jsoup.parse(output, "UTF-8");
-      Object tocPosition = document.document().getAttributes().get("toc-position");
+      Object tocPosition = document.getDocument().getAttributes().get("toc-position");
       boolean isTocRight = tocPosition != null && tocPosition.toString().equalsIgnoreCase("right");
       Element contentElement = doc.getElementsByAttributeValue("id", "header").get(0);
       contentElement.before(

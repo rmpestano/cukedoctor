@@ -38,6 +38,8 @@ import org.apache.maven.plugins.annotations.Mojo;
 import org.apache.maven.plugins.annotations.Parameter;
 import org.apache.maven.project.MavenProject;
 import org.asciidoctor.Asciidoctor;
+import org.asciidoctor.Attributes;
+import org.asciidoctor.Options;
 import org.asciidoctor.OptionsBuilder;
 import org.asciidoctor.SafeMode;
 import org.asciidoctor.extension.ExtensionGroup;
@@ -279,10 +281,10 @@ public class CukedoctorMojo extends AbstractMojo {
       DocumentAttributes documentAttributes, File adocFile, Asciidoctor asciidoctor) {
 
     OptionsBuilder ob =
-        OptionsBuilder.options()
+        Options.builder()
             .safe(SafeMode.UNSAFE)
             .backend(documentAttributes.getBackend())
-            .attributes(documentAttributes.toMap());
+            .attributes(Attributes.builder().attributes(documentAttributes.toMap()).build());
     getLog().info("Document attributes:\n" + documentAttributes.toMap());
     ExtensionGroup cukedoctorExtensionGroup =
         asciidoctor.createGroup(CUKEDOCTOR_EXTENSION_GROUP_NAME);
@@ -291,7 +293,7 @@ public class CukedoctorMojo extends AbstractMojo {
       // remove auxiliary files
       FileUtil.removeFile(adocFile.getParent() + "/" + outputFileName + "-theme.yml");
     }
-    asciidoctor.convertFile(adocFile, ob);
+    asciidoctor.convertFile(adocFile, ob.build());
 
     getLog().info("Generated documentation at: " + adocFile.getParent());
   }

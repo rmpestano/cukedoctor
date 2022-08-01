@@ -7,6 +7,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 import java.io.File;
 import org.asciidoctor.Asciidoctor;
+import org.asciidoctor.Options;
 import org.asciidoctor.OptionsBuilder;
 import org.asciidoctor.SafeMode;
 import org.junit.*;
@@ -46,7 +47,7 @@ public class FooterExtensionTest {
     File sampleAdoc = loadTestFile("sample.adoc");
     assertThat(sampleAdoc).exists();
     System.setProperty("cukedoctor.stopwatch", String.valueOf(System.currentTimeMillis()));
-    asciidoctor.convertFile(sampleAdoc, OptionsBuilder.options().safe(SafeMode.UNSAFE).asMap());
+    asciidoctor.convertFile(sampleAdoc, Options.builder().safe(SafeMode.UNSAFE).build());
 
     String sampleHtml = readFileContent(loadTestFile("sample.html"));
     assertThat(sampleHtml.replaceAll("\n", "").replace("\t", ""))
@@ -63,7 +64,7 @@ public class FooterExtensionTest {
     File sampleAdoc = loadTestFile("sample.adoc");
     assertThat(sampleAdoc).exists();
     System.setProperty("cukedoctor.stopwatch", String.valueOf(System.currentTimeMillis()));
-    asciidoctor.convertFile(sampleAdoc, OptionsBuilder.options().safe(SafeMode.UNSAFE).asMap());
+    asciidoctor.convertFile(sampleAdoc, Options.builder().safe(SafeMode.UNSAFE).build());
 
     String sampleHtml = readFileContent(loadTestFile("sample.html"));
     assertThat(sampleHtml.replaceAll("\n", "").replace("\t", ""))
