@@ -50,7 +50,7 @@ public class FeatureBuilder {
 
   public FeatureBuilder scenario(Scenario scenario) {
     if (feature.getElements() == null) {
-      feature.setElements(new ArrayList<Scenario>());
+      feature.setElements(new ArrayList<>());
     }
     feature.getElements().add(scenario);
     return instance;

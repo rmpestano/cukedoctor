@@ -10,7 +10,6 @@ import static org.junit.Assert.assertNotNull;
 import java.io.File;
 import org.asciidoctor.Asciidoctor;
 import org.asciidoctor.Options;
-import org.asciidoctor.OptionsBuilder;
 import org.asciidoctor.SafeMode;
 import org.junit.*;
 import org.junit.runner.RunWith;

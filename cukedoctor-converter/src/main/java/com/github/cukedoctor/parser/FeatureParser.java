@@ -24,7 +24,8 @@ public class FeatureParser {
     List<Feature> features = null;
     try (InputStreamReader is =
         new InputStreamReader(new FileInputStream(json), StandardCharsets.UTF_8)) {
-      features = new ObjectMapper().readValue(is, new TypeReference<List<Feature>>() {});
+      features = new ObjectMapper().readValue(is, new TypeReference<>() {
+      });
       Iterator<Feature> it = features.iterator();
       while (it.hasNext()) {
         Feature feature = it.next();

@@ -141,7 +141,7 @@ public class Feature implements Comparable<Feature> {
   public Integer getNumberOfScenarios() {
     Integer result = 0;
     if (scenarios != null) {
-      List<Scenario> elementList = new ArrayList<Scenario>();
+      List<Scenario> elementList = new ArrayList<>();
       for (Scenario element : scenarios) {
         if (!element.hasExamples()) {
           elementList.add(element);
@@ -208,13 +208,13 @@ public class Feature implements Comparable<Feature> {
     if (!isCucumberFeature()) {
       return;
     }
-    List<Step> allSteps = new ArrayList<Step>();
+    List<Step> allSteps = new ArrayList<>();
     Map<Status, AtomicInteger> statusCounter = new HashMap<>();
     for (Status status : Status.values()) {
       statusCounter.put(status, new AtomicInteger(0));
     }
-    List<Scenario> passedScenarios = new ArrayList<Scenario>();
-    List<Scenario> failedScenarios = new ArrayList<Scenario>();
+    List<Scenario> passedScenarios = new ArrayList<>();
+    List<Scenario> failedScenarios = new ArrayList<>();
     long totalDuration = 0L;
 
     if (scenarios != null) {

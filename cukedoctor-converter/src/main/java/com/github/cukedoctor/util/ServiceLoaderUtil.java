@@ -25,7 +25,8 @@ public final class ServiceLoaderUtil<R extends BaseRenderer> {
     this.loader = loader;
   }
 
-  public R load(
+  @SafeVarargs
+  public final R load(
       Class<R> service,
       Class<? extends R> defaultImplementation,
       CukedoctorConfig cukedoctorConfig,
@@ -50,7 +51,8 @@ public final class ServiceLoaderUtil<R extends BaseRenderer> {
     }
   }
 
-  public R initialise(
+  @SafeVarargs
+  public final R initialise(
       Class<R> service,
       Class<? extends R> defaultImplementation,
       I18nLoader i18n,

@@ -96,14 +96,14 @@ public class Assert implements Serializable {
   }
 
   /**
-   * @param array to check elements
+   * @param collection to check elements
    * @return TRUE when given array has at least one not null element; FALSE otherwise
    */
-  public static boolean hasElements(Collection array) {
-    if (array == null || array.isEmpty()) {
+  public static boolean hasElements(Collection<?> collection) {
+    if (collection == null || collection.isEmpty()) {
       return false;
     }
-    for (Object o : array) {
+    for (Object o : collection) {
       if (o != null) {
         return true;
       }

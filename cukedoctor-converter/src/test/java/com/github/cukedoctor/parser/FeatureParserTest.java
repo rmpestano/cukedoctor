@@ -10,7 +10,6 @@ import com.github.cukedoctor.api.model.Scenario;
 import com.github.cukedoctor.api.model.Step;
 import com.github.cukedoctor.util.FileUtil;
 import com.github.cukedoctor.util.builder.FeatureBuilder;
-import java.io.IOException;
 import java.net.URL;
 import java.nio.file.Paths;
 import java.util.List;
