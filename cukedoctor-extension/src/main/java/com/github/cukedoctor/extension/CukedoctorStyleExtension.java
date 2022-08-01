@@ -22,11 +22,16 @@ public class CukedoctorStyleExtension extends Postprocessor {
 
   private static final Logger log = LoggerFactory.getLogger(CukedoctorStyleExtension.class);
 
+  /** Base directory, either {@code target} or {@code bin} depending on the execution context. */
   public static final String BASE_DIR =
       Files.exists(Paths.get("target"))
           ? Paths.get("target").toString()
           : Files.exists(Paths.get("bin")) ? Paths.get("bin").toString() : Paths.get("").toString();
 
+  /**
+   * Customization directory, default or overloaded by customizing {@code
+   * CUKEDOCTOR_CUSTOMIZATION_DIR}.
+   */
   public static final String CUKEDOCTOR_CUSTOMIZATION_DIR =
       getProperty("CUKEDOCTOR_CUSTOMIZATION_DIR") == null
           ? BASE_DIR

@@ -5,6 +5,7 @@ import static com.github.cukedoctor.sectionlayout.Constants.*;
 import com.github.cukedoctor.api.model.Tag;
 import com.github.cukedoctor.renderer.CukedoctorTagsRenderer;
 
+/** Custom renderer for cukedoctor tags */
 public class SectionTagsRenderer extends CukedoctorTagsRenderer {
 
   @Override

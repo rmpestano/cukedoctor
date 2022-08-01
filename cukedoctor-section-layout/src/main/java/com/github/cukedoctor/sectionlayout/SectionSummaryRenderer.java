@@ -12,6 +12,7 @@ import java.util.List;
 import java.util.function.Supplier;
 import java.util.stream.Collectors;
 
+/** Custom renderer for cukedoctor summary */
 public class SectionSummaryRenderer extends AbstractBaseRenderer implements SummaryRenderer {
 
   private final ServiceLoaderUtil<SummaryRenderer> loader;

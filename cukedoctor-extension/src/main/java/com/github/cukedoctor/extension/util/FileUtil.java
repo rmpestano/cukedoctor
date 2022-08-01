@@ -1,7 +1,15 @@
 package com.github.cukedoctor.extension.util;
 
-import java.io.*;
-import java.nio.file.*;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.nio.file.FileVisitResult;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.nio.file.SimpleFileVisitor;
 import java.nio.file.attribute.BasicFileAttributes;
 import java.util.ArrayList;
 import java.util.List;
@@ -15,6 +23,8 @@ import org.slf4j.LoggerFactory;
 public class FileUtil {
 
   private static final Logger log = LoggerFactory.getLogger(FileUtil.class);
+
+  /** Pattern for Asciidoc files extension */
   public static final Pattern ADOC_FILE_EXTENSION =
       Pattern.compile("([^\\s]+(\\.(?i)(ad|adoc|asciidoc|asc))$)");
 
@@ -53,6 +63,12 @@ public class FileUtil {
     }
   }
 
+  /**
+   * Gets a file from its path, either relative or absolute.
+   *
+   * @param path path of the file
+   * @return the {@link File} to load.
+   */
   public static File loadFile(String path) {
     if (path == null) {
       path = "/";
@@ -66,14 +82,27 @@ public class FileUtil {
     if (!path.startsWith("/")) {
       path = "/" + path;
     }
-    return new File(Paths.get("").toAbsolutePath().toString() + path.trim());
+    return new File(Paths.get("").toAbsolutePath() + path.trim());
   }
 
+  /**
+   * Deletes a file from filesystem.
+   *
+   * @param path the path to delete
+   * @return {@code true} or {@code false} depending on the outcome of the deletion
+   */
   public static boolean removeFile(String path) {
     File fileToRemove = loadFile(path);
     return fileToRemove.delete();
   }
 
+  /**
+   * Copy source file to dest file.
+   *
+   * @param source initial file
+   * @param dest copied file
+   * @return the dest file copied.
+   */
   public static File copyFile(String source, String dest) {
 
     if (source != null && dest != null) {
@@ -86,12 +115,28 @@ public class FileUtil {
     return null;
   }
 
-  public static List<String> findFiles(String startDir, final String sulfix) {
-    return findFiles(startDir, sulfix, false);
+  /**
+   * List files with a given suffix. Search starts from startDir.
+   *
+   * @param startDir the directory to start searching files
+   * @param suffix suffix to lookup in fies names
+   * @return the list of files found.
+   */
+  public static List<String> findFiles(String startDir, final String suffix) {
+    return findFiles(startDir, suffix, false);
   }
 
+  /**
+   * List files with a given suffix. Search starts from startDir. Leaves the option to stop
+   * searching when a file has been found.
+   *
+   * @param startDir the directory to start searching files
+   * @param suffix suffix to lookup in fies names
+   * @param singleResult flag to determine if result is returned once a first file has been found.
+   * @return the list of files found.
+   */
   public static List<String> findFiles(
-      String startDir, final String sulfix, final boolean singleResult) {
+      String startDir, final String suffix, final boolean singleResult) {
     final List<String> absolutePaths = new ArrayList<>();
     if (startDir == null) {
       startDir = "";
@@ -118,7 +163,7 @@ public class FileUtil {
             public FileVisitResult visitFile(final Path file, final BasicFileAttributes attrs)
                 throws IOException {
               final String fileName = file.getFileName().toString();
-              if (fileName.endsWith(sulfix)) {
+              if (fileName.endsWith(suffix)) {
                 absolutePaths.add(file.toAbsolutePath().toString());
                 if (singleResult) {
                   return FileVisitResult.TERMINATE;
@@ -132,7 +177,7 @@ public class FileUtil {
             }
           });
     } catch (IOException e) {
-      log.warn("Problems scanning {} files in path: {}", sulfix, startDir, e);
+      log.warn("Problems scanning {} files in path: {}", suffix, startDir, e);
     }
     return absolutePaths;
   }
@@ -154,20 +199,23 @@ public class FileUtil {
     return null;
   }
 
+  /**
+   * Parses content of a file into a string.
+   *
+   * @param target the file to parse
+   * @return the content of the file.
+   */
   public static String readFileContent(File target) {
     StringBuilder content = new StringBuilder();
-    try (InputStream openStream = new FileInputStream(target)) {
+    try (InputStream openStream = Files.newInputStream(target.toPath())) {
       try (BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(openStream))) {
         String line = null;
         while ((line = bufferedReader.readLine()) != null) {
           content.append(line);
         }
-        bufferedReader.close();
-
       } catch (Exception e) {
         log.warn("Could not read file content: {}", target);
       }
-
     } catch (Exception e) {
       log.warn("Could not read file content: {}", target);
     }
@@ -175,12 +223,23 @@ public class FileUtil {
     return content.toString();
   }
 
+  /**
+   * Loads a test file from the {@code target/test-classes} directory.
+   *
+   * @param fileName the name of the file to load
+   * @return the {@link File} instance.
+   */
   public static File loadTestFile(String fileName) {
     return new File(Paths.get("").toAbsolutePath().toString() + "/target/test-classes/" + fileName);
   }
 
+  /**
+   * Cleans content from spaces, new lines and tabulations.
+   *
+   * @param content the content to clean
+   * @return the clean content.
+   */
   public static String removeSpecialChars(String content) {
-
     return content.replaceAll(" ", "").replaceAll("\n", "").replaceAll("\t", "");
   }
 }

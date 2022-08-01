@@ -6,6 +6,7 @@ import com.github.cukedoctor.renderer.AbstractBaseRenderer;
 import com.github.cukedoctor.spi.FeatureRenderer;
 import java.util.List;
 
+/** Custom renderer for cukedoctor feature */
 public class SectionFeatureRenderer extends AbstractBaseRenderer implements FeatureRenderer {
 
   @Override
