@@ -8,7 +8,7 @@ import com.github.cukedoctor.api.model.Step;
 /** Created by pestano on 04/06/15. */
 public class StepBuilder {
 
-  private Step step;
+  private final Step step;
   private static StepBuilder instance;
 
   private StepBuilder(Step step) {

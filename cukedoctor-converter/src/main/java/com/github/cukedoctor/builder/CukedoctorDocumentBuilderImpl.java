@@ -45,7 +45,7 @@ public class CukedoctorDocumentBuilderImpl extends AsciiDocBuilder
     if (notEmpty(text)) {
       for (Object o : text) {
         if (o.equals(Constants.newLine()) || hasText(o.toString())) {
-          documentBuilder.append(o.toString());
+          documentBuilder.append(o);
         }
       }
     }

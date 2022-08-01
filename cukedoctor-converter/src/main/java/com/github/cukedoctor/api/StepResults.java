@@ -10,9 +10,9 @@ import java.util.concurrent.atomic.AtomicInteger;
 /** Created by pestano on 04/06/15. */
 public class StepResults {
 
-  private List<Step> allSteps;
-  private Map<Status, AtomicInteger> statusCounter;
-  private long totalDuration;
+  private final List<Step> allSteps;
+  private final Map<Status, AtomicInteger> statusCounter;
+  private final long totalDuration;
 
   public StepResults(
       List<Step> allSteps, Map<Status, AtomicInteger> statusCounter, long totalDuration) {

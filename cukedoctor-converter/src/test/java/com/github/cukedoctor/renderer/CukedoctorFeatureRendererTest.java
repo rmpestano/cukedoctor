@@ -542,7 +542,6 @@ public class CukedoctorFeatureRendererTest {
             .tag(new Tag("@skipDocs"))
             .type(Type.scenario)
             .build();
-    ;
     feature.getScenarios().add(scenarioToSkip);
     List<Feature> features = new ArrayList<>();
     features.add(feature);

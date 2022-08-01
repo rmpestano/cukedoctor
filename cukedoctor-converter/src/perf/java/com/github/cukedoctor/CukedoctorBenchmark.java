@@ -48,7 +48,7 @@ public class CukedoctorBenchmark {
     @Benchmark
     public void convert(BenchmarkContext ctx) {
         String livingDocumentation = cukedoctorConverter.renderDocumentation();
-        File adocFile = FileUtil.saveFile("target/benchmark/" + UUID.randomUUID().toString() + ".adoc", livingDocumentation);
+        File adocFile = FileUtil.saveFile("target/benchmark/" + UUID.randomUUID() + ".adoc", livingDocumentation);
         //Asciidoctor.Factory.create().convertFile(adocFile, org.asciidoctor.OptionsBuilder.options().backend("html").safe(SafeMode.UNSAFE).asMap());
     }
 

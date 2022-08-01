@@ -6,6 +6,7 @@ import com.github.cukedoctor.api.model.Feature;
 import com.github.cukedoctor.util.Constants;
 import com.github.cukedoctor.util.FileUtil;
 import java.io.*;
+import java.nio.charset.StandardCharsets;
 import java.text.MessageFormat;
 import java.util.*;
 import org.slf4j.Logger;
@@ -64,7 +65,7 @@ public class I18nLoader extends ResourceBundle.Control {
         stream = I18nLoader.class.getResourceAsStream(resourceName);
       }
       try {
-        bundle = new PropertyResourceBundle(new InputStreamReader(stream, "UTF-8"));
+        bundle = new PropertyResourceBundle(new InputStreamReader(stream, StandardCharsets.UTF_8));
       } catch (Exception e) {
         log.warn(
             "No resource bundle found for language {}. Using 'cukedoctor_en.properties' as default"
@@ -75,7 +76,7 @@ public class I18nLoader extends ResourceBundle.Control {
               new PropertyResourceBundle(
                   new InputStreamReader(
                       I18nLoader.class.getResourceAsStream("/i18n/cukedoctor_en.properties"),
-                      "UTF-8"));
+                      StandardCharsets.UTF_8));
         } catch (Exception e1) {
           throw new RuntimeException("Could not find cukedoctor resource bundle", e1);
         }

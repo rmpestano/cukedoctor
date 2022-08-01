@@ -44,7 +44,7 @@ public class FileUtil {
 
     /** if filename is not absolute use current path as base dir */
     if (!new File(fullyQualifiedName).isAbsolute()) {
-      fullyQualifiedName = Paths.get("").toAbsolutePath().toString() + "/" + name;
+      fullyQualifiedName = Paths.get("").toAbsolutePath() + "/" + name;
     }
     try {
       // create subdirs (if there any)
@@ -230,7 +230,7 @@ public class FileUtil {
    * @return the {@link File} instance.
    */
   public static File loadTestFile(String fileName) {
-    return new File(Paths.get("").toAbsolutePath().toString() + "/target/test-classes/" + fileName);
+    return new File(Paths.get("").toAbsolutePath() + "/target/test-classes/" + fileName);
   }
 
   /**

@@ -7,6 +7,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.github.cukedoctor.api.model.Feature;
 import com.github.cukedoctor.util.FileUtil;
 import java.io.*;
+import java.nio.charset.StandardCharsets;
 import java.util.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -21,7 +22,8 @@ public class FeatureParser {
    */
   public static List<Feature> parse(String json) {
     List<Feature> features = null;
-    try (InputStreamReader is = new InputStreamReader(new FileInputStream(json), "UTF-8")) {
+    try (InputStreamReader is =
+        new InputStreamReader(new FileInputStream(json), StandardCharsets.UTF_8)) {
       features = new ObjectMapper().readValue(is, new TypeReference<List<Feature>>() {});
       Iterator<Feature> it = features.iterator();
       while (it.hasNext()) {

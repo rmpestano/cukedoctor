@@ -8,7 +8,7 @@ public enum Asciidoc implements Markup {
 
   private final String markup;
 
-  private Asciidoc(String markup) {
+  Asciidoc(String markup) {
     this.markup = markup;
   }
 

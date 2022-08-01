@@ -7,7 +7,7 @@ import java.util.List;
 /** Created by pestano on 04/06/15. */
 public class FeatureBuilder {
 
-  private Feature feature;
+  private final Feature feature;
   private static FeatureBuilder instance;
 
   private FeatureBuilder(Feature feature) {

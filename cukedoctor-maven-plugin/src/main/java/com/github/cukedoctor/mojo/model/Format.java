@@ -5,5 +5,5 @@ public enum Format {
   html,
   html5,
   pdf,
-  all;
+  all
 }

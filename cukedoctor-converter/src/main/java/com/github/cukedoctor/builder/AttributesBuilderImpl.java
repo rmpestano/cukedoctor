@@ -9,7 +9,7 @@ import io.github.robwin.markup.builder.asciidoc.AsciiDocBuilder;
 /** Created by pestano on 17/02/16. */
 public class AttributesBuilderImpl implements AttributesBuilder {
 
-  private AsciiDocBuilder docBuilder;
+  private final AsciiDocBuilder docBuilder;
 
   public AttributesBuilderImpl(AsciiDocBuilder docBuilder) {
     this.docBuilder = docBuilder;

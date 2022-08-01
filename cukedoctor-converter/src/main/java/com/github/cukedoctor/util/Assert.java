@@ -41,10 +41,7 @@ public class Assert implements Serializable {
    * @return TRUE when given text has any character, FALSE otherwise
    */
   public static boolean hasText(String text) {
-    if (notNull(text) && text.trim().length() > 0) {
-      return true;
-    }
-    return false;
+    return notNull(text) && text.trim().length() > 0;
   }
 
   /**
@@ -53,10 +50,7 @@ public class Assert implements Serializable {
    * @return TRUE when given text contains the given substring, FALSE otherwise
    */
   public static boolean contains(String textToSearch, String substring) {
-    if (notNull(textToSearch) && textToSearch.contains(substring)) {
-      return true;
-    }
-    return false;
+    return notNull(textToSearch) && textToSearch.contains(substring);
   }
 
   /**
@@ -82,11 +76,7 @@ public class Assert implements Serializable {
    *     have at least one element. @return FALSE otherwise
    */
   public static boolean notEmpty(Collection<?> collection) {
-    if (notNull(collection) && !collection.isEmpty()) {
-      return true;
-    } else {
-      return false;
-    }
+    return notNull(collection) && !collection.isEmpty();
   }
 
   /**
@@ -130,10 +120,7 @@ public class Assert implements Serializable {
     if (map == null) {
       return false;
     }
-    if (hasElements(map.entrySet().toArray())) {
-      return true;
-    }
-    return false;
+    return hasElements(map.entrySet().toArray());
   }
 
   /**

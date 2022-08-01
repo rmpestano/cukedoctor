@@ -25,7 +25,7 @@ public class Feature implements Comparable<Feature> {
   private String description;
   private String keyword;
   private List<Scenario> elements = new ArrayList<>();
-  private List<Scenario> scenarios = new ArrayList<>();
+  private final List<Scenario> scenarios = new ArrayList<>();
   private List<Tag> tags = new ArrayList<>();
   private StepResults stepResults;
   private ScenarioResults scenarioResults;

@@ -24,7 +24,7 @@ public class FileUtil {
   }
 
   public static File loadTestFile(String fileName) {
-    return new File(Paths.get("").toAbsolutePath().toString() + "/target/docs/" + fileName);
+    return new File(Paths.get("").toAbsolutePath() + "/target/docs/" + fileName);
   }
 
   public static String removeSpecialChars(String content) {

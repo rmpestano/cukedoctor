@@ -9,7 +9,7 @@ import io.cucumber.java.en.When;
 /** Created by pestano on 09/06/15. */
 public class EatCukesSteps {
 
-  private Belly belly = new Belly();
+  private final Belly belly = new Belly();
 
   @Given("^I have (\\d+) cukes$")
   public void haveCukes(int cukes) {

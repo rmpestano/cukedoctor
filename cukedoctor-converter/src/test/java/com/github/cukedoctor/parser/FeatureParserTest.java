@@ -189,7 +189,7 @@ public class FeatureParserTest {
   public void shouldParseAndFindFeaturesInDirUsingAbsoluteath() throws IOException {
     List<Feature> features =
         FeatureParser.findAndParse(
-            Paths.get("").toAbsolutePath().toString() + "/target/test-classes/json-output/parser");
+            Paths.get("").toAbsolutePath() + "/target/test-classes/json-output/parser");
     assertThat(features)
         .hasSize(4)
         .contains(

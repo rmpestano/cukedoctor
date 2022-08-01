@@ -25,15 +25,15 @@ import java.util.List;
 /** Created by pestano on 02/06/15. */
 public class CukedoctorConverterImpl implements CukedoctorConverter {
 
-  private List<Feature> features;
-  private DocumentAttributes documentAttributes;
+  private final List<Feature> features;
+  private final DocumentAttributes documentAttributes;
   private String filename;
-  private CukedoctorDocumentBuilder docBuilder;
-  private I18nLoader i18n;
+  private final CukedoctorDocumentBuilder docBuilder;
+  private final I18nLoader i18n;
   private SummaryRenderer summaryRenderer;
   private FeatureRenderer featureRenderer;
   private HeaderRenderer headerRenderer;
-  private CukedoctorConfig cukedoctorConfig;
+  private final CukedoctorConfig cukedoctorConfig;
 
   public CukedoctorConverterImpl(List<Feature> features, DocumentAttributes attrs) {
     this(features, attrs, new CukedoctorConfig());

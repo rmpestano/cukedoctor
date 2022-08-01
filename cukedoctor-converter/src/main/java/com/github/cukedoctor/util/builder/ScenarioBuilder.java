@@ -9,7 +9,7 @@ import java.util.ArrayList;
 /** Created by pestano on 04/06/15. */
 public class ScenarioBuilder {
 
-  private Scenario scenario;
+  private final Scenario scenario;
   private static ScenarioBuilder instance;
 
   private ScenarioBuilder(Scenario scenario) {

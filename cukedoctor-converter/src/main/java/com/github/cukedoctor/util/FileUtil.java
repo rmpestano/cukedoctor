@@ -99,7 +99,7 @@ public class FileUtil {
                           .relativize(
                               isFile ? file.getParent().toAbsolutePath() : file.toAbsolutePath());
                   if (isFile) {
-                    foundPaths.add(computedPath.toString() + "/" + file.toFile().getName());
+                    foundPaths.add(computedPath + "/" + file.toFile().getName());
                   } else {
                     foundPaths.add(computedPath.toString());
                   }
@@ -140,7 +140,7 @@ public class FileUtil {
 
     /** if filename is not absolute use current path as base dir */
     if (!new File(fullyQualifiedName).isAbsolute()) {
-      fullyQualifiedName = Paths.get("").toAbsolutePath().toString() + "/" + name;
+      fullyQualifiedName = Paths.get("").toAbsolutePath() + "/" + name;
     }
     try {
       // create subdirs (if there any)
@@ -173,7 +173,7 @@ public class FileUtil {
       path = "/" + path;
     }
 
-    return new File(Paths.get("").toAbsolutePath().toString() + path.trim());
+    return new File(Paths.get("").toAbsolutePath() + path.trim());
   }
 
   public static boolean removeFile(String path) {

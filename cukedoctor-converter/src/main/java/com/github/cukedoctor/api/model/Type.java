@@ -7,5 +7,5 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 public enum Type {
   scenario,
   scenario_outline,
-  background;
+  background
 }
