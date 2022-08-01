@@ -77,7 +77,6 @@
     <snakeyaml.version>1.30</snakeyaml.version>
     <jacoco.version>0.8.7</jacoco.version>
     <plugin.version.spotless>2.22.6</plugin.version.spotless>
-    <plugin.version.google-java-format>1.7</plugin.version.google-java-format>
     <jaxb.version>2.3.1</jaxb.version>
     <mockito.version>4.6.1</mockito.version>
     <junit-jupiter.version>5.8.2</junit-jupiter.version>
@@ -294,18 +293,12 @@
             </pom>
             <java>
               <googleJavaFormat>
-                <version>${plugin.version.google-java-format}</version>
+                <version>1.8</version>
                 <style>GOOGLE</style>
+                <reflowLongStrings>true</reflowLongStrings>
               </googleJavaFormat>
             </java>
           </configuration>
-          <dependencies>
-            <dependency>
-              <groupId>com.google.googlejavaformat</groupId>
-              <artifactId>google-java-format</artifactId>
-              <version>${plugin.version.google-java-format}</version>
-            </dependency>
-          </dependencies>
           <executions>
             <execution>
               <id>apply-format</id>

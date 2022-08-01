@@ -36,7 +36,8 @@ public class CukedoctorMain {
   @Parameter(
       names = "-p",
       description =
-          "Path to cucumber json output files (can be a directory or a file). Default is current directory",
+          "Path to cucumber json output files (can be a directory or a file). Default is current"
+              + " directory",
       required = false)
   private String path;
 
@@ -49,7 +50,8 @@ public class CukedoctorMain {
   @Parameter(
       names = "-o",
       description =
-          "File output name, can be a path eg: /home/doc which will result in doc.html|pdf in /home dir. Document title will be used if output name is not provided",
+          "File output name, can be a path eg: /home/doc which will result in doc.html|pdf in"
+              + " /home dir. Document title will be used if output name is not provided",
       required = false)
   private String outputName;
 
@@ -120,7 +122,8 @@ public class CukedoctorMain {
   @Parameter(
       names = "-cucumberResultPaths",
       description =
-          "Restricts the search to a list of paths, The list is obtained by splitting cucumberResultPaths using File.pathSeparator",
+          "Restricts the search to a list of paths, The list is obtained by splitting"
+              + " cucumberResultPaths using File.pathSeparator",
       required = false)
   private String cucumberResultPaths;
 
@@ -139,14 +142,16 @@ public class CukedoctorMain {
   @Parameter(
       names = "-stem",
       description =
-          "Sets asciidoctor stem attribute with the specified interpreter. By default, the stem attribute is set using asciidoctor's default interpreter ",
+          "Sets asciidoctor stem attribute with the specified interpreter. By default, the stem"
+              + " attribute is set using asciidoctor's default interpreter ",
       required = false)
   private String stem;
 
   @Parameter(
       names = "-dataUri",
       description =
-          "Sets AsciiDoc :data-uri: attribute, causing all images in the document to be embedded as data URIs. Default is false.",
+          "Sets AsciiDoc :data-uri: attribute, causing all images in the document to be embedded"
+              + " as data URIs. Default is false.",
       required = false)
   private Boolean dataUri;
 

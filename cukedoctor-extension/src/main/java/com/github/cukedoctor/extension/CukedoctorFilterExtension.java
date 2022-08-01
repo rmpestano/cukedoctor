@@ -21,7 +21,8 @@ public class CukedoctorFilterExtension extends Postprocessor {
         Element contentElement = doc.getElementsByClass("sect1").get(0);
         contentElement.before(
             "<span style=\"float:right\">\n"
-                + "\t<input value=\"Filter...\" onclick=\"this.value=''\" title=\"Filter features by title\" onblur=\"searchFeature(this.value);\"/>\n"
+                + "\t<input value=\"Filter...\" onclick=\"this.value=''\" title=\"Filter features"
+                + " by title\" onblur=\"searchFeature(this.value);\"/>\n"
                 + "</span>");
       }
       return doc.html();

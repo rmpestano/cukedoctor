@@ -84,7 +84,8 @@ public class StringUtilTests {
   @Test
   public void shouldTrimAllLines() {
     final String fixture =
-        " \t \tThis is the description for Feature One. The first non-blank line of this description in the feature file began with four whitespace characters."
+        " \t \tThis is the description for Feature One. The first non-blank line of this"
+            + " description in the feature file began with four whitespace characters."
             + lineSeparator()
             + "    \t Therefore, cukedoctor will ignore up to the first four"
             + lineSeparator()
@@ -109,7 +110,8 @@ public class StringUtilTests {
             + "       \tin the same description.";
 
     final String expected =
-        "This is the description for Feature One. The first non-blank line of this description in the feature file began with four whitespace characters."
+        "This is the description for Feature One. The first non-blank line of this description in"
+            + " the feature file began with four whitespace characters."
             + lineSeparator()
             + "\t Therefore, cukedoctor will ignore up to the first four"
             + lineSeparator()

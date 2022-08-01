@@ -67,7 +67,8 @@ public class I18nLoader extends ResourceBundle.Control {
         bundle = new PropertyResourceBundle(new InputStreamReader(stream, "UTF-8"));
       } catch (Exception e) {
         log.warn(
-            "No resource bundle found for language {}. Using 'cukedoctor_en.properties' as default bundle.",
+            "No resource bundle found for language {}. Using 'cukedoctor_en.properties' as default"
+                + " bundle.",
             lang);
         try {
           bundle =

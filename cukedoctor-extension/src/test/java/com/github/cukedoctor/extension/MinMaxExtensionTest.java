@@ -54,9 +54,17 @@ public class MinMaxExtensionTest {
     assertThat(sampleHtml.replaceAll(" ", "").replaceAll("\n", "").replaceAll("\t", ""))
         .containsOnlyOnce(
             removeSpecialChars(
-                    "<span class=\"fa fa-minus-square fa-fw\" style=\"cursor:pointer;float:right;margin-top:-30px\"  title=\"Minimize\" onclick=\"hideFeatureScenarios('Sample-test');document.getElementById('hidden-Sample-test').style.display = 'inline';this.style.display = 'none'\">  </span>")
+                    "<span class=\"fa fa-minus-square fa-fw\""
+                        + " style=\"cursor:pointer;float:right;margin-top:-30px\" "
+                        + " title=\"Minimize\""
+                        + " onclick=\"hideFeatureScenarios('Sample-test');document.getElementById('hidden-Sample-test').style.display"
+                        + " = 'inline';this.style.display = 'none'\">  </span>")
                 + removeSpecialChars(
-                    "<span id=\"hidden-Sample-test\" class=\"fa fa-plus-square fa-fw\" style=\"cursor:pointer;float:right;display:none;margin-top:-30px\" title=\"Maximize feature\" onclick=\"showFeatureScenarios('Sample-test');this.style.display = 'none'\">  </span>"));
+                    "<span id=\"hidden-Sample-test\" class=\"fa fa-plus-square fa-fw\""
+                        + " style=\"cursor:pointer;float:right;display:none;margin-top:-30px\""
+                        + " title=\"Maximize feature\""
+                        + " onclick=\"showFeatureScenarios('Sample-test');this.style.display ="
+                        + " 'none'\">  </span>"));
   }
 
   @Test

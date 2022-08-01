@@ -139,15 +139,18 @@ public class CustomRendererTest {
                         + newLine()
                         + "Given ::"
                         + newLine()
-                        + "I have numbers 1 and 2 icon:thumbs-up[role=\"green\",title=\"Passed\"] [small right]#(155ms)#"
+                        + "I have numbers 1 and 2 icon:thumbs-up[role=\"green\",title=\"Passed\"]"
+                        + " [small right]#(155ms)#"
                         + newLine()
                         + "When ::"
                         + newLine()
-                        + "I sum the numbers icon:thumbs-up[role=\"green\",title=\"Passed\"] [small right]#(000ms)#"
+                        + "I sum the numbers icon:thumbs-up[role=\"green\",title=\"Passed\"]"
+                        + " [small right]#(000ms)#"
                         + newLine()
                         + "Then ::"
                         + newLine()
-                        + "I should have 3 as result icon:thumbs-up[role=\"green\",title=\"Passed\"] [small right]#(001ms)#"
+                        + "I should have 3 as result"
+                        + " icon:thumbs-up[role=\"green\",title=\"Passed\"] [small right]#(001ms)#"
                         + newLine()
                         + "=========="
                         + newLine()
@@ -163,15 +166,18 @@ public class CustomRendererTest {
                         + newLine()
                         + "Given ::"
                         + newLine()
-                        + "I have numbers 2 and 1 icon:thumbs-up[role=\"green\",title=\"Passed\"] [small right]#(000ms)#"
+                        + "I have numbers 2 and 1 icon:thumbs-up[role=\"green\",title=\"Passed\"]"
+                        + " [small right]#(000ms)#"
                         + newLine()
                         + "When ::"
                         + newLine()
-                        + "I subtract the numbers icon:thumbs-up[role=\"green\",title=\"Passed\"] [small right]#(000ms)#"
+                        + "I subtract the numbers icon:thumbs-up[role=\"green\",title=\"Passed\"]"
+                        + " [small right]#(000ms)#"
                         + newLine()
                         + "Then ::"
                         + newLine()
-                        + "I should have 0 as result icon:thumbs-down[role=\"red\",title=\"Failed\"] [small right]#(000ms)#"
+                        + "I should have 0 as result"
+                        + " icon:thumbs-down[role=\"red\",title=\"Failed\"] [small right]#(000ms)#"
                         + newLine()
                         + ""
                         + newLine()
@@ -189,7 +195,8 @@ public class CustomRendererTest {
                         + newLine()
                         + "\tat com.github.cukedoctor.example.bdd.CalcStepDef.I_should_have_result(CalcStepDef.java:37)"
                         + newLine()
-                        + "\tat ✽.Then I should have 0 as result(src/test/resources/features/calc.feature:14)"
+                        + "\tat ✽.Then I should have 0 as"
+                        + " result(src/test/resources/features/calc.feature:14)"
                         + newLine()
                         + ""
                         + newLine()

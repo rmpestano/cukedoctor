@@ -147,7 +147,8 @@ public class CukedoctorConverterTest {
     } catch (RuntimeException re) {
       assertThat(re.getMessage())
           .isEqualTo(
-              "Invalid filename extension for file: test.txt. Valid formats are: ad, adoc, asciidoc and asc");
+              "Invalid filename extension for file: test.txt. Valid formats are: ad, adoc,"
+                  + " asciidoc and asc");
     }
 
     try {
@@ -155,7 +156,8 @@ public class CukedoctorConverterTest {
     } catch (RuntimeException re) {
       assertThat(re.getMessage())
           .isEqualTo(
-              "Invalid filename extension for file: test.doc. Valid formats are: ad, adoc, asciidoc and asc");
+              "Invalid filename extension for file: test.doc. Valid formats are: ad, adoc,"
+                  + " asciidoc and asc");
     }
 
     converter.setFilename("test.ad");

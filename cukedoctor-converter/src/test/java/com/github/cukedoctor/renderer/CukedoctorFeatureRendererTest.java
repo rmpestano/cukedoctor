@@ -108,27 +108,32 @@ public class CukedoctorFeatureRendererTest {
                 + newLine()
                 + "Given ::"
                 + newLine()
-                + "I have numbers 1 and 2 icon:thumbs-up[role=\"green\",title=\"Passed\"] [small right]#(114ms)#"
+                + "I have numbers 1 and 2 icon:thumbs-up[role=\"green\",title=\"Passed\"] [small"
+                + " right]#(114ms)#"
                 + newLine()
                 + ""
                 + newLine()
-                + "IMPORTANT: Asciidoc markup inside *steps* must be surrounded by *curly brackets*."
+                + "IMPORTANT: Asciidoc markup inside *steps* must be surrounded by *curly"
+                + " brackets*."
                 + newLine()
                 + ""
                 + newLine()
                 + "When ::"
                 + newLine()
-                + "I sum the numbers icon:thumbs-up[role=\"green\",title=\"Passed\"] [small right]#(000ms)#"
+                + "I sum the numbers icon:thumbs-up[role=\"green\",title=\"Passed\"] [small"
+                + " right]#(000ms)#"
                 + newLine()
                 + ""
                 + newLine()
-                + "NOTE: Steps comments are placed *before* each steps so this comment is for the *WHEN* step."
+                + "NOTE: Steps comments are placed *before* each steps so this comment is for the"
+                + " *WHEN* step."
                 + newLine()
                 + ""
                 + newLine()
                 + "Then ::"
                 + newLine()
-                + "I should have 3 as result icon:thumbs-up[role=\"green\",title=\"Passed\"] [small right]#(001ms)#"
+                + "I should have 3 as result icon:thumbs-up[role=\"green\",title=\"Passed\"]"
+                + " [small right]#(001ms)#"
                 + newLine()
                 + ""
                 + newLine()
@@ -181,7 +186,8 @@ public class CukedoctorFeatureRendererTest {
                     + newLine()
                     + "Given ::"
                     + newLine()
-                    + "I have listing in feature comments. icon:thumbs-up[role=\"green\",title=\"Passed\"] [small right]#(000ms)#"
+                    + "I have listing in feature comments."
+                    + " icon:thumbs-up[role=\"green\",title=\"Passed\"] [small right]#(000ms)#"
                     + newLine()
                     + "[source,java]"
                     + newLine()
@@ -232,7 +238,8 @@ public class CukedoctorFeatureRendererTest {
                     + newLine()
                     + "Given ::"
                     + newLine()
-                    + "I have admonition with a listing in feature comments. icon:thumbs-up[role=\"green\",title=\"Passed\"] [small right]#(032ms)#"
+                    + "I have admonition with a listing in feature comments."
+                    + " icon:thumbs-up[role=\"green\",title=\"Passed\"] [small right]#(032ms)#"
                     + newLine()
                     + ""
                     + newLine()
@@ -298,17 +305,20 @@ public class CukedoctorFeatureRendererTest {
                     + newLine()
                     + "Given ::"
                     + newLine()
-                    + "I have numbers 1 and 2 icon:thumbs-up[role=\"green\",title=\"Passed\"] [small right]#(212ms)#"
+                    + "I have numbers 1 and 2 icon:thumbs-up[role=\"green\",title=\"Passed\"]"
+                    + " [small right]#(212ms)#"
                     + newLine()
                     + ""
                     + newLine()
-                    + "IMPORTANT: Asciidoc markup inside *steps* must be surrounded by *curly brackets*."
+                    + "IMPORTANT: Asciidoc markup inside *steps* must be surrounded by *curly"
+                    + " brackets*."
                     + newLine()
                     + ""
                     + newLine()
                     + "When ::"
                     + newLine()
-                    + "I sum the numbers using the following java code: icon:thumbs-up[role=\"green\",title=\"Passed\"] [small right]#(001ms)#"
+                    + "I sum the numbers using the following java code:"
+                    + " icon:thumbs-up[role=\"green\",title=\"Passed\"] [small right]#(001ms)#"
                     + newLine()
                     + "******"
                     + newLine()
@@ -354,7 +364,8 @@ public class CukedoctorFeatureRendererTest {
                     + newLine()
                     + "Then ::"
                     + newLine()
-                    + "I should have 3 as result icon:thumbs-up[role=\"green\",title=\"Passed\"] [small right]#(003ms)#"
+                    + "I should have 3 as result icon:thumbs-up[role=\"green\",title=\"Passed\"]"
+                    + " [small right]#(003ms)#"
                     + newLine()
                     + ""
                     + newLine()
@@ -554,7 +565,8 @@ public class CukedoctorFeatureRendererTest {
                 + newLine()
                 + "Given::"
                 + newLine()
-                + "passing step icon:thumbs-up[role=\"green\",title=\"Passed\"] [small right]#(000ms)#"
+                + "passing step icon:thumbs-up[role=\"green\",title=\"Passed\"] [small"
+                + " right]#(000ms)#"
                 + newLine()
                 + "=========="
                 + newLine()
@@ -584,11 +596,13 @@ public class CukedoctorFeatureRendererTest {
                     + newLine()
                     + "Given::"
                     + newLine()
-                    + "passing step icon:thumbs-up[role=\"green\",title=\"Passed\"] [small right]#(000ms)#"
+                    + "passing step icon:thumbs-up[role=\"green\",title=\"Passed\"] [small"
+                    + " right]#(000ms)#"
                     + newLine()
                     + "When::"
                     + newLine()
-                    + "failing step icon:thumbs-down[role=\"red\",title=\"Failed\"] [small right]#(000ms)#"
+                    + "failing step icon:thumbs-down[role=\"red\",title=\"Failed\"] [small"
+                    + " right]#(000ms)#"
                     + newLine()
                     + "=========="
                     + newLine()
@@ -604,7 +618,8 @@ public class CukedoctorFeatureRendererTest {
                     + newLine()
                     + "Then::"
                     + newLine()
-                    + "skipped step icon:thumbs-down[role=\"purple\",title=\"Skipped\"] [small right]#(000ms)#"
+                    + "skipped step icon:thumbs-down[role=\"purple\",title=\"Skipped\"] [small"
+                    + " right]#(000ms)#"
                     + newLine()
                     + "=========="
                     + newLine()
@@ -620,7 +635,8 @@ public class CukedoctorFeatureRendererTest {
                     + newLine()
                     + "Given::"
                     + newLine()
-                    + "undefined step icon:thumbs-down[role=\"yellow\",title=\"Undefined\"] [small right]#(000ms)#"
+                    + "undefined step icon:thumbs-down[role=\"yellow\",title=\"Undefined\"] [small"
+                    + " right]#(000ms)#"
                     + newLine()
                     + "=========="
                     + newLine()

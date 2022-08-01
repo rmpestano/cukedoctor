@@ -142,7 +142,8 @@ public class CukedoctorDocumentBuilderImpl extends AsciiDocBuilder
   public class NestingOverflowException extends RuntimeException {
     public NestingOverflowException() {
       super(
-          "Nesting is currently at Section Title Level 5 (the deepest AsciiDoc allows). You cannot nest further titles below this level.");
+          "Nesting is currently at Section Title Level 5 (the deepest AsciiDoc allows). You cannot"
+              + " nest further titles below this level.");
     }
   }
 
@@ -150,7 +151,8 @@ public class CukedoctorDocumentBuilderImpl extends AsciiDocBuilder
     public NestingUnderflowException(int currentLevel) {
       super(
           String.format(
-              "Nesting is current at Level %s, the top-most allowed for this instance. You cannot un-nest above this level.",
+              "Nesting is current at Level %s, the top-most allowed for this instance. You cannot"
+                  + " un-nest above this level.",
               currentLevel));
     }
   }

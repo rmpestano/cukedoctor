@@ -315,7 +315,8 @@ public interface Expectations {
           + newLine()
           + ""
           + newLine()
-          + "[[One-passing-scenario-one-failing-scenario, One passing scenario, one failing scenario]]"
+          + "[[One-passing-scenario-one-failing-scenario, One passing scenario, one failing"
+          + " scenario]]"
           + newLine()
           + "=== *One passing scenario, one failing scenario*"
           + newLine()
@@ -339,7 +340,8 @@ public interface Expectations {
           + newLine()
           + "Given ::"
           + newLine()
-          + "this step passes icon:thumbs-up[role=\"green\",title=\"Passed\"] [small right]#(001ms)#"
+          + "this step passes icon:thumbs-up[role=\"green\",title=\"Passed\"] [small"
+          + " right]#(001ms)#"
           + newLine()
           + "=========="
           + newLine()
@@ -482,7 +484,8 @@ public interface Expectations {
           + newLine()
           + ""
           + newLine()
-          + "[[One-passing-scenario-one-failing-scenario, One passing scenario, one failing scenario]]"
+          + "[[One-passing-scenario-one-failing-scenario, One passing scenario, one failing"
+          + " scenario]]"
           + newLine()
           + "== *One passing scenario, one failing scenario*"
           + newLine()
@@ -506,7 +509,8 @@ public interface Expectations {
           + newLine()
           + "Given ::"
           + newLine()
-          + "this step passes icon:thumbs-up[role=\"green\",title=\"Passed\"] [small right]#(001ms)#"
+          + "this step passes icon:thumbs-up[role=\"green\",title=\"Passed\"] [small"
+          + " right]#(001ms)#"
           + newLine()
           + "=========="
           + newLine()
@@ -579,7 +583,8 @@ public interface Expectations {
           + newLine()
           + newLine()
           + newLine()
-          + "[[One-passing-scenario-one-failing-scenario, One passing scenario, one failing scenario]]"
+          + "[[One-passing-scenario-one-failing-scenario, One passing scenario, one failing"
+          + " scenario]]"
           + newLine()
           + "== *One passing scenario, one failing scenario*"
           + newLine()
@@ -603,7 +608,8 @@ public interface Expectations {
           + newLine()
           + "Given ::"
           + newLine()
-          + "this step passes icon:thumbs-up[role=\"green\",title=\"Passed\"] [small right]#(001ms)#"
+          + "this step passes icon:thumbs-up[role=\"green\",title=\"Passed\"] [small"
+          + " right]#(001ms)#"
           + newLine()
           + "=========="
           + newLine()
@@ -678,7 +684,8 @@ public interface Expectations {
           + newLine()
           + ""
           + newLine()
-          + "[[One-passing-scenario-one-failing-scenario, One passing scenario, one failing scenario]]"
+          + "[[One-passing-scenario-one-failing-scenario, One passing scenario, one failing"
+          + " scenario]]"
           + newLine()
           + "== *One passing scenario, one failing scenario*"
           + newLine()
@@ -702,7 +709,8 @@ public interface Expectations {
           + newLine()
           + "Given ::"
           + newLine()
-          + "this step passes icon:thumbs-up[role=\"green\",title=\"Passed\"] [small right]#(001ms)#"
+          + "this step passes icon:thumbs-up[role=\"green\",title=\"Passed\"] [small"
+          + " right]#(001ms)#"
           + newLine()
           + "=========="
           + newLine()
@@ -777,7 +785,8 @@ public interface Expectations {
           + newLine()
           + ""
           + newLine()
-          + "[[One-passing-scenario-one-failing-scenario, One passing scenario, one failing scenario]]"
+          + "[[One-passing-scenario-one-failing-scenario, One passing scenario, one failing"
+          + " scenario]]"
           + newLine()
           + "== *One passing scenario, one failing scenario*"
           + newLine()
@@ -876,7 +885,8 @@ public interface Expectations {
           + newLine()
           + ""
           + newLine()
-          + "[[One-passing-scenario-one-failing-scenario, One passing scenario, one failing scenario]]"
+          + "[[One-passing-scenario-one-failing-scenario, One passing scenario, one failing"
+          + " scenario]]"
           + newLine()
           + "== *One passing scenario, one failing scenario*"
           + newLine()
@@ -1114,7 +1124,8 @@ public interface Expectations {
           + newLine()
           + "Given ::"
           + newLine()
-          + "I embed data directly icon:thumbs-up[role=\"green\",title=\"Passed\"] [small right]#(000ms)#"
+          + "I embed data directly icon:thumbs-up[role=\"green\",title=\"Passed\"] [small"
+          + " right]#(000ms)#"
           + newLine()
           + "=========="
           + newLine()
@@ -1128,7 +1139,8 @@ public interface Expectations {
           + newLine()
           + "Given ::"
           + newLine()
-          + "I embed data directly icon:thumbs-up[role=\"green\",title=\"Passed\"] [small right]#(000ms)#"
+          + "I embed data directly icon:thumbs-up[role=\"green\",title=\"Passed\"] [small"
+          + " right]#(000ms)#"
           + newLine()
           + "=========="
           + newLine()
@@ -1140,7 +1152,8 @@ public interface Expectations {
           + newLine()
           + "Given ::"
           + newLine()
-          + "I embed data directly icon:thumbs-up[role=\"green\",title=\"Passed\"] [small right]#(000ms)#"
+          + "I embed data directly icon:thumbs-up[role=\"green\",title=\"Passed\"] [small"
+          + " right]#(000ms)#"
           + newLine()
           + "=========="
           + newLine()
@@ -1194,7 +1207,8 @@ public interface Expectations {
           + newLine()
           + ""
           + newLine()
-          + "[[One-passing-scenario-one-failing-scenario, One passing scenario, one failing scenario]]"
+          + "[[One-passing-scenario-one-failing-scenario, One passing scenario, one failing"
+          + " scenario]]"
           + newLine()
           + "=== *One passing scenario, one failing scenario*"
           + newLine()
@@ -1218,7 +1232,8 @@ public interface Expectations {
           + newLine()
           + "Given ::"
           + newLine()
-          + "this step passes icon:thumbs-up[role=\"green\",title=\"Passed\"] [small right]#(001ms)#"
+          + "this step passes icon:thumbs-up[role=\"green\",title=\"Passed\"] [small"
+          + " right]#(001ms)#"
           + newLine()
           + "=========="
           + newLine()
@@ -1372,7 +1387,8 @@ public interface Expectations {
           + newLine()
           + Constants.Markup.exampleBlock()
           + newLine()
-          + "a User has posted the following messages: icon:thumbs-up[role=\"green\",title=\"Passed\"] [small right]#(111ms)#"
+          + "a User has posted the following messages:"
+          + " icon:thumbs-up[role=\"green\",title=\"Passed\"] [small right]#(111ms)#"
           + newLine()
           + ""
           + newLine()
@@ -1550,7 +1566,8 @@ public interface Expectations {
           + newLine()
           + "Dado ::"
           + newLine()
-          + "a User has posted the following messages: icon:thumbs-up[role=\"green\",title=\"Passed\"] [small right]#(111ms)#"
+          + "a User has posted the following messages:"
+          + " icon:thumbs-up[role=\"green\",title=\"Passed\"] [small right]#(111ms)#"
           + newLine()
           + ""
           + newLine()
@@ -1698,7 +1715,8 @@ public interface Expectations {
           + newLine()
           + "Given ::"
           + newLine()
-          + "User opens a browser icon:thumbs-up[role=\"green\",title=\"Passed\"] [small right]#(000ms)#"
+          + "User opens a browser icon:thumbs-up[role=\"green\",title=\"Passed\"] [small"
+          + " right]#(000ms)#"
           + newLine()
           + "=========="
           + newLine()
