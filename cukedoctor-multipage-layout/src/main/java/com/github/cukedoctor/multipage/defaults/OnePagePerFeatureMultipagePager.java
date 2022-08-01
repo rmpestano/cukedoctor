@@ -39,10 +39,14 @@ public class OnePagePerFeatureMultipagePager implements MultipagePager {
   }
 
   @Override
-  public void setI18n(I18nLoader i18nProvider) {}
+  public void setI18n(I18nLoader i18nProvider) {
+    // noop
+  }
 
   @Override
-  public void setDocumentBuilder(CukedoctorDocumentBuilder documentBuilder) {}
+  public void setDocumentBuilder(CukedoctorDocumentBuilder documentBuilder) {
+    // noop
+  }
 
   @Override
   public void setDocumentAttributes(DocumentAttributes documentAttributes) {

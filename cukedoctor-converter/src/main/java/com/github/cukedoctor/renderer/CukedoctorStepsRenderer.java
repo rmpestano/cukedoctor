@@ -191,7 +191,7 @@ public class CukedoctorStepsRenderer extends AbstractBaseRenderer implements Ste
     String[] lines =
         docString
             .getValue()
-            .replaceAll("\\*\\*\\*\\*", "*****")
+            .replace("****", "*****")
             .replace(exampleBlock(), exampleBlock() + "=")
             .split("\\n");
 

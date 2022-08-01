@@ -70,7 +70,7 @@ public class CukedoctorStyleExtension extends Postprocessor {
     List<String> files = FileUtil.findFiles(CUKEDOCTOR_CUSTOMIZATION_DIR, "cukedoctor.css", true);
     if (!files.isEmpty()) {
       String themePath = files.get(0);
-      themePath = themePath.replaceAll("\\\\", "/");
+      themePath = themePath.replace("\\", "/");
       try {
         String customCss = IOUtils.toString(new FileInputStream(themePath), StandardCharsets.UTF_8);
         Elements head = document.getElementsByTag("head");

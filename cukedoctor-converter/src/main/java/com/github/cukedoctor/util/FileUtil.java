@@ -168,7 +168,7 @@ public class FileUtil {
 
   public static File loadFile(String path) {
     if (path == null) {
-      path = "/";
+      path = File.separator;
     }
 
     File f = new File(path);
@@ -177,7 +177,7 @@ public class FileUtil {
     }
 
     if (!path.startsWith("/")) {
-      path = "/" + path;
+      path = File.separator + path;
     }
 
     return new File(Paths.get("").toAbsolutePath() + path.trim());
