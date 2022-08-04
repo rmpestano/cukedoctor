@@ -22,6 +22,7 @@ import static com.github.cukedoctor.util.Constants.Attributes.Name.TOCLEVELS;
 import static com.github.cukedoctor.util.Constants.Attributes.Name.VERSIONLABEL;
 import static java.lang.System.getProperty;
 
+import java.nio.file.FileSystems;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
@@ -47,6 +48,7 @@ public abstract class Constants {
   }
 
   public static String home() {
+    var path = FileSystems.getDefault().getPath(".").toAbsolutePath();
     String homeDir = Thread.currentThread().getContextClassLoader().getResource("").getPath();
     if (!homeDir.endsWith("/")) {
       homeDir += "/";
