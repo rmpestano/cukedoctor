@@ -8,6 +8,7 @@ import static com.github.cukedoctor.renderer.Fixtures.invalidFeatureResult;
 import static com.github.cukedoctor.renderer.Fixtures.onePassingOneFailing;
 import static com.github.cukedoctor.renderer.Fixtures.outline;
 import static com.github.cukedoctor.util.Constants.newLine;
+import static com.github.cukedoctor.util.Features.aFeatureWithTwoScenarios;
 import static com.github.cukedoctor.util.StringUtil.trimAllLines;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
@@ -22,7 +23,6 @@ import com.github.cukedoctor.config.GlobalConfig;
 import com.github.cukedoctor.parser.FeatureParser;
 import com.github.cukedoctor.util.Expectations;
 import com.github.cukedoctor.util.FileUtil;
-import com.github.cukedoctor.util.builder.FeatureBuilder;
 import java.io.File;
 import java.nio.file.Paths;
 import java.util.ArrayList;
@@ -115,7 +115,7 @@ public class CukedoctorConverterTest {
 
   @Test
   public void shouldNotGeneratePdfThemeWithoutPdfStyleFile() {
-    final Feature feature = FeatureBuilder.instance().aFeatureWithTwoScenarios();
+    final Feature feature = aFeatureWithTwoScenarios();
     List<Feature> features = new ArrayList<>();
     features.add(feature);
     CukedoctorConverter converter =
@@ -127,7 +127,7 @@ public class CukedoctorConverterTest {
 
   @Test
   public void shouldNotGeneratePdfThemeForHtmlBackend() {
-    final Feature feature = FeatureBuilder.instance().aFeatureWithTwoScenarios();
+    final Feature feature = aFeatureWithTwoScenarios();
     List<Feature> features = new ArrayList<>();
     features.add(feature);
     CukedoctorConverter converter =
@@ -139,7 +139,7 @@ public class CukedoctorConverterTest {
 
   @Test
   public void shouldNotSetInvalidFilename() {
-    final Feature feature = FeatureBuilder.instance().aFeatureWithTwoScenarios();
+    final Feature feature = aFeatureWithTwoScenarios();
     List<Feature> features = new ArrayList<>();
     features.add(feature);
     CukedoctorConverter converter =

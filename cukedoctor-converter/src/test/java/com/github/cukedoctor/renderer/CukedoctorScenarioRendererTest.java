@@ -2,12 +2,12 @@ package com.github.cukedoctor.renderer;
 
 import static com.github.cukedoctor.renderer.Fixtures.outline;
 import static com.github.cukedoctor.util.Constants.newLine;
+import static com.github.cukedoctor.util.Features.aFeatureWithOneScenarioWithMultipleSteps;
 import static org.assertj.core.api.Assertions.assertThat;
 
 import com.github.cukedoctor.api.model.Feature;
 import com.github.cukedoctor.api.model.Step;
 import com.github.cukedoctor.parser.FeatureParser;
-import com.github.cukedoctor.util.builder.FeatureBuilder;
 import java.util.List;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -18,7 +18,7 @@ public class CukedoctorScenarioRendererTest {
 
   @Test
   public void shouldRenderFeatureStepsWithOneScenarioWithMultipleStep() {
-    final Feature feature = FeatureBuilder.instance().aFeatureWithOneScenarioWithMultipleSteps();
+    final Feature feature = aFeatureWithOneScenarioWithMultipleSteps();
     List<Step> steps = feature.getScenarios().get(0).getSteps();
     CukedoctorStepsRenderer stepsRenderer = new CukedoctorStepsRenderer();
     String resultDoc = stepsRenderer.renderSteps(steps, feature.getScenarios().get(0), feature);

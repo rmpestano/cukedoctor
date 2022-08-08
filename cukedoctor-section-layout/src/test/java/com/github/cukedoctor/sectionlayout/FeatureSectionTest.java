@@ -1,6 +1,7 @@
 package com.github.cukedoctor.sectionlayout;
 
 import static com.github.cukedoctor.util.Constants.newLine;
+import static com.github.cukedoctor.util.Features.aFeatureWithNoScenarios;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.Assert.assertEquals;
 
@@ -26,7 +27,7 @@ public class FeatureSectionTest {
 
   @Test
   public void shouldRender() {
-    final Feature feature = FeatureBuilder.instance().aFeatureWithNoScenarios();
+    final Feature feature = aFeatureWithNoScenarios();
     final FeatureSection section = new FeatureSection(feature);
 
     final String expected =
