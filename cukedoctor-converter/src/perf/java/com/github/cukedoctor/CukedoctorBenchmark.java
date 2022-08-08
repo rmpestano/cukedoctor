@@ -71,11 +71,11 @@ public class CukedoctorBenchmark {
     } finally {
       List<String> files = FileUtil.findFiles("target/benchmark", ASCIIDOC_FILE_EXTENSION);
       log.info("Number of files converted: {}", files.size());
-      CukedoctorBenchmark.removeAdocFIles();
+      CukedoctorBenchmark.removeAdocFiles();
     }
   }
 
-  private static void removeAdocFIles() {
+  private static void removeAdocFiles() {
     FileUtil.findFiles("target/benchmark", ASCIIDOC_FILE_EXTENSION)
         .stream()
         .map(Paths::get)
