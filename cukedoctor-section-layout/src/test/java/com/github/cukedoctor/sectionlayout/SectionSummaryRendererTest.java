@@ -2,7 +2,10 @@ package com.github.cukedoctor.sectionlayout;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.Assert.assertEquals;
-import static org.mockito.Mockito.*;
+import static org.mockito.Mockito.any;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
 
 import com.github.cukedoctor.api.CukedoctorDocumentBuilder;
 import com.github.cukedoctor.api.model.Feature;
@@ -13,6 +16,7 @@ import com.github.cukedoctor.util.builder.ScenarioBuilder;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -23,9 +27,16 @@ import org.mockito.MockitoAnnotations;
 @RunWith(JUnit4.class)
 public class SectionSummaryRendererTest {
 
+  private AutoCloseable openMocks;
+
   @Before
   public void init() {
-    MockitoAnnotations.initMocks(this);
+    openMocks = MockitoAnnotations.openMocks(this);
+  }
+
+  @After
+  public void close() throws Exception {
+    openMocks.close();
   }
 
   @Test

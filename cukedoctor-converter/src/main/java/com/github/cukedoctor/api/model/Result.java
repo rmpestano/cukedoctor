@@ -4,13 +4,17 @@ import static com.github.cukedoctor.util.Constants.getProp;
 import static com.github.cukedoctor.util.Constants.newLine;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.github.cukedoctor.config.GlobalConfig;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Result {
 
   private Status status;
-  private String error_message;
+
+  @JsonProperty("error_message")
+  private String errorMessage;
+
   private Long duration;
 
   public Result() {}
@@ -36,19 +40,19 @@ public class Result {
   }
 
   public String getErrorMessage() {
-    if (error_message != null) {
+    if (errorMessage != null) {
       Integer errorMessageLength = getProp("ERROR_MESSAGE_SIZE", Integer.class);
       if (errorMessageLength == null) {
         errorMessageLength = GlobalConfig.getInstance().getLayoutConfig().getErrorMessageLength();
       }
-      if (error_message.length() > errorMessageLength) {
-        error_message = error_message.substring(0, errorMessageLength) + "..." + newLine();
+      if (errorMessage.length() > errorMessageLength) {
+        errorMessage = errorMessage.substring(0, errorMessageLength) + "..." + newLine();
       }
     }
-    return error_message;
+    return errorMessage;
   }
 
-  public void setError_message(String error_message) {
-    this.error_message = error_message;
+  public void setErrorMessage(String errorMessage) {
+    this.errorMessage = errorMessage;
   }
 }

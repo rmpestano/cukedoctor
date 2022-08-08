@@ -17,7 +17,7 @@ public class TagRenderingSteps {
   String documentation;
 
   @When("^I render the feature$")
-  public void I_render_the_feature() throws Throwable {
+  public void I_render_the_feature() {
     URL featureFile =
         getClass().getResource("/com/github/cukedoctor/json-output/tag-rendering.json");
     assertThat(featureFile).isNotNull();

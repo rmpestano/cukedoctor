@@ -17,6 +17,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Pattern;
 import org.asciidoctor.Asciidoctor;
+import org.asciidoctor.Attributes;
+import org.asciidoctor.Options;
 import org.asciidoctor.OptionsBuilder;
 import org.asciidoctor.SafeMode;
 
@@ -26,10 +28,11 @@ import org.asciidoctor.SafeMode;
  */
 public class CukedoctorMain {
 
+  public static final String HTML_5 = "html5";
+
   @Parameter(
       names = "-f",
       description = "Document format - supported html, pdf and all. Default is 'html'",
-      required = false,
       echoInput = true)
   private String format;
 
@@ -37,122 +40,92 @@ public class CukedoctorMain {
       names = "-p",
       description =
           "Path to cucumber json output files (can be a directory or a file). Default is current"
-              + " directory",
-      required = false)
+              + " directory")
   private String path;
 
   @Parameter(
       names = "-t",
-      description = "Documentation title (first section). Default is 'Living Documentation'",
-      required = false)
+      description = "Documentation title (first section). Default is 'Living Documentation'")
   private String title;
 
   @Parameter(
       names = "-o",
       description =
           "File output name, can be a path eg: /home/doc which will result in doc.html|pdf in"
-              + " /home dir. Document title will be used if output name is not provided",
-      required = false)
+              + " /home dir. Document title will be used if output name is not provided")
   private String outputName;
 
-  @Parameter(
-      names = "-toc",
-      description = "Table of contents position. Default is 'right' ",
-      required = false)
+  @Parameter(names = "-toc", description = "Table of contents position. Default is 'right' ")
   private String toc;
 
-  @Parameter(
-      names = "-numbered",
-      description = "Section numbering. Default is false ",
-      required = false)
-  private Boolean numbered = null;
+  @Parameter(names = "-numbered", description = "Section numbering. Default is false ")
+  private final Boolean numbered = null;
 
-  @Parameter(
-      names = "-chapterLabel",
-      description = "Chapter Label. Default is 'Chapter' ",
-      required = false)
+  @Parameter(names = "-chapterLabel", description = "Chapter Label. Default is 'Chapter' ")
   private String chapterLabel;
 
-  @Parameter(
-      names = "-versionLabel",
-      description = "Version Label. Default is 'Version' ",
-      required = false)
+  @Parameter(names = "-versionLabel", description = "Version Label. Default is 'Version' ")
   private String versionLabel;
 
   @Parameter(
       names = "-hardbreaks",
       description = "Sets asciidoctor hardbreaks attribute. Default is true ",
-      arity = 1,
-      required = false)
+      arity = 1)
   private Boolean hardBreaks;
 
-  @Parameter(names = "-docVersion", description = "Documentation version", required = false)
+  @Parameter(names = "-docVersion", description = "Documentation version")
   private String docVersion;
 
   @Parameter(
       names = "-hideFeaturesSection",
-      description = "Hides the 'features' section. Default is false ",
-      required = false)
+      description = "Hides the 'features' section. Default is false ")
   private Boolean hideFeaturesSection;
 
   @Parameter(
       names = "-hideSummarySection",
-      description = "Hides the 'summary' section. Default is false ",
-      required = false)
+      description = "Hides the 'summary' section. Default is false ")
   private Boolean hideSummarySection;
 
   @Parameter(
       names = "-hideScenarioKeyword",
-      description = "Hides the 'Scenario' keyword in scenario name. Default is false ",
-      required = false)
+      description = "Hides the 'Scenario' keyword in scenario name. Default is false ")
   private Boolean hideScenarioKeyword;
 
-  @Parameter(
-      names = "-hideStepTime",
-      description = "Does not render step time. Default is false ",
-      required = false)
+  @Parameter(names = "-hideStepTime", description = "Does not render step time. Default is false ")
   private Boolean hideStepTime;
 
-  @Parameter(
-      names = "-hideTags",
-      description = "Does not render tags. Default is false ",
-      required = false)
+  @Parameter(names = "-hideTags", description = "Does not render tags. Default is false ")
   private Boolean hideTags;
 
   @Parameter(
       names = "-cucumberResultPaths",
       description =
           "Restricts the search to a list of paths, The list is obtained by splitting"
-              + " cucumberResultPaths using File.pathSeparator",
-      required = false)
+              + " cucumberResultPaths using File.pathSeparator")
   private String cucumberResultPaths;
 
   @Parameter(
       names = "-sourceHighlighter",
-      description = "Configures source highlighter. Default is highlightjs",
-      required = false)
+      description = "Configures source highlighter. Default is highlightjs")
   private String sourceHighlighter;
 
   @Parameter(
       names = "-allowUriRead",
-      description = "Allow include content be referenced by an URI. Default is false",
-      required = false)
+      description = "Allow include content be referenced by an URI. Default is false")
   private Boolean allowUriRead;
 
   @Parameter(
       names = "-stem",
       description =
           "Sets asciidoctor stem attribute with the specified interpreter. By default, the stem"
-              + " attribute is set using asciidoctor's default interpreter ",
-      required = false)
+              + " attribute is set using asciidoctor's default interpreter ")
   private String stem;
 
   @Parameter(
       names = "-dataUri",
       description =
           "Sets AsciiDoc :data-uri: attribute, causing all images in the document to be embedded"
-              + " as data URIs. Default is false.",
-      required = false)
+              + " as data URIs. Default is false.")
   private Boolean dataUri;
 
   private static List<Feature> searchPathAndScan(String path) {
@@ -169,7 +142,7 @@ public class CukedoctorMain {
    * @param args command line arguments
    * @return the final document generated by cukedoctor
    */
-  public String execute(String args[]) {
+  public String execute(String[] args) {
     JCommander commandLine = null;
     try {
       commandLine = new JCommander(this);
@@ -184,11 +157,11 @@ public class CukedoctorMain {
     }
 
     if (outputName == null) {
-      outputName = title.replaceAll(" ", "-");
+      outputName = title.replace(" ", "-");
     }
 
     if (format == null || format.equals("html")) {
-      format = "html5";
+      format = HTML_5;
     }
 
     if (!hasText(path)) {
@@ -222,7 +195,7 @@ public class CukedoctorMain {
     System.out.println("-t" + ": " + title);
     System.out.println("-o" + ": " + outputName);
 
-    List<Feature> features = null;
+    List<Feature> features;
     if (cucumberResultPaths != null) {
       features = new ArrayList<>();
       String[] resultPaths = cucumberResultPaths.split(Pattern.quote(File.pathSeparator));
@@ -274,10 +247,10 @@ public class CukedoctorMain {
     }
     documentAttributes.docTitle(title);
 
-    String resultDoc = null;
+    String resultDoc;
     final CukedoctorConfig cukedoctorConfig = cukedoctorConfig();
     if ("all".equals(format)) {
-      documentAttributes.backend("html5");
+      documentAttributes.backend(HTML_5);
       resultDoc = this.execute(features, documentAttributes, cukedoctorConfig, outputName);
       documentAttributes.backend("pdf");
       this.execute(features, documentAttributes, cukedoctorConfig, outputName);
@@ -318,10 +291,10 @@ public class CukedoctorMain {
       documentAttributes = new DocumentAttributes().docTitle(title);
     }
     if (!hasText(documentAttributes.getBackend())) {
-      documentAttributes.backend("html5");
+      documentAttributes.backend(HTML_5);
     }
     if (outputName == null) {
-      outputName = documentAttributes.getDocTitle().replaceAll(" ", "_");
+      outputName = documentAttributes.getDocTitle().replace(" ", "_");
     }
 
     CukedoctorConverter converter =
@@ -334,12 +307,12 @@ public class CukedoctorMain {
       asciidoctor.unregisterAllExtensions();
     }
     OptionsBuilder ob =
-        OptionsBuilder.options()
+        Options.builder()
             .safe(SafeMode.UNSAFE)
             .backend(documentAttributes.getBackend())
-            .attributes(documentAttributes.toMap());
+            .attributes(Attributes.builder().attributes(documentAttributes.toMap()).build());
     System.out.println("Document attributes\n" + documentAttributes.toMap());
-    asciidoctor.convertFile(adocFile, ob);
+    asciidoctor.convertFile(adocFile, ob.build());
     asciidoctor.shutdown();
     return doc;
   }

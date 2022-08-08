@@ -31,13 +31,13 @@ import com.github.cukedoctor.util.FileUtil;
 import java.io.File;
 import java.util.List;
 import org.apache.maven.plugin.AbstractMojo;
-import org.apache.maven.plugin.MojoExecutionException;
-import org.apache.maven.plugin.MojoFailureException;
 import org.apache.maven.plugins.annotations.LifecyclePhase;
 import org.apache.maven.plugins.annotations.Mojo;
 import org.apache.maven.plugins.annotations.Parameter;
 import org.apache.maven.project.MavenProject;
 import org.asciidoctor.Asciidoctor;
+import org.asciidoctor.Attributes;
+import org.asciidoctor.Options;
 import org.asciidoctor.OptionsBuilder;
 import org.asciidoctor.SafeMode;
 import org.asciidoctor.extension.ExtensionGroup;
@@ -45,82 +45,73 @@ import org.asciidoctor.extension.ExtensionGroup;
 @Mojo(name = "execute", defaultPhase = LifecyclePhase.INSTALL)
 public class CukedoctorMojo extends AbstractMojo {
 
-  @Parameter(defaultValue = "documentation", required = false)
+  public static final String DISABLED = "disabled";
+
+  @Parameter(defaultValue = "documentation")
   String outputFileName;
 
-  @Parameter(defaultValue = "cukedoctor", required = false)
+  @Parameter(defaultValue = "cukedoctor")
   String outputDir;
 
-  @Parameter(required = false)
-  String featuresDir;
+  @Parameter() String featuresDir;
 
-  @Parameter(required = false)
-  String introChapterDir;
+  @Parameter() String introChapterDir;
 
-  @Parameter(required = false)
-  String documentTitle;
+  @Parameter() String documentTitle;
 
   @Parameter(defaultValue = "html5", required = true)
   Format format;
 
-  @Parameter(defaultValue = "right", required = false)
+  @Parameter(defaultValue = "right")
   Toc toc;
 
-  @Parameter(defaultValue = "false", required = false)
+  @Parameter(defaultValue = "false")
   boolean numbered;
 
-  @Parameter(defaultValue = "false", required = false)
+  @Parameter(defaultValue = "false")
   boolean disableTheme;
 
-  @Parameter(defaultValue = "false", required = false)
+  @Parameter(defaultValue = "false")
   boolean disableFilter;
 
-  @Parameter(defaultValue = "false", required = false)
+  @Parameter(defaultValue = "false")
   boolean disableMinimizable;
 
-  @Parameter(defaultValue = "false", required = false)
+  @Parameter(defaultValue = "false")
   boolean disableFooter;
 
-  @Parameter(defaultValue = "Chapter", required = false)
+  @Parameter(defaultValue = "Chapter")
   String chapterLabel;
 
-  @Parameter(defaultValue = "Version", required = false)
+  @Parameter(defaultValue = "Version")
   String versionLabel;
 
-  @Parameter(required = false)
-  String docVersion;
+  @Parameter() String docVersion;
 
-  @Parameter(defaultValue = "true", required = false)
+  @Parameter(defaultValue = "true")
   boolean hardBreaks;
 
-  @Parameter(required = false)
-  Boolean hideFeaturesSection;
+  @Parameter() Boolean hideFeaturesSection;
 
-  @Parameter(required = false)
-  Boolean hideSummarySection;
+  @Parameter() Boolean hideSummarySection;
 
-  @Parameter(required = false)
-  Boolean hideScenarioKeyword;
+  @Parameter() Boolean hideScenarioKeyword;
 
-  @Parameter(required = false)
-  Boolean hideStepTime;
+  @Parameter() Boolean hideStepTime;
 
-  @Parameter(required = false)
-  Boolean hideTags;
+  @Parameter() Boolean hideTags;
 
-  @Parameter(required = false)
-  String sourceHighlighter;
+  @Parameter() String sourceHighlighter;
 
-  @Parameter(required = false)
-  Boolean allowUriRead;
+  @Parameter() Boolean allowUriRead;
 
   @Parameter(property = "cukedoctor.skip", defaultValue = "false")
   private boolean skip;
 
-  @Parameter(property = "stem", required = false)
+  @Parameter(property = "stem")
   String stem;
 
-  @Parameter(property = "dataUri", required = false)
+  @Parameter(property = "dataUri")
   Boolean dataUri;
 
   @Parameter(defaultValue = "${project}", readonly = true)
@@ -128,7 +119,7 @@ public class CukedoctorMojo extends AbstractMojo {
 
   private String generatedFile = null; // only for tests
 
-  public void execute() throws MojoExecutionException, MojoFailureException {
+  public void execute() {
     if (skip) {
       getLog().info("Skipping cukedoctor-maven-plugin");
       return;
@@ -173,7 +164,7 @@ public class CukedoctorMojo extends AbstractMojo {
 
     getLog().info("Searching cucumber features in path: " + startDir);
     List<Feature> featuresFound = FeatureParser.findAndParse(startDir);
-    if (featuresFound == null || featuresFound.isEmpty()) {
+    if (featuresFound.isEmpty()) {
       getLog().warn("No cucumber json files found in " + startDir);
       return;
     } else {
@@ -254,22 +245,22 @@ public class CukedoctorMojo extends AbstractMojo {
 
   private void configExtensions() {
     if (disableFilter) {
-      System.setProperty(FILTER_DISABLE_EXT_KEY, "disabled");
+      System.setProperty(FILTER_DISABLE_EXT_KEY, DISABLED);
     } else {
       System.clearProperty(FILTER_DISABLE_EXT_KEY);
     }
     if (disableMinimizable) {
-      System.setProperty("cukedoctor.disable.minmax", "disabled");
+      System.setProperty("cukedoctor.disable.minmax", DISABLED);
     } else {
       System.clearProperty("cukedoctor.disable.minmax");
     }
     if (disableTheme) {
-      System.setProperty("cukedoctor.disable.theme", "disabled");
+      System.setProperty("cukedoctor.disable.theme", DISABLED);
     } else {
       System.clearProperty("cukedoctor.disable.theme");
     }
     if (disableFooter) {
-      System.setProperty("cukedoctor.disable.footer", "disabled");
+      System.setProperty("cukedoctor.disable.footer", DISABLED);
     } else {
       System.clearProperty("cukedoctor.disable.footer");
     }
@@ -279,10 +270,10 @@ public class CukedoctorMojo extends AbstractMojo {
       DocumentAttributes documentAttributes, File adocFile, Asciidoctor asciidoctor) {
 
     OptionsBuilder ob =
-        OptionsBuilder.options()
+        Options.builder()
             .safe(SafeMode.UNSAFE)
             .backend(documentAttributes.getBackend())
-            .attributes(documentAttributes.toMap());
+            .attributes(Attributes.builder().attributes(documentAttributes.toMap()).build());
     getLog().info("Document attributes:\n" + documentAttributes.toMap());
     ExtensionGroup cukedoctorExtensionGroup =
         asciidoctor.createGroup(CUKEDOCTOR_EXTENSION_GROUP_NAME);
@@ -291,7 +282,7 @@ public class CukedoctorMojo extends AbstractMojo {
       // remove auxiliary files
       FileUtil.removeFile(adocFile.getParent() + "/" + outputFileName + "-theme.yml");
     }
-    asciidoctor.convertFile(adocFile, ob);
+    asciidoctor.convertFile(adocFile, ob.build());
 
     getLog().info("Generated documentation at: " + adocFile.getParent());
   }

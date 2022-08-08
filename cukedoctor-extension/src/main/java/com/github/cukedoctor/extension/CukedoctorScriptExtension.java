@@ -1,6 +1,8 @@
 package com.github.cukedoctor.extension;
 
-import static com.github.cukedoctor.extension.CukedoctorExtensionRegistry.*;
+import static com.github.cukedoctor.extension.CukedoctorExtensionRegistry.FILTER_DISABLE_EXT_KEY;
+import static com.github.cukedoctor.extension.CukedoctorExtensionRegistry.MINMAX_DISABLE_EXT_KEY;
+import static com.github.cukedoctor.extension.CukedoctorExtensionRegistry.THEME_DISABLE_EXT_KEY;
 
 import org.asciidoctor.ast.Document;
 import org.asciidoctor.extension.Postprocessor;
@@ -292,9 +294,9 @@ public class CukedoctorScriptExtension extends Postprocessor {
     if (HIDE_FEATURES_SECTION) {
       searchScripts =
           searchScripts
-              .replaceAll("sectlevel2", "sectlevel1")
-              .replaceAll("sect2", "sect1")
-              .replaceAll("H3", "H2");
+              .replace("sectlevel2", "sectlevel1")
+              .replace("sect2", "sect1")
+              .replace("H3", "H2");
     }
     contentElement.after(searchScripts);
   }

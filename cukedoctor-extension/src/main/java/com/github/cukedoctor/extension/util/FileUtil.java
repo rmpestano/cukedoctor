@@ -5,6 +5,7 @@ import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.nio.charset.StandardCharsets;
 import java.nio.file.FileVisitResult;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -42,9 +43,9 @@ public class FileUtil {
     }
     String fullyQualifiedName = name;
 
-    /** if filename is not absolute use current path as base dir */
+    // if filename is not absolute use current path as base dir
     if (!new File(fullyQualifiedName).isAbsolute()) {
-      fullyQualifiedName = Paths.get("").toAbsolutePath().toString() + "/" + name;
+      fullyQualifiedName = Paths.get("").toAbsolutePath() + "/" + name;
     }
     try {
       // create subdirs (if there any)
@@ -55,7 +56,7 @@ public class FileUtil {
       File file = new File(fullyQualifiedName);
       file.createNewFile();
       FileUtils.write(file, data, "UTF-8");
-      log.info("Wrote: " + file.getAbsolutePath());
+      log.info("Wrote: {}", file.getAbsolutePath());
       return file;
     } catch (IOException e) {
       log.error("Could not create file {}", name, e);
@@ -71,7 +72,7 @@ public class FileUtil {
    */
   public static File loadFile(String path) {
     if (path == null) {
-      path = "/";
+      path = File.separator;
     }
 
     File f = new File(path);
@@ -80,7 +81,7 @@ public class FileUtil {
     }
 
     if (!path.startsWith("/")) {
-      path = "/" + path;
+      path = File.separator + path;
     }
     return new File(Paths.get("").toAbsolutePath() + path.trim());
   }
@@ -93,7 +94,13 @@ public class FileUtil {
    */
   public static boolean removeFile(String path) {
     File fileToRemove = loadFile(path);
-    return fileToRemove.delete();
+    try {
+      Files.delete(fileToRemove.toPath());
+      return true;
+    } catch (IOException e) {
+      log.error("could not delete path {}", path);
+      return false;
+    }
   }
 
   /**
@@ -107,7 +114,7 @@ public class FileUtil {
 
     if (source != null && dest != null) {
       try (InputStream in = FileUtil.class.getResourceAsStream(source)) {
-        return saveFile(dest, IOUtils.toString(in));
+        return saveFile(dest, IOUtils.toString(in, StandardCharsets.UTF_8));
       } catch (IOException e) {
         log.error("Could not copy source file: {} to dest file: {}", dest, e);
       }
@@ -144,11 +151,10 @@ public class FileUtil {
 
     Path startPath = Paths.get(startDir);
 
-    if (!Files.exists(startPath)) {
-      if (startDir.startsWith("/")) { // try to find using relative paths
-        startDir = startDir.substring(1);
-        startPath = Paths.get(startDir);
-      }
+    if (!Files.exists(startPath) && startDir.startsWith("/")) {
+      // try to find using relative paths
+      startDir = startDir.substring(1);
+      startPath = Paths.get(startDir);
     }
 
     if (!Files.exists(startPath)) {
@@ -158,7 +164,7 @@ public class FileUtil {
     try {
       Files.walkFileTree(
           startPath,
-          new SimpleFileVisitor<Path>() {
+          new SimpleFileVisitor<>() {
             @Override
             public FileVisitResult visitFile(final Path file, final BasicFileAttributes attrs)
                 throws IOException {
@@ -191,7 +197,7 @@ public class FileUtil {
     if (source != null && dest != null) {
       try {
         InputStream in = FileUtil.class.getResourceAsStream(source);
-        return saveFile(dest, IOUtils.toString(in));
+        return saveFile(dest, IOUtils.toString(in, StandardCharsets.UTF_8));
       } catch (IOException e) {
         log.error("Could not copy source file: {} to dest file: {}", source, dest, e);
       }
@@ -209,7 +215,7 @@ public class FileUtil {
     StringBuilder content = new StringBuilder();
     try (InputStream openStream = Files.newInputStream(target.toPath())) {
       try (BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(openStream))) {
-        String line = null;
+        String line;
         while ((line = bufferedReader.readLine()) != null) {
           content.append(line);
         }
@@ -230,7 +236,7 @@ public class FileUtil {
    * @return the {@link File} instance.
    */
   public static File loadTestFile(String fileName) {
-    return new File(Paths.get("").toAbsolutePath().toString() + "/target/test-classes/" + fileName);
+    return new File(Paths.get("").toAbsolutePath() + "/target/test-classes/" + fileName);
   }
 
   /**
@@ -240,6 +246,6 @@ public class FileUtil {
    * @return the clean content.
    */
   public static String removeSpecialChars(String content) {
-    return content.replaceAll(" ", "").replaceAll("\n", "").replaceAll("\t", "");
+    return content.replace(" ", "").replace("\n", "").replace("\t", "");
   }
 }

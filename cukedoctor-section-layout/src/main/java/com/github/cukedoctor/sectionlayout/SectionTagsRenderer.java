@@ -1,6 +1,8 @@
 package com.github.cukedoctor.sectionlayout;
 
-import static com.github.cukedoctor.sectionlayout.Constants.*;
+import static com.github.cukedoctor.sectionlayout.Constants.APPENDIX_TAG_PATTERN;
+import static com.github.cukedoctor.sectionlayout.Constants.SECTION_TAG_PATTERN;
+import static com.github.cukedoctor.sectionlayout.Constants.SUBSECTION_TAG_PATTERN;
 
 import com.github.cukedoctor.api.model.Tag;
 import com.github.cukedoctor.renderer.CukedoctorTagsRenderer;
@@ -14,11 +16,11 @@ public class SectionTagsRenderer extends CukedoctorTagsRenderer {
   }
 
   private boolean isSectionTag(Tag tag) {
-    return tag.extractPattern(SectionTagPattern).isPresent()
-        || tag.extractPattern(SubsectionTagPattern).isPresent();
+    return tag.extractPattern(SECTION_TAG_PATTERN).isPresent()
+        || tag.extractPattern(SUBSECTION_TAG_PATTERN).isPresent();
   }
 
   private boolean isAppendixTag(Tag tag) {
-    return tag.extractPattern(AppendixTagPattern).isPresent();
+    return tag.extractPattern(APPENDIX_TAG_PATTERN).isPresent();
   }
 }

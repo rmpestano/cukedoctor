@@ -2,6 +2,9 @@ package com.github.cukedoctor.renderer;
 
 import static com.github.cukedoctor.renderer.Fixtures.featureWithSourceDocStringInStep;
 import static com.github.cukedoctor.util.Constants.newLine;
+import static com.github.cukedoctor.util.Features.aFeatureWithMultipleScenariosAndSteps;
+import static com.github.cukedoctor.util.Features.aFeatureWithOneScenarioWithOnePassingStep;
+import static com.github.cukedoctor.util.Features.aFeatureWithTwoScenarios;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.eq;
@@ -10,7 +13,10 @@ import static org.mockito.Mockito.spy;
 
 import com.github.cukedoctor.api.CukedoctorDocumentBuilder;
 import com.github.cukedoctor.api.DocumentAttributes;
-import com.github.cukedoctor.api.model.*;
+import com.github.cukedoctor.api.model.Feature;
+import com.github.cukedoctor.api.model.Scenario;
+import com.github.cukedoctor.api.model.Tag;
+import com.github.cukedoctor.api.model.Type;
 import com.github.cukedoctor.builder.CukedoctorDocumentBuilderImpl;
 import com.github.cukedoctor.parser.FeatureParser;
 import com.github.cukedoctor.util.Expectations;
@@ -27,8 +33,8 @@ public class CukedoctorFeatureRendererTest {
 
   @Test
   public void shouldNotRenderFeatureWithSkipDocsTag() {
-    final Feature feature = FeatureBuilder.instance().aFeatureWithTwoScenarios();
-    final Feature featureToSkip = FeatureBuilder.instance().aFeatureWithTwoScenarios();
+    final Feature feature = aFeatureWithTwoScenarios();
+    final Feature featureToSkip = aFeatureWithTwoScenarios();
     featureToSkip.getTags().add(new Tag("@skipDocs"));
     featureToSkip.setName("feature to skip");
     featureToSkip.setId("skippedFeature");
@@ -391,7 +397,7 @@ public class CukedoctorFeatureRendererTest {
 
   @Test
   public void shouldRenderFeatureScenarios() {
-    final Feature feature = FeatureBuilder.instance().aFeatureWithTwoScenarios();
+    final Feature feature = aFeatureWithTwoScenarios();
 
     CukedoctorScenarioRenderer scenarioRenderer = new CukedoctorScenarioRenderer();
     scenarioRenderer = spy(scenarioRenderer);
@@ -419,7 +425,7 @@ public class CukedoctorFeatureRendererTest {
 
   @Test
   public void shouldRenderFeatureScenariosWithTagsInScenarios() {
-    final Feature feature = FeatureBuilder.instance().aFeatureWithTwoScenarios();
+    final Feature feature = aFeatureWithTwoScenarios();
     for (Scenario scenario : feature.getScenarios()) {
       ScenarioBuilder.instance(scenario).tag(new Tag("@Tag1")).tag(new Tag("@tag2"));
     }
@@ -458,7 +464,7 @@ public class CukedoctorFeatureRendererTest {
 
   @Test
   public void shouldRenderFeatureScenariosWithTagsInFeaturesAndScenarios() {
-    final Feature feature = FeatureBuilder.instance().aFeatureWithTwoScenarios();
+    final Feature feature = aFeatureWithTwoScenarios();
     feature.getTags().add(new Tag("@FeatureTag"));
     for (Scenario scenario : feature.getScenarios()) {
       ScenarioBuilder.instance(scenario).tag(new Tag("@Tag1")).tag(new Tag("@tag2"));
@@ -501,7 +507,7 @@ public class CukedoctorFeatureRendererTest {
   public void shouldRenderFeatureScenariosOmittingTagsIfOrderFeatureTagIsTheOnlyTag() {
     // cucumber-jvm-5.6.0 cascades feature tags down to scenarios. See "ordering.feature" and
     // "order-tags.json" for an example.
-    final Feature feature = FeatureBuilder.instance().aFeatureWithTwoScenarios();
+    final Feature feature = aFeatureWithTwoScenarios();
     final String orderTagName = "@order-42";
     feature.getTags().add(new Tag(orderTagName));
     for (Scenario scenario : feature.getScenarios()) {
@@ -535,18 +541,14 @@ public class CukedoctorFeatureRendererTest {
 
   @Test
   public void shouldNotRenderScenarioWithSkipDocsTag() {
-    final Feature feature = FeatureBuilder.instance().aFeatureWithOneScenarioWithOnePassingStep();
+    final Feature feature = aFeatureWithOneScenarioWithOnePassingStep();
     Scenario scenarioToSkip =
         ScenarioBuilder.instance()
             .name("scenario to skip")
             .tag(new Tag("@skipDocs"))
             .type(Type.scenario)
             .build();
-    ;
     feature.getScenarios().add(scenarioToSkip);
-    List<Feature> features = new ArrayList<>();
-    features.add(feature);
-
     CukedoctorFeatureRenderer featureRenderer = new CukedoctorFeatureRenderer();
     String resultDoc =
         featureRenderer.renderFeatureScenarios(
@@ -576,9 +578,7 @@ public class CukedoctorFeatureRendererTest {
 
   @Test
   public void shouldRenderFeatureScenariosWithMultipleSteps() {
-    final Feature feature = FeatureBuilder.instance().aFeatureWithMultipleScenariosAndSteps();
-    List<Feature> features = new ArrayList<>();
-    features.add(feature);
+    final Feature feature = aFeatureWithMultipleScenariosAndSteps();
     CukedoctorFeatureRenderer featureRenderer = new CukedoctorFeatureRenderer();
     String resultDoc =
         featureRenderer.renderFeatureScenarios(
@@ -660,30 +660,24 @@ public class CukedoctorFeatureRendererTest {
 
   @Test
   public void shouldNotGenerateSectionIdForFeatureBlankName() {
-    final Feature feature = FeatureBuilder.instance().aFeatureWithOneScenarioWithOnePassingStep();
+    final Feature feature = aFeatureWithOneScenarioWithOnePassingStep();
     feature.setName("    ");
-    List<Feature> features = new ArrayList<>();
-    features.add(feature);
     CukedoctorFeatureRenderer featureRenderer = new CukedoctorFeatureRenderer();
-    assertThat(featureRenderer.renderFeatureSectionId(feature)).isEqualTo("");
+    assertThat(featureRenderer.renderFeatureSectionId(feature)).isEmpty();
   }
 
   @Test
   public void shouldNotRenderSectionIdForFeatureWithNullName() {
-    final Feature feature = FeatureBuilder.instance().aFeatureWithOneScenarioWithOnePassingStep();
+    final Feature feature = aFeatureWithOneScenarioWithOnePassingStep();
     feature.setName(null);
-    List<Feature> features = new ArrayList<>();
-    features.add(feature);
     CukedoctorFeatureRenderer featureRenderer = new CukedoctorFeatureRenderer();
-    assertThat(featureRenderer.renderFeatureSectionId(feature)).isEqualTo("");
+    assertThat(featureRenderer.renderFeatureSectionId(feature)).isEmpty();
   }
 
   @Test
   public void shouldRenderSectionIdForFeatureWithNameWithSpaces() {
-    final Feature feature = FeatureBuilder.instance().aFeatureWithOneScenarioWithOnePassingStep();
+    final Feature feature = aFeatureWithOneScenarioWithOnePassingStep();
     feature.setName("Feature name");
-    List<Feature> features = new ArrayList<>();
-    features.add(feature);
     CukedoctorFeatureRenderer featureRenderer = new CukedoctorFeatureRenderer();
     assertThat(featureRenderer.renderFeatureSectionId(feature))
         .isEqualTo("[[Feature-name, Feature name]]");
@@ -691,10 +685,8 @@ public class CukedoctorFeatureRendererTest {
 
   @Test
   public void shouldRenderSectionIdForFeatureWithNameWithSpacesAndComma() {
-    final Feature feature = FeatureBuilder.instance().aFeatureWithOneScenarioWithOnePassingStep();
+    final Feature feature = aFeatureWithOneScenarioWithOnePassingStep();
     feature.setName("Feature name, subname");
-    List<Feature> features = new ArrayList<>();
-    features.add(feature);
     CukedoctorFeatureRenderer featureRenderer = new CukedoctorFeatureRenderer();
     assertThat(featureRenderer.renderFeatureSectionId(feature))
         .isEqualTo("[[Feature-name-subname, Feature name, subname]]");
@@ -702,10 +694,8 @@ public class CukedoctorFeatureRendererTest {
 
   @Test
   public void shouldRenderFeatureSectionId() {
-    final Feature feature = FeatureBuilder.instance().aFeatureWithOneScenarioWithOnePassingStep();
+    final Feature feature = aFeatureWithOneScenarioWithOnePassingStep();
     feature.setName("Name");
-    List<Feature> features = new ArrayList<>();
-    features.add(feature);
     CukedoctorFeatureRenderer featureRenderer = new CukedoctorFeatureRenderer();
     assertThat(featureRenderer.renderFeatureSectionId(feature)).isEqualTo("[[Name, Name]]");
   }

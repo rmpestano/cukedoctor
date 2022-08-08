@@ -19,7 +19,7 @@ Feature: Documentation introduction chapter
   System.setProperty("INTRO_CHAPTER_DIR","/home/some/external/folder");
   ----
   ====
-  
+
 	Given The following two features:
 """
 Feature: Feature1
@@ -49,9 +49,9 @@ Here are some design principles:
 * Cukedoctor *do not* introduce a new API that you need to learn, instead it operates on top of http://www.relishapp.com/cucumber/cucumber/docs/formatters/json-output-formatter[cucumber json output^] files;
 ** In the 'worst case' to <<Enrich-features,enhance>> your documentation you will need to know a bit of http://asciidoctor.org/docs/what-is-asciidoc/[asciidoc markup^].
 """
-     
+
     When Bdd tests results are converted into documentation by Cukedoctor
- 
+
 
 
     Then Resulting documentation should have the provided introduction chapter

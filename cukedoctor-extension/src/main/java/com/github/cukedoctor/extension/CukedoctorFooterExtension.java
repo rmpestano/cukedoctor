@@ -1,7 +1,9 @@
 package com.github.cukedoctor.extension;
 
 import java.text.DateFormat;
-import java.util.*;
+import java.util.Date;
+import java.util.PropertyResourceBundle;
+import java.util.ResourceBundle;
 import org.asciidoctor.ast.Document;
 import org.asciidoctor.extension.Postprocessor;
 import org.jsoup.Jsoup;
@@ -21,7 +23,7 @@ public class CukedoctorFooterExtension extends Postprocessor {
   public String process(Document document, String output) {
     if (document.isBasebackend("html") && System.getProperty("cukedoctor.disable.footer") == null) {
       String stopWatch = System.getProperty("cukedoctor.stopwatch");
-      Double generationTimeInSeconds = new Double(0);
+      double generationTimeInSeconds = 0;
       String documentationDate = dateFormat.format(new Date());
       String cukedoctorVersion = "";
       try {
@@ -35,11 +37,12 @@ public class CukedoctorFooterExtension extends Postprocessor {
       }
 
       if (stopWatch != null && !"".equals(stopWatch)) {
-        long begin = 0;
+        long begin;
         try {
           begin = Long.parseLong(stopWatch);
           generationTimeInSeconds = (System.currentTimeMillis() - begin) / 1000.0;
         } catch (NumberFormatException e) {
+          log.warn("cannot parse long from <{}>", stopWatch);
         }
       }
       org.jsoup.nodes.Document doc = Jsoup.parse(output, "UTF-8");
@@ -54,7 +57,7 @@ public class CukedoctorFooterExtension extends Postprocessor {
       contentElement.append(" - " + documentationDate);
       contentElement.append(
           "<span style=\"float:right;font-size:11px\"> Execution time: "
-              + +generationTimeInSeconds
+              + generationTimeInSeconds
               + " seconds</span>");
       return doc.html();
     } else {

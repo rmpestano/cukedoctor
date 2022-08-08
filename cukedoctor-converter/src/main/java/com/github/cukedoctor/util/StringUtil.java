@@ -20,21 +20,16 @@ public class StringUtil {
     for (int i = 0; i < lines.length; i++) {
       String line = lines[i];
 
-      if (!foundFirstNotEmptyLine) {
-        if (line != null && !line.isEmpty()) {
-          leadingWhitespaceCharsToTrim = countLeadingWhitespace(line);
-          foundFirstNotEmptyLine = true;
-        }
+      if (!foundFirstNotEmptyLine && line != null && !line.isEmpty()) {
+        leadingWhitespaceCharsToTrim = countLeadingWhitespace(line);
+        foundFirstNotEmptyLine = true;
       }
 
       line = trimStart(line, leadingWhitespaceCharsToTrim);
 
       if (line.trim().startsWith(Constants.Markup.listing())) {
-        if (shouldTrim) {
-          shouldTrim = false; // remove trimming on start listing
-        } else {
-          shouldTrim = true; // enable trimming on end listing
-        }
+        // enable trimming on end listing
+        shouldTrim = !shouldTrim; // remove trimming on start listing
       }
 
       if (shouldTrim) {

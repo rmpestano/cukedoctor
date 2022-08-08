@@ -1,12 +1,27 @@
 package com.github.cukedoctor.renderer;
 
 import static com.github.cukedoctor.api.CukedoctorDocumentBuilder.Factory.newInstance;
-import static com.github.cukedoctor.util.Assert.*;
-import static com.github.cukedoctor.util.Constants.Markup.*;
+import static com.github.cukedoctor.util.Assert.hasElements;
+import static com.github.cukedoctor.util.Assert.hasText;
+import static com.github.cukedoctor.util.Assert.notNull;
+import static com.github.cukedoctor.util.Constants.Markup.exampleBlock;
+import static com.github.cukedoctor.util.Constants.Markup.listing;
+import static com.github.cukedoctor.util.Constants.Markup.table;
+import static com.github.cukedoctor.util.Constants.Markup.tableCol;
 import static com.github.cukedoctor.util.Constants.newLine;
 
 import com.github.cukedoctor.api.CukedoctorDocumentBuilder;
-import com.github.cukedoctor.api.model.*;
+import com.github.cukedoctor.api.model.Comment;
+import com.github.cukedoctor.api.model.DocString;
+import com.github.cukedoctor.api.model.Embedding;
+import com.github.cukedoctor.api.model.Feature;
+import com.github.cukedoctor.api.model.Output;
+import com.github.cukedoctor.api.model.Result;
+import com.github.cukedoctor.api.model.Row;
+import com.github.cukedoctor.api.model.Scenario;
+import com.github.cukedoctor.api.model.Status;
+import com.github.cukedoctor.api.model.Step;
+import com.github.cukedoctor.api.model.Tag;
 import com.github.cukedoctor.config.CukedoctorConfig;
 import com.github.cukedoctor.spi.StepsRenderer;
 import com.github.cukedoctor.util.Constants;
@@ -52,11 +67,10 @@ public class CukedoctorStepsRenderer extends AbstractBaseRenderer implements Ste
         }
       }
 
-      if (step.getResult() != null && !Status.passed.equals(step.getStatus())) {
-        if (step.getResult().getErrorMessage() != null) {
-          docBuilder.append(
-              newLine(), "IMPORTANT: ", step.getResult().getErrorMessage(), newLine());
-        }
+      if (step.getResult() != null
+          && !Status.passed.equals(step.getStatus())
+          && step.getResult().getErrorMessage() != null) {
+        docBuilder.append(newLine(), "IMPORTANT: ", step.getResult().getErrorMessage(), newLine());
       }
       renderOutput(step);
       renderAttachments(step);
@@ -167,7 +181,7 @@ public class CukedoctorStepsRenderer extends AbstractBaseRenderer implements Ste
       docBuilder.append("[source,", docString.getContentType(), "]", newLine());
     }
     docBuilder.append(listing(), newLine(), newLine());
-    docBuilder.append(docString.getValue().replaceAll("\\n", newLine()));
+    docBuilder.append(docString.getValue().replace("\n", newLine()));
     docBuilder.append(newLine(), newLine(), listing(), newLine());
   }
 
@@ -177,8 +191,8 @@ public class CukedoctorStepsRenderer extends AbstractBaseRenderer implements Ste
     String[] lines =
         docString
             .getValue()
-            .replaceAll("\\*\\*\\*\\*", "*****")
-            .replaceAll(exampleBlock(), exampleBlock() + "=")
+            .replace("****", "*****")
+            .replace(exampleBlock(), exampleBlock() + "=")
             .split("\\n");
 
     // every line that starts with \n and not contains pipe(|) will have discrete class
@@ -192,7 +206,7 @@ public class CukedoctorStepsRenderer extends AbstractBaseRenderer implements Ste
     for (String line : lines) {
 
       if (!isListing) {
-        line = line.replaceAll("\r", "");
+        line = line.replace("\r", "");
       }
       if (isListing) {
         if (line.contains("----")) {
@@ -203,7 +217,7 @@ public class CukedoctorStepsRenderer extends AbstractBaseRenderer implements Ste
         continue;
       }
 
-      if (!isListing && line.contains("----")) {
+      if (line.contains("----")) {
         isListing = true;
         docBuilder.textLine(line);
         continue;
@@ -215,7 +229,7 @@ public class CukedoctorStepsRenderer extends AbstractBaseRenderer implements Ste
         continue;
       }
       // do not add discrete to complex blocks otherwise it will produce invalid markup like below:
-      /** [discrete] [IMPORTANT] [discrete] ====== */
+      // [discrete] [IMPORTANT] [discrete] ======
       if (line.startsWith("======")) {
         docBuilder.textLine(line);
         continue;
@@ -253,16 +267,16 @@ public class CukedoctorStepsRenderer extends AbstractBaseRenderer implements Ste
               || line.contains(Constants.Markup.listing())
               || (line.startsWith("<") && line.endsWith(">"))) {
             docBuilder.textLine(
-                line.replaceAll("\\n", newLine())
-                    .replaceAll("#\\{", "")
-                    .replaceAll("# \\{", "")
-                    .replaceAll("}", ""));
+                line.replace("\n", newLine())
+                    .replace("#{", "")
+                    .replace("# {", "")
+                    .replace("}", ""));
           } else {
             docBuilder.textLine(
-                line.replaceAll("\\n", newLine())
-                    .replaceAll("#\\{", newLine())
-                    .replaceAll("# \\{", newLine())
-                    .replaceAll("}", ""));
+                line.replace("\n", newLine())
+                    .replace("#{", newLine())
+                    .replace("# {", newLine())
+                    .replace("}", ""));
           }
         }
         // add new line to last comment
@@ -284,7 +298,7 @@ public class CukedoctorStepsRenderer extends AbstractBaseRenderer implements Ste
     // TODO convert to AsciidocBuilder
     CukedoctorDocumentBuilder builder = newInstance();
     builder.newLine();
-    if (notEmpty(step.getRows())) {
+    if (hasElements(step.getRows())) {
       builder.newLine();
       builder
           .append("[cols=\"" + step.getRows()[0].getCells().length + "*\", options=\"header\"]")

@@ -1,6 +1,9 @@
 package com.github.cukedoctor.renderer;
 
-import static com.github.cukedoctor.renderer.Fixtures.*;
+import static com.github.cukedoctor.renderer.Fixtures.embedDataDirectly;
+import static com.github.cukedoctor.renderer.Fixtures.invalidFeatureResult;
+import static com.github.cukedoctor.renderer.Fixtures.onePassingOneFailing;
+import static com.github.cukedoctor.renderer.Fixtures.outline;
 import static com.github.cukedoctor.util.Constants.newLine;
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -22,12 +25,6 @@ public class CukedoctorSummaryRendererTest {
     String resultDoc =
         new CukedoctorSummaryRenderer()
             .renderSummary(features, CukedoctorDocumentBuilder.Factory.newInstance());
-    assertThat(resultDoc)
-        .isNotNull()
-        .containsOnlyOnce("<<One-passing-scenario-one-failing-scenario>>")
-        .containsOnlyOnce("|[red]#*failed*#")
-        .contains("2+|010ms");
-
     assertThat(resultDoc).isEqualTo(Expectations.SUMMARY_FOR_ONE_FEATURE);
   }
 
@@ -38,15 +35,6 @@ public class CukedoctorSummaryRendererTest {
     String resultDoc =
         new CukedoctorSummaryRenderer()
             .renderSummary(features, CukedoctorDocumentBuilder.Factory.newInstance());
-    assertThat(resultDoc)
-        .isNotNull()
-        .containsOnlyOnce("<<One-passing-scenario-one-failing-scenario>>")
-        .containsOnlyOnce("<<An-embed-data-directly-feature>>")
-        .containsOnlyOnce("<<An-outline-feature>>")
-        .doesNotContain("<<invalid feature result>>")
-        .contains("|[green]#*passed*#")
-        .contains("|[red]#*failed*#")
-        .containsOnlyOnce("2+|010ms");
     assertThat(resultDoc).isEqualTo(Expectations.SUMMARY_FOR_MULTIPLE_FEATURES);
   }
 

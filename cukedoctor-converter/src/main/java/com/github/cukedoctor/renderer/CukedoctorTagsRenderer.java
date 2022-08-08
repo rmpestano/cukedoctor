@@ -22,7 +22,7 @@ public class CukedoctorTagsRenderer extends AbstractBaseRenderer implements Tags
     HashSet<String> tagNames = new HashSet<>(expectedSize);
     extractTagNames(tagNames, feature.getTags());
     extractTagNames(tagNames, scenario.getTags());
-    if (tagNames.size() == 0) return "";
+    if (tagNames.isEmpty()) return "";
 
     docBuilder.clear();
     StringBuilder tags = new StringBuilder("[small]#tags: ");

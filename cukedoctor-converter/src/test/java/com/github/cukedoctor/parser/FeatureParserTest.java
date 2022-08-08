@@ -10,7 +10,6 @@ import com.github.cukedoctor.api.model.Scenario;
 import com.github.cukedoctor.api.model.Step;
 import com.github.cukedoctor.util.FileUtil;
 import com.github.cukedoctor.util.builder.FeatureBuilder;
-import java.io.IOException;
 import java.net.URL;
 import java.nio.file.Paths;
 import java.util.List;
@@ -25,7 +24,7 @@ public class FeatureParserTest {
   final String onePassingOneFailing = "one_passing_one_failing.json";
 
   @Test
-  public void shouldParseFeature() throws IOException {
+  public void shouldParseFeature() {
     String path = FileUtil.findJsonFile("target/test-classes/json-output/" + onePassingOneFailing);
     List<Feature> features = FeatureParser.parse(path);
     assertThat(features)
@@ -39,7 +38,7 @@ public class FeatureParserTest {
   }
 
   @Test
-  public void shouldParseFeatureUsingResourcePath() throws IOException {
+  public void shouldParseFeatureUsingResourcePath() {
     URL featureFile = getClass().getResource("/json-output/" + onePassingOneFailing);
     String path = FileUtil.findJsonFile(featureFile.getPath());
     List<Feature> features = FeatureParser.parse(path);
@@ -54,7 +53,7 @@ public class FeatureParserTest {
   }
 
   @Test
-  public void shouldParseFeatureUsingLeadingSlash() throws IOException {
+  public void shouldParseFeatureUsingLeadingSlash() {
     String path = FileUtil.findJsonFile("/target/test-classes/json-output/" + onePassingOneFailing);
     List<Feature> features = FeatureParser.parse(path);
     assertThat(features)
@@ -68,7 +67,7 @@ public class FeatureParserTest {
   }
 
   @Test
-  public void shouldParseFeaturesInDir() throws IOException {
+  public void shouldParseFeaturesInDir() {
     List<String> paths = FileUtil.findJsonFiles("target/test-classes/json-output/parser");
     assertThat(paths).hasSize(6);
     List<Feature> features = FeatureParser.parse(paths);
@@ -82,7 +81,7 @@ public class FeatureParserTest {
   }
 
   @Test
-  public void shouldParseAndFindFeaturesInDir() throws IOException {
+  public void shouldParseAndFindFeaturesInDir() {
     List<Feature> features = FeatureParser.findAndParse("target/test-classes/json-output/parser");
     assertThat(features)
         .hasSize(4)
@@ -94,7 +93,7 @@ public class FeatureParserTest {
   }
 
   @Test
-  public void shouldParseFeatureWithDocstring() throws IOException {
+  public void shouldParseFeatureWithDocstring() {
     List<Feature> features =
         FeatureParser.parse("target/test-classes/json-output/parser/feature_with_docstring.json");
     assertThat(features)
@@ -112,7 +111,7 @@ public class FeatureParserTest {
         assertThat(step).isNotNull();
         assertThat(step.getDocString()).isNotNull();
         assertThat(step.getDocString().getValue()).isEqualTo("A paragraph in an open block.");
-        assertThat(step.getDocString().getContentType()).isEqualTo("");
+        assertThat(step.getDocString().getContentType()).isEmpty();
 
         step = scenario.getStepByName("I embed code directly");
         assertThat(step).isNotNull();
@@ -124,7 +123,7 @@ public class FeatureParserTest {
   }
 
   @Test
-  public void shouldParseFeatureWithOutput() throws IOException {
+  public void shouldParseFeatureWithOutput() {
     List<Feature> features =
         FeatureParser.parse("target/test-classes/json-output/parser/feature_with_output.json");
     assertThat(features).hasSize(1);
@@ -140,7 +139,7 @@ public class FeatureParserTest {
   }
 
   @Test
-  public void shouldParseFeatureWithAttachments() throws IOException {
+  public void shouldParseFeatureWithAttachments() {
     List<Feature> features =
         FeatureParser.parse("target/test-classes/json-output/attachments.json");
     assertThat(features).hasSize(1);
@@ -174,7 +173,7 @@ public class FeatureParserTest {
   }
 
   @Test
-  public void shouldParseAndFindFeaturesInDirUsingLeadingSlash() throws IOException {
+  public void shouldParseAndFindFeaturesInDirUsingLeadingSlash() {
     List<Feature> features = FeatureParser.findAndParse("/target/test-classes/json-output/parser");
     assertThat(features)
         .hasSize(4)
@@ -186,10 +185,10 @@ public class FeatureParserTest {
   }
 
   @Test
-  public void shouldParseAndFindFeaturesInDirUsingAbsoluteath() throws IOException {
+  public void shouldParseAndFindFeaturesInDirUsingAbsoluteath() {
     List<Feature> features =
         FeatureParser.findAndParse(
-            Paths.get("").toAbsolutePath().toString() + "/target/test-classes/json-output/parser");
+            Paths.get("").toAbsolutePath() + "/target/test-classes/json-output/parser");
     assertThat(features)
         .hasSize(4)
         .contains(
@@ -200,7 +199,7 @@ public class FeatureParserTest {
   }
 
   @Test
-  public void shouldParseFeatureInAbsolutePath() throws IOException {
+  public void shouldParseFeatureInAbsolutePath() {
     String absolutePath =
         Paths.get("").toAbsolutePath() + "/target/test-classes/json-output/" + onePassingOneFailing;
     String path = FileUtil.findJsonFile(absolutePath);

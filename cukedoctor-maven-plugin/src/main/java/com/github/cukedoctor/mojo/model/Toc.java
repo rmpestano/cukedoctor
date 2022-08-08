@@ -4,5 +4,5 @@ package com.github.cukedoctor.mojo.model;
 public enum Toc {
   left,
   right,
-  center;
+  center
 }

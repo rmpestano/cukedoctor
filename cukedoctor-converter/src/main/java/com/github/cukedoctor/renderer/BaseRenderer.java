@@ -14,7 +14,7 @@ public interface BaseRenderer {
    * @param documentBuilder the instance to use
    * @deprecated Use renderX calls that pass the documentBuilder as a parameter instead
    */
-  @Deprecated
+  @Deprecated(forRemoval = true)
   void setDocumentBuilder(CukedoctorDocumentBuilder documentBuilder);
 
   void setDocumentAttributes(DocumentAttributes documentAttributes);

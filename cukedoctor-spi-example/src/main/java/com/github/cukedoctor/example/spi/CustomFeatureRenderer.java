@@ -13,7 +13,8 @@ import com.github.cukedoctor.spi.ScenarioRenderer;
 /**
  * Created by pestano on 29/02/16.
  *
- * <p>renders features as labeled list: http://asciidoctor.org/docs/user-manual/#labeled-list
+ * <p>renders features as labeled list: <a
+ * href="http://asciidoctor.org/docs/user-manual/#labeled-list">...</a>
  *
  * <p>Template
  *
@@ -31,7 +32,7 @@ public class CustomFeatureRenderer extends CukedoctorFeatureRenderer {
     if (hasText(feature.getDescription())) {
       builder
           .append("+")
-          .sideBarBlock(feature.getDescription().trim().replaceAll("\\n", " +" + newLine()));
+          .sideBarBlock(feature.getDescription().trim().replace("\n", " +" + newLine()));
     }
 
     if (feature.hasScenarios()) {

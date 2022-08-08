@@ -9,7 +9,7 @@ import java.util.ArrayList;
 /** Created by pestano on 04/06/15. */
 public class ScenarioBuilder {
 
-  private Scenario scenario;
+  private final Scenario scenario;
   private static ScenarioBuilder instance;
 
   private ScenarioBuilder(Scenario scenario) {
@@ -52,7 +52,7 @@ public class ScenarioBuilder {
 
   public ScenarioBuilder step(Step step) {
     if (instance.getScenario().getSteps() == null) {
-      instance.getScenario().setSteps(new ArrayList<Step>());
+      instance.getScenario().setSteps(new ArrayList<>());
     }
 
     if (!instance.getScenario().getSteps().contains(step)) {
@@ -63,7 +63,7 @@ public class ScenarioBuilder {
 
   public ScenarioBuilder tag(Tag tag) {
     if (instance.getScenario().getTags() == null) {
-      instance.getScenario().setTags(new ArrayList<Tag>());
+      instance.getScenario().setTags(new ArrayList<>());
     }
 
     if (!instance.getScenario().getTags().contains(tag)) {

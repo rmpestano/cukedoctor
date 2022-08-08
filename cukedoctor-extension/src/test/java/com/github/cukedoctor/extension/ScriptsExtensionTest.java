@@ -1,15 +1,21 @@
 package com.github.cukedoctor.extension;
 
-import static com.github.cukedoctor.extension.CukedoctorExtensionRegistry.*;
+import static com.github.cukedoctor.extension.CukedoctorExtensionRegistry.FILTER_DISABLE_EXT_KEY;
+import static com.github.cukedoctor.extension.CukedoctorExtensionRegistry.MINMAX_DISABLE_EXT_KEY;
+import static com.github.cukedoctor.extension.CukedoctorExtensionRegistry.THEME_DISABLE_EXT_KEY;
 import static com.github.cukedoctor.extension.util.FileUtil.loadTestFile;
 import static com.github.cukedoctor.extension.util.FileUtil.readFileContent;
 import static org.assertj.core.api.Assertions.assertThat;
 
-import java.io.*;
+import java.io.File;
 import org.asciidoctor.Asciidoctor;
-import org.asciidoctor.OptionsBuilder;
+import org.asciidoctor.Options;
 import org.asciidoctor.SafeMode;
-import org.junit.*;
+import org.junit.After;
+import org.junit.AfterClass;
+import org.junit.Before;
+import org.junit.BeforeClass;
+import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;
 
@@ -47,7 +53,7 @@ public class ScriptsExtensionTest {
   public void shouldAddScriptsToRenderedHtml() {
     File sampleAdoc = loadTestFile("sample.adoc");
     assertThat(sampleAdoc).exists();
-    asciidoctor.convertFile(sampleAdoc, OptionsBuilder.options().safe(SafeMode.UNSAFE).asMap());
+    asciidoctor.convertFile(sampleAdoc, Options.builder().safe(SafeMode.UNSAFE).build());
 
     String sampleHtml = readFileContent(loadTestFile("sample.html"));
     assertThat(sampleHtml)
@@ -62,7 +68,7 @@ public class ScriptsExtensionTest {
     System.setProperty(THEME_DISABLE_EXT_KEY, "anyValue");
     File sampleAdoc = loadTestFile("sample.adoc");
     assertThat(sampleAdoc).exists();
-    asciidoctor.convertFile(sampleAdoc, OptionsBuilder.options().safe(SafeMode.UNSAFE).asMap());
+    asciidoctor.convertFile(sampleAdoc, Options.builder().safe(SafeMode.UNSAFE).build());
 
     String sampleHtml = readFileContent(loadTestFile("sample.html"));
     assertThat(sampleHtml)
@@ -77,7 +83,7 @@ public class ScriptsExtensionTest {
     System.setProperty(FILTER_DISABLE_EXT_KEY, "anything");
     File sampleAdoc = loadTestFile("sample.adoc");
     assertThat(sampleAdoc).exists();
-    asciidoctor.convertFile(sampleAdoc, OptionsBuilder.options().safe(SafeMode.UNSAFE).asMap());
+    asciidoctor.convertFile(sampleAdoc, Options.builder().safe(SafeMode.UNSAFE).build());
 
     String sampleHtml = readFileContent(loadTestFile("sample.html"));
     assertThat(sampleHtml)
@@ -92,7 +98,7 @@ public class ScriptsExtensionTest {
     System.setProperty(MINMAX_DISABLE_EXT_KEY, "any");
     File sampleAdoc = loadTestFile("sample.adoc");
     assertThat(sampleAdoc).exists();
-    asciidoctor.convertFile(sampleAdoc, OptionsBuilder.options().safe(SafeMode.UNSAFE).asMap());
+    asciidoctor.convertFile(sampleAdoc, Options.builder().safe(SafeMode.UNSAFE).build());
 
     String sampleHtml = readFileContent(loadTestFile("sample.html"));
     assertThat(sampleHtml)

@@ -1,6 +1,6 @@
 package com.github.cukedoctor.extension;
 
-import static com.github.cukedoctor.extension.CukedoctorExtensionRegistry.*;
+import static com.github.cukedoctor.extension.CukedoctorExtensionRegistry.STYLE_DISABLE_EXT_KEY;
 import static com.github.cukedoctor.extension.util.FileUtil.loadTestFile;
 import static com.github.cukedoctor.extension.util.FileUtil.readFileContent;
 import static org.assertj.core.api.Assertions.assertThat;
@@ -9,9 +9,13 @@ import com.github.cukedoctor.extension.util.FileUtil;
 import java.io.File;
 import java.nio.file.Paths;
 import org.asciidoctor.Asciidoctor;
-import org.asciidoctor.OptionsBuilder;
+import org.asciidoctor.Options;
 import org.asciidoctor.SafeMode;
-import org.junit.*;
+import org.junit.After;
+import org.junit.AfterClass;
+import org.junit.Before;
+import org.junit.BeforeClass;
+import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;
 
@@ -49,7 +53,7 @@ public class StyleExtensionTest {
     assertThat(sampleAdoc).exists();
     String customCssPath = Paths.get("").toAbsolutePath() + "/target/cukedoctor.css";
     FileUtil.copyFileFromClassPath("/cukedoctor-test.css", customCssPath);
-    asciidoctor.convertFile(sampleAdoc, OptionsBuilder.options().safe(SafeMode.UNSAFE).asMap());
+    asciidoctor.convertFile(sampleAdoc, Options.builder().safe(SafeMode.UNSAFE).build());
 
     String sampleHtml = readFileContent(loadTestFile("sample.html"));
     assertThat(sampleHtml)
@@ -63,7 +67,7 @@ public class StyleExtensionTest {
     System.setProperty(STYLE_DISABLE_EXT_KEY, "anyValue");
     File sampleAdoc = loadTestFile("sample.adoc");
     assertThat(sampleAdoc).exists();
-    asciidoctor.convertFile(sampleAdoc, OptionsBuilder.options().safe(SafeMode.UNSAFE).asMap());
+    asciidoctor.convertFile(sampleAdoc, Options.builder().safe(SafeMode.UNSAFE).build());
 
     String sampleHtml = readFileContent(loadTestFile("sample.html"));
     assertThat(sampleHtml)

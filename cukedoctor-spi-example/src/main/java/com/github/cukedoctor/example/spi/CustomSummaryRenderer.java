@@ -1,7 +1,7 @@
 package com.github.cukedoctor.example.spi;
 
-import static com.github.cukedoctor.util.Constants.Markup.H2;
 import static com.github.cukedoctor.util.Constants.Markup.bold;
+import static com.github.cukedoctor.util.Constants.Markup.h2;
 import static com.github.cukedoctor.util.Constants.newLine;
 
 import com.github.cukedoctor.api.model.Feature;
@@ -15,7 +15,7 @@ public class CustomSummaryRenderer extends AbstractBaseRenderer implements Summa
 
   @Override
   public String renderSummary(List<Feature> features) {
-    docBuilder.textLine(H2(bold(i18n.getMessage("title.summary"))));
+    docBuilder.textLine(h2(bold(i18n.getMessage("title.summary"))));
     docBuilder.textLine("This is a custom summary renderer").newLine();
     docBuilder.textLine("Number of features: " + features.size());
     docBuilder.newLine();

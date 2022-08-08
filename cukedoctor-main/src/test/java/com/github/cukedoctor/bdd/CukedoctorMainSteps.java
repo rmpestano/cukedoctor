@@ -13,14 +13,13 @@ public class CukedoctorMainSteps {
   String generatedDoc;
 
   @Given("^A Cucumber json execution file is are already generated$")
-  public void A_Cucumber_json_execution_file_is_are_already_generated() throws Throwable {}
+  public void A_Cucumber_json_execution_file_is_are_already_generated() {}
 
   @Given("^Cucumber multiple json execution files are already generate$")
-  public void Cucumber_multiple_json_execution_files_are_already_generate() throws Throwable {}
+  public void Cucumber_multiple_json_execution_files_are_already_generate() {}
 
   @When("^I execute CukedoctorMain with args \"([^\"]*)\" \"([^\"]*)\" and \"([^\"]*)\"$")
-  public void I_execute_CukedoctorMain_with_args_and(String arg1, String arg2, String arg3)
-      throws Throwable {
+  public void I_execute_CukedoctorMain_with_args_and(String arg1, String arg2, String arg3) {
     String[] args = new String[6];
 
     args[0] = arg1.split(" ")[0];
@@ -34,7 +33,7 @@ public class CukedoctorMainSteps {
 
   @Then("^A file named outputFile.adoc should be generated with the following content:$")
   public void A_file_named_outputFile_adoc_should_be_generated_with_the_following_content(
-      final String fileContent) throws Throwable {
+      final String fileContent) {
     assertEquals(
         fileContent
             .replaceAll(" ", "")

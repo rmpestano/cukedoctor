@@ -1,6 +1,7 @@
 package com.github.cukedoctor.api.model;
 
-import static com.github.cukedoctor.util.Constants.Markup.*;
+import static com.github.cukedoctor.util.Constants.Markup.bold;
+import static com.github.cukedoctor.util.Constants.Markup.style;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 

@@ -10,10 +10,16 @@ import com.github.cukedoctor.api.model.Tag;
 import com.github.cukedoctor.config.CukedoctorConfig;
 import com.github.cukedoctor.i18n.I18nLoader;
 import com.github.cukedoctor.util.builder.FeatureBuilder;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
+import java.util.Optional;
 import java.util.stream.Stream;
 
 public class BasicSection implements Section {
+
   private final Map<String, Section> sectionsByGroup = new HashMap<>();
   private final List<Section> grouplessFeatures = new LinkedList<>();
   private final String id;
@@ -117,7 +123,9 @@ public class BasicSection implements Section {
       I18nLoader i18n,
       DocumentAttributes documentAttributes,
       CukedoctorConfig config) {
-    if (!hasRoot() && sectionsByGroup.isEmpty() && grouplessFeatures.isEmpty()) return "";
+    if (!hasRoot() && sectionsByGroup.isEmpty() && grouplessFeatures.isEmpty()) {
+      return "";
+    }
 
     renderName(docBuilder, i18n, documentAttributes, config);
     renderChildren(docBuilder, i18n, documentAttributes, config);
@@ -138,7 +146,9 @@ public class BasicSection implements Section {
       I18nLoader i18n,
       DocumentAttributes documentAttributes,
       CukedoctorConfig config) {
-    if (!shouldRenderSectionName(config)) return;
+    if (!shouldRenderSectionName(config)) {
+      return;
+    }
 
     renderStyle(docBuilder);
     renderTitle(docBuilder, i18n, documentAttributes, config);
@@ -163,7 +173,9 @@ public class BasicSection implements Section {
   }
 
   private Section getTitleSection(I18nLoader i18n) {
-    if (hasRoot()) return root;
+    if (hasRoot()) {
+      return root;
+    }
 
     final String name = getName(i18n);
     return new FeatureSection(FeatureBuilder.instance().name(name).build());

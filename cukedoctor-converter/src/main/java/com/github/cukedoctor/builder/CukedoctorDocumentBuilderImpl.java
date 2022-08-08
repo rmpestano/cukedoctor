@@ -1,7 +1,7 @@
 package com.github.cukedoctor.builder;
 
+import static com.github.cukedoctor.util.Assert.hasElements;
 import static com.github.cukedoctor.util.Assert.hasText;
-import static com.github.cukedoctor.util.Assert.notEmpty;
 
 import com.github.cukedoctor.api.CukedoctorDocumentBuilder;
 import com.github.cukedoctor.api.builder.AttributesBuilder;
@@ -42,10 +42,10 @@ public class CukedoctorDocumentBuilderImpl extends AsciiDocBuilder
 
   @Override
   public CukedoctorDocumentBuilder append(Object... text) {
-    if (notEmpty(text)) {
+    if (hasElements(text)) {
       for (Object o : text) {
         if (o.equals(Constants.newLine()) || hasText(o.toString())) {
-          documentBuilder.append(o.toString());
+          documentBuilder.append(o);
         }
       }
     }
@@ -139,7 +139,7 @@ public class CukedoctorDocumentBuilderImpl extends AsciiDocBuilder
     currentTitleNestingLevel = initialTitleNestingLevel;
   }
 
-  public class NestingOverflowException extends RuntimeException {
+  public static class NestingOverflowException extends RuntimeException {
     public NestingOverflowException() {
       super(
           "Nesting is currently at Section Title Level 5 (the deepest AsciiDoc allows). You cannot"
@@ -147,7 +147,7 @@ public class CukedoctorDocumentBuilderImpl extends AsciiDocBuilder
     }
   }
 
-  public class NestingUnderflowException extends RuntimeException {
+  public static class NestingUnderflowException extends RuntimeException {
     public NestingUnderflowException(int currentLevel) {
       super(
           String.format(

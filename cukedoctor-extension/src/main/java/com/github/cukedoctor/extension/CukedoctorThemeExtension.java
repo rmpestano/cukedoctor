@@ -1,6 +1,6 @@
 package com.github.cukedoctor.extension;
 
-import static com.github.cukedoctor.extension.CukedoctorExtensionRegistry.*;
+import static com.github.cukedoctor.extension.CukedoctorExtensionRegistry.THEME_DISABLE_EXT_KEY;
 
 import com.github.cukedoctor.extension.util.FileUtil;
 import java.io.File;
@@ -17,8 +17,8 @@ public class CukedoctorThemeExtension extends Postprocessor {
     if (document.isBasebackend("html") && System.getProperty(THEME_DISABLE_EXT_KEY) == null) {
       Object docDir = document.getAttributes().get("docdir");
       if (docDir != null && new File(docDir.toString()).exists()) {
-        File themeDir = new File(docDir.toString() + "/themes/");
-        boolean created = false;
+        File themeDir = new File(docDir + "/themes/");
+        boolean created;
         created = themeDir.mkdir();
         if (created) {
           FileUtil.copyFile("/themes/asciidoctor.css", docDir + "/themes/asciidoctor.css");
@@ -34,7 +34,7 @@ public class CukedoctorThemeExtension extends Postprocessor {
       }
 
       org.jsoup.nodes.Document doc = Jsoup.parse(output, "UTF-8");
-      Object tocPosition = document.document().getAttributes().get("toc-position");
+      Object tocPosition = document.getDocument().getAttributes().get("toc-position");
       boolean isTocRight = tocPosition != null && tocPosition.toString().equalsIgnoreCase("right");
       Element contentElement = doc.getElementsByAttributeValue("id", "header").get(0);
       contentElement.before(

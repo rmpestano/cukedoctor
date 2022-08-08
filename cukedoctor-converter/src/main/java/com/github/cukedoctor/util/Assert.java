@@ -1,8 +1,11 @@
 package com.github.cukedoctor.util;
 
 import java.io.Serializable;
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.Map;
+import java.util.Objects;
+import java.util.Optional;
 
 /** Created by rafael-pestano on 26/06/2015. */
 public class Assert implements Serializable {
@@ -41,10 +44,7 @@ public class Assert implements Serializable {
    * @return TRUE when given text has any character, FALSE otherwise
    */
   public static boolean hasText(String text) {
-    if (notNull(text) && text.trim().length() > 0) {
-      return true;
-    }
-    return false;
+    return notNull(text) && text.trim().length() > 0;
   }
 
   /**
@@ -53,27 +53,7 @@ public class Assert implements Serializable {
    * @return TRUE when given text contains the given substring, FALSE otherwise
    */
   public static boolean contains(String textToSearch, String substring) {
-    if (notNull(textToSearch) && textToSearch.contains(substring)) {
-      return true;
-    }
-    return false;
-  }
-
-  /**
-   * @param array list to check emptiness
-   * @return TRUE when given array has elements; that is, it must not be {@code null} and must have
-   *     at least one element. FALSE otherwise
-   */
-  public static boolean notEmpty(Object[] array) {
-    if (array == null || array.length == 0) {
-      return false;
-    }
-    for (Object element : array) {
-      if (element != null) {
-        return true;
-      }
-    }
-    return false;
+    return notNull(textToSearch) && textToSearch.contains(substring);
   }
 
   /**
@@ -82,11 +62,7 @@ public class Assert implements Serializable {
    *     have at least one element. @return FALSE otherwise
    */
   public static boolean notEmpty(Collection<?> collection) {
-    if (notNull(collection) && !collection.isEmpty()) {
-      return true;
-    } else {
-      return false;
-    }
+    return notNull(collection) && !collection.isEmpty();
   }
 
   /**
@@ -94,31 +70,19 @@ public class Assert implements Serializable {
    * @return TRUE when given array has at least one not null element; FALSE otherwise
    */
   public static boolean hasElements(Object[] array) {
-    if (array == null || array.length > 0) {
-      return false;
-    }
-    for (Object o : array) {
-      if (o != null) {
-        return true;
-      }
-    }
-    return false;
+    return Optional.ofNullable(array)
+        .map(objects -> Arrays.stream(objects).anyMatch(Objects::nonNull))
+        .orElse(false);
   }
 
   /**
-   * @param array to check elements
+   * @param collection to check elements
    * @return TRUE when given array has at least one not null element; FALSE otherwise
    */
-  public static boolean hasElements(Collection array) {
-    if (array == null || array.isEmpty()) {
-      return false;
-    }
-    for (Object o : array) {
-      if (o != null) {
-        return true;
-      }
-    }
-    return false;
+  public static boolean hasElements(Collection<?> collection) {
+    return Optional.ofNullable(collection)
+        .map(objects -> objects.stream().anyMatch(Objects::nonNull))
+        .orElse(false);
   }
 
   /**
@@ -130,10 +94,7 @@ public class Assert implements Serializable {
     if (map == null) {
       return false;
     }
-    if (hasElements(map.entrySet().toArray())) {
-      return true;
-    }
-    return false;
+    return hasElements(map.entrySet().toArray());
   }
 
   /**

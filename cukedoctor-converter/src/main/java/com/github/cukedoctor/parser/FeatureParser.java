@@ -6,8 +6,14 @@ import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.github.cukedoctor.api.model.Feature;
 import com.github.cukedoctor.util.FileUtil;
-import java.io.*;
-import java.util.*;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.nio.charset.StandardCharsets;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -15,14 +21,17 @@ import org.slf4j.LoggerFactory;
 public class FeatureParser {
   private static final Logger log = LoggerFactory.getLogger(FeatureParser.class);
 
+  private FeatureParser() {}
+
   /**
    * @param json absolute path to cucumber json output file
    * @return list of cucumber features found in json output files
    */
   public static List<Feature> parse(String json) {
     List<Feature> features = null;
-    try (InputStreamReader is = new InputStreamReader(new FileInputStream(json), "UTF-8")) {
-      features = new ObjectMapper().readValue(is, new TypeReference<List<Feature>>() {});
+    try (InputStreamReader is =
+        new InputStreamReader(new FileInputStream(json), StandardCharsets.UTF_8)) {
+      features = new ObjectMapper().readValue(is, new TypeReference<>() {});
       Iterator<Feature> it = features.iterator();
       while (it.hasNext()) {
         Feature feature = it.next();

@@ -1,6 +1,7 @@
 package com.github.cukedoctor.api.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.Objects;
 
 /** Created by rafael-pestano on 01/07/2015. */
@@ -17,18 +18,19 @@ public class DocString {
     this.value = value;
   }
 
-  private String content_type;
+  @JsonProperty("content_type")
+  private String contentType;
 
   public String getContentType() {
-    return content_type;
+    return contentType;
   }
 
-  public void setContent_type(String value) {
-    this.content_type = value;
+  public void setContentType(String value) {
+    this.contentType = value;
   }
 
   public boolean isDiscrete() {
-    return Objects.equals(content_type, "asciidoc");
+    return Objects.equals(contentType, "asciidoc");
   }
 
   @Override

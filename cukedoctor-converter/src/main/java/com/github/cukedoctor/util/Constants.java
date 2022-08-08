@@ -1,13 +1,34 @@
 package com.github.cukedoctor.util;
 
-import static com.github.cukedoctor.util.Constants.Attributes.Name.*;
+import static com.github.cukedoctor.util.Constants.Attributes.Name.ALLOWURIREAD;
+import static com.github.cukedoctor.util.Constants.Attributes.Name.BACKEND;
+import static com.github.cukedoctor.util.Constants.Attributes.Name.CHAPTERLABEL;
+import static com.github.cukedoctor.util.Constants.Attributes.Name.DATAURI;
+import static com.github.cukedoctor.util.Constants.Attributes.Name.DOCINFO;
+import static com.github.cukedoctor.util.Constants.Attributes.Name.DOCTITLE;
+import static com.github.cukedoctor.util.Constants.Attributes.Name.DOCTYPE;
+import static com.github.cukedoctor.util.Constants.Attributes.Name.HARDBREAKS;
+import static com.github.cukedoctor.util.Constants.Attributes.Name.ICONS;
+import static com.github.cukedoctor.util.Constants.Attributes.Name.LINKCSS;
+import static com.github.cukedoctor.util.Constants.Attributes.Name.NUMBERED;
+import static com.github.cukedoctor.util.Constants.Attributes.Name.PDFSTYLE;
+import static com.github.cukedoctor.util.Constants.Attributes.Name.REVNUMBER;
+import static com.github.cukedoctor.util.Constants.Attributes.Name.SECTANCHORS;
+import static com.github.cukedoctor.util.Constants.Attributes.Name.SECTLINK;
+import static com.github.cukedoctor.util.Constants.Attributes.Name.SOURCEHIGHLIGHTER;
+import static com.github.cukedoctor.util.Constants.Attributes.Name.STEM;
+import static com.github.cukedoctor.util.Constants.Attributes.Name.TOC;
+import static com.github.cukedoctor.util.Constants.Attributes.Name.TOCLEVELS;
+import static com.github.cukedoctor.util.Constants.Attributes.Name.VERSIONLABEL;
 import static java.lang.System.getProperty;
 
+import java.nio.file.FileSystems;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
 /** Created by pestano on 04/06/15. */
 public abstract class Constants {
+  private Constants() {}
 
   public static final String SKIP_DOCS = "@skipDocs";
   public static final String BASE_DIR =
@@ -27,6 +48,7 @@ public abstract class Constants {
   }
 
   public static String home() {
+    var path = FileSystems.getDefault().getPath(".").toAbsolutePath();
     String homeDir = Thread.currentThread().getContextClassLoader().getResource("").getPath();
     if (!homeDir.endsWith("/")) {
       homeDir += "/";
@@ -45,6 +67,8 @@ public abstract class Constants {
 
   public abstract static class Markup {
 
+    private Markup() {}
+
     public static String bold(String value) {
       return "*" + value + "*";
     }
@@ -53,19 +77,19 @@ public abstract class Constants {
       return "[" + style + "]#" + value + "#";
     }
 
-    public static String H1(String value) {
+    public static String h1(String value) {
       return "= " + value;
     }
 
-    public static String H2(String value) {
+    public static String h2(String value) {
       return "== " + value;
     }
 
-    public static String H3(String value) {
+    public static String h3(String value) {
       return "=== " + value;
     }
 
-    public static String H4(String value) {
+    public static String h4(String value) {
       return "==== " + value;
     }
 
@@ -134,7 +158,7 @@ public abstract class Constants {
         }
         adocAttr.append(attrName).append(":");
       } else {
-        adocAttr.append(attrName).append(":").append(" ").append(attrValue.toString());
+        adocAttr.append(attrName).append(":").append(" ").append(attrValue);
       }
       return adocAttr.toString();
     }

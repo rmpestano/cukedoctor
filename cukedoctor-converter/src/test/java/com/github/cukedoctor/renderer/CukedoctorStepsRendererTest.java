@@ -1,14 +1,14 @@
 package com.github.cukedoctor.renderer;
 
 import static com.github.cukedoctor.util.Constants.newLine;
+import static com.github.cukedoctor.util.Features.aFeatureWithOneScenarioWithOnePassingAndOneFailingStep;
+import static com.github.cukedoctor.util.Features.aFeatureWithOneScenarioWithOnePassingStep;
 import static org.assertj.core.api.Assertions.assertThat;
 
 import com.github.cukedoctor.api.CukedoctorDocumentBuilder;
 import com.github.cukedoctor.api.model.Feature;
 import com.github.cukedoctor.api.model.Step;
 import com.github.cukedoctor.spi.StepsRenderer;
-import com.github.cukedoctor.util.builder.FeatureBuilder;
-import java.util.ArrayList;
 import java.util.List;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -19,10 +19,7 @@ public class CukedoctorStepsRendererTest {
 
   @Test
   public void shouldRenderFeatureStepsWithOnePassingStep() {
-    final Feature feature = FeatureBuilder.instance().aFeatureWithOneScenarioWithOnePassingStep();
-    List<Feature> features = new ArrayList<>();
-    features.add(feature);
-
+    final Feature feature = aFeatureWithOneScenarioWithOnePassingStep();
     StepsRenderer stepsRenderer = new CukedoctorStepsRenderer();
 
     List<Step> steps = feature.getScenarios().get(0).getSteps();
@@ -48,11 +45,7 @@ public class CukedoctorStepsRendererTest {
 
   @Test
   public void shouldRenderFeatureStepsWithOnePassingAndOneFailingStep() {
-    final Feature feature =
-        FeatureBuilder.instance().aFeatureWithOneScenarioWithOnePassingAndOneFailingStep();
-    List<Feature> features = new ArrayList<>();
-    features.add(feature);
-
+    final Feature feature = aFeatureWithOneScenarioWithOnePassingAndOneFailingStep();
     List<Step> steps = feature.getScenarios().get(0).getSteps();
     StepsRenderer stepsRenderer = new CukedoctorStepsRenderer();
 

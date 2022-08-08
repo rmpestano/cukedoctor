@@ -23,7 +23,7 @@ public interface CukedoctorConverter {
    * @deprecated Use an appropriate instance of FeatureRenderer to render the document features only
    *     e.g. CukedoctorFeatureRenderer
    */
-  @Deprecated
+  @Deprecated(forRemoval = true)
   CukedoctorConverter renderFeatures(List<Feature> features);
 
   /**
@@ -31,7 +31,7 @@ public interface CukedoctorConverter {
    * @deprecated Use an appropriate instance of FeatureRenderer to render the document features only
    *     e.g. CukedoctorFeatureRenderer
    */
-  @Deprecated
+  @Deprecated(forRemoval = true)
   CukedoctorConverter renderFeatures();
 
   /**
@@ -39,7 +39,7 @@ public interface CukedoctorConverter {
    * @deprecated Use an appropriate instance of HeaderRenderer to render the document attributes
    *     only e.g. CukedoctorHeaderRenderer
    */
-  @Deprecated
+  @Deprecated(forRemoval = true)
   CukedoctorConverter renderAttributes();
 
   /**
@@ -47,7 +47,7 @@ public interface CukedoctorConverter {
    *     e.g. CukedoctorSummaryRenderer
    * @return underlying Converter instance
    */
-  @Deprecated
+  @Deprecated(forRemoval = true)
   CukedoctorConverter renderSummary();
 
   /**

@@ -12,7 +12,6 @@ import io.cucumber.java.Before;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import java.io.IOException;
 import java.net.URL;
 import java.util.List;
 
@@ -23,10 +22,10 @@ public class AttachmentSteps {
   private String hideStepTime;
   private URL featureFile;
 
-  public AttachmentSteps() throws IOException {}
+  public AttachmentSteps() {}
 
   @Before
-  public void before() throws IOException {
+  public void before() {
     disableExtensions = System.getProperty("cukedoctor.disable-extensions");
     hideStepTime = System.getProperty("HIDE_STEP_TIME");
     renderedDocument = null;
@@ -34,7 +33,7 @@ public class AttachmentSteps {
   }
 
   @After
-  public void after() throws IOException {
+  public void after() {
     // Assumed defaults across the test suite
     // There is no "after all" hook in Cucumber-JVM, so somewhat wastefully they go here
     resetProperty("cukedoctor.disable-extensions", disableExtensions);

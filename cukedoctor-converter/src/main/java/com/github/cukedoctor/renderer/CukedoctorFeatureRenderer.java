@@ -1,6 +1,9 @@
 package com.github.cukedoctor.renderer;
 
-import static com.github.cukedoctor.util.Assert.*;
+import static com.github.cukedoctor.util.Assert.hasText;
+import static com.github.cukedoctor.util.Assert.isNull;
+import static com.github.cukedoctor.util.Assert.not;
+import static com.github.cukedoctor.util.Assert.notNull;
 import static com.github.cukedoctor.util.Constants.Markup.bold;
 import static com.github.cukedoctor.util.Constants.newLine;
 import static com.github.cukedoctor.util.StringUtil.trimAllLines;
@@ -51,7 +54,7 @@ public class CukedoctorFeatureRenderer extends AbstractBaseRenderer implements F
       }
     }
     if (hasText(feature.getDescription())) {
-      final String description = trimAllLines(feature.getDescription()).replaceAll("\\\\", "");
+      final String description = trimAllLines(feature.getDescription()).replace("\\", "");
       renderDescription(builder, description);
     }
 
@@ -97,7 +100,7 @@ public class CukedoctorFeatureRenderer extends AbstractBaseRenderer implements F
 
   protected String renderFeatureId(Feature feature) {
     // Anchor must not have blanks neither commas to work
-    return feature.getName().replaceAll(",", "").replaceAll("'", "-").replaceAll(" ", "-");
+    return feature.getName().replace(",", "").replace("'", "-").replace(" ", "-");
   }
 
   protected String renderFeatureScenario(

@@ -6,7 +6,12 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.nio.file.*;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.FileVisitResult;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.nio.file.SimpleFileVisitor;
 import java.nio.file.attribute.BasicFileAttributes;
 import java.util.ArrayList;
 import java.util.List;
@@ -22,6 +27,8 @@ public class FileUtil {
   private static final Logger log = LoggerFactory.getLogger(FileUtil.class);
   public static final Pattern ADOC_FILE_EXTENSION =
       Pattern.compile("([^\\s]+(\\.(?i)(ad|adoc|asciidoc|asc))$)");
+
+  private FileUtil() {}
 
   /**
    * @param path full path to the json feature result
@@ -86,7 +93,7 @@ public class FileUtil {
     try {
       Files.walkFileTree(
           startPath,
-          new SimpleFileVisitor<Path>() {
+          new SimpleFileVisitor<>() {
             @Override
             public FileVisitResult visitFile(final Path file, final BasicFileAttributes attrs)
                 throws IOException {
@@ -99,7 +106,7 @@ public class FileUtil {
                           .relativize(
                               isFile ? file.getParent().toAbsolutePath() : file.toAbsolutePath());
                   if (isFile) {
-                    foundPaths.add(computedPath.toString() + "/" + file.toFile().getName());
+                    foundPaths.add(computedPath + "/" + file.toFile().getName());
                   } else {
                     foundPaths.add(computedPath.toString());
                   }
@@ -138,9 +145,9 @@ public class FileUtil {
     }
     String fullyQualifiedName = name;
 
-    /** if filename is not absolute use current path as base dir */
+    // if filename is not absolute use current path as base dir
     if (!new File(fullyQualifiedName).isAbsolute()) {
-      fullyQualifiedName = Paths.get("").toAbsolutePath().toString() + "/" + name;
+      fullyQualifiedName = Paths.get("").toAbsolutePath() + "/" + name;
     }
     try {
       // create subdirs (if there any)
@@ -151,7 +158,7 @@ public class FileUtil {
       File file = new File(fullyQualifiedName);
       file.createNewFile();
       FileUtils.write(file, data, "UTF-8");
-      log.info("Wrote: " + file.getAbsolutePath());
+      log.info("Wrote: {}", file.getAbsolutePath());
       return file;
     } catch (IOException e) {
       log.error("Could not create file {}", name, e);
@@ -161,7 +168,7 @@ public class FileUtil {
 
   public static File loadFile(String path) {
     if (path == null) {
-      path = "/";
+      path = File.separator;
     }
 
     File f = new File(path);
@@ -170,17 +177,21 @@ public class FileUtil {
     }
 
     if (!path.startsWith("/")) {
-      path = "/" + path;
+      path = File.separator + path;
     }
 
-    return new File(Paths.get("").toAbsolutePath().toString() + path.trim());
+    return new File(Paths.get("").toAbsolutePath() + path.trim());
   }
 
   public static boolean removeFile(String path) {
-
     File fileToRemove = loadFile(path);
-
-    return fileToRemove.delete();
+    try {
+      Files.delete(fileToRemove.toPath());
+      return true;
+    } catch (IOException e) {
+      log.error("could not delete path {}", path);
+      return false;
+    }
   }
 
   public static void removeDir(String path) throws IOException {
@@ -197,7 +208,7 @@ public class FileUtil {
     if (source != null && dest != null) {
       try {
         InputStream in = FileUtil.class.getResourceAsStream(source);
-        return saveFile(dest, IOUtils.toString(in));
+        return saveFile(dest, IOUtils.toString(in, StandardCharsets.UTF_8));
       } catch (IOException e) {
         log.error("Could not copy source file: {} to dest file: {}", source, dest, e);
       }
@@ -220,7 +231,7 @@ public class FileUtil {
       }
       try {
         InputStream in = new FileInputStream(source);
-        return saveFile(dest, IOUtils.toString(in));
+        return saveFile(dest, IOUtils.toString(in, StandardCharsets.UTF_8));
       } catch (IOException e) {
         log.error("Could not copy source file: {} to dest file: {}", source, dest, e);
       }

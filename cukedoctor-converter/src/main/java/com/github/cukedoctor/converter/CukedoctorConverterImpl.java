@@ -1,6 +1,8 @@
 package com.github.cukedoctor.converter;
 
-import static com.github.cukedoctor.util.Assert.*;
+import static com.github.cukedoctor.util.Assert.hasElements;
+import static com.github.cukedoctor.util.Assert.hasText;
+import static com.github.cukedoctor.util.Assert.notNull;
 import static com.github.cukedoctor.util.Constants.Markup.bold;
 import static com.github.cukedoctor.util.Constants.newLine;
 
@@ -25,15 +27,15 @@ import java.util.List;
 /** Created by pestano on 02/06/15. */
 public class CukedoctorConverterImpl implements CukedoctorConverter {
 
-  private List<Feature> features;
-  private DocumentAttributes documentAttributes;
+  private final List<Feature> features;
+  private final DocumentAttributes documentAttributes;
   private String filename;
-  private CukedoctorDocumentBuilder docBuilder;
-  private I18nLoader i18n;
+  private final CukedoctorDocumentBuilder docBuilder;
+  private final I18nLoader i18n;
   private SummaryRenderer summaryRenderer;
   private FeatureRenderer featureRenderer;
   private HeaderRenderer headerRenderer;
-  private CukedoctorConfig cukedoctorConfig;
+  private final CukedoctorConfig cukedoctorConfig;
 
   public CukedoctorConverterImpl(List<Feature> features, DocumentAttributes attrs) {
     this(features, attrs, new CukedoctorConfig());
@@ -124,9 +126,9 @@ public class CukedoctorConverterImpl implements CukedoctorConverter {
             "cukedoctor-intro.adoc",
             true,
             cukedoctorConfig.getIntroChapterRelativePath());
-    if (files != null && !files.isEmpty()) {
+    if (!files.isEmpty()) {
       String introPath = files.get(0);
-      introPath = introPath.replaceAll("\\\\", "/");
+      introPath = introPath.replace("\\", "/");
       docBuilder.append("include::", introPath, "[leveloffset=+1]", newLine(), newLine());
     }
   }
@@ -156,7 +158,7 @@ public class CukedoctorConverterImpl implements CukedoctorConverter {
           FileUtil.findFiles(cukedoctorConfig.getCustomizationDir(), pdfThemeName, true);
       if (hasElements(files)) {
         String themePath = files.get(0);
-        themePath = themePath.replaceAll("\\\\", "/");
+        themePath = themePath.replace("\\", "/");
         documentAttributes.pdfStyle(themePath);
       }
     }
@@ -191,7 +193,7 @@ public class CukedoctorConverterImpl implements CukedoctorConverter {
     if (!filename.contains(".")) {
       filename = filename + ".adoc";
     }
-    filename = filename.replaceAll(" ", "_"); // remove blank spaces with underline
+    filename = filename.replace(" ", "_"); // remove blank spaces with underline
 
     if (!FileUtil.ADOC_FILE_EXTENSION.matcher(filename).matches()) {
       throw new RuntimeException(

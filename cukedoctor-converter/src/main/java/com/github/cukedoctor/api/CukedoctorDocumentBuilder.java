@@ -32,6 +32,7 @@ public interface CukedoctorDocumentBuilder extends MarkupDocBuilder {
   CukedoctorDocumentBuilder createPeerBuilder();
 
   class Factory {
+    private Factory() {}
 
     private static CukedoctorDocumentBuilder instance;
 
