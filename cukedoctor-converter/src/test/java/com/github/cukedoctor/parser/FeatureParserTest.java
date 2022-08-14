@@ -185,7 +185,7 @@ public class FeatureParserTest {
   }
 
   @Test
-  public void shouldParseAndFindFeaturesInDirUsingAbsoluteath() {
+  public void shouldParseAndFindFeaturesInDirUsingAbsolutePath() {
     List<Feature> features =
         FeatureParser.findAndParse(
             Paths.get("").toAbsolutePath() + "/target/test-classes/json-output/parser");
