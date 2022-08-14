@@ -35,9 +35,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;
 
-/**
- * Created by pestano on 02/06/15.
- */
+/** Created by pestano on 02/06/15. */
 @RunWith(JUnit4.class)
 public class CukedoctorConverterTest {
 
@@ -237,7 +235,8 @@ public class CukedoctorConverterTest {
 
     FileUtil.saveFile(
         "target/test-docs/doc_multiple_feature.adoc", resultDoc); // save to target/test-docs folder
-    assertThat(resultDoc).isEqualToIgnoringWhitespace(Expectations.DOCUMENTATION_FOR_MULTIPLE_FEATURES);
+    assertThat(resultDoc)
+        .isEqualToIgnoringWhitespace(Expectations.DOCUMENTATION_FOR_MULTIPLE_FEATURES);
   }
 
   @Test
@@ -273,7 +272,8 @@ public class CukedoctorConverterTest {
     FileUtil.saveFile(
         "target/test-docs/doc_without_features_sect.adoc",
         resultDoc); // save to target/test-docs folder
-    assertThat(resultDoc).isEqualToIgnoringWhitespace(Expectations.DOCUMENTATION_WITHOUT_FEATURES_SECTION);
+    assertThat(resultDoc)
+        .isEqualToIgnoringWhitespace(Expectations.DOCUMENTATION_WITHOUT_FEATURES_SECTION);
   }
 
   @Test
@@ -306,7 +306,9 @@ public class CukedoctorConverterTest {
     FileUtil.saveFile(
         "target/test-docs/doc_without_features_sect.adoc",
         resultDoc); // save to target/test-docs folder
-    assertThat(resultDoc).isEqualToIgnoringWhitespace(Expectations.DOCUMENTATION_WITHOUT_FEATURES_AND_SUMMARY_SECTIONS);
+    assertThat(resultDoc)
+        .isEqualToIgnoringWhitespace(
+            Expectations.DOCUMENTATION_WITHOUT_FEATURES_AND_SUMMARY_SECTIONS);
   }
 
   @Test
@@ -330,7 +332,8 @@ public class CukedoctorConverterTest {
     CukedoctorConverter converter = Cukedoctor.instance(features, attrs);
     converter.setFilename("target/living_documentation.adoc");
     String resultDoc = converter.renderDocumentation();
-    assertThat(resultDoc).isEqualToIgnoringWhitespace(Expectations.DOCUMENTATION_WITHOUT_SCENARIO_KEYWORD);
+    assertThat(resultDoc)
+        .isEqualToIgnoringWhitespace(Expectations.DOCUMENTATION_WITHOUT_SCENARIO_KEYWORD);
   }
 
   @Test
@@ -424,7 +427,8 @@ public class CukedoctorConverterTest {
     CukedoctorConverter converter = Cukedoctor.instance(features);
     converter.setFilename("target/living_documentation.adoc");
     String resultDoc = converter.renderDocumentation();
-    assertThat(resultDoc).isEqualToIgnoringWhitespace(Expectations.DOCUMENTATION_WITH_SCENARIO_WITHOUT_DESCRIPTION);
+    assertThat(resultDoc)
+        .isEqualToIgnoringWhitespace(Expectations.DOCUMENTATION_WITH_SCENARIO_WITHOUT_DESCRIPTION);
   }
 
   @Test
@@ -494,7 +498,8 @@ public class CukedoctorConverterTest {
         Cukedoctor.instance(
             features, GlobalConfig.getInstance().getDocumentAttributes().docTitle("Doc Title"));
     String resultDoc = converter.renderDocumentation();
-    assertThat(resultDoc).isEqualToIgnoringWhitespace(Expectations.FEATURE_WITH_STEP_TABLE_IN_PT_BR);
+    assertThat(resultDoc)
+        .isEqualToIgnoringWhitespace(Expectations.FEATURE_WITH_STEP_TABLE_IN_PT_BR);
   }
 
   @Test

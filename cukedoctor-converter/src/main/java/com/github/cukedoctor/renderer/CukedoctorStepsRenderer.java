@@ -32,13 +32,10 @@ import java.util.Base64;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
 
-/**
- * Created by pestano on 28/02/16.
- */
+/** Created by pestano on 28/02/16. */
 public class CukedoctorStepsRenderer extends AbstractBaseRenderer implements StepsRenderer {
 
-  public CukedoctorStepsRenderer() {
-  }
+  public CukedoctorStepsRenderer() {}
 
   public CukedoctorStepsRenderer(CukedoctorConfig cukedoctorConfig) {
     this.cukedoctorConfig = cukedoctorConfig;

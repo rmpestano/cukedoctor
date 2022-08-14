@@ -244,8 +244,8 @@ public class FeatureParserTest {
 
   @Test
   public void shouldParseFeatureWithCommentsInScenariosExamples() {
-    URL featuresJson = getClass()
-        .getResource("/json-output/feature_with_comments_in_examples.json");
+    URL featuresJson =
+        getClass().getResource("/json-output/feature_with_comments_in_examples.json");
     List<Feature> features = FeatureParser.parse(requireNonNull(featuresJson).getPath());
     assertThat(features).isNotNull().hasSize(1);
   }

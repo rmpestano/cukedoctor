@@ -3,9 +3,7 @@ package com.github.cukedoctor.util;
 import static com.github.cukedoctor.util.Constants.home;
 import static com.github.cukedoctor.util.Constants.newLine;
 
-/**
- * Created by pestano on 07/06/15.
- */
+/** Created by pestano on 07/06/15. */
 public interface Expectations {
 
   String SUMMARY_FOR_ONE_FEATURE =
@@ -1752,19 +1750,23 @@ public interface Expectations {
           + newLine()
           + "Given ::"
           + newLine()
-          + "application is up icon:thumbs-up[role=\"green\",title=\"Passed\"] [small right]#(003ms)#"
+          + "application is up icon:thumbs-up[role=\"green\",title=\"Passed\"] [small"
+          + " right]#(003ms)#"
           + newLine()
           + "And ::"
           + newLine()
-          + "today is 2022-08-14 icon:thumbs-up[role=\"green\",title=\"Passed\"] [small right]#(010ms)#"
+          + "today is 2022-08-14 icon:thumbs-up[role=\"green\",title=\"Passed\"] [small"
+          + " right]#(010ms)#"
           + newLine()
           + "When ::"
           + newLine()
-          + "I send a message \"Hello\" icon:thumbs-up[role=\"green\",title=\"Passed\"] [small right]#(009ms)#"
+          + "I send a message \"Hello\" icon:thumbs-up[role=\"green\",title=\"Passed\"] [small"
+          + " right]#(009ms)#"
           + newLine()
           + "Then ::"
           + newLine()
-          + "API replies \"[2022-08-14] echo <Hello>\" icon:thumbs-up[role=\"green\",title=\"Passed\"] [small right]#(000ms)#"
+          + "API replies \"[2022-08-14] echo <Hello>\""
+          + " icon:thumbs-up[role=\"green\",title=\"Passed\"] [small right]#(000ms)#"
           + newLine()
           + "=========="
           + newLine()
