@@ -9,6 +9,7 @@ import static com.github.cukedoctor.util.Constants.Markup.listing;
 import static com.github.cukedoctor.util.Constants.Markup.table;
 import static com.github.cukedoctor.util.Constants.Markup.tableCol;
 import static com.github.cukedoctor.util.Constants.newLine;
+import static java.lang.Boolean.*;
 
 import com.github.cukedoctor.api.CukedoctorDocumentBuilder;
 import com.github.cukedoctor.api.model.Comment;
@@ -31,10 +32,13 @@ import java.util.Base64;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
 
-/** Created by pestano on 28/02/16. */
+/**
+ * Created by pestano on 28/02/16.
+ */
 public class CukedoctorStepsRenderer extends AbstractBaseRenderer implements StepsRenderer {
 
-  public CukedoctorStepsRenderer() {}
+  public CukedoctorStepsRenderer() {
+  }
 
   public CukedoctorStepsRenderer(CukedoctorConfig cukedoctorConfig) {
     this.cukedoctorConfig = cukedoctorConfig;
@@ -46,9 +50,9 @@ public class CukedoctorStepsRenderer extends AbstractBaseRenderer implements Ste
 
     docBuilder.textLine("==========");
     for (Step step : steps) {
-      docBuilder.append(step.getKeyword(), "::", newLine());
+      docBuilder.append(parseKeyword(step.getKeyword()), "::", newLine());
       docBuilder.append(step.getName() + " ", Status.getStatusIcon(step.getStatus()));
-      if (!cukedoctorConfig.isHideStepTime()) {
+      if (FALSE.equals(cukedoctorConfig.isHideStepTime())) {
         docBuilder.append(renderStepTime(step.getResult()));
       }
 
@@ -81,19 +85,29 @@ public class CukedoctorStepsRenderer extends AbstractBaseRenderer implements Ste
     return docBuilder.toString();
   }
 
+  private String parseKeyword(String keyword) {
+    return keyword.replace("*", "And");
+  }
+
   private boolean isDiscrete(Scenario scenario) {
-    if (!scenario.hasTags()) return false;
+    if (!scenario.hasTags()) {
+      return false;
+    }
     return isDiscrete(scenario.getTags());
   }
 
   private boolean isDiscrete(Feature feature) {
-    if (!feature.hasTags()) return false;
+    if (!feature.hasTags()) {
+      return false;
+    }
     return isDiscrete(feature.getTags());
   }
 
   private boolean isDiscrete(Iterable<Tag> tags) {
     for (Tag tag : tags) {
-      if (tag.isDiscrete()) return true;
+      if (tag.isDiscrete()) {
+        return true;
+      }
     }
 
     return false;

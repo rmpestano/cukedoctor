@@ -9,6 +9,7 @@ public class Fixtures {
   public static final String invalidFeatureResult;
   public static final String featureWithTableInStep;
   public static final String featureWithSourceDocStringInStep;
+  public static final String featureWithAsterisk;
 
   static {
     onePassingOneFailing =
@@ -22,5 +23,7 @@ public class Fixtures {
         FileUtil.findJsonFile("target/test-classes/json-output/step-with-table.json");
     featureWithSourceDocStringInStep =
         FileUtil.findJsonFile("target/test-classes/json-output/step-with-source-doc-string.json");
+    featureWithAsterisk =
+        FileUtil.findJsonFile("target/test-classes/json-output/feature_with_asterisk.json");
   }
 }

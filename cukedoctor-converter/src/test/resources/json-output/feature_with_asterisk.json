@@ -1,0 +1,119 @@
+[
+  {
+    "line": 1,
+    "elements": [
+      {
+        "start_timestamp": "2022-08-14T15:36:35.674Z",
+        "before": [
+          {
+            "result": {
+              "duration": 232000,
+              "status": "passed"
+            },
+            "match": {
+              "location": "org.rdlopes.demo.bdd.steps.DemoSteps.before(io.cucumber.java.Scenario)"
+            }
+          }
+        ],
+        "line": 7,
+        "name": "Receive an echo of a message sent through the API",
+        "description": "",
+        "id": "echoing-a-message;receive-an-echo-of-a-message-sent-through-the-api",
+        "after": [
+          {
+            "embeddings": [
+              {
+                "data": "WyVoZWFkZXIsIGNvbHM9IjEsMSJdCnw9PT0KfFNldCB1cHxEb25lfEV4cGVjdGVkCnxudWxsfG51bGx8bnVsbAp8PT09Cg==",
+                "mime_type": "text/asciidoc",
+                "name": "Summary"
+              }
+            ],
+            "result": {
+              "duration": 211000,
+              "status": "passed"
+            },
+            "match": {
+              "location": "org.rdlopes.demo.bdd.steps.DemoSteps.after(io.cucumber.java.Scenario)"
+            }
+          }
+        ],
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 3942000,
+              "status": "passed"
+            },
+            "line": 8,
+            "name": "application is up",
+            "match": {
+              "location": "org.rdlopes.demo.bdd.steps.ActuatorSteps.applicationIsUp()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 10611000,
+              "status": "passed"
+            },
+            "line": 9,
+            "name": "today is 2022-08-14",
+            "match": {
+              "arguments": [
+                {
+                  "val": "2022-08-14",
+                  "offset": 9
+                }
+              ],
+              "location": "org.rdlopes.demo.bdd.steps.DemoSteps.todayIs(java.time.LocalDate)"
+            },
+            "keyword": "* "
+          },
+          {
+            "result": {
+              "duration": 9540000,
+              "status": "passed"
+            },
+            "line": 10,
+            "name": "I send a message \"Hello\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"Hello\"",
+                  "offset": 17
+                }
+              ],
+              "location": "org.rdlopes.demo.bdd.steps.RestSteps.iSendAMessage(java.lang.String)"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 981000,
+              "status": "passed"
+            },
+            "line": 11,
+            "name": "API replies \"[2022-08-14] echo <Hello>\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"[2022-08-14] echo <Hello>\"",
+                  "offset": 12
+                }
+              ],
+              "location": "org.rdlopes.demo.bdd.steps.RestSteps.apiReplies(java.lang.String)"
+            },
+            "keyword": "Then "
+          }
+        ]
+      }
+    ],
+    "name": "Echoing a message",
+    "description": "  As a user\n  I want an echo service\n  So I can play with Spring",
+    "id": "echoing-a-message",
+    "keyword": "Feature",
+    "uri": "classpath:features/01_echo.feature",
+    "tags": []
+  }
+]
