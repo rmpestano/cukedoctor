@@ -295,7 +295,7 @@ public class Feature implements Comparable<Feature> {
     try {
       return Integer.parseInt(orderAsString);
     } catch (Exception e) {
-      log.warn(
+      log.debug(
           "Could not get order of feature {} from {} cause: {}",
           name,
           orderAsString,
