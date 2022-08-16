@@ -3,6 +3,7 @@ package com.github.cukedoctor.converter;
 import static com.github.cukedoctor.extension.CukedoctorExtensionRegistry.DISABLE_ALL_EXT_KEY;
 import static com.github.cukedoctor.extension.CukedoctorExtensionRegistry.MINMAX_DISABLE_EXT_KEY;
 import static com.github.cukedoctor.renderer.Fixtures.embedDataDirectly;
+import static com.github.cukedoctor.renderer.Fixtures.featureWithAsterisk;
 import static com.github.cukedoctor.renderer.Fixtures.featureWithTableInStep;
 import static com.github.cukedoctor.renderer.Fixtures.invalidFeatureResult;
 import static com.github.cukedoctor.renderer.Fixtures.onePassingOneFailing;
@@ -10,6 +11,7 @@ import static com.github.cukedoctor.renderer.Fixtures.outline;
 import static com.github.cukedoctor.util.Constants.newLine;
 import static com.github.cukedoctor.util.Features.aFeatureWithTwoScenarios;
 import static com.github.cukedoctor.util.StringUtil.trimAllLines;
+import static java.util.Objects.requireNonNull;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static org.junit.Assert.assertEquals;
@@ -24,6 +26,7 @@ import com.github.cukedoctor.parser.FeatureParser;
 import com.github.cukedoctor.util.Expectations;
 import com.github.cukedoctor.util.FileUtil;
 import java.io.File;
+import java.net.URL;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
@@ -193,8 +196,7 @@ public class CukedoctorConverterTest {
 
     FileUtil.saveFile(
         "target/test-docs/doc_one_feature.adoc", resultDoc); // save to target/test-docs folder
-    assertThat(resultDoc.replaceAll("\r", ""))
-        .isEqualTo(Expectations.DOCUMENTATION_FOR_ONE_FEATURE.replaceAll("\r", ""));
+    assertThat(resultDoc).isEqualToIgnoringWhitespace(Expectations.DOCUMENTATION_FOR_ONE_FEATURE);
   }
 
   @Test
@@ -233,8 +235,8 @@ public class CukedoctorConverterTest {
 
     FileUtil.saveFile(
         "target/test-docs/doc_multiple_feature.adoc", resultDoc); // save to target/test-docs folder
-    assertThat(resultDoc.replaceAll("\r", ""))
-        .isEqualTo(Expectations.DOCUMENTATION_FOR_MULTIPLE_FEATURES.replaceAll("\r", ""));
+    assertThat(resultDoc)
+        .isEqualToIgnoringWhitespace(Expectations.DOCUMENTATION_FOR_MULTIPLE_FEATURES);
   }
 
   @Test
@@ -270,8 +272,8 @@ public class CukedoctorConverterTest {
     FileUtil.saveFile(
         "target/test-docs/doc_without_features_sect.adoc",
         resultDoc); // save to target/test-docs folder
-    assertThat(resultDoc.replaceAll("\r", ""))
-        .isEqualTo(Expectations.DOCUMENTATION_WITHOUT_FEATURES_SECTION.replaceAll("\r", ""));
+    assertThat(resultDoc)
+        .isEqualToIgnoringWhitespace(Expectations.DOCUMENTATION_WITHOUT_FEATURES_SECTION);
   }
 
   @Test
@@ -304,9 +306,9 @@ public class CukedoctorConverterTest {
     FileUtil.saveFile(
         "target/test-docs/doc_without_features_sect.adoc",
         resultDoc); // save to target/test-docs folder
-    assertThat(resultDoc.replaceAll("\r", ""))
-        .isEqualTo(
-            Expectations.DOCUMENTATION_WITHOUT_FEATURES_AND_SUMMARY_SECTIONS.replaceAll("\r", ""));
+    assertThat(resultDoc)
+        .isEqualToIgnoringWhitespace(
+            Expectations.DOCUMENTATION_WITHOUT_FEATURES_AND_SUMMARY_SECTIONS);
   }
 
   @Test
@@ -330,8 +332,8 @@ public class CukedoctorConverterTest {
     CukedoctorConverter converter = Cukedoctor.instance(features, attrs);
     converter.setFilename("target/living_documentation.adoc");
     String resultDoc = converter.renderDocumentation();
-    assertThat(resultDoc.replaceAll("\r", ""))
-        .isEqualTo(Expectations.DOCUMENTATION_WITHOUT_SCENARIO_KEYWORD.replaceAll("\r", ""));
+    assertThat(resultDoc)
+        .isEqualToIgnoringWhitespace(Expectations.DOCUMENTATION_WITHOUT_SCENARIO_KEYWORD);
   }
 
   @Test
@@ -355,8 +357,7 @@ public class CukedoctorConverterTest {
     CukedoctorConverter converter = Cukedoctor.instance(features, attrs);
     converter.setFilename("target/living_documentation.adoc");
     String resultDoc = converter.renderDocumentation();
-    assertThat(resultDoc.replaceAll("\r", ""))
-        .isEqualTo(Expectations.DOCUMENTATION_WITHOUT_STEP_TIME.replaceAll("\r", ""));
+    assertThat(resultDoc).isEqualToIgnoringWhitespace(Expectations.DOCUMENTATION_WITHOUT_STEP_TIME);
   }
 
   @Test
@@ -381,8 +382,7 @@ public class CukedoctorConverterTest {
     CukedoctorConverter converter = Cukedoctor.instance(features, attrs);
     converter.setFilename("target/living_documentation.adoc");
     String resultDoc = converter.renderDocumentation();
-    assertThat(resultDoc.replaceAll("\r", ""))
-        .isEqualTo(Expectations.DOCUMENTATION_WITHOUT_TAGS.replaceAll("\r", ""));
+    assertThat(resultDoc).isEqualToIgnoringWhitespace(Expectations.DOCUMENTATION_WITHOUT_TAGS);
   }
 
   @Test
@@ -421,24 +421,14 @@ public class CukedoctorConverterTest {
 
   @Test
   public void shouldRenderDocumentationForScenariosWithoutDescription() {
-    List<Feature> features =
-        FeatureParser.parse(
-            getClass().getResource("/json-output/scenario_without_description.json").getPath());
+    URL featuresResource = getClass().getResource("/json-output/scenario_without_description.json");
+    List<Feature> features = FeatureParser.parse(requireNonNull(featuresResource).getPath());
 
     CukedoctorConverter converter = Cukedoctor.instance(features);
     converter.setFilename("target/living_documentation.adoc");
     String resultDoc = converter.renderDocumentation();
     assertThat(resultDoc)
-        .isNotNull()
-        .containsOnlyOnce("= *Documentation*" + newLine())
-        .containsOnlyOnce("=== *Do something*" + newLine())
-        .containsOnlyOnce("==== Scenario: User browses to the site successfully" + newLine())
-        .containsOnlyOnce("User opens a browser")
-        .containsOnlyOnce("|1|0|1|1|0|0|0|0|0|1 2+|000ms");
-
-    assertThat(resultDoc.replaceAll("\r", ""))
-        .isEqualTo(
-            Expectations.DOCUMENTATION_WITH_SCENARIO_WITHOUT_DESCRIPTION.replaceAll("\r", ""));
+        .isEqualToIgnoringWhitespace(Expectations.DOCUMENTATION_WITH_SCENARIO_WITHOUT_DESCRIPTION);
   }
 
   @Test
@@ -508,7 +498,17 @@ public class CukedoctorConverterTest {
         Cukedoctor.instance(
             features, GlobalConfig.getInstance().getDocumentAttributes().docTitle("Doc Title"));
     String resultDoc = converter.renderDocumentation();
-    assertThat(resultDoc.replaceAll("\r", ""))
-        .isEqualTo(Expectations.FEATURE_WITH_STEP_TABLE_IN_PT_BR.replaceAll("\r", ""));
+    assertThat(resultDoc)
+        .isEqualToIgnoringWhitespace(Expectations.FEATURE_WITH_STEP_TABLE_IN_PT_BR);
+  }
+
+  @Test
+  public void shouldRenderFeatureWithAndReplacingAsterisks() {
+    List<Feature> features = FeatureParser.parse(featureWithAsterisk);
+    CukedoctorConverter converter =
+        Cukedoctor.instance(
+            features, GlobalConfig.getInstance().getDocumentAttributes().docTitle("Doc Title"));
+    String resultDoc = converter.renderDocumentation();
+    assertThat(resultDoc).isEqualToIgnoringWhitespace(Expectations.FEATURE_WITH_ASTERISK_REPLACED);
   }
 }

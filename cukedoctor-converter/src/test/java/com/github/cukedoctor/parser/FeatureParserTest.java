@@ -1,5 +1,6 @@
 package com.github.cukedoctor.parser;
 
+import static java.util.Objects.requireNonNull;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
@@ -40,7 +41,7 @@ public class FeatureParserTest {
   @Test
   public void shouldParseFeatureUsingResourcePath() {
     URL featureFile = getClass().getResource("/json-output/" + onePassingOneFailing);
-    String path = FileUtil.findJsonFile(featureFile.getPath());
+    String path = FileUtil.findJsonFile(requireNonNull(featureFile).getPath());
     List<Feature> features = FeatureParser.parse(path);
     assertThat(features)
         .isNotNull()
@@ -185,7 +186,7 @@ public class FeatureParserTest {
   }
 
   @Test
-  public void shouldParseAndFindFeaturesInDirUsingAbsoluteath() {
+  public void shouldParseAndFindFeaturesInDirUsingAbsolutePath() {
     List<Feature> features =
         FeatureParser.findAndParse(
             Paths.get("").toAbsolutePath() + "/target/test-classes/json-output/parser");
@@ -243,11 +244,9 @@ public class FeatureParserTest {
 
   @Test
   public void shouldParseFeatureWithCommentsInScenariosExamples() {
-    List<Feature> features =
-        FeatureParser.parse(
-            getClass()
-                .getResource("/json-output/feature_with_comments_in_examples.json")
-                .getPath());
+    URL featuresJson =
+        getClass().getResource("/json-output/feature_with_comments_in_examples.json");
+    List<Feature> features = FeatureParser.parse(requireNonNull(featuresJson).getPath());
     assertThat(features).isNotNull().hasSize(1);
   }
 }
