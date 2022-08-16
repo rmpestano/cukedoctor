@@ -3,11 +3,11 @@
     "line": 1,
     "elements": [
       {
-        "start_timestamp": "2022-08-16T11:22:39.533Z",
+        "start_timestamp": "2022-08-16T11:23:10.116Z",
         "before": [
           {
             "result": {
-              "duration": 657000,
+              "duration": 660000,
               "status": "passed"
             },
             "match": {
@@ -16,7 +16,7 @@
           },
           {
             "result": {
-              "duration": 11446000,
+              "duration": 2253000,
               "status": "passed"
             },
             "match": {
@@ -31,7 +31,7 @@
         "after": [
           {
             "result": {
-              "duration": 189000,
+              "duration": 183000,
               "status": "passed"
             },
             "match": {
@@ -40,7 +40,7 @@
           },
           {
             "result": {
-              "duration": 44000,
+              "duration": 41000,
               "status": "passed"
             },
             "match": {
@@ -53,7 +53,7 @@
         "steps": [
           {
             "result": {
-              "duration": 1797000,
+              "duration": 2645000,
               "status": "passed"
             },
             "line": 14,
@@ -75,7 +75,7 @@
           },
           {
             "result": {
-              "duration": 73000,
+              "duration": 54000,
               "status": "passed"
             },
             "line": 15,
@@ -99,7 +99,7 @@
           },
           {
             "result": {
-              "duration": 19658000,
+              "duration": 13359000,
               "status": "passed"
             },
             "line": 17,
@@ -111,7 +111,7 @@
           },
           {
             "result": {
-              "duration": 169000,
+              "duration": 152000,
               "status": "passed"
             },
             "line": 18,
@@ -129,11 +129,11 @@
         ]
       },
       {
-        "start_timestamp": "2022-08-16T11:22:39.581Z",
+        "start_timestamp": "2022-08-16T11:23:10.177Z",
         "before": [
           {
             "result": {
-              "duration": 53000,
+              "duration": 69000,
               "status": "passed"
             },
             "match": {
@@ -142,7 +142,7 @@
           },
           {
             "result": {
-              "duration": 196000,
+              "duration": 233000,
               "status": "passed"
             },
             "match": {
@@ -157,7 +157,7 @@
         "after": [
           {
             "result": {
-              "duration": 126000,
+              "duration": 104000,
               "status": "passed"
             },
             "match": {
@@ -166,7 +166,7 @@
           },
           {
             "result": {
-              "duration": 30000,
+              "duration": 28000,
               "status": "passed"
             },
             "match": {
@@ -179,7 +179,7 @@
         "steps": [
           {
             "result": {
-              "duration": 297000,
+              "duration": 330000,
               "status": "passed"
             },
             "line": 41,
@@ -201,7 +201,7 @@
           },
           {
             "result": {
-              "duration": 38000,
+              "duration": 39000,
               "status": "passed"
             },
             "line": 42,
@@ -213,7 +213,7 @@
           },
           {
             "result": {
-              "duration": 28000,
+              "duration": 24000,
               "status": "passed"
             },
             "line": 43,
@@ -225,7 +225,7 @@
           },
           {
             "result": {
-              "duration": 22142000,
+              "duration": 12383000,
               "status": "passed"
             },
             "line": 44,
@@ -255,11 +255,11 @@
         ]
       },
       {
-        "start_timestamp": "2022-08-16T11:22:39.624Z",
+        "start_timestamp": "2022-08-16T11:23:10.203Z",
         "before": [
           {
             "result": {
-              "duration": 68000,
+              "duration": 368000,
               "status": "passed"
             },
             "match": {
@@ -268,7 +268,7 @@
           },
           {
             "result": {
-              "duration": 244000,
+              "duration": 229000,
               "status": "passed"
             },
             "match": {
@@ -283,385 +283,7 @@
         "after": [
           {
             "result": {
-              "duration": 95000,
-              "status": "passed"
-            },
-            "match": {
-              "location": "com.github.cukedoctor.bdd.cukedoctor.EnrichmentSteps.after()"
-            }
-          },
-          {
-            "result": {
-              "duration": 29000,
-              "status": "passed"
-            },
-            "match": {
-              "location": "com.github.cukedoctor.bdd.cukedoctor.AttachmentSteps.after()"
-            }
-          }
-        ],
-        "type": "scenario",
-        "keyword": "Scenario",
-        "steps": [
-          {
-            "result": {
-              "duration": 323000,
-              "status": "passed"
-            },
-            "line": 72,
-            "name": "a Step has attached plain text as a byte array with a title in Cucumber-JVM 6.7.0",
-            "match": {
-              "arguments": [
-                {
-                  "val": "6.7",
-                  "offset": 76
-                },
-                {
-                  "val": "0",
-                  "offset": 80
-                }
-              ],
-              "location": "com.github.cukedoctor.bdd.cukedoctor.AttachmentSteps.a_Step_has_attached_plain_text_as_a_byte_array_with_a_title_in_Cucumber_JVM(java.lang.Double,java.lang.Integer)"
-            },
-            "keyword": "Given "
-          },
-          {
-            "result": {
-              "duration": 39000,
-              "status": "passed"
-            },
-            "line": 73,
-            "name": "I am hiding step timings",
-            "match": {
-              "location": "com.github.cukedoctor.bdd.cukedoctor.AttachmentSteps.i_am_hiding_step_timings()"
-            },
-            "keyword": "And "
-          },
-          {
-            "result": {
-              "duration": 28000,
-              "status": "passed"
-            },
-            "line": 74,
-            "name": "all Cukedoctor extensions are disabled",
-            "match": {
-              "location": "com.github.cukedoctor.bdd.cukedoctor.AttachmentSteps.all_cukedoctor_extensions_are_disabled()"
-            },
-            "keyword": "And "
-          },
-          {
-            "result": {
-              "duration": 19170000,
-              "status": "passed"
-            },
-            "line": 75,
-            "name": "I convert the Feature",
-            "match": {
-              "location": "com.github.cukedoctor.bdd.cukedoctor.AttachmentSteps.i_convert_the_feature()"
-            },
-            "keyword": "When "
-          },
-          {
-            "result": {
-              "duration": 180000,
-              "status": "passed"
-            },
-            "line": 76,
-            "name": "it will be rendered as",
-            "match": {
-              "location": "com.github.cukedoctor.bdd.cukedoctor.AttachmentSteps.it_will_be_rendered_as(java.lang.String)"
-            },
-            "keyword": "Then ",
-            "doc_string": {
-              "content_type": "asciidoc",
-              "line": 77,
-              "value": "\u003d *Features*\n\n\n[[Attachments, Attachments]]\n\u003d\u003d *Attachments*\n\n\u003d\u003d\u003d Scenario: Cucumber JVM 6.7.0 scenario.attach(ByteArray, String, String)\n\n\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\nGiven ::\na Step that performs scenario.attach(ByteArray, String, String) icon:thumbs-up[role\u003d\"green\",title\u003d\"Passed\"]\n\n.Byte[] plain text\n[%collapsible]\n\u003d\u003d\u003d\u003d\u003d\nShe sells sea shells on the sea shore\n\u003d\u003d\u003d\u003d\u003d\n\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\n\n"
-            }
-          }
-        ]
-      },
-      {
-        "start_timestamp": "2022-08-16T11:22:39.666Z",
-        "before": [
-          {
-            "result": {
-              "duration": 71000,
-              "status": "passed"
-            },
-            "match": {
-              "location": "com.github.cukedoctor.bdd.cukedoctor.AttachmentSteps.before()"
-            }
-          },
-          {
-            "result": {
-              "duration": 244000,
-              "status": "passed"
-            },
-            "match": {
-              "location": "com.github.cukedoctor.bdd.cukedoctor.EnrichmentSteps.before()"
-            }
-          }
-        ],
-        "line": 101,
-        "name": "Attaching a string CucumberJS 6.0.5",
-        "description": "",
-        "id": "attachments;attaching-a-string-cucumberjs-6.0.5",
-        "after": [
-          {
-            "result": {
-              "duration": 99000,
-              "status": "passed"
-            },
-            "match": {
-              "location": "com.github.cukedoctor.bdd.cukedoctor.EnrichmentSteps.after()"
-            }
-          },
-          {
-            "result": {
-              "duration": 27000,
-              "status": "passed"
-            },
-            "match": {
-              "location": "com.github.cukedoctor.bdd.cukedoctor.AttachmentSteps.after()"
-            }
-          }
-        ],
-        "type": "scenario",
-        "keyword": "Scenario",
-        "steps": [
-          {
-            "result": {
-              "duration": 331000,
-              "status": "passed"
-            },
-            "line": 103,
-            "name": "a Step has attached a string in CucumberJS 6.0.5",
-            "match": {
-              "arguments": [
-                {
-                  "val": "6.0",
-                  "offset": 43
-                },
-                {
-                  "val": "5",
-                  "offset": 47
-                }
-              ],
-              "location": "com.github.cukedoctor.bdd.cukedoctor.AttachmentSteps.a_Step_has_attached_a_string_in_CucumberJS(java.lang.Double,java.lang.Integer)"
-            },
-            "keyword": "Given "
-          },
-          {
-            "result": {
-              "duration": 42000,
-              "status": "passed"
-            },
-            "line": 104,
-            "name": "I am hiding step timings",
-            "match": {
-              "location": "com.github.cukedoctor.bdd.cukedoctor.AttachmentSteps.i_am_hiding_step_timings()"
-            },
-            "keyword": "And "
-          },
-          {
-            "result": {
-              "duration": 27000,
-              "status": "passed"
-            },
-            "line": 105,
-            "name": "all Cukedoctor extensions are disabled",
-            "match": {
-              "location": "com.github.cukedoctor.bdd.cukedoctor.AttachmentSteps.all_cukedoctor_extensions_are_disabled()"
-            },
-            "keyword": "And "
-          },
-          {
-            "result": {
-              "duration": 15692000,
-              "status": "passed"
-            },
-            "line": 106,
-            "name": "I convert the Feature",
-            "match": {
-              "location": "com.github.cukedoctor.bdd.cukedoctor.AttachmentSteps.i_convert_the_feature()"
-            },
-            "keyword": "When "
-          },
-          {
-            "result": {
-              "duration": 153000,
-              "status": "passed"
-            },
-            "line": 107,
-            "name": "it will be rendered as",
-            "match": {
-              "location": "com.github.cukedoctor.bdd.cukedoctor.AttachmentSteps.it_will_be_rendered_as(java.lang.String)"
-            },
-            "keyword": "Then ",
-            "doc_string": {
-              "content_type": "asciidoc",
-              "line": 108,
-              "value": "\u003d *Features*\n\n\n[[Attachments, Attachments]]\n\u003d\u003d *Attachments*\n\n\u003d\u003d\u003d Scenario: Cucumber JS 6.0.5 attach String\n\n\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\nGiven ::\na Step that performs attach String icon:thumbs-up[role\u003d\"green\",title\u003d\"Passed\"]\n\n.Attachment 1\n[%collapsible]\n\u003d\u003d\u003d\u003d\u003d\nShe sells sea shells on the sea shore\n\u003d\u003d\u003d\u003d\u003d\n\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\n\n"
-            }
-          }
-        ]
-      },
-      {
-        "start_timestamp": "2022-08-16T11:22:39.693Z",
-        "before": [
-          {
-            "result": {
-              "duration": 373000,
-              "status": "passed"
-            },
-            "match": {
-              "location": "com.github.cukedoctor.bdd.cukedoctor.AttachmentSteps.before()"
-            }
-          },
-          {
-            "result": {
-              "duration": 202000,
-              "status": "passed"
-            },
-            "match": {
-              "location": "com.github.cukedoctor.bdd.cukedoctor.EnrichmentSteps.before()"
-            }
-          }
-        ],
-        "line": 132,
-        "name": "Attaching a plain text string CucumberJS 6.0.5",
-        "description": "",
-        "id": "attachments;attaching-a-plain-text-string-cucumberjs-6.0.5",
-        "after": [
-          {
-            "result": {
-              "duration": 418000,
-              "status": "passed"
-            },
-            "match": {
-              "location": "com.github.cukedoctor.bdd.cukedoctor.EnrichmentSteps.after()"
-            }
-          },
-          {
-            "result": {
-              "duration": 47000,
-              "status": "passed"
-            },
-            "match": {
-              "location": "com.github.cukedoctor.bdd.cukedoctor.AttachmentSteps.after()"
-            }
-          }
-        ],
-        "type": "scenario",
-        "keyword": "Scenario",
-        "steps": [
-          {
-            "result": {
-              "duration": 342000,
-              "status": "passed"
-            },
-            "line": 134,
-            "name": "a Step has attached plain text as a string in CucumberJS 6.0.5",
-            "match": {
-              "arguments": [
-                {
-                  "val": "6.0",
-                  "offset": 57
-                },
-                {
-                  "val": "5",
-                  "offset": 61
-                }
-              ],
-              "location": "com.github.cukedoctor.bdd.cukedoctor.AttachmentSteps.a_Step_has_attached_plain_text_as_a_string_in_CucumberJS(java.lang.Double,java.lang.Integer)"
-            },
-            "keyword": "Given "
-          },
-          {
-            "result": {
-              "duration": 36000,
-              "status": "passed"
-            },
-            "line": 135,
-            "name": "I am hiding step timings",
-            "match": {
-              "location": "com.github.cukedoctor.bdd.cukedoctor.AttachmentSteps.i_am_hiding_step_timings()"
-            },
-            "keyword": "And "
-          },
-          {
-            "result": {
-              "duration": 41000,
-              "status": "passed"
-            },
-            "line": 136,
-            "name": "all Cukedoctor extensions are disabled",
-            "match": {
-              "location": "com.github.cukedoctor.bdd.cukedoctor.AttachmentSteps.all_cukedoctor_extensions_are_disabled()"
-            },
-            "keyword": "And "
-          },
-          {
-            "result": {
-              "duration": 14164000,
-              "status": "passed"
-            },
-            "line": 137,
-            "name": "I convert the Feature",
-            "match": {
-              "location": "com.github.cukedoctor.bdd.cukedoctor.AttachmentSteps.i_convert_the_feature()"
-            },
-            "keyword": "When "
-          },
-          {
-            "result": {
-              "duration": 169000,
-              "status": "passed"
-            },
-            "line": 138,
-            "name": "it will be rendered as",
-            "match": {
-              "location": "com.github.cukedoctor.bdd.cukedoctor.AttachmentSteps.it_will_be_rendered_as(java.lang.String)"
-            },
-            "keyword": "Then ",
-            "doc_string": {
-              "content_type": "asciidoc",
-              "line": 139,
-              "value": "\u003d *Features*\n\n\n[[Attachments, Attachments]]\n\u003d\u003d *Attachments*\n\n\u003d\u003d\u003d Scenario: Cucumber JS 6.0.5 attach String, String\n\n\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\nGiven ::\na Step that performs attach String, String icon:thumbs-up[role\u003d\"green\",title\u003d\"Passed\"]\n\n.Attachment 1\n[%collapsible]\n\u003d\u003d\u003d\u003d\u003d\nShe sells sea shells on the sea shore\n\u003d\u003d\u003d\u003d\u003d\n\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\n\n"
-            }
-          }
-        ]
-      },
-      {
-        "start_timestamp": "2022-08-16T11:22:39.715Z",
-        "before": [
-          {
-            "result": {
-              "duration": 44000,
-              "status": "passed"
-            },
-            "match": {
-              "location": "com.github.cukedoctor.bdd.cukedoctor.AttachmentSteps.before()"
-            }
-          },
-          {
-            "result": {
-              "duration": 209000,
-              "status": "passed"
-            },
-            "match": {
-              "location": "com.github.cukedoctor.bdd.cukedoctor.EnrichmentSteps.before()"
-            }
-          }
-        ],
-        "line": 163,
-        "name": "Attaching a plain text buffer CucumberJS 6.0.5",
-        "description": "",
-        "id": "attachments;attaching-a-plain-text-buffer-cucumberjs-6.0.5",
-        "after": [
-          {
-            "result": {
-              "duration": 93000,
+              "duration": 111000,
               "status": "passed"
             },
             "match": {
@@ -683,7 +305,385 @@
         "steps": [
           {
             "result": {
-              "duration": 306000,
+              "duration": 339000,
+              "status": "passed"
+            },
+            "line": 72,
+            "name": "a Step has attached plain text as a byte array with a title in Cucumber-JVM 6.7.0",
+            "match": {
+              "arguments": [
+                {
+                  "val": "6.7",
+                  "offset": 76
+                },
+                {
+                  "val": "0",
+                  "offset": 80
+                }
+              ],
+              "location": "com.github.cukedoctor.bdd.cukedoctor.AttachmentSteps.a_Step_has_attached_plain_text_as_a_byte_array_with_a_title_in_Cucumber_JVM(java.lang.Double,java.lang.Integer)"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 36000,
+              "status": "passed"
+            },
+            "line": 73,
+            "name": "I am hiding step timings",
+            "match": {
+              "location": "com.github.cukedoctor.bdd.cukedoctor.AttachmentSteps.i_am_hiding_step_timings()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 25000,
+              "status": "passed"
+            },
+            "line": 74,
+            "name": "all Cukedoctor extensions are disabled",
+            "match": {
+              "location": "com.github.cukedoctor.bdd.cukedoctor.AttachmentSteps.all_cukedoctor_extensions_are_disabled()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 15545000,
+              "status": "passed"
+            },
+            "line": 75,
+            "name": "I convert the Feature",
+            "match": {
+              "location": "com.github.cukedoctor.bdd.cukedoctor.AttachmentSteps.i_convert_the_feature()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 169000,
+              "status": "passed"
+            },
+            "line": 76,
+            "name": "it will be rendered as",
+            "match": {
+              "location": "com.github.cukedoctor.bdd.cukedoctor.AttachmentSteps.it_will_be_rendered_as(java.lang.String)"
+            },
+            "keyword": "Then ",
+            "doc_string": {
+              "content_type": "asciidoc",
+              "line": 77,
+              "value": "\u003d *Features*\n\n\n[[Attachments, Attachments]]\n\u003d\u003d *Attachments*\n\n\u003d\u003d\u003d Scenario: Cucumber JVM 6.7.0 scenario.attach(ByteArray, String, String)\n\n\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\nGiven ::\na Step that performs scenario.attach(ByteArray, String, String) icon:thumbs-up[role\u003d\"green\",title\u003d\"Passed\"]\n\n.Byte[] plain text\n[%collapsible]\n\u003d\u003d\u003d\u003d\u003d\nShe sells sea shells on the sea shore\n\u003d\u003d\u003d\u003d\u003d\n\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\n\n"
+            }
+          }
+        ]
+      },
+      {
+        "start_timestamp": "2022-08-16T11:23:10.230Z",
+        "before": [
+          {
+            "result": {
+              "duration": 57000,
+              "status": "passed"
+            },
+            "match": {
+              "location": "com.github.cukedoctor.bdd.cukedoctor.AttachmentSteps.before()"
+            }
+          },
+          {
+            "result": {
+              "duration": 224000,
+              "status": "passed"
+            },
+            "match": {
+              "location": "com.github.cukedoctor.bdd.cukedoctor.EnrichmentSteps.before()"
+            }
+          }
+        ],
+        "line": 101,
+        "name": "Attaching a string CucumberJS 6.0.5",
+        "description": "",
+        "id": "attachments;attaching-a-string-cucumberjs-6.0.5",
+        "after": [
+          {
+            "result": {
+              "duration": 111000,
+              "status": "passed"
+            },
+            "match": {
+              "location": "com.github.cukedoctor.bdd.cukedoctor.EnrichmentSteps.after()"
+            }
+          },
+          {
+            "result": {
+              "duration": 25000,
+              "status": "passed"
+            },
+            "match": {
+              "location": "com.github.cukedoctor.bdd.cukedoctor.AttachmentSteps.after()"
+            }
+          }
+        ],
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 675000,
+              "status": "passed"
+            },
+            "line": 103,
+            "name": "a Step has attached a string in CucumberJS 6.0.5",
+            "match": {
+              "arguments": [
+                {
+                  "val": "6.0",
+                  "offset": 43
+                },
+                {
+                  "val": "5",
+                  "offset": 47
+                }
+              ],
+              "location": "com.github.cukedoctor.bdd.cukedoctor.AttachmentSteps.a_Step_has_attached_a_string_in_CucumberJS(java.lang.Double,java.lang.Integer)"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 178000,
+              "status": "passed"
+            },
+            "line": 104,
+            "name": "I am hiding step timings",
+            "match": {
+              "location": "com.github.cukedoctor.bdd.cukedoctor.AttachmentSteps.i_am_hiding_step_timings()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 39000,
+              "status": "passed"
+            },
+            "line": 105,
+            "name": "all Cukedoctor extensions are disabled",
+            "match": {
+              "location": "com.github.cukedoctor.bdd.cukedoctor.AttachmentSteps.all_cukedoctor_extensions_are_disabled()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 19646000,
+              "status": "passed"
+            },
+            "line": 106,
+            "name": "I convert the Feature",
+            "match": {
+              "location": "com.github.cukedoctor.bdd.cukedoctor.AttachmentSteps.i_convert_the_feature()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 167000,
+              "status": "passed"
+            },
+            "line": 107,
+            "name": "it will be rendered as",
+            "match": {
+              "location": "com.github.cukedoctor.bdd.cukedoctor.AttachmentSteps.it_will_be_rendered_as(java.lang.String)"
+            },
+            "keyword": "Then ",
+            "doc_string": {
+              "content_type": "asciidoc",
+              "line": 108,
+              "value": "\u003d *Features*\n\n\n[[Attachments, Attachments]]\n\u003d\u003d *Attachments*\n\n\u003d\u003d\u003d Scenario: Cucumber JS 6.0.5 attach String\n\n\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\nGiven ::\na Step that performs attach String icon:thumbs-up[role\u003d\"green\",title\u003d\"Passed\"]\n\n.Attachment 1\n[%collapsible]\n\u003d\u003d\u003d\u003d\u003d\nShe sells sea shells on the sea shore\n\u003d\u003d\u003d\u003d\u003d\n\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\n\n"
+            }
+          }
+        ]
+      },
+      {
+        "start_timestamp": "2022-08-16T11:23:10.259Z",
+        "before": [
+          {
+            "result": {
+              "duration": 58000,
+              "status": "passed"
+            },
+            "match": {
+              "location": "com.github.cukedoctor.bdd.cukedoctor.AttachmentSteps.before()"
+            }
+          },
+          {
+            "result": {
+              "duration": 212000,
+              "status": "passed"
+            },
+            "match": {
+              "location": "com.github.cukedoctor.bdd.cukedoctor.EnrichmentSteps.before()"
+            }
+          }
+        ],
+        "line": 132,
+        "name": "Attaching a plain text string CucumberJS 6.0.5",
+        "description": "",
+        "id": "attachments;attaching-a-plain-text-string-cucumberjs-6.0.5",
+        "after": [
+          {
+            "result": {
+              "duration": 95000,
+              "status": "passed"
+            },
+            "match": {
+              "location": "com.github.cukedoctor.bdd.cukedoctor.EnrichmentSteps.after()"
+            }
+          },
+          {
+            "result": {
+              "duration": 24000,
+              "status": "passed"
+            },
+            "match": {
+              "location": "com.github.cukedoctor.bdd.cukedoctor.AttachmentSteps.after()"
+            }
+          }
+        ],
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 2029000,
+              "status": "passed"
+            },
+            "line": 134,
+            "name": "a Step has attached plain text as a string in CucumberJS 6.0.5",
+            "match": {
+              "arguments": [
+                {
+                  "val": "6.0",
+                  "offset": 57
+                },
+                {
+                  "val": "5",
+                  "offset": 61
+                }
+              ],
+              "location": "com.github.cukedoctor.bdd.cukedoctor.AttachmentSteps.a_Step_has_attached_plain_text_as_a_string_in_CucumberJS(java.lang.Double,java.lang.Integer)"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 43000,
+              "status": "passed"
+            },
+            "line": 135,
+            "name": "I am hiding step timings",
+            "match": {
+              "location": "com.github.cukedoctor.bdd.cukedoctor.AttachmentSteps.i_am_hiding_step_timings()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 24000,
+              "status": "passed"
+            },
+            "line": 136,
+            "name": "all Cukedoctor extensions are disabled",
+            "match": {
+              "location": "com.github.cukedoctor.bdd.cukedoctor.AttachmentSteps.all_cukedoctor_extensions_are_disabled()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 8027000,
+              "status": "passed"
+            },
+            "line": 137,
+            "name": "I convert the Feature",
+            "match": {
+              "location": "com.github.cukedoctor.bdd.cukedoctor.AttachmentSteps.i_convert_the_feature()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 149000,
+              "status": "passed"
+            },
+            "line": 138,
+            "name": "it will be rendered as",
+            "match": {
+              "location": "com.github.cukedoctor.bdd.cukedoctor.AttachmentSteps.it_will_be_rendered_as(java.lang.String)"
+            },
+            "keyword": "Then ",
+            "doc_string": {
+              "content_type": "asciidoc",
+              "line": 139,
+              "value": "\u003d *Features*\n\n\n[[Attachments, Attachments]]\n\u003d\u003d *Attachments*\n\n\u003d\u003d\u003d Scenario: Cucumber JS 6.0.5 attach String, String\n\n\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\nGiven ::\na Step that performs attach String, String icon:thumbs-up[role\u003d\"green\",title\u003d\"Passed\"]\n\n.Attachment 1\n[%collapsible]\n\u003d\u003d\u003d\u003d\u003d\nShe sells sea shells on the sea shore\n\u003d\u003d\u003d\u003d\u003d\n\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\n\n"
+            }
+          }
+        ]
+      },
+      {
+        "start_timestamp": "2022-08-16T11:23:10.283Z",
+        "before": [
+          {
+            "result": {
+              "duration": 75000,
+              "status": "passed"
+            },
+            "match": {
+              "location": "com.github.cukedoctor.bdd.cukedoctor.AttachmentSteps.before()"
+            }
+          },
+          {
+            "result": {
+              "duration": 233000,
+              "status": "passed"
+            },
+            "match": {
+              "location": "com.github.cukedoctor.bdd.cukedoctor.EnrichmentSteps.before()"
+            }
+          }
+        ],
+        "line": 163,
+        "name": "Attaching a plain text buffer CucumberJS 6.0.5",
+        "description": "",
+        "id": "attachments;attaching-a-plain-text-buffer-cucumberjs-6.0.5",
+        "after": [
+          {
+            "result": {
+              "duration": 107000,
+              "status": "passed"
+            },
+            "match": {
+              "location": "com.github.cukedoctor.bdd.cukedoctor.EnrichmentSteps.after()"
+            }
+          },
+          {
+            "result": {
+              "duration": 26000,
+              "status": "passed"
+            },
+            "match": {
+              "location": "com.github.cukedoctor.bdd.cukedoctor.AttachmentSteps.after()"
+            }
+          }
+        ],
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 340000,
               "status": "passed"
             },
             "line": 165,
@@ -717,7 +717,7 @@
           },
           {
             "result": {
-              "duration": 28000,
+              "duration": 25000,
               "status": "passed"
             },
             "line": 167,
@@ -729,7 +729,7 @@
           },
           {
             "result": {
-              "duration": 15226000,
+              "duration": 13138000,
               "status": "passed"
             },
             "line": 168,
@@ -741,7 +741,7 @@
           },
           {
             "result": {
-              "duration": 167000,
+              "duration": 151000,
               "status": "passed"
             },
             "line": 169,
@@ -759,11 +759,11 @@
         ]
       },
       {
-        "start_timestamp": "2022-08-16T11:22:39.741Z",
+        "start_timestamp": "2022-08-16T11:23:10.306Z",
         "before": [
           {
             "result": {
-              "duration": 45000,
+              "duration": 58000,
               "status": "passed"
             },
             "match": {
@@ -772,7 +772,7 @@
           },
           {
             "result": {
-              "duration": 201000,
+              "duration": 225000,
               "status": "passed"
             },
             "match": {
@@ -787,7 +787,7 @@
         "after": [
           {
             "result": {
-              "duration": 82000,
+              "duration": 100000,
               "status": "passed"
             },
             "match": {
@@ -796,7 +796,7 @@
           },
           {
             "result": {
-              "duration": 26000,
+              "duration": 181000,
               "status": "passed"
             },
             "match": {
@@ -809,7 +809,7 @@
         "steps": [
           {
             "result": {
-              "duration": 220000,
+              "duration": 237000,
               "status": "passed"
             },
             "line": 196,
@@ -821,7 +821,7 @@
           },
           {
             "result": {
-              "duration": 32000,
+              "duration": 30000,
               "status": "passed"
             },
             "line": 197,
@@ -833,7 +833,7 @@
           },
           {
             "result": {
-              "duration": 34000,
+              "duration": 22000,
               "status": "passed"
             },
             "line": 198,
@@ -845,7 +845,7 @@
           },
           {
             "result": {
-              "duration": 11551000,
+              "duration": 13798000,
               "status": "passed"
             },
             "line": 199,
@@ -857,7 +857,7 @@
           },
           {
             "result": {
-              "duration": 143000,
+              "duration": 160000,
               "status": "passed"
             },
             "line": 200,
@@ -875,11 +875,11 @@
         ]
       },
       {
-        "start_timestamp": "2022-08-16T11:22:39.765Z",
+        "start_timestamp": "2022-08-16T11:23:10.335Z",
         "before": [
           {
             "result": {
-              "duration": 47000,
+              "duration": 60000,
               "status": "passed"
             },
             "match": {
@@ -888,7 +888,7 @@
           },
           {
             "result": {
-              "duration": 182000,
+              "duration": 233000,
               "status": "passed"
             },
             "match": {
@@ -903,7 +903,7 @@
         "after": [
           {
             "result": {
-              "duration": 75000,
+              "duration": 99000,
               "status": "passed"
             },
             "match": {
@@ -912,7 +912,7 @@
           },
           {
             "result": {
-              "duration": 24000,
+              "duration": 25000,
               "status": "passed"
             },
             "match": {
@@ -925,7 +925,7 @@
         "steps": [
           {
             "result": {
-              "duration": 220000,
+              "duration": 235000,
               "status": "passed"
             },
             "line": 230,
@@ -937,7 +937,7 @@
           },
           {
             "result": {
-              "duration": 40000,
+              "duration": 30000,
               "status": "passed"
             },
             "line": 231,
@@ -949,7 +949,7 @@
           },
           {
             "result": {
-              "duration": 45000,
+              "duration": 22000,
               "status": "passed"
             },
             "line": 232,
@@ -961,7 +961,7 @@
           },
           {
             "result": {
-              "duration": 11627000,
+              "duration": 7999000,
               "status": "passed"
             },
             "line": 233,
@@ -973,7 +973,7 @@
           },
           {
             "result": {
-              "duration": 537000,
+              "duration": 147000,
               "status": "passed"
             },
             "line": 234,
@@ -991,11 +991,11 @@
         ]
       },
       {
-        "start_timestamp": "2022-08-16T11:22:39.787Z",
+        "start_timestamp": "2022-08-16T11:23:10.356Z",
         "before": [
           {
             "result": {
-              "duration": 44000,
+              "duration": 46000,
               "status": "passed"
             },
             "match": {
@@ -1004,7 +1004,7 @@
           },
           {
             "result": {
-              "duration": 201000,
+              "duration": 242000,
               "status": "passed"
             },
             "match": {
@@ -1019,7 +1019,7 @@
         "after": [
           {
             "result": {
-              "duration": 71000,
+              "duration": 117000,
               "status": "passed"
             },
             "match": {
@@ -1028,7 +1028,7 @@
           },
           {
             "result": {
-              "duration": 22000,
+              "duration": 27000,
               "status": "passed"
             },
             "match": {
@@ -1041,7 +1041,7 @@
         "steps": [
           {
             "result": {
-              "duration": 757000,
+              "duration": 218000,
               "status": "passed"
             },
             "line": 273,
@@ -1053,7 +1053,7 @@
           },
           {
             "result": {
-              "duration": 38000,
+              "duration": 30000,
               "status": "passed"
             },
             "line": 274,
@@ -1077,7 +1077,7 @@
           },
           {
             "result": {
-              "duration": 6534000,
+              "duration": 12911000,
               "status": "passed"
             },
             "line": 276,
@@ -1089,7 +1089,7 @@
           },
           {
             "result": {
-              "duration": 93000,
+              "duration": 138000,
               "status": "passed"
             },
             "line": 277,
@@ -1118,11 +1118,11 @@
     "line": 2,
     "elements": [
       {
-        "start_timestamp": "2022-08-16T11:22:39.799Z",
+        "start_timestamp": "2022-08-16T11:23:10.381Z",
         "before": [
           {
             "result": {
-              "duration": 49000,
+              "duration": 58000,
               "status": "passed"
             },
             "match": {
@@ -1131,7 +1131,7 @@
           },
           {
             "result": {
-              "duration": 288000,
+              "duration": 216000,
               "status": "passed"
             },
             "match": {
@@ -1146,7 +1146,7 @@
         "after": [
           {
             "result": {
-              "duration": 92000,
+              "duration": 111000,
               "status": "passed"
             },
             "match": {
@@ -1168,7 +1168,7 @@
         "steps": [
           {
             "result": {
-              "duration": 228000,
+              "duration": 252000,
               "status": "passed"
             },
             "line": 13,
@@ -1184,7 +1184,7 @@
           },
           {
             "result": {
-              "duration": 16189000,
+              "duration": 27789000,
               "status": "passed"
             },
             "line": 27,
@@ -1201,7 +1201,7 @@
           },
           {
             "result": {
-              "duration": 443000,
+              "duration": 538000,
               "status": "passed"
             },
             "line": 43,
@@ -1244,11 +1244,11 @@
     "line": 2,
     "elements": [
       {
-        "start_timestamp": "2022-08-16T11:22:39.832Z",
+        "start_timestamp": "2022-08-16T11:23:10.418Z",
         "before": [
           {
             "result": {
-              "duration": 72000,
+              "duration": 74000,
               "status": "passed"
             },
             "match": {
@@ -1257,7 +1257,7 @@
           },
           {
             "result": {
-              "duration": 207000,
+              "duration": 238000,
               "status": "passed"
             },
             "match": {
@@ -1272,7 +1272,7 @@
         "after": [
           {
             "result": {
-              "duration": 82000,
+              "duration": 97000,
               "status": "passed"
             },
             "match": {
@@ -1294,7 +1294,7 @@
         "steps": [
           {
             "result": {
-              "duration": 84000,
+              "duration": 97000,
               "status": "passed"
             },
             "line": 29,
@@ -1310,7 +1310,7 @@
           },
           {
             "result": {
-              "duration": 10566000,
+              "duration": 14282000,
               "status": "passed"
             },
             "line": 61,
@@ -1322,7 +1322,7 @@
           },
           {
             "result": {
-              "duration": 140000,
+              "duration": 168000,
               "status": "passed"
             },
             "line": 63,
@@ -1345,11 +1345,11 @@
         ]
       },
       {
-        "start_timestamp": "2022-08-16T11:22:39.859Z",
+        "start_timestamp": "2022-08-16T11:23:10.457Z",
         "before": [
           {
             "result": {
-              "duration": 54000,
+              "duration": 46000,
               "status": "passed"
             },
             "match": {
@@ -1358,7 +1358,7 @@
           },
           {
             "result": {
-              "duration": 200000,
+              "duration": 203000,
               "status": "passed"
             },
             "match": {
@@ -1373,7 +1373,7 @@
         "after": [
           {
             "result": {
-              "duration": 88000,
+              "duration": 81000,
               "status": "passed"
             },
             "match": {
@@ -1382,7 +1382,7 @@
           },
           {
             "result": {
-              "duration": 25000,
+              "duration": 23000,
               "status": "passed"
             },
             "match": {
@@ -1395,7 +1395,7 @@
         "steps": [
           {
             "result": {
-              "duration": 81000,
+              "duration": 72000,
               "status": "passed"
             },
             "line": 116,
@@ -1411,7 +1411,7 @@
           },
           {
             "result": {
-              "duration": 9825000,
+              "duration": 5899000,
               "status": "passed"
             },
             "line": 149,
@@ -1423,7 +1423,7 @@
           },
           {
             "result": {
-              "duration": 140000,
+              "duration": 135000,
               "status": "passed"
             },
             "line": 151,
@@ -1446,11 +1446,11 @@
         ]
       },
       {
-        "start_timestamp": "2022-08-16T11:22:39.876Z",
+        "start_timestamp": "2022-08-16T11:23:10.467Z",
         "before": [
           {
             "result": {
-              "duration": 50000,
+              "duration": 42000,
               "status": "passed"
             },
             "match": {
@@ -1459,7 +1459,7 @@
           },
           {
             "result": {
-              "duration": 196000,
+              "duration": 192000,
               "status": "passed"
             },
             "match": {
@@ -1474,7 +1474,7 @@
         "after": [
           {
             "result": {
-              "duration": 81000,
+              "duration": 94000,
               "status": "passed"
             },
             "match": {
@@ -1496,7 +1496,7 @@
         "steps": [
           {
             "result": {
-              "duration": 76000,
+              "duration": 64000,
               "status": "passed"
             },
             "line": 204,
@@ -1512,7 +1512,7 @@
           },
           {
             "result": {
-              "duration": 11052000,
+              "duration": 4770000,
               "status": "passed"
             },
             "line": 238,
@@ -1524,7 +1524,7 @@
           },
           {
             "result": {
-              "duration": 108000,
+              "duration": 117000,
               "status": "passed"
             },
             "line": 241,
@@ -1547,11 +1547,11 @@
         ]
       },
       {
-        "start_timestamp": "2022-08-16T11:22:39.897Z",
+        "start_timestamp": "2022-08-16T11:23:10.475Z",
         "before": [
           {
             "result": {
-              "duration": 51000,
+              "duration": 38000,
               "status": "passed"
             },
             "match": {
@@ -1560,7 +1560,7 @@
           },
           {
             "result": {
-              "duration": 197000,
+              "duration": 173000,
               "status": "passed"
             },
             "match": {
@@ -1575,7 +1575,7 @@
         "after": [
           {
             "result": {
-              "duration": 143000,
+              "duration": 137000,
               "status": "passed"
             },
             "match": {
@@ -1584,7 +1584,7 @@
           },
           {
             "result": {
-              "duration": 30000,
+              "duration": 28000,
               "status": "passed"
             },
             "match": {
@@ -1597,7 +1597,7 @@
         "steps": [
           {
             "result": {
-              "duration": 337000,
+              "duration": 319000,
               "status": "passed"
             },
             "line": 298,
@@ -1613,7 +1613,7 @@
           },
           {
             "result": {
-              "duration": 54024000,
+              "duration": 30238000,
               "status": "passed"
             },
             "line": 340,
@@ -1625,7 +1625,7 @@
           },
           {
             "result": {
-              "duration": 135000,
+              "duration": 160000,
               "status": "passed"
             },
             "line": 341,
@@ -1668,11 +1668,11 @@
     "line": 2,
     "elements": [
       {
-        "start_timestamp": "2022-08-16T11:22:39.961Z",
+        "start_timestamp": "2022-08-16T11:23:10.511Z",
         "before": [
           {
             "result": {
-              "duration": 54000,
+              "duration": 55000,
               "status": "passed"
             },
             "match": {
@@ -1681,7 +1681,7 @@
           },
           {
             "result": {
-              "duration": 189000,
+              "duration": 196000,
               "status": "passed"
             },
             "match": {
@@ -1696,7 +1696,7 @@
         "after": [
           {
             "result": {
-              "duration": 82000,
+              "duration": 88000,
               "status": "passed"
             },
             "match": {
@@ -1705,7 +1705,7 @@
           },
           {
             "result": {
-              "duration": 24000,
+              "duration": 30000,
               "status": "passed"
             },
             "match": {
@@ -1718,7 +1718,7 @@
         "steps": [
           {
             "result": {
-              "duration": 76000,
+              "duration": 125000,
               "status": "passed"
             },
             "line": 23,
@@ -1734,7 +1734,7 @@
           },
           {
             "result": {
-              "duration": 8225000,
+              "duration": 7530000,
               "status": "passed"
             },
             "line": 39,
@@ -1751,7 +1751,7 @@
           },
           {
             "result": {
-              "duration": 56000,
+              "duration": 61000,
               "status": "passed"
             },
             "line": 53,
@@ -1763,7 +1763,7 @@
           },
           {
             "result": {
-              "duration": 338000,
+              "duration": 411000,
               "status": "passed"
             },
             "line": 57,
@@ -1806,11 +1806,11 @@
     "line": 2,
     "elements": [
       {
-        "start_timestamp": "2022-08-16T11:22:39.977Z",
+        "start_timestamp": "2022-08-16T11:23:10.526Z",
         "before": [
           {
             "result": {
-              "duration": 640000,
+              "duration": 631000,
               "status": "passed"
             },
             "match": {
@@ -1819,7 +1819,7 @@
           },
           {
             "result": {
-              "duration": 646000,
+              "duration": 617000,
               "status": "passed"
             },
             "match": {
@@ -1834,7 +1834,7 @@
         "after": [
           {
             "result": {
-              "duration": 386000,
+              "duration": 324000,
               "status": "passed"
             },
             "match": {
@@ -1843,7 +1843,7 @@
           },
           {
             "result": {
-              "duration": 237000,
+              "duration": 236000,
               "status": "passed"
             },
             "match": {
@@ -1856,7 +1856,7 @@
         "steps": [
           {
             "result": {
-              "duration": 72000,
+              "duration": 75000,
               "status": "passed"
             },
             "line": 14,
@@ -1872,7 +1872,7 @@
           },
           {
             "result": {
-              "duration": 5378000,
+              "duration": 4946000,
               "status": "passed"
             },
             "line": 28,
@@ -1884,7 +1884,7 @@
           },
           {
             "result": {
-              "duration": 121000,
+              "duration": 143000,
               "status": "passed"
             },
             "line": 30,
@@ -1907,11 +1907,11 @@
         ]
       },
       {
-        "start_timestamp": "2022-08-16T11:22:39.993Z",
+        "start_timestamp": "2022-08-16T11:23:10.543Z",
         "before": [
           {
             "result": {
-              "duration": 54000,
+              "duration": 53000,
               "status": "passed"
             },
             "match": {
@@ -1920,7 +1920,7 @@
           },
           {
             "result": {
-              "duration": 193000,
+              "duration": 203000,
               "status": "passed"
             },
             "match": {
@@ -1935,7 +1935,7 @@
         "after": [
           {
             "result": {
-              "duration": 87000,
+              "duration": 82000,
               "status": "passed"
             },
             "match": {
@@ -1944,7 +1944,7 @@
           },
           {
             "result": {
-              "duration": 26000,
+              "duration": 27000,
               "status": "passed"
             },
             "match": {
@@ -1957,7 +1957,7 @@
         "steps": [
           {
             "result": {
-              "duration": 70000,
+              "duration": 72000,
               "status": "passed"
             },
             "line": 61,
@@ -1973,7 +1973,7 @@
           },
           {
             "result": {
-              "duration": 7939000,
+              "duration": 8679000,
               "status": "passed"
             },
             "line": 77,
@@ -1985,7 +1985,7 @@
           },
           {
             "result": {
-              "duration": 122000,
+              "duration": 193000,
               "status": "passed"
             },
             "line": 79,
@@ -2028,11 +2028,11 @@
     "line": 2,
     "elements": [
       {
-        "start_timestamp": "2022-08-16T11:22:40.005Z",
+        "start_timestamp": "2022-08-16T11:23:10.556Z",
         "before": [
           {
             "result": {
-              "duration": 39000,
+              "duration": 38000,
               "status": "passed"
             },
             "match": {
@@ -2041,7 +2041,7 @@
           },
           {
             "result": {
-              "duration": 171000,
+              "duration": 175000,
               "status": "passed"
             },
             "match": {
@@ -2056,7 +2056,7 @@
         "after": [
           {
             "result": {
-              "duration": 65000,
+              "duration": 70000,
               "status": "passed"
             },
             "match": {
@@ -2065,7 +2065,7 @@
           },
           {
             "result": {
-              "duration": 23000,
+              "duration": 24000,
               "status": "passed"
             },
             "match": {
@@ -2078,7 +2078,7 @@
         "steps": [
           {
             "result": {
-              "duration": 63000,
+              "duration": 64000,
               "status": "passed"
             },
             "line": 6,
@@ -2094,7 +2094,7 @@
           },
           {
             "result": {
-              "duration": 4992000,
+              "duration": 4698000,
               "status": "passed"
             },
             "line": 22,
@@ -2106,7 +2106,7 @@
           },
           {
             "result": {
-              "duration": 121000,
+              "duration": 141000,
               "status": "passed"
             },
             "line": 24,
@@ -2129,11 +2129,11 @@
         ]
       },
       {
-        "start_timestamp": "2022-08-16T11:22:40.015Z",
+        "start_timestamp": "2022-08-16T11:23:10.566Z",
         "before": [
           {
             "result": {
-              "duration": 35000,
+              "duration": 37000,
               "status": "passed"
             },
             "match": {
@@ -2142,7 +2142,7 @@
           },
           {
             "result": {
-              "duration": 164000,
+              "duration": 174000,
               "status": "passed"
             },
             "match": {
@@ -2157,7 +2157,7 @@
         "after": [
           {
             "result": {
-              "duration": 64000,
+              "duration": 69000,
               "status": "passed"
             },
             "match": {
@@ -2166,7 +2166,7 @@
           },
           {
             "result": {
-              "duration": 22000,
+              "duration": 23000,
               "status": "passed"
             },
             "match": {
@@ -2179,7 +2179,7 @@
         "steps": [
           {
             "result": {
-              "duration": 58000,
+              "duration": 61000,
               "status": "passed"
             },
             "line": 56,
@@ -2195,7 +2195,7 @@
           },
           {
             "result": {
-              "duration": 4776000,
+              "duration": 4454000,
               "status": "passed"
             },
             "line": 72,
@@ -2207,7 +2207,7 @@
           },
           {
             "result": {
-              "duration": 96000,
+              "duration": 114000,
               "status": "passed"
             },
             "line": 74,
